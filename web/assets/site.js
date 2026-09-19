@@ -39,30 +39,43 @@
   var P = {
     lynx: nhrl('Lynx', 'Lynx-removebg.png'),
     flycut: nhrl('Flycut', 'Flycut-June24.png'),
+    eruption: nhrl('Eruption', 'Eruption-December-2024.png'),
     actual: nhrl('Actual Size', 'Actualsize-April26.png'),
+    eventhorizon: nhrl('Event Horizon', 'EH MK5 Photo.jpg'),
     singularity: nhrl('Singularity', 'Singularity-removebg.png'),
     chonki: nhrl('Chonki', 'Chonkiv-dec-2024.png'),
     yoshimi: nhrl('Yoshimi', 'Yoshimi - August 2023.png'),
     liftoff: nhrl('Project LiftOff', 'May 2026 Liftoff.jpg'),
+    sawmurai: nhrl('SawMurai', 'SawMurai July-2020.jpg'),
     cole: nhrl('Cole', 'Cole.png'),
     beaterboy: nhrl('Beater Boy', 'Beaterboy-removebg.png'),
     wumbo: nhrl('Wumbo', 'Wumbo-removebg.png'),
     mavert: nhrl('MA Vert', 'MA Vert.jpg'),
+    pramheda: nhrl('Pramheda', 'Pramheda-removebg.png'),
     john: nhrl('John Undercutter', 'Johnundercutter-March25.png'),
     firstlaw: nhrl('1st Law', '1st Law V1.0.jpg'),
     ramplan: nhrl('RAM PLAN', 'RAM PLAN no BG.png'),
     countforkula: nhrl('Count Forkula', 'Countforkula-removebg.png'),
     emulsifier: nhrl('Emulsifier', 'Emulsifier 2025.png'),
-    prettyfly: nhrl('Pretty Fly', 'Prettyfly-Oct24.jpg'),
+    ratfish: nhrl('Ratfish', 'Ratfish may 2023.jpg'),
+    subtraction: nhrl('Subtraction', 'Subtraction Both Configs.jpg'),
+    kelpie: nhrl('Kelpie', 'Keplie Nov-2020.jpg'),
     lightwave: nhrl('Lightwave', 'Lightwave-Sept24.png'),
     insidejob: nhrl('Inside Job', 'Insidejob 3lb July22.png'),
     loophole: nhrl('Loophole', 'Loophole-removebg.png'),
     gameon: nhrl('Game On', 'Gameon-removebg.png'),
     spicytoucan: nhrl('Spicy Toucan', 'Spicytoucan-removebg.png'),
+
     stinger: external(
       'Stinger',
       'https://www.robotcombatarchive.com/media/robot_images/2022/415_Stinger.png',
       'https://www.robotcombatarchive.com/robot/stinger',
+      'Robot Combat Archive'
+    ),
+    overkill: external(
+      'OverKill',
+      'https://www.robotcombatarchive.com/media/robot_images/2022/617_OverKill.jpeg',
+      'https://www.robotcombatarchive.com/robot/overkill',
       'Robot Combat Archive'
     ),
     rammingspeed: external(
@@ -76,45 +89,99 @@
       'https://www.robotcombatarchive.com/media/robot_images/2025/drill_team.jpg',
       'https://www.robotcombatarchive.com/robot/drill-team',
       'Robot Combat Archive'
+    ),
+    originalsin: external(
+      'Original Sin',
+      'https://www.robotcombatarchive.com/media/robot_images/2024/627389840_a692143049_b1.jpg',
+      'https://www.robotcombatarchive.com/robot/original-sin',
+      'Robot Combat Archive'
+    ),
+    wedgeofdoom: external(
+      'Wedge of Doom',
+      'https://www.robotcombatarchive.com/media/robot_images/2022/110_WedgeofDoom.jpeg',
+      'https://www.robotcombatarchive.com/robot/wedge-of-doom',
+      'Robot Combat Archive'
+    ),
+    stormii: external(
+      'Storm II',
+      'https://www.robotcombatarchive.com/media/robot_images/2023/Storm_II_S71.png',
+      'https://www.robotcombatarchive.com/robot/storm-ii',
+      'Robot Combat Archive'
+    ),
+    biohazard: external(
+      'BioHazard',
+      'https://www.robotcombatarchive.com/media/robot_images/2022/1863_Biohazard.jpeg',
+      'https://www.robotcombatarchive.com/robot/biohazard',
+      'Robot Combat Archive'
+    ),
+    iceshadow: external(
+      'Ice Shadow',
+      'https://robotcombatevents.s3.amazonaws.com/uploads/resource/photo/12359/Screenshot_2025-01-28_at_3.14.05_PM.png',
+      'https://www.robotcombatevents.com/groups/3063/resources/12359',
+      'Robot Combat Events'
+    ),
+    pabloescobot: external(
+      'Pablo Escobot',
+      'https://robotcombatevents.s3.amazonaws.com/uploads/resource/photo/13916/Pablo_Escobot_Small.jpg',
+      'https://www.robotcombatevents.com/groups/4339/resources/13916',
+      'Robot Combat Events'
+    ),
+    bluedream: external(
+      'Blue Dream',
+      'https://robotsearch-images.us-ord-1.linodeobjects.com/fullsize/21650f83ccbe8ae6e379b43cec9c0c0f.jpg',
+      'https://robots.greenrobot.com/design/3795',
+      'RobotSearch'
+    ),
+    kerfuffle: external(
+      'Kerfuffle',
+      'https://makezine.com/wp-content/uploads/2023/06/Figure-13.-Top-View-of-machine-1024x714.jpg',
+      'https://makezine.com/projects/build-your-first-combat-bot/',
+      'Make:'
+    ),
+    lockjaw2: external(
+      'Lock-Jaw2',
+      'https://library.automationdirect.com/eemsushe/2016/09/Lockjaw-2.0-3-600x383.jpg',
+      'https://library.automationdirect.com/lock-jaw2-robot-competes-battlebots-tv-show-using-automationdirect-parts/',
+      'AutomationDirect'
     )
   };
 
   var MAP = {
     'archetype-beater-bar': P.lynx,
     'archetype-drum-spinner': P.flycut,
-    'archetype-eggbeater': P.lynx,
+    'archetype-eggbeater': P.eruption,
     'archetype-flywheel': P.actual,
-    'archetype-ring-spinner': P.singularity,
+    'archetype-ring-spinner': P.eventhorizon,
     'archetype-shell-spinner': P.chonki,
     'archetype-horizontal-bar-spinner': P.yoshimi,
     'archetype-melty-brain': P.liftoff,
-    'archetype-overhead-saw': P.cole,
+    'archetype-overhead-saw': P.sawmurai,
     'archetype-plastic-ant-beater-bar': P.beaterboy,
-    'archetype-plastic-ant-drum-spinner': P.flycut,
+    'archetype-plastic-ant-drum-spinner': P.pabloescobot,
     'archetype-plastic-ant-horizontal-spinner': P.wumbo,
-    'archetype-plastic-ant-vertical-spinner': P.mavert,
+    'archetype-plastic-ant-vertical-spinner': P.iceshadow,
     'archetype-undercutter': P.john,
     'archetype-vertical-bar-spinner': P.mavert,
-    'archetype-vertical-disc-spinner': P.actual,
+    'archetype-vertical-disc-spinner': P.pramheda,
     'archetype-wedge-spinner-hybrid': P.firstlaw,
     'archetype-control-bot': P.ramplan,
-    'archetype-armor-bot': P.rammingspeed,
+    'archetype-armor-bot': P.stormii,
     'archetype-forkbot': P.countforkula,
-    'archetype-invertible-brick': P.rammingspeed,
-    'archetype-plastic-ant-wedge-control': P.ramplan,
+    'archetype-invertible-brick': P.originalsin,
+    'archetype-plastic-ant-wedge-control': P.bluedream,
     'archetype-tracked-bot': P.emulsifier,
-    'archetype-wedge': P.rammingspeed,
-    'archetype-flipper-electric': P.prettyfly,
-    'archetype-lifter': P.countforkula,
-    'archetype-linear-lifter': P.countforkula,
-    'archetype-plastic-ant-lifter': P.countforkula,
-    'archetype-flipper-pneumatic': P.prettyfly,
-    'archetype-flipper-spring': P.prettyfly,
+    'archetype-wedge': P.wedgeofdoom,
+    'archetype-flipper-electric': P.ratfish,
+    'archetype-lifter': P.subtraction,
+    'archetype-linear-lifter': P.biohazard,
+    'archetype-plastic-ant-lifter': P.kerfuffle,
+    'archetype-flipper-pneumatic': P.kelpie,
+    'archetype-flipper-spring': P.lockjaw2,
     'archetype-crusher': P.insidejob,
     'archetype-grabber-clamper': P.lightwave,
     'archetype-hammer': P.spicytoucan,
     'archetype-hammer-saw': P.cole,
-    'archetype-overhead-thwack': P.stinger,
+    'archetype-overhead-thwack': P.overkill,
     'archetype-thwackbot': P.stinger,
     'archetype-passive-spike': P.drillteam,
     'archetype-rammer': P.rammingspeed,
