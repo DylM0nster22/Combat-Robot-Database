@@ -20,7 +20,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 sys.path.insert(0, os.path.join(ROOT, "agent"))
 
-import illustrations  # noqa: E402
+import photos  # noqa: E402
 import kb  # noqa: E402
 
 WEB = os.path.join(ROOT, "web")
@@ -231,12 +231,28 @@ def pills(entity, depth=0):
     return "".join(out)
 
 
+def photo_html(entity, detail=False):
+    """Render a real-world example photo for explicitly mapped archetypes."""
+    photo = photos.photo_for(entity["id"])
+    if not photo:
+        return ""
+    img = (
+        f'<img class="robot-photo" src="{esc(photo["image"])}" '
+        f'alt="Real combat robot example: {esc(photo["robot"])}" '
+        f'loading="lazy" decoding="async" referrerpolicy="no-referrer">'
+    )
+    if not detail:
+        return f'<div class="card-art photo-art">{img}</div>'
+    credit = (
+        '<div class="photo-credit">Representative real robot: '
+        f'<a href="{esc(photo["source"])}" target="_blank" rel="noopener noreferrer">'
+        f'{esc(photo["robot"])} — {esc(photo["provider"])}</a></div>'
+    )
+    return f'<div class="card-art photo-art detail-photo">{img}</div>{credit}'
+
+
 def entity_card(entity, depth=0, art=False):
-    art_html = ""
-    if art:
-        svg = illustrations.art_for(entity["id"], entity["name"], entity.get("tags", []))
-        if svg:
-            art_html = f'<div class="card-art">{svg}</div>'
+    art_html = photo_html(entity) if art else ""
     summary = entity.get("summary") or ""
     if len(summary) > 155:
         summary = summary[:152].rsplit(" ", 1)[0] + "…"
@@ -251,9 +267,8 @@ def entity_card(entity, depth=0, art=False):
 def build_index(database, stats):
     meta = stats["meta"]
     archetypes = database.list_entities(entity_type="archetype", limit=300)["entities"]
-    # Lead with archetypes we have a drawing for — the page should look drawn, not empty.
-    featured = [a for a in archetypes
-                if illustrations.art_for(a["id"], a["name"], a.get("tags", []))][:8]
+    # Lead with archetypes that have verified real-world photo examples.
+    featured = [a for a in archetypes if photos.photo_for(a["id"])][:8]
 
     def stat(n, label):
         return f'<div class="stat"><div class="n">{n}</div><div class="l">{label}</div></div>'
@@ -516,8 +531,8 @@ change, and the version here is a snapshot.</p>
 
 def build_entity_page(database, entity):
     depth = 1
-    svg = illustrations.art_for(entity["id"], entity["name"], entity.get("tags", []))
-    art = f'<div class="card-art" style="margin-bottom:20px">{svg}</div>' if svg else ""
+    # Do not guess artwork from names/tags. Only explicitly mapped archetypes get photos.
+    art = photo_html(entity, detail=True)
 
     spec_rows = "".join(
         f'<tr><th>{esc(k.replace("_", " "))}</th><td>{esc(v)}</td></tr>'
