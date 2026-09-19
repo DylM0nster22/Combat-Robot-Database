@@ -477,7 +477,7 @@ def spin_up_time(moi_kg_m2: float, rpm_target: float, motor_kv: float,
     no_load_rpm = kv * volts
     return _ok(moi_kg_m2=moi_kg_m2, rpm_target=rpm_target, motor_kv=motor_kv,
                volts=volts, stall_current_a=stall_current_a,
-               kt_nm_per_a=round(kt, 5),
+               kt_nm_per_a=round(kt, 6),
                stall_torque_nm=round(stall_torque, 4),
                assumed_avg_torque_nm=round(avg_torque, 4),
                no_load_rpm=round(no_load_rpm),
@@ -524,7 +524,7 @@ def motor_constants(kv: float, volts: float,
         return {"error": "kv must be > 0"}
     kt_nm_per_a = 9.5493 / kv
     out = _ok(kv=kv, volts=volts,
-              kt_nm_per_a=round(kt_nm_per_a, 5),
+              kt_nm_per_a=round(kt_nm_per_a, 6),
               kt_oz_in_per_a=round(kt_nm_per_a * 141.612, 3),
               no_load_rpm=round(kv * float(volts)))
     if resistance_ohm:

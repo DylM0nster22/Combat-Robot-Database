@@ -58,6 +58,7 @@ agent/
 discord-bot/
   bot.py                  Discord bot driven by Claude tool use
 web/                      Generated site (committed so it can be hosted directly)
+tests/test_kb.py          Test suite for the query layer, builders and MCP server
 ```
 
 ## Data model
@@ -171,6 +172,17 @@ that circulates in build threads bakes in roughly 87% efficiency; it appears in
 some source material, and where it does the entry says so.
 
 ---
+
+## Tests
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+57 tests covering the calculators against hand-worked values, FTS input
+sanitisation, the research-file normaliser and merge logic, the markdown
+renderer, diagram matching, the MCP server over real stdio JSON-RPC, and
+integrity of whatever database is currently built.
 
 ## Adding to the database
 
