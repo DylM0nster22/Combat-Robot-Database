@@ -173,6 +173,14 @@ some source material, and where it does the entry says so.
 
 ---
 
+## Hosting the site
+
+The site is plain static files, so anything can serve `web/`. A GitHub Pages
+workflow is included but inert until you turn Pages on:
+**Settings → Pages → Build and deployment → Source: "GitHub Actions"**. After
+that, pushes to `main` rebuild the database from the research files and publish
+the result, so the live site always matches the committed data.
+
 ## Tests
 
 ```bash

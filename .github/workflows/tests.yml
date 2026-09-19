@@ -1,0 +1,46 @@
+name: tests
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rebuild database from research files
+        run: python3 scripts/build_db.py
+
+      - name: Regenerate site
+        run: python3 scripts/build_site.py
+
+      - name: Run tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Check every internal link resolves
+        run: |
+          python3 - <<'PY'
+          import os, re, sys
+          href = re.compile(r'(?:href|src)="([^"#?][^"]*)"')
+          broken = []
+          for root, _, files in os.walk('web'):
+              for f in files:
+                  if not f.endswith('.html'):
+                      continue
+                  path = os.path.join(root, f)
+                  for link in href.findall(open(path, encoding='utf-8').read()):
+                      if link.startswith(('http://', 'https://', 'data:', 'mailto:')):
+                          continue
+                      if not os.path.exists(os.path.normpath(os.path.join(os.path.dirname(path), link))):
+                          broken.append(f"{link} <- {path}")
+          if broken:
+              print("\n".join(broken[:40]))
+              sys.exit(f"{len(broken)} broken internal links")
+          print("all internal links resolve")
+          PY
