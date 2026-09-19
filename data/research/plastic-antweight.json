@@ -49,12 +49,13 @@
     {
       "id": "ruleset-sparc-plastic-classes",
       "type": "ruleset",
-      "name": "SPARC Plastic Classes (Robot Construction Specifications v1.4, §4.4)",
+      "name": "SPARC Plastic Class (Robot Construction Specifications v1.6, §16.3)",
       "aliases": [
         "SPARC plastic ant rule",
-        "SPARC §4.4"
+        "SPARC §16.3",
+        "SPARC §4.4 (older numbering)"
       ],
-      "summary": "The template ruleset most North American plastic-ant events build from. Defines the class's spirit, the exact allowed plastics list, and the non-plastic component exemption in a single short section that individual events then adopt with a 'deviations' addendum.",
+      "summary": "The template ruleset most North American plastic-ant events build from. Defines the class's spirit, the exact allowed plastics list (verified verbatim against the current v1.6 PDF, 21 September 2025), the COTS-parts exemption with explicit permitted/not-permitted examples, and a notably strict post-processing ban.",
       "weight_classes": [
         "plastic-antweight"
       ],
@@ -65,26 +66,36 @@
         "template-ruleset"
       ],
       "organization": "SPARC (Standardized Procedures for the Advancement of Robotic Combat)",
-      "version": "v1.4, 8 October 2023, section 4.4 'Plastic Classes'",
+      "version": "v1.6, 21 September 2025, section 16.3 'Plastic Class' (this section was numbered §4.4 in older v1.4-era copies still quoted around the community; content is materially unchanged)",
       "key_rules": [
-        "4.4 spirit: 'to have an easy entry point for new builders and to encourage creative designs by limiting materials to plastics that are easy to work with, commonly used in 3D printers and don't have strength characteristics common in the standard classes.'",
-        "4.4.1: 'PET, PETG, ABS, PLA, or PLA+ are the only materials that can be used for the chassis and weapons. No other types of plastics or materials allowed (ie. metal, carbon fiber, UHMW, etc). At their discretion, event organizers may allow additional plastics that meet the spirit of the rules.'",
-        "4.4.2: 'Non-plastic parts such as motors, electronics, axles, fasteners and adhesives can be any material, but cannot be used in such a way to enhance the structural integrity, armor the robot, or enhance any weapon. Magnets to enhance traction or downforce are prohibited. Foam is allowed for wheels and padding of electronics.'",
-        "4.4.3: Event organizers may disqualify at their discretion for violating 'the spirit of the class'; builders are told to contact organizers ahead of time if unsure.",
-        "Standard weight table applies: 1lb / 454g rolling, 1.5lb shuffler bonus, 2lb non-wheeled bonus (same bonuses as regular antweight; plastic ants can claim shuffler/non-wheeled bonuses too if the event allows).",
-        "General SPARC safety rules apply on top: 60-second full manual deactivation, visible weapon locking pin, drive fail-safe expected even at 1lb, spread-spectrum 2.4GHz radio required in practice."
+        "16.3 spirit (verbatim): 'The spirit of this class is to create an accessible and affordable class that encourages experimentation and rapid iteration by utilizing 3D printing.'",
+        "16.3.1.1 (verbatim): 'Frames, weapons and other custom parts may only be made from PLA, PLA+, PET, PETG, ABS, or ASA and must be FDM/FFF 3D printed.'",
+        "16.3.1.2 (verbatim): 'Materials that are functionally identical to PLA+ but have a different name for marketing purposes will be considered PLA+ when determining legality. (ex. PLA Pro, Super PLA)'",
+        "16.3.1.3/16.3.1.4 (verbatim): 'No other types of plastics or materials are allowed (ie. metal, carbon fiber, UHMW, etc). Composite and blended materials that use legal materials as a base are not permitted. Examples include but are not limited to: Carbon Fiber PLA, Glass Filled ABS, and Flex PLA.'",
+        "16.3.2.1 (verbatim, COTS exemption): 'Commercial Off The Shelf parts can be made from any material. This includes components such as motors, electronics, axles, bushings, bearings, fasteners, and adhesives.'",
+        "16.3.2.1.1 (verbatim, the actual policing test): 'COTS parts may not be used outside of their typically accepted function.' Permitted example given: 'Using shafts and bearings to allow wheels or a weapon to spin freely, using screws to attach two parts together.' Not-permitted example given: 'Using COTS parts as counterbalances for weapons, as weapon impactors, or as armor.'",
+        "16.3.2.1.2/16.3.2.1.3 (verbatim): COTS parts may be modified 'so long as the function of the part is not significantly changed' (e.g. shortening motor shafts, adding flats for set screws), and 'COTS equivalent parts are allowed' — builder-sourced/manufactured gearmotors, custom electronics, prototype components, and non-commercially-available axles all count as COTS-equivalent.",
+        "16.3.2.1.4 (verbatim): 'Magnets to enhance traction or downforce are prohibited.'",
+        "16.3.3 (wheels/tires, verbatim highlights): tires/traction elements may be COTS rubber, custom cast rubber, rubber coatings, or foam; parts between motor/shaft and tire must be COTS, foam, or printed from allowed materials; non-allowed-material traction elements 'may not be designed such that they provide more armor or structure than a COTS equivalent part.'",
+        "16.3.4 (verbatim, post-processing — notably strict): 'Painting or otherwise marking robots is permitted if done solely for aesthetic purposes... Post-processing of materials using techniques that enhance durability is not permitted. Disallowed processes include but are not limited to annealing, acetone soaking, and boiling of parts.'",
+        "16.3.5 (verbatim): 'Robots may be disqualified at the Event Organizer's discretion if it is deemed to violate the spirit of the class.'",
+        "Standard SPARC weight-bonus table applies on top (§4.1): 1lb/454g base, 1.25x (1.25lb) shuffler bonus, 1.5x (1.5lb) non-traditional-locomotion bonus, 2x (2lb) walker bonus — plastic ants can claim these bonuses exactly like standard-material antweights.",
+        "General SPARC safety rules apply on top: 60-second full manual deactivation (§3.4.3), visible weapon locking pin required at power-on (§3.4.6), drive fail-safe typically required even at 1lb (§6.4.1), at-least-two-frequency radio requirement (§6.4.2)."
       ],
       "banned": [
         "metal (as chassis/armor/weapon material)",
         "carbon fiber",
         "UHMW",
-        "any plastic not on the PET/PETG/ABS/PLA/PLA+ list unless the organizer grants an exception",
-        "magnets for traction/downforce"
+        "any plastic not on the PLA/PLA+/PET/PETG/ABS/ASA list unless the organizer grants an exception",
+        "composite/blended filaments built on a legal base plastic (carbon-fiber PLA, glass-filled ABS, flex PLA, etc.)",
+        "magnets for traction/downforce",
+        "COTS parts used as weapon counterbalance, weapon impactor, or armor",
+        "post-processing meant to enhance durability: annealing, acetone soaking, boiling of parts"
       ],
       "website": "https://sparc.tools/",
-      "notes": "This is the single most copy-pasted plastic-ant ruleset in the US; SCAR, Robot Ruckus and many one-off regional events either quote it directly or diverge from it in a clearly marked 'deviations' section per SPARC's own template instructions.",
+      "notes": "This is the single most copy-pasted plastic-ant ruleset in the US; SCAR, Robot Ruckus and many one-off regional events either quote it directly or diverge from it in a clearly marked 'deviations' section per SPARC's own template instructions (§2). Notably, SPARC's own §16.3.4 explicitly BANS annealing/acetone-smoothing/boiling as illegal 'durability-enhancing' post-processing — a direct, verified contradiction with SCAR's separate Plastic Ant FAQ, which explicitly ALLOWS annealing and acid smoothing. This is real, current org-to-org variation, not a hypothetical: a part legally annealed for a SCAR event would need to be reprinted un-annealed to be legal at a strict-SPARC event, and vice versa is a non-issue since SPARC's list is the stricter one.",
       "sources": [
-        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.6.pdf",
         "http://sparc.tools/?p=348"
       ],
       "confidence": "high"
@@ -165,7 +176,7 @@
         "multi-layer tape armor"
       ],
       "website": "https://www.socalattackrobots.com/plastic-ant-faq.html",
-      "notes": "IMPORTANT ORG-VARIANCE FINDING: SCAR is one of the stricter interpreters of the plastic-only rule — it explicitly bans TPU and nylon by name, materials that are commonly praised in general antweight/beetleweight circles as tough flexible armor. Builders moving a design between events must check the local FAQ, not just the base material list, since 'PETG/PLA/ABS' alone does not settle whether TPU trim or nylon gears are legal.",
+      "notes": "IMPORTANT ORG-VARIANCE FINDING #1: SCAR is one of the stricter interpreters of the plastic-only rule on MATERIALS — it explicitly bans TPU and nylon by name, materials that are commonly praised in general antweight/beetleweight circles as tough flexible armor. Builders moving a design between events must check the local FAQ, not just the base material list, since 'PETG/PLA/ABS' alone does not settle whether TPU trim or nylon gears are legal.\n\nIMPORTANT ORG-VARIANCE FINDING #2 (verified against both primary sources directly): SCAR's FAQ explicitly ALLOWS 'annealing or smoothing with heat or acid,' while SPARC's current v1.6 Robot Construction Specifications (§16.3.4) explicitly BANS annealing, acetone soaking, and boiling as illegal 'durability-enhancing' post-processing. This is a direct, confirmed contradiction between two real, currently-published plastic-ant rulesets on the exact same question — a concrete case where a part legal at one event is illegal at another with no visual difference at inspection time, entirely dependent on which ruleset the event runs.",
       "sources": [
         "https://www.socalattackrobots.com/plastic-ant-faq.html"
       ],
@@ -1366,9 +1377,10 @@
       "type": "kit",
       "name": "Legally Distinct — Open-Source 150g UK Drum Spinner Design",
       "aliases": [
-        "Legally Distinct antweight"
+        "Legally Distinct antweight",
+        "Legally Distinct V3.1"
       ],
-      "summary": "A free printable 150g UK-class antweight drum-spinner design by community builder Blessy, shared on Thingiverse and openly described as heavily inspired by the established UK antweight 'Siren' — a useful illustration of how the plastic scene iterates openly on successful designs.",
+      "summary": "A free printable 150g UK-class antweight drum-spinner design by community builder Blessy (published on Thingiverse and documented on Hackaday.io), explicitly built as an homage/iteration on the established UK drum spinner 'Siren' — a clear, verified illustration of how the plastic scene iterates openly on successful designs.",
       "weight_classes": [
         "fairyweight"
       ],
@@ -1379,14 +1391,18 @@
         "150g-class",
         "drum-spinner"
       ],
-      "vendor": "Blessy (community designer, via Thingiverse)",
+      "vendor": "Blessy (community designer, via Thingiverse/Hackaday.io)",
       "skill_level": "intermediate",
       "includes": [
-        "Printable STL files for a drum-spinner chassis and weapon"
+        "Printable STL files for a drum-spinner chassis and drum weapon",
+        "Hackaday.io build log with component list",
+        "TinkerCAD source files"
       ],
-      "product_url": "https://www.thingiverse.com/thing:5316751",
-      "notes": "Weight-classed here as 'fairyweight' per this database's vocabulary because it is a UK 150g class robot, NOT the US 1lb/454g plastic antweight this file is centered on — included because it's a well-known, frequently cited example of the wider 'plastic ant' design-sharing culture, especially in the UK, where 'antweight' historically refers to the 150g bracket rather than 1lb.",
+      "product_url": "https://www.thingiverse.com/thing:5338319",
+      "notes": "Weight-classed here as 'fairyweight' per this database's vocabulary because it is a UK 150g class robot, NOT the US 1lb/454g plastic antweight this file is centered on — included because it's a well-documented, frequently cited example of the wider 'plastic ant' design-sharing culture, especially in the UK, where 'antweight' historically refers to the 150g bracket rather than 1lb. Concrete build details (verified via the Hackaday.io project page): drive uses 2x N20 gearmotors (~600rpm class), the drum weapon motor mount is sized for a BE1806 2300kv brushless motor with a 3mm bearing on the opposite side of the drum, and the design runs a 'malenki nano' micro ESC (a BBB Dual ESC was noted as a possible but tighter-fitting swap). The design iterated through weight: V2.1 was reported ~4g over the 150g limit, and V3.1 was revised to cut weight and reportedly finished at ~139g — a real example of the iterate-and-reprint weight-budget process that defines the plastic-ant/printable-ant design culture at any scale.",
       "sources": [
+        "https://www.thingiverse.com/thing:5338319",
+        "https://hackaday.io/project/184543-150g-drum-spinner-legally-distinct",
         "https://www.thingiverse.com/thing:5316751"
       ],
       "confidence": "medium"
@@ -1394,32 +1410,36 @@
     {
       "id": "bot-siren-uk-antweight",
       "type": "bot",
-      "name": "Siren (UK Antweight)",
+      "name": "Siren (UK 150g Antweight / US Fairyweight)",
       "aliases": [
-        "Siren"
+        "Siren",
+        "Siren 150g Drum Spinner"
       ],
-      "summary": "An established UK antweight drum-spinner robot whose design is well-known enough in the UK combat scene to have directly inspired the open-source plastic/printable 'Legally Distinct' design, illustrating how successful metal-class designs get reinterpreted for printable/plastic builds.",
+      "summary": "A 150g UK-Antweight/US-Fairyweight drum-spinner combat robot by designer drcameron, published as free STL files on Thingiverse and Cults3D, well-known enough in the printable-antweight scene to have directly inspired the open-source 'Legally Distinct' drum spinner.",
       "weight_classes": [
-        "antweight"
+        "fairyweight"
       ],
       "tags": [
         "uk-scene",
         "drum-spinner",
-        "inspiration"
+        "inspiration",
+        "150g-class",
+        "open-source"
       ],
-      "builder": "UK community builder (name not confirmed in available sources)",
+      "builder": "drcameron",
       "country": "United Kingdom",
       "weapon_type": "drum spinner",
       "achievements": [
-        "Referenced by name as the direct design inspiration for the Thingiverse 'Legally Distinct' plastic drum spinner"
+        "Directly credited as the design inspiration for the widely-built Thingiverse/Hackaday.io 'Legally Distinct' plastic drum spinner"
       ],
-      "active_years": "unknown",
-      "image_hint": "A low, wide UK-style antweight with a full-width horizontal drum across the front",
-      "notes": "Details beyond its role as a design inspiration for Legally Distinct were not found in available sources; treat specifics as low confidence.",
+      "active_years": "unknown (design still actively referenced/built as of 2025-2026)",
+      "image_hint": "A low, wide 150g-class robot with a full-width horizontal drum spinner across the front, printed chassis",
+      "notes": "Note this is the UK 150g 'Antweight' (equal to the US 'Fairyweight' class), NOT the US 1lb/454g plastic antweight this file is centered on — flagged here specifically because it is the real-world design lineage (Siren -> Legally Distinct) that the wider plastic/printable-ant community points to as an example of open, iterative design-sharing, a practice equally common at the 1lb plastic-ant scale.",
       "sources": [
-        "https://www.thingiverse.com/thing:5316751"
+        "https://www.thingiverse.com/thing:3168700",
+        "https://cults3d.com/en/3d-model/gadget/siren-150g-drum-spinner-combat-robot-uk-antweight-us-fairyweight"
       ],
-      "confidence": "low"
+      "confidence": "medium"
     },
     {
       "id": "term-blunt-force-over-cutting",
@@ -1861,6 +1881,47 @@
       "ships_internationally": true,
       "sources": [
         "https://www.socalattackrobots.com/plastic-ant-faq.html"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "formula-weapon-tip-speed",
+      "type": "formula",
+      "name": "Spinning Weapon Tip Speed",
+      "aliases": [
+        "tip speed formula",
+        "rim speed calculation"
+      ],
+      "summary": "The standard combat-robotics formula for converting a spinning weapon's no-load RPM and diameter into tip speed in feet per second, taken verbatim from SPARC's Robot Construction Specifications (used to set/verify Sportsman-class and open-air tip-speed limits) and used informally by builders in every weight class, plastic ant included, to sanity-check a weapon design before it's built.",
+      "weight_classes": [
+        "plastic-antweight",
+        "antweight",
+        "fairyweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "formula",
+        "weapon-design",
+        "tip-speed",
+        "rpm",
+        "sparc"
+      ],
+      "expression": "tip_speed_ft_s = no_load_rpm * diameter_in * 0.00436",
+      "variables": {
+        "tip_speed_ft_s": "weapon tip/rim speed at the outer edge, in feet per second",
+        "no_load_rpm": "the weapon's unloaded (free-spinning, no-load) RPM as measured by tachometer or estimated from motor kv * voltage / gear or pulley ratio",
+        "diameter_in": "the weapon's outer diameter in inches (for a disc/drum, its full diameter; for a bar, the full swept diameter tip-to-tip)"
+      },
+      "worked_example": "A plastic-ant vertical spinner disc with a 3.5in printed diameter, driven by a 2600kv brushless motor on 2S (7.4V) direct-drive (no reduction), has a theoretical no-load RPM of about 2600 * 7.4 = 19,240 RPM. Applying the formula: tip_speed = 19,240 * 3.5 * 0.00436 ≈ 293 ft/s (about 200 mph) at the theoretical no-load ceiling. Real-world loaded RPM is always lower than this no-load figure (ESC/motor sag under load, printed-disc drag), so builders typically see tip speeds in the 120-220 ft/s (~80-150mph) band once the disc is actually spinning under battery sag, which is still enough kinetic energy to crack a printed panel or dent a wedge on a solid hit. For reference, SPARC's own Sportsman-class rule caps NON-toothed slow spinners at 20 ft/s using this exact formula, which shows how enormous the gap is between a 'slow spinner' and a full-power plastic-ant spinner: roughly a 10-15x difference in tip speed.",
+      "applies_to": [
+        "archetype-plastic-ant-vertical-spinner",
+        "archetype-plastic-ant-drum-spinner",
+        "archetype-plastic-ant-horizontal-spinner"
+      ],
+      "notes": "Builders should treat the no-load RPM figure as an upper bound only; a printed weapon's SURVIVABLE rpm (the ceiling before the weapon itself fails from centrifugal stress) is usually the true limiting factor in plastic ant, not motor Kv or battery voltage — see the printed-weapon burst-strength discussion in the build-spec chunks.",
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.6.pdf",
+        "domain knowledge (worked example)"
       ],
       "confidence": "medium"
     }

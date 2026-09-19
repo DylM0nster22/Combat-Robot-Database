@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spinning Weapon Tip Speed — Combat Robot Database</title>
+<meta name="description" content="The standard combat-robotics formula for converting a spinning weapon&#x27;s no-load RPM and diameter into tip speed in feet per second, taken verbatim from SPARC&#x27;s Robot Construction Specifications (used to set/verify Sportsman-class and open-air tip-speed limits) and used informally by builders in every weight class, plastic ant included, to sanity-check a weapon design before it&#x27;s built.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../search.html">Formula</a> ›
+  Spinning Weapon Tip Speed</div>
+<h1 class="page">Spinning Weapon Tip Speed</h1>
+<p class="page-sub">The standard combat-robotics formula for converting a spinning weapon&#x27;s no-load RPM and diameter into tip speed in feet per second, taken verbatim from SPARC&#x27;s Robot Construction Specifications (used to set/verify Sportsman-class and open-air tip-speed limits) and used informally by builders in every weight class, plastic ant included, to sanity-check a weapon design before it&#x27;s built.</p>
+<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill accent">plastic-antweight</span><span class="pill accent">antweight</span><span class="pill accent">fairyweight</span><span class="pill">formula</span><span class="pill">weapon-design</span><span class="pill">tip-speed</span><span class="pill">rpm</span><span class="pill">sparc</span></div>
+<div class="two-col">
+  <div class="prose">
+    
+    
+    
+    <h2>Expression</h2><pre><code>tip_speed_ft_s = no_load_rpm * diameter_in * 0.00436</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>tip_speed_ft_s</th><td>weapon tip/rim speed at the outer edge, in feet per second</td></tr><tr><th>no_load_rpm</th><td>the weapon&#x27;s unloaded (free-spinning, no-load) RPM as measured by tachometer or estimated from motor kv * voltage / gear or pulley ratio</td></tr><tr><th>diameter_in</th><td>the weapon&#x27;s outer diameter in inches (for a disc/drum, its full diameter; for a bar, the full swept diameter tip-to-tip)</td></tr></tbody></table><h2>Worked example</h2><p>A plastic-ant vertical spinner disc with a 3.5in printed diameter, driven by a 2600kv brushless motor on 2S (7.4V) direct-drive (no reduction), has a theoretical no-load RPM of about 2600 <em> 7.4 = 19,240 RPM. Applying the formula: tip_speed = 19,240 </em> 3.5 * 0.00436 ≈ 293 ft/s (about 200 mph) at the theoretical no-load ceiling. Real-world loaded RPM is always lower than this no-load figure (ESC/motor sag under load, printed-disc drag), so builders typically see tip speeds in the 120-220 ft/s (~80-150mph) band once the disc is actually spinning under battery sag, which is still enough kinetic energy to crack a printed panel or dent a wedge on a solid hit. For reference, SPARC&#x27;s own Sportsman-class rule caps NON-toothed slow spinners at 20 ft/s using this exact formula, which shows how enormous the gap is between a &#x27;slow spinner&#x27; and a full-power plastic-ant spinner: roughly a 10-15x difference in tip speed.</p>
+    
+    <h2>Notes</h2><p>Builders should treat the no-load RPM figure as an upper bound only; a printed weapon&#x27;s SURVIVABLE rpm (the ceiling before the weapon itself fails from centrifugal stress) is usually the true limiting factor in plastic ant, not motor Kv or battery voltage — see the printed-weapon burst-strength discussion in the build-spec chunks.</p>
+  </div>
+  <div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.6.pdf" rel="noopener">https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.6.pdf</a></li><li>domain knowledge (worked example)</li></ul></div><div class="side-box"><h4>Also called</h4><p style="margin:0">tip speed formula, rim speed calculation</p></div></div>
+</div>
+<p style="margin-top:34px"><code>formula-weapon-tip-speed</code> — use this id with the
+Discord bot or MCP tools.</p>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

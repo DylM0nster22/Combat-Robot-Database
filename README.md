@@ -11,6 +11,7 @@ Three things come out of one dataset:
 | **Website** | Static site with schematic diagrams, spec tables, guides and interactive calculators | `web/index.html` |
 | **MCP server** | Nine tools any MCP client can call — search, lookup, compare, matchups, build guides, calculations | `agent/mcp_server.py` |
 | **Discord bot** | Claude answers build questions in your server, using the same tools | `discord-bot/bot.py` |
+| **HTTP API** | Read-only JSON endpoints for anything else | `agent/api.py` |
 
 All three call the same query layer (`agent/kb.py`), so the site, the bot and the
 MCP server never disagree with each other.
@@ -53,6 +54,7 @@ scripts/
 agent/
   kb.py                   Query layer + engineering calculators (shared by all)
   mcp_server.py           MCP stdio server, zero dependencies
+  api.py                  Read-only HTTP JSON API, zero dependencies
 discord-bot/
   bot.py                  Discord bot driven by Claude tool use
 web/                      Generated site (committed so it can be hosted directly)
@@ -122,6 +124,21 @@ Claude is instructed to search the database rather than answer from memory, and 
 call the calculators rather than doing arithmetic in its head. Configure the model
 with `CLAUDE_MODEL` (default `claude-opus-5`) and depth with `CLAUDE_EFFORT`
 (default `medium`; raise to `high` for hard design questions).
+
+### HTTP API
+
+For anything that speaks HTTP rather than MCP — a webhook, a bot framework in
+another language, a custom tool definition:
+
+```bash
+python3 agent/api.py --port 8080
+curl 'http://127.0.0.1:8080/search?q=drum+spinner&weight_class=antweight'
+curl 'http://127.0.0.1:8080/calculate/tip_speed?rpm=20000&radius_mm=45'
+```
+
+Endpoints: `/health` `/stats` `/search` `/entities` `/entity/<id>` `/chunk/<id>`
+`/compare` `/matchup` `/build` `/calculators` `/calculate/<name>`. Standard
+library only, read-only, CORS-enabled.
 
 ### Direct Python
 

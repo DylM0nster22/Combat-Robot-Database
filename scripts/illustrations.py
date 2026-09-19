@@ -438,64 +438,85 @@ ARCHETYPE_ART = {
 # Which drawing to use for an archetype whose id we don't have art for.
 # Matched as substrings against the entity id and name, longest first.
 ALIAS_HINTS = [
-    ("undercut", "undercutter"),
+    # Specific weapon forms first: a "drum spinner (undercutter)" is a drum
+    # before it is an undercutter, and the drum drawing is the informative one.
+    ("eggbeater", "eggbeater"),
+    ("egg-beater", "eggbeater"),
+    ("egg beater", "eggbeater"),
+    ("drum", "drum-spinner"),
+    ("beater", "beater-bar"),
     ("shell", "shell-spinner"),
     ("full-body", "shell-spinner"),
+    ("full body", "shell-spinner"),
     ("ring", "shell-spinner"),
     ("melty", "melty-brain"),
     ("translational", "melty-brain"),
-    ("eggbeater", "eggbeater"),
-    ("egg-beater", "eggbeater"),
-    ("beater", "beater-bar"),
-    ("drum", "drum-spinner"),
-    ("vertical-bar", "vertical-bar-spinner"),
-    ("vert-bar", "vertical-bar-spinner"),
-    ("horizontal", "horizontal-bar-spinner"),
     ("overhead-saw", "overhead-saw"),
+    ("overhead saw", "overhead-saw"),
     ("saw", "overhead-saw"),
-    ("vertical", "vertical-spinner"),
-    ("disc", "vertical-spinner"),
-    ("disk", "vertical-spinner"),
-    ("flywheel", "vertical-spinner"),
     ("thwack", "thwackbot"),
     ("hammer", "hammer"),
     ("axe", "hammer"),
     ("flipper", "flipper"),
+    ("flip", "flipper"),
     ("lifter", "lifter"),
     ("lift", "lifter"),
     ("grabber", "grabber"),
     ("clamp", "grabber"),
+    ("grappl", "grabber"),
     ("crusher", "crusher"),
     ("crush", "crusher"),
     ("pierc", "crusher"),
-    ("rammer", "rammer"),
-    ("ram", "rammer"),
-    ("fork", "forkbot"),
     ("multibot", "multibot"),
     ("swarm", "multibot"),
     ("walker", "walker"),
     ("shuffler", "walker"),
-    ("brick", "brick"),
+    ("fork", "forkbot"),
+    ("rammer", "rammer"),
+    ("spike", "rammer"),
     ("invertible", "brick"),
+    ("brick", "brick"),
+    # Orientation modifiers next: only reached when no specific form matched.
+    ("undercut", "undercutter"),
+    ("vertical-bar", "vertical-bar-spinner"),
+    ("vert-bar", "vertical-bar-spinner"),
+    ("horizontal", "horizontal-bar-spinner"),
+    ("vertical", "vertical-spinner"),
+    ("disc", "vertical-spinner"),
+    ("disk", "vertical-spinner"),
+    ("flywheel", "vertical-spinner"),
+    # Broadest fallbacks last.
+    ("wedge", "wedge"),
     ("control", "forkbot"),
     ("armor", "brick"),
     ("armour", "brick"),
     ("passive", "brick"),
-    ("wedge", "wedge"),
+    ("ram", "rammer"),
     ("spinner", "vertical-spinner"),
 ]
 
 
 def art_for(entity_id, name="", tags=()):
-    """Pick the best-matching drawing for an archetype entity."""
-    haystack = f"{entity_id} {name} {' '.join(tags)}".lower()
+    """Pick the best-matching drawing for an archetype entity.
+
+    Matching runs in two passes. The id and name are authoritative, so they are
+    tried first; tags are noisy (an entity about a drum is often tagged
+    "undercutter" too) and only consulted when the name says nothing useful.
+    """
     if entity_id in ARCHETYPE_ART:
         return ARCHETYPE_ART[entity_id]()
     stripped = entity_id.replace("archetype-", "")
     if stripped in ARCHETYPE_ART:
         return ARCHETYPE_ART[stripped]()
+
+    primary = f"{entity_id} {name}".lower()
     for needle, key in ALIAS_HINTS:
-        if needle in haystack:
+        if needle in primary:
+            return ARCHETYPE_ART[key]()
+
+    secondary = " ".join(tags).lower()
+    for needle, key in ALIAS_HINTS:
+        if needle in secondary:
             return ARCHETYPE_ART[key]()
     return None
 

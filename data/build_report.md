@@ -1,13 +1,13 @@
 # Knowledge base build report
 
-Built: 2026-09-19T04:15:27.952321+00:00
+Built: 2026-09-19T04:20:03.656242+00:00
 
 ## Totals
 
-- Entities: **201**
+- Entities: **202**
 - Knowledge chunks: **88** (35834 words)
 - Research topics: **5**
-- Entities citing at least one source: **201** (100%)
+- Entities citing at least one source: **202** (100%)
 
 ## Entities by type
 
@@ -15,7 +15,7 @@ Built: 2026-09-19T04:15:27.952321+00:00
 | --- | --- |
 | component | 97 |
 | term | 41 |
-| formula | 17 |
+| formula | 18 |
 | ruleset | 12 |
 | weight_class | 10 |
 | event | 8 |
@@ -29,10 +29,10 @@ Built: 2026-09-19T04:15:27.952321+00:00
 
 | weight class | count |
 | --- | --- |
-| plastic-antweight | 119 |
+| plastic-antweight | 120 |
 | antweight | 86 |
-| beetleweight | 18 |
-| fairyweight | 11 |
+| beetleweight | 19 |
+| fairyweight | 13 |
 | plastic-beetleweight | 3 |
 | hobbyweight | 3 |
 | featherweight | 2 |
@@ -44,9 +44,9 @@ Built: 2026-09-19T04:15:27.952321+00:00
 
 | level | count |
 | --- | --- |
-| medium | 92 |
+| medium | 94 |
 | high | 68 |
-| low | 41 |
+| low | 40 |
 
 ## Source files
 
@@ -54,7 +54,7 @@ Built: 2026-09-19T04:15:27.952321+00:00
 | --- | --- | --- |
 | batteries-power.json | 35 | 14 |
 | drive-motors.json | 41 | 17 |
-| plastic-antweight.json | 53 | 22 |
+| plastic-antweight.json | 54 | 22 |
 | weapon-motors.json | 39 | 19 |
 | weight-classes-rules.json | 33 | 16 |
 
