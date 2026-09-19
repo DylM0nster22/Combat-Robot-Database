@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acrylic (PMMA) — Combat Robot Database</title>
+<meta name="description" content="Cast or extruded polymethyl methacrylate — decent tensile strength and very stiff/scratch-resistant, but a well-known trap for combat robot armor because it is extremely brittle under impact loading despite looking strong on a datasheet.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../search.html">Material</a> ›
+  Acrylic (PMMA)</div>
+<h1 class="page">Acrylic (PMMA)</h1>
+<p class="page-sub">Cast or extruded polymethyl methacrylate — decent tensile strength and very stiff/scratch-resistant, but a well-known trap for combat robot armor because it is extremely brittle under impact loading despite looking strong on a datasheet.</p>
+<div style="margin-bottom:22px"><span class="pill type">Material</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">trap-material</span><span class="pill">brittle</span><span class="pill">budget</span></div>
+<div class="two-col">
+  <div class="prose">
+    
+    
+    <div class="pro-con"><div class="pros"><h4>Strengths</h4><ul><li>Cheap, widely available, laser-cuttable</li><li>Good tensile strength and stiffness on paper</li><li>Scratch resistant, looks clean</li></ul></div><div class="cons"><h4>Weaknesses</h4><ul><li>Extremely low elongation-to-break (~4%) — essentially zero ductility, so it cannot absorb impact energy by deforming</li><li>Shatters into sharp shards under a hard or even moderate impact — actively dangerous in an arena</li><li>Laser-cut edges (common hobbyist fabrication method) leave micro-fractures that make cracking under load even more likely</li><li>No meaningful notch or impact toughness</li></ul></div></div>
+    
+    <h2>Specifications</h2><table class="specs"><tbody><tr><th>density g cm3</th><td>1.18</td></tr><tr><th>yield strength mpa</th><td>70</td></tr><tr><th>tensile strength mpa</th><td>72</td></tr><tr><th>hardness rockwell m</th><td>92</td></tr><tr><th>elastic modulus gpa</th><td>3.1</td></tr><tr><th>cost per kg usd</th><td>5</td></tr><tr><th>max service temp c</th><td>80</td></tr><tr><th>elongation pct</th><td>4</td></tr></tbody></table>
+    <h2>Notes</h2><p>Acrylic is the textbook &quot;the trap&quot; material in combat robotics: its datasheet tensile strength (~70 MPa) looks comparable to nylon or polycarbonate, which misleads beginners into using it as armor. But tensile strength measured in a slow pull test says almost nothing about impact toughness — acrylic has essentially no ability to yield plastically, so all impact energy goes straight into brittle crack propagation. A polycarbonate panel of the same thickness will flex and absorb a hit; an acrylic panel of the same thickness will crack and often explode into shards. Most build guides and forums explicitly warn new builders away from acrylic armor for exactly this reason — it is fine for a display stand or a non-combat cover, never for anything that will be hit.</p>
+  </div>
+  <div><div class="side-box"><h4>Related guides</h4><ul><li><a href="../g/chunk-best-armor-material-per-budget.html">Best Armor Material Per Budget</a></li><li><a href="../g/chunk-what-survives-vertical-spinner-hit.html">What Survives a 1 lb Vertical Spinner Hit</a></li><li><a href="../g/chunk-acrylic-trap.html">Why Acrylic Is a Trap for Combat Robot Armor</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div><div class="side-box"><h4>Also called</h4><p style="margin:0">PMMA, Plexiglas</p></div></div>
+</div>
+<p style="margin-top:34px"><code>material-acrylic</code> — use this id with the
+Discord bot or MCP tools.</p>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

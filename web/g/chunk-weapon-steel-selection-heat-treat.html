@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weapon Steel Selection and Heat Treat — Combat Robot Database</title>
+<meta name="description" content="Choosing and heat-treating a weapon bar or disc steel is a balancing act between hardness (edge retention, ability to bite into an opponent, resistance to denti">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Weapon Steel Selection and Heat Treat</div>
+<h1 class="page">Weapon Steel Selection and Heat Treat</h1>
+<p class="page-sub">Weapon Materials</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">weapon-steel</span><span class="pill">heat-treat</span><span class="pill">hardness</span><span class="pill">spinner-bar</span></div>
+<div class="two-col">
+  <div class="prose"><p>Choosing and heat-treating a weapon bar or disc steel is a balancing act between hardness (edge retention, ability to bite into an opponent, resistance to denting) and toughness (resistance to chipping or cracking under repeated shock). Pushing hardness too high without enough toughness produces a weapon that hits hard exactly once before a chunk breaks off it.</p>
+<p><strong>S7 (the premium choice):</strong> S7&#x27;s alloy chemistry is specifically engineered for shock resistance at high hardness, which is why it&#x27;s the most commonly recommended &quot;if you can afford it&quot; weapon steel in combat robotics. Typical antweight heat treat targets 54-58 HRC — austenitize around 925°C, air quench (S7 is air-hardening, which reduces warping/cracking risk versus oil or water-hardening steels), then temper to bring the as-quenched hardness (often 60+ HRC) down into the tough 54-58 HRC working range. Air-hardening also means a hobbyist without an oil quench tank has an easier time getting a good, even hardness.</p>
+<p><strong>4140 (the value choice):</strong> 4140 pre-hardened round/flat bar, sold at roughly 28-32 HRC out of the box, needs zero heat treat step and is tough enough for most antweight beater-bar and horizontal-spinner-bar duty as-is — this is why it&#x27;s so common in budget and beginner builds. For a harder edge, 4140 can be further quenched and tempered; a commonly cited sweet spot for 4140 beater bars is around 50 HRC, balancing edge bite against chip resistance. Because 4140 lacks nickel, its fracture toughness at high hardness is measurably worse than 4340&#x27;s, so pushing 4140 much past 50-55 HRC starts trading away too much toughness.</p>
+<p><strong>4340 (the toughness upgrade):</strong> 4340&#x27;s nickel content improves fracture toughness over 4140 at an equivalent hardness, making it the preferred choice when a weapon shaft or bar sees combined shock and torsional loading rather than pure impact — the extra cost over 4140 buys resistance to a different failure mode (torsional fatigue/shaft snapping) as much as impact chipping.</p>
+<p><strong>Hardened inserts (D2, tungsten carbide):</strong> for the hardest, most wear-resistant edge — small teeth or tips rather than a full bar — D2 tool steel (58-62 HRC) or brazed tungsten carbide inserts are used, accepting that these are far more brittle than S7 and will chip if used as a full weapon body. The design pattern is always a tough steel bar or disc body (S7/4340) carrying small, replaceable hardened inserts at the actual point of contact.</p>
+<p><strong>General heat-treat cautions for hobbyists:</strong> without a calibrated oven and hardness tester, DIY heat treating (torch heating, oil quench, toaster-oven temper) produces real hardness variance between &quot;identical&quot; parts — many competitive builders send weapon steel out to a local heat-treat shop for consistent, verifiable results, especially for S7 and 4340 where getting the temper temperature right meaningfully changes toughness.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/material-4140-steel.html">4140 Chromoly Steel</a></li><li><a href="../e/material-4340-steel.html">4340 Steel</a></li><li><a href="../e/material-d2-tool-steel.html">D2 Tool Steel</a></li><li><a href="../e/material-s7-tool-steel.html">S7 Tool Steel</a></li><li><a href="../e/material-tungsten-carbide.html">Tungsten Carbide (WC-Co)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rotational kinetic energy, tip speed, and why not all of it lands — Combat Robot Database</title>
+<meta name="description" content="Once a weapon&#x27;s MOI is known, rotational kinetic energy and tip speed follow directly (`formula-rotational-ke`: KE = 0.5*I*omega^2; `formula-tip-speed`: v = ome">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Rotational kinetic energy, tip speed, and why not all of it lands</div>
+<h1 class="page">Rotational kinetic energy, tip speed, and why not all of it lands</h1>
+<p class="page-sub">MOI and Energy</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">kinetic-energy</span><span class="pill">tip-speed</span><span class="pill">energy-transfer</span></div>
+<div class="two-col">
+  <div class="prose"><p>Once a weapon&#x27;s MOI is known, rotational kinetic energy and tip speed follow directly (<code>formula-rotational-ke</code>: KE = 0.5<em>I</em>omega^2; <code>formula-tip-speed</code>: v = omega*r, both in the design-math topic), but the more practically useful question for weapon geometry is how those numbers compare across different weapon shapes of similar mass, and how much of that stored energy actually ends up doing damage.</p>
+<p><strong>Comparing shapes at the same mass and rpm.</strong> Using the MOI values from the worked examples above, at a common 20,000 rpm (omega=2094.4 rad/s): the 227 g solid disc stores KE = 0.5<em>1.65e-4</em>2094.4^2 = 362 J; the same-mass thin ring/shell stores KE = 0.5<em>3.30e-4</em>2094.4^2 = 724 J -- double the disc&#x27;s energy for the identical mass, rpm, and outer radius, again illustrating why shell spinners are prized for their energy-to-weight ratio despite being harder to build. (These example numbers use a fairly large, heavy disc/ring for a 1 lb bot to make the comparison clean; a real full weapon system also has to fit motor, ESC, and structure inside the same overall weight budget, so realistic antweight weapon KE tends to land in the 20-80 J range noted in the design-math topic&#x27;s sanity-check table.)</p>
+<p><strong>Tip speed</strong> follows from the same omega applied at the outer radius: at 20,000 rpm and R=0.0381m, v = 2094.4*0.0381 = 79.8 m/s (about 179 mph) for both the disc and ring examples above, since tip speed depends only on rpm and outer radius, not on mass distribution -- it&#x27;s KE and MOI that differ between the disc and ring shapes, not tip speed.</p>
+<p><strong>Why not all of the stored energy lands on an opponent.</strong> A weapon&#x27;s full rotational KE is rarely, if ever, fully transferred into an opponent on a single hit. Several mechanisms eat into the transfer: the weapon itself keeps spinning after the hit rather than stopping dead (an elastic-ish collision transfers only part of the incoming kinetic energy, with the rest remaining as the weapon&#x27;s own post-hit rotation); some energy is lost to structural deformation, heat, and sound in both robots&#x27; materials at the moment of impact; some energy goes into moving the whole opposing robot (knockback) rather than penetrating its armor; and a glancing or partial-bite hit (see the bite-depth discussion) by definition doesn&#x27;t fully engage the tooth&#x27;s swept path, further reducing the fraction of stored energy that gets applied where it would do the most damage. As a rough, domain-knowledge rule of thumb rather than a precise measured figure, experienced builders often estimate that only a fraction -- commonly discussed in the rough 10-30% range -- of a spinner&#x27;s stored kinetic energy is actually delivered as useful damage-causing work on a typical hit, with the remainder retained by the weapon&#x27;s continued spin or lost to the mechanisms above; this is a low-confidence estimate that varies enormously by weapon type, hit geometry, and what materials are actually in contact.</p></div>
+  <div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

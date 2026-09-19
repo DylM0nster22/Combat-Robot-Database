@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shaft support and bearing selection for antweight weapons — Combat Robot Database</title>
+<meta name="description" content="A weapon shaft&#x27;s job is to hold the weapon perfectly centered and running true under the most violent loads anywhere on the robot, and the choices here -- singl">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Shaft support and bearing selection for antweight weapons</div>
+<h1 class="page">Shaft support and bearing selection for antweight weapons</h1>
+<p class="page-sub">Attachment and Failure</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">shaft</span><span class="pill">bearings</span><span class="pill">dead-shaft</span><span class="pill">live-shaft</span></div>
+<div class="two-col">
+  <div class="prose"><p>A weapon shaft&#x27;s job is to hold the weapon perfectly centered and running true under the most violent loads anywhere on the robot, and the choices here -- single vs double bearing support, dead vs live shaft, and bearing type -- interact closely with each other.</p>
+<p><strong>Single vs double bearing support.</strong> A shaft supported by only one bearing, with the weapon mounted as a cantilever off the end, sees bending stress that scales directly with the unsupported length between the bearing and the load, as shown in <code>formula-wg-cantilever-shaft-bending</code>: a 6 mm shaft under an estimated 1000 N impact spike with a 10 mm unsupported span reaches roughly 472 MPa of bending stress (enough to permanently bend a mild-steel shaft), while shortening that span to 3 mm with a second, closer support point drops the stress to about 141 MPa. Wherever the weapon geometry allows it, supporting the shaft on both sides of the weapon&#x27;s mass (or as close to both sides as the design permits) is structurally far superior to a single-bearing cantilever, particularly for wider weapons like drums where the unsupported span would otherwise be large.</p>
+<p><strong>Dead shaft vs live shaft.</strong> A dead shaft (<code>term-dead-shaft</code>) bolts rigidly to the frame and never rotates; the weapon spins around it on its own bearings, which conveniently lets those bearings sit right inside the weapon&#x27;s mass rather than needing a rotating shaft supported far apart at the frame rails -- a common and effective way to get good bearing support on a compact antweight disc or drum. A live shaft (<code>term-live-shaft</code>) rotates in frame-mounted bearings with the weapon keyed/pinned/set-screwed directly onto it; simpler for a single small disc close to the frame, but for wider weapons it needs support bearings positioned close to both ends of the weapon or it behaves as a cantilever, per the bending-stress relationship above.</p>
+<p><strong>Bearings for ants.</strong> The most common ball bearing sizes at antweight scale are 623 (3x10x4mm, <code>component-bearing-623</code>), 626 (6x19x6mm, <code>component-bearing-626</code>), and 688 (8x16x5mm, <code>component-bearing-688</code>), with flanged variants (<code>component-bearing-flanged</code>) preferred in dead-shaft weapon bells where the bearing needs to self-locate axially in a bore without extra retention hardware. Bronze bushings (<code>component-bronze-bushing</code>) are a lighter-duty plain-bearing alternative: cheaper and more tolerant of dirt and minor misalignment, at the cost of higher friction and a lower safe rpm ceiling, making them a better fit for slower drivetrain or low-speed weapon applications than for a full-speed disc or shell spinner. Bearing choice also constrains shaft diameter directly (a larger bore supports a stiffer, stronger shaft), so bearing and shaft sizing should be worked out together rather than picking a shaft size first and finding a bearing to fit it afterward.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/component-bearing-623.html">623 bearing (3x10x4mm)</a></li><li><a href="../e/component-bearing-626.html">626 bearing (6x19x6mm)</a></li><li><a href="../e/component-bearing-688.html">688 bearing (8x16x5mm)</a></li><li><a href="../e/component-bearing-flanged.html">Flanged bearing (F-series, e.g. F688/F626)</a></li><li><a href="../e/component-bronze-bushing.html">Bronze bushing (plain bearing)</a></li><li><a href="../e/formula-wg-cantilever-shaft-bending.html">Cantilevered shaft bending stress under impact load</a></li><li><a href="../e/term-dead-shaft.html">Dead Shaft</a></li><li><a href="../e/term-live-shaft.html">Live Shaft</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

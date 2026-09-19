@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carbon/Glass-Filled Filament: Stiffness vs Brittleness and Nozzle Wear — Combat Robot Database</title>
+<meta name="description" content="Short-fiber-reinforced filaments — chopped carbon fiber or glass fiber blended into a PLA, PETG, or nylon base — are marketed heavily on their stiffness gains, ">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Carbon/Glass-Filled Filament: Stiffness vs Brittleness and Nozzle Wear</div>
+<h1 class="page">Carbon/Glass-Filled Filament: Stiffness vs Brittleness and Nozzle Wear</h1>
+<p class="page-sub">3D-Printed Materials Deep Dive</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">carbon-fiber</span><span class="pill">glass-fiber</span><span class="pill">nozzle-wear</span><span class="pill">stiffness</span><span class="pill">brittleness</span></div>
+<div class="two-col">
+  <div class="prose"><p>Short-fiber-reinforced filaments — chopped carbon fiber or glass fiber blended into a PLA, PETG, or nylon base — are marketed heavily on their stiffness gains, and the numbers are real: a carbon-fiber-reinforced part can be roughly 200-500% stiffer (higher elastic modulus) than the same part printed in the unfilled base polymer, because the short, stiff fibers carry load very efficiently along their length wherever they happen to be oriented by the print path. For parts that need to resist bending or sagging under a steady load — long weapon-motor mount arms, frame spines, anything acting like a beam — that stiffness gain is genuinely valuable and can eliminate flex that would otherwise misalign a weapon or drivetrain.</p>
+<p><strong>The tensile strength gain is much smaller than the stiffness gain, and that gap misleads people.</strong> While elastic modulus jumps dramatically, actual tensile strength typically increases only 20-100% over the base polymer in the strongest print orientation, and can be flat or even lower in other orientations, because the reinforcement&#x27;s benefit depends heavily on fiber alignment relative to the load and on how well the fiber-matrix interface holds together. Builders sometimes see &quot;carbon fiber&quot; on a spec sheet and assume a proportional jump in overall strength and impact resistance, when the real gain is concentrated almost entirely in stiffness, not toughness.</p>
+<p><strong>Brittleness is the real hidden cost.</strong> Every embedded fiber end is a stress concentrator, and the interface between a stiff fiber and the surrounding (relatively soft) polymer matrix is a mechanically weak plane where a crack can initiate and run. The practical result is that CF/GF-filled parts are noticeably more brittle than their unfilled base polymer — they resist bending better right up until they don&#x27;t, and then they tend to crack or snap rather than deform, which is close to the opposite of what you want from a direct-impact armor face. This is why fiber-filled filament is a good choice for a stiff internal frame rail or a weapon-support arm set back from the impact zone, and a poor choice for the outer panel that actually takes a hit — an unfilled base polymer, or better yet a TPU skin, will typically survive a direct impact better than the &quot;stronger-sounding&quot; fiber-filled version at the same wall thickness.</p>
+<p><strong>Nozzle wear is a real, recurring cost.</strong> Chopped fibers are abrasive enough to wear out a standard brass nozzle&#x27;s orifice within roughly a few hundred grams to a kilogram of printing, progressively widening the hole and degrading extrusion consistency and dimensional accuracy well before the wear becomes visually obvious. Printing any meaningful volume of CF/GF filament essentially requires switching to a hardened steel or ruby-tipped nozzle, which adds cost and, for ruby nozzles particularly, some fragility of its own (they can crack if dropped or over-tightened). Builders who print occasional small CF-reinforced parts on an otherwise-brass-nozzle printer often accept the nozzle wear as a cost of doing business; builders printing CF-filled parts regularly generally dedicate a hardened-nozzle setup to it.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/material-cf-gf-filament.html">Carbon/Glass-Fiber-Filled Filament (PLA-CF, PETG-CF, generic)</a></li><li><a href="../e/material-nylon-pa-filament.html">Nylon Filament (PA6 / PA12 / PA-CF)</a></li><li><a href="../e/material-pla-plaplus.html">PLA / PLA+</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://formlabs.com/blog/strongest-3d-printing-materials/" rel="noopener">https://formlabs.com/blog/strongest-3d-printing-materials/</a></li><li><a href="https://filamentspecs.com/cf-pla-vs-cf-petg/" rel="noopener">https://filamentspecs.com/cf-pla-vs-cf-petg/</a></li><li><a href="https://sigmafilament.com/what-carbon-fiber-changes-in-pla-petg/" rel="noopener">https://sigmafilament.com/what-carbon-fiber-changes-in-pla-petg/</a></li><li><a href="https://qidi3d.com/blogs/news/3d-printing-carbon-fiber-filament-guide" rel="noopener">https://qidi3d.com/blogs/news/3d-printing-carbon-fiber-filament-guide</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

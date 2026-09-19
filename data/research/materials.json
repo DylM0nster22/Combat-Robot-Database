@@ -1,0 +1,2459 @@
+{
+  "topic_id": "materials",
+  "title": "Material Selection: Armor, Chassis, Weapons & Structure",
+  "scope_note": "Materials used for armor, chassis, weapons, and structure in 1 lb antweight and plastic-antweight combat robots, covering metals (titanium, aluminum, tool/spring steels, tungsten), stock plastics (UHMW, HDPE, polycarbonate, acetal, nylon, PTFE, acrylic), 3D-printed filaments (PLA, PETG, ABS/ASA, nylon, PC, PP, TPU by shore hardness, carbon/glass-filled), composites (G10, carbon fiber, fiberglass), and elastomers used for deliberate mechanical compliance.",
+  "entities": [
+    {
+      "id": "material-titanium-grade5",
+      "type": "material",
+      "name": "Titanium Grade 5 (Ti-6Al-4V)",
+      "summary": "Aerospace-grade alpha-beta titanium alloy (6% aluminum, 4% vanadium) and the single most popular armor material in antweight and beetleweight combat robotics, prized for its extreme strength-to-weight ratio.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "armor",
+        "titanium",
+        "weapon-king",
+        "chassis"
+      ],
+      "specs": {
+        "density_g_cm3": 4.43,
+        "yield_strength_mpa": 880,
+        "tensile_strength_mpa": 950,
+        "hardness_hrc": 33,
+        "elastic_modulus_gpa": 113.8,
+        "cost_per_kg_usd": 90,
+        "max_service_temp_c": 400,
+        "elongation_pct": 10
+      },
+      "category": "metal",
+      "use_cases": [
+        "outer armor shell",
+        "wedge plates",
+        "weapon bar backing",
+        "wheel guards",
+        "frame rails"
+      ],
+      "machinability": "Poor with standard HSS tooling — work-hardens fast, low thermal conductivity concentrates heat at the cutting edge and galls tools. Requires carbide end mills/drills, low speed, high feed, flood coolant, and sharp new bits. Hobbyists mostly cut thin sheet (0.5-1.5mm) with a fine-tooth jeweler's saw, abrasive cutoff wheel, waterjet, or CNC router with carbide bits rather than drilling/tapping it directly.",
+      "printable": false,
+      "pros": [
+        "Best strength-to-weight of any practical antweight armor metal",
+        "Roughly half the density of steel yet comparable or better strength",
+        "Excellent corrosion resistance, never rusts",
+        "Thin sheet (0.5-0.8mm) can be dimpled/formed to add rigidity without much weight"
+      ],
+      "cons": [
+        "Expensive — hobby-quantity sheet often $80-150/kg equivalent, far above bulk mill pricing",
+        "More brittle than mild/spring steel: tends to crack or shear cleanly under a hard hit rather than dent",
+        "Chews up cheap tooling; genuinely hard to cut and drill without carbide",
+        "Titanium dust is a fire hazard when sanding/grinding — do it wet or with dust extraction"
+      ],
+      "notes": "For 1 lb antweights the standard playbook is: 0.5mm titanium wrapped/formed as a springy shock-absorbing skin around wheels or as a spring-steel-like flexible skirt; 0.8-1.0mm for rigid wedge plates and armor panels bolted to a plastic or aluminum frame; 1.2-1.5mm reserved for weight-tolerant beetleweight-adjacent 1lb builds or small armor patches over a weapon motor. Titanium's weakness is concentrated, repeated hits in the same spot — vertical spinners and hard hitting hammers can eventually crack a Ti plate that would survive a single hit fine. Cost per kg varies wildly by vendor; small hobby-cut sheets from suppliers like FingerTech, Combat Robotics NZ, and PalmBeachBots run well above raw mill-plate pricing because of cutting/shipping small orders.",
+      "sources": [
+        "https://palmbeachbots.com/products/titanium-sheet-0-8mm-thick-grade-5-gr5-6al-4v",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=titanium",
+        "https://combatrobotics.co.nz/products/new-titanium-sheets-grade-5-6al-4v",
+        "https://www.onlinemetals.com/en/battlebots-choosing-right-material",
+        "https://runamok.tech/AskAaron/materials.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-titanium-grade2",
+      "type": "material",
+      "name": "Titanium Grade 2 (CP Titanium)",
+      "summary": "Commercially pure (unalloyed) titanium. Much more ductile and easier to form/weld than Grade 5, but roughly a third the yield strength — used where formability and fatigue resistance matter more than raw armor hardness.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "titanium",
+        "armor",
+        "chassis"
+      ],
+      "specs": {
+        "density_g_cm3": 4.51,
+        "yield_strength_mpa": 275,
+        "tensile_strength_mpa": 345,
+        "hardness_hrb": 80,
+        "elastic_modulus_gpa": 105,
+        "cost_per_kg_usd": 45,
+        "max_service_temp_c": 400,
+        "elongation_pct": 20
+      },
+      "category": "metal",
+      "use_cases": [
+        "formed/bent brackets",
+        "flexible skirts",
+        "fasteners",
+        "low-stress frame parts"
+      ],
+      "machinability": "Easier than Grade 5 — more ductile, gummier (can smear/gall on tools), still needs sharp carbide and coolant for clean holes, but bends and forms without cracking far better than Grade 5.",
+      "printable": false,
+      "pros": [
+        "Much more ductile/formable than Grade 5 — bends without cracking",
+        "Excellent corrosion resistance",
+        "Cheaper than Grade 5 per kg"
+      ],
+      "cons": [
+        "Roughly 1/3 the yield strength of Grade 5 — a poor choice for primary spinner armor",
+        "Still pricier than aluminum or steel for the strength delivered"
+      ],
+      "notes": "Rarely the first choice for outer armor in antweights since Grade 5 gives so much more strength for similar weight, but Grade 2's ductility makes it useful for hinges, bent skirts, and springy standoffs that need to flex repeatedly without fatigue-cracking the way a harder alloy would.",
+      "sources": [
+        "https://www.onlinemetals.com/en/battlebots-choosing-right-material",
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-al-7075-t6",
+      "type": "material",
+      "name": "Aluminum 7075-T6",
+      "summary": "High-strength aerospace aluminum alloy (zinc as primary alloying element), the strongest common aluminum grade — used for weapon hubs, structural frame rails, and lightweight brackets where steel is overkill.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "aluminum",
+        "chassis",
+        "structure",
+        "weapon-hub"
+      ],
+      "specs": {
+        "density_g_cm3": 2.81,
+        "yield_strength_mpa": 503,
+        "tensile_strength_mpa": 572,
+        "hardness_brinell": 150,
+        "elastic_modulus_gpa": 71.7,
+        "cost_per_kg_usd": 9,
+        "max_service_temp_c": 150,
+        "elongation_pct": 11
+      },
+      "category": "metal",
+      "use_cases": [
+        "weapon hubs",
+        "motor mounts",
+        "frame rails",
+        "shafts (low load)",
+        "brackets"
+      ],
+      "machinability": "Excellent — machines cleanly with standard HSS or carbide tooling, takes threads well, good surface finish.",
+      "printable": false,
+      "pros": [
+        "Best strength-to-weight of common aluminums",
+        "Machines beautifully",
+        "Widely available",
+        "Cheap relative to titanium"
+      ],
+      "cons": [
+        "Not weldable by common hobby methods (poor weldability vs 6061)",
+        "Lower corrosion resistance than 6061 — needs anodizing for long-term protection",
+        "Still far weaker than steel or titanium as outer spinner armor — dents/cracks under a hard hit"
+      ],
+      "notes": "7075-T6 is a structural workhorse, not usually an outer-armor material in antweights — it is the go-to for weapon hubs, motor mount plates, and internal frame rails where you want steel-like strength at aluminum weight. Some plastic antweights use thin 7075 as a stiffening frame skeleton under 3D-printed shells.",
+      "sources": [
+        "https://www.onlinemetals.com/en/battlebots-choosing-right-material",
+        "https://wiki.robojackets.org/Materials_Database"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-al-6061-t6",
+      "type": "material",
+      "name": "Aluminum 6061-T6",
+      "summary": "General-purpose structural aluminum alloy (magnesium/silicon), weaker than 7075 but weldable, cheaper, and easier to source — the default aluminum for antweight frames and brackets.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "aluminum",
+        "chassis",
+        "structure"
+      ],
+      "specs": {
+        "density_g_cm3": 2.7,
+        "yield_strength_mpa": 276,
+        "tensile_strength_mpa": 310,
+        "hardness_brinell": 95,
+        "elastic_modulus_gpa": 68.9,
+        "cost_per_kg_usd": 6,
+        "max_service_temp_c": 150,
+        "elongation_pct": 12
+      },
+      "category": "metal",
+      "use_cases": [
+        "frame plates",
+        "motor mounts",
+        "standoffs",
+        "wheel hubs",
+        "brackets"
+      ],
+      "machinability": "Excellent, the easiest common aluminum to machine and weld; forgiving for hobbyist tooling.",
+      "printable": false,
+      "pros": [
+        "Cheap and everywhere",
+        "Weldable",
+        "Easy to machine on hobby-grade equipment",
+        "Anodizes well"
+      ],
+      "cons": [
+        "~45% the yield strength of 7075",
+        "Too soft/thin-dents easily as outer spinner armor"
+      ],
+      "notes": "6061 is the practical default aluminum for internal antweight structure — plate frames, motor plates, standoffs — anywhere 7075's extra strength isn't worth its cost and reduced weldability.",
+      "sources": [
+        "https://www.onlinemetals.com/en/battlebots-choosing-right-material",
+        "https://wiki.robojackets.org/Materials_Database"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-ar500-steel",
+      "type": "material",
+      "name": "AR500 Abrasion-Resistant Steel",
+      "summary": "Through-hardened abrasion-resistant steel plate (~500 Brinell) used as budget spinner armor and hammer/wedge faces where titanium's cost isn't justified.",
+      "aliases": [
+        "AR500 plate"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "armor",
+        "steel",
+        "budget"
+      ],
+      "specs": {
+        "density_g_cm3": 7.85,
+        "hardness_brinell": 500,
+        "hardness_hrc": 50,
+        "yield_strength_mpa": 1450,
+        "tensile_strength_mpa": 1590,
+        "elastic_modulus_gpa": 200,
+        "cost_per_kg_usd": 4,
+        "max_service_temp_c": 200
+      },
+      "category": "metal",
+      "use_cases": [
+        "budget armor plates",
+        "wedge faces",
+        "hammer/anvil faces"
+      ],
+      "machinability": "Poor to drill/mill in its hardened state — pre-hardened plate resists standard bits; usually water-jet or plasma cut to shape before hardening, or bought pre-cut. Do not weld near the hardened zone without accepting a soft heat-affected zone.",
+      "printable": false,
+      "pros": [
+        "Much cheaper per kg than titanium",
+        "Very hard, resists denting and gouging",
+        "Widely available as cut-to-size plate"
+      ],
+      "cons": [
+        "Roughly 1.8x the density of titanium for similar surface hardness — heavy for antweight budgets",
+        "Brittle at full hardness — can crack under a sharp point-load hit",
+        "Hard to fasten/drill without carbide or pre-drilled holes"
+      ],
+      "notes": "AR500 makes sense in antweights mainly as small wear plates (weapon tips, wedge edges) rather than full armor shells, because its weight penalty versus titanium eats fast into a 1 lb budget. More common as a value pick in beetleweight and up.",
+      "sources": [
+        "https://www.onlinemetals.com/en/combat-robotics-weapons-and-armor",
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-ar400-steel",
+      "type": "material",
+      "name": "AR400 Abrasion-Resistant Steel",
+      "summary": "Slightly softer, tougher sibling of AR500 (~400 Brinell) — trades some hardness for better impact toughness and easier machinability.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "armor",
+        "steel",
+        "budget"
+      ],
+      "specs": {
+        "density_g_cm3": 7.85,
+        "hardness_brinell": 400,
+        "hardness_hrc": 40,
+        "yield_strength_mpa": 1200,
+        "tensile_strength_mpa": 1350,
+        "elastic_modulus_gpa": 200,
+        "cost_per_kg_usd": 3.5,
+        "max_service_temp_c": 200
+      },
+      "category": "metal",
+      "use_cases": [
+        "budget armor plates",
+        "structural brackets needing toughness"
+      ],
+      "machinability": "Still tough on tooling but noticeably more forgiving than AR500; can be drilled with quality cobalt bits with patience.",
+      "printable": false,
+      "pros": [
+        "Tougher/less brittle than AR500",
+        "Cheap",
+        "Good all-round wear resistance"
+      ],
+      "cons": [
+        "Heavy for antweight class",
+        "Less hard than AR500 so wears/dents faster under abrasive hits"
+      ],
+      "notes": "Chosen over AR500 when a builder wants a bit more crack resistance at a small hardness cost — a reasonable compromise plate steel for a 1 lb hammer or wedge face on a tight budget.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "material-s7-tool-steel",
+      "type": "material",
+      "name": "S7 Tool Steel",
+      "summary": "Shock-resisting air-hardening tool steel, the gold-standard weapon bar/disc material in combat robotics because it combines high hardness with unusually high impact toughness — resists chipping better than most tool steels at the same hardness.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-steel",
+        "tool-steel",
+        "heat-treat",
+        "spinner-bar"
+      ],
+      "specs": {
+        "density_g_cm3": 7.75,
+        "hardness_hrc": 56,
+        "yield_strength_mpa": 1500,
+        "tensile_strength_mpa": 1930,
+        "elastic_modulus_gpa": 210,
+        "cost_per_kg_usd": 20,
+        "max_service_temp_c": 260
+      },
+      "category": "metal",
+      "use_cases": [
+        "spinner bars",
+        "spinner discs",
+        "hammer heads",
+        "impact tips"
+      ],
+      "machinability": "Machinable in the annealed state with standard tooling; must be heat treated (austenitize ~925°C, air quench, temper) after final machining since it's air-hardening — post-heat-treat grinding only.",
+      "printable": false,
+      "pros": [
+        "Best-in-class impact toughness for its hardness among tool steels — resists chipping/chunking under repeated hits",
+        "Air-hardening: less quench distortion/cracking risk than oil/water-hardening steels",
+        "Wide usable hardness window (48-58 HRC) lets builders tune toughness vs edge retention"
+      ],
+      "cons": [
+        "Pricier per kg than 4140/4340",
+        "Needs proper heat treat oven/process — hard to DIY well without one",
+        "At the top of its hardness range it does still eventually chip against equally hard opponents"
+      ],
+      "notes": "Combat robot weapon bars and discs typically target 54-58 HRC on S7 — hard enough to bite into opposing armor and resist deformation, but still within S7's tough range so it survives spinner-vs-spinner clashes better than a harder, more brittle steel like D2 or hardened drill rod would. Many antweight vertical spinner discs and horizontal bars are cut from S7 flat stock and sent out for heat treat, or heat-treated at home with a forge/torch and oil quench substitute (less ideal, more variance).",
+      "sources": [
+        "https://www.hudsontoolsteel.com/technical-data/steelS7",
+        "https://shop.machinemfg.com/tool-steel-s7-vs-4140-steel-key-differences-and-applications/",
+        "https://aobosteel.com/s7-tool-steel-vs-4140/",
+        "https://runamok.tech/AskAaron/materials.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-4140-steel",
+      "type": "material",
+      "name": "4140 Chromoly Steel",
+      "summary": "Chromium-molybdenum low-alloy steel, the most common all-around weapon bar and beater bar material in combat robotics — cheaper than S7, easy to source as pre-hardened bar, and tunable across a wide hardness range.",
+      "aliases": [
+        "4140 chromoly",
+        "4140 pre-hard"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-steel",
+        "spinner-bar",
+        "beater-bar",
+        "heat-treat"
+      ],
+      "specs": {
+        "density_g_cm3": 7.85,
+        "hardness_hrc": 30,
+        "yield_strength_mpa": 950,
+        "tensile_strength_mpa": 1080,
+        "elastic_modulus_gpa": 205,
+        "cost_per_kg_usd": 5,
+        "max_service_temp_c": 315
+      },
+      "category": "metal",
+      "use_cases": [
+        "beater bars",
+        "horizontal spinner bars",
+        "hammer arms",
+        "shafts"
+      ],
+      "machinability": "Good in the annealed or pre-hard (28-32 HRC) condition with standard carbide/HSS tooling; gets progressively harder to machine as heat-treated hardness rises past ~40 HRC.",
+      "printable": false,
+      "pros": [
+        "Cheap and everywhere as pre-hardened (~28-32 HRC) round/flat bar — no heat treat oven needed",
+        "Can be heat treated further (quench and temper) up to ~50-55 HRC for harder weapon edges",
+        "Good toughness-to-cost ratio for beater bars"
+      ],
+      "cons": [
+        "No nickel content reduces fracture toughness versus 4340 at high hardness",
+        "Lower peak toughness than S7 at equivalent hardness — more prone to chipping in hard spinner-vs-spinner hits"
+      ],
+      "notes": "For 4140 beater bars a hardness around HRC 50 is commonly cited as the sweet spot balancing edge bite against chipping resistance; store-bought 4140 pre-hard round bar (~28-32 HRC) is popular for horizontal spinner bars and hammer arms precisely because it needs zero heat-treat step and is tough enough for most antweight impacts as-is.",
+      "sources": [
+        "https://shop.machinemfg.com/tool-steel-s7-vs-4140-steel-key-differences-and-applications/",
+        "https://aobosteel.com/s7-tool-steel-vs-4140/",
+        "https://runamok.tech/AskAaron/materials.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-4340-steel",
+      "type": "material",
+      "name": "4340 Steel",
+      "summary": "Nickel-chromium-molybdenum low-alloy steel, a step up from 4140 in fracture toughness thanks to nickel content — used for weapon bars and shafts under high shock loading.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-steel",
+        "spinner-bar",
+        "shaft",
+        "heat-treat"
+      ],
+      "specs": {
+        "density_g_cm3": 7.85,
+        "hardness_hrc": 45,
+        "yield_strength_mpa": 1280,
+        "tensile_strength_mpa": 1450,
+        "elastic_modulus_gpa": 200,
+        "cost_per_kg_usd": 7,
+        "max_service_temp_c": 315
+      },
+      "category": "metal",
+      "use_cases": [
+        "weapon bars",
+        "weapon shafts",
+        "high-shock structural pins"
+      ],
+      "machinability": "Similar to 4140, slightly tougher to machine at equal hardness; typically machined in the annealed condition and heat treated afterward for weapon parts.",
+      "printable": false,
+      "pros": [
+        "Better fracture toughness than 4140 at a given hardness thanks to nickel",
+        "Wide heat-treat range (24-53 HRC)",
+        "Good for shafts/pins that see shock + torsion"
+      ],
+      "cons": [
+        "More expensive than 4140",
+        "Still needs proper quench/temper to realize its strength advantage"
+      ],
+      "notes": "4340 is chosen over 4140 when a part sees combined shock and torsional loading (weapon shafts, pins) and the extra fracture toughness is worth the cost premium; less commonly used as a flat weapon bar than S7 or 4140 simply due to price.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/4340_steel",
+        "https://shop.machinemfg.com/tool-steel-s7-vs-4140-steel-key-differences-and-applications/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-tungsten-carbide",
+      "type": "material",
+      "name": "Tungsten Carbide (WC-Co)",
+      "summary": "Cemented carbide (tungsten carbide grains in a cobalt binder), used as small hardened inserts/tips on weapon edges — extremely hard and wear-resistant but so brittle it chips or shatters under off-axis impact rather than deforming.",
+      "aliases": [
+        "carbide",
+        "WC-Co",
+        "cemented carbide"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "hardened-insert",
+        "weapon-tip",
+        "extreme-hardness"
+      ],
+      "specs": {
+        "density_g_cm3": 14.95,
+        "hardness_vickers": 1600,
+        "hardness_hrc": 70,
+        "elastic_modulus_gpa": 600,
+        "compressive_strength_mpa": 4500,
+        "tensile_strength_mpa": 400,
+        "cost_per_kg_usd": 120,
+        "max_service_temp_c": 500
+      },
+      "category": "metal",
+      "use_cases": [
+        "weapon tip inserts",
+        "tooth-style spinner inserts",
+        "wear-resistant edges"
+      ],
+      "machinability": "Cannot be machined with conventional tooling — ground with diamond wheels or EDM'd; inserts are bought as pre-formed tips/plates and brazed or bolted into a tougher steel weapon body.",
+      "printable": false,
+      "pros": [
+        "Hardest practical combat-robot material — extreme wear/abrasion resistance",
+        "Holds an edge/point far longer than any tool steel",
+        "Extremely stiff (high elastic modulus) so it resists deflection on contact"
+      ],
+      "cons": [
+        "Very low fracture toughness/tensile strength — chips or shatters under bending, shock, or off-center impact instead of yielding",
+        "Dense (nearly 15 g/cm3) — must be used in small inserts, not full plates, to stay in an antweight's budget",
+        "Expensive per kg and difficult to shape without specialized tooling",
+        "Impossible to repair in the pits; a chipped insert is simply gone"
+      ],
+      "notes": "The core tradeoff with tungsten carbide is hardness vs toughness: hardness comes from a rigid crystal lattice that resists dislocation motion (the same mechanism that gives wear resistance), but that same rigidity means the material has almost no ability to absorb energy by plastic deformation. When a carbide tooth hits something slightly off-axis, the impact energy has nowhere to go except into crack propagation through the brittle carbide grains, so it chips or shears out in chunks rather than denting like a tougher steel would. This is why combat robot builders use carbide only as small brazed/bolted-on tips on a tough steel body (S7/4340), never as the entire weapon.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-1095-spring-steel",
+      "type": "material",
+      "name": "1095 Spring Steel",
+      "summary": "High-carbon steel commonly supplied as thin blue-tempered spring stock — used for flexible skirts, springy armor flaps, and leaf-spring style flexible weapon linkages.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "spring-steel",
+        "flexible-armor",
+        "high-carbon"
+      ],
+      "specs": {
+        "density_g_cm3": 7.85,
+        "hardness_hrc": 48,
+        "yield_strength_mpa": 1500,
+        "tensile_strength_mpa": 1700,
+        "elastic_modulus_gpa": 200,
+        "cost_per_kg_usd": 6,
+        "max_service_temp_c": 220
+      },
+      "category": "metal",
+      "use_cases": [
+        "flexible skirts",
+        "springy armor flaps",
+        "leaf springs",
+        "flexible weapon linkages"
+      ],
+      "machinability": "Easy to cut/shear/drill as thin annealed strip before spring-temper; once hardened and tempered to spring temper it should only be ground, not drilled, or it loses temper/can crack.",
+      "printable": false,
+      "pros": [
+        "Excellent fatigue life at spring temper — flexes thousands of cycles without cracking",
+        "Cheap and available as pre-tempered shim/spring stock in many thicknesses",
+        "Good compromise between flexibility and strength for skirts that need to spring back after deflecting"
+      ],
+      "cons": [
+        "Loses temper (softens) if overheated during cutting/welding",
+        "Heavier than titanium for the same flex performance"
+      ],
+      "notes": "1095 blue spring steel is a classic budget alternative to thin titanium for flexible front skirts — it dents/deflects and springs back rather than cracking, at a fraction of titanium's price, at the cost of extra weight.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-tungsten-ballast",
+      "type": "material",
+      "name": "Tungsten Ballast (Heavy Alloy)",
+      "summary": "Very high-density tungsten or tungsten-heavy-alloy (90-97% W with Ni/Fe/Cu binder) blocks/putty used purely as ballast to hit a 1 lb weight limit exactly, or to shift center of mass/gyroscopic mass in a weapon.",
+      "aliases": [
+        "tungsten heavy alloy",
+        "mallory metal"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "ballast",
+        "weight-tuning",
+        "high-density"
+      ],
+      "specs": {
+        "density_g_cm3": 17.5,
+        "hardness_hrc": 25,
+        "tensile_strength_mpa": 800,
+        "elastic_modulus_gpa": 360,
+        "cost_per_kg_usd": 90,
+        "max_service_temp_c": 1000
+      },
+      "category": "metal",
+      "use_cases": [
+        "precision weight-limit ballast",
+        "weapon rim mass loading",
+        "CG tuning"
+      ],
+      "machinability": "Tungsten heavy alloy machines reasonably (similar to hard steel) with carbide tooling; pure tungsten is brittle and harder to machine cleanly.",
+      "printable": false,
+      "pros": [
+        "Highest practical density available to hobbyists (~2.2x steel) — lets you add mass in the smallest possible volume",
+        "Non-toxic, dense alternative to lead for ballast",
+        "Great for loading spinner/drum rims to raise kinetic energy without changing outer diameter"
+      ],
+      "cons": [
+        "Expensive per kg/per gram compared to steel ballast",
+        "Small blocks are very heavy for their size — easy to blow a weight limit if not careful",
+        "Pure tungsten is brittle; heavy-alloy grades are tougher but still not structural armor"
+      ],
+      "notes": "A common antweight trick is to press a few grams of tungsten cube or putty into a cavity to trim the last few grams up to the 1 lb (453.6g) limit, or to load the rim of a spinner drum/disc with tungsten inserts to raise its moment of inertia (and thus kinetic energy at a given RPM) without enlarging the weapon's diameter.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-d2-tool-steel",
+      "type": "material",
+      "name": "D2 Tool Steel",
+      "summary": "High-carbon, high-chromium air-hardening tool steel capable of very high hardness (58-62 HRC) — used for hardened inserts, drill-resistant plates, and edge-holding weapon teeth where wear resistance matters more than shock toughness.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "tool-steel",
+        "hardened-insert",
+        "wear-resistant"
+      ],
+      "specs": {
+        "density_g_cm3": 7.7,
+        "hardness_hrc": 60,
+        "yield_strength_mpa": 1900,
+        "tensile_strength_mpa": 2000,
+        "elastic_modulus_gpa": 210,
+        "cost_per_kg_usd": 15,
+        "max_service_temp_c": 200
+      },
+      "category": "metal",
+      "use_cases": [
+        "hardened armor inserts",
+        "drill-resistant plates",
+        "weapon teeth",
+        "edge inserts"
+      ],
+      "machinability": "Machine before heat treat only; extremely hard to cut/drill once hardened — post-heat-treat work is grinding/EDM only.",
+      "printable": false,
+      "pros": [
+        "Very high attainable hardness — excellent wear/abrasion resistance and edge holding",
+        "Cheaper than carbide while still very hard",
+        "Good as small drill-resistant inserts protecting critical internals"
+      ],
+      "cons": [
+        "Noticeably more brittle than S7 at equivalent hardness — more prone to chipping under shock",
+        "Not a good choice for a full weapon bar that takes repeated direct spinner hits"
+      ],
+      "notes": "D2 sits between tough-but-softer S7/4140 and ultra-hard-but-ultra-brittle tungsten carbide: it's a reasonable choice for a small hardened plate protecting a battery or receiver against drill/screwdriver-style piercing weapons, but a poor choice for a primary weapon bar that needs to survive repeated hard impacts without chipping.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "material-1018-mild-steel",
+      "type": "material",
+      "name": "1018 Mild Steel",
+      "summary": "Low-carbon general-purpose steel — cheap, tough, easy to weld and machine, used for non-critical structural parts, brackets, and low-budget armor where weight isn't the top priority.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "mild-steel",
+        "structure",
+        "budget"
+      ],
+      "specs": {
+        "density_g_cm3": 7.87,
+        "yield_strength_mpa": 370,
+        "tensile_strength_mpa": 440,
+        "hardness_brinell": 126,
+        "elastic_modulus_gpa": 205,
+        "cost_per_kg_usd": 2,
+        "max_service_temp_c": 300
+      },
+      "category": "metal",
+      "use_cases": [
+        "brackets",
+        "practice/beater bots",
+        "non-weight-critical structure"
+      ],
+      "machinability": "Excellent — easy to machine, drill, weld, and tap with any standard tooling.",
+      "printable": false,
+      "pros": [
+        "Very cheap",
+        "Easy to weld/machine/work with basic hobby tools",
+        "Tough, ductile, dents rather than shatters"
+      ],
+      "cons": [
+        "Heavy — density similar to hardened steels without the hardness benefit",
+        "Rarely fits a 1 lb weight budget as primary armor"
+      ],
+      "notes": "1018 is mostly a practice/prototyping material in antweights — great for a first \"beater\" bot chassis or non-critical brackets where you don't want to risk expensive titanium or tool steel, but too heavy to be competitive as final armor at 1 lb.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-stainless-303-304",
+      "type": "material",
+      "name": "Stainless Steel 303/304",
+      "summary": "Austenitic stainless steel used mainly for fasteners, shafts, and small hardware in combat robots rather than armor, valued for corrosion resistance and easy sourcing as standard hardware.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "stainless",
+        "fasteners",
+        "hardware"
+      ],
+      "specs": {
+        "density_g_cm3": 8.0,
+        "yield_strength_mpa": 215,
+        "tensile_strength_mpa": 550,
+        "hardness_hrb": 80,
+        "elastic_modulus_gpa": 193,
+        "cost_per_kg_usd": 5,
+        "max_service_temp_c": 400
+      },
+      "category": "metal",
+      "use_cases": [
+        "fasteners",
+        "shafts",
+        "small brackets",
+        "shoulder screws"
+      ],
+      "machinability": "303 (free-machining) is easy to machine; 304 is gummier and work-hardens more, needing sharp tools and coolant.",
+      "printable": false,
+      "pros": [
+        "Corrosion resistant — good for shafts/hardware exposed to arena debris",
+        "Standard hardware sizes readily available"
+      ],
+      "cons": [
+        "Not hardenable by heat treatment (austenitic) so not used for wear/weapon parts",
+        "Heavier and weaker than alloy steel for structural use"
+      ],
+      "notes": "Stainless shows up in antweights almost entirely as socket-head screws, shoulder bolts, and off-the-shelf shafting rather than as an engineered armor or weapon material.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-uhmwpe",
+      "type": "material",
+      "name": "UHMW-PE (Ultra-High Molecular Weight Polyethylene)",
+      "summary": "Extremely tough, low-friction thermoplastic that absorbs spinner impacts by deforming and stretching rather than cracking — a favorite ablative/energy-absorbing armor skin, especially over more brittle backing plates.",
+      "aliases": [
+        "UHMW",
+        "UHMWPE"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "armor",
+        "energy-absorption",
+        "ablative",
+        "spinner-defense"
+      ],
+      "specs": {
+        "density_g_cm3": 0.935,
+        "yield_strength_mpa": 21,
+        "tensile_strength_mpa": 40,
+        "hardness_shore_d": 63,
+        "elastic_modulus_gpa": 0.8,
+        "cost_per_kg_usd": 8,
+        "max_service_temp_c": 80,
+        "elongation_pct": 350
+      },
+      "category": "plastic-stock",
+      "use_cases": [
+        "ablative side/rear armor",
+        "wheel guards",
+        "wear strips",
+        "low-friction slide surfaces"
+      ],
+      "machinability": "Machines fine with sharp tooling but is notoriously hard to bond — very low surface energy defeats most glues/epoxies without special surface treatment (flame or plasma treatment, or mechanical fastening instead).",
+      "printable": false,
+      "pros": [
+        "Exceptional impact toughness — extremely long molecular chains let it absorb huge amounts of energy by plastic deformation rather than fracturing",
+        "Very low coefficient of friction — spinner/blade hits tend to glance off rather than bite",
+        "Self-lubricating and abrasion resistant",
+        "Cheap and easy to cut/machine"
+      ],
+      "cons": [
+        "Almost impossible to glue reliably — its slick, low-surface-energy surface rejects most adhesives, so mounting means screws/rivets or specially surface-treated bonding",
+        "Low stiffness (low modulus) — deflects a lot under load, not good as a stand-alone rigid structural member",
+        "Will not stop a solid direct hit from a heavyweight-class spinner; primarily suited to lighter classes and side/rear armor rather than a full frontal spinner faceplate",
+        "Creeps (slowly deforms) under sustained load"
+      ],
+      "notes": "UHMW's defining property is its molecular weight — chains so long they entangle and resist being pulled apart or fractured, so an impact's energy gets spent stretching and yielding polymer rather than propagating a crack. This makes it fundamentally different from a brittle plastic like acrylic or a stiff one like polycarbonate: instead of cracking or shattering, a UHMW panel dents, and often springs back. Common antweight thickness is 1/16\" to 1/8\" (1.6-3.2mm) as a side-armor skin or wheel-guard sleeve. The bonding problem is real enough that most builders mechanically fasten UHMW panels (screws through oversized/countersunk holes, or bolted-through-frame designs) rather than trying to glue them.",
+      "sources": [
+        "https://www.interstateplastics.com/combat-robotics-utilize-uhmw-to-shield-internal-systems-from-damage",
+        "https://www.robotfighting.org/robot-fighting-armor/",
+        "https://www.onlinemetals.com/en/combat-robotics-weapons-and-armor"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-hdpe",
+      "type": "material",
+      "name": "HDPE (High-Density Polyethylene)",
+      "summary": "Cheaper, stiffer cousin of UHMW with shorter molecular chains — decent impact resistance and very easy to machine, used for low-cost armor, spacers, and jigs.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "budget",
+        "armor",
+        "easy-machining"
+      ],
+      "specs": {
+        "density_g_cm3": 0.95,
+        "yield_strength_mpa": 26,
+        "tensile_strength_mpa": 30,
+        "hardness_shore_d": 65,
+        "elastic_modulus_gpa": 1.0,
+        "cost_per_kg_usd": 3,
+        "max_service_temp_c": 90,
+        "elongation_pct": 400
+      },
+      "category": "plastic-stock",
+      "use_cases": [
+        "budget armor panels",
+        "spacers",
+        "jigs/fixtures",
+        "wear strips"
+      ],
+      "machinability": "Very easy — machines cleanly, low melting point means moderate speeds/feeds to avoid melting/gumming on tools.",
+      "printable": false,
+      "pros": [
+        "Cheap and easy to source/machine",
+        "Tougher than acrylic/ABS, won't shatter",
+        "Good chemical/moisture resistance"
+      ],
+      "cons": [
+        "Noticeably less tough than UHMW (shorter polymer chains, lower impact absorption)",
+        "Low stiffness for a full rigid armor shell",
+        "Also hard to bond with typical adhesives, though slightly less notorious than UHMW"
+      ],
+      "notes": "HDPE is essentially a budget stand-in for UHMW where the extreme impact toughness of true UHMW isn't needed — good for practice bots, low-tier classes, or non-weapon-facing panels.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-polycarbonate-lexan",
+      "type": "material",
+      "name": "Polycarbonate (Lexan)",
+      "summary": "Amorphous engineering thermoplastic with very high impact strength in sheet form — strong and clear, but sharply notch-sensitive, meaning small scratches, drilled holes, or sharp inside corners can trigger sudden cracking that undoes its toughness.",
+      "aliases": [
+        "Lexan",
+        "PC sheet"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "armor",
+        "notch-sensitive",
+        "clear-plastic"
+      ],
+      "specs": {
+        "density_g_cm3": 1.2,
+        "yield_strength_mpa": 62,
+        "tensile_strength_mpa": 67,
+        "hardness_rockwell_m": 70,
+        "elastic_modulus_gpa": 2.35,
+        "cost_per_kg_usd": 7,
+        "max_service_temp_c": 120,
+        "elongation_pct": 110
+      },
+      "category": "plastic-stock",
+      "use_cases": [
+        "armor panels",
+        "clear viewing windows/covers",
+        "wedge skirts",
+        "lexan standoff shields"
+      ],
+      "machinability": "Machines and drills reasonably well but is sensitive to heat buildup (can melt/gum on the bit) and, critically, to stress concentration — drilled holes should be de-burred and never drilled undersized/forced; sharp internal corners in cut profiles should always be radiused.",
+      "printable": false,
+      "pros": [
+        "Very high unnotched impact strength — one of the toughest common clear/stock plastics",
+        "Good stiffness for a plastic",
+        "Reasonably priced and widely available in sheet form"
+      ],
+      "cons": [
+        "Severely notch-sensitive: a small nick, scratch, sharp corner, or an improperly drilled/tapped hole becomes a crack-initiation site that can propagate across the whole sheet under shock loading",
+        "As-extruded sheet carries internal stress that makes it more crack-prone until annealed",
+        "UV-sensitive over long term (yellows/embrittles) unless UV-stabilized grade",
+        "Scratches easily, and each scratch is a potential crack start"
+      ],
+      "notes": "Two practical rules dominate using PC/Lexan well in combat robots: (1) anneal cut/machined parts (slow oven bake, e.g. ~125-130°C for an hour then slow cool) to relieve internal machining/forming stresses before competition — this significantly reduces spontaneous stress-cracking; (2) drill holes with a step drill or by first center-drilling and using a sharp bit at low speed/high feed with the sheet well-supported, never punch or force a hole, and always chamfer/de-burr edges — every sharp inside corner (including a hole) is a stress concentrator and Lexan will crack starting exactly there under a hard hit even though the flat, unnotched material is extremely tough.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-delrin-acetal",
+      "type": "material",
+      "name": "Delrin (Acetal / POM)",
+      "summary": "Semi-crystalline engineering plastic (polyoxymethylene) known for low friction, good dimensional stability, and fatigue resistance — used for gears, bushings, and structural brackets rather than armor.",
+      "aliases": [
+        "Acetal",
+        "POM",
+        "Delrin"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "low-friction",
+        "gears",
+        "bushings",
+        "structural"
+      ],
+      "specs": {
+        "density_g_cm3": 1.41,
+        "yield_strength_mpa": 65,
+        "tensile_strength_mpa": 70,
+        "hardness_rockwell_m": 94,
+        "elastic_modulus_gpa": 2.9,
+        "cost_per_kg_usd": 8,
+        "max_service_temp_c": 90,
+        "elongation_pct": 40
+      },
+      "category": "plastic-stock",
+      "use_cases": [
+        "gears",
+        "bushings/bearings",
+        "structural standoffs",
+        "living-hinge-free snap features"
+      ],
+      "machinability": "Excellent — one of the easiest engineering plastics to machine, produces clean threads and tight tolerances, low friction against cutting tools.",
+      "printable": false,
+      "pros": [
+        "Low coefficient of friction — great for sliding/rotating parts without lubrication",
+        "Good fatigue and creep resistance",
+        "Machines to tight tolerances easily",
+        "Decent impact toughness"
+      ],
+      "cons": [
+        "Not a great armor plastic — machines nicely but isn't as impact-tough as UHMW or polycarbonate",
+        "Poor UV resistance long-term",
+        "Hard to bond (low surface energy, similar issue to UHMW/HDPE)"
+      ],
+      "notes": "Delrin's niche in combat robots is precision mechanical parts (gears, bushings, cam followers, servo linkages) rather than armor — its dimensional stability and low friction outweigh its middling impact toughness for those uses.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-nylon-66-stock",
+      "type": "material",
+      "name": "Nylon 6/6 (Stock Sheet/Rod)",
+      "summary": "Tough, abrasion-resistant engineering plastic, hygroscopic (absorbs moisture which affects properties) — used for gears, wear pads, and some structural brackets in stock sheet/rod form.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "nylon",
+        "gears",
+        "wear-resistant"
+      ],
+      "specs": {
+        "density_g_cm3": 1.14,
+        "yield_strength_mpa": 65,
+        "tensile_strength_mpa": 80,
+        "hardness_rockwell_r": 118,
+        "elastic_modulus_gpa": 3.0,
+        "cost_per_kg_usd": 6,
+        "max_service_temp_c": 100,
+        "elongation_pct": 60
+      },
+      "category": "plastic-stock",
+      "use_cases": [
+        "gears",
+        "wear pads",
+        "bushings",
+        "structural brackets"
+      ],
+      "machinability": "Machines well but can be gummy; moisture content changes machining behavior and final part dimensions (nylon swells as it absorbs ambient moisture).",
+      "printable": false,
+      "pros": [
+        "Very good abrasion/wear resistance",
+        "Tough — good impact resistance",
+        "Decently priced"
+      ],
+      "cons": [
+        "Hygroscopic — absorbs water from air, which changes dimensions and softens the part over time",
+        "Properties vary noticeably between dry-as-molded and moisture-equilibrated states"
+      ],
+      "notes": "Stock nylon sheet/rod is mostly used for wear components (skid pads, gears, low-friction bushings) in antweights rather than armor; 3D-printed nylon filament (see PA6/PA12 entry) is more commonly discussed for printed parts.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-ptfe",
+      "type": "material",
+      "name": "PTFE (Teflon)",
+      "summary": "Extremely low-friction, chemically inert fluoropolymer with poor mechanical strength — used narrowly for low-friction slip surfaces/bushings, essentially never for armor or structure.",
+      "aliases": [
+        "Teflon"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "low-friction",
+        "bushings",
+        "niche"
+      ],
+      "specs": {
+        "density_g_cm3": 2.18,
+        "yield_strength_mpa": 12,
+        "tensile_strength_mpa": 25,
+        "hardness_shore_d": 55,
+        "elastic_modulus_gpa": 0.5,
+        "cost_per_kg_usd": 20,
+        "max_service_temp_c": 260,
+        "elongation_pct": 300
+      },
+      "category": "plastic-stock",
+      "use_cases": [
+        "low-friction slip washers",
+        "wire insulation",
+        "non-stick slide surfaces"
+      ],
+      "machinability": "Machines easily but is soft/dimensionally unstable under cutting pressure (cold flow) — needs support and sharp tooling; virtually impossible to bond with adhesives.",
+      "printable": false,
+      "pros": [
+        "Lowest friction coefficient of common plastics",
+        "Extremely chemically inert and heat resistant",
+        "Self-lubricating"
+      ],
+      "cons": [
+        "Very low tensile/yield strength and stiffness — useless structurally or as armor",
+        "Cold-flows (creeps) under load",
+        "Expensive per kg for what little structural benefit it gives",
+        "Essentially unbondable"
+      ],
+      "notes": "PTFE's role in antweights is limited to friction-reduction (occasional slip washers or wire sleeving) rather than any structural or armor role — its mechanical weakness rules it out for anything load-bearing.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-abs-stock",
+      "type": "material",
+      "name": "ABS (Stock Sheet)",
+      "summary": "Acrylonitrile butadiene styrene sheet stock — moderate toughness and easy machinability, occasionally used for low-budget panels or jigs, though far more commonly encountered as 3D-print filament in this class.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "budget",
+        "armor",
+        "easy-machining"
+      ],
+      "specs": {
+        "density_g_cm3": 1.05,
+        "yield_strength_mpa": 40,
+        "tensile_strength_mpa": 40,
+        "hardness_rockwell_r": 105,
+        "elastic_modulus_gpa": 2.3,
+        "cost_per_kg_usd": 4,
+        "max_service_temp_c": 90,
+        "elongation_pct": 25
+      },
+      "category": "plastic-stock",
+      "use_cases": [
+        "budget panels",
+        "jigs/fixtures",
+        "non-critical brackets"
+      ],
+      "machinability": "Easy to machine, sand, and glue (acetone/solvent welds work well on ABS, unlike UHMW/HDPE/PTFE).",
+      "printable": false,
+      "pros": [
+        "Cheap",
+        "Solvent-weldable/gluable (acetone) unlike the polyolefins",
+        "Moderate impact toughness, better than acrylic"
+      ],
+      "cons": [
+        "Weaker/less impact-tough than polycarbonate or UHMW",
+        "UV-sensitive, degrades/embrittles outdoors over time"
+      ],
+      "notes": "Stock ABS sheet sees limited use in antweights since 3D-printed ABS/ASA filament fills a similar niche far more flexibly for one-off part shapes; stock sheet ABS mainly shows up in flat panels or jigs.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "material-acrylic",
+      "type": "material",
+      "name": "Acrylic (PMMA)",
+      "summary": "Cast or extruded polymethyl methacrylate — decent tensile strength and very stiff/scratch-resistant, but a well-known trap for combat robot armor because it is extremely brittle under impact loading despite looking strong on a datasheet.",
+      "aliases": [
+        "PMMA",
+        "Plexiglas"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "trap-material",
+        "brittle",
+        "budget"
+      ],
+      "specs": {
+        "density_g_cm3": 1.18,
+        "yield_strength_mpa": 70,
+        "tensile_strength_mpa": 72,
+        "hardness_rockwell_m": 92,
+        "elastic_modulus_gpa": 3.1,
+        "cost_per_kg_usd": 5,
+        "max_service_temp_c": 80,
+        "elongation_pct": 4
+      },
+      "category": "plastic-stock",
+      "use_cases": [
+        "display cases/covers (non-combat)",
+        "occasional low-stakes cosmetic panels"
+      ],
+      "machinability": "Machines cleanly and can be laser-cut easily, which is exactly why beginners reach for it — but laser-cut edges have micro-cracks that make impact fracture worse.",
+      "printable": false,
+      "pros": [
+        "Cheap, widely available, laser-cuttable",
+        "Good tensile strength and stiffness on paper",
+        "Scratch resistant, looks clean"
+      ],
+      "cons": [
+        "Extremely low elongation-to-break (~4%) — essentially zero ductility, so it cannot absorb impact energy by deforming",
+        "Shatters into sharp shards under a hard or even moderate impact — actively dangerous in an arena",
+        "Laser-cut edges (common hobbyist fabrication method) leave micro-fractures that make cracking under load even more likely",
+        "No meaningful notch or impact toughness"
+      ],
+      "notes": "Acrylic is the textbook \"the trap\" material in combat robotics: its datasheet tensile strength (~70 MPa) looks comparable to nylon or polycarbonate, which misleads beginners into using it as armor. But tensile strength measured in a slow pull test says almost nothing about impact toughness — acrylic has essentially no ability to yield plastically, so all impact energy goes straight into brittle crack propagation. A polycarbonate panel of the same thickness will flex and absorb a hit; an acrylic panel of the same thickness will crack and often explode into shards. Most build guides and forums explicitly warn new builders away from acrylic armor for exactly this reason — it is fine for a display stand or a non-combat cover, never for anything that will be hit.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-g10-fr4",
+      "type": "material",
+      "name": "G10 / FR4 Fiberglass Laminate",
+      "summary": "Woven fiberglass cloth impregnated with epoxy resin and compressed into rigid sheet — very stiff, hard, and abrasion resistant (notoriously tool-dulling to cut), used for rigid armor backers and structural plates.",
+      "aliases": [
+        "G10",
+        "FR4",
+        "garolite"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "composite",
+        "fiberglass",
+        "rigid-plate",
+        "tool-dulling"
+      ],
+      "specs": {
+        "density_g_cm3": 1.85,
+        "tensile_strength_mpa": 320,
+        "flexural_strength_mpa": 450,
+        "hardness_rockwell_m": 100,
+        "elastic_modulus_gpa": 20,
+        "cost_per_kg_usd": 18,
+        "max_service_temp_c": 140
+      },
+      "category": "composite",
+      "use_cases": [
+        "rigid armor backer plates",
+        "structural chassis plates",
+        "electrical insulator standoffs"
+      ],
+      "machinability": "Very hard on standard tooling — the glass fibers are extremely abrasive and dull HSS bits almost immediately; carbide tooling and dust extraction (glass dust is a respiratory hazard) are strongly recommended. Water-jet or laser cutting service is common instead of hand tooling.",
+      "printable": false,
+      "pros": [
+        "Very stiff and hard for its weight",
+        "Good electrical insulator (FR4 grade is the same material used for PCB substrates)",
+        "Dimensionally stable, doesn't creep like plastics",
+        "Reasonably tough — resists cracking better than acrylic or CF"
+      ],
+      "cons": [
+        "Extremely abrasive to cut/drill — chews through cheap bits fast",
+        "Glass dust from cutting/sanding is a health hazard, requires PPE/extraction",
+        "Heavier than an equivalent 3D-printed shell"
+      ],
+      "notes": "G10 is a popular internal frame/backer material behind a softer armor skin (UHMW or TPU) because it adds real stiffness without titanium's cost, at the price of being miserable to machine with hobby tools.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-carbon-fiber-plate",
+      "type": "material",
+      "name": "Carbon Fiber Plate (CF/Epoxy Laminate)",
+      "summary": "Woven or unidirectional carbon fiber cloth in an epoxy matrix, pressed into rigid sheet — extremely stiff and light, but catastrophically brittle: once its resin matrix cracks or fibers fail, it shatters/delaminates rather than deforming.",
+      "aliases": [
+        "CF plate",
+        "carbon fiber sheet"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "composite",
+        "carbon-fiber",
+        "stiff",
+        "brittle"
+      ],
+      "specs": {
+        "density_g_cm3": 1.55,
+        "tensile_strength_mpa": 600,
+        "elastic_modulus_gpa": 60,
+        "hardness_rockwell_m": 100,
+        "cost_per_kg_usd": 55,
+        "max_service_temp_c": 120
+      },
+      "category": "composite",
+      "use_cases": [
+        "stiff non-impact-facing structural plates",
+        "weapon support frames",
+        "lightweight top armor away from direct hits"
+      ],
+      "machinability": "Machines like G10 but worse — extremely abrasive to cutting edges, and machining releases fine conductive carbon dust that can damage electronics; carbide/diamond tooling and dust extraction required.",
+      "printable": false,
+      "pros": [
+        "Outstanding stiffness-to-weight ratio — among the lightest rigid plate options",
+        "Very light for its rigidity",
+        "Looks great and machines to tight tolerances with the right tooling"
+      ],
+      "cons": [
+        "Brittle: absorbs almost no energy plastically — a hard direct hit tends to shatter/delaminate the laminate rather than dent it",
+        "Conductive carbon dust/debris from a shattered plate can short out electronics nearby — a real secondary hazard in an arena hit",
+        "Expensive per kg",
+        "Poor choice as primary spinner-facing armor despite its popularity in hobbyist marketing"
+      ],
+      "notes": "Carbon fiber plate's stiffness comes from very strong, very stiff fibers bonded in a relatively brittle epoxy matrix; under a hard impact the resin cracks first, and once cracked the fibers delaminate from each other and lose their combined strength almost instantly, so the panel goes from \"very strong\" to \"structurally gone\" in a single hit rather than gradually denting. This is why experienced builders reserve CF plate for stiffening/structural roles that are not the primary impact face (e.g., a top deck or an internal support rib), rather than for a front bumper or spinner-facing armor panel where UHMW, titanium, or TPU handle impact far better.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-fiberglass-composite",
+      "type": "material",
+      "name": "Fiberglass Composite (GRP)",
+      "summary": "General fiberglass-reinforced-plastic laminate, similar in concept to G10 but often less densely woven/lower resin content — a middle ground between plain plastic sheet and full G10 in stiffness and cost.",
+      "aliases": [
+        "GRP",
+        "fiberglass laminate"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "composite",
+        "fiberglass",
+        "budget-composite"
+      ],
+      "specs": {
+        "density_g_cm3": 1.85,
+        "tensile_strength_mpa": 250,
+        "elastic_modulus_gpa": 18,
+        "cost_per_kg_usd": 12,
+        "max_service_temp_c": 120
+      },
+      "category": "composite",
+      "use_cases": [
+        "structural panels",
+        "budget composite armor backers"
+      ],
+      "machinability": "Abrasive to tools like G10 though sometimes slightly less densely packed; still needs carbide tooling and dust control.",
+      "printable": false,
+      "pros": [
+        "Good stiffness for cost, cheaper than G10/CF",
+        "Reasonably tough compared to pure resin or acrylic"
+      ],
+      "cons": [
+        "Still abrasive to cut",
+        "Less refined/consistent than name-brand G10 sheet stock",
+        "Heavier than a printed or aluminum equivalent"
+      ],
+      "notes": "Fiberglass composite panels function as a budget G10 substitute for builders who want composite stiffness without paying G10/FR4-grade pricing.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "material-pla-plaplus",
+      "type": "material",
+      "name": "PLA / PLA+",
+      "summary": "Polylactic acid — the default, dominant 3D-print material in plastic antweights. Often dismissed as \"brittle\" because of its low elongation-to-break, but its high stiffness, ease of printing at high infill/wall counts, low cost, and excellent layer adhesion make it the single most-used structural and armor material in the class.",
+      "aliases": [
+        "PLA",
+        "PLA+",
+        "Polylactic Acid"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "dominant-material",
+        "plastic-antweight-king",
+        "beginner-friendly"
+      ],
+      "specs": {
+        "density_g_cm3": 1.24,
+        "tensile_strength_mpa": 55,
+        "yield_strength_mpa": 50,
+        "elastic_modulus_gpa": 3.2,
+        "hardness_shore_d": 83,
+        "cost_per_kg_usd": 22,
+        "max_service_temp_c": 55,
+        "elongation_pct": 6
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "full printed chassis/shell",
+        "armor panels",
+        "weapon housings",
+        "internal structure"
+      ],
+      "machinability": "N/A (printed, not machined) — prints easily on any FDM printer with no enclosure or heated chamber needed; drills/taps acceptably post-print for light hardware.",
+      "printable": true,
+      "pros": [
+        "Cheapest and easiest filament to print well — minimal warping, no enclosure needed, tight dimensional accuracy",
+        "High stiffness for a printed plastic — resists flexing/deformation under load, holds shape under motor/servo mounting stress",
+        "Excellent inter-layer adhesion when printed correctly, so printed shells are less prone to delaminating on impact than people assume",
+        "Cheap enough to be genuinely disposable — reprinting a cracked shell overnight is trivial and nearly free",
+        "PLA+ blends add modest toughness/impact-resistance over standard PLA at a small cost premium"
+      ],
+      "cons": [
+        "Genuinely low elongation-to-break and impact toughness compared to nylon or TPU — a sharp, hard hit can crack or shatter a thin PLA wall",
+        "Low heat deflection temperature (~55-60°C) — can soften/warp in a hot car or near a hot motor/ESC",
+        "More brittle in cold conditions"
+      ],
+      "notes": "PLA dominates plastic-antweight construction for reasons beyond raw toughness numbers: it is the easiest material in existence to get a dimensionally accurate, well-adhered, high-infill part out of on a cheap printer with zero enclosure, it is inexpensive enough that builders print thick-walled, mostly-solid parts (60-100% infill) rather than thin shells, and a solid thick PLA part is often tougher in practice than a thin, high-elongation but weaker-walled alternative. Its low elongation is a real weakness against sustained flex, but a 1 lb spinner hit is usually a single, brief high-force event where PLA's stiffness (resisting deformation in the first place) matters more than its ductility. The community consensus is that PLA/PLA+ printed thick and reinforced with a rigid frame (or backed by a compliant material like TPU) beats most alternatives on a cost/performance/ease basis for plastic-antweight class, which is precisely why it remains the default choice even though on paper materials like nylon or ABS have better toughness metrics.",
+      "sources": [
+        "domain knowledge",
+        "https://formlabs.com/blog/strongest-3d-printing-materials/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-petg-filament",
+      "type": "material",
+      "name": "PETG Filament",
+      "summary": "Glycol-modified PET filament — tougher and more layer-adhesion-forgiving than PLA with better temperature resistance, at the cost of being stringier/harder to print cleanly and somewhat less stiff.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "tough",
+        "moderate-difficulty"
+      ],
+      "specs": {
+        "density_g_cm3": 1.27,
+        "tensile_strength_mpa": 50,
+        "yield_strength_mpa": 50,
+        "elastic_modulus_gpa": 2.1,
+        "hardness_shore_d": 78,
+        "cost_per_kg_usd": 22,
+        "max_service_temp_c": 75,
+        "elongation_pct": 20
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "armor panels needing more toughness than PLA",
+        "weapon housings",
+        "brackets/mounts"
+      ],
+      "machinability": "N/A (printed) — prints without an enclosure on most machines but strings more than PLA and needs careful retraction tuning; drills cleanly.",
+      "printable": true,
+      "pros": [
+        "More impact-tough/ductile than PLA — bends/deforms more before failing",
+        "Better layer adhesion under stress than ABS",
+        "Higher heat resistance than PLA (~75°C HDT)",
+        "Good chemical/moisture resistance"
+      ],
+      "cons": [
+        "Lower stiffness than PLA — parts flex more under load, which can be bad for precision-fit mechanisms",
+        "Stringier and gummier to print cleanly, especially at high speed",
+        "Can be harder to sand/finish than PLA"
+      ],
+      "notes": "PETG is the second most common plastic-antweight print material after PLA, generally chosen for parts that need more give (drivetrain mounts, less-rigid armor flaps) rather than maximum stiffness — it's the toughness/ease-of-printing compromise between brittle-but-stiff PLA and harder-to-print ABS/nylon.",
+      "sources": [
+        "https://sovol.eu/blogs/new/strength-of-materials-in-common-3d-printing-filaments-guide",
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-abs-asa-filament",
+      "type": "material",
+      "name": "ABS / ASA Filament",
+      "summary": "Acrylonitrile butadiene styrene and its UV-stable cousin ASA — tougher and more heat-resistant than PLA, but needs an enclosure/heated bed to avoid warping, and its layer bonds are a common weak point in impact.",
+      "aliases": [
+        "ABS",
+        "ASA"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "warp-prone",
+        "enclosure-needed"
+      ],
+      "specs": {
+        "density_g_cm3": 1.05,
+        "tensile_strength_mpa": 40,
+        "yield_strength_mpa": 40,
+        "elastic_modulus_gpa": 2.0,
+        "hardness_shore_d": 80,
+        "cost_per_kg_usd": 22,
+        "max_service_temp_c": 98,
+        "elongation_pct": 20
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "heat-tolerant housings (near motors/ESCs)",
+        "armor panels",
+        "outdoor/UV-exposed parts (ASA)"
+      ],
+      "machinability": "N/A (printed) — needs a heated bed and ideally an enclosure to prevent warping/cracking from uneven cooling; layer lines can be acetone-vapor-smoothed (ABS only) for a stronger, sealed surface.",
+      "printable": true,
+      "pros": [
+        "Higher heat deflection temperature than PLA/PETG — holds up near hot motors/ESCs",
+        "Tougher overall than PLA",
+        "ASA adds strong UV/weather resistance ABS lacks",
+        "Acetone vapor smoothing can seal and strengthen ABS layer lines"
+      ],
+      "cons": [
+        "Prone to warping/cracking without a heated bed and enclosure",
+        "Layer adhesion is more failure-prone than PLA if printed without proper temperature control — a common combat-robot weak point is a shell splitting along a layer line under impact",
+        "Fumes during printing (needs ventilation)"
+      ],
+      "notes": "ABS/ASA is chosen over PLA mainly for heat tolerance (parts mounted near a hot weapon motor or ESC) or UV/weather resistance (ASA), not generally for extra impact toughness — its main practical risk in combat use is inter-layer delamination if the enclosure/temperature setup wasn't dialed in, since ABS is more sensitive to print-cooling-induced weak layer bonds than PLA.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-nylon-pa-filament",
+      "type": "material",
+      "name": "Nylon Filament (PA6 / PA12 / PA-CF)",
+      "summary": "3D-printable nylon in unfilled (PA6/PA12) and carbon-fiber-reinforced (PA-CF) forms — outstanding toughness, abrasion resistance, and fatigue life, but hygroscopic and finicky to print, so less common as full armor shells than as gears, hinges, and reinforced structural parts.",
+      "aliases": [
+        "PA6",
+        "PA12",
+        "PA-CF",
+        "nylon filament"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "tough",
+        "hygroscopic",
+        "carbon-fiber-reinforced"
+      ],
+      "specs": {
+        "density_g_cm3": 1.1,
+        "tensile_strength_mpa": 65,
+        "elastic_modulus_gpa": 2.0,
+        "hardness_shore_d": 75,
+        "cost_per_kg_usd": 45,
+        "max_service_temp_c": 110,
+        "elongation_pct": 80
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "living hinges",
+        "gears",
+        "high-fatigue brackets",
+        "impact-tough armor panels (unfilled)",
+        "stiff low-flex frame parts (PA-CF)"
+      ],
+      "machinability": "N/A (printed) — must be dried before and often during printing (nylon is strongly hygroscopic and prints poorly/weakly if wet); needs a heated bed, often an enclosure, and a hardened nozzle for PA-CF grades.",
+      "printable": true,
+      "pros": [
+        "Best all-round toughness and abrasion resistance of common printables — high elongation-to-break (unfilled) means it flexes and absorbs energy rather than cracking",
+        "Excellent fatigue resistance — good for living hinges/latches that flex repeatedly",
+        "PA-CF variant adds major stiffness (tensile strength up to ~90-150 MPa depending on brand/fiber content) for structural parts that shouldn't flex"
+      ],
+      "cons": [
+        "Strongly hygroscopic — absorbs moisture from air within hours, which causes poor layer adhesion, stringing, and weaker parts unless printed from a dry-box/dryer",
+        "Warps significantly without a heated enclosure",
+        "PA-CF is markedly more brittle than unfilled nylon and very abrasive to nozzles — requires a hardened steel or ruby-tipped nozzle or the brass wears out fast",
+        "More expensive than PLA/PETG/ABS"
+      ],
+      "notes": "Unfilled nylon is arguably the toughest common filament for a part that needs to survive repeated flexing or shock without cracking (hinges, drivetrain mounts, weapon retention clips), but its moisture sensitivity and warping make it less popular than PLA for full armor shells in casual antweight builds — it shows up more in mechanisms than outer armor. PA-CF trades away some of that ductility for stiffness and is used more like a lightweight aluminum substitute for frame rails than as an impact-absorbing armor skin.",
+      "sources": [
+        "https://formlabs.com/blog/strongest-3d-printing-materials/",
+        "https://sovol.eu/blogs/new/strength-of-materials-in-common-3d-printing-filaments-guide"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-pc-filament",
+      "type": "material",
+      "name": "Polycarbonate (PC) Filament",
+      "summary": "High-strength, high-temperature 3D print filament — strongest common FDM engineering filament by some tensile/impact metrics, but demanding to print (very high temperatures, enclosure required) and less commonly used than PETG/nylon in casual antweight builds.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "high-strength",
+        "high-temp",
+        "advanced-printing"
+      ],
+      "specs": {
+        "density_g_cm3": 1.2,
+        "tensile_strength_mpa": 60,
+        "elastic_modulus_gpa": 2.2,
+        "hardness_shore_d": 80,
+        "cost_per_kg_usd": 40,
+        "max_service_temp_c": 125,
+        "elongation_pct": 25
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "high-strength structural parts",
+        "heat-exposed housings",
+        "premium armor panels"
+      ],
+      "machinability": "N/A (printed) — needs nozzle temps around 260-310°C, a heated bed near 100-120°C, and typically a fully enclosed heated chamber to print without warping/cracking; drills post-print similarly to acrylic/cast PC sheet.",
+      "printable": true,
+      "pros": [
+        "High strength and heat resistance among printables",
+        "Good impact toughness when printed well",
+        "Can approach injection-molded PC sheet toughness with well-tuned settings"
+      ],
+      "cons": [
+        "Difficult to print — needs a high-temp hotend, heated enclosure, and dry filament (also somewhat hygroscopic)",
+        "More expensive than PLA/PETG/ABS",
+        "Overkill/impractical for many antweight budgets given the printer requirements"
+      ],
+      "notes": "PC filament is a premium, higher-effort option mostly used by builders with enclosed high-temp printers chasing maximum structural strength — it's less common in the plastic-antweight scene than PLA/PETG/ABS simply because the printer requirements exclude a lot of hobby-grade machines.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "material-pp-filament",
+      "type": "material",
+      "name": "Polypropylene (PP) Filament",
+      "summary": "Very lightweight, chemically resistant, and extremely fatigue-resistant filament with a natural living-hinge quality — poor bed adhesion makes it hard to print, so it's used narrowly for flexible tabs/latches/hinges rather than armor.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "living-hinge",
+        "lightweight",
+        "hard-to-print"
+      ],
+      "specs": {
+        "density_g_cm3": 0.9,
+        "tensile_strength_mpa": 32,
+        "elastic_modulus_gpa": 1.4,
+        "hardness_shore_d": 68,
+        "cost_per_kg_usd": 30,
+        "max_service_temp_c": 100,
+        "elongation_pct": 150
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "living hinges",
+        "snap-fit latches",
+        "lightweight non-armor components"
+      ],
+      "machinability": "N/A (printed) — notoriously poor first-layer adhesion (nothing sticks to it well, including itself in some cases); typically needs PP-specific bed surface/tape and careful bed leveling.",
+      "printable": true,
+      "pros": [
+        "Lowest density of common printables — genuinely useful for a 1 lb weight budget",
+        "Outstanding fatigue life — can flex thousands of cycles as a living hinge without cracking",
+        "Excellent chemical resistance"
+      ],
+      "cons": [
+        "Warps and lifts off the bed badly without specific surface prep",
+        "Low stiffness/strength versus PLA or nylon",
+        "Rarely used for load-bearing armor because of poor print reliability and low rigidity"
+      ],
+      "notes": "PP shows up in antweights almost exclusively as small flexible features — snap-fit battery doors, living-hinge latches, flexible tabs — leveraging its fatigue resistance rather than as a structural or armor material.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "material-tpu-95a",
+      "type": "material",
+      "name": "TPU 95A (Rigid-Flex Thermoplastic Polyurethane)",
+      "summary": "The stiffest common Shore-A TPU grade, and arguably the single most important material development for plastic-antweight armor: a flexible, elastic skin that deforms under a spinner hit and springs back rather than transmitting or absorbing the blow as fracture damage.",
+      "aliases": [
+        "TPU95",
+        "95A TPU"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "tpu",
+        "flexible-armor",
+        "plastic-antweight-critical",
+        "energy-absorption"
+      ],
+      "specs": {
+        "density_g_cm3": 1.21,
+        "tensile_strength_mpa": 40,
+        "elongation_pct": 500,
+        "hardness_shore_a": 95,
+        "elastic_modulus_gpa": 0.05,
+        "cost_per_kg_usd": 28,
+        "max_service_temp_c": 90
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "outer flexible armor shell",
+        "wedge skirts",
+        "wheel guards",
+        "bumper skins over a rigid frame"
+      ],
+      "machinability": "N/A (printed) — needs slower print speeds than rigid filaments and benefits from direct-drive extruders (Bowden setups can under-extrude/skip on soft filament), but is otherwise one of the more forgiving flexible filaments to print at 95A.",
+      "printable": true,
+      "pros": [
+        "Absorbs and dissipates spinner/impact energy through large elastic deformation instead of transmitting shock into the rigid chassis or cracking",
+        "Extremely high elongation-to-break (400-500%+) — essentially un-crackable in normal combat impacts",
+        "Springs back to shape after a hit, so a single fight rarely destroys it the way a cracked rigid shell would",
+        "Stiffer/more print-friendly than softer 85A TPU while still very compliant compared to any rigid plastic"
+      ],
+      "cons": [
+        "Low absolute strength/stiffness — cannot be the sole structural member, needs a rigid frame underneath",
+        "Prints slower than rigid filaments and needs tuned retraction/speed settings",
+        "More expensive per kg than PLA/PETG"
+      ],
+      "notes": "TPU95 armor works on a completely different principle than rigid armor: rather than resisting deformation (titanium, PLA) or absorbing energy through toughness before failing (UHMW, nylon), a TPU shell simply gets out of the way — a spinner tooth or hammer face compresses/stretches the rubber-like material, spreading the impact over a larger area and longer time, and the material relaxes back to shape afterward. This means a TPU-armored plastic antweight can often take many hits to the same panel without cumulative damage, unlike a rigid shell that accumulates cracks. The tradeoff is that TPU alone provides essentially no structural rigidity or drivetrain-mount strength, so practical builds use it as an outer skin (a \"suit\" wrapped around or over-molded/printed onto) a rigid PLA/PETG/nylon or metal frame that does the structural work while the TPU layer does the impact-absorbing work. This flexible-armor-over-rigid-frame approach is widely considered the state of the art for plastic-antweight armor as of the mid-2020s.",
+      "sources": [
+        "https://polymaker.com/tpu95-elastic-outwear-leading-a-new-trend-in-robot-combat/",
+        "https://www.fabbaloo.com/news/tpu-filament-hardness-explained-what-shore-a-and-shore-d-measurements-mean",
+        "https://siraya.tech/blogs/news/tpu-shore-hardness",
+        "https://spoolhound.com/tpu-hardness-guide"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-tpu-85a",
+      "type": "material",
+      "name": "TPU 85A (Soft Thermoplastic Polyurethane)",
+      "summary": "Softer, more compliant Shore-A TPU grade than 95A — absorbs impact even more readily by deforming further, at the cost of being harder to print (needs direct-drive, slow speeds) and offering less rebound stiffness.",
+      "aliases": [
+        "TPU85",
+        "85A TPU"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "tpu",
+        "flexible-armor",
+        "soft"
+      ],
+      "specs": {
+        "density_g_cm3": 1.2,
+        "tensile_strength_mpa": 30,
+        "elongation_pct": 550,
+        "hardness_shore_a": 85,
+        "elastic_modulus_gpa": 0.02,
+        "cost_per_kg_usd": 28,
+        "max_service_temp_c": 85
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "maximum-compliance armor skins",
+        "bumper padding",
+        "vibration-isolating parts"
+      ],
+      "machinability": "N/A (printed) — the softer durometer feeds poorly through Bowden extruders and often needs direct-drive, slower speeds, and sometimes a larger nozzle to print reliably without jamming/buckling in the feed path.",
+      "printable": true,
+      "pros": [
+        "Even better energy absorption/compliance than 95A — compresses more readily under impact",
+        "Very high elongation-to-break, essentially immune to cracking"
+      ],
+      "cons": [
+        "Harder to print reliably than 95A — needs direct drive and careful tuning",
+        "Softer means less rebound/structural contribution — purely a compliant skin, cannot contribute any rigidity",
+        "Can feel \"mushy\"/under-supported if used over too thin a rigid backer"
+      ],
+      "notes": "85A is chosen over 95A when a builder wants maximum shock absorption (e.g., a very exposed leading edge) and is willing to accept the harder print process; it's less popular than 95A specifically because many hobby printers with Bowden extruders struggle to feed it consistently.",
+      "sources": [
+        "https://siraya.tech/blogs/news/tpu-shore-hardness",
+        "https://spoolhound.com/tpu-hardness-guide"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-tpu-60d",
+      "type": "material",
+      "name": "TPU 60D (Rigid Thermoplastic Polyurethane)",
+      "summary": "The stiffest common TPU grade, rated on the Shore D scale (roughly equivalent to a very firm ~95-98A) — bridges the gap between fully rigid filaments and soft Shore-A TPUs, giving some compliance while still holding structural shape.",
+      "aliases": [
+        "TPU60D",
+        "60D TPU"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "tpu",
+        "semi-rigid",
+        "hybrid-armor"
+      ],
+      "specs": {
+        "density_g_cm3": 1.21,
+        "tensile_strength_mpa": 45,
+        "elongation_pct": 300,
+        "hardness_shore_d": 60,
+        "elastic_modulus_gpa": 0.35,
+        "cost_per_kg_usd": 32,
+        "max_service_temp_c": 100
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "semi-rigid wedge skirts",
+        "hinges needing durability",
+        "structural parts wanting some give"
+      ],
+      "machinability": "N/A (printed) — prints more like a stiff rubber than a true rigid plastic; generally easier to feed than 85A/95A because of its firmness, closer in print behavior to PETG in terms of flow but still benefits from moderate speeds.",
+      "printable": true,
+      "pros": [
+        "Retains some structural rigidity while still flexing under sharp impacts instead of cracking",
+        "Easier to use in load-bearing-adjacent parts than softer TPUs",
+        "Good middle ground for parts that need both durability and some shape retention"
+      ],
+      "cons": [
+        "Absorbs less impact energy than 85A/95A because it deforms less",
+        "Still far more flexible than PLA/PETG/nylon — not a substitute for a rigid frame",
+        "Less commonly stocked than 95A, so pricier/harder to source in some regions"
+      ],
+      "notes": "TPU60D is the choice when a builder wants a part that behaves mostly like a tough rigid plastic but shouldn't shatter under a glancing hit — wedge skirts and hinge components that see both structural load and impact are the classic use case.",
+      "sources": [
+        "https://spoolhound.com/tpu-hardness-guide",
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-cf-gf-filament",
+      "type": "material",
+      "name": "Carbon/Glass-Fiber-Filled Filament (PLA-CF, PETG-CF, generic)",
+      "summary": "Chopped carbon or glass fiber blended into a base filament (PLA, PETG, nylon) to dramatically increase stiffness — parts print much more rigid and dimensionally stable, but the fibers make the material more brittle in impact and are highly abrasive to standard brass nozzles.",
+      "aliases": [
+        "PLA-CF",
+        "PETG-CF",
+        "carbon-filled filament",
+        "glass-filled filament"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "carbon-fiber",
+        "stiff",
+        "brittle",
+        "nozzle-abrasive"
+      ],
+      "specs": {
+        "density_g_cm3": 1.2,
+        "tensile_strength_mpa": 60,
+        "elastic_modulus_gpa": 6.0,
+        "hardness_shore_d": 82,
+        "cost_per_kg_usd": 42,
+        "max_service_temp_c": 90,
+        "elongation_pct": 3
+      },
+      "category": "plastic-printed",
+      "use_cases": [
+        "stiff frame rails/spines",
+        "low-flex structural plates",
+        "weapon support arms away from direct impact"
+      ],
+      "machinability": "N/A (printed) — requires a hardened steel or ruby-tipped nozzle; the chopped fibers abrade a standard brass nozzle's orifice within a few hundred grams of printing, widening it and ruining dimensional accuracy.",
+      "printable": true,
+      "pros": [
+        "Stiffness increase of roughly 200-500% over the base unfilled polymer, per print-orientation-dependent testing — dramatically reduces flex/sag in long unsupported spans",
+        "Better dimensional stability/less warping than some unfilled bases",
+        "Looks and machines (post-print, lightly) nicely"
+      ],
+      "cons": [
+        "Fibers act as crack-initiation sites under impact — CF-filled parts are noticeably more brittle than their unfilled base polymer despite being stiffer; a hard direct hit is more likely to shatter/crack a CF part than deform it",
+        "Very abrasive to nozzles — ruins a standard brass nozzle quickly, mandatory hardened/ruby nozzle adds cost and complexity",
+        "Tensile strength gains are modest and orientation-dependent (often only 20-100% over base polymer in-plane) even though stiffness gains are large — builders sometimes overestimate real-world strength gain from the stiffness numbers alone",
+        "More expensive than unfilled base filament"
+      ],
+      "notes": "The core engineering tradeoff with any short-fiber-filled filament is stiffness vs. toughness: the chopped fibers carry load very efficiently along their length (hence the big jump in elastic modulus), but each fiber end embedded in the matrix is a stress concentrator, and the fiber-matrix interface is a weak plane for crack propagation, so the composite as a whole loses ductility relative to the pure polymer. In a combat robot this means CF/GF-filled filament is excellent for parts that need to resist bending or sagging under steady load (long weapon-motor mount arms, frame spines) but a poor choice for a direct impact face, where the base unfilled polymer (or a compliant TPU skin) will usually survive a hit better than the \"stronger-sounding\" fiber-filled version.",
+      "sources": [
+        "https://formlabs.com/blog/strongest-3d-printing-materials/",
+        "https://filamentspecs.com/cf-pla-vs-cf-petg/",
+        "https://sigmafilament.com/what-carbon-fiber-changes-in-pla-petg/",
+        "https://qidi3d.com/blogs/news/3d-printing-carbon-fiber-filament-guide"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-silicone-rubber",
+      "type": "material",
+      "name": "Silicone Rubber",
+      "summary": "Soft, wide-temperature-range elastomer used for vibration-isolating mounts, grommets, and wire management rather than armor — deliberately compliant to protect fragile electronics from shock.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "elastomer",
+        "vibration-isolation",
+        "compliance",
+        "electronics-protection"
+      ],
+      "specs": {
+        "density_g_cm3": 1.15,
+        "tensile_strength_mpa": 7,
+        "hardness_shore_a": 50,
+        "elastic_modulus_gpa": 0.005,
+        "cost_per_kg_usd": 20,
+        "max_service_temp_c": 220
+      },
+      "category": "elastomer",
+      "use_cases": [
+        "receiver/ESC vibration mounts",
+        "wire grommets",
+        "feet/bumpers (non-structural)"
+      ],
+      "machinability": "Not machined — molded or cut from sheet stock with a blade/punch; bonds poorly to most things without silicone-specific adhesive.",
+      "printable": false,
+      "pros": [
+        "Extremely wide service temperature range",
+        "Very compliant — excellent vibration/shock isolation for electronics",
+        "Chemically stable, doesn't degrade quickly"
+      ],
+      "cons": [
+        "Low tensile/tear strength — not structural",
+        "Can be expensive per kg for what little material is typically used",
+        "Poor abrasion resistance versus polyurethane"
+      ],
+      "notes": "Silicone's role in antweights is protecting sensitive components (receivers, flight controllers, battery leads) from the sharp mechanical shock of a weapon impact transmitted through the chassis — a small silicone grommet or standoff pad under a receiver is deliberate, engineered compliance, not an oversight.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-polyurethane-elastomer",
+      "type": "material",
+      "name": "Cast Polyurethane Elastomer",
+      "summary": "Cast or machined polyurethane rubber in a range of durometers — tougher and more abrasion/tear resistant than silicone, used for shock-absorbing bumpers, wheel tires, and flexible wedge lips.",
+      "aliases": [
+        "PU rubber",
+        "urethane"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "elastomer",
+        "shock-absorption",
+        "wheels",
+        "compliance"
+      ],
+      "specs": {
+        "density_g_cm3": 1.15,
+        "tensile_strength_mpa": 30,
+        "hardness_shore_a": 80,
+        "elastic_modulus_gpa": 0.02,
+        "cost_per_kg_usd": 14,
+        "max_service_temp_c": 90
+      },
+      "category": "elastomer",
+      "use_cases": [
+        "drive wheel tires",
+        "flexible wedge lips",
+        "shock-absorbing bumpers",
+        "impact dampers"
+      ],
+      "machinability": "Not conventionally machined — cast to shape or cut from stock; can be sanded/trimmed with care.",
+      "printable": false,
+      "pros": [
+        "Much better abrasion and tear resistance than silicone at similar softness",
+        "Wide range of durometers available to tune grip vs durability",
+        "Good rebound/energy return for wheels"
+      ],
+      "cons": [
+        "Lower heat tolerance than silicone",
+        "Not structural — purely a compliant/grip material"
+      ],
+      "notes": "Polyurethane's durometer selection is a real engineering choice: softer PU wheel tires give more traction but wear faster and can deform under a weapon motor's torque, while harder PU gives more durability at some traction cost — the same softness-vs-durability tradeoff applies to PU wedge lips and bumper pads used for deliberate compliance against weapon impacts.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-foam-padding",
+      "type": "material",
+      "name": "Foam Padding (EVA / Closed-Cell PU Foam)",
+      "summary": "Lightweight closed-cell foam used as internal padding around batteries, receivers, and PCBs — deliberately compliant, sacrificial cushioning that prevents shock-induced solder joint failure or battery puncture without adding meaningful weight.",
+      "aliases": [
+        "EVA foam",
+        "closed-cell foam"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "elastomer",
+        "foam",
+        "internal-padding",
+        "shock-protection"
+      ],
+      "specs": {
+        "density_g_cm3": 0.15,
+        "compressive_strength_mpa": 0.3,
+        "hardness_shore_00": 55,
+        "cost_per_kg_usd": 10,
+        "max_service_temp_c": 80
+      },
+      "category": "elastomer",
+      "use_cases": [
+        "battery padding",
+        "receiver/PCB cushioning",
+        "internal shock damping"
+      ],
+      "machinability": "Cut with a blade or hot wire; not machined conventionally.",
+      "printable": false,
+      "pros": [
+        "Extremely lightweight — negligible weight-budget cost",
+        "Cheap and easy to cut/fit into odd internal cavities",
+        "Effective at damping high-frequency shock transmitted into electronics"
+      ],
+      "cons": [
+        "Not structural in any sense",
+        "Can compress permanently over many hits and lose cushioning effectiveness",
+        "Flammable — keep away from LiPo failure sites"
+      ],
+      "notes": "A few grams of foam wrapped around a battery or wedged behind a flight controller is a deliberate design choice: rigid mounting transmits shock impulses directly into solder joints and battery cells, which is a common cause of in-match electrical failure even when the armor itself survives a hit; foam sacrifices a little internal volume to break that direct shock path.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-rubber-mounts",
+      "type": "material",
+      "name": "Rubber Grommets / Standoff Mounts",
+      "summary": "Small rubber (neoprene/nitrile) grommets and standoffs used to isolate PCBs (receivers, ESCs, flight controllers) from a rigid chassis — a deliberate-compliance countermeasure against shock-induced component failure.",
+      "aliases": [
+        "rubber grommets",
+        "vibration mounts"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "elastomer",
+        "compliance",
+        "electronics-mounting"
+      ],
+      "specs": {
+        "density_g_cm3": 1.3,
+        "tensile_strength_mpa": 10,
+        "hardness_shore_a": 60,
+        "cost_per_kg_usd": 12,
+        "max_service_temp_c": 110
+      },
+      "category": "elastomer",
+      "use_cases": [
+        "receiver standoffs",
+        "ESC isolation mounts",
+        "flight controller grommets"
+      ],
+      "machinability": "Not machined — bought as pre-formed grommets/standoffs or cut from sheet.",
+      "printable": false,
+      "pros": [
+        "Cheap, off-the-shelf, easy to install",
+        "Effective, simple shock isolation for small PCBs",
+        "Wide range of durometers/sizes commercially available"
+      ],
+      "cons": [
+        "Adds a small amount of assembly complexity/weight versus rigid standoffs",
+        "Can degrade/harden over time with heat or age"
+      ],
+      "notes": "Rigid metal standoffs transmit chassis-borne shock directly into a PCB's solder joints and connector pins; swapping to a rubber-grommeted standoff at the same mounting points is one of the cheapest, lowest-weight reliability upgrades available in an antweight, trading a fraction of a gram of rigidity for a large reduction in electronics failure rate after hard hits.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-weight-per-area-table",
+      "title": "Material Weight-Per-Area Table for 1 lb Budgeting",
+      "section": "Weight Budgeting",
+      "body_md": "One of the most useful numbers when designing a 1 lb (453.6g) antweight is grams-per-square-inch at a given thickness, since armor and chassis panels are usually sized by area, not just volume. Weight per square inch scales linearly with thickness and density: `weight_g = density_g_cm3 x area_in2 x 6.4516 x thickness_mm / 10`.\n\n**Grams per square inch (1 in²) at common thicknesses:**\n\n| Material | Density (g/cm³) | 0.5mm | 0.8mm | 1.0mm | 1.5mm | 2.0mm | 3.0mm |\n|---|---|---|---|---|---|---|---|\n| Titanium Grade 5 | 4.43 | 1.43 | 2.29 | 2.86 | 4.29 | 5.72 | 8.58 |\n| 7075-T6 Aluminum | 2.81 | 0.91 | 1.45 | 1.81 | 2.72 | 3.63 | 5.44 |\n| 6061-T6 Aluminum | 2.70 | 0.87 | 1.39 | 1.74 | 2.61 | 3.48 | 5.22 |\n| Mild/tool steel (~7.85) | 7.85 | 2.53 | 4.05 | 5.06 | 7.59 | 10.12 | 15.18 |\n| AR500 steel | 7.85 | 2.53 | 4.05 | 5.06 | 7.59 | 10.12 | 15.18 |\n| UHMW-PE | 0.935 | 0.30 | 0.48 | 0.60 | 0.90 | 1.21 | 1.81 |\n| Polycarbonate | 1.20 | 0.39 | 0.62 | 0.77 | 1.16 | 1.55 | 2.32 |\n| G10/FR4 | 1.85 | 0.60 | 0.95 | 1.19 | 1.79 | 2.39 | 3.58 |\n| Carbon fiber plate | 1.55 | 0.50 | 0.80 | 1.00 | 1.50 | 2.00 | 3.00 |\n| PLA (printed, 100% infill) | 1.24 | 0.40 | 0.64 | 0.80 | 1.20 | 1.60 | 2.40 |\n| TPU 95A | 1.21 | 0.39 | 0.62 | 0.78 | 1.17 | 1.56 | 2.34 |\n\n**How to use this table:** a 1 lb bot has roughly 400-420g left after drive/weapon/electronics for structure and armor (often much less — many antweights spend 150-250g on armor+frame combined). A titanium shell at 0.8mm covering ~40 in² of surface area (a small boxy antweight) costs roughly 40 x 2.29 = ~92g — a serious chunk of the budget, which is exactly why most titanium antweights use titanium only on the highest-risk faces (front/top) and cheaper/lighter materials (printed plastic, thin aluminum) elsewhere. The same 40 in² in 1mm PLA costs only ~32g, which is why plastic-antweight builders can afford much thicker walls (2-4mm) for the same weight a metal antweight spends on a thin titanium skin — printed plastic buys wall thickness (and therefore some stiffness and impact resistance) that a metal build cannot afford at the same weight.\n\nNote that \"100% infill PLA\" is a simplification — most printed antweight parts use lower infill (20-60%) with multiple perimeter walls for a good strength-to-weight compromise, so actual printed-part weight per square inch is often 40-70% of the solid-material number above depending on infill/wall settings.",
+      "entity_refs": [
+        "material-titanium-grade5",
+        "material-al-7075-t6",
+        "material-al-6061-t6",
+        "material-ar500-steel",
+        "material-uhmwpe",
+        "material-polycarbonate-lexan",
+        "material-g10-fr4",
+        "material-carbon-fiber-plate",
+        "material-pla-plaplus",
+        "material-tpu-95a"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weight-budgeting",
+        "table",
+        "armor-thickness",
+        "reference"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-best-armor-material-per-budget",
+      "title": "Best Armor Material Per Budget",
+      "section": "Comparative Selection",
+      "body_md": "Armor material choice in 1 lb combat robots is almost always a three-way negotiation between weight budget, dollar budget, and the opponent field you expect to face. There is no single best answer, but the tiers below reflect how the community generally allocates spend.\n\n**Unlimited-ish budget (metal antweight, ~$50-150 spent on armor alone):** Titanium Grade 5, 0.8-1.5mm. Best strength-to-weight available; the limiting factor becomes your wallet and your ability to cut/drill it cleanly, not the material's performance. A well-designed titanium-shelled antweight is close to the practical ceiling for that weight class.\n\n**Mid budget (~$20-50):** AR400/AR500 steel wear plates on high-risk edges only (not a full shell — too heavy), or 1095 spring steel flexible skirts, combined with an aluminum (6061/7075) or G10 frame. This gets you real armor performance at a fraction of titanium's cost, accepting a weight penalty that has to come out of drive/weapon budget elsewhere.\n\n**Budget/plastic-antweight (~$0-20, often just filament already owned):** thick-walled PLA/PLA+ shell (2-4mm walls, 40-60% infill) is the default and, per the community consensus, performs surprisingly well for its cost because it can be printed so much thicker than a metal budget allows. Layering a TPU 95A skin over a PLA or PETG structural shell is widely considered the current best plastic-antweight armor system — it costs barely more than PLA alone (roughly $25-30/kg for either) but adds genuine impact compliance that a rigid-only plastic shell cannot match.\n\n**The universal budget upgrade:** regardless of tier, spending a few dollars on TPU 95A as an outer skin or edge-wrap over whatever rigid material you're using (titanium, aluminum, PLA) is one of the highest value-per-dollar armor upgrades in the class, because it adds impact compliance without meaningfully changing the rigid structure underneath.\n\n**What to avoid at any budget:** acrylic and stock ABS sheet as a primary armor face — both are cheap but a false economy, since they crack/shatter rather than absorb impact, meaning a \"budget\" acrylic shell often performs worse than free scrap cardboard would in terms of actually protecting the internals (though obviously nobody should use cardboard either). Spend the same few dollars on PETG or PLA instead and get a materially tougher result for the same cost.",
+      "entity_refs": [
+        "material-titanium-grade5",
+        "material-ar400-steel",
+        "material-ar500-steel",
+        "material-1095-spring-steel",
+        "material-pla-plaplus",
+        "material-tpu-95a",
+        "material-acrylic",
+        "material-abs-stock"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "budget",
+        "armor-selection",
+        "comparison"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-what-survives-vertical-spinner-hit",
+      "title": "What Survives a 1 lb Vertical Spinner Hit",
+      "section": "Impact Survival",
+      "body_md": "A 1 lb vertical spinner (bar or disc, typically 20,000-35,000 RPM tip speed weapons) delivers a very short-duration, very high peak-force impact concentrated on a small contact area — a fundamentally different loading condition from a slow bend test, which is why datasheet tensile strength alone is a poor predictor of what survives.\n\n**Materials that generally survive a solid hit:**\n- **Titanium Grade 5, 0.8mm+**: dents or, at worst, develops a crack line, but rarely fails catastrophically on a single hit. Repeated hits to the same spot are its real weakness.\n- **UHMW-PE, 3mm+**: absorbs the blow by local plastic deformation; a spinner tooth may gouge a groove but the panel stays intact and often the blade glances off due to UHMW's low friction rather than biting in.\n- **TPU 95A/85A skins**: the panel deforms elastically around the impact and springs back; there's essentially nothing for the spinner to \"catch\" and shatter.\n- **Thick PLA/PETG (2.5mm+, high infill) backed by a rigid frame**: survives a moderate glancing hit reasonably well; a direct, square hit from a fast disc can still crack it, especially near a screw hole or sharp corner (stress concentrators).\n- **Nylon/PA6 printed parts**: high elongation-to-break lets them flex significantly before cracking, good for hinge/mount areas near the impact zone.\n\n**Materials that generally fail catastrophically on a solid hit:**\n- **Acrylic**: shatters into shards at almost any thickness — near-zero elongation-to-break.\n- **Carbon fiber plate**: the resin matrix cracks and the laminate delaminates; goes from fully intact to structurally void in one hit.\n- **Tungsten carbide (unsupported)**: chips/shears; fine as a small brazed insert on a tough steel body, catastrophic as a standalone plate.\n- **Thin (sub-1mm) aluminum**: dents or punches through outright since aluminum lacks both titanium's strength and UHMW's elasticity.\n- **D2 or fully hardened tool steel edges**: chip rather than deform when hit by an equally hard opponent.\n\n**The practical pattern:** materials that survive share either (a) high strength combined with enough ductility to deform locally instead of cracking (titanium, nylon), or (b) low stiffness with very high elongation so they simply move out of the way of the blow and spring back (UHMW, TPU). Materials that fail share either brittleness (acrylic, CF, carbide, hardened tool steel) or simply insufficient strength for their thickness (thin aluminum). This is also why composite armor schemes — a TPU or UHMW outer skin over a rigid PLA/aluminum/titanium structural layer — are popular: the outer layer absorbs/deflects the initial impact energy while the inner layer maintains overall shape and mounting rigidity.",
+      "entity_refs": [
+        "material-titanium-grade5",
+        "material-uhmwpe",
+        "material-tpu-95a",
+        "material-tpu-85a",
+        "material-pla-plaplus",
+        "material-nylon-pa-filament",
+        "material-acrylic",
+        "material-carbon-fiber-plate",
+        "material-tungsten-carbide",
+        "material-d2-tool-steel"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "spinner",
+        "impact-survival",
+        "comparison"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-titanium-vs-uhmw-vs-tpu-armor",
+      "title": "Titanium vs UHMW vs TPU Armor",
+      "section": "Comparative Selection",
+      "body_md": "These three materials represent three fundamentally different philosophies for surviving a weapon hit, and understanding the mechanism behind each explains when to pick which.\n\n**Titanium (resist-and-hold):** Ti-6Al-4V is chosen because it is strong enough, at a thin gauge, to simply not deform much under most antweight-class hits — it resists the load elastically up to a high stress before yielding. This keeps the robot's shape and mounting geometry intact hit after hit, which matters for a robot with tight internal tolerances (wedges, self-righting mechanisms). The cost is that once it does exceed its strength (a very hard hit, or fatigue from many repeated hits in the same spot), it fails somewhat abruptly by cracking, since it has less ductility than steel. It is also the most expensive and hardest-to-machine of the three by a wide margin.\n\n**UHMW-PE (absorb-and-glance):** UHMW works by a completely different mechanism — very long polymer chains let it deform plastically over a large volume, soaking up impact energy as internal molecular rearrangement rather than storing it as elastic stress. Combined with its low surface friction, a spinner blade tends to skid/glance off a UHMW surface rather than digging in and transferring maximum force. It is cheap and easy to cut, but its low stiffness means it needs a rigid backing for anything that has to hold its shape (a wedge angle, a mounting face), and it is genuinely difficult to bond, usually requiring mechanical fasteners.\n\n**TPU 95A (deflect-and-spring-back):** TPU takes the \"get out of the way\" strategy furthest — as an elastomer, it deforms elastically by a huge percentage (400-500%+ elongation) and returns almost fully to its original shape after the load is removed, unlike UHMW's more permanent plastic deformation. This means a TPU-armored panel can typically absorb many separate hits without cumulative damage, whereas a UHMW panel slowly accumulates gouges and a titanium panel slowly accumulates cracks. The tradeoff is that TPU has essentially no structural stiffness of its own — it is always used as a skin over a rigid frame (PLA, PETG, aluminum, or titanium), never as the sole structural material.\n\n**Practical selection:** a metal-class antweight competing for maximum single-hit survivability against other metal spinners tends to reach for titanium first. A plastic-antweight, where the printed material budget already buys generous thickness, increasingly reaches for a TPU-over-PLA/PETG composite shell as the modern default, with UHMW as a mechanically-fastened side-panel option when a builder wants a metal-adjacent toughness without titanium's price or a fully custom TPU printing setup. Combining all three in a single build is not unusual: a titanium or PLA structural nose backed by internal UHMW gouge-strips, wrapped at the edges in a TPU compliant skirt.",
+      "entity_refs": [
+        "material-titanium-grade5",
+        "material-uhmwpe",
+        "material-tpu-95a",
+        "material-pla-plaplus"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "comparison",
+        "armor-philosophy",
+        "titanium",
+        "uhmw",
+        "tpu"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-weapon-steel-selection-heat-treat",
+      "title": "Weapon Steel Selection and Heat Treat",
+      "section": "Weapon Materials",
+      "body_md": "Choosing and heat-treating a weapon bar or disc steel is a balancing act between hardness (edge retention, ability to bite into an opponent, resistance to denting) and toughness (resistance to chipping or cracking under repeated shock). Pushing hardness too high without enough toughness produces a weapon that hits hard exactly once before a chunk breaks off it.\n\n**S7 (the premium choice):** S7's alloy chemistry is specifically engineered for shock resistance at high hardness, which is why it's the most commonly recommended \"if you can afford it\" weapon steel in combat robotics. Typical antweight heat treat targets 54-58 HRC — austenitize around 925°C, air quench (S7 is air-hardening, which reduces warping/cracking risk versus oil or water-hardening steels), then temper to bring the as-quenched hardness (often 60+ HRC) down into the tough 54-58 HRC working range. Air-hardening also means a hobbyist without an oil quench tank has an easier time getting a good, even hardness.\n\n**4140 (the value choice):** 4140 pre-hardened round/flat bar, sold at roughly 28-32 HRC out of the box, needs zero heat treat step and is tough enough for most antweight beater-bar and horizontal-spinner-bar duty as-is — this is why it's so common in budget and beginner builds. For a harder edge, 4140 can be further quenched and tempered; a commonly cited sweet spot for 4140 beater bars is around 50 HRC, balancing edge bite against chip resistance. Because 4140 lacks nickel, its fracture toughness at high hardness is measurably worse than 4340's, so pushing 4140 much past 50-55 HRC starts trading away too much toughness.\n\n**4340 (the toughness upgrade):** 4340's nickel content improves fracture toughness over 4140 at an equivalent hardness, making it the preferred choice when a weapon shaft or bar sees combined shock and torsional loading rather than pure impact — the extra cost over 4140 buys resistance to a different failure mode (torsional fatigue/shaft snapping) as much as impact chipping.\n\n**Hardened inserts (D2, tungsten carbide):** for the hardest, most wear-resistant edge — small teeth or tips rather than a full bar — D2 tool steel (58-62 HRC) or brazed tungsten carbide inserts are used, accepting that these are far more brittle than S7 and will chip if used as a full weapon body. The design pattern is always a tough steel bar or disc body (S7/4340) carrying small, replaceable hardened inserts at the actual point of contact.\n\n**General heat-treat cautions for hobbyists:** without a calibrated oven and hardness tester, DIY heat treating (torch heating, oil quench, toaster-oven temper) produces real hardness variance between \"identical\" parts — many competitive builders send weapon steel out to a local heat-treat shop for consistent, verifiable results, especially for S7 and 4340 where getting the temper temperature right meaningfully changes toughness.",
+      "entity_refs": [
+        "material-s7-tool-steel",
+        "material-4140-steel",
+        "material-4340-steel",
+        "material-d2-tool-steel",
+        "material-tungsten-carbide"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-steel",
+        "heat-treat",
+        "hardness",
+        "spinner-bar"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-titanium-antweight-armor-king",
+      "title": "Titanium Grade 5: The Antweight Armor King",
+      "section": "Metals Deep Dive",
+      "body_md": "Ti-6Al-4V (Grade 5) earned its reputation as the default premium antweight armor material almost entirely on one number: strength-to-weight ratio. At roughly 4.43 g/cm³ — about 57% the density of steel and only slightly denser than aluminum — it delivers yield strength around 880 MPa, several times aluminum's and comparable to many hardened steels, meaning a thin titanium sheet gives steel-like resistance to penetration and denting at close to aluminum's weight.\n\n**Thickness selection in practice:** the community has converged on a few standard gauges for antweight use. 0.5mm sheet is thin enough to be springy — it's commonly formed/wrapped around wheels as a flexible guard, or bent into skirts that flex and rebound rather than holding a fixed rigid shape. 0.8mm and 1.0mm are the workhorse thicknesses for flat, rigid armor panels and wedge faces bolted to a frame — stiff enough to hold shape, still light enough to cover most of a 1 lb bot's surface without consuming the whole weight budget. 1.5mm and up starts to eat seriously into the weight budget for a pure antweight and is more typical of beetleweight-adjacent or armor-only-on-critical-faces designs.\n\n**Why it's hard to work with:** titanium has low thermal conductivity, so heat generated by cutting doesn't dissipate into the material — it concentrates right at the cutting edge, which both damages standard high-speed-steel tooling and can locally anneal or discolor (heat-tint) the titanium itself if pushed too hard. It also work-hardens quickly, meaning a dull or slow-feeding tool makes the surface progressively harder to cut, compounding the problem. Practical hobbyist approaches for thin sheet: a fine-tooth jeweler's saw or Dremel-style abrasive cutoff wheel for one-off cuts, or outsourcing to waterjet/CNC services that already run carbide tooling and coolant for combat-robot-specific titanium cutting. Drilling needs sharp new carbide or cobalt bits, low RPM, high feed pressure, and cutting fluid — a bit that's allowed to rub rather than bite will work-harden the hole surface and can permanently ruin that bit.\n\n**The brittleness tradeoff:** despite its strength, Ti-6Al-4V is more brittle than a comparable steel (lower ductility/elongation-to-break), so where a steel plate might dent and stay dented, a titanium plate is more likely to develop a visible crack under an equally hard hit — the crack often doesn't propagate immediately to failure, but repeated hits to the same location can eventually punch through. This is why titanium armor is often designed with the highest-probability impact faces getting the material, rather than a uniform full-coverage shell, and why many builders back critical titanium panels with a thin compliant layer (foam or TPU) rather than mounting them rigidly.\n\n**Cost reality:** raw mill titanium plate is not dramatically expensive per kg in bulk, but the small quantities and pre-cut sheet sizes hobby suppliers sell (FingerTech, Combat Robotics NZ, PalmBeachBots, and similar) carry a significant markup over mill pricing because of cutting, packaging, and shipping small orders — expect to pay well above raw-material commodity pricing for hobby-sized titanium sheet.",
+      "entity_refs": [
+        "material-titanium-grade5"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "titanium",
+        "armor",
+        "deep-dive",
+        "machining"
+      ],
+      "sources": [
+        "https://palmbeachbots.com/products/titanium-sheet-0-8mm-thick-grade-5-gr5-6al-4v",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=titanium",
+        "https://combatrobotics.co.nz/products/new-titanium-sheets-grade-5-6al-4v",
+        "https://www.onlinemetals.com/en/battlebots-choosing-right-material"
+      ]
+    },
+    {
+      "id": "chunk-uhmwpe-spinner-energy-absorption",
+      "title": "UHMW-PE: Why It Absorbs Spinner Energy",
+      "section": "Plastics Deep Dive",
+      "body_md": "UHMW-PE (ultra-high molecular weight polyethylene) gets its name from polymer chains that are dramatically longer than those in ordinary HDPE — often millions of atomic units long versus tens of thousands for standard polyethylene. That chain length is the whole story behind its impact behavior: the chains are so entangled with each other that pulling or shocking the material doesn't easily break individual chains or let them slide apart; instead, a huge volume of material has to co-operatively stretch and reorient before anything actually fails. A spinner impact's kinetic energy gets spent doing that stretching and molecular reorientation across a relatively large volume of plastic, rather than concentrating into a crack tip the way it would in a brittle material like acrylic or carbon fiber.\n\nCombined with UHMW's very low coefficient of friction (among the lowest of any solid plastic), this produces the \"glancing\" behavior builders describe: a spinner tooth or blade that hits a UHMW panel tends to skid across the low-friction surface rather than catching and transferring its full energy into the panel, and even where it does bite in, the surrounding material deforms and absorbs energy rather than shattering.\n\n**Thickness in practice:** common antweight thickness ranges from about 1/16\" (1.6mm) for a lightweight ablative skin over a more rigid structure, up to 1/8\"-3/16\" (3.2-4.8mm) for a stand-alone side panel expected to take direct light hits. Because UHMW is fairly light (0.935 g/cm³, lighter than water), even the thicker gauges are reasonably weight-efficient compared to a metal panel of equivalent impact resistance — though nowhere near as efficient as titanium on a pure strength-per-gram basis.\n\n**Machining:** UHMW machines cleanly with standard sharp tooling — it doesn't work-harden or dull tools the way titanium or G10 do — and can be cut on a bandsaw, router, laser (with fume caution), or waterjet without issue.\n\n**The bonding problem:** UHMW's molecular structure that makes it so tough also gives it an extremely low surface energy, meaning almost nothing sticks to it. Standard epoxies, cyanoacrylates (super glue), and most structural adhesives simply fail to wet the surface properly and peel off with minimal force. Reliable bonding requires specialized surface treatment — flame treatment, plasma treatment, or corona treatment to temporarily raise the surface energy — which is beyond what most hobbyists can do at home. The practical workaround nearly universally used in combat robotics is mechanical fastening: screws through pre-drilled/countersunk holes, rivets, or a bolted-through-frame sandwich design, rather than relying on any adhesive bond. This is a real design constraint — a UHMW panel needs fastener locations planned into the design from the start, not glued on as an afterthought.",
+      "entity_refs": [
+        "material-uhmwpe"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "uhmw",
+        "plastics",
+        "deep-dive",
+        "bonding",
+        "energy-absorption"
+      ],
+      "sources": [
+        "https://www.interstateplastics.com/combat-robotics-utilize-uhmw-to-shield-internal-systems-from-damage",
+        "https://www.robotfighting.org/robot-fighting-armor/"
+      ]
+    },
+    {
+      "id": "chunk-polycarbonate-notch-sensitivity",
+      "title": "Polycarbonate/Lexan: Strong But Notch-Sensitive",
+      "section": "Plastics Deep Dive",
+      "body_md": "Polycarbonate sheet (commonly known by the trade name Lexan) has one of the highest unnotched impact strengths of any common stock plastic — a flat, smooth, unblemished sheet can absorb a very hard blow without cracking, which is exactly why it's a popular window/riot-shield/machine-guard material in the wider world. The catch for combat robot builders is the word \"unnotched\": polycarbonate's toughness collapses dramatically in the presence of any sharp stress concentrator — a scratch, a nick, a sharp inside corner, or a poorly-drilled hole — because those features locally amplify stress far beyond the nominal load, giving a crack an easy place to start and then propagate straight through material that would otherwise have handled the load fine.\n\n**Practical implications for armor design:** every hole drilled in a Lexan panel is a potential failure point unless drilled and finished correctly. Best practice is to drill at low speed with a sharp, appropriately-sized bit (never force an undersized hole or use a dull bit that tears rather than cuts), support the sheet firmly to avoid chip-out, and de-burr/chamfer every edge of the hole afterward — a rough or burred hole edge is a stress riser waiting to crack under the next hard hit. The same logic applies to the panel's outer profile: sharp inside corners in a cutout should be radiused rather than left as a sharp right angle, since a sharp corner concentrates stress exactly the way a scratch does.\n\n**Annealing:** sheet polycarbonate, especially after machining, drilling, or forming (bending), carries residual internal stress from the manufacturing extrusion process plus whatever stress the hobbyist's fabrication added. This residual stress can cause spontaneous stress-cracking over time or under chemical exposure (some solvents/lubricants attack stressed PC) even without an impact. Annealing — a slow bake at roughly 125-130°C for about an hour followed by a slow cool in the still-warm oven — relieves much of this stress and measurably reduces the panel's tendency to crack under both mechanical shock and chemical exposure. Competitive builders who use PC armor generally anneal parts after final machining and before the panel goes into competition.\n\n**Other practical notes:** PC scratches relatively easily compared to some plastics, and every scratch is a fresh potential crack-initiation site, so handling and storage matter more for PC parts than for a more scratch-tolerant material like UHMW. Standard (non-UV-stabilized) polycarbonate also yellows and embrittles with long UV exposure, which matters for parts stored or displayed outdoors over a long build's lifetime, though this is a minor concern for a part mostly stored indoors between events.",
+      "entity_refs": [
+        "material-polycarbonate-lexan"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "polycarbonate",
+        "lexan",
+        "notch-sensitivity",
+        "annealing",
+        "drilling"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-tpu-shore-hardness-flexible-armor",
+      "title": "TPU Shore Hardness: The Most Important Plastic-Antweight Material",
+      "section": "3D-Printed Materials Deep Dive",
+      "body_md": "If a single material development explains the current state of the art in plastic-antweight armor, it's flexible TPU (thermoplastic polyurethane) printed at a tuned Shore hardness. Shore hardness measures resistance to indentation on a defined scale — Shore A for softer, more rubber-like materials and Shore D for firmer, more plastic-like materials — and the number alone tells a builder roughly how the material will behave under a weapon impact before they ever print a test piece.\n\n**95A — the combat-robot default:** at 95A, TPU sits near the firm end of the Shore A range (rubber bands are roughly 20-40A; a shopping cart wheel is roughly 90-100A), stiff enough to hold a usable shape and print reasonably well, but still hugely more elastic than any rigid plastic — typical elongation-to-break exceeds 400-500%. This combination makes 95A the community's most common choice for a flexible outer armor skin: it deforms substantially under a spinner or hammer impact, spreading the force over a larger contact patch and a longer time window than a rigid material would, then relaxes back toward its original shape once the load is removed. Because the deformation is largely elastic rather than the plastic (permanent) deformation UHMW undergoes, a 95A panel can typically take many separate hits without visibly accumulating damage the way a rigid shell accumulates cracks.\n\n**85A — softer, more absorbing, harder to print:** dropping to 85A gives noticeably more compliance (it compresses more readily, closer to a gel-like feel versus 95A's firmer-rubber feel), which can improve impact absorption further, especially against sharper or more penetrating weapons. The tradeoff is print reliability: softer filament is harder to push through a Bowden-style extruder (the tube can let the filament buckle/kink under feed pressure before it reaches the hot end), so 85A generally requires a direct-drive extruder and slower print speeds to print reliably, which is part of why 95A remains more popular among builders without direct-drive printers.\n\n**60D — the semi-rigid bridge:** measured instead on the Shore D scale (roughly comparable to a very firm 95-98A), 60D TPU behaves much more like a stiff rubber than a soft one — it holds structural shape far better than 85A/95A while still flexing rather than cracking under a sharp glancing hit. This makes it useful for parts that need to do double duty: wedge skirts or hinge components that see real structural/mounting loads in addition to occasional impacts, where full 85A/95A softness would be too compliant to be useful structurally.\n\n**Why this matters more than any single rigid material:** rigid plastics (PLA, PETG, ABS, nylon) all eventually face the same failure mode under a hard enough hit — they crack, because their strategy is to resist deformation up to a breaking point. TPU sidesteps that failure mode entirely by not resisting deformation in the first place, at the cost of contributing essentially zero structural rigidity on its own. The resulting design pattern — a rigid PLA or PETG frame doing the structural/mounting work, wrapped or skinned in TPU 95A (or 85A at the highest-risk points) doing the impact-absorbing work — is why TPU is arguably the single most important material a plastic-antweight builder can add to their toolkit beyond the base structural filament.",
+      "entity_refs": [
+        "material-tpu-95a",
+        "material-tpu-85a",
+        "material-tpu-60d"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "tpu",
+        "shore-hardness",
+        "flexible-armor",
+        "deep-dive",
+        "plastic-antweight-critical"
+      ],
+      "sources": [
+        "https://polymaker.com/tpu95-elastic-outwear-leading-a-new-trend-in-robot-combat/",
+        "https://www.fabbaloo.com/news/tpu-filament-hardness-explained-what-shore-a-and-shore-d-measurements-mean",
+        "https://siraya.tech/blogs/news/tpu-shore-hardness",
+        "https://spoolhound.com/tpu-hardness-guide"
+      ]
+    },
+    {
+      "id": "chunk-pla-dominance-plastic-antweight",
+      "title": "Why PLA/PLA+ Dominates Plastic Antweight Despite Being 'Brittle'",
+      "section": "3D-Printed Materials Deep Dive",
+      "body_md": "PLA has a reputation, deserved on paper, for being the most brittle of the common FDM filaments — its elongation-to-break is only around 5-8%, far below PETG's ~20%, ABS's ~20%, or nylon's 60-100%+. By that single metric, PLA should be near the bottom of the list for a part expected to survive weapon impacts. In practice, it's the single most-used structural and armor material in plastic-antweight combat robotics, and understanding why reveals more about how the class actually works than the datasheet number does.\n\n**Stiffness matters as much as ductility for a single-impact event.** A combat robot hit is a very short, very high-force event, not a slow bend test. PLA's high stiffness (elastic modulus around 3.0-3.5 GPa, noticeably higher than PETG's ~2.0-2.2 GPa or ABS's ~1.8-2.2 GPa) means a PLA part resists deforming under load in the first place — for many glancing or moderate hits, the part simply doesn't move enough to reach its (admittedly lower) breaking strain. Ductility only becomes the deciding factor once a hit is hard enough to actually strain the material significantly, and a stiffer part reaches that threshold at a higher force than a more flexible one of the same wall thickness.\n\n**Print quality dominates real-world toughness more than material choice.** PLA is, by a wide margin, the easiest filament to get consistent, well-adhered layers from on inexpensive, unmodified printers — no enclosure, no heated chamber, minimal warping, forgiving of imperfect cooling and retraction settings. A cracked or delaminated part almost always fails at a layer line or a print defect (a void, poor first-layer adhesion, insufficient wall count) rather than through bulk material fracture, so a material that prints reliably well produces tougher real parts in practice than a \"tougher\" material printed poorly. Nylon and ABS have better bulk material properties but are meaningfully harder to print defect-free without a proper enclosure and drying setup that many hobbyists don't have.\n\n**Cost enables thickness, and thickness is the real armor budget lever.** PLA/PLA+ is inexpensive enough (roughly $20-25/kg, same ballpark as PETG/ABS) that builders default to thick walls and moderate-to-high infill (2.5-4mm walls, 40-60%+ infill) rather than thin shells — and because weight-per-area scales with thickness regardless of which plastic is used, the practical comparison in a real build is often \"thick PLA\" versus \"thin nylon\" rather than equal-thickness PLA versus nylon, and thick-but-more-brittle frequently outperforms thin-but-tougher in this class.\n\n**Disposability is a feature.** Because reprinting a cracked PLA shell is cheap and fast (often overnight, for a few dollars of filament), plastic-antweight competitors can treat armor as consumable — expecting to reprint a shell between fights rather than requiring one panel to survive an entire tournament undamaged. This changes the optimization target from \"never crack\" to \"crack in a way that's easy and cheap to replace,\" which favors PLA's low cost and print ease over a pricier, harder-to-print material that might survive marginally more hits before failing.\n\n**PLA+ specifically** is a modified PLA blend (formulations vary by brand) that trades a small amount of PLA's stiffness for meaningfully better impact resistance and elongation, narrowing the toughness gap with PETG somewhat while keeping most of standard PLA's easy-printing behavior — many competitive plastic-antweight builders default to PLA+ over standard PLA specifically for this reason when the two cost about the same.",
+      "entity_refs": [
+        "material-pla-plaplus",
+        "material-petg-filament",
+        "material-abs-asa-filament",
+        "material-nylon-pa-filament"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "pla",
+        "plastic-antweight-critical",
+        "deep-dive",
+        "print-quality"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-cf-gf-filament-tradeoffs",
+      "title": "Carbon/Glass-Filled Filament: Stiffness vs Brittleness and Nozzle Wear",
+      "section": "3D-Printed Materials Deep Dive",
+      "body_md": "Short-fiber-reinforced filaments — chopped carbon fiber or glass fiber blended into a PLA, PETG, or nylon base — are marketed heavily on their stiffness gains, and the numbers are real: a carbon-fiber-reinforced part can be roughly 200-500% stiffer (higher elastic modulus) than the same part printed in the unfilled base polymer, because the short, stiff fibers carry load very efficiently along their length wherever they happen to be oriented by the print path. For parts that need to resist bending or sagging under a steady load — long weapon-motor mount arms, frame spines, anything acting like a beam — that stiffness gain is genuinely valuable and can eliminate flex that would otherwise misalign a weapon or drivetrain.\n\n**The tensile strength gain is much smaller than the stiffness gain, and that gap misleads people.** While elastic modulus jumps dramatically, actual tensile strength typically increases only 20-100% over the base polymer in the strongest print orientation, and can be flat or even lower in other orientations, because the reinforcement's benefit depends heavily on fiber alignment relative to the load and on how well the fiber-matrix interface holds together. Builders sometimes see \"carbon fiber\" on a spec sheet and assume a proportional jump in overall strength and impact resistance, when the real gain is concentrated almost entirely in stiffness, not toughness.\n\n**Brittleness is the real hidden cost.** Every embedded fiber end is a stress concentrator, and the interface between a stiff fiber and the surrounding (relatively soft) polymer matrix is a mechanically weak plane where a crack can initiate and run. The practical result is that CF/GF-filled parts are noticeably more brittle than their unfilled base polymer — they resist bending better right up until they don't, and then they tend to crack or snap rather than deform, which is close to the opposite of what you want from a direct-impact armor face. This is why fiber-filled filament is a good choice for a stiff internal frame rail or a weapon-support arm set back from the impact zone, and a poor choice for the outer panel that actually takes a hit — an unfilled base polymer, or better yet a TPU skin, will typically survive a direct impact better than the \"stronger-sounding\" fiber-filled version at the same wall thickness.\n\n**Nozzle wear is a real, recurring cost.** Chopped fibers are abrasive enough to wear out a standard brass nozzle's orifice within roughly a few hundred grams to a kilogram of printing, progressively widening the hole and degrading extrusion consistency and dimensional accuracy well before the wear becomes visually obvious. Printing any meaningful volume of CF/GF filament essentially requires switching to a hardened steel or ruby-tipped nozzle, which adds cost and, for ruby nozzles particularly, some fragility of its own (they can crack if dropped or over-tightened). Builders who print occasional small CF-reinforced parts on an otherwise-brass-nozzle printer often accept the nozzle wear as a cost of doing business; builders printing CF-filled parts regularly generally dedicate a hardened-nozzle setup to it.",
+      "entity_refs": [
+        "material-cf-gf-filament",
+        "material-pla-plaplus",
+        "material-nylon-pa-filament"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "carbon-fiber",
+        "glass-fiber",
+        "nozzle-wear",
+        "stiffness",
+        "brittleness"
+      ],
+      "sources": [
+        "https://formlabs.com/blog/strongest-3d-printing-materials/",
+        "https://filamentspecs.com/cf-pla-vs-cf-petg/",
+        "https://sigmafilament.com/what-carbon-fiber-changes-in-pla-petg/",
+        "https://qidi3d.com/blogs/news/3d-printing-carbon-fiber-filament-guide"
+      ]
+    },
+    {
+      "id": "chunk-acrylic-trap",
+      "title": "Why Acrylic Is a Trap for Combat Robot Armor",
+      "section": "Plastics Deep Dive",
+      "body_md": "Acrylic (PMMA, often sold as Plexiglas) is one of the most common beginner mistakes in combat robot armor selection, and the reason is entirely predictable once you understand why: its datasheet numbers look competitive with genuinely good armor plastics, but the specific number that actually predicts impact survival tells the opposite story.\n\n**The trap, precisely:** acrylic's tensile strength (roughly 70 MPa) and stiffness (elastic modulus around 3.0-3.3 GPa) look comparable to, or even better than, tougher plastics like nylon or polycarbonate on a spec sheet a beginner might glance at while comparison-shopping. What that comparison misses is elongation-to-break — the percentage a material can stretch before it fractures — where acrylic manages only about 3-5%, versus polycarbonate's 100%+ or nylon's 60-100%+. Tensile strength measured in a slow, steady pull test says almost nothing about how a material behaves under the very fast, very high-force loading of a weapon impact; that behavior is governed by toughness and ductility, and acrylic has essentially none of either. It has almost no capacity to yield plastically and absorb energy — when the load exceeds its strength, it doesn't bend or dent, it fractures immediately and completely.\n\n**Why it shatters instead of dents:** acrylic is a fully amorphous, highly cross-linked-feeling (though not actually cross-linked) rigid polymer with very limited chain mobility at room temperature, so unlike polyethylene or polycarbonate, its molecular structure offers no mechanism to absorb impact energy through chain slippage or reorientation before a crack initiates. Once a crack starts — often at a machining mark, a laser-cut edge, or simply the point of impact — it propagates through the brittle material almost instantly, which is why acrylic shatters into multiple sharp-edged shards rather than cracking in one place and staying together.\n\n**Laser cutting makes it worse, and laser cutting is exactly how most hobbyists cut it.** Acrylic is one of the easiest and most popular materials to laser-cut, which is part of its appeal to beginners with access to a laser cutter or cutting service. But the laser-cut edge leaves micro-fractures and localized heat-affected embrittlement right along the cut line — precisely the geometry (an edge, likely also load-bearing in a bolted panel) most likely to see stress during an impact, compounding acrylic's already-poor impact toughness.\n\n**Safety, not just performance:** beyond simply failing to protect the robot's internals, a shattering acrylic panel sends sharp plastic shards into the arena, which is a real safety concern for the robot itself, its opponent, and anyone nearby — this is why most build guides and community wikis explicitly warn against acrylic as an armor material, not just as suboptimal but as actively unsuitable.\n\n**What to use instead for the same cost:** PETG or PLA sheet/printed parts cost roughly the same as acrylic sheet per kg and offer dramatically better elongation-to-break and impact toughness; polycarbonate costs a bit more but offers far superior impact resistance (with its own notch-sensitivity caveats). There is essentially no combat-robot armor scenario where acrylic is the correct choice over these alternatives at a comparable price point.",
+      "entity_refs": [
+        "material-acrylic",
+        "material-polycarbonate-lexan",
+        "material-pla-plaplus",
+        "material-petg-filament"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "acrylic",
+        "trap-material",
+        "brittle",
+        "safety",
+        "deep-dive"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-tungsten-ballast-weight-budgeting",
+      "title": "Tungsten Ballast and Precision Weight Budgeting",
+      "section": "Weight Budgeting",
+      "body_md": "Hitting a 1 lb (453.6g) weight limit exactly, without going over, is a routine late-build problem: a finished antweight almost never lands precisely on the limit, and builders either need to shave grams off a too-heavy design or add grams to a too-light one to use the full weight allowance competitively. Tungsten (or tungsten-heavy-alloy) ballast solves the \"too light\" side of that problem better than any other practical material because of one number: density.\n\n**Why density is the whole point.** Tungsten heavy alloy (typically 90-97% tungsten with a nickel-iron or nickel-copper binder) has a density around 17-18.5 g/cm³ — roughly 2.2-2.3 times denser than steel and about 4x denser than titanium. That means a given amount of added mass takes up the smallest possible volume of any practical ballast material, which matters enormously in a 1 lb robot where internal space is at an absolute premium. Adding 20g of steel ballast requires roughly 2.5cm³ of space; the same 20g in tungsten heavy alloy takes about 1.1-1.2cm³ — often the difference between ballast fitting in a design's remaining internal void or not fitting at all.\n\n**Two distinct uses:** (1) **Fine weight-limit tuning** — a small tungsten cube, disc, or moldable tungsten-loaded putty pressed into a cavity near the end of the build to bring total weight up to just under 453.6g, squeezing every gram of performance out of the weight allowance rather than leaving unused margin on the table (unused weight margin is performance left on the table — that gram could have gone to a bigger battery, thicker armor, or a heavier weapon). (2) **Weapon rim/moment-of-inertia loading** — packing tungsten inserts into the rim of a spinner disc or drum increases the weapon's moment of inertia (and therefore its stored kinetic energy at a given RPM, since KE scales with moment of inertia) without increasing the weapon's outer diameter, which would otherwise risk a rules or clearance violation. This is a targeted way to make a spinner weapon hit harder without redesigning its shape.\n\n**Cost and handling considerations.** Tungsten heavy alloy costs considerably more per kg than steel ballast (commonly in the tens of dollars per pound range for small hobby quantities), which is a real but usually acceptable premium given how little total ballast mass a 1 lb robot typically needs (often just 5-30g). It is non-toxic (unlike lead, which some events restrict or discourage for exactly that reason) and machines similarly to a hard steel with carbide tooling, though pure unalloyed tungsten is considerably more brittle and harder to machine cleanly than the heavy-alloy composite grades typically sold for ballast use.\n\n**Not a structural or armor material.** Despite its impressive density, tungsten ballast should not be mistaken for an armor upgrade — its role is purely mass placement, tucked into a cavity or rim where its weight helps but its (mediocre, for a metal) toughness is never tested by a direct hit.",
+      "entity_refs": [
+        "material-tungsten-ballast"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "ballast",
+        "weight-budgeting",
+        "tungsten",
+        "center-of-mass"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-elastomers-deliberate-compliance",
+      "title": "Elastomers and Deliberate Compliance in Antweight Design",
+      "section": "Elastomers & Compliance",
+      "body_md": "Not every material decision in a combat robot is about maximizing hardness or strength — a significant category of material choices is about deliberately adding softness (compliance) exactly where a rigid connection would otherwise transmit damaging shock into something fragile. Elastomers (silicone, polyurethane, foam, and rubber grommets) are the tools for this job, and understanding where and why they're used rounds out a complete antweight materials picture.\n\n**The problem compliance solves:** a weapon impact delivers a very sudden deceleration/acceleration pulse to the whole chassis. A component rigidly bolted to that chassis — a receiver, an ESC, a flight controller, a battery — experiences that same sudden shock, and solder joints, connector pins, and battery internals are often the weakest link in the entire robot, failing from shock even when the armor and structure survive the hit completely intact. This is a very common and often misdiagnosed cause of \"the bot just died\" after a hit that didn't visibly damage the shell.\n\n**Silicone rubber** is used mainly for small vibration-isolating mounts, grommets, and wire management around electronics. Its main strengths are an extremely wide temperature range and good compliance; its main weakness is relatively low tear/abrasion resistance, which is fine for a lightly-loaded grommet but not for something that sees repeated mechanical wear.\n\n**Cast polyurethane elastomer** covers a wider durometer range and has better abrasion/tear resistance than silicone, making it the more common choice for anything that sees repeated mechanical contact rather than just isolating vibration — drive wheel tires (durometer chosen to balance traction against wear), flexible wedge lips that need to bend under contact with the floor or an opponent's underside, and shock-absorbing bumper pads.\n\n**Foam padding** (EVA or closed-cell polyurethane) is the internal, lightweight option — wedged around a battery or behind a PCB to break the direct shock path from a rigid mount into a fragile component. It adds negligible weight (foam density is roughly 1/8 to 1/10 that of solid plastics) and costs very little, making it one of the best weight-to-reliability trades available; the tradeoff is that foam isn't structural in any sense and can compress/lose effectiveness after many hits.\n\n**Rubber grommets and standoff mounts** apply the same shock-isolation principle at fastener points — swapping a rigid metal standoff for a rubber-grommeted one under a receiver or ESC costs almost nothing in weight or money but meaningfully reduces the chance that a hard hit which the armor survives fine still kills the electronics through shock alone.\n\n**The general design principle:** wherever a rigid, direct mechanical path exists between the point of impact and a fragile component, a small amount of engineered compliance — the right elastomer, at the right durometer, in the right place — interrupts that path and converts a damaging shock into a manageable one. This is a deliberate, low-cost design choice available at almost every point in a 1 lb build, not just an armor problem.",
+      "entity_refs": [
+        "material-silicone-rubber",
+        "material-polyurethane-elastomer",
+        "material-foam-padding",
+        "material-rubber-mounts"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "elastomers",
+        "compliance",
+        "electronics-protection",
+        "shock-isolation"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-3d-printed-material-selection-overview",
+      "title": "3D-Printed Material Selection for Plastic Antweights: Overview",
+      "section": "3D-Printed Materials Deep Dive",
+      "body_md": "Plastic-antweight is defined by its reliance on hobby FDM 3D printing for structure and armor, which makes filament selection the single biggest set of material decisions in the class. Here's how the common options stack up against each other for a builder deciding what to load into the printer next.\n\n**PLA/PLA+** remains the default starting point and, for many competitive builders, the default finishing point too — see the dedicated PLA dominance discussion for the full reasoning, but in short: cheapest, easiest to print reliably, stiffest of the common options, and cheap enough to treat as disposable/reprintable between fights.\n\n**PETG** is the most common upgrade path when a builder wants more ductility/toughness than PLA without taking on ABS's warping problems or nylon's moisture sensitivity — it's the \"more forgiving toughness\" option, at some cost in stiffness and print cleanliness (stringing).\n\n**ABS/ASA** earns its place mainly through heat resistance (useful for parts mounted near a hot weapon motor or ESC) and, for ASA specifically, UV/weather resistance — not generally chosen for extra impact toughness over PETG, and it demands more printer setup (heated bed, ideally an enclosure) to avoid warping and weak inter-layer bonds.\n\n**Nylon (PA6/PA12)** offers the best all-round bulk toughness and fatigue resistance of the common printables — excellent for living hinges, gears, and high-flex mounts — but its strong hygroscopicity (it absorbs moisture from ambient air within hours and prints poorly wet) and warping tendency make it less common than PLA/PETG for full armor shells; it shows up more in mechanisms than outer panels. **PA-CF** (carbon-fiber-reinforced nylon) pushes stiffness and dry strength even higher for structural, non-impact-facing parts, at the cost of added brittleness and serious nozzle wear.\n\n**PC filament** offers the highest strength/heat-resistance ceiling of common printables but requires high-temperature, typically enclosed printing setups that exclude a lot of hobby-grade machines, so it's a premium/advanced option rather than a mainstream choice.\n\n**PP (polypropylene)** is the lightest common filament and has outstanding fatigue resistance for living-hinge features, but its notoriously poor bed adhesion makes it hard to print reliably, restricting it to small flexible features (snap latches, hinges) rather than structural or armor use.\n\n**TPU (95A/85A/60D)** is the outlier on this list because it isn't rigid at all — it's the compliant, energy-absorbing skin material discussed in depth elsewhere, used over a rigid frame from one of the materials above rather than as a replacement for one.\n\n**Carbon/glass-filled variants** of PLA, PETG, or nylon trade toughness for stiffness and are best reserved for structural members set back from direct impact (frame rails, weapon-motor mount arms) rather than the outer armor face itself.\n\n**A practical build recipe many competitive plastic-antweights converge on:** a PLA+ or PETG structural shell for stiffness and mounting rigidity, at generous wall thickness (2.5-4mm) and moderate-to-high infill, wrapped or capped with a TPU 95A compliant skin at the highest-impact-risk faces, with small PA6/nylon parts for hinges/latches that need to flex repeatedly, and PA-CF or plain filament used sparingly for load-bearing internal ribs where stiffness matters more than impact resistance.",
+      "entity_refs": [
+        "material-pla-plaplus",
+        "material-petg-filament",
+        "material-abs-asa-filament",
+        "material-nylon-pa-filament",
+        "material-pc-filament",
+        "material-pp-filament",
+        "material-tpu-95a",
+        "material-cf-gf-filament"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "3d-printed",
+        "overview",
+        "plastic-antweight",
+        "filament-selection"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    }
+  ]
+}

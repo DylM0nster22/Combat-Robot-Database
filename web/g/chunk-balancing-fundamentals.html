@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Balancing: why it matters, static vs dynamic balance, and hobbyist methods — Combat Robot Database</title>
+<meta name="description" content="An unbalanced weapon is one of the most common and most destructive problems in antweight combat robotics, and one of the cheapest to prevent with basic care du">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Balancing: why it matters, static vs dynamic balance, and hobbyist methods</div>
+<h1 class="page">Balancing: why it matters, static vs dynamic balance, and hobbyist methods</h1>
+<p class="page-sub">Balancing</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">balancing</span><span class="pill">bearings</span><span class="pill">vibration</span><span class="pill">failure-modes</span></div>
+<div class="two-col">
+  <div class="prose"><p>An unbalanced weapon is one of the most common and most destructive problems in antweight combat robotics, and one of the cheapest to prevent with basic care during weapon fabrication.</p>
+<p><strong>Why an unbalanced weapon destroys bearings and shakes a bot apart.</strong> Any leftover offset between a weapon&#x27;s center of mass and its rotation axis creates a centrifugal shaking force that reverses direction every revolution and is transmitted straight into the shaft and bearings. <code>formula-wg-balance-tolerance</code> quantifies this: the shaking force scales with the unbalance (mass times offset) times the square of angular velocity, so a residual unbalance that feels negligible at low rpm (a 150 g disc off by just 0.1 g at 30 mm produces about 13 N of shaking force at 20,000 rpm) becomes four times worse if rpm doubles. Sustained over a match, this cyclic loading is a primary driver of the <code>term-exploded-bearing</code> failure mode, works <code>component-hub-set-screw</code> joints loose (contributing to <code>term-hub-slip</code>), fatigues frame fasteners and welds, and can visibly shake wiring and other hardware loose elsewhere in the robot -- an unbalanced weapon doesn&#x27;t just wear out its own bearings, it beats up the whole robot.</p>
+<p><strong>Static vs dynamic balance for a hobbyist.</strong> <code>term-static-balance</code> -- getting the center of mass onto the rotation axis -- is sufficient for thin, single-plane weapons like most antweight discs and shell spinners, and is well within reach of a hobbyist with basic tools. <code>term-dynamic-balance</code> matters once a weapon has real length along its rotation axis (long bars, wide drums), where a part can be perfectly statically balanced yet still rock/wobble because mass distribution differs between its two ends; hobbyist-level dynamic balancing usually means treating each end or plane of the weapon as its own static-balance problem (weighing and matching each half of a bar independently, for example) rather than true instrumented multi-plane balancing.</p>
+<p><strong>Balancing on a mandrel.</strong> The standard hobbyist method (<code>term-balancing-mandrel</code>): mount the weapon on its own shaft or a precision mandrel, rest it on a pair of level, low-friction supports (knife edges, a spare set of bearings, even parallel round rods), and let gravity do the work -- the heavy side will settle to the bottom. Mark that spot, correct it, spin the part to a new random orientation, and repeat until the weapon stays wherever it&#x27;s placed with no consistent heavy spot.</p>
+<p><strong>Drilling vs adding mass.</strong> Once the heavy spot is found, either remove material from it (commonly drilling shallow holes into the heavy side, being careful not to weaken a structurally critical area like a tooth root or hub) or add a small amount of mass to the opposite (light) side (a dab of epoxy with embedded metal shot, a small bolted-on weight, or extra material in a non-critical area). Removing material is usually preferred when there&#x27;s mass to spare in a non-critical zone, since it doesn&#x27;t add weight to an already weight-constrained 1 lb build; adding mass is used when the light side has no safe material left to remove from, or when the imbalance is being corrected on a nearly-finished, weight-budget-critical part.</p>
+<p><strong>Tolerance targets.</strong> There&#x27;s no single universal number, but as a practical hobbyist guideline, aim to get residual unbalance low enough that the weapon shows no consistent &#x27;heavy side&#x27; settling behavior on a mandrel check by eye, and treat any weapon intended to run above roughly 15,000-20,000 rpm as needing noticeably tighter balance than a slower sub-10,000 rpm design, per the rpm-squared scaling in <code>formula-wg-balance-tolerance</code> -- when in doubt, spend the extra ten minutes balancing before the weapon&#x27;s first full-speed run, since diagnosing vibration-driven bearing wear after the fact is far more time-consuming than preventing it.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/component-hub-set-screw.html">Set-screw hub</a></li><li><a href="../e/formula-wg-balance-tolerance.html">Residual unbalance and shaking force vs RPM</a></li><li><a href="../e/term-balancing-mandrel.html">Balancing mandrel / balancing stand</a></li><li><a href="../e/term-dynamic-balance.html">Dynamic balance</a></li><li><a href="../e/term-exploded-bearing.html">Exploded bearing (failure mode)</a></li><li><a href="../e/term-hub-slip.html">Hub slip (failure mode)</a></li><li><a href="../e/term-static-balance.html">Static balance</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://blog.robo2u.com/posts/bearings-robotics-ultimate-guide/" rel="noopener">https://blog.robo2u.com/posts/bearings-robotics-ultimate-guide/</a></li><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

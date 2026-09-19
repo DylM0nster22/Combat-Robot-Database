@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D-Printed Material Selection for Plastic Antweights: Overview — Combat Robot Database</title>
+<meta name="description" content="Plastic-antweight is defined by its reliance on hobby FDM 3D printing for structure and armor, which makes filament selection the single biggest set of material">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › 3D-Printed Material Selection for Plastic Antweights: Overview</div>
+<h1 class="page">3D-Printed Material Selection for Plastic Antweights: Overview</h1>
+<p class="page-sub">3D-Printed Materials Deep Dive</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">3d-printed</span><span class="pill">overview</span><span class="pill">plastic-antweight</span><span class="pill">filament-selection</span></div>
+<div class="two-col">
+  <div class="prose"><p>Plastic-antweight is defined by its reliance on hobby FDM 3D printing for structure and armor, which makes filament selection the single biggest set of material decisions in the class. Here&#x27;s how the common options stack up against each other for a builder deciding what to load into the printer next.</p>
+<p><strong>PLA/PLA+</strong> remains the default starting point and, for many competitive builders, the default finishing point too — see the dedicated PLA dominance discussion for the full reasoning, but in short: cheapest, easiest to print reliably, stiffest of the common options, and cheap enough to treat as disposable/reprintable between fights.</p>
+<p><strong>PETG</strong> is the most common upgrade path when a builder wants more ductility/toughness than PLA without taking on ABS&#x27;s warping problems or nylon&#x27;s moisture sensitivity — it&#x27;s the &quot;more forgiving toughness&quot; option, at some cost in stiffness and print cleanliness (stringing).</p>
+<p><strong>ABS/ASA</strong> earns its place mainly through heat resistance (useful for parts mounted near a hot weapon motor or ESC) and, for ASA specifically, UV/weather resistance — not generally chosen for extra impact toughness over PETG, and it demands more printer setup (heated bed, ideally an enclosure) to avoid warping and weak inter-layer bonds.</p>
+<p><strong>Nylon (PA6/PA12)</strong> offers the best all-round bulk toughness and fatigue resistance of the common printables — excellent for living hinges, gears, and high-flex mounts — but its strong hygroscopicity (it absorbs moisture from ambient air within hours and prints poorly wet) and warping tendency make it less common than PLA/PETG for full armor shells; it shows up more in mechanisms than outer panels. <strong>PA-CF</strong> (carbon-fiber-reinforced nylon) pushes stiffness and dry strength even higher for structural, non-impact-facing parts, at the cost of added brittleness and serious nozzle wear.</p>
+<p><strong>PC filament</strong> offers the highest strength/heat-resistance ceiling of common printables but requires high-temperature, typically enclosed printing setups that exclude a lot of hobby-grade machines, so it&#x27;s a premium/advanced option rather than a mainstream choice.</p>
+<p><strong>PP (polypropylene)</strong> is the lightest common filament and has outstanding fatigue resistance for living-hinge features, but its notoriously poor bed adhesion makes it hard to print reliably, restricting it to small flexible features (snap latches, hinges) rather than structural or armor use.</p>
+<p><strong>TPU (95A/85A/60D)</strong> is the outlier on this list because it isn&#x27;t rigid at all — it&#x27;s the compliant, energy-absorbing skin material discussed in depth elsewhere, used over a rigid frame from one of the materials above rather than as a replacement for one.</p>
+<p><strong>Carbon/glass-filled variants</strong> of PLA, PETG, or nylon trade toughness for stiffness and are best reserved for structural members set back from direct impact (frame rails, weapon-motor mount arms) rather than the outer armor face itself.</p>
+<p><strong>A practical build recipe many competitive plastic-antweights converge on:</strong> a PLA+ or PETG structural shell for stiffness and mounting rigidity, at generous wall thickness (2.5-4mm) and moderate-to-high infill, wrapped or capped with a TPU 95A compliant skin at the highest-impact-risk faces, with small PA6/nylon parts for hinges/latches that need to flex repeatedly, and PA-CF or plain filament used sparingly for load-bearing internal ribs where stiffness matters more than impact resistance.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/material-abs-asa-filament.html">ABS / ASA Filament</a></li><li><a href="../e/material-cf-gf-filament.html">Carbon/Glass-Fiber-Filled Filament (PLA-CF, PETG-CF, generic)</a></li><li><a href="../e/material-nylon-pa-filament.html">Nylon Filament (PA6 / PA12 / PA-CF)</a></li><li><a href="../e/material-pc-filament.html">Polycarbonate (PC) Filament</a></li><li><a href="../e/material-petg-filament.html">PETG Filament</a></li><li><a href="../e/material-pla-plaplus.html">PLA / PLA+</a></li><li><a href="../e/material-pp-filament.html">Polypropylene (PP) Filament</a></li><li><a href="../e/material-tpu-95a.html">TPU 95A (Rigid-Flex Thermoplastic Polyurethane)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

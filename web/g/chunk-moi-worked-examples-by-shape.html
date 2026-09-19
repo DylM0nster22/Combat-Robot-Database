@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOI worked examples across weapon shapes: disc, ring, bar, point mass, drum — Combat Robot Database</title>
+<meta name="description" content="Moment of inertia (MOI) is the single number that most determines how a weapon of a given mass and radius will behave -- how much energy it stores at a given rp">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › MOI worked examples across weapon shapes: disc, ring, bar, point mass, drum</div>
+<h1 class="page">MOI worked examples across weapon shapes: disc, ring, bar, point mass, drum</h1>
+<p class="page-sub">MOI and Energy</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">moi</span><span class="pill">worked-example</span><span class="pill">disc</span><span class="pill">ring</span><span class="pill">bar</span><span class="pill">drum</span></div>
+<div class="two-col">
+  <div class="prose"><p>Moment of inertia (MOI) is the single number that most determines how a weapon of a given mass and radius will behave -- how much energy it stores at a given rpm, and how long it takes to spin up. The design-math topic covers the base derivations (<code>formula-moi-solid-disc</code>, <code>formula-moi-annulus</code>, <code>formula-moi-thin-ring</code>, <code>formula-moi-slender-rod-center</code>, <code>formula-moi-point-mass</code>, <code>formula-moi-thin-walled-cylinder</code>); this section applies each shape to a realistic 1 lb weapon geometry side by side, so the practical differences between weapon forms are visible in concrete numbers rather than abstract formulas.</p>
+<p><strong>Solid disc</strong> (76.2 mm / 3in diameter, 227 g steel disc, R=0.0381m): I = 0.5<em>m</em>R^2 = 0.5<em>0.227</em>0.0381^2 = 1.65e-4 kg*m^2.</p>
+<p><strong>Thin ring / shell spinner</strong> (same 227 g mass, but as a thin ring at the same 38.1 mm radius rather than a solid disc): I = m<em>R^2 = 0.227</em>0.0381^2 = 3.30e-4 kg*m^2 -- exactly double the solid disc&#x27;s MOI for the identical mass and radius, the numeric heart of why shell spinners hit so hard for their weight (see <code>formula-wg-mass-toward-rim-effect</code>).</p>
+<p><strong>Annulus / partial rim-loading</strong> (227 g disc reshaped into a ring with R_out=38.1mm, R_in=28.6mm, i.e. a moderately thick rim rather than a knife-thin one): I = 0.5<em>m</em>(R_out^2+R_in^2) = 0.5<em>0.227</em>(0.001452+0.000818) = 0.5<em>0.227</em>0.00227 = 2.58e-4 kg*m^2 -- roughly 56% more than the solid disc, and a realistic middle ground between a plain disc and a full thin-ring shell.</p>
+<p><strong>Slender bar about its center</strong> (70 mm long, 60 g bar): I = (1/12)<em>m</em>L^2 = (1/12)<em>0.060</em>0.070^2 = 2.45e-5 kg*m^2 -- notice this is much smaller than the disc examples above because both the bar&#x27;s mass and its tip radius (35 mm vs ~38 mm) are considerably smaller in this example; MOI comparisons only mean something when comparing weapons of similar total mass and radius.</p>
+<p><strong>Point mass at radius</strong> (a single 15 g bolt-on tooth at 33 mm radius, ignoring the hub it&#x27;s attached to for illustration): I = m<em>r^2 = 0.015</em>0.033^2 = 1.63e-5 kg*m^2. In a real weapon this tooth&#x27;s contribution is added to the hub/body&#x27;s own MOI via the parallel axis theorem (<code>formula-parallel-axis-theorem</code>), not used alone.</p>
+<p><strong>Thin-walled cylinder / drum</strong> (100 g drum, 40 mm OD, 3 mm wall, R_out=0.020m, R_in=0.017m): I = 0.5<em>m</em>(R_out^2+R_in^2) = 0.5<em>0.100</em>(0.0004+0.000289) = 3.445e-5 kg*m^2 -- see <code>formula-wg-drum-wall-thickness-moi</code> for how this changes with wall thickness at the same OD and mass.</p>
+<p><strong>Takeaway.</strong> For a given total weapon mass and outer radius, MOI (and therefore stored energy at a given rpm) ranks from lowest to highest roughly as: solid disc &lt; moderate annulus &lt; thin ring/shell, with drums and bars falling wherever their specific mass and radius put them on that same disc-to-ring spectrum. This is why &#x27;how is the mass distributed relative to the axis&#x27; is a more useful first question when comparing two weapon designs than diameter or weight alone.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-wg-drum-wall-thickness-moi.html">Drum wall thickness vs MOI (thin-wall vs thick-wall drum)</a></li><li><a href="../e/formula-wg-mass-toward-rim-effect.html">Mass-toward-the-rim effect on MOI</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

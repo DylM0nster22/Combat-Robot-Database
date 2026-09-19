@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real weapon failure modes: bell separation, hub slip, bent shafts, exploded bearings — Combat Robot Database</title>
+<meta name="description" content="Four failure modes account for the large majority of weapon-system breakages seen on antweights, and each traces back directly to a specific geometry or attachm">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Real weapon failure modes: bell separation, hub slip, bent shafts, exploded bearings</div>
+<h1 class="page">Real weapon failure modes: bell separation, hub slip, bent shafts, exploded bearings</h1>
+<p class="page-sub">Attachment and Failure</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">failure-modes</span><span class="pill">bearings</span><span class="pill">shaft</span><span class="pill">hub</span></div>
+<div class="two-col">
+  <div class="prose"><p>Four failure modes account for the large majority of weapon-system breakages seen on antweights, and each traces back directly to a specific geometry or attachment choice covered above.</p>
+<p><strong>Bell separation</strong> (<code>term-bell-separation</code>) hits dead-shaft weapons specifically: the drive pulley or sprocket (&#x27;bell&#x27;) bonded, pinned, or pressed onto the spinning weapon body shock-loads that joint on a hard hit and separates, either slipping (losing drive) or fully detaching. The fix is mechanical retention beyond adhesive bonding alone -- screws, a keyed or hex interface between bell and weapon body, or a press fit backed by a positive mechanical stop -- rather than trusting bond strength to survive combat-level shock loads indefinitely.</p>
+<p><strong>Hub slip</strong> (<code>term-hub-slip</code>) is the friction-joint failure described in the attachment section: a set-screw hub rotates relative to its shaft under impact shock, throwing the weapon&#x27;s tooth timing/balance off or losing drive to the weapon entirely. Repeated slip also gradually galls/rounds the shaft surface the set screw bites into, making each subsequent slip event more likely -- a self-reinforcing failure once it starts. The reliable fix is a positive-drive interface (keyway or broached hex) rather than simply tightening the set screw harder or adding thread-locker, both of which help marginally but don&#x27;t address the underlying friction-joint limitation.</p>
+<p><strong>Bent shaft</strong> (<code>term-bent-shaft</code>) results from bending loads exceeding the shaft material&#x27;s yield strength, most often from a hard impact combined with too long an unsupported cantilever span or an undersized/too-soft shaft material -- exactly the relationship quantified in <code>formula-wg-cantilever-shaft-bending</code>. Symptoms are a weapon that now runs visibly off-true and vibrates even after a fresh balance pass, and abnormal radial loading pushed into the bearings. The fix is structural (shorter unsupported span via a second bearing, larger shaft diameter, or a harder alloy shaft), not cosmetic -- re-straightening a bent shaft rarely restores its original strength and the bend is likely to recur at the same weakened point.</p>
+<p><strong>Exploded bearing</strong> (<code>term-exploded-bearing</code>) is catastrophic failure of the ball cage, balls, or seals/shields, triggered either by a single very hard direct impact transmitted straight through the shaft into the bearing, or by sustained fatigue from running an out-of-balance weapon across many matches (tying directly back to <code>formula-wg-balance-tolerance</code> and the balancing section). Small ant-scale bearings (623/626/688-class) have limited shock capacity by nature of their size, so mitigation is mostly indirect: keep the weapon well balanced to minimize cyclic fatigue loading, use flanged bearings with a snug, correctly-sized bore/shaft fit to minimize movement/impact transmission, and where the design allows it, support impact loads through the frame/structure rather than routing them entirely through the smallest bearing in the drivetrain.</p>
+<p><strong>Common thread.</strong> All four failure modes are cheaper to design against up front (positive-drive hubs, adequate shaft support, careful balancing, appropriately-sized bearings) than to repeatedly repair after the fact, and a build that keeps breaking the same component in the same way is almost always telling the builder which one of these four root causes to address rather than simply which part to buy a spare of.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-wg-balance-tolerance.html">Residual unbalance and shaking force vs RPM</a></li><li><a href="../e/formula-wg-cantilever-shaft-bending.html">Cantilevered shaft bending stress under impact load</a></li><li><a href="../e/term-bell-separation.html">Bell separation (failure mode)</a></li><li><a href="../e/term-bent-shaft.html">Bent shaft (failure mode)</a></li><li><a href="../e/term-exploded-bearing.html">Exploded bearing (failure mode)</a></li><li><a href="../e/term-hub-slip.html">Hub slip (failure mode)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

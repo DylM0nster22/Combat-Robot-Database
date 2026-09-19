@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elastomers and Deliberate Compliance in Antweight Design — Combat Robot Database</title>
+<meta name="description" content="Not every material decision in a combat robot is about maximizing hardness or strength — a significant category of material choices is about deliberately adding">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Elastomers and Deliberate Compliance in Antweight Design</div>
+<h1 class="page">Elastomers and Deliberate Compliance in Antweight Design</h1>
+<p class="page-sub">Elastomers &amp; Compliance</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">elastomers</span><span class="pill">compliance</span><span class="pill">electronics-protection</span><span class="pill">shock-isolation</span></div>
+<div class="two-col">
+  <div class="prose"><p>Not every material decision in a combat robot is about maximizing hardness or strength — a significant category of material choices is about deliberately adding softness (compliance) exactly where a rigid connection would otherwise transmit damaging shock into something fragile. Elastomers (silicone, polyurethane, foam, and rubber grommets) are the tools for this job, and understanding where and why they&#x27;re used rounds out a complete antweight materials picture.</p>
+<p><strong>The problem compliance solves:</strong> a weapon impact delivers a very sudden deceleration/acceleration pulse to the whole chassis. A component rigidly bolted to that chassis — a receiver, an ESC, a flight controller, a battery — experiences that same sudden shock, and solder joints, connector pins, and battery internals are often the weakest link in the entire robot, failing from shock even when the armor and structure survive the hit completely intact. This is a very common and often misdiagnosed cause of &quot;the bot just died&quot; after a hit that didn&#x27;t visibly damage the shell.</p>
+<p><strong>Silicone rubber</strong> is used mainly for small vibration-isolating mounts, grommets, and wire management around electronics. Its main strengths are an extremely wide temperature range and good compliance; its main weakness is relatively low tear/abrasion resistance, which is fine for a lightly-loaded grommet but not for something that sees repeated mechanical wear.</p>
+<p><strong>Cast polyurethane elastomer</strong> covers a wider durometer range and has better abrasion/tear resistance than silicone, making it the more common choice for anything that sees repeated mechanical contact rather than just isolating vibration — drive wheel tires (durometer chosen to balance traction against wear), flexible wedge lips that need to bend under contact with the floor or an opponent&#x27;s underside, and shock-absorbing bumper pads.</p>
+<p><strong>Foam padding</strong> (EVA or closed-cell polyurethane) is the internal, lightweight option — wedged around a battery or behind a PCB to break the direct shock path from a rigid mount into a fragile component. It adds negligible weight (foam density is roughly 1/8 to 1/10 that of solid plastics) and costs very little, making it one of the best weight-to-reliability trades available; the tradeoff is that foam isn&#x27;t structural in any sense and can compress/lose effectiveness after many hits.</p>
+<p><strong>Rubber grommets and standoff mounts</strong> apply the same shock-isolation principle at fastener points — swapping a rigid metal standoff for a rubber-grommeted one under a receiver or ESC costs almost nothing in weight or money but meaningfully reduces the chance that a hard hit which the armor survives fine still kills the electronics through shock alone.</p>
+<p><strong>The general design principle:</strong> wherever a rigid, direct mechanical path exists between the point of impact and a fragile component, a small amount of engineered compliance — the right elastomer, at the right durometer, in the right place — interrupts that path and converts a damaging shock into a manageable one. This is a deliberate, low-cost design choice available at almost every point in a 1 lb build, not just an armor problem.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/material-foam-padding.html">Foam Padding (EVA / Closed-Cell PU Foam)</a></li><li><a href="../e/material-polyurethane-elastomer.html">Cast Polyurethane Elastomer</a></li><li><a href="../e/material-rubber-mounts.html">Rubber Grommets / Standoff Mounts</a></li><li><a href="../e/material-silicone-rubber.html">Silicone Rubber</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

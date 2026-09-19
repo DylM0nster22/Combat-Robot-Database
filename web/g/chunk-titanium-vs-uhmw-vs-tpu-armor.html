@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Titanium vs UHMW vs TPU Armor — Combat Robot Database</title>
+<meta name="description" content="These three materials represent three fundamentally different philosophies for surviving a weapon hit, and understanding the mechanism behind each explains when">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Titanium vs UHMW vs TPU Armor</div>
+<h1 class="page">Titanium vs UHMW vs TPU Armor</h1>
+<p class="page-sub">Comparative Selection</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">comparison</span><span class="pill">armor-philosophy</span><span class="pill">titanium</span><span class="pill">uhmw</span><span class="pill">tpu</span></div>
+<div class="two-col">
+  <div class="prose"><p>These three materials represent three fundamentally different philosophies for surviving a weapon hit, and understanding the mechanism behind each explains when to pick which.</p>
+<p><strong>Titanium (resist-and-hold):</strong> Ti-6Al-4V is chosen because it is strong enough, at a thin gauge, to simply not deform much under most antweight-class hits — it resists the load elastically up to a high stress before yielding. This keeps the robot&#x27;s shape and mounting geometry intact hit after hit, which matters for a robot with tight internal tolerances (wedges, self-righting mechanisms). The cost is that once it does exceed its strength (a very hard hit, or fatigue from many repeated hits in the same spot), it fails somewhat abruptly by cracking, since it has less ductility than steel. It is also the most expensive and hardest-to-machine of the three by a wide margin.</p>
+<p><strong>UHMW-PE (absorb-and-glance):</strong> UHMW works by a completely different mechanism — very long polymer chains let it deform plastically over a large volume, soaking up impact energy as internal molecular rearrangement rather than storing it as elastic stress. Combined with its low surface friction, a spinner blade tends to skid/glance off a UHMW surface rather than digging in and transferring maximum force. It is cheap and easy to cut, but its low stiffness means it needs a rigid backing for anything that has to hold its shape (a wedge angle, a mounting face), and it is genuinely difficult to bond, usually requiring mechanical fasteners.</p>
+<p><strong>TPU 95A (deflect-and-spring-back):</strong> TPU takes the &quot;get out of the way&quot; strategy furthest — as an elastomer, it deforms elastically by a huge percentage (400-500%+ elongation) and returns almost fully to its original shape after the load is removed, unlike UHMW&#x27;s more permanent plastic deformation. This means a TPU-armored panel can typically absorb many separate hits without cumulative damage, whereas a UHMW panel slowly accumulates gouges and a titanium panel slowly accumulates cracks. The tradeoff is that TPU has essentially no structural stiffness of its own — it is always used as a skin over a rigid frame (PLA, PETG, aluminum, or titanium), never as the sole structural material.</p>
+<p><strong>Practical selection:</strong> a metal-class antweight competing for maximum single-hit survivability against other metal spinners tends to reach for titanium first. A plastic-antweight, where the printed material budget already buys generous thickness, increasingly reaches for a TPU-over-PLA/PETG composite shell as the modern default, with UHMW as a mechanically-fastened side-panel option when a builder wants a metal-adjacent toughness without titanium&#x27;s price or a fully custom TPU printing setup. Combining all three in a single build is not unusual: a titanium or PLA structural nose backed by internal UHMW gouge-strips, wrapped at the edges in a TPU compliant skirt.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/material-pla-plaplus.html">PLA / PLA+</a></li><li><a href="../e/material-titanium-grade5.html">Titanium Grade 5 (Ti-6Al-4V)</a></li><li><a href="../e/material-tpu-95a.html">TPU 95A (Rigid-Flex Thermoplastic Polyurethane)</a></li><li><a href="../e/material-uhmwpe.html">UHMW-PE (Ultra-High Molecular Weight Polyethylene)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,1516 @@
+{
+  "topic_id": "weapon-geometry",
+  "title": "Weapon Geometry: Physical Weapon Design for Antweights",
+  "scope_note": "The physical design of combat robot weapon parts for 1 lb antweights and plastic antweights: geometry of vertical discs, bar spinners, drums, shell spinners, beater bars, eggbeaters, undercutters/overhead horizontals, hammers/axes, and static weapons; bite; balancing; MOI/energy with worked 1 lb examples; and hub/shaft attachment and failure modes. Archetype-level strategy and general design math live in sibling topics; this file focuses on the physical part itself.",
+  "entities": [
+    {
+      "id": "formula-wg-mass-toward-rim-effect",
+      "type": "formula",
+      "name": "Mass-toward-the-rim effect on MOI",
+      "summary": "For a fixed total mass and fixed outer radius, moving material from the center toward the rim increases moment of inertia and stored energy without adding weight -- the single biggest lever in weapon geometry.",
+      "expression": "I_disc = 0.5*m*R^2 (uniform disc);  I_annulus = 0.5*m*(R_out^2 + R_in^2) (rim-loaded ring of same mass & R_out);  I_thin_ring = m*R^2 (all mass at the rim)",
+      "variables": {
+        "m": "total weapon mass, kg",
+        "R": "outer radius, m",
+        "R_in": "inner radius of the annulus (where the rim material starts), m",
+        "R_out": "outer radius, m"
+      },
+      "worked_example": "80 g (0.080 kg) weapon, outer radius 32 mm. Uniform solid disc: I = 0.5*0.080*0.032^2 = 4.10e-5 kg*m^2. Same mass reshaped into an 8 mm-thick rim (R_in=24mm, R_out=32mm): I = 0.5*0.080*(0.032^2+0.024^2) = 0.5*0.080*0.0016 = 6.40e-5 kg*m^2 -- 56% more MOI (and therefore 56% more stored energy at the same rpm) for the identical mass and outer diameter. Taken to the limit of an infinitely thin rim (a shell/ring spinner), I = m*R^2 = 0.080*0.032^2 = 8.19e-5 kg*m^2 -- exactly double the uniform disc.",
+      "applies_to": [
+        "vertical-disc",
+        "shell-spinner",
+        "drum-spinner"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "moi",
+        "energy",
+        "rim-loading",
+        "disc",
+        "shell-spinner"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "formula-wg-tooth-count-moi-equivalence",
+      "type": "formula",
+      "name": "Tooth count does not change stored energy",
+      "summary": "Splitting a fixed tooth mass at a fixed radius into more teeth does not change the weapon's moment of inertia or stored kinetic energy -- tooth count only changes bite depth and hit frequency, which is a commonly confused point.",
+      "expression": "I = SUM(m_i * r_i^2) for point masses at the same radius; total I is unchanged if total mass and radius are held constant regardless of how many pieces the mass is divided into",
+      "variables": {
+        "m_i": "mass of an individual tooth, kg",
+        "r_i": "radius of that tooth's center of mass, m"
+      },
+      "worked_example": "20 g of tooth material at 30 mm radius. As one tooth: I = 0.020*0.030^2 = 1.80e-5 kg*m^2. As two 10 g teeth at the same 30 mm radius: I = 2*(0.010*0.030^2) = 2*9.0e-6 = 1.80e-5 kg*m^2 -- identical. The stored energy and tip speed are the same either way; what changes is hit frequency (doubles) and bite depth per hit (halves, see the bite-depth formulas). Builders sometimes assume more teeth means a 'weaker hit' -- it does mean shallower bite per hit, but not less total energy delivered over several hits.",
+      "applies_to": [
+        "vertical-disc",
+        "drum-spinner"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "moi",
+        "tooth-count",
+        "bite",
+        "myth-busting"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "formula-wg-drum-wall-thickness-moi",
+      "type": "formula",
+      "name": "Drum wall thickness vs MOI (thin-wall vs thick-wall drum)",
+      "summary": "For a fixed drum outer diameter and total mass, a thinner wall (mass pushed toward the outside) gives meaningfully more MOI than a thick-walled drum of the same weight -- the drum-spinner version of the mass-toward-rim principle.",
+      "expression": "I = 0.5*m*(R_out^2 + R_in^2) for a thick-walled cylinder about its own axis; as R_in approaches R_out (thin wall) this approaches I = m*R_out^2",
+      "variables": {
+        "m": "drum mass, kg",
+        "R_out": "outer radius, m",
+        "R_in": "inner (bore) radius, m"
+      },
+      "worked_example": "100 g drum, 40 mm OD (R_out=0.020 m). Thin-wall version, 3 mm wall (R_in=0.017 m): I = 0.5*0.100*(0.020^2+0.017^2) = 0.5*0.100*0.000689 = 3.445e-5 kg*m^2. Thick-wall version, 10 mm wall (R_in=0.010 m), same OD and same total mass: I = 0.5*0.100*(0.0004+0.0001) = 2.50e-5 kg*m^2. The thin-wall drum carries 38% more MOI for the identical mass and outer diameter, which is why competitive antweight drums use a thin, hardened outer shell (often with a lighter core/spine) rather than a solid steel cylinder.",
+      "applies_to": [
+        "drum-spinner"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "moi",
+        "drum",
+        "wall-thickness"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "formula-wg-tip-speed-vs-diameter-tradeoff",
+      "type": "formula",
+      "name": "Tip speed vs diameter at a fixed motor RPM",
+      "summary": "At a fixed weapon RPM, a larger-diameter disc gives higher tip speed and more stored energy, but its MOI grows with the square of radius, which slows spin-up and demands more motor torque -- the core diameter-vs-thickness tradeoff for vertical discs.",
+      "expression": "v_tip = omega * r_tip;  I scales with r^2 for a given shape and mass distribution, so spin-up time (t = I*omega/T_avg) grows quickly as diameter increases at constant mass",
+      "variables": {
+        "omega": "angular velocity, rad/s",
+        "r_tip": "radius to the weapon's outer edge, m",
+        "T_avg": "average available motor torque during spin-up, N*m"
+      },
+      "worked_example": "Same 20,000 rpm (omega=2094.4 rad/s) run on a 50 mm diameter disc (r=0.025m) vs a 76 mm diameter disc (r=0.038m): v1 = 2094.4*0.025 = 52.4 m/s (117 mph); v2 = 2094.4*0.038 = 79.6 m/s (178 mph). The larger disc hits much harder per rpm, but for the same total weapon mass its MOI is roughly (38/25)^2 = 2.3x higher, so spin-up time and required motor torque both increase by a similar factor -- a common reason first-time builders oversize a disc and end up with a weapon that never reaches full speed in a 3-minute fight.",
+      "applies_to": [
+        "vertical-disc"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "tip-speed",
+        "diameter",
+        "spin-up",
+        "disc"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "formula-wg-bite-depth-rake-angle",
+      "type": "formula",
+      "name": "Effective bite path length vs tooth rake angle",
+      "summary": "A swept-back (raked) tooth follows a longer path through the opponent's material for the same straight-line bite depth, trading peak impact force for a longer, lower-force engagement -- a simplified geometric model for comparing tooth profiles.",
+      "expression": "path_length ~= bite_depth / cos(rake_angle)  (approximation for a tooth face swept back by rake_angle from purely radial)",
+      "variables": {
+        "bite_depth": "straight-line penetration per hit from the base bite formula, mm",
+        "rake_angle": "angle of the tooth's leading face from a purely radial line, degrees",
+        "path_length": "approximate length of material actually engaged along the raked face, mm"
+      },
+      "worked_example": "A tooth with 4.5 mm of computed bite depth (from formula-bite-depth in the design-math topic) and a 0 degree radial rake engages the full 4.5 mm as a direct impact. The same 4.5 mm bite on a tooth raked back 25 degrees engages path_length = 4.5/cos(25) = 4.5/0.906 = 4.97 mm of material -- about 10% more contact length -- but because the raked face sheds the hit more tangentially, peak instantaneous force on the tooth and bearings is lower. This is a simplified geometric approximation, not a rigorous impact model, and real behavior also depends on the opponent's material and how it fractures or deforms.",
+      "applies_to": [
+        "vertical-disc",
+        "drum-spinner"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bite",
+        "rake-angle",
+        "tooth-profile"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "formula-wg-bite-vs-wedge-angle",
+      "type": "formula",
+      "name": "Effective bite against an angled wedge surface",
+      "summary": "Striking a sloped wedge face instead of a flat vertical face reduces the normal (penetrating) component of a spinner's bite, which is why steep, aggressive wedges are an effective spinner counter and low, shallow wedges preserve more of the attacker's bite.",
+      "expression": "effective_bite ~= bite_depth * (1 - sin(wedge_angle))  (approximation; wedge_angle measured from horizontal, 0 = flat ground-level wedge, 90 = vertical flat face)",
+      "variables": {
+        "bite_depth": "computed bite depth against a flat vertical face, mm",
+        "wedge_angle": "angle of the opponent's wedge face from horizontal, degrees",
+        "effective_bite": "approximate normal penetration achieved against the sloped face, mm"
+      },
+      "worked_example": "A weapon with 4.5 mm of computed bite hitting a shallow 10 degree wedge: effective_bite ~= 4.5*(1-sin(10)) = 4.5*(1-0.174) = 3.72 mm -- most of the bite survives. The same weapon hitting a steep 40 degree wedge lip: effective_bite ~= 4.5*(1-sin(40)) = 4.5*(1-0.643) = 1.61 mm -- roughly a third of the flat-face bite, and in practice the tooth is also likely to deflect and ride up the face rather than dig in, which is the mechanism behind wedges surviving or even flipping spinners. This is a rough heuristic, not a rigorous contact-mechanics result, and real outcomes depend heavily on closing speed, ground clearance, and whether the wedge lip itself gets caught.",
+      "applies_to": [
+        "vertical-disc",
+        "drum-spinner",
+        "bar-spinner"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bite",
+        "wedge",
+        "ground-clearance",
+        "counters"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "formula-wg-balance-tolerance",
+      "type": "formula",
+      "name": "Residual unbalance and shaking force vs RPM",
+      "summary": "A small leftover unbalance (mass times its offset from the rotation axis) produces a centrifugal shaking force that grows with the square of RPM, which is why fast antweight spinners need much tighter balance tolerances than slow ones.",
+      "expression": "U = m_unbalance * r_offset (residual unbalance, g*mm);  F_shake = U(in kg*m) * omega^2 (centrifugal shaking force, N)",
+      "variables": {
+        "m_unbalance": "leftover unbalanced mass, kg",
+        "r_offset": "distance of that mass from the rotation axis, m",
+        "omega": "angular velocity, rad/s",
+        "U": "residual unbalance, conventionally expressed in gram-millimeters (g*mm)",
+        "F_shake": "rotating shaking force transmitted into the shaft and bearings, N"
+      },
+      "worked_example": "A 150 g disc balanced to within 0.1 g at a 30 mm offset has U = 0.1 g * 30 mm = 3 g*mm = 3e-6 kg*m. At 20,000 rpm (omega=2094.4 rad/s): F_shake = 3e-6 * 2094.4^2 = 3e-6 * 4.386e6 = 13.2 N (about 1.3 kgf) of rotating force reversing direction on every revolution. Doubling the RPM to 40,000 quadruples that to about 52.7 N for the identical residual unbalance -- the reason higher-speed ant spinners need noticeably tighter balance than slower ones, and why a weapon that felt fine at half throttle can shake a bot apart at full speed.",
+      "applies_to": [
+        "vertical-disc",
+        "bar-spinner",
+        "drum-spinner",
+        "shell-spinner"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "balance",
+        "vibration",
+        "bearings"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "formula-wg-hub-bolt-shear-capacity",
+      "type": "formula",
+      "name": "Hub fastener shear capacity vs weapon torque",
+      "summary": "The torque a bolted or set-screw hub can transmit is set by the shear strength of its fasteners times their number and bolt-circle radius; comparing this to the weapon motor's stall torque shows whether the hub -- or something else -- is the weak link.",
+      "expression": "F_per_fastener = shear_stress_allow * area_shear;  T_capacity = N_fasteners * F_per_fastener * r_bolt_circle",
+      "variables": {
+        "shear_stress_allow": "allowable shear stress of the fastener material, Pa",
+        "area_shear": "shear cross-section area of one fastener, m^2",
+        "N_fasteners": "number of fasteners on the bolt circle",
+        "r_bolt_circle": "radius of the bolt circle, m",
+        "T_capacity": "torque the hub joint can transmit before fastener shear failure, N*m"
+      },
+      "worked_example": "A clamped shell-spinner ring held by 4x M2.5 steel screws (minor diameter ~2.0 mm, area = pi/4*0.002^2 = 3.14e-6 m^2) on a 15 mm bolt circle, allowable shear stress ~200 MPa: F_per_fastener = 3.14e-6*200e6 = 628 N; T_capacity = 4*628*0.015 = 37.7 N*m. A typical antweight weapon motor's stall torque is only about 0.05-0.3 N*m, so the bolted joint itself has a huge margin -- in practice, hub failures on ants are almost always set-screw slip on a smooth round shaft (a friction joint, not a shear joint) rather than fastener shear, which is why keyways and hex broaches are preferred once torque or shock loads get serious.",
+      "applies_to": [
+        "hub-design",
+        "shell-spinner",
+        "vertical-disc"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "hub",
+        "fasteners",
+        "torque",
+        "failure-modes"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "formula-wg-cantilever-shaft-bending",
+      "type": "formula",
+      "name": "Cantilevered shaft bending stress under impact load",
+      "summary": "A weapon shaft supported by only one bearing (cantilevered) sees bending stress proportional to the impact force times the unsupported length; shortening that length or adding a second support point cuts stress dramatically and is the main structural argument for double-bearing shaft support.",
+      "expression": "M = F_impact * L;  sigma = M*c / I_section, with I_section = pi*d^4/64 for a solid round shaft",
+      "variables": {
+        "F_impact": "estimated peak impact force during a hit, N",
+        "L": "unsupported cantilever length from the bearing to the load point, m",
+        "d": "shaft diameter, m",
+        "c": "distance from neutral axis to outer fiber = d/2, m",
+        "I_section": "second moment of area of the shaft cross-section, m^4",
+        "sigma": "bending stress in the shaft, Pa"
+      },
+      "worked_example": "6 mm diameter shaft, an estimated 1000 N instantaneous impact spike, 10 mm of unsupported cantilever length between the single bearing and the weapon: I_section = pi*0.006^4/64 = 6.36e-11 m^4; M = 1000*0.010 = 10 N*m; sigma = 10*0.003/6.36e-11 = 4.72e8 Pa = 472 MPa -- enough to permanently bend a mild-steel shaft (yield ~250 MPa) but survivable for a hardened alloy shaft. Adding a second bearing close to the weapon face to cut the effective cantilever to 3 mm drops the moment to 3 N*m and the stress to about 141 MPa, well under yield for almost any shaft material. The 1000 N figure is a rough estimate for illustration -- real impact loads vary hugely with weapon mass, rpm, and what is struck -- but the L-scaling relationship is the key structural takeaway.",
+      "applies_to": [
+        "shaft-support",
+        "vertical-disc",
+        "drum-spinner",
+        "bar-spinner"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "shaft",
+        "bending",
+        "bearings",
+        "failure-modes"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "term-tooth-profile",
+      "type": "term",
+      "name": "Tooth profile",
+      "category": "weapon-geometry",
+      "summary": "The shape of a spinning weapon's cutting/striking edge in cross-section -- common profiles for antweights include a simple radial chisel tooth, a hooked or claw profile that grabs and lifts, and a blunt flat-faced tooth used mainly for pure kinetic hammering rather than cutting.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium",
+      "notes": "radial chisel teeth are the simplest to machine and hardest-hitting for pure impact hooked/claw profiles can catch and lift lighter opponents but chip more easily under hard impacts blunt/flat teeth survive abuse better but transfer more of their energy as a shove than a cut"
+    },
+    {
+      "id": "term-rake-angle",
+      "type": "term",
+      "name": "Rake angle",
+      "category": "weapon-geometry",
+      "summary": "The angle of a tooth's leading face relative to a purely radial line from the center of rotation. Zero rake (radial) gives the most direct, highest peak-force impact; a swept-back (negative) rake trades some peak force and bite depth for a longer, gentler engagement and less shock loading on the tooth root and bearings; a forward (positive/aggressive) rake can dig in harder but is far more prone to chipping or snapping on a hard hit.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-hardened-insert",
+      "type": "term",
+      "name": "Hardened tooth insert",
+      "category": "weapon-geometry",
+      "summary": "A separate hardened-steel (or carbide) tooth bolted, pinned, press-fit, or welded into a softer weapon body, rather than machining the whole weapon from one hard billet. Lets the body be made from tougher, easier-to-machine, or lighter material (aluminum, mild steel, even plastic on plastic-antweights) while only the actual striking edge needs to be hard and wear-resistant.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium",
+      "notes": "cheaper and faster to replace a chipped tooth than to remake the whole weapon body material can be optimized for toughness/weight rather than hardness the insert's retention (bolt, pin, weld, keyway) becomes its own failure point under repeated shock"
+    },
+    {
+      "id": "term-monolithic-weapon",
+      "type": "term",
+      "name": "Monolithic weapon construction",
+      "category": "weapon-geometry",
+      "summary": "A weapon machined or cut from a single piece of material with no separate tooth inserts -- the whole disc, bar, or drum is the same hardness throughout. Simpler and lighter (no fasteners or pockets), but a chip or crack in the edge is a chip or crack in the entire weapon, and the whole piece must be through-hardened or case-hardened as one part.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium",
+      "notes": "fewer parts, fewer failure points, less dead weight in fasteners chipping/cracking damages the load-bearing structure itself, not just a replaceable piece heat-treating a large single part evenly is harder than heat-treating a small insert"
+    },
+    {
+      "id": "term-dead-shaft",
+      "type": "term",
+      "name": "Dead shaft (fixed shaft)",
+      "category": "weapon-geometry",
+      "summary": "A weapon-mounting scheme where the shaft itself is rigidly bolted to the robot's frame and does not rotate; the weapon (a disc, drum, or 'bell') spins around the stationary shaft on its own bearings, usually driven by a pulley or sprocket bonded/bolted to the weapon body. Common on antweight belt-driven spinners because it lets the bearings sit directly inside the weapon, close to the mass, and removes the need for a rotating shaft to be supported by frame-mounted bearings on both sides.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-live-shaft",
+      "type": "term",
+      "name": "Live shaft (rotating shaft)",
+      "category": "weapon-geometry",
+      "summary": "A weapon-mounting scheme where the shaft itself rotates, supported by one or two frame-mounted bearings, and the weapon is keyed, pinned, or set-screwed directly to the shaft. Simpler to build for a single small disc, but for wider weapons (drums, long bars) the shaft needs support close to both ends of the weapon or it behaves like a cantilever under impact.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-canted-bar",
+      "type": "term",
+      "name": "Canted bar spinner",
+      "category": "weapon-geometry",
+      "summary": "A bar spinner whose blade(s) are angled slightly out of the pure vertical or horizontal plane, so impacts impart some off-axis (up/down or sideways) force in addition to the main rotational hit. Used to try to pop an opponent up off the ground, deflect strikes away from the canted bot's own frame, or reduce head-on lockups between two similar spinners; the tradeoff is a less efficient direct hit and a slightly harder weapon to balance because its mass is no longer confined to a single plane.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-egg-shaped-drum",
+      "type": "term",
+      "name": "Egg-shaped (eccentric) drum",
+      "category": "weapon-geometry",
+      "summary": "A drum spinner whose cross-section is not a true circle but an oval or egg shape, so the effective radius to the cutting edge -- and therefore the bite depth and impact timing -- varies through the rotation. Intended to deliver a mix of a 'sweeping' lower-force pass and a harder-hitting peak strike each revolution, at the cost of being much harder to balance than a true cylindrical drum and requiring a correspondingly variable ground-clearance envelope.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-support-ring-shell-spinner",
+      "type": "term",
+      "name": "Support ring / bearing arrangement for shell spinners",
+      "category": "weapon-geometry",
+      "summary": "The stationary structure (often a large-diameter thin bearing, a bearing race machined into the frame, or several small support bearings/rollers riding on the inside of the ring) that keeps a shell spinner's thin outer ring running true and prevents it from deflecting or walking off-axis at high rpm. Because a shell spinner's entire weapon mass sits far from the center as a thin ring (see the mass-toward-rim formula), the ring itself is relatively flexible and depends on this support structure -- not just the drive bearing -- to stay round and balanced under load.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-ground-clearance-weapon",
+      "type": "term",
+      "name": "Weapon ground clearance",
+      "category": "weapon-geometry",
+      "summary": "The gap between the lowest point of a spinning weapon (or its housing) and the arena floor. Ground clearance controls how much of an opponent's low wedge or skirt the weapon can actually reach: too much clearance and low wedges simply slide underneath the weapon untouched; too little and the weapon risks striking the floor itself, which can shatter teeth, stall the motor, or violate event floor-damage rules. Undercutters push this to the minimum practical gap; overhead horizontal spinners are largely unaffected by it since they strike above the frame.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-floor-interaction-undercutter",
+      "type": "term",
+      "name": "Floor interaction (undercutters)",
+      "category": "weapon-geometry",
+      "summary": "The defining trait of undercutter weapons: the spinning weapon sits low, near or partly below the drive wheels, so it can get underneath an opponent's wedge or skirt where an overhead weapon cannot reach. This close floor proximity means undercutters take more incidental damage from arena floor imperfections and screws, generate sparks/debris that can be a spectator and rules concern, and generally need a slightly more durable, lower running weapon speed than an equivalent overhead design to survive routine floor contact.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-keyway",
+      "type": "term",
+      "name": "Keyway",
+      "category": "weapon-geometry",
+      "summary": "A machined slot cut lengthwise into both a shaft and its mating hub, into which a separate key (a small steel bar) is fitted so the two parts rotate together positively instead of relying on friction. Transmits high torque and survives shock loads far better than a set screw, but the slot itself is a stress concentration that can become the shaft's weak point, and cutting a clean small keyway in an ant-scale shaft (often 4-8 mm diameter) requires more precise machining than a set-screw flat or a broached hex.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-broached-hex-bore",
+      "type": "term",
+      "name": "Broached hex bore",
+      "category": "weapon-geometry",
+      "summary": "A hub or pulley bored with an internal hexagonal hole that slides onto a matching hexagonal section of shaft, giving a positive, low-part-count torque connection without a separate key. Very common on antweight weapon pulleys and sprockets because a short length of hex stock (or a shaft with a hex section machined/ground onto it) is cheap and simple, and the hex engagement handles shock loads much better than a round-bore set-screw hub, though it still needs some axial retention (a screw, retaining ring, or shoulder) to keep the hub from sliding off the shaft.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-set-screw-hub",
+      "type": "term",
+      "name": "Set-screw hub",
+      "category": "weapon-geometry",
+      "summary": "The simplest and lightest weapon-to-shaft attachment: a round bore with one or more screws (often against a flat ground into the shaft) that clamp the hub on by friction and slight shaft deformation. Cheap, adjustable, and easy to remove, but it is a friction joint -- under the shock torque of a hard weapon impact it can slip on the shaft, throwing the weapon's timing/balance off or losing drive entirely, which is why harder-hitting antweight builds often upgrade to a keyway or broached hex once set-screw slip becomes a recurring failure.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-static-balance",
+      "type": "term",
+      "name": "Static balance",
+      "category": "weapon-geometry",
+      "summary": "Balancing a rotating part so its center of mass lies exactly on the rotation axis, checked by letting the part rest freely on a level, low-friction axis (a balancing mandrel) and seeing whether it stays put in any orientation or always rotates to put a heavy spot at the bottom. Sufficient for thin, disc-like weapons where essentially all the mass sits in one plane perpendicular to the shaft; the standard, low-cost balancing method for most antweight vertical-disc and shell-spinner builds.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-dynamic-balance",
+      "type": "term",
+      "name": "Dynamic balance",
+      "category": "weapon-geometry",
+      "summary": "Balancing a rotating part in two separate planes along its length, not just its overall center of mass -- necessary for weapons with significant length along the rotation axis (long bars, wide drums) where the part can be statically balanced (center of mass on-axis) yet still wobble in operation because the mass distribution at one end differs from the other, creating a rocking couple. Checking this at the hobbyist level typically means balancing each end/plane of the weapon separately (e.g., weighing/trimming each half of a bar independently) rather than true multi-plane balancing-machine measurement.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-balancing-mandrel",
+      "type": "term",
+      "name": "Balancing mandrel / balancing stand",
+      "category": "weapon-geometry",
+      "summary": "A simple hobbyist static-balancing setup: the weapon is mounted on a precision shaft (mandrel) or its own shaft, which is then rested on a pair of level, low-friction supports -- hardened knife edges, a set of unloaded bearings, or even two parallel round rods. Gravity rotates the assembly until the heavy side settles at the bottom; that spot is marked, and material is removed there (or added to the opposite side) and the check repeated until the weapon stays put in any rotational position, indicating the center of mass is on the shaft axis.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-bell-separation",
+      "type": "term",
+      "name": "Bell separation (failure mode)",
+      "category": "weapon-geometry",
+      "summary": "A failure mode specific to dead-shaft weapon mounts where the drive pulley/sprocket ('bell') is bonded, pinned, or pressed onto the spinning weapon body: a hard impact shock-loads that bond/pin joint and the bell separates from the weapon, either slipping in place (losing drive) or fully detaching. Usually fixed by adding mechanical retention beyond adhesive alone -- screws, a broached hex or keyed interface, or a press fit backed by a positive stop -- rather than relying on bonding strength alone to survive combat shock loads.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-hub-slip",
+      "type": "term",
+      "name": "Hub slip (failure mode)",
+      "category": "weapon-geometry",
+      "summary": "A failure mode where a weapon's hub rotates relative to its shaft under impact shock, most commonly on set-screw hubs biting onto a smooth round shaft. The immediate symptom is the weapon's teeth ending up in the wrong angular position relative to where the driver expects them, or complete loss of drive to the weapon; repeated slip also gradually damages (galls/rounds) the shaft surface the set screw bites into, making the problem worse over time. The standard fix is a positive-drive interface (keyway or hex broach) rather than tightening the set screw harder.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-bent-shaft",
+      "type": "term",
+      "name": "Bent shaft (failure mode)",
+      "category": "weapon-geometry",
+      "summary": "Permanent plastic deformation of a weapon shaft from bending loads that exceeded the shaft material's yield strength, usually from a hard impact combined with a long unsupported (cantilevered) length or an undersized/soft shaft material. Symptoms are a weapon that now runs visibly off-true, vibrates even after rebalancing, and puts abnormal radial load into its bearings; the fix is a shorter unsupported span (a second bearing closer to the weapon), a larger-diameter shaft, or a harder alloy shaft material, not just re-straightening the existing shaft, which rarely restores full strength.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-exploded-bearing",
+      "type": "term",
+      "name": "Exploded bearing (failure mode)",
+      "category": "weapon-geometry",
+      "summary": "Catastrophic bearing failure in a weapon assembly, where the ball cage shatters, balls escape, or a shield/seal blows out from a single hard radial impact or from sustained vibration due to an unbalanced weapon. Small ant-scale bearings (623/626/688 class) have limited shock load capacity, so this failure is common after either a single very hard direct hit that was transmitted straight through a weapon shaft into its bearing, or slow fatigue from running an out-of-balance weapon for many matches; flanged bearings and a snug, properly-sized bore/shaft fit reduce (but do not eliminate) the risk.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-moment-arm-hammer",
+      "type": "term",
+      "name": "Moment arm (hammers/axes)",
+      "category": "weapon-geometry",
+      "summary": "For a hammer or axe weapon, the distance from the pivot to the head's center of mass (and to its impact point). A longer moment arm gives the head a higher tip speed and more kinetic energy for the same swing torque and angular acceleration, but also increases the weapon's MOI (which scales with the square of that distance), demanding more torque/time to swing and putting more bending stress on the pivot and its bearings/shaft during the strike.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-edge-prep-static-weapon",
+      "type": "term",
+      "name": "Edge preparation (static weapons)",
+      "category": "weapon-geometry",
+      "summary": "The sharpening angle, edge geometry, and heat treatment applied to a fork, spike, or wedge's leading edge. A thin, low included angle bites into opponent material more easily but chips or rolls over on a hard impact; a thicker, more obtuse angle survives repeated hard hits better but requires more closing force/speed to penetrate at all. Hardening the edge (case hardening a mild-steel wedge lip, or using a pre-hardened tool steel insert) lets a bot keep a thinner, more aggressive angle without it deforming on contact.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-bearing-623",
+      "type": "component",
+      "name": "623 bearing (3x10x4mm)",
+      "category": "bearing",
+      "summary": "A very small deep-groove ball bearing, 3mm bore x 10mm OD x 4mm width, used on the smallest antweight and plastic-antweight weapon and drive shafts where every gram counts.",
+      "specs": {
+        "bore_mm": 3,
+        "od_mm": 10,
+        "width_mm": 4,
+        "weight_g": 1.0
+      },
+      "pros": [
+        "extremely light and compact",
+        "cheap and widely stocked"
+      ],
+      "cons": [
+        "very low shock/radial load capacity -- easily destroyed by a hard direct impact",
+        "small bore limits shaft diameter and therefore bending stiffness/strength"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bearing",
+        "hardware"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-bearing-626",
+      "type": "component",
+      "name": "626 bearing (6x19x6mm)",
+      "category": "bearing",
+      "summary": "A common small deep-groove ball bearing, 6mm bore x 19mm OD x 6mm width, a popular middle-ground choice for antweight weapon shafts needing more shaft diameter (bending strength) than a 623 without jumping to a heavier bearing.",
+      "specs": {
+        "bore_mm": 6,
+        "od_mm": 19,
+        "width_mm": 6,
+        "weight_g": 5.0
+      },
+      "pros": [
+        "good balance of shaft diameter (bending strength) vs bearing size/weight",
+        "widely available, low cost"
+      ],
+      "cons": [
+        "still a light-duty bearing relative to the shock loads a hard-hitting spinner can generate"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bearing",
+        "hardware"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-bearing-688",
+      "type": "component",
+      "name": "688 bearing (8x16x5mm)",
+      "category": "bearing",
+      "summary": "A common small deep-groove ball bearing, 8mm bore x 16mm OD x 5mm width. A popular choice for antweight weapon shafts and dead-shaft drum/disc mounts because the 8mm bore supports a noticeably stiffer, stronger shaft than a 623/626 in a still-compact OD.",
+      "specs": {
+        "bore_mm": 8,
+        "od_mm": 16,
+        "width_mm": 5,
+        "weight_g": 3.5
+      },
+      "pros": [
+        "8mm bore gives a meaningfully stiffer/stronger shaft than 6mm or 3mm options",
+        "compact OD still fits inside small ant weapon hubs/bells"
+      ],
+      "cons": [
+        "narrower (5mm) width than a 626 gives it less resistance to misalignment"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bearing",
+        "hardware"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-bearing-flanged",
+      "type": "component",
+      "name": "Flanged bearing (F-series, e.g. F688/F626)",
+      "category": "bearing",
+      "summary": "A standard bearing with an added outer flange (e.g. F688, F626) that seats against the face of a bore instead of needing a shoulder or retaining ring, commonly used in dead-shaft weapon 'bells' so the bearing self-locates and resists walking axially under impact side-loads.",
+      "specs": {},
+      "pros": [
+        "self-locates axially in a bore without extra retention hardware",
+        "reduces axial walk in dead-shaft weapon housings under off-axis impact loads"
+      ],
+      "cons": [
+        "slightly heavier and larger OD than the equivalent non-flanged bearing",
+        "flange itself can crack if struck directly"
+      ],
+      "alternatives": [
+        "component-bearing-688",
+        "component-bearing-626",
+        "component-bronze-bushing"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bearing",
+        "hardware",
+        "dead-shaft"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-bronze-bushing",
+      "type": "component",
+      "name": "Bronze bushing (plain bearing)",
+      "category": "bearing",
+      "summary": "A solid or sintered bronze sleeve used as a plain (non-ball) bearing on a weapon or drive shaft. Cheaper and more tolerant of debris and minor misalignment than a ball bearing, at the cost of higher friction and a lower practical RPM ceiling.",
+      "pros": [
+        "very cheap, simple, tolerant of dirt/debris and minor shaft misalignment",
+        "won't 'explode' the way a ball bearing can under shock -- wears gradually instead"
+      ],
+      "cons": [
+        "higher friction than a ball bearing, costing some efficiency/spin-up time",
+        "lower safe RPM ceiling, generally unsuited to the highest-speed disc/shell spinners"
+      ],
+      "alternatives": [
+        "component-bearing-688",
+        "component-bearing-626",
+        "component-bearing-623"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bearing",
+        "hardware",
+        "bushing"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-hub-set-screw",
+      "type": "component",
+      "name": "Set-screw hub",
+      "category": "hub",
+      "summary": "A round-bore aluminum or steel hub clamped to a shaft with one or more radial set screws, typically biting onto a flat ground into the shaft. The lightest and simplest weapon attachment method for antweights, but a friction joint that can slip under hard shock loads (see term-hub-slip).",
+      "pros": [
+        "lightest, cheapest, easiest to machine and to remove/adjust"
+      ],
+      "cons": [
+        "friction joint -- prone to slipping under weapon impact shock, especially without a shaft flat"
+      ],
+      "alternatives": [
+        "component-hub-clamping",
+        "term-keyway",
+        "term-broached-hex-bore"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "hub",
+        "hardware",
+        "attachment"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-hub-clamping",
+      "type": "component",
+      "name": "Clamping (split/pinch) hub",
+      "category": "hub",
+      "summary": "A hub with a slit and a clamping screw that squeezes the full bore diameter down onto the shaft, rather than a set screw biting a single point. Grips more of the shaft's circumference, avoids denting/deforming the shaft the way a point-contact set screw can, and holds up somewhat better under shock -- still a friction joint, so still weaker than a keyway or hex broach under hard impacts.",
+      "pros": [
+        "grips more shaft surface area than a point set screw, better shock resistance",
+        "does not dent/deform the shaft surface the way a set screw can"
+      ],
+      "cons": [
+        "heavier and slightly bulkier than a simple set-screw hub",
+        "still a friction joint -- can still slip under a severe enough impact"
+      ],
+      "alternatives": [
+        "component-hub-set-screw",
+        "term-keyway",
+        "term-broached-hex-bore"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "hub",
+        "hardware",
+        "attachment"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-s7-tool-steel",
+      "type": "material",
+      "name": "S7 tool steel (hardened tooth insert)",
+      "category": "metal",
+      "summary": "A shock-resistant air/oil-hardening tool steel commonly used for antweight spinner tooth inserts and small striking edges, chosen because it can be hardened well into the 50s HRC while retaining good toughness against repeated impact (as opposed to a harder but more brittle tool steel).",
+      "use_cases": [
+        "bolt-in or pinned spinner tooth inserts",
+        "small striking edges on bars/drums"
+      ],
+      "machinability": "moderate when annealed; must be heat-treated after final shaping to reach combat hardness",
+      "printable": false,
+      "specs": {
+        "density_g_cm3": 7.75,
+        "hardness_hrc": 54
+      },
+      "notes": "Hardness is typically targeted in the low-to-mid 50s HRC for antweight teeth to balance edge retention against chipping resistance; going much harder trades toughness for wear resistance and can make the tooth brittle under a hard direct hit.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "material",
+        "tool-steel",
+        "tooth-insert"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "material-4140-steel",
+      "type": "material",
+      "name": "4140 alloy steel (weapon body / shaft)",
+      "category": "metal",
+      "summary": "A common medium-carbon chromoly alloy steel used for antweight weapon bodies, bars, and shafts where a good combination of strength, toughness, and machinability is needed and full through-hardening of the whole part is not required.",
+      "use_cases": [
+        "disc/bar weapon bodies",
+        "weapon shafts",
+        "structural weapon hardware"
+      ],
+      "machinability": "good in the annealed or normalized condition; can be further heat-treated for higher strength shafts",
+      "printable": false,
+      "specs": {
+        "density_g_cm3": 7.85,
+        "yield_strength_mpa": 655
+      },
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "material",
+        "steel",
+        "shaft"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-7075-aluminum",
+      "type": "material",
+      "name": "7075-T6 aluminum (hubs / light disc bodies)",
+      "category": "metal",
+      "summary": "A high-strength aerospace-grade aluminum alloy used in antweight builds for hubs, backing plates, and lighter-duty disc bodies where weight savings matter more than maximum impact toughness -- generally paired with a hardened steel tooth insert rather than used bare as a striking edge.",
+      "use_cases": [
+        "weapon hubs",
+        "backing plates / weapon bodies behind a hardened insert",
+        "structural brackets"
+      ],
+      "machinability": "good, machines cleanly with standard tooling",
+      "printable": false,
+      "specs": {
+        "density_g_cm3": 2.81,
+        "yield_strength_mpa": 503
+      },
+      "cons": [
+        "lower toughness than steel -- not ideal as a bare direct-impact striking edge"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "material",
+        "aluminum",
+        "hub"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-uhmw-polyethylene",
+      "type": "material",
+      "name": "UHMW polyethylene (plastic-antweight weapon body)",
+      "category": "plastic-stock",
+      "summary": "Ultra-high-molecular-weight polyethylene sheet or rod, a tough, low-friction, impact-resistant plastic that is a legal weapon and structural material for plastic-antweight classes where metal weapon bodies are restricted; used for discs, drum bodies, and wedge scoops.",
+      "use_cases": [
+        "plastic-antweight disc/drum weapon bodies",
+        "wedges and scoops",
+        "wear strips"
+      ],
+      "machinability": "machines well with standard woodworking/plastic tooling; melts/gums up rather than chips under excessive heat",
+      "printable": false,
+      "specs": {
+        "density_g_cm3": 0.94,
+        "yield_strength_mpa": 24
+      },
+      "notes": "UHMW is legal and popular specifically because plastic-antweight rulesets generally restrict the bulk weapon/structure material to non-metal while still allowing small hardened metal inserts, fasteners, motors, and bearings -- check the exact event ruleset for current material limits.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "material",
+        "plastic",
+        "uhmw"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-titanium-6al4v",
+      "type": "material",
+      "name": "Titanium 6Al-4V (lightweight high-strength tips/bars)",
+      "category": "metal",
+      "summary": "A titanium alloy offering roughly steel-level strength at about 60% of the density, used in weight-critical antweight spinner tips, bars, or hubs where every gram saved can be redirected into more weapon mass at the rim or more battery/drivetrain budget.",
+      "use_cases": [
+        "bar spinner bodies",
+        "weight-critical hubs",
+        "tip inserts where strength-to-weight matters more than raw hardness"
+      ],
+      "machinability": "poor to moderate -- gummy, heat-sensitive, requires sharp tooling, slow speeds, and good coolant/chip control",
+      "printable": false,
+      "specs": {
+        "density_g_cm3": 4.43,
+        "yield_strength_mpa": 880
+      },
+      "cons": [
+        "expensive and slow to machine for a hobbyist without the right tooling",
+        "less abrasion/wear resistant at the actual edge than a hardened tool steel"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "material",
+        "titanium",
+        "lightweight"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-vertical-disc-geometry",
+      "title": "Vertical disc geometry: diameter, thickness, and tooth count",
+      "section": "Weapon Forms",
+      "body_md": "A vertical disc spinner is, geometrically, the simplest antweight weapon: a flat disc (or near-disc) rotating in a vertical plane on a horizontal shaft, striking with its rim. Nearly every design decision comes down to three linked choices: diameter, thickness, and tooth count.\n\n**Diameter vs thickness.** For a fixed weapon mass, a larger diameter pushes mass further from the axis (raising MOI and, at a given rpm, tip speed and stored energy -- see `formula-wg-tip-speed-vs-diameter-tradeoff`) but the disc must be proportionally thinner to hold the same weight, which can leave it thin enough to flex or crack at the root. Most 1 lb antweight discs run somewhere around 55-90 mm in diameter and 4-8 mm thick when solid, though hollow/pocketed and rim-loaded designs (see `formula-wg-mass-toward-rim-effect`) shift material to the outer edge and can run visually larger for the same mass.\n\n**Tooth count.** Antweight vertical discs are seen with 1, 2, 3, or 4 teeth. A single tooth maximizes bite depth per hit (the classic asymmetric single-tooth disc) at the cost of the roughest, most uneven hit rate and the trickiest balance job, since all the tooth mass sits on one side and must be compensated elsewhere in the disc. Two teeth (usually symmetric, opposite each other) is the most common antweight compromise: naturally balanced, half the bite depth of a single tooth at the same rpm, double the hit frequency. Three and four teeth trade further bite depth for a smoother, more constant-feeling hit rate and are more forgiving to balance since the mass is spread more evenly; four-tooth 'plus' or 'X' patterns are popular on lower-power or control-leaning builds where sheer per-hit penetration matters less than reliable, frequent contact. Critically, `formula-wg-tooth-count-moi-equivalence` shows that tooth count by itself does not change the disc's total stored energy -- only how that energy is delivered per hit versus how often it's delivered.\n\n**Tooth profile, rake, and inserts.** See `term-tooth-profile`, `term-rake-angle`, `term-hardened-insert`, and `term-monolithic-weapon` for how the edge itself is shaped and built. A hardened steel insert bolted or pinned into a lighter aluminum or steel disc body is extremely common at antweight scale: it lets the bulk of the disc be optimized for weight and MOI while only the actual edge needs to survive direct hardened-on-hardened impacts.\n\n**Mass toward the rim.** Whatever the diameter and tooth count, the single biggest lever for a harder-hitting disc at the same total weight is pushing mass outward -- thinning the web/spokes near the hub and concentrating material near the outer edge -- exactly the effect quantified in `formula-wg-mass-toward-rim-effect`, where reshaping a uniform disc into a rim-loaded ring of the same mass and outer radius can add 50%+ more stored energy.",
+      "entity_refs": [
+        "formula-wg-tip-speed-vs-diameter-tradeoff",
+        "formula-wg-mass-toward-rim-effect",
+        "formula-wg-tooth-count-moi-equivalence",
+        "term-tooth-profile",
+        "term-rake-angle",
+        "term-hardened-insert",
+        "term-monolithic-weapon"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "vertical-disc",
+        "geometry",
+        "tooth-count"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-bar-spinner-geometry",
+      "title": "Bar spinner geometry: length, cross-section, tip mass, and canting",
+      "section": "Weapon Forms",
+      "body_md": "A bar spinner replaces the disc's flat plane with a long, narrow bar rotating about its center (or, on some builds, off-center) on a vertical or horizontal axis. The defining geometric choices are overall length, cross-section shape, how mass is distributed along the bar, and whether it's built symmetric or asymmetric.\n\n**Length and tip mass.** Bar length sets the tip radius directly, and because MOI for a slender bar scales with length squared (`formula-moi-slender-rod-center` in the design-math topic), a longer bar dramatically increases both stored energy and required spin-up torque for the same total mass. Antweight bars commonly run 60-90 mm tip-to-tip. Concentrating extra mass at the tips (a wider paddle, a bolted-on tip weight, or a hardened tip insert) further increases MOI beyond a uniform bar of the same total weight, similar in spirit to the disc's rim-loading effect, because tip mass sits at the point of maximum radius.\n\n**Worked example.** A 70 mm long, 60 g bar spinning about its center (35 mm to each tip): treating it as a uniform slender rod, I = (1/12)*m*L^2 = (1/12)*0.060*0.070^2 = 2.45e-5 kg*m^2. At 18,000 rpm (omega = 1885 rad/s), tip speed v = omega*r = 1885*0.035 = 66.0 m/s (about 148 mph), and stored energy KE = 0.5*I*omega^2 = 0.5*2.45e-5*1885^2 = 43.5 J -- solidly in the hard-hitting range for a 1 lb spinner.\n\n**Symmetric vs asymmetric.** Bar spinners must be mass-balanced end to end (equal effective mass times radius on each side of the shaft) but do not have to look symmetric -- a common antweight pattern is a single hardened striking tip on one end balanced by a shorter, denser counterweight mass on the other, which concentrates more of the total weight budget into the one edge that actually does the cutting, at the cost of a slightly trickier balance job than a mirror-image bar.\n\n**Cross-section.** Bars are typically rectangular or a flattened oval in cross-section rather than round, giving a wide flat striking face while keeping material close to the rotation plane; the cross-section also needs enough section depth (see `formula-wg-cantilever-shaft-bending` for the general bending-stress relationship) to resist bending/whipping under impact, particularly near the center hub where the bending moment from an off-center hit is highest.\n\n**Canted bars.** See `term-canted-bar` for bars deliberately angled out of a single plane to impart a lifting/deflecting component to hits or to reduce direct lockups with an opposing spinner, traded against a less mechanically efficient direct hit and a harder balance job.",
+      "entity_refs": [
+        "formula-wg-cantilever-shaft-bending",
+        "term-canted-bar"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bar-spinner",
+        "geometry",
+        "moi"
+      ],
+      "sources": [
+        "https://battlebots.fandom.com/wiki/Bar_Spinners",
+        "https://robotwars.fandom.com/wiki/Bar_spinners",
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-drum-spinner-geometry",
+      "title": "Drum spinner geometry: diameter, wall thickness, and tooth design",
+      "section": "Weapon Forms",
+      "body_md": "A drum spinner rotates about a horizontal axis running across the width of the robot (unlike a disc or bar, which typically spin on an axis running front-to-back or side-to-side relative to the direction of travel), striking with teeth or fangs set into a cylindrical (or egg-shaped) body that spans most of the bot's width.\n\n**Diameter and wall thickness.** Drum diameter is often constrained by the robot's ground clearance and wheel size as much as by weapon design intent, since the drum usually sits between or in front of the drive wheels. For a fixed outer diameter and total mass, wall thickness controls MOI the same way rim-loading does on a disc: a thin-walled drum with mass concentrated near the outer shell carries meaningfully more stored energy than a thick-walled drum of the same weight and diameter (`formula-wg-drum-wall-thickness-moi` shows a ~38% MOI difference between a 3 mm and a 10 mm wall at the same 40 mm OD and mass). In practice this pushes competitive antweight drums toward a hardened, relatively thin outer shell reinforced by a lighter internal spine or core rather than a solid steel cylinder.\n\n**Tooth/fang design.** Teeth are usually separate hardened inserts (bolted, pinned, or welded) set into pockets machined into the drum body, following the same insert-vs-monolithic tradeoff as disc teeth (`term-hardened-insert`). Beveling the tooth so the leading face presents a sharper, more acute edge to the opponent -- rather than a flat/blunt face -- generally improves cutting/biting performance for the same tooth material and hardness. Drum tooth counts and spacing follow the same bite-depth-vs-hit-frequency tradeoff as disc teeth (see the bite section), but drums typically run more teeth around the circumference than a disc of similar diameter because a drum's whole width is engaging the opponent per pass, not just a point on the rim.\n\n**Egg-shaped vs cylindrical.** Most antweight drums are true cylinders for simplicity of balancing and manufacturing. An egg-shaped (eccentric) drum (`term-egg-shaped-drum`) varies the effective striking radius through the rotation for a mixed sweep-then-strike effect, but is substantially harder to balance and is a comparatively rare, advanced choice at antweight scale.\n\n**Dead-shaft construction.** Antweight drums are very commonly built dead-shaft (`term-dead-shaft`): the shaft bolts rigidly to the frame, and the drum spins around it on bearings pressed into its own end caps or hub, driven by a pulley/sprocket bonded or bolted to the drum body (a 'bell'). This keeps the bearings inside the drum near its mass rather than needing a rotating shaft supported far out at the frame rails, but makes bell retention (see `term-bell-separation`) a key failure point to design against.",
+      "entity_refs": [
+        "formula-wg-drum-wall-thickness-moi",
+        "term-hardened-insert",
+        "term-egg-shaped-drum",
+        "term-dead-shaft",
+        "term-bell-separation"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "drum-spinner",
+        "geometry",
+        "dead-shaft"
+      ],
+      "sources": [
+        "https://battlebots.fandom.com/wiki/Drum_Spinners",
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-beater-eggbeater-geometry",
+      "title": "Beater bars and eggbeaters: geometry and practical differences",
+      "section": "Weapon Forms",
+      "body_md": "Beater bars and eggbeaters are close cousins of the bar spinner, distinguished mainly by axis orientation and the number/arrangement of striking arms rather than by fundamentally different geometry principles.\n\n**Beater bar.** Geometrically similar to a horizontal bar spinner but usually shorter, lower-powered, and mounted so it beats downward/forward into an opponent rather than delivering a single dominant cutting hit -- closer in spirit to a flail than a precision cutter. Beater bars on antweights are often a simple flat or slightly curved bar of modest length (well under a full-width bar spinner), prioritizing a fast, forgiving spin-up and reasonable durability over maximum single-hit energy, and are comparatively tolerant of imperfect balance because their tip speeds and stored energy are usually lower than a dedicated hard-hitting bar or disc.\n\n**Eggbeater.** An eggbeater weapon uses two (or more) separate arms mounted on a shared vertical-ish or angled axis, positioned and phased so their swept paths overlap or interleave -- visually and mechanically similar to a kitchen eggbeater/whisk, hence the name. Each arm behaves like its own small bar spinner for MOI and tip-speed purposes (`formula-moi-slender-rod-center` and `formula-tip-speed` in the design-math topic apply to each arm individually, then combine), but the multi-arm layout increases hit frequency similarly to adding teeth to a disc, and the geometry must ensure the arms' swept circles don't collide with the robot's own frame or with each other through the full rotation. Balancing an eggbeater is more involved than a simple two-armed bar because the arms are often not a single rigid symmetric part -- each arm's mass and mounting must be checked individually as well as the assembly as a whole (see `term-dynamic-balance`).\n\n**Shared practical notes.** Both forms tend to run at more modest tip speeds than a dedicated single-plane disc or bar, trading peak per-hit energy for a more continuous, harder-to-avoid threat and (for the eggbeater specifically) some self-righting utility from the weapon's shape and low ground clearance. Both are comparatively forgiving weapon choices for a first hard-weapon build, since their lower typical tip speeds put less extreme demand on balance tolerance and bearing selection than a full-speed disc or shell spinner.",
+      "entity_refs": [
+        "term-dynamic-balance"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "beater-bar",
+        "eggbeater",
+        "geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-shell-spinner-geometry",
+      "title": "Shell spinner geometry: ring construction, wall thickness, and support",
+      "section": "Weapon Forms",
+      "body_md": "A shell spinner takes the mass-toward-the-rim principle to its logical extreme: instead of a solid disc or a thick-walled drum, the entire weapon is a thin ring (a 'shell') with as much of its mass as possible pushed to the outer diameter, sometimes with the drive motor and structure sitting entirely inside the ring's diameter.\n\n**Why shells hit so hard for their weight.** `formula-wg-mass-toward-rim-effect` shows that a thin ring (I = m*R^2) carries exactly double the MOI -- and therefore double the stored kinetic energy at the same rpm -- of a uniform solid disc of the identical mass and outer radius (I = 0.5*m*R^2). This is the core reason shell spinners have a reputation for punching above their weight class: for the same total weapon mass, concentrating essentially all of it at maximum radius roughly doubles the energy budget compared to a solid-disc weapon of the same size.\n\n**Wall thickness and ring construction.** The ring itself is usually a hardened steel or steel-toothed band, thin enough that essentially all its mass sits at (or very near) the outer radius. Thinner walls push the MOI advantage further but reduce the ring's own structural stiffness, making it more prone to flexing, ovaling, or cracking under impact unless well supported. Some shell spinners integrate teeth directly into the ring's edge (effectively a hardened, toothed hoop); others bolt a separate ring of tooth inserts onto a plain structural shell.\n\n**Support ring and bearings.** Because the ring is thin and its mass is concentrated far from center, it depends heavily on `term-support-ring-shell-spinner` -- a large-diameter bearing, a machined bearing race, or a set of rollers/guide bearings riding the inside of the ring -- to stay round and running true at speed, in addition to whatever central drive bearing turns it. A shell that relies only on a small central bearing and no outer support is much more prone to wobble, out-of-round running, and the resulting vibration/bearing wear described in the balancing section, especially as ring diameter grows relative to its wall thickness.\n\n**Practical antweight scale.** At 1 lb, shell spinners are a more advanced, higher-effort build than a solid disc: the thin ring, precise support-bearing arrangement, and tighter balance tolerance (driven by the higher stored energy per gram of weapon material) all demand more careful machining and assembly than a simpler solid or rim-loaded disc, but reward that effort with meaningfully more kinetic energy for the same weapon weight budget.",
+      "entity_refs": [
+        "formula-wg-mass-toward-rim-effect",
+        "term-support-ring-shell-spinner"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "shell-spinner",
+        "ring",
+        "geometry",
+        "moi"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-undercutter-vs-overhead",
+      "title": "Undercutters vs overhead horizontal spinners: floor interaction and ground clearance",
+      "section": "Weapon Forms",
+      "body_md": "Undercutters and overhead horizontal spinners both rotate about a roughly horizontal, top-down axis (unlike vertical discs/bars), but differ fundamentally in where the weapon sits relative to the arena floor, and that single geometric difference drives most of their other design decisions.\n\n**Undercutters.** The weapon sits low -- often level with or even slightly below the drive wheel axles -- specifically so it can get underneath an opponent's wedge, skirt, or low armor where an overhead weapon physically cannot reach (`term-floor-interaction-undercutter`). Ground clearance (`term-ground-clearance-weapon`) is deliberately minimized: enough gap to clear the floor in normal driving, but as little as practically possible so the weapon can bite the thinnest possible gap under an opponent. This proximity to the floor has real costs: undercutter weapons take more incidental wear from arena floor texture, screws, and debris than an overhead weapon ever does, sparking and floor gouging can be a rules and safety concern at some events, and the weapon's own structure (housing, teeth) needs to tolerate routine light floor contact as a normal part of operation, not just an occasional mistake.\n\n**Overhead horizontal spinners.** The weapon sits above the frame, striking downward and outward onto the top of an opponent rather than trying to get underneath it. Ground clearance is largely irrelevant to the weapon itself (though the robot's chassis still needs enough clearance to drive over arena hazards), and the design tradeoff shifts toward reach/coverage over the top of an opponent, protecting the weapon's own drivetrain and structure from an opponent's low wedge (since the wedge can't reach the weapon directly, only the frame beneath it), and managing how much of the weapon overhangs the robot's own footprint without becoming an easy target for a rules-based overhang/pin violation at some events.\n\n**Bite implications.** Because an undercutter engages material at or near floor level, its effective bite against a low, shallow wedge is governed by the wedge-angle relationship in `formula-wg-bite-vs-wedge-angle` -- a very shallow, low-clearance wedge is exactly the geometry an undercutter is built to beat, while a steep aggressive wedge lip can still deflect an undercutter's teeth much as it would a vertical disc. An overhead horizontal, by contrast, is largely immune to wedge angle entirely since it strikes the top surface rather than trying to penetrate at ground level, but is correspondingly vulnerable to a simple full-height wedge or shell that keeps its top surface out of the weapon's swept path altogether.",
+      "entity_refs": [
+        "term-floor-interaction-undercutter",
+        "term-ground-clearance-weapon",
+        "formula-wg-bite-vs-wedge-angle"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "undercutter",
+        "overhead-horizontal",
+        "ground-clearance",
+        "geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-hammers-static-weapons",
+      "title": "Hammers, axes, and static weapons: head mass, moment arm, and edge prep",
+      "section": "Weapon Forms",
+      "body_md": "Not every antweight weapon spins continuously. Hammers, axes, and purely static weapons (forks, spikes, wedges) trade continuous rotational energy for either a single powerful actuated strike or no moving weapon at all, and their geometry is judged by different criteria than a spinner's.\n\n**Hammers and axes.** A hammer or axe delivers energy through an actuated swing (typically driven by a motor through a gearbox, sometimes assisted by a spring or elastic element) rather than sustained rotation, so its key geometric parameters are head mass and moment arm (`term-moment-arm-hammer`) rather than rpm and tooth count. For a given available swing torque, a longer moment arm (pivot-to-head distance) delivers a faster-moving, harder-hitting head, but that same length increases the weapon's MOI with the square of the distance, demanding more torque or a longer wind-up time to reach full swing speed, and concentrates more bending stress on the pivot shaft and its bearings at the moment of impact. Head mass and moment arm are therefore sized together against the available motor/gearbox torque and the desired strike energy, generally erring toward a shorter, heavier head over a longer, lighter one when pivot/shaft durability is a concern, since the pivot sees the full reaction force of every strike.\n\n**Static weapons: forks, spikes, and wedges.** These have no independent drive of their own -- their 'weapon' is a shaped, hardened piece of structure that relies on the robot's own drivetrain to push it into an opponent, get underneath them, or puncture their armor on contact. Their geometry centers on:\n\n- **Angle.** A shallow, low-angle wedge or fork tine gets under an opponent more easily and with less driving force, but provides less lift and can be more prone to riding up onto an opponent's surface rather than penetrating; a steeper angle needs more driving force to engage but can generate more lift/control once it does bite.\n- **Hardness.** Wedge and fork edges are usually hardened (or use a hardened insert/strip along the leading edge, following the same insert-vs-monolithic logic as spinner teeth) so they resist deforming or dulling from repeated contact with an opponent's armor or an opposing spinner's teeth.\n- **Edge prep.** See `term-edge-prep-static-weapon` for the sharpening-angle tradeoff between an aggressive, easily-penetrating thin edge and a robust, hit-tolerant thicker edge -- static weapons that expect to face opposing spinners generally favor the tougher, thicker edge, since they cannot dodge repeated hard strikes the way a mobile weapon's edge geometry might otherwise allow for.\n\nStatic weapons are attractive at 1 lb specifically because they carry no weapon motor, ESC, or spinning-mass weight budget at all, letting that entire allocation go to drivetrain, armor, or battery -- at the cost of having no independent offensive capability if the opponent avoids the geometry entirely (e.g., driving around a fork rather than into it).",
+      "entity_refs": [
+        "term-moment-arm-hammer",
+        "term-edge-prep-static-weapon",
+        "term-hardened-insert"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "hammer",
+        "axe",
+        "static-weapon",
+        "wedge",
+        "fork",
+        "geometry"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-bite-deep-dive",
+      "title": "Bite: definition, tooth-count tradeoffs, and interaction with opponent geometry",
+      "section": "Bite",
+      "body_md": "'Bite' is how far a spinning weapon's tooth digs into an opponent's material during a single hit before the next tooth strike arrives -- it is a per-hit penetration depth, not a measure of total damage or total energy delivered over a fight.\n\n**The core relationship.** As established in the design-math topic's bite-depth formulas (`formula-bite-depth`, `formula-hit-frequency`), bite depth per hit is set by closing speed divided by hit frequency, and hit frequency is weapon RPM times tooth count. At 20,000 rpm with a single tooth and 1.5 m/s of closing speed, hit frequency is 333.3 hits/second and bite depth works out to 1.5/333.3 = 4.5 mm per hit; adding a second tooth at the same rpm doubles hit frequency to 666.7 hits/second and halves bite depth to 2.25 mm.\n\n**Why fewer teeth means deeper bite -- and the real tradeoff.** Fewer teeth means a longer time gap between successive strikes at a given rpm, so each individual strike has more time (and therefore more relative travel/closing distance) to dig in before the next tooth arrives. `formula-wg-tooth-count-moi-equivalence` makes the important complementary point: splitting the same total tooth mass at the same radius across more teeth does not reduce the weapon's total stored energy or tip speed -- it only redistributes how that fixed energy budget is delivered, as fewer/deeper hits or more/shallower ones. This is why single-tooth asymmetric discs remain the go-to choice for builders chasing single devastating hits (able to punch through armor a shallower multi-tooth hit would only dent), while multi-tooth discs suit builds prioritizing a steady, harder-to-avoid stream of contact and, generally, an easier balancing job since mass is spread more evenly around the rim.\n\n**Bite vs opponent wedge angle and ground clearance.** Bite depth computed against a flat vertical face is an upper bound -- real opponents rarely present a flat vertical surface. `formula-wg-bite-vs-wedge-angle` models how a sloped wedge face reduces the normal (penetrating) component of a hit: a shallow 10-degree wedge preserves roughly 83% of the flat-face bite depth, while a steep 40-degree wedge lip cuts effective bite to roughly a third, and in practice the tooth is also likely to deflect and ride up a steep face rather than dig in cleanly. Ground clearance compounds this: an opponent's wedge that sits lower than the spinner's own ground clearance may never be reached by the weapon at all regardless of computed bite depth, which is exactly the gap undercutters are built to close (see `term-ground-clearance-weapon` and `term-floor-interaction-undercutter`).\n\n**Tooth profile's effect on bite.** Bite depth from the RPM/tooth-count formula assumes a straightforward radial impact; `formula-wg-bite-depth-rake-angle` adjusts this for swept-back (raked) teeth, which engage a somewhat longer material path for the same computed bite depth but at lower peak force -- useful context when comparing why two discs with identical rpm, tooth count, and closing speed can still feel and perform differently depending on tooth profile (`term-tooth-profile`, `term-rake-angle`).",
+      "entity_refs": [
+        "formula-wg-tooth-count-moi-equivalence",
+        "formula-wg-bite-vs-wedge-angle",
+        "formula-wg-bite-depth-rake-angle",
+        "term-ground-clearance-weapon",
+        "term-floor-interaction-undercutter",
+        "term-tooth-profile",
+        "term-rake-angle"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bite",
+        "tooth-count",
+        "wedge",
+        "ground-clearance"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-balancing-fundamentals",
+      "title": "Balancing: why it matters, static vs dynamic balance, and hobbyist methods",
+      "section": "Balancing",
+      "body_md": "An unbalanced weapon is one of the most common and most destructive problems in antweight combat robotics, and one of the cheapest to prevent with basic care during weapon fabrication.\n\n**Why an unbalanced weapon destroys bearings and shakes a bot apart.** Any leftover offset between a weapon's center of mass and its rotation axis creates a centrifugal shaking force that reverses direction every revolution and is transmitted straight into the shaft and bearings. `formula-wg-balance-tolerance` quantifies this: the shaking force scales with the unbalance (mass times offset) times the square of angular velocity, so a residual unbalance that feels negligible at low rpm (a 150 g disc off by just 0.1 g at 30 mm produces about 13 N of shaking force at 20,000 rpm) becomes four times worse if rpm doubles. Sustained over a match, this cyclic loading is a primary driver of the `term-exploded-bearing` failure mode, works `component-hub-set-screw` joints loose (contributing to `term-hub-slip`), fatigues frame fasteners and welds, and can visibly shake wiring and other hardware loose elsewhere in the robot -- an unbalanced weapon doesn't just wear out its own bearings, it beats up the whole robot.\n\n**Static vs dynamic balance for a hobbyist.** `term-static-balance` -- getting the center of mass onto the rotation axis -- is sufficient for thin, single-plane weapons like most antweight discs and shell spinners, and is well within reach of a hobbyist with basic tools. `term-dynamic-balance` matters once a weapon has real length along its rotation axis (long bars, wide drums), where a part can be perfectly statically balanced yet still rock/wobble because mass distribution differs between its two ends; hobbyist-level dynamic balancing usually means treating each end or plane of the weapon as its own static-balance problem (weighing and matching each half of a bar independently, for example) rather than true instrumented multi-plane balancing.\n\n**Balancing on a mandrel.** The standard hobbyist method (`term-balancing-mandrel`): mount the weapon on its own shaft or a precision mandrel, rest it on a pair of level, low-friction supports (knife edges, a spare set of bearings, even parallel round rods), and let gravity do the work -- the heavy side will settle to the bottom. Mark that spot, correct it, spin the part to a new random orientation, and repeat until the weapon stays wherever it's placed with no consistent heavy spot.\n\n**Drilling vs adding mass.** Once the heavy spot is found, either remove material from it (commonly drilling shallow holes into the heavy side, being careful not to weaken a structurally critical area like a tooth root or hub) or add a small amount of mass to the opposite (light) side (a dab of epoxy with embedded metal shot, a small bolted-on weight, or extra material in a non-critical area). Removing material is usually preferred when there's mass to spare in a non-critical zone, since it doesn't add weight to an already weight-constrained 1 lb build; adding mass is used when the light side has no safe material left to remove from, or when the imbalance is being corrected on a nearly-finished, weight-budget-critical part.\n\n**Tolerance targets.** There's no single universal number, but as a practical hobbyist guideline, aim to get residual unbalance low enough that the weapon shows no consistent 'heavy side' settling behavior on a mandrel check by eye, and treat any weapon intended to run above roughly 15,000-20,000 rpm as needing noticeably tighter balance than a slower sub-10,000 rpm design, per the rpm-squared scaling in `formula-wg-balance-tolerance` -- when in doubt, spend the extra ten minutes balancing before the weapon's first full-speed run, since diagnosing vibration-driven bearing wear after the fact is far more time-consuming than preventing it.",
+      "entity_refs": [
+        "formula-wg-balance-tolerance",
+        "term-static-balance",
+        "term-dynamic-balance",
+        "term-balancing-mandrel",
+        "term-exploded-bearing",
+        "term-hub-slip",
+        "component-hub-set-screw"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "balancing",
+        "bearings",
+        "vibration",
+        "failure-modes"
+      ],
+      "sources": [
+        "https://blog.robo2u.com/posts/bearings-robotics-ultimate-guide/",
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-moi-worked-examples-by-shape",
+      "title": "MOI worked examples across weapon shapes: disc, ring, bar, point mass, drum",
+      "section": "MOI and Energy",
+      "body_md": "Moment of inertia (MOI) is the single number that most determines how a weapon of a given mass and radius will behave -- how much energy it stores at a given rpm, and how long it takes to spin up. The design-math topic covers the base derivations (`formula-moi-solid-disc`, `formula-moi-annulus`, `formula-moi-thin-ring`, `formula-moi-slender-rod-center`, `formula-moi-point-mass`, `formula-moi-thin-walled-cylinder`); this section applies each shape to a realistic 1 lb weapon geometry side by side, so the practical differences between weapon forms are visible in concrete numbers rather than abstract formulas.\n\n**Solid disc** (76.2 mm / 3in diameter, 227 g steel disc, R=0.0381m): I = 0.5*m*R^2 = 0.5*0.227*0.0381^2 = 1.65e-4 kg*m^2.\n\n**Thin ring / shell spinner** (same 227 g mass, but as a thin ring at the same 38.1 mm radius rather than a solid disc): I = m*R^2 = 0.227*0.0381^2 = 3.30e-4 kg*m^2 -- exactly double the solid disc's MOI for the identical mass and radius, the numeric heart of why shell spinners hit so hard for their weight (see `formula-wg-mass-toward-rim-effect`).\n\n**Annulus / partial rim-loading** (227 g disc reshaped into a ring with R_out=38.1mm, R_in=28.6mm, i.e. a moderately thick rim rather than a knife-thin one): I = 0.5*m*(R_out^2+R_in^2) = 0.5*0.227*(0.001452+0.000818) = 0.5*0.227*0.00227 = 2.58e-4 kg*m^2 -- roughly 56% more than the solid disc, and a realistic middle ground between a plain disc and a full thin-ring shell.\n\n**Slender bar about its center** (70 mm long, 60 g bar): I = (1/12)*m*L^2 = (1/12)*0.060*0.070^2 = 2.45e-5 kg*m^2 -- notice this is much smaller than the disc examples above because both the bar's mass and its tip radius (35 mm vs ~38 mm) are considerably smaller in this example; MOI comparisons only mean something when comparing weapons of similar total mass and radius.\n\n**Point mass at radius** (a single 15 g bolt-on tooth at 33 mm radius, ignoring the hub it's attached to for illustration): I = m*r^2 = 0.015*0.033^2 = 1.63e-5 kg*m^2. In a real weapon this tooth's contribution is added to the hub/body's own MOI via the parallel axis theorem (`formula-parallel-axis-theorem`), not used alone.\n\n**Thin-walled cylinder / drum** (100 g drum, 40 mm OD, 3 mm wall, R_out=0.020m, R_in=0.017m): I = 0.5*m*(R_out^2+R_in^2) = 0.5*0.100*(0.0004+0.000289) = 3.445e-5 kg*m^2 -- see `formula-wg-drum-wall-thickness-moi` for how this changes with wall thickness at the same OD and mass.\n\n**Takeaway.** For a given total weapon mass and outer radius, MOI (and therefore stored energy at a given rpm) ranks from lowest to highest roughly as: solid disc < moderate annulus < thin ring/shell, with drums and bars falling wherever their specific mass and radius put them on that same disc-to-ring spectrum. This is why 'how is the mass distributed relative to the axis' is a more useful first question when comparing two weapon designs than diameter or weight alone.",
+      "entity_refs": [
+        "formula-wg-mass-toward-rim-effect",
+        "formula-wg-drum-wall-thickness-moi"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "moi",
+        "worked-example",
+        "disc",
+        "ring",
+        "bar",
+        "drum"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-rotational-ke-tip-speed-energy-transfer",
+      "title": "Rotational kinetic energy, tip speed, and why not all of it lands",
+      "section": "MOI and Energy",
+      "body_md": "Once a weapon's MOI is known, rotational kinetic energy and tip speed follow directly (`formula-rotational-ke`: KE = 0.5*I*omega^2; `formula-tip-speed`: v = omega*r, both in the design-math topic), but the more practically useful question for weapon geometry is how those numbers compare across different weapon shapes of similar mass, and how much of that stored energy actually ends up doing damage.\n\n**Comparing shapes at the same mass and rpm.** Using the MOI values from the worked examples above, at a common 20,000 rpm (omega=2094.4 rad/s): the 227 g solid disc stores KE = 0.5*1.65e-4*2094.4^2 = 362 J; the same-mass thin ring/shell stores KE = 0.5*3.30e-4*2094.4^2 = 724 J -- double the disc's energy for the identical mass, rpm, and outer radius, again illustrating why shell spinners are prized for their energy-to-weight ratio despite being harder to build. (These example numbers use a fairly large, heavy disc/ring for a 1 lb bot to make the comparison clean; a real full weapon system also has to fit motor, ESC, and structure inside the same overall weight budget, so realistic antweight weapon KE tends to land in the 20-80 J range noted in the design-math topic's sanity-check table.)\n\n**Tip speed** follows from the same omega applied at the outer radius: at 20,000 rpm and R=0.0381m, v = 2094.4*0.0381 = 79.8 m/s (about 179 mph) for both the disc and ring examples above, since tip speed depends only on rpm and outer radius, not on mass distribution -- it's KE and MOI that differ between the disc and ring shapes, not tip speed.\n\n**Why not all of the stored energy lands on an opponent.** A weapon's full rotational KE is rarely, if ever, fully transferred into an opponent on a single hit. Several mechanisms eat into the transfer: the weapon itself keeps spinning after the hit rather than stopping dead (an elastic-ish collision transfers only part of the incoming kinetic energy, with the rest remaining as the weapon's own post-hit rotation); some energy is lost to structural deformation, heat, and sound in both robots' materials at the moment of impact; some energy goes into moving the whole opposing robot (knockback) rather than penetrating its armor; and a glancing or partial-bite hit (see the bite-depth discussion) by definition doesn't fully engage the tooth's swept path, further reducing the fraction of stored energy that gets applied where it would do the most damage. As a rough, domain-knowledge rule of thumb rather than a precise measured figure, experienced builders often estimate that only a fraction -- commonly discussed in the rough 10-30% range -- of a spinner's stored kinetic energy is actually delivered as useful damage-causing work on a typical hit, with the remainder retained by the weapon's continued spin or lost to the mechanisms above; this is a low-confidence estimate that varies enormously by weapon type, hit geometry, and what materials are actually in contact.",
+      "entity_refs": [],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kinetic-energy",
+        "tip-speed",
+        "energy-transfer"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "chunk-hub-attachment-design",
+      "title": "Hub attachment design: set screws, keyways, broached hex, and bolt circles",
+      "section": "Attachment and Failure",
+      "body_md": "How a weapon actually connects to its shaft determines whether all of that carefully-calculated stored energy stays under control or ends up as a loose, mistimed, or missing weapon mid-match.\n\n**Set screws** (`term-set-screw-hub`, `component-hub-set-screw`) are the lightest and simplest option: one or more screws clamp a round-bore hub onto the shaft by friction, usually biting against a flat ground into the shaft for extra grip. They're cheap, quick to adjust, and adequate for lower-power, lower-shock-load weapons, but are fundamentally a friction joint -- under the shock torque of a hard weapon impact they can slip, which is the `term-hub-slip` failure mode.\n\n**Clamping (split/pinch) hubs** (`component-hub-clamping`) improve on a plain set screw by squeezing the full bore circumference down onto the shaft rather than concentrating force at one point, spreading the grip over more surface area and avoiding denting the shaft the way a point-contact set screw can -- still a friction joint, but a meaningfully more shock-tolerant one.\n\n**Keyways** (`term-keyway`) replace friction with a positive mechanical connection: a slot cut into both shaft and hub carries a key that transmits torque directly rather than relying on clamping force. This handles shock loads far better than any set-screw arrangement, at the cost of more precise machining (cutting a clean small keyway in a 4-8 mm ant-scale shaft is fiddly) and a stress concentration at the slot that can itself become the shaft's structural weak point if not sized carefully.\n\n**Broached hex bores** (`term-broached-hex-bore`) are the most common positive-drive solution at antweight scale: a hub or pulley with an internal hex hole slides onto a matching hex section of shaft (or hex stock used directly as the shaft), giving keyway-like torque transfer without needing to cut a separate slot and key. It's simple, cheap (hex stock is a standard off-the-shelf item), and handles shock loads well, though it still needs some form of axial retention -- a screw, retaining ring, or shoulder -- since the hex fit alone only prevents rotation, not sliding along the shaft.\n\n**Bolt circles.** For weapons attached via a ring of bolts rather than a shaft-hub interface (a bolted shell-spinner ring, a bolt-on disc face), the number of fasteners and their radius (the bolt circle) set the joint's torque capacity, quantified in `formula-wg-hub-bolt-shear-capacity`. In practice, bolted joints at ant scale usually have large margin against pure fastener shear compared to the motor's actual stall torque -- the worked example there shows a 4-screw M2.5 bolt circle capable of roughly 37.7 N*m against a typical weapon motor's 0.05-0.3 N*m stall torque -- which is why real-world hub failures at this scale are overwhelmingly friction-joint slip (set screws) rather than bolts shearing outright.",
+      "entity_refs": [
+        "term-set-screw-hub",
+        "component-hub-set-screw",
+        "component-hub-clamping",
+        "term-keyway",
+        "term-broached-hex-bore",
+        "term-hub-slip",
+        "formula-wg-hub-bolt-shear-capacity"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "hub",
+        "attachment",
+        "keyway",
+        "hex-bore",
+        "set-screw"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-shaft-bearing-support",
+      "title": "Shaft support and bearing selection for antweight weapons",
+      "section": "Attachment and Failure",
+      "body_md": "A weapon shaft's job is to hold the weapon perfectly centered and running true under the most violent loads anywhere on the robot, and the choices here -- single vs double bearing support, dead vs live shaft, and bearing type -- interact closely with each other.\n\n**Single vs double bearing support.** A shaft supported by only one bearing, with the weapon mounted as a cantilever off the end, sees bending stress that scales directly with the unsupported length between the bearing and the load, as shown in `formula-wg-cantilever-shaft-bending`: a 6 mm shaft under an estimated 1000 N impact spike with a 10 mm unsupported span reaches roughly 472 MPa of bending stress (enough to permanently bend a mild-steel shaft), while shortening that span to 3 mm with a second, closer support point drops the stress to about 141 MPa. Wherever the weapon geometry allows it, supporting the shaft on both sides of the weapon's mass (or as close to both sides as the design permits) is structurally far superior to a single-bearing cantilever, particularly for wider weapons like drums where the unsupported span would otherwise be large.\n\n**Dead shaft vs live shaft.** A dead shaft (`term-dead-shaft`) bolts rigidly to the frame and never rotates; the weapon spins around it on its own bearings, which conveniently lets those bearings sit right inside the weapon's mass rather than needing a rotating shaft supported far apart at the frame rails -- a common and effective way to get good bearing support on a compact antweight disc or drum. A live shaft (`term-live-shaft`) rotates in frame-mounted bearings with the weapon keyed/pinned/set-screwed directly onto it; simpler for a single small disc close to the frame, but for wider weapons it needs support bearings positioned close to both ends of the weapon or it behaves as a cantilever, per the bending-stress relationship above.\n\n**Bearings for ants.** The most common ball bearing sizes at antweight scale are 623 (3x10x4mm, `component-bearing-623`), 626 (6x19x6mm, `component-bearing-626`), and 688 (8x16x5mm, `component-bearing-688`), with flanged variants (`component-bearing-flanged`) preferred in dead-shaft weapon bells where the bearing needs to self-locate axially in a bore without extra retention hardware. Bronze bushings (`component-bronze-bushing`) are a lighter-duty plain-bearing alternative: cheaper and more tolerant of dirt and minor misalignment, at the cost of higher friction and a lower safe rpm ceiling, making them a better fit for slower drivetrain or low-speed weapon applications than for a full-speed disc or shell spinner. Bearing choice also constrains shaft diameter directly (a larger bore supports a stiffer, stronger shaft), so bearing and shaft sizing should be worked out together rather than picking a shaft size first and finding a bearing to fit it afterward.",
+      "entity_refs": [
+        "formula-wg-cantilever-shaft-bending",
+        "term-dead-shaft",
+        "term-live-shaft",
+        "component-bearing-623",
+        "component-bearing-626",
+        "component-bearing-688",
+        "component-bearing-flanged",
+        "component-bronze-bushing"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "shaft",
+        "bearings",
+        "dead-shaft",
+        "live-shaft"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-failure-modes",
+      "title": "Real weapon failure modes: bell separation, hub slip, bent shafts, exploded bearings",
+      "section": "Attachment and Failure",
+      "body_md": "Four failure modes account for the large majority of weapon-system breakages seen on antweights, and each traces back directly to a specific geometry or attachment choice covered above.\n\n**Bell separation** (`term-bell-separation`) hits dead-shaft weapons specifically: the drive pulley or sprocket ('bell') bonded, pinned, or pressed onto the spinning weapon body shock-loads that joint on a hard hit and separates, either slipping (losing drive) or fully detaching. The fix is mechanical retention beyond adhesive bonding alone -- screws, a keyed or hex interface between bell and weapon body, or a press fit backed by a positive mechanical stop -- rather than trusting bond strength to survive combat-level shock loads indefinitely.\n\n**Hub slip** (`term-hub-slip`) is the friction-joint failure described in the attachment section: a set-screw hub rotates relative to its shaft under impact shock, throwing the weapon's tooth timing/balance off or losing drive to the weapon entirely. Repeated slip also gradually galls/rounds the shaft surface the set screw bites into, making each subsequent slip event more likely -- a self-reinforcing failure once it starts. The reliable fix is a positive-drive interface (keyway or broached hex) rather than simply tightening the set screw harder or adding thread-locker, both of which help marginally but don't address the underlying friction-joint limitation.\n\n**Bent shaft** (`term-bent-shaft`) results from bending loads exceeding the shaft material's yield strength, most often from a hard impact combined with too long an unsupported cantilever span or an undersized/too-soft shaft material -- exactly the relationship quantified in `formula-wg-cantilever-shaft-bending`. Symptoms are a weapon that now runs visibly off-true and vibrates even after a fresh balance pass, and abnormal radial loading pushed into the bearings. The fix is structural (shorter unsupported span via a second bearing, larger shaft diameter, or a harder alloy shaft), not cosmetic -- re-straightening a bent shaft rarely restores its original strength and the bend is likely to recur at the same weakened point.\n\n**Exploded bearing** (`term-exploded-bearing`) is catastrophic failure of the ball cage, balls, or seals/shields, triggered either by a single very hard direct impact transmitted straight through the shaft into the bearing, or by sustained fatigue from running an out-of-balance weapon across many matches (tying directly back to `formula-wg-balance-tolerance` and the balancing section). Small ant-scale bearings (623/626/688-class) have limited shock capacity by nature of their size, so mitigation is mostly indirect: keep the weapon well balanced to minimize cyclic fatigue loading, use flanged bearings with a snug, correctly-sized bore/shaft fit to minimize movement/impact transmission, and where the design allows it, support impact loads through the frame/structure rather than routing them entirely through the smallest bearing in the drivetrain.\n\n**Common thread.** All four failure modes are cheaper to design against up front (positive-drive hubs, adequate shaft support, careful balancing, appropriately-sized bearings) than to repeatedly repair after the fact, and a build that keeps breaking the same component in the same way is almost always telling the builder which one of these four root causes to address rather than simply which part to buy a spare of.",
+      "entity_refs": [
+        "term-bell-separation",
+        "term-hub-slip",
+        "term-bent-shaft",
+        "term-exploded-bearing",
+        "formula-wg-cantilever-shaft-bending",
+        "formula-wg-balance-tolerance"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "failure-modes",
+        "bearings",
+        "shaft",
+        "hub"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-materials-for-weapon-geometry",
+      "title": "Materials in weapon geometry: matching the material to the part's job",
+      "section": "Attachment and Failure",
+      "body_md": "The geometry decisions covered throughout this topic -- rim-loading, tooth inserts vs monolithic construction, shaft sizing, hub attachment -- all assume specific material properties, and picking the right material for each specific part (rather than one material for the whole weapon) is often as important as the geometry itself.\n\n**Striking edges: hardness over toughness, within limits.** The actual tooth or edge that contacts the opponent benefits most from hardness and wear resistance. `material-s7-tool-steel` is a common antweight choice for bolt-in tooth inserts specifically because it can be hardened into the low-to-mid 50s HRC range while retaining enough toughness to survive repeated impact without becoming brittle -- pushing hardness much higher trades away that impact toughness and risks a tooth that chips or shatters on a hard hit rather than simply dulling.\n\n**Weapon bodies and shafts: balanced strength and machinability.** `material-4140-steel` is a common choice for weapon bodies, bars, and shafts where the part needs good strength and toughness without necessarily being through-hardened to striking-edge hardness -- it machines well in its annealed/normalized state and can be selectively heat-treated further (e.g., just the shaft) if needed.\n\n**Hubs and backing structure: strength-to-weight over hardness.** `material-7075-aluminum` shows up frequently in hubs, backing plates, and structural weapon components sitting behind a hardened insert, where the part needs to be strong and stiff but isn't itself the striking surface -- its lower toughness compared to steel makes it a poor choice as a bare direct-impact edge, but a good one for everything supporting that edge.\n\n**Plastic-antweight bodies.** `material-uhmw-polyethylene` is the default choice for plastic-antweight disc and drum bodies specifically because most plastic-antweight rulesets restrict the bulk weapon/structure material to non-metal while still permitting small hardened inserts, fasteners, motors, and bearings in metal -- always confirm the exact current material rule for a given event's plastic-antweight class before finalizing a design, since specifics vary by organization.\n\n**Weight-critical components.** `material-titanium-6al4v` earns its place in weight-critical bars, hubs, or tip inserts where its roughly steel-level strength at about 60% of steel's density lets a builder redirect saved grams into more weapon mass at the rim (per the mass-toward-rim principle) or more drivetrain/battery budget elsewhere -- at the cost of being noticeably harder and slower to machine well without the right tooling, which makes it more of an advanced-builder material than a default first choice.\n\n**The general principle.** Rather than asking 'what's the best weapon material,' the more useful antweight-scale question is which specific part -- edge, body, shaft, hub -- benefits most from hardness, from toughness, from strength-to-weight, or from being non-metal by rule, and matching each part's material to that specific job rather than defaulting to one material for the whole assembly.",
+      "entity_refs": [
+        "material-s7-tool-steel",
+        "material-4140-steel",
+        "material-7075-aluminum",
+        "material-uhmw-polyethylene",
+        "material-titanium-6al4v"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "materials",
+        "tooth-insert",
+        "shaft",
+        "hub"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-practical-weapon-geometry-selection",
+      "title": "Practical weapon geometry selection: putting the tradeoffs together",
+      "section": "Bite",
+      "body_md": "Every weapon-geometry decision covered in this topic connects back to a handful of the same underlying tensions, and a practical builder benefits from seeing them side by side rather than as isolated design choices.\n\n**Bite depth vs hit frequency vs balance.** Fewer teeth (or a single asymmetric tooth) maximizes per-hit bite depth at the cost of hit frequency and, usually, a harder balancing job since the mass isn't evenly spread around the rotation axis. More teeth smooth out hit frequency and generally simplify balancing (mass spread more evenly) at the cost of shallower per-hit penetration. Neither choice changes the weapon's total stored energy for a given mass, radius, and rpm (`formula-wg-tooth-count-moi-equivalence`) -- it only changes how that fixed energy budget gets delivered over the course of a match. A builder chasing a single fight-ending hit against lightly-armored opponents should lean toward fewer teeth; a builder expecting to grind through multiple exchanges against well-armored opponents may prefer the steadier hit rate of more teeth.\n\n**Mass distribution vs manufacturing difficulty.** The mass-toward-rim principle (`formula-wg-mass-toward-rim-effect`) says the same weapon weight delivers more stored energy the further out it sits -- solid disc < moderate rim-loading/annulus < thin ring/shell spinner, in roughly that order of both increasing energy-per-gram and increasing build difficulty and balancing sensitivity. A first hard-weapon build reasonably starts with a solid or lightly rim-loaded disc; a shell spinner is a better second- or third-build project once the builder has direct experience with balancing and bearing support at the easier end of that spectrum.\n\n**Attachment robustness vs simplicity.** Set-screw hubs are the simplest and lightest option and are adequate for lower-power weapons or early builds, but the more energy a weapon stores (larger, faster, more rim-loaded), the more that stored energy shows up as shock torque on every hit -- which is exactly when a positive-drive interface (keyway or broached hex) stops being an optional upgrade and starts being a practical necessity to avoid recurring `term-hub-slip` failures.\n\n**Shaft support vs weapon width/reach.** A cantilevered single-bearing shaft is simplest to build and adequate for a small, compact, lower-energy weapon, but as weapon width (drums, wide bars) or stored energy increases, the bending stress penalty of a long unsupported span (`formula-wg-cantilever-shaft-bending`) grows quickly, making double-bearing support (or a dead-shaft arrangement with bearings built into the weapon itself) the more durable choice.\n\n**The unifying lesson.** None of these tradeoffs has a single universally correct answer -- the right choice depends on the specific opponent field, the builder's fabrication skill and available tools, and how much risk of a mid-match failure is acceptable in exchange for a harder-hitting or simpler design. What stays constant across all of them is that every geometry decision in this topic trades one of these same handful of things -- bite depth, hit frequency, balance difficulty, energy-per-gram, attachment robustness, and shaft support -- against another, and naming which specific tradeoff a given design choice is making is more useful than treating any one weapon form as simply 'better' than another.",
+      "entity_refs": [
+        "formula-wg-tooth-count-moi-equivalence",
+        "formula-wg-mass-toward-rim-effect",
+        "term-hub-slip",
+        "formula-wg-cantilever-shaft-bending"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bite",
+        "moi",
+        "balancing",
+        "attachment",
+        "design-tradeoffs"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    }
+  ]
+}

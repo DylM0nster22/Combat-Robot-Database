@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cantilevered shaft bending stress under impact load — Combat Robot Database</title>
+<meta name="description" content="A weapon shaft supported by only one bearing (cantilevered) sees bending stress proportional to the impact force times the unsupported length; shortening that length or adding a second support point cuts stress dramatically and is the main structural argument for double-bearing shaft support.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../search.html">Formula</a> ›
+  Cantilevered shaft bending stress under impact load</div>
+<h1 class="page">Cantilevered shaft bending stress under impact load</h1>
+<p class="page-sub">A weapon shaft supported by only one bearing (cantilevered) sees bending stress proportional to the impact force times the unsupported length; shortening that length or adding a second support point cuts stress dramatically and is the main structural argument for double-bearing shaft support.</p>
+<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill conf-low">unverified</span><span class="pill">shaft</span><span class="pill">bending</span><span class="pill">bearings</span><span class="pill">failure-modes</span></div>
+<div class="two-col">
+  <div class="prose">
+    <div class="card-art" style="margin-bottom:20px"><svg viewBox="0 0 260 150" role="img" aria-labelledby="t d" class="bot-svg"><title id="t">Full-body shell spinner</title><desc id="d">Top view: the robot's entire outer shell rotates, so every angle of approach meets the weapon.</desc><defs><marker id="ah" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" class="motion-fill"/></marker></defs><line x1="8" y1="122" x2="252" y2="122" class="ground"/><line x1="16" y1="122" x2="10" y2="128" class="ground hatch"/><line x1="28" y1="122" x2="22" y2="128" class="ground hatch"/><line x1="40" y1="122" x2="34" y2="128" class="ground hatch"/><line x1="52" y1="122" x2="46" y2="128" class="ground hatch"/><line x1="64" y1="122" x2="58" y2="128" class="ground hatch"/><line x1="76" y1="122" x2="70" y2="128" class="ground hatch"/><line x1="88" y1="122" x2="82" y2="128" class="ground hatch"/><line x1="100" y1="122" x2="94" y2="128" class="ground hatch"/><line x1="112" y1="122" x2="106" y2="128" class="ground hatch"/><line x1="124" y1="122" x2="118" y2="128" class="ground hatch"/><line x1="136" y1="122" x2="130" y2="128" class="ground hatch"/><line x1="148" y1="122" x2="142" y2="128" class="ground hatch"/><line x1="160" y1="122" x2="154" y2="128" class="ground hatch"/><line x1="172" y1="122" x2="166" y2="128" class="ground hatch"/><line x1="184" y1="122" x2="178" y2="128" class="ground hatch"/><line x1="196" y1="122" x2="190" y2="128" class="ground hatch"/><line x1="208" y1="122" x2="202" y2="128" class="ground hatch"/><line x1="220" y1="122" x2="214" y2="128" class="ground hatch"/><line x1="232" y1="122" x2="226" y2="128" class="ground hatch"/><line x1="244" y1="122" x2="238" y2="128" class="ground hatch"/><line x1="256" y1="122" x2="250" y2="128" class="ground hatch"/><circle cx="130" cy="72" r="56" class="weapon" fill="none"/><circle cx="130" cy="72" r="48" class="weapon-inner" fill="none"/><path d="M74,72 l-12,-7 l0,14 z" class="weapon-tooth"/><path d="M186,72 l12,7 l0,-14 z" class="weapon-tooth"/><circle cx="130" cy="72" r="26" class="body"/><circle cx="130" cy="72" r="7" class="hub"/><path d="M130,8 A64,64 0 0,0 66,72" class="motion" marker-end="url(#ah)" fill="none"/><text x="130" y="143" class="anno" text-anchor="middle">top view — the whole shell is the weapon</text></svg></div>
+    <blockquote>Some figures on this page could not be verified against a primary source. Treat them as indicative and check the manufacturer before relying on them.</blockquote>
+    
+    <h2>Expression</h2><pre><code>M = F_impact * L;  sigma = M*c / I_section, with I_section = pi*d^4/64 for a solid round shaft</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>F_impact</th><td>estimated peak impact force during a hit, N</td></tr><tr><th>L</th><td>unsupported cantilever length from the bearing to the load point, m</td></tr><tr><th>d</th><td>shaft diameter, m</td></tr><tr><th>c</th><td>distance from neutral axis to outer fiber = d/2, m</td></tr><tr><th>I_section</th><td>second moment of area of the shaft cross-section, m^4</td></tr><tr><th>sigma</th><td>bending stress in the shaft, Pa</td></tr></tbody></table><h2>Worked example</h2><p>6 mm diameter shaft, an estimated 1000 N instantaneous impact spike, 10 mm of unsupported cantilever length between the single bearing and the weapon: I_section = pi<em>0.006^4/64 = 6.36e-11 m^4; M = 1000</em>0.010 = 10 N<em>m; sigma = 10</em>0.003/6.36e-11 = 4.72e8 Pa = 472 MPa -- enough to permanently bend a mild-steel shaft (yield ~250 MPa) but survivable for a hardened alloy shaft. Adding a second bearing close to the weapon face to cut the effective cantilever to 3 mm drops the moment to 3 N*m and the stress to about 141 MPa, well under yield for almost any shaft material. The 1000 N figure is a rough estimate for illustration -- real impact loads vary hugely with weapon mass, rpm, and what is struck -- but the L-scaling relationship is the key structural takeaway.</p>
+    
+    
+  </div>
+  <div><div class="side-box"><h4>Related guides</h4><ul><li><a href="../g/chunk-bar-spinner-geometry.html">Bar spinner geometry: length, cross-section, tip mass, and canting</a></li><li><a href="../g/chunk-shaft-bearing-support.html">Shaft support and bearing selection for antweight weapons</a></li><li><a href="../g/chunk-failure-modes.html">Real weapon failure modes: bell separation, hub slip, bent shafts, exploded bearings</a></li><li><a href="../g/chunk-practical-weapon-geometry-selection.html">Practical weapon geometry selection: putting the tradeoffs together</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+<p style="margin-top:34px"><code>formula-wg-cantilever-shaft-bending</code> — use this id with the
+Discord bot or MCP tools.</p>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

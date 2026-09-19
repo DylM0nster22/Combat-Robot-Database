@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Acrylic Is a Trap for Combat Robot Armor — Combat Robot Database</title>
+<meta name="description" content="Acrylic (PMMA, often sold as Plexiglas) is one of the most common beginner mistakes in combat robot armor selection, and the reason is entirely predictable once">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Why Acrylic Is a Trap for Combat Robot Armor</div>
+<h1 class="page">Why Acrylic Is a Trap for Combat Robot Armor</h1>
+<p class="page-sub">Plastics Deep Dive</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">acrylic</span><span class="pill">trap-material</span><span class="pill">brittle</span><span class="pill">safety</span><span class="pill">deep-dive</span></div>
+<div class="two-col">
+  <div class="prose"><p>Acrylic (PMMA, often sold as Plexiglas) is one of the most common beginner mistakes in combat robot armor selection, and the reason is entirely predictable once you understand why: its datasheet numbers look competitive with genuinely good armor plastics, but the specific number that actually predicts impact survival tells the opposite story.</p>
+<p><strong>The trap, precisely:</strong> acrylic&#x27;s tensile strength (roughly 70 MPa) and stiffness (elastic modulus around 3.0-3.3 GPa) look comparable to, or even better than, tougher plastics like nylon or polycarbonate on a spec sheet a beginner might glance at while comparison-shopping. What that comparison misses is elongation-to-break — the percentage a material can stretch before it fractures — where acrylic manages only about 3-5%, versus polycarbonate&#x27;s 100%+ or nylon&#x27;s 60-100%+. Tensile strength measured in a slow, steady pull test says almost nothing about how a material behaves under the very fast, very high-force loading of a weapon impact; that behavior is governed by toughness and ductility, and acrylic has essentially none of either. It has almost no capacity to yield plastically and absorb energy — when the load exceeds its strength, it doesn&#x27;t bend or dent, it fractures immediately and completely.</p>
+<p><strong>Why it shatters instead of dents:</strong> acrylic is a fully amorphous, highly cross-linked-feeling (though not actually cross-linked) rigid polymer with very limited chain mobility at room temperature, so unlike polyethylene or polycarbonate, its molecular structure offers no mechanism to absorb impact energy through chain slippage or reorientation before a crack initiates. Once a crack starts — often at a machining mark, a laser-cut edge, or simply the point of impact — it propagates through the brittle material almost instantly, which is why acrylic shatters into multiple sharp-edged shards rather than cracking in one place and staying together.</p>
+<p><strong>Laser cutting makes it worse, and laser cutting is exactly how most hobbyists cut it.</strong> Acrylic is one of the easiest and most popular materials to laser-cut, which is part of its appeal to beginners with access to a laser cutter or cutting service. But the laser-cut edge leaves micro-fractures and localized heat-affected embrittlement right along the cut line — precisely the geometry (an edge, likely also load-bearing in a bolted panel) most likely to see stress during an impact, compounding acrylic&#x27;s already-poor impact toughness.</p>
+<p><strong>Safety, not just performance:</strong> beyond simply failing to protect the robot&#x27;s internals, a shattering acrylic panel sends sharp plastic shards into the arena, which is a real safety concern for the robot itself, its opponent, and anyone nearby — this is why most build guides and community wikis explicitly warn against acrylic as an armor material, not just as suboptimal but as actively unsuitable.</p>
+<p><strong>What to use instead for the same cost:</strong> PETG or PLA sheet/printed parts cost roughly the same as acrylic sheet per kg and offer dramatically better elongation-to-break and impact toughness; polycarbonate costs a bit more but offers far superior impact resistance (with its own notch-sensitivity caveats). There is essentially no combat-robot armor scenario where acrylic is the correct choice over these alternatives at a comparable price point.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/material-acrylic.html">Acrylic (PMMA)</a></li><li><a href="../e/material-petg-filament.html">PETG Filament</a></li><li><a href="../e/material-pla-plaplus.html">PLA / PLA+</a></li><li><a href="../e/material-polycarbonate-lexan.html">Polycarbonate (Lexan)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beater bars and eggbeaters: geometry and practical differences — Combat Robot Database</title>
+<meta name="description" content="Beater bars and eggbeaters are close cousins of the bar spinner, distinguished mainly by axis orientation and the number/arrangement of striking arms rather tha">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Beater bars and eggbeaters: geometry and practical differences</div>
+<h1 class="page">Beater bars and eggbeaters: geometry and practical differences</h1>
+<p class="page-sub">Weapon Forms</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">beater-bar</span><span class="pill">eggbeater</span><span class="pill">geometry</span></div>
+<div class="two-col">
+  <div class="prose"><p>Beater bars and eggbeaters are close cousins of the bar spinner, distinguished mainly by axis orientation and the number/arrangement of striking arms rather than by fundamentally different geometry principles.</p>
+<p><strong>Beater bar.</strong> Geometrically similar to a horizontal bar spinner but usually shorter, lower-powered, and mounted so it beats downward/forward into an opponent rather than delivering a single dominant cutting hit -- closer in spirit to a flail than a precision cutter. Beater bars on antweights are often a simple flat or slightly curved bar of modest length (well under a full-width bar spinner), prioritizing a fast, forgiving spin-up and reasonable durability over maximum single-hit energy, and are comparatively tolerant of imperfect balance because their tip speeds and stored energy are usually lower than a dedicated hard-hitting bar or disc.</p>
+<p><strong>Eggbeater.</strong> An eggbeater weapon uses two (or more) separate arms mounted on a shared vertical-ish or angled axis, positioned and phased so their swept paths overlap or interleave -- visually and mechanically similar to a kitchen eggbeater/whisk, hence the name. Each arm behaves like its own small bar spinner for MOI and tip-speed purposes (<code>formula-moi-slender-rod-center</code> and <code>formula-tip-speed</code> in the design-math topic apply to each arm individually, then combine), but the multi-arm layout increases hit frequency similarly to adding teeth to a disc, and the geometry must ensure the arms&#x27; swept circles don&#x27;t collide with the robot&#x27;s own frame or with each other through the full rotation. Balancing an eggbeater is more involved than a simple two-armed bar because the arms are often not a single rigid symmetric part -- each arm&#x27;s mass and mounting must be checked individually as well as the assembly as a whole (see <code>term-dynamic-balance</code>).</p>
+<p><strong>Shared practical notes.</strong> Both forms tend to run at more modest tip speeds than a dedicated single-plane disc or bar, trading peak per-hit energy for a more continuous, harder-to-avoid threat and (for the eggbeater specifically) some self-righting utility from the weapon&#x27;s shape and low ground clearance. Both are comparatively forgiving weapon choices for a first hard-weapon build, since their lower typical tip speeds put less extreme demand on balance tolerance and bearing selection than a full-speed disc or shell spinner.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/term-dynamic-balance.html">Dynamic balance</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

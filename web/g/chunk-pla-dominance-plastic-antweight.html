@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why PLA/PLA+ Dominates Plastic Antweight Despite Being &#x27;Brittle&#x27; — Combat Robot Database</title>
+<meta name="description" content="PLA has a reputation, deserved on paper, for being the most brittle of the common FDM filaments — its elongation-to-break is only around 5-8%, far below PETG&#x27;s ">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Why PLA/PLA+ Dominates Plastic Antweight Despite Being &#x27;Brittle&#x27;</div>
+<h1 class="page">Why PLA/PLA+ Dominates Plastic Antweight Despite Being &#x27;Brittle&#x27;</h1>
+<p class="page-sub">3D-Printed Materials Deep Dive</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">pla</span><span class="pill">plastic-antweight-critical</span><span class="pill">deep-dive</span><span class="pill">print-quality</span></div>
+<div class="two-col">
+  <div class="prose"><p>PLA has a reputation, deserved on paper, for being the most brittle of the common FDM filaments — its elongation-to-break is only around 5-8%, far below PETG&#x27;s ~20%, ABS&#x27;s ~20%, or nylon&#x27;s 60-100%+. By that single metric, PLA should be near the bottom of the list for a part expected to survive weapon impacts. In practice, it&#x27;s the single most-used structural and armor material in plastic-antweight combat robotics, and understanding why reveals more about how the class actually works than the datasheet number does.</p>
+<p><strong>Stiffness matters as much as ductility for a single-impact event.</strong> A combat robot hit is a very short, very high-force event, not a slow bend test. PLA&#x27;s high stiffness (elastic modulus around 3.0-3.5 GPa, noticeably higher than PETG&#x27;s ~2.0-2.2 GPa or ABS&#x27;s ~1.8-2.2 GPa) means a PLA part resists deforming under load in the first place — for many glancing or moderate hits, the part simply doesn&#x27;t move enough to reach its (admittedly lower) breaking strain. Ductility only becomes the deciding factor once a hit is hard enough to actually strain the material significantly, and a stiffer part reaches that threshold at a higher force than a more flexible one of the same wall thickness.</p>
+<p><strong>Print quality dominates real-world toughness more than material choice.</strong> PLA is, by a wide margin, the easiest filament to get consistent, well-adhered layers from on inexpensive, unmodified printers — no enclosure, no heated chamber, minimal warping, forgiving of imperfect cooling and retraction settings. A cracked or delaminated part almost always fails at a layer line or a print defect (a void, poor first-layer adhesion, insufficient wall count) rather than through bulk material fracture, so a material that prints reliably well produces tougher real parts in practice than a &quot;tougher&quot; material printed poorly. Nylon and ABS have better bulk material properties but are meaningfully harder to print defect-free without a proper enclosure and drying setup that many hobbyists don&#x27;t have.</p>
+<p><strong>Cost enables thickness, and thickness is the real armor budget lever.</strong> PLA/PLA+ is inexpensive enough (roughly $20-25/kg, same ballpark as PETG/ABS) that builders default to thick walls and moderate-to-high infill (2.5-4mm walls, 40-60%+ infill) rather than thin shells — and because weight-per-area scales with thickness regardless of which plastic is used, the practical comparison in a real build is often &quot;thick PLA&quot; versus &quot;thin nylon&quot; rather than equal-thickness PLA versus nylon, and thick-but-more-brittle frequently outperforms thin-but-tougher in this class.</p>
+<p><strong>Disposability is a feature.</strong> Because reprinting a cracked PLA shell is cheap and fast (often overnight, for a few dollars of filament), plastic-antweight competitors can treat armor as consumable — expecting to reprint a shell between fights rather than requiring one panel to survive an entire tournament undamaged. This changes the optimization target from &quot;never crack&quot; to &quot;crack in a way that&#x27;s easy and cheap to replace,&quot; which favors PLA&#x27;s low cost and print ease over a pricier, harder-to-print material that might survive marginally more hits before failing.</p>
+<p><strong>PLA+ specifically</strong> is a modified PLA blend (formulations vary by brand) that trades a small amount of PLA&#x27;s stiffness for meaningfully better impact resistance and elongation, narrowing the toughness gap with PETG somewhat while keeping most of standard PLA&#x27;s easy-printing behavior — many competitive plastic-antweight builders default to PLA+ over standard PLA specifically for this reason when the two cost about the same.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/material-abs-asa-filament.html">ABS / ASA Filament</a></li><li><a href="../e/material-nylon-pa-filament.html">Nylon Filament (PA6 / PA12 / PA-CF)</a></li><li><a href="../e/material-petg-filament.html">PETG Filament</a></li><li><a href="../e/material-pla-plaplus.html">PLA / PLA+</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

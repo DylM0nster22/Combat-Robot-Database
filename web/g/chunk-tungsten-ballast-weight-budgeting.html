@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tungsten Ballast and Precision Weight Budgeting — Combat Robot Database</title>
+<meta name="description" content="Hitting a 1 lb (453.6g) weight limit exactly, without going over, is a routine late-build problem: a finished antweight almost never lands precisely on the limi">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Tungsten Ballast and Precision Weight Budgeting</div>
+<h1 class="page">Tungsten Ballast and Precision Weight Budgeting</h1>
+<p class="page-sub">Weight Budgeting</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">ballast</span><span class="pill">weight-budgeting</span><span class="pill">tungsten</span><span class="pill">center-of-mass</span></div>
+<div class="two-col">
+  <div class="prose"><p>Hitting a 1 lb (453.6g) weight limit exactly, without going over, is a routine late-build problem: a finished antweight almost never lands precisely on the limit, and builders either need to shave grams off a too-heavy design or add grams to a too-light one to use the full weight allowance competitively. Tungsten (or tungsten-heavy-alloy) ballast solves the &quot;too light&quot; side of that problem better than any other practical material because of one number: density.</p>
+<p><strong>Why density is the whole point.</strong> Tungsten heavy alloy (typically 90-97% tungsten with a nickel-iron or nickel-copper binder) has a density around 17-18.5 g/cm³ — roughly 2.2-2.3 times denser than steel and about 4x denser than titanium. That means a given amount of added mass takes up the smallest possible volume of any practical ballast material, which matters enormously in a 1 lb robot where internal space is at an absolute premium. Adding 20g of steel ballast requires roughly 2.5cm³ of space; the same 20g in tungsten heavy alloy takes about 1.1-1.2cm³ — often the difference between ballast fitting in a design&#x27;s remaining internal void or not fitting at all.</p>
+<p><strong>Two distinct uses:</strong> (1) <strong>Fine weight-limit tuning</strong> — a small tungsten cube, disc, or moldable tungsten-loaded putty pressed into a cavity near the end of the build to bring total weight up to just under 453.6g, squeezing every gram of performance out of the weight allowance rather than leaving unused margin on the table (unused weight margin is performance left on the table — that gram could have gone to a bigger battery, thicker armor, or a heavier weapon). (2) <strong>Weapon rim/moment-of-inertia loading</strong> — packing tungsten inserts into the rim of a spinner disc or drum increases the weapon&#x27;s moment of inertia (and therefore its stored kinetic energy at a given RPM, since KE scales with moment of inertia) without increasing the weapon&#x27;s outer diameter, which would otherwise risk a rules or clearance violation. This is a targeted way to make a spinner weapon hit harder without redesigning its shape.</p>
+<p><strong>Cost and handling considerations.</strong> Tungsten heavy alloy costs considerably more per kg than steel ballast (commonly in the tens of dollars per pound range for small hobby quantities), which is a real but usually acceptable premium given how little total ballast mass a 1 lb robot typically needs (often just 5-30g). It is non-toxic (unlike lead, which some events restrict or discourage for exactly that reason) and machines similarly to a hard steel with carbide tooling, though pure unalloyed tungsten is considerably more brittle and harder to machine cleanly than the heavy-alloy composite grades typically sold for ballast use.</p>
+<p><strong>Not a structural or armor material.</strong> Despite its impressive density, tungsten ballast should not be mistaken for an armor upgrade — its role is purely mass placement, tucked into a cavity or rim where its weight helps but its (mediocre, for a metal) toughness is never tested by a direct hit.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/material-tungsten-ballast.html">Tungsten Ballast (Heavy Alloy)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

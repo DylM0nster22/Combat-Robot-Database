@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bearings, shafts and why weapons come apart — Combat Robot Database</title>
+<meta name="description" content="The weapon mounting is where most antweight mechanical failures happen. Getting it right is mostly about stiffness and retention.
+
+**Shaft diameter dominates.**">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Bearings, shafts and why weapons come apart</div>
+<h1 class="page">Bearings, shafts and why weapons come apart</h1>
+<p class="page-sub">Assembly</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">fabrication</span><span class="pill">weapon-design</span><span class="pill">reliability</span></div>
+<div class="two-col">
+  <div class="prose"><p>The weapon mounting is where most antweight mechanical failures happen. Getting it right is mostly about stiffness and retention.</p>
+<p><strong>Shaft diameter dominates.</strong> Bending stiffness scales with the fourth power of diameter. Going from a 3 mm shaft to 5 mm is roughly 7.7 times stiffer for about 2.8 times the mass. On any weapon storing real energy that is among the best weight-for-reliability trades available. A bent shaft is not just a bent shaft — it is an unbalanced weapon, which then destroys its own bearings within a match.</p>
+<p><strong>Support both ends where you can.</strong> A cantilevered weapon on a single bearing puts a huge bending moment into that one point. A dead-shaft arrangement — fixed shaft, weapon spinning on bearings around it, supported on both sides — is far stronger and is the standard approach for drums.</p>
+<p><strong>Bearing choice.</strong> Shielded (ZZ) deep-groove ball bearings in standard metric sizes: 623 for 3 mm shafts, 625 for 5 mm, 688 for 8 mm dead shafts. Buy them as consumables. A bearing that takes a hard impact gets brinelled — the balls dent the races — and runs rough from then on.</p>
+<p><strong>Consider bronze bushings.</strong> They have more friction than ball bearings but nothing inside to dent, so they tolerate impact far better. On a weapon with torque to spare, a bushing can outlast several bearings.</p>
+<p><strong>Retention is the failure everyone hits.</strong> The classic antweight failure is the weapon coming off the motor. Stock drone motors retain the bell with a C-clip never intended for combat shock loads. Hubs held by a single grub screw on a round shaft will slip and then spin freely. The fixes, in order of effectiveness: a machined flat on the shaft for the grub screw to bear against; two grub screws at 90 degrees; a broached hex or a keyway; threadlocker on the grub screws regardless.</p>
+<p><strong>Press fits.</strong> A bearing seat wants a light interference — the bearing goes in with hand pressure or a light tap. In printed parts, expect to tune the hole diameter for your specific printer. A bearing that spins in its seat destroys the seat.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/bearing-623.html">623 bearing</a></li><li><a href="../e/bearing-625.html">625 bearing</a></li><li><a href="../e/bearing-688.html">688 bearing</a></li><li><a href="../e/bushing-bronze.html">Bronze bushing</a></li><li><a href="../e/shaft-5mm.html">5 mm weapon shaft</a></li><li><a href="../e/term-press-fit.html">Press Fit</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

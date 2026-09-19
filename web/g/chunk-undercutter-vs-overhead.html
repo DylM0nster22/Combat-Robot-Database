@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undercutters vs overhead horizontal spinners: floor interaction and ground clearance — Combat Robot Database</title>
+<meta name="description" content="Undercutters and overhead horizontal spinners both rotate about a roughly horizontal, top-down axis (unlike vertical discs/bars), but differ fundamentally in wh">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Undercutters vs overhead horizontal spinners: floor interaction and ground clearance</div>
+<h1 class="page">Undercutters vs overhead horizontal spinners: floor interaction and ground clearance</h1>
+<p class="page-sub">Weapon Forms</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">undercutter</span><span class="pill">overhead-horizontal</span><span class="pill">ground-clearance</span><span class="pill">geometry</span></div>
+<div class="two-col">
+  <div class="prose"><p>Undercutters and overhead horizontal spinners both rotate about a roughly horizontal, top-down axis (unlike vertical discs/bars), but differ fundamentally in where the weapon sits relative to the arena floor, and that single geometric difference drives most of their other design decisions.</p>
+<p><strong>Undercutters.</strong> The weapon sits low -- often level with or even slightly below the drive wheel axles -- specifically so it can get underneath an opponent&#x27;s wedge, skirt, or low armor where an overhead weapon physically cannot reach (<code>term-floor-interaction-undercutter</code>). Ground clearance (<code>term-ground-clearance-weapon</code>) is deliberately minimized: enough gap to clear the floor in normal driving, but as little as practically possible so the weapon can bite the thinnest possible gap under an opponent. This proximity to the floor has real costs: undercutter weapons take more incidental wear from arena floor texture, screws, and debris than an overhead weapon ever does, sparking and floor gouging can be a rules and safety concern at some events, and the weapon&#x27;s own structure (housing, teeth) needs to tolerate routine light floor contact as a normal part of operation, not just an occasional mistake.</p>
+<p><strong>Overhead horizontal spinners.</strong> The weapon sits above the frame, striking downward and outward onto the top of an opponent rather than trying to get underneath it. Ground clearance is largely irrelevant to the weapon itself (though the robot&#x27;s chassis still needs enough clearance to drive over arena hazards), and the design tradeoff shifts toward reach/coverage over the top of an opponent, protecting the weapon&#x27;s own drivetrain and structure from an opponent&#x27;s low wedge (since the wedge can&#x27;t reach the weapon directly, only the frame beneath it), and managing how much of the weapon overhangs the robot&#x27;s own footprint without becoming an easy target for a rules-based overhang/pin violation at some events.</p>
+<p><strong>Bite implications.</strong> Because an undercutter engages material at or near floor level, its effective bite against a low, shallow wedge is governed by the wedge-angle relationship in <code>formula-wg-bite-vs-wedge-angle</code> -- a very shallow, low-clearance wedge is exactly the geometry an undercutter is built to beat, while a steep aggressive wedge lip can still deflect an undercutter&#x27;s teeth much as it would a vertical disc. An overhead horizontal, by contrast, is largely immune to wedge angle entirely since it strikes the top surface rather than trying to penetrate at ground level, but is correspondingly vulnerable to a simple full-height wedge or shell that keeps its top surface out of the weapon&#x27;s swept path altogether.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-wg-bite-vs-wedge-angle.html">Effective bite against an angled wedge surface</a></li><li><a href="../e/term-floor-interaction-undercutter.html">Floor interaction (undercutters)</a></li><li><a href="../e/term-ground-clearance-weapon.html">Weapon ground clearance</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
