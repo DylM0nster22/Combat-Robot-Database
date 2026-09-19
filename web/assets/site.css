@@ -1,6 +1,6 @@
 /* Combat Robot Database — site styles
    Dark by default (workshop/arena feel), with a light theme for daylight
-   reading. Every colour is a token so the inline SVG diagrams can follow. */
+   reading. */
 
 :root {
   --bg: #0f1115;
@@ -151,11 +151,27 @@ a.card:hover {
 .card-art {
   background: var(--bg-sunken); border-radius: var(--radius-sm);
   margin: -4px -4px 12px; padding: 6px;
+  overflow: hidden;
 }
 
-/* --------------------------------------------------------------- svg art */
+.photo-art { padding: 0; }
+.robot-photo {
+  display: block; width: 100%; height: 190px; object-fit: cover;
+  background: var(--bg-sunken);
+}
+.detail-photo .robot-photo { height: min(430px, 52vw); object-fit: contain; }
+.photo-credit {
+  margin: -10px 0 20px; color: var(--text-faint); font-size: 12px;
+}
+.photo-credit a { color: var(--text-dim); }
+.photo-fallback {
+  min-height: 120px; display: grid; place-items: center; padding: 18px;
+  color: var(--text-faint); font-size: 13px; text-align: center;
+}
 
-.bot-svg { width: 100%; height: auto; display: block; }
+/* Legacy generated SVGs are hidden immediately; site.js replaces/removes them.
+   A fresh scripts/build_site.py run no longer emits them. */
+.bot-svg { display: none; width: 100%; height: auto; }
 .bot-svg .body { fill: var(--steel); fill-opacity: .22; stroke: var(--steel); stroke-width: 2.2; }
 .bot-svg .weapon { fill: var(--accent); fill-opacity: .2; stroke: var(--accent); stroke-width: 2.4; }
 .bot-svg .weapon-inner { stroke: var(--accent); stroke-width: 1.2; stroke-opacity: .5; }
