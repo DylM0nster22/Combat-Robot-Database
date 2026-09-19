@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Servo-Based Drive for Plastic Antweights — Combat Robot Database</title>
+<meta name="description" content="Plastic antweights, built and raced on tight budgets and gram counts, have long used the cheapest, simplest drive mechanism available in the RC hobby world: the">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Servo-Based Drive for Plastic Antweights</div>
+<h1 class="page">Servo-Based Drive for Plastic Antweights</h1>
+<p class="page-sub">Drive Motors</p>
+<div style="margin-bottom:20px"><span class="pill accent">plastic-antweight</span><span class="pill accent">fairyweight</span><span class="pill">drive-motor</span><span class="pill">servo</span><span class="pill">continuous-rotation</span><span class="pill">plastic-antweight</span><span class="pill">beginner</span></div>
+<div class="two-col">
+  <div class="prose"><p>Plastic antweights, built and raced on tight budgets and gram counts, have long used the cheapest, simplest drive mechanism available in the RC hobby world: the <strong>9g micro servo</strong>, modified (or purchased pre-modified) for continuous rotation. A normal hobby servo takes a PWM pulse (typically 1-2ms) and moves its output shaft to a corresponding angle, using an internal potentiometer to sense and hold position via a small feedback control loop. Removing that positional feedback — physically pulling the potentiometer and replacing it with two fixed resistors set to the servo&#x27;s centered voltage, and usually clipping a mechanical stop tab inside the gearbox — breaks the position-holding behavior and turns the same PWM signal into a direct speed-and-direction command instead: a 1ms pulse spins one direction, 2ms spins the other, and roughly 1.5ms (the old &#x27;centered&#x27; position) stops the motor. The result behaves almost exactly like a small ESC-driven gearmotor from the transmitter&#x27;s point of view, but needs zero separate ESC or motor driver hardware — the servo plugs straight into a receiver channel.</p>
+<p>Builders who don&#x27;t want to do the modification themselves can buy factory continuous-rotation servos (commonly referred to by part numbers like FS90R) that ship ready to use, with more consistent centering than a hand-modified unit, at a small price premium over a basic positional 9g servo.</p>
+<p>The appeal for plastic antweights is straightforward: at roughly 9g each, two servos plus a receiver is often the lightest and cheapest complete drive system available, with no ESC weight or cost, no separate motor-driver wiring, and a huge amount of freely available documentation and tutorials for the modification. The trade-offs are real, though. Servo gearboxes are built from a stack of small plastic gears sized for holding a load still, not for absorbing repeated combat impacts, and the motor inside is sized for positioning torque rather than continuous drive torque — so top speed and pushing power both fall well short of what a dedicated gearmotor-plus-ESC combination of similar weight can deliver. In practice, servo drive suits beginner builds, very light or defensive plastic antweights that don&#x27;t need to win pushing matches, and builds where simplicity of wiring and zero extra electronics genuinely outweighs raw performance. Builders chasing a competitive edge in the plastic antweight class typically graduate to N-series or Pololu gearmotors with a small ESC once they&#x27;re ready to trade some of that simplicity for speed and torque.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/motor-servo-continuous-rotation-fs90r.html">Stock Continuous-Rotation Micro Servo (FS90R-class)</a></li><li><a href="../e/motor-servo-continuous-rotation-modified.html">Modified Continuous-Rotation 9g Micro Servo (Drive)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://www.youtube.com/watch?v=HixZdhcLSdM" rel="noopener">https://www.youtube.com/watch?v=HixZdhcLSdM</a></li><li><a href="https://runamok.tech/AskAaron/ants.html" rel="noopener">https://runamok.tech/AskAaron/ants.html</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

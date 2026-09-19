@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pololu Micro Metal Gearmotors: HP, MP, LP and Extended-Shaft Variants — Combat Robot Database</title>
+<meta name="description" content="Pololu&#x27;s micro metal gearmotor line sits in a useful middle ground between the quality-lottery risk of generic N-series motors and the higher price of FingerTec">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Pololu Micro Metal Gearmotors: HP, MP, LP and Extended-Shaft Variants</div>
+<h1 class="page">Pololu Micro Metal Gearmotors: HP, MP, LP and Extended-Shaft Variants</h1>
+<p class="page-sub">Drive Motors</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">drive-motor</span><span class="pill">pololu</span><span class="pill">micro-metal-gearmotor</span><span class="pill">hp-mp-lp</span></div>
+<div class="two-col">
+  <div class="prose"><p>Pololu&#x27;s micro metal gearmotor line sits in a useful middle ground between the quality-lottery risk of generic N-series motors and the higher price of FingerTech/Repeat combat-specific products: a precision-manufactured, well-documented 10x12mm all-metal gearbox on a 3mm D-shaped output shaft (9mm long), sold in a wide range of gear ratios and, distinctively, in three separate power tunes of the same base motor.</p>
+<p>The three tunes — <strong>LP</strong> (Low Power), <strong>MP</strong> (Medium Power), and <strong>HP</strong> (High Power) — use the same physical gearbox and shaft but different motor winding/brush choices, trading current draw for speed and torque at any given ratio. At 6V, LP draws a stall current of about 0.36A (free-run ~40mA), MP about 0.67A (free-run ~70mA), and HP about 1.6A (free-run ~100mA). All three use shorter-life precious-metal brushes at 6V, which are lower-friction and preferred for these lower-current applications; Pololu also sells higher-voltage (12V) versions of some ratios with carbon brushes better suited to sustained higher-current use. For antweight drive, HP is the tune most builders reach for when they want the most power in the smallest package, while LP or MP make sense when a design is current-budget constrained, for example sharing a small ESC or battery branch with other electronics.</p>
+<p>A useful variant is the <strong>extended motor shaft</strong> option, which brings the motor&#x27;s rear shaft out through the back of the case in addition to the normal gearbox output shaft. This lets a builder mount a wheel-speed encoder disc, a second small pulley, or another accessory on the back of the motor without any machining — handy for a control-bot build that wants closed-loop wheel-speed feedback, or a 4WD layout that needs to drive an extra belt/pulley off the same motor.</p>
+<p>The main trade-off versus FingerTech&#x27;s Spark line is shaft length and mounting convention: Pololu&#x27;s 9mm output shaft is too short for FingerTech&#x27;s typical direct-wheel-mount (live-axle) approach and needs a hub or coupler, and Pololu doesn&#x27;t publish a combat-specific mounting pattern the way FingerTech does. In exchange, a builder gets Pololu&#x27;s much larger and more precisely documented range of ratios and power tunes, plus the reliability of a company whose entire business is measuring and publishing exactly this kind of spec — a meaningful advantage over generic N-series sourcing for a builder who wants predictable performance without over-paying for a combat-specific brand name.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/motor-pololu-micro-metal-extended-shaft.html">Pololu Micro Metal Gearmotor, Extended Motor Shaft variant</a></li><li><a href="../e/motor-pololu-micro-metal-hp-100-1.html">Pololu Micro Metal Gearmotor HP 6V, 100:1</a></li><li><a href="../e/motor-pololu-micro-metal-hp-30-1.html">Pololu Micro Metal Gearmotor HP 6V, 30:1</a></li><li><a href="../e/motor-pololu-micro-metal-lp-50-1.html">Pololu Micro Metal Gearmotor LP 6V, 50:1</a></li><li><a href="../e/motor-pololu-micro-metal-mp-30-1.html">Pololu Micro Metal Gearmotor MP 6V, 30:1</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://www.pololu.com/category/60/micro-metal-gearmotors" rel="noopener">https://www.pololu.com/category/60/micro-metal-gearmotors</a></li><li><a href="https://www.pololu.com/product/1093" rel="noopener">https://www.pololu.com/product/1093</a></li><li><a href="https://www.pololu.com/product/998" rel="noopener">https://www.pololu.com/product/998</a></li><li><a href="https://www.pololu.com/product/1098" rel="noopener">https://www.pololu.com/product/1098</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

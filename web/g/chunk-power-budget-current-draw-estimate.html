@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building a Power Budget: Current Draw, Match Drain, and Target Capacity — Combat Robot Database</title>
+<meta name="description" content="A useful power budget for an antweight starts by estimating current draw separately for drive and weapon, then combining them.
+
+**Drive current:** a typical sma">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Building a Power Budget: Current Draw, Match Drain, and Target Capacity</div>
+<h1 class="page">Building a Power Budget: Current Draw, Match Drain, and Target Capacity</h1>
+<p class="page-sub">Power Budget</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">power-budget</span><span class="pill">current-draw</span><span class="pill">capacity-sizing</span><span class="pill">match-length</span></div>
+<div class="two-col">
+  <div class="prose"><p>A useful power budget for an antweight starts by estimating current draw separately for drive and weapon, then combining them.</p>
+<p><strong>Drive current:</strong> a typical small antweight brushed gearmotor pulls roughly 1-3A under normal driving load, spiking to 5-8A when stalled against a wall or an opponent&#x27;s push. With two drive motors, typical combined drive draw is therefore about 2-6A, with brief stall spikes to 10-16A if both motors stall at once (rare, but worth padding for).</p>
+<p><strong>Weapon current:</strong> highly dependent on motor and weapon geometry, but a common antweight brushless outrunner running a disc or drum draws roughly 3-10A once spun up and cutting normally, with sharp, brief spikes well above that at initial spin-up or when the weapon bites into an opponent and briefly bogs down.</p>
+<p><strong>Combined typical draw:</strong> for a moderately aggressive antweight spinner+drive combo, a combined <em>typical</em> draw around 8-15A is a reasonable planning number, with instantaneous spikes into the 20-30A range during simultaneous weapon spin-up and hard driving.</p>
+<p><strong>What a 3-minute match actually drains:</strong> using the match-runtime formula in reverse, a combined average draw of ~10A over a 3-minute (180 second = 3 minute) match works out to 10A x (3/60) hours = 0.5Ah = 500mAh consumed — notably more than the <em>nominal</em> capacity of a 300-450mAh pack. This is not a contradiction: real matches are not fought at full weapon+drive draw for the entire 3 minutes (there are pauses, positioning, and lulls), so actual average draw over the whole match is usually well under the peak combined figure. But it does explain why builders don&#x27;t simply match pack mAh to &quot;current draw x 3 minutes&quot; using worst-case numbers — that would demand an unrealistically large, heavy pack.</p>
+<p><strong>Target capacity in practice:</strong> the widely repeated antweight rule of thumb is to estimate your realistic average-draw energy need for the match (using nominal, not worst-case, average current) and then round the <em>capacity</em> up 25-50% over that bare-minimum number for margin — covering pack aging, an extra practice run before a battery swap, and the fact that voltage (not just remaining mAh) needs to stay high enough to avoid sag late in the pack&#x27;s discharge curve. In concrete terms, this is exactly why 300-550mAh packs (rather than the bare ~200mAh a pure energy calculation might suggest for a single 3-minute match) dominate the antweight market: the extra capacity is buying sag margin and multi-run flexibility, not just runtime.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-match-runtime-average-draw.html">Match Runtime from Average Current Draw</a></li><li><a href="../e/formula-pack-energy-wh.html">Pack Energy (Watt-hours)</a></li><li><a href="../e/formula-power-budget-drive-weapon.html">Total System Current Draw (Drive + Weapon)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://runamok.tech/AskAaron/ants.html" rel="noopener">https://runamok.tech/AskAaron/ants.html</a></li><li><a href="https://chinahobbyline.com/blogs/news/combat-robot-power-system-lipo-battery-guide" rel="noopener">https://chinahobbyline.com/blogs/news/combat-robot-power-system-lipo-battery-guide</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

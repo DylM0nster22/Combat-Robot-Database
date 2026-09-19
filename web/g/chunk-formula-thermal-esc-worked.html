@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worked Example: Stall Current, ESC Ratings, and Duty-Cycle Heating — Combat Robot Database</title>
+<meta name="description" content="Every drive motor draws its highest current right at stall (zero RPM, full voltage applied) — this is the number an ESC, wiring, connectors, and battery all nee">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Worked Example: Stall Current, ESC Ratings, and Duty-Cycle Heating</div>
+<h1 class="page">Worked Example: Stall Current, ESC Ratings, and Duty-Cycle Heating</h1>
+<p class="page-sub">Formulas</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">formula</span><span class="pill">stall-current</span><span class="pill">esc</span><span class="pill">thermal</span><span class="pill">worked-example</span></div>
+<div class="two-col">
+  <div class="prose"><p>Every drive motor draws its highest current right at stall (zero RPM, full voltage applied) — this is the number an ESC, wiring, connectors, and battery all need to be sized to survive, at least briefly, even though the robot won&#x27;t spend most of a match sitting at true stall.</p>
+<p><strong>Worked example:</strong> A 2WD antweight running two FingerTech Silver Sparks, each rated 1.3A stall current at 7.4V. Worst case, both motors stall simultaneously (e.g. the robot is pinned against a wall while still commanding full throttle): I_stall_total = 2 x 1.3A = 2.6A combined. Normal cruising current while driving freely is much lower, typically in the 0.2-0.6A-per-motor range, since a motor only draws current in proportion to the torque it&#x27;s actually producing, not its theoretical maximum.</p>
+<p>Sizing rule of thumb: an ESC or motor driver&#x27;s <strong>continuous current rating</strong> should sit comfortably above the expected cruising current (so it runs cool through normal driving), while its <strong>burst/peak current rating</strong> needs to clear the full per-channel stall current with some safety margin — for a 1.3A-stall motor, a driver rated for 2-3A continuous per channel is typically adequate, which is why most small antweight brushed ESCs (FingerTech&#x27;s own boards among them) are specified in that range.</p>
+<p>The part that trips up new builders is the <strong>duty-cycle / thermal</strong> side of this, separate from the ESC&#x27;s rating entirely: these tiny motors have very little thermal mass, so even a stall current well within the ESC&#x27;s rated capability can still cook the motor&#x27;s own windings if held for too long, because resistive (I²R) heating in the coil accumulates faster than the small motor can shed it. As a rough guide, holding a Silver Spark-class motor at full stall for more than about 10-20 seconds starts to risk winding insulation damage, even though the ESC itself may show no signs of distress. This is why experienced drivers are taught to <strong>&quot;bump&quot; the throttle</strong> — short pulses of full stall rather than holding it — during a pushing match or when momentarily jammed against an obstacle, treating the stall current rating as a brief-duration limit rather than something the motor can sustain indefinitely.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-stall-current-esc-thermal-limit.html">Stall Current vs ESC Rating and Duty-Cycle Thermal Limits</a></li><li><a href="../e/motor-fingertech-silver-spark.html">FingerTech &quot;Silver Spark&quot; 16mm Gearmotor</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16" rel="noopener">https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

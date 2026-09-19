@@ -1,0 +1,2436 @@
+{
+  "topic_id": "plastic-antweight",
+  "title": "Plastic Antweight (1 lb All-Plastic) Combat Robots",
+  "scope_note": "Complete reference for the 1 lb / 454 g all-plastic antweight combat robot class: exact ruleset wording and org-to-org variation on allowed/banned materials and metal exemptions, why the class exists, the dominant weapon/drive archetypes and why the plastic-only rule reshapes the meta, concrete build specs with per-part weight budgets, 3D printing material/settings/design-pattern practice, and where the community shares open-source designs.",
+  "entities": [
+    {
+      "id": "weight_class-plastic-antweight",
+      "type": "weight_class",
+      "name": "Plastic Antweight",
+      "aliases": [
+        "plastic ant",
+        "PLA ant",
+        "3D printed antweight",
+        "plastic 1lb",
+        "plastic insect class"
+      ],
+      "summary": "A 1 lb (454 g) combat robot weight class in which structure, armor and weapons must be built from unmodified 3D-printable plastics (PLA/PLA+/PETG/ABS/ASA/PET), with metal permitted only for fasteners, motors, bearings, shafts, electronics and adhesives that do not themselves act as armor or weapon impactors.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "plastic-ant",
+        "beginner-class",
+        "3d-printing",
+        "insect-class",
+        "sparc",
+        "entry-level"
+      ],
+      "limit_lb": 1,
+      "limit_kg": 0.454,
+      "common_orgs": [
+        "SPARC-affiliated regional events",
+        "SoCal Attack Robots (SCAR)",
+        "Robot Ruckus",
+        "Bot Blast",
+        "Western Allied Robotics (WAR)",
+        "Growing Stems / school programs",
+        "UK antweight circuit (150g variant)"
+      ],
+      "typical_arena": "Same antweight arena as the standard 1lb class: a small (roughly 4x4 to 8x8 ft) Lexan/polycarbonate-walled box, run as its own bracket rather than mixed with metal antweights",
+      "notes": "Originated with Western Allied Robotics (WAR) in 2015 as an intentionally weaker-material 1lb class so that new builders could compete without CNC machining or metal fabrication. SPARC later formalized 'Plastic Classes' (section 4.4 of the SPARC Robot Construction Specifications) as a template most North American regional events now copy verbatim or with minor local amendments. It is functionally the same 454 g weight limit as a normal antweight; the only difference is the construction-material restriction. Some clubs also run a lighter plastic fairyweight/150g class, especially in the UK, which is a distinct weight bracket, not the same as the 1lb US plastic ant.",
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
+        "https://www.socalattackrobots.com/2025-ruleset.html",
+        "https://robotcombatwiki.com/wiki/Plastic_Antweights"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "ruleset-sparc-plastic-classes",
+      "type": "ruleset",
+      "name": "SPARC Plastic Classes (Robot Construction Specifications v1.4, §4.4)",
+      "aliases": [
+        "SPARC plastic ant rule",
+        "SPARC §4.4"
+      ],
+      "summary": "The template ruleset most North American plastic-ant events build from. Defines the class's spirit, the exact allowed plastics list, and the non-plastic component exemption in a single short section that individual events then adopt with a 'deviations' addendum.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "sparc",
+        "material-restriction",
+        "template-ruleset"
+      ],
+      "organization": "SPARC (Standardized Procedures for the Advancement of Robotic Combat)",
+      "version": "v1.4, 8 October 2023, section 4.4 'Plastic Classes'",
+      "key_rules": [
+        "4.4 spirit: 'to have an easy entry point for new builders and to encourage creative designs by limiting materials to plastics that are easy to work with, commonly used in 3D printers and don't have strength characteristics common in the standard classes.'",
+        "4.4.1: 'PET, PETG, ABS, PLA, or PLA+ are the only materials that can be used for the chassis and weapons. No other types of plastics or materials allowed (ie. metal, carbon fiber, UHMW, etc). At their discretion, event organizers may allow additional plastics that meet the spirit of the rules.'",
+        "4.4.2: 'Non-plastic parts such as motors, electronics, axles, fasteners and adhesives can be any material, but cannot be used in such a way to enhance the structural integrity, armor the robot, or enhance any weapon. Magnets to enhance traction or downforce are prohibited. Foam is allowed for wheels and padding of electronics.'",
+        "4.4.3: Event organizers may disqualify at their discretion for violating 'the spirit of the class'; builders are told to contact organizers ahead of time if unsure.",
+        "Standard weight table applies: 1lb / 454g rolling, 1.5lb shuffler bonus, 2lb non-wheeled bonus (same bonuses as regular antweight; plastic ants can claim shuffler/non-wheeled bonuses too if the event allows).",
+        "General SPARC safety rules apply on top: 60-second full manual deactivation, visible weapon locking pin, drive fail-safe expected even at 1lb, spread-spectrum 2.4GHz radio required in practice."
+      ],
+      "banned": [
+        "metal (as chassis/armor/weapon material)",
+        "carbon fiber",
+        "UHMW",
+        "any plastic not on the PET/PETG/ABS/PLA/PLA+ list unless the organizer grants an exception",
+        "magnets for traction/downforce"
+      ],
+      "website": "https://sparc.tools/",
+      "notes": "This is the single most copy-pasted plastic-ant ruleset in the US; SCAR, Robot Ruckus and many one-off regional events either quote it directly or diverge from it in a clearly marked 'deviations' section per SPARC's own template instructions.",
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
+        "http://sparc.tools/?p=348"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "ruleset-scar-plastic-ant",
+      "type": "ruleset",
+      "name": "SCAR 2025 Ruleset — Plastic Ant Weight Class",
+      "aliases": [
+        "SoCal Attack Robots plastic ant rules"
+      ],
+      "summary": "SoCal Attack Robots' 2025 ruleset section covering Plastic Ant, closely following SPARC's template but adding explicit weight bonuses for shufflers and non-wheeled locomotion and an explicit magnet/UHMW ban.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "scar",
+        "socal",
+        "material-restriction"
+      ],
+      "organization": "SoCal Attack Robots (SCAR)",
+      "version": "2025 Ruleset",
+      "key_rules": [
+        "Base weight 1lb / 454g; 1.25lb / 567g shuffler bonus; 1.5lb / 681g non-wheeled-motion bonus.",
+        "Structure, armor and weapons restricted to PET, PETG, ABS, ASA, PLA, or PLA+ (organizers may permit more at their discretion).",
+        "Motors, electronics, axles, fasteners and adhesives exempt from the plastic-only rule as long as they don't enhance structural integrity, armor, or weapon performance.",
+        "Metal, carbon fiber and UHMW explicitly prohibited as structural/armor/weapon material.",
+        "Magnets designed to boost traction or downforce are forbidden; foam is allowed for wheels and electronics padding.",
+        "Disqualification at event-organizer discretion for violating 'the spirit of the class'."
+      ],
+      "banned": [
+        "metal",
+        "carbon fiber",
+        "UHMW",
+        "traction/downforce magnets"
+      ],
+      "website": "https://www.socalattackrobots.com/2025-ruleset.html",
+      "sources": [
+        "https://www.socalattackrobots.com/2025-ruleset.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "ruleset-scar-plastic-ant-faq",
+      "type": "ruleset",
+      "name": "SCAR Plastic Ant FAQ",
+      "aliases": [
+        "SCAR plastic ant clarifications"
+      ],
+      "summary": "A supplementary FAQ document SCAR publishes alongside its main ruleset that names specific approved filament brands and explicitly bans several materials (TPU, nylon, composites, epoxy coatings) that are ambiguous under the base ruleset's plain-language material list.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "scar",
+        "faq",
+        "material-restriction",
+        "tech-inspection"
+      ],
+      "organization": "SoCal Attack Robots (SCAR)",
+      "version": "current (as published on socalattackrobots.com)",
+      "key_rules": [
+        "Chassis/weapon material must be PLA, ABS, or PETG printable under 260°C; named approved brands include FusionFilaments HTPLA+, Duramic PLA+, Overture Super PLA+, and Hatchbox ABS.",
+        "COTS wheel parts (e.g. FingerTech, Repeat Robotics, Pololu) are allowed, along with COTS rubber, cast urethane, foam, or rubber coatings and traction additives (silicone/latex) for tires, unless they create entanglement risk.",
+        "Metal bearings, axles, shafts, fasteners, COTS motor-mount adapters, and metal servo horns/gears are exempted as long as the weapon is non-functional without its plastic parts.",
+        "Post-processing: annealing or smoothing with heat or acid is allowed, thin decorative paint is allowed; material additives are not.",
+        "Inspection is primarily visual; datasheets are not required by default, but suspicious builds can be investigated further."
+      ],
+      "banned": [
+        "composite materials (carbon-filled or glass-filled plastics)",
+        "TPU, including custom TPU wheel hubs",
+        "nylon",
+        "'flex' or blended filaments marketed for enhanced properties",
+        "epoxy coatings, Bondo, or similar fillers",
+        "rubber shock-mount armor ('wubs')",
+        "multi-layer tape armor"
+      ],
+      "website": "https://www.socalattackrobots.com/plastic-ant-faq.html",
+      "notes": "IMPORTANT ORG-VARIANCE FINDING: SCAR is one of the stricter interpreters of the plastic-only rule — it explicitly bans TPU and nylon by name, materials that are commonly praised in general antweight/beetleweight circles as tough flexible armor. Builders moving a design between events must check the local FAQ, not just the base material list, since 'PETG/PLA/ABS' alone does not settle whether TPU trim or nylon gears are legal.",
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "ruleset-war-plastic-antweight-origin",
+      "type": "ruleset",
+      "name": "Western Allied Robotics (WAR) Plastic Antweight — Original 2015 Rules",
+      "aliases": [
+        "WAR plastic ant rules",
+        "original plastic ant ruleset"
+      ],
+      "summary": "The founding ruleset of the plastic antweight class, introduced by Western Allied Robotics in 2015, restricting the chassis and weapon to PET/PETG/ABS/PLA/PLA+ while exempting motors, electronics, axles, fasteners and adhesives.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "war",
+        "history",
+        "origin"
+      ],
+      "organization": "Western Allied Robotics (WAR)",
+      "version": "2015 origin ruleset (language subsequently absorbed into SPARC §4.4)",
+      "key_rules": [
+        "1lb weight limit, same as standard antweight.",
+        "Chassis and weapon restricted to PET, PETG, ABS, PLA, PLA+.",
+        "Motors, electronics, axles, fasteners, adhesives exempt from the material restriction provided they don't add structural strength, armor, or weapon performance.",
+        "Robot competes in a separate plastic-only bracket, never mixed with standard-material antweights."
+      ],
+      "banned": [
+        "metal or any non-listed plastic used as chassis/armor/weapon material"
+      ],
+      "website": "https://www.robotcombatevents.com/events/287/competitions/324",
+      "notes": "This WAR wording is essentially word-for-word what became SPARC section 4.4, making WAR the direct ancestor of nearly every plastic-ant ruleset now in use.",
+      "sources": [
+        "https://www.robotcombatevents.com/events/287/competitions/324",
+        "https://robotcombatwiki.com/wiki/Plastic_Antweights"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "ruleset-robot-ruckus-plastic-ant",
+      "type": "ruleset",
+      "name": "Robot Ruckus Plastic Ant Construction Rules",
+      "aliases": [
+        "Robot Ruckus plastic ant rules"
+      ],
+      "summary": "Robot Ruckus's plastic ant rules, requiring 3D-printed PLA/PLA+/ABS/PETG construction and following the standard metal-fastener exemption, with an explicit requirement that surface screws be countersunk or shrouded so they cannot act as armor or weapon impactors.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "robot-ruckus",
+        "material-restriction",
+        "fasteners"
+      ],
+      "organization": "Robot Ruckus",
+      "version": "current (per event listing)",
+      "key_rules": [
+        "Plastic Ant robots must be 3D printed in PLA, PLA+, ABS or PETG.",
+        "Non-plastic parts (motors, electronics, axles, fasteners, adhesives) may be any material but cannot enhance structural integrity, armor, or weapon performance.",
+        "Metal fasteners are allowed, but where they appear on the outer surface they should be countersunk or shrouded so they cannot act as an impact point or armor plate."
+      ],
+      "banned": [
+        "metal, carbon fiber or other non-approved material used structurally, as armor, or as a weapon surface",
+        "exposed/proud metal fastener heads used as de facto armor studs"
+      ],
+      "website": "https://buildersdb.com/RobotRuckus2024",
+      "sources": [
+        "https://buildersdb.com/RobotRuckus2024"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "archetype-plastic-ant-vertical-spinner",
+      "type": "archetype",
+      "name": "Plastic Ant Vertical Spinner",
+      "aliases": [
+        "vertical spinner plastic ant",
+        "VS plastic ant"
+      ],
+      "summary": "The single most common competitive plastic-ant archetype: a spinning disc or drum on a vertical (side-to-side relative to the arena floor, striking-face-forward) axis, printed from PETG or ABS, driven by a small brushless outrunner. Dominant because a thick printed disc keeps its weapon mass close to the axis and hits with blunt, ring-shaped force rather than requiring a hardened cutting edge.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "spinner",
+        "vertical-spinner",
+        "meta",
+        "weapon"
+      ],
+      "family": "spinner",
+      "counters": [
+        "archetype-plastic-ant-wedge-control"
+      ],
+      "countered_by": [
+        "archetype-plastic-ant-drum-spinner",
+        "archetype-plastic-ant-wedge-control"
+      ],
+      "difficulty": "intermediate",
+      "typical_weapon_motor": "Small brushless outrunner, roughly 1811-2205 size, 1900-2800kv, run on 2S",
+      "typical_drive": "Two micro brushed gearmotors (N20 or 130-size) direct-driving small printed/TPU-tired wheels",
+      "weight_budget_pct": {
+        "weapon": 23,
+        "drive": 11,
+        "armor": 54,
+        "electronics": 9,
+        "fasteners": 3
+      },
+      "pros": [
+        "Printed disc/hub is simple to design and cheap to replace after a broken tooth or crack",
+        "Blunt ring impact matches what plastic can survive better than a thin blade",
+        "Good self-righting behavior if the disc doubles as a bumper"
+      ],
+      "cons": [
+        "Printed weapon can crack or delaminate at the bore/keyway under repeated hits",
+        "Needs a well-designed containment/guard since a plastic disc can shatter more unpredictably than metal",
+        "Kinetic energy per gram is inherently lower than a metal disc of the same size"
+      ],
+      "notes": "Because printed plastic is roughly 3-6x less dense and far weaker in tension than hardened steel, plastic-ant vertical spinners spend a disproportionate share of the 454g budget on the disc/hub and its surrounding shroud rather than on drive power.",
+      "sources": [
+        "domain knowledge",
+        "https://cults3d.com/en/3d-model/tool/plastic-1lb-antweight-vertical-spinner"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "archetype-plastic-ant-drum-spinner",
+      "type": "archetype",
+      "name": "Plastic Ant Drum Spinner (Undercutter)",
+      "aliases": [
+        "drum spinner plastic ant",
+        "printed drum"
+      ],
+      "summary": "A full-width horizontal drum, usually printed in PETG for impact ductility, spun on an axis parallel to the ground and low to the floor to drive under opponents. The drum's wall thickness itself does the damage (blunt/ram) rather than teeth, and the wide printed cylinder is naturally stronger against delamination than a thin bar.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "spinner",
+        "drum",
+        "undercutter",
+        "meta"
+      ],
+      "family": "spinner",
+      "counters": [
+        "archetype-plastic-ant-horizontal-spinner"
+      ],
+      "countered_by": [
+        "archetype-plastic-ant-wedge-control"
+      ],
+      "difficulty": "intermediate",
+      "typical_weapon_motor": "Brushless outrunner 1811-2204 size, 2600-3000kv on 2S, occasionally geared down slightly for torque",
+      "typical_drive": "Two micro gearmotors, often mounted to keep the drum as low to the ground as possible",
+      "weight_budget_pct": {
+        "weapon": 28,
+        "drive": 10,
+        "armor": 48,
+        "electronics": 9,
+        "fasteners": 5
+      },
+      "pros": [
+        "A full cylindrical drum wall resists cracking better than a thin bar because load is spread around the ring",
+        "Low profile makes it hard for wedges to get underneath",
+        "Printed teeth/paddles on the drum are cheap to reprint after being chipped"
+      ],
+      "cons": [
+        "Full-width weapon leaves the whole front exposed; a chip anywhere can unbalance the drum",
+        "Needs precise balancing since a small amount of unbalanced printed mass vibrates badly at high RPM"
+      ],
+      "notes": "Popular open-source design (e.g. the community 'drum spinner combat robot' shared on Printables) demonstrates the class's move away from bar spinners toward drums for exactly this durability reason.",
+      "sources": [
+        "https://www.printables.com/model/88679-3d-printed-drum-spinner-combat-robot",
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "archetype-plastic-ant-horizontal-spinner",
+      "type": "archetype",
+      "name": "Plastic Ant Horizontal (Bar) Spinner",
+      "aliases": [
+        "horizontal spinner plastic ant",
+        "bar spinner",
+        "full-body spinner (plastic)"
+      ],
+      "summary": "A single spinning bar or blade on a vertical axis (spinning in the horizontal plane, striking outward in a circle), the dominant weapon type in metal antweight but a comparatively weak and fragile choice in plastic because the weapon tip itself must be printed plastic rather than hardened steel.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "spinner",
+        "horizontal-spinner",
+        "bar-spinner",
+        "meta",
+        "weak-in-plastic"
+      ],
+      "family": "spinner",
+      "counters": [],
+      "countered_by": [
+        "archetype-plastic-ant-wedge-control",
+        "archetype-plastic-ant-drum-spinner"
+      ],
+      "difficulty": "advanced",
+      "typical_weapon_motor": "Brushless outrunner 1400-2000kv on 2S-3S (lower kv than vertical spinners to keep tip speed in a survivable range for the printed blade)",
+      "typical_drive": "Two micro gearmotors",
+      "weight_budget_pct": {
+        "weapon": 25,
+        "drive": 10,
+        "armor": 50,
+        "electronics": 10,
+        "fasteners": 5
+      },
+      "pros": [
+        "Can hit from any side without needing to line up a face, useful defensively",
+        "Simple single-part weapon geometry is easy to print and swap"
+      ],
+      "cons": [
+        "A thin printed bar tip is the weakest possible cross-section in the weakest material allowed in the class — it is the archetype most likely to shatter on its own first hit",
+        "Raises the robot's center of gravity and exposes a large flat profile for wedges/lifters to exploit",
+        "Kinetic energy transfer to the opponent is poor compared to metal because the bar has to be kept thick (hence slower or lighter) to survive its own swing"
+      ],
+      "notes": "This is the archetype most changed by the plastic-only rule. In metal antweight, bar spinners with hardened steel or titanium tips are a top-tier weapon; in plastic, the same geometry with a printed tip is fragile and prone to catastrophic self-destruction, which is a large part of why drums and vertical spinners with thick printed hubs dominate the plastic meta instead.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "archetype-plastic-ant-beater-bar",
+      "type": "archetype",
+      "name": "Plastic Ant Beater Bar / Egg-beater",
+      "aliases": [
+        "beater bar plastic ant",
+        "eggbeater"
+      ],
+      "summary": "A low, wide horizontal weapon bar mounted close to the floor at the front of the robot that beats upward into an opponent's underside, similar in geometry to a drum spinner but usually a simpler bar rather than a full cylinder, printed thick to survive repeated low-clearance strikes.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "spinner",
+        "beater-bar",
+        "undercutter"
+      ],
+      "family": "spinner",
+      "counters": [
+        "archetype-plastic-ant-wedge-control"
+      ],
+      "countered_by": [
+        "archetype-plastic-ant-drum-spinner"
+      ],
+      "difficulty": "intermediate",
+      "typical_weapon_motor": "Brushless outrunner 2200-2700kv on 2S",
+      "typical_drive": "Two micro gearmotors, low ground clearance chassis",
+      "weight_budget_pct": {
+        "weapon": 24,
+        "drive": 10,
+        "armor": 51,
+        "electronics": 10,
+        "fasteners": 5
+      },
+      "pros": [
+        "Cheaper/simpler to print than a full drum",
+        "Low profile discourages opposing wedges"
+      ],
+      "cons": [
+        "Narrower than a drum so it can miss off-center hits",
+        "Bar ends are a stress concentration point that tends to crack first"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "archetype-plastic-ant-wedge-control",
+      "type": "archetype",
+      "name": "Plastic Ant Wedge / Control Bot",
+      "aliases": [
+        "control bot plastic ant",
+        "wedge bot plastic ant",
+        "pusher"
+      ],
+      "summary": "A weaponless or lightly-weaponed robot built around a low front wedge and strong drivetrain, designed to win on driving skill, ring-out and judges' decision rather than weapon damage — often the recommended first build and a strong beginner-friendly counter to fragile plastic spinners.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "control",
+        "wedge",
+        "beginner",
+        "meta",
+        "judges-decision"
+      ],
+      "family": "control",
+      "counters": [
+        "archetype-plastic-ant-horizontal-spinner",
+        "archetype-plastic-ant-beater-bar",
+        "archetype-plastic-ant-drum-spinner"
+      ],
+      "countered_by": [],
+      "difficulty": "beginner",
+      "typical_weapon_motor": "none, or a small servo-driven active wedge/lifter",
+      "typical_drive": "Two drive motors sized for torque over top speed, direct-drive to grippy TPU-tired wheels",
+      "weight_budget_pct": {
+        "weapon": 5,
+        "drive": 22,
+        "armor": 55,
+        "electronics": 12,
+        "fasteners": 6
+      },
+      "pros": [
+        "Nothing to break: no weapon motor, ESC, or fragile printed weapon to crack",
+        "Thick printed wedge is one of the best uses of plastic's weight-cheap bulk",
+        "Excellent way to learn driving and electronics before adding a weapon",
+        "Directly counters the fragile plastic-only spinner archetypes by denying them a clean hit"
+      ],
+      "cons": [
+        "Cannot win by knockout/damage, relies on ring-outs, pins and judges' decisions",
+        "Loses to a well-driven spinner that gets underneath or around the wedge"
+      ],
+      "notes": "Almost every 'first plastic ant' guide recommends starting here because the failure mode (a cracked wedge) is a five-minute reprint, unlike a broken weapon motor mount.",
+      "sources": [
+        "https://www.instructables.com/Plastic-Antweight-Combat-Robot-Design/",
+        "domain knowledge"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "archetype-plastic-ant-lifter",
+      "type": "archetype",
+      "name": "Plastic Ant Lifter",
+      "aliases": [
+        "lifter plastic ant",
+        "flipper-lifter (servo)"
+      ],
+      "summary": "A wedge-fronted robot with a servo- or small-motor-actuated arm that scoops and lifts an opponent to expose their underside or throw them, using printed linkages instead of the pneumatics common in bigger lifters.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "lifter",
+        "control",
+        "servo-actuated"
+      ],
+      "family": "lifter",
+      "counters": [
+        "archetype-plastic-ant-wedge-control"
+      ],
+      "countered_by": [
+        "archetype-plastic-ant-drum-spinner"
+      ],
+      "difficulty": "intermediate",
+      "typical_weapon_motor": "Micro servo or small geared DC motor with a printed cam/linkage, occasionally a rubber-band-assisted snap lift",
+      "typical_drive": "Two drive motors on printed wheels",
+      "weight_budget_pct": {
+        "weapon": 15,
+        "drive": 18,
+        "armor": 50,
+        "electronics": 11,
+        "fasteners": 6
+      },
+      "pros": [
+        "Can win by control and occasional big flips without needing a fast-spinning weapon",
+        "Lift arm doubles as self-righting mechanism"
+      ],
+      "cons": [
+        "Printed linkage pins/hinges wear and can strip under repeated combat loads",
+        "Slower to act than a spinner, needs good positioning"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "component-n20-micro-gearmotor",
+      "type": "component",
+      "name": "N20 Micro Gearmotor (6-12V)",
+      "aliases": [
+        "N20 gearmotor",
+        "micro metal gearmotor"
+      ],
+      "summary": "A tiny brushed DC gearmotor in a roughly 12x10x10mm metal gearbox, the most common drive motor in plastic antweights due to its low cost, light weight, and wide range of stock gear ratios.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "drive",
+        "budget",
+        "beginner"
+      ],
+      "category": "drive-motor",
+      "vendor": "various (generic/AliExpress/Amazon; also sold by hobby motor shops)",
+      "alternatives": [
+        "component-brushed-130-size-motor"
+      ],
+      "specs": {
+        "weight_g": 10,
+        "voltage_nominal_v": 6,
+        "rpm_no_load": 1000,
+        "price_usd": 4,
+        "shaft_dia_mm": 3
+      },
+      "pros": [
+        "Very cheap and widely available",
+        "Metal gearbox is more durable than plastic-gear toy motors",
+        "Many stock gear ratios (from ~30 RPM crawlers to 1000+ RPM speedsters)"
+      ],
+      "cons": [
+        "Low torque compared to bigger motors, limits ramming power",
+        "Output shaft can shear under sudden weapon-strike shock loads if used for anything but drive"
+      ],
+      "notes": "Realistic weight range 9-12g depending on gear ratio; price typically $3-5 each bought in bulk.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-brushed-130-size-motor",
+      "type": "component",
+      "name": "130-Size Brushed Drive Motor",
+      "aliases": [
+        "130 motor",
+        "RS130 motor"
+      ],
+      "summary": "A classic small brushed can motor (the same family used in cheap toy cars) sometimes paired with a 3D-printed or small stock gearbox for antweight drive; cheaper and more available than purpose-built combat drive motors.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "drive",
+        "budget"
+      ],
+      "category": "drive-motor",
+      "vendor": "various generic",
+      "alternatives": [
+        "component-n20-micro-gearmotor"
+      ],
+      "specs": {
+        "weight_g": 18,
+        "voltage_nominal_v": 6,
+        "rpm_no_load": 15000,
+        "price_usd": 2
+      },
+      "pros": [
+        "Extremely cheap",
+        "High no-load RPM gives room for a wide range of gear ratios"
+      ],
+      "cons": [
+        "Needs a separate gearbox (adds weight/complexity) since raw RPM is too high for direct drive",
+        "Lower quality bearings than purpose-made combat motors"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "component-brushless-outrunner-2600kv",
+      "type": "component",
+      "name": "Micro Brushless Outrunner, ~2600KV (1811-size class)",
+      "aliases": [
+        "2600kv outrunner",
+        "1811 brushless motor"
+      ],
+      "summary": "A small brushless outrunner motor in the size class commonly used for antweight vertical spinner and drum weapons, run on 2S LiPo for a good balance of RPM and torque within a plastic ant's weight and tip-speed goals.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon",
+        "brushless",
+        "spinner"
+      ],
+      "category": "weapon-motor",
+      "vendor": "various (e.g. hobby drone-motor brands repurposed for combat)",
+      "alternatives": [
+        "component-brushless-outrunner-1400kv"
+      ],
+      "specs": {
+        "weight_g": 28,
+        "kv_rpm_per_v": 2600,
+        "cells_s": 2,
+        "price_usd": 15,
+        "stall_current_a": 15
+      },
+      "pros": [
+        "Good RPM-to-weight ratio for spinning a light printed disc/drum",
+        "Widely available from hobby drone/FPV suppliers"
+      ],
+      "cons": [
+        "Needs a compatible brushless ESC and careful gearing/direct-drive sizing to avoid over-revving a plastic weapon past its burst speed"
+      ],
+      "notes": "2800kv is commonly cited as a 'vertical spinner' sweet spot kv in community guides; 1400kv is more typical for slower horizontal spinners.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-brushless-outrunner-1400kv",
+      "type": "component",
+      "name": "Micro Brushless Outrunner, ~1400KV",
+      "aliases": [
+        "1400kv outrunner"
+      ],
+      "summary": "A lower-kv small outrunner used for horizontal/bar spinners and drums where more torque and a lower tip speed (kinder to a printed weapon) is preferred over raw RPM.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon",
+        "brushless",
+        "horizontal-spinner",
+        "drum"
+      ],
+      "category": "weapon-motor",
+      "alternatives": [
+        "component-brushless-outrunner-2600kv"
+      ],
+      "specs": {
+        "weight_g": 30,
+        "kv_rpm_per_v": 1400,
+        "cells_s": 3,
+        "price_usd": 15
+      },
+      "pros": [
+        "Lower RPM is easier on a printed weapon's burst strength",
+        "More torque for heavier drums"
+      ],
+      "cons": [
+        "Lower tip speed means less kinetic energy transfer per hit"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "component-esc-brushless-weapon-6a",
+      "type": "component",
+      "name": "Micro Brushless Weapon ESC (~6A)",
+      "aliases": [
+        "brushless weapon ESC",
+        "micro BLHeli/AM32 ESC"
+      ],
+      "summary": "A tiny brushless ESC (often an AM32 or BLHeli-based FPV-drone-derived board) used to run the weapon motor in a plastic ant, valued for its very low weight relative to the alternative of a brushed weapon motor and controller.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon",
+        "esc",
+        "brushless"
+      ],
+      "category": "esc-weapon",
+      "specs": {
+        "weight_g": 4,
+        "max_current_a": 6,
+        "price_usd": 10,
+        "voltage_nominal_v": 7.4
+      },
+      "pros": [
+        "Extremely light",
+        "Programmable spin-up behavior (some support instant full throttle at arm for combat)"
+      ],
+      "cons": [
+        "Small package can be sensitive to heat if run continuously at max current",
+        "Needs correct motor-timing configuration for reliable spin-up under weapon load"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-combo-rx-esc-board",
+      "type": "component",
+      "name": "Micro Combo RX + Dual Brushed ESC Board",
+      "aliases": [
+        "combo board",
+        "AIO drive board",
+        "receiver/ESC combo"
+      ],
+      "summary": "An all-in-one micro PCB combining a radio receiver with two small brushed motor drivers, the standard drive-electronics solution in antweights because it saves the weight and wiring of separate RX and ESC boards.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "electronics",
+        "drive",
+        "combo-board",
+        "beginner"
+      ],
+      "category": "receiver",
+      "specs": {
+        "weight_g": 5,
+        "max_current_a": 3,
+        "price_usd": 20,
+        "voltage_nominal_v": 8.4
+      },
+      "pros": [
+        "One part instead of three (receiver + two ESCs), saving weight and wiring",
+        "Common failsafe-on-signal-loss behavior built in, satisfying rules requiring drive failsafe"
+      ],
+      "cons": [
+        "If it fails, the whole robot loses both drive and radio at once",
+        "Current rating (often 2-4A per channel) can limit motor choice"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-lipo-2s-300mah",
+      "type": "component",
+      "name": "2S 300mAh LiPo Battery",
+      "aliases": [
+        "2S 300mAh pack"
+      ],
+      "summary": "A small 2-cell lithium polymer pack, the most common power source for plastic ant vertical spinner and drum builds, giving 7.4V nominal for both a brushless weapon motor and brushed drive motors.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "battery",
+        "lipo",
+        "power"
+      ],
+      "category": "battery",
+      "specs": {
+        "weight_g": 21,
+        "capacity_mah": 300,
+        "cells_s": 2,
+        "c_rating": 30,
+        "price_usd": 8,
+        "voltage_nominal_v": 7.4
+      },
+      "pros": [
+        "Good energy density for the weight",
+        "Widely available in the FPV-drone hobby supply chain"
+      ],
+      "cons": [
+        "Requires a LiPo-safe charger and storage practice",
+        "Capacity/runtime trade-off against the 454g total weight budget"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-lipo-1s-300mah",
+      "type": "component",
+      "name": "1S 300-500mAh LiPo Battery",
+      "aliases": [
+        "1S lipo pack"
+      ],
+      "summary": "A single-cell LiPo pack used in budget or control-focused plastic ants running low-voltage brushed drive motors without a brushless weapon.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "battery",
+        "lipo",
+        "budget"
+      ],
+      "category": "battery",
+      "specs": {
+        "weight_g": 12,
+        "capacity_mah": 350,
+        "cells_s": 1,
+        "c_rating": 25,
+        "price_usd": 6,
+        "voltage_nominal_v": 3.7
+      },
+      "pros": [
+        "Lightest common battery option, frees weight budget for armor",
+        "Cheapest LiPo option"
+      ],
+      "cons": [
+        "Only suitable for low-voltage drive motors and small brushed weapon setups, not brushless spinners"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "component-printed-wheel-tpu-tire",
+      "type": "component",
+      "name": "Printed Hub + TPU Tire Wheel",
+      "aliases": [
+        "TPU tire wheel",
+        "printed drive wheel"
+      ],
+      "summary": "A 3D-printed rigid hub (PLA+/PETG) with a separately printed TPU tire pressed or glued on, the standard plastic-ant wheel: fully print-and-replace, and legal everywhere since both hub and tire are on the approved plastic list (subject to local TPU rulings).",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "wheel",
+        "drive",
+        "tpu",
+        "printed"
+      ],
+      "category": "wheel",
+      "alternatives": [
+        "component-cots-foam-wheel"
+      ],
+      "specs": {
+        "weight_g": 9,
+        "dia_mm": 32,
+        "price_usd": 0
+      },
+      "pros": [
+        "Essentially free once you own a printer and TPU spool",
+        "Easy to redesign tread pattern for grip",
+        "Print-and-replace after wear or damage"
+      ],
+      "cons": [
+        "TPU is explicitly banned by some events (e.g. SCAR); always check local rules before relying on it",
+        "Lower grip than purpose-made silicone/foam tires unless tread is well designed"
+      ],
+      "sources": [
+        "domain knowledge",
+        "https://www.socalattackrobots.com/plastic-ant-faq.html"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-cots-foam-wheel",
+      "type": "component",
+      "name": "COTS Foam/Silicone Antweight Wheel",
+      "aliases": [
+        "FingerTech wheel",
+        "stock foam wheel"
+      ],
+      "summary": "An off-the-shelf foam or silicone-tired wheel (e.g. FingerTech, Repeat Robotics, Pololu) explicitly allowed as a non-plastic-restricted exemption for wheels/tires under most plastic-ant rulesets, offering better and more consistent grip than a printed tire.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "wheel",
+        "cots",
+        "drive"
+      ],
+      "category": "wheel",
+      "vendor": "FingerTech Robotics / Repeat Robotics / Pololu",
+      "alternatives": [
+        "component-printed-wheel-tpu-tire"
+      ],
+      "specs": {
+        "weight_g": 8,
+        "dia_mm": 32,
+        "price_usd": 6
+      },
+      "pros": [
+        "Consistent, well-tested grip",
+        "No printing/gluing labor",
+        "Explicitly named as legal by SCAR's FAQ regardless of the plastic-only rule"
+      ],
+      "cons": [
+        "Costs more than a printed wheel",
+        "Less customizable diameter/tread than a printed part"
+      ],
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "component-flanged-bearing-small",
+      "type": "component",
+      "name": "Small Flanged Ball Bearing (3-4mm bore)",
+      "aliases": [
+        "flanged bearing",
+        "weapon shaft bearing"
+      ],
+      "summary": "A tiny flanged metal bearing used to support a plastic ant's weapon shaft, explicitly allowed as a metal exemption in every plastic-ant ruleset since bearings are functional hardware, not armor or weapon surface.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "bearing",
+        "weapon",
+        "metal-exemption"
+      ],
+      "category": "bearing",
+      "specs": {
+        "weight_g": 1.5,
+        "shaft_dia_mm": 4,
+        "price_usd": 2
+      },
+      "pros": [
+        "Cheap and standardized sizes",
+        "Explicitly rules-legal as a metal component in every plastic-ant ruleset reviewed"
+      ],
+      "cons": [
+        "Needs a properly toleranced printed bore to press-fit without cracking the surrounding plastic"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-weapon-shaft-steel",
+      "type": "component",
+      "name": "Small-Diameter Steel Weapon Shaft",
+      "aliases": [
+        "weapon shaft",
+        "drive shaft (weapon)"
+      ],
+      "summary": "A short length of steel drill rod or precision shaft used to carry a plastic weapon disc/drum, exempt from the plastic-only rule as an 'axle' under SPARC-derived language as long as it does not itself act as an armor surface or weapon edge.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "shaft",
+        "weapon",
+        "metal-exemption"
+      ],
+      "category": "misc",
+      "specs": {
+        "weight_g": 5,
+        "dia_mm": 4,
+        "length_mm": 40,
+        "price_usd": 3
+      },
+      "pros": [
+        "Much stiffer and more wear-resistant than a printed shaft would be",
+        "Explicitly allowed as an axle exemption in every ruleset reviewed"
+      ],
+      "cons": [
+        "Must be fully shrouded by the printed weapon body so it can't be argued to be acting as a metal weapon tip"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "component-fastener-m2-m3-screw-insert",
+      "type": "component",
+      "name": "M2/M3 Screws + Heat-Set Threaded Inserts",
+      "aliases": [
+        "heat-set inserts",
+        "M3 screws"
+      ],
+      "summary": "Small metal machine screws combined with brass heat-set threaded inserts melted into printed holes, the standard plastic-ant fastening method, explicitly allowed everywhere as long as screw heads on outer surfaces are countersunk or shrouded rather than left proud as de facto armor studs.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fastener",
+        "metal-exemption",
+        "assembly"
+      ],
+      "category": "fastener",
+      "specs": {
+        "weight_g": 0.3,
+        "price_usd": 0.1
+      },
+      "pros": [
+        "Reusable threads in soft plastic (printed threads alone strip quickly)",
+        "Universally rules-legal metal exemption"
+      ],
+      "cons": [
+        "Requires a soldering iron or heat-set tool to install inserts",
+        "Proud/exposed screw heads on the outer shell can draw a rules objection if not countersunk (per Robot Ruckus wording)"
+      ],
+      "sources": [
+        "https://buildersdb.com/RobotRuckus2024",
+        "domain knowledge"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "component-micro-power-switch",
+      "type": "component",
+      "name": "Micro Slide/Toggle Power Switch",
+      "aliases": [
+        "power switch",
+        "main power switch"
+      ],
+      "summary": "A small mechanical switch used as the required manual main power disconnect, mounted in a printed slot so it can be actuated without contacting moving parts, satisfying the SPARC-derived 15-second manual-disconnect rule.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "switch",
+        "safety",
+        "electronics"
+      ],
+      "category": "switch",
+      "specs": {
+        "weight_g": 2,
+        "price_usd": 2,
+        "max_current_a": 5
+      },
+      "pros": [
+        "Cheap, simple, satisfies safety inspection requirements"
+      ],
+      "cons": [
+        "Must be positioned so it can be reached without risk from a still-armed weapon"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-pla-plus",
+      "type": "material",
+      "name": "PLA+ (Modified PLA)",
+      "aliases": [
+        "PLA Plus",
+        "tough PLA"
+      ],
+      "summary": "A modified PLA filament formulation marketed for improved impact resistance over standard PLA while keeping PLA's easy printability, one of the five materials SPARC and SCAR explicitly name as legal for plastic-ant chassis and weapons.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "filament",
+        "chassis-material",
+        "legal-everywhere"
+      ],
+      "category": "plastic-printed",
+      "use_cases": [
+        "chassis shells",
+        "wedges",
+        "low-stress structural parts"
+      ],
+      "machinability": "Excellent for FDM printing; low warp, prints cool (190-215C typical), poor for post-print machining",
+      "printable": true,
+      "specs": {
+        "density_g_cm3": 1.24,
+        "cost_per_kg_usd": 20
+      },
+      "pros": [
+        "Easiest of the legal plastics to print reliably",
+        "Rarely warps, good for small precise parts",
+        "Explicitly legal in every plastic-ant ruleset reviewed"
+      ],
+      "cons": [
+        "Still more brittle than PETG/ABS under sharp impact despite the '+' marketing",
+        "Lower heat resistance than PETG/ABS"
+      ],
+      "sources": [
+        "domain knowledge",
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-petg",
+      "type": "material",
+      "name": "PETG",
+      "aliases": [
+        "PET-G"
+      ],
+      "summary": "A tougher, more impact-ductile filament than PLA, widely considered the best default choice for plastic-ant weapon discs/drums and load-bearing chassis members because it bends and absorbs energy rather than shattering.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "filament",
+        "weapon-material",
+        "chassis-material",
+        "legal-everywhere"
+      ],
+      "category": "plastic-printed",
+      "use_cases": [
+        "weapon discs/drums",
+        "weapon shrouds",
+        "load-bearing chassis rails"
+      ],
+      "machinability": "Prints slightly hotter than PLA (230-250C), can string more, but layer adhesion is strong",
+      "printable": true,
+      "specs": {
+        "density_g_cm3": 1.27,
+        "cost_per_kg_usd": 22
+      },
+      "pros": [
+        "Best combination of legal-everywhere status and real-world impact toughness",
+        "More heat resistant than PLA (useful near weapon-motor heat)",
+        "Ductile failure mode (bends/cracks slowly) instead of shattering"
+      ],
+      "cons": [
+        "More prone to stringing/oozing than PLA, needs tuned retraction settings",
+        "Slightly heavier per volume than PLA/ABS"
+      ],
+      "sources": [
+        "domain knowledge",
+        "https://www.betzbotz.com/plastic-ant-construction-rules"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-abs",
+      "type": "material",
+      "name": "ABS",
+      "aliases": [
+        "Acrylonitrile Butadiene Styrene"
+      ],
+      "summary": "A strong, impact-resistant, comparatively low-density filament, one of the five universally-legal plastic-ant materials; harder to print reliably (needs an enclosure to prevent warping) but rewards the effort with a lighter, tougher part than PLA.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "filament",
+        "chassis-material",
+        "legal-everywhere",
+        "advanced-printing"
+      ],
+      "category": "plastic-printed",
+      "use_cases": [
+        "weapon discs",
+        "chassis shells where weight savings matter"
+      ],
+      "machinability": "Needs an enclosed/heated-chamber printer to avoid warping; can be acetone-vapor-smoothed for extra surface strength",
+      "printable": true,
+      "specs": {
+        "density_g_cm3": 1.04,
+        "cost_per_kg_usd": 20
+      },
+      "pros": [
+        "Lowest density of the commonly-used legal plastics, saving weight for the same part size",
+        "Very impact resistant when printed well",
+        "Acetone-smoothable, which can weld layer lines together for extra strength"
+      ],
+      "cons": [
+        "Warps badly without an enclosure and a heated bed",
+        "Fumes require ventilation",
+        "Less beginner-friendly than PLA/PETG"
+      ],
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "material-tpu",
+      "type": "material",
+      "name": "TPU (Thermoplastic Polyurethane)",
+      "aliases": [
+        "flexible filament",
+        "flex filament"
+      ],
+      "summary": "A rubber-like flexible printable filament popular in the wider combat-robot community for flexible armor panels and wheel tires because it bends and springs back instead of cracking — but it is NOT on the standard SPARC/SCAR approved-material list and is explicitly banned by name in SCAR's FAQ, making it a key org-to-org variance point in the plastic-ant class.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "filament",
+        "flexible",
+        "org-variance",
+        "controversial"
+      ],
+      "category": "elastomer",
+      "use_cases": [
+        "wheel tires (where locally legal)",
+        "flexible armor skirts (where locally legal)",
+        "shock-absorbing mounts"
+      ],
+      "machinability": "Prints slowly, needs direct-drive extruder, high flexibility makes it hard to feed through bowden setups",
+      "printable": true,
+      "specs": {
+        "density_g_cm3": 1.21,
+        "cost_per_kg_usd": 28
+      },
+      "pros": [
+        "Excellent energy absorption; deflects and springs back rather than cracking",
+        "Great for wheel tires and shock-mounts when the local ruleset allows it"
+      ],
+      "cons": [
+        "NOT on the base SPARC 4.4.1 list (PET/PETG/ABS/PLA/PLA+ only) unless an organizer grants an explicit exception",
+        "Explicitly named as banned by SCAR's Plastic Ant FAQ, including for wheel hubs"
+      ],
+      "notes": "Builders should never assume TPU is legal in a plastic-ant event just because it's a 3D-printed plastic — check the specific event's material list or FAQ before designing it in.",
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html",
+        "https://robotcombatwiki.com/wiki/3D_Printing"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "material-nylon-printed",
+      "type": "material",
+      "name": "Nylon (Printed)",
+      "aliases": [
+        "PA",
+        "printed nylon"
+      ],
+      "summary": "A tough, wear-resistant, semi-flexible printable nylon filament that, like TPU, sits outside the base SPARC 4.4.1 approved list and is explicitly banned by name in SCAR's plastic ant FAQ, despite being a popular choice for gears and living-hinge parts in general 3D-printing use.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "filament",
+        "banned-by-some-orgs",
+        "org-variance"
+      ],
+      "category": "plastic-printed",
+      "use_cases": [
+        "gears and wear parts (in general 3D printing, not this class)"
+      ],
+      "machinability": "Hygroscopic (absorbs moisture, needs dry storage/drying before printing), prints hot",
+      "printable": true,
+      "specs": {
+        "density_g_cm3": 1.14,
+        "cost_per_kg_usd": 35
+      },
+      "pros": [
+        "Very tough and abrasion-resistant in general use"
+      ],
+      "cons": [
+        "Explicitly banned by SCAR's plastic ant FAQ",
+        "Not on the SPARC baseline approved list either",
+        "Moisture-sensitive, harder to print reliably than PLA/PETG/ABS"
+      ],
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "kit-force-knight",
+      "type": "kit",
+      "name": "Force Knight — Open-Source 1lb Plastic Antweight",
+      "aliases": [
+        "Force Knight plastic ant"
+      ],
+      "summary": "A free, open-source 1lb plastic antweight design by community builder Michael K, published as downloadable STL files on Printables and described as intended for SCAR-legal component kits — a good example of the fully-open designs the plastic ant scene shares.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "open-source",
+        "printables",
+        "free-design",
+        "scar"
+      ],
+      "vendor": "Michael K (community designer, via Printables)",
+      "skill_level": "beginner-intermediate",
+      "includes": [
+        "Printable chassis STL files",
+        "printable weapon/armor STL files",
+        "build documentation on the model page"
+      ],
+      "product_url": "https://www.printables.com/model/897022-force-knight-1lb-plastic-antweight-combat-robot",
+      "notes": "No purchase price — it's a free STL download; the builder still has to source motors/electronics/battery/fasteners/filament separately.",
+      "sources": [
+        "https://www.printables.com/model/897022-force-knight-1lb-plastic-antweight-combat-robot"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "kit-crnz-antweight-kit",
+      "type": "kit",
+      "name": "CRNZ Antweight Combat Robot Kit",
+      "aliases": [
+        "CombatRoboticsNZ antweight kit"
+      ],
+      "summary": "An open-source printable antweight chassis kit published by CombatRoboticsNZ on Thingiverse, designed to be extensible and modular so builders can swap weapon and drive modules without redesigning the whole robot.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "open-source",
+        "thingiverse",
+        "modular",
+        "new-zealand"
+      ],
+      "vendor": "CombatRoboticsNZ",
+      "skill_level": "beginner",
+      "includes": [
+        "Modular printable chassis files",
+        "documentation for extending/upgrading the base design"
+      ],
+      "product_url": "https://www.thingiverse.com/thing:6218302",
+      "sources": [
+        "https://www.thingiverse.com/thing:6218302"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "kit-legally-distinct-drum",
+      "type": "kit",
+      "name": "Legally Distinct — Open-Source 150g UK Drum Spinner Design",
+      "aliases": [
+        "Legally Distinct antweight"
+      ],
+      "summary": "A free printable 150g UK-class antweight drum-spinner design by community builder Blessy, shared on Thingiverse and openly described as heavily inspired by the established UK antweight 'Siren' — a useful illustration of how the plastic scene iterates openly on successful designs.",
+      "weight_classes": [
+        "fairyweight"
+      ],
+      "tags": [
+        "open-source",
+        "thingiverse",
+        "uk-scene",
+        "150g-class",
+        "drum-spinner"
+      ],
+      "vendor": "Blessy (community designer, via Thingiverse)",
+      "skill_level": "intermediate",
+      "includes": [
+        "Printable STL files for a drum-spinner chassis and weapon"
+      ],
+      "product_url": "https://www.thingiverse.com/thing:5316751",
+      "notes": "Weight-classed here as 'fairyweight' per this database's vocabulary because it is a UK 150g class robot, NOT the US 1lb/454g plastic antweight this file is centered on — included because it's a well-known, frequently cited example of the wider 'plastic ant' design-sharing culture, especially in the UK, where 'antweight' historically refers to the 150g bracket rather than 1lb.",
+      "sources": [
+        "https://www.thingiverse.com/thing:5316751"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "bot-siren-uk-antweight",
+      "type": "bot",
+      "name": "Siren (UK Antweight)",
+      "aliases": [
+        "Siren"
+      ],
+      "summary": "An established UK antweight drum-spinner robot whose design is well-known enough in the UK combat scene to have directly inspired the open-source plastic/printable 'Legally Distinct' design, illustrating how successful metal-class designs get reinterpreted for printable/plastic builds.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "uk-scene",
+        "drum-spinner",
+        "inspiration"
+      ],
+      "builder": "UK community builder (name not confirmed in available sources)",
+      "country": "United Kingdom",
+      "weapon_type": "drum spinner",
+      "achievements": [
+        "Referenced by name as the direct design inspiration for the Thingiverse 'Legally Distinct' plastic drum spinner"
+      ],
+      "active_years": "unknown",
+      "image_hint": "A low, wide UK-style antweight with a full-width horizontal drum across the front",
+      "notes": "Details beyond its role as a design inspiration for Legally Distinct were not found in available sources; treat specifics as low confidence.",
+      "sources": [
+        "https://www.thingiverse.com/thing:5316751"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "term-blunt-force-over-cutting",
+      "type": "term",
+      "name": "Blunt Force Over Cutting",
+      "aliases": [
+        "blunt damage doctrine"
+      ],
+      "summary": "The plastic-ant design principle that, since no metal weapon edge is legal, weapons should be designed to transfer kinetic energy through mass and impact area (denting, cracking, flinging) rather than trying to cut or penetrate as a hardened steel blade would.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-design",
+        "doctrine"
+      ],
+      "category": "weapon-design",
+      "notes": "Printed PETG/ABS/PLA+ simply cannot hold a durable sharp edge the way S7/M2 tool steel can, so plastic ant weapons are built as thick rings, discs, and bars that hit like a hammer rather than a knife.",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-tip-speed",
+      "type": "term",
+      "name": "Tip Speed",
+      "aliases": [
+        "weapon tip speed"
+      ],
+      "summary": "The linear speed of the outermost point of a rotating weapon, calculated as RPM x diameter x 0.00436 to get feet/second (the formula SPARC uses for its slow-spinner and open-air-combat speed limits); a key design variable because plastic weapons have a much lower survivable tip speed than metal ones before they self-destruct.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-physics",
+        "formula"
+      ],
+      "category": "weapon-physics",
+      "notes": "SPARC's open-air slow-spinner cap is 20 ft/s; ordinary enclosed-arena weight classes (like most plastic ant events) do not cap tip speed by default, but the printed material's own burst strength imposes a practical ceiling well below what a metal weapon could survive.",
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-cots",
+      "type": "term",
+      "name": "COTS (Commercial Off-The-Shelf)",
+      "aliases": [
+        "off the shelf parts"
+      ],
+      "summary": "Parts bought ready-made rather than fabricated by the builder — motors, ESCs, receivers, bearings, and (per most plastic-ant FAQs) wheels/tires are explicitly allowed as COTS even though they aren't plastic, since the rule targets structural/armor/weapon plastic, not every component.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "general",
+        "rules"
+      ],
+      "category": "general",
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-tech-inspection",
+      "type": "term",
+      "name": "Technical Inspection (Plastic-Only Check)",
+      "aliases": [
+        "tech check",
+        "material inspection"
+      ],
+      "summary": "The pre-event safety/legality check where an event official visually inspects a plastic ant for compliance: verifying the chassis/armor/weapon are printed plastic, checking that any metal fasteners are countersunk/shrouded rather than proud, and looking for banned materials like TPU, nylon, or composite reinforcement layered into a printed part.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "inspection",
+        "enforcement"
+      ],
+      "category": "rules",
+      "notes": "Per SCAR's FAQ, inspection is primarily visual and datasheets are not required by default, but 'suspicious' builds (e.g. an implausibly stiff or dense-looking part) can trigger further investigation, sometimes including a request to cut into or weigh/measure a suspect part.",
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html",
+        "https://buildersdb.com/RobotRuckus2024"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-sacrificial-armor-panel",
+      "type": "term",
+      "name": "Sacrificial Armor Panel",
+      "aliases": [
+        "breakaway armor",
+        "crumple panel"
+      ],
+      "summary": "A deliberately weaker, easily-detachable printed panel placed over a robot's vulnerable areas so that a hit cracks/pops off the panel (a 5-minute reprint) instead of transmitting damage into the main chassis or electronics bay.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "design-pattern",
+        "printing",
+        "repairability"
+      ],
+      "category": "design-pattern",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-modular-bolt-on-section",
+      "type": "term",
+      "name": "Modular Bolt-On Section",
+      "aliases": [
+        "modular chassis section"
+      ],
+      "summary": "A design pattern where the chassis is split into independently printed, bolt-together sections (e.g. separate front wedge, weapon pod, and drive base) so a single damaged section can be reprinted and swapped without remaking the whole robot.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "design-pattern",
+        "printing",
+        "repairability"
+      ],
+      "category": "design-pattern",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-printed-in-flexure",
+      "type": "term",
+      "name": "Printed-In Flexure",
+      "aliases": [
+        "living hinge",
+        "print-in-place flexure"
+      ],
+      "summary": "A thin, deliberately flexible section printed as part of a single larger piece (rather than a separate hinge with a pin) that acts as a spring or hinge — used in plastic ants for snap-fit panels, simple lifter linkages, and shock-absorbing mounts without adding a metal hinge part.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "design-pattern",
+        "printing"
+      ],
+      "category": "design-pattern",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "term-wall-count-perimeters",
+      "type": "term",
+      "name": "Wall Count / Perimeters",
+      "aliases": [
+        "shell count",
+        "perimeter count"
+      ],
+      "summary": "The number of solid outer print loops (walls) surrounding a part's infill; combat-ready plastic ant parts typically use significantly more walls (5-8+) than a decorative print (2-3) because the solid perimeter, not the infill, carries most of an impact load.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "settings"
+      ],
+      "category": "printing",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-infill-percentage",
+      "type": "term",
+      "name": "Infill Percentage (Combat Printing)",
+      "aliases": [
+        "infill density"
+      ],
+      "summary": "The proportion of a printed part's interior that is filled with a lattice pattern rather than left hollow; competitive plastic ant chassis parts commonly run 40-100% infill with a gyroid or cubic pattern, well above the 15-20% typical of non-structural prints, trading weight for toughness within the 454g budget.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "settings"
+      ],
+      "category": "printing",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-layer-adhesion-anisotropy",
+      "type": "term",
+      "name": "Layer Adhesion Anisotropy",
+      "aliases": [
+        "print anisotropy",
+        "Z-weakness"
+      ],
+      "summary": "The property that FDM-printed plastic is much stronger for forces applied parallel to its print layers than for forces trying to pull layers apart (perpendicular to them); the single most important physical fact plastic ant designers work around, driving choices about print orientation for weapons, wedges and shafts.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "physics",
+        "design"
+      ],
+      "category": "printing",
+      "notes": "'3D printed parts will always have more strength parallel to their layers as opposed to perpendicular' — a design constraint repeatedly emphasized in plastic-ant build guides.",
+      "sources": [
+        "https://www.servomagazine.com/magazine/article/designing-3d-printed-bodies-for-insect-class-combat-robots"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-annealing-print",
+      "type": "term",
+      "name": "Annealing (3D Print Post-Processing)",
+      "aliases": [
+        "heat annealing",
+        "PLA annealing"
+      ],
+      "summary": "A post-print heat-treatment process (baking a printed part at a temperature below its melt point, sometimes packed in sand or salt to limit warping) that can meaningfully increase a part's layer strength and heat resistance; explicitly permitted post-processing under SCAR's plastic ant FAQ.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "post-processing"
+      ],
+      "category": "printing",
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-weight-budget",
+      "type": "term",
+      "name": "Weight Budget",
+      "aliases": [
+        "weight allocation"
+      ],
+      "summary": "The practice of planning, before printing or buying anything, how the full 454g allowance will be split between armor/structure, weapon, drive, electronics and fasteners — critical in plastic ants because printed structure typically consumes over half the total weight, far more than in a metal antweight of the same class.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "design",
+        "planning"
+      ],
+      "category": "design",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "term-pit-repair",
+      "type": "term",
+      "name": "Five-Minute Pit Repair",
+      "aliases": [
+        "quick pit fix"
+      ],
+      "summary": "The plastic-ant repair philosophy of designing bolt-on, single-piece printed sub-assemblies so that a cracked wedge, wheel, or weapon can be swapped for a spare printed at home in under five minutes between matches, rather than requiring on-site fabrication or welding as a metal repair might.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "repairability",
+        "design-pattern",
+        "pit-strategy"
+      ],
+      "category": "design-pattern",
+      "sources": [
+        "domain knowledge"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "event-robot-ruckus",
+      "type": "event",
+      "name": "Robot Ruckus",
+      "aliases": [
+        "Robot Ruckus event series"
+      ],
+      "summary": "A recurring combat robot event that runs a Plastic Ant class following SPARC-style rules, requiring 3D-printed PLA/PLA+/ABS/PETG construction with countersunk metal fasteners.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "event",
+        "plastic-ant"
+      ],
+      "organization": "Robot Ruckus",
+      "location": "varies by year (US regional)",
+      "cadence": "periodic/annual",
+      "classes_run": [
+        "Plastic Ant",
+        "standard antweight and larger classes"
+      ],
+      "website": "https://buildersdb.com/RobotRuckus2024",
+      "sources": [
+        "https://buildersdb.com/RobotRuckus2024"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "event-scar-socal-attack-robots",
+      "type": "event",
+      "name": "SoCal Attack Robots (SCAR)",
+      "aliases": [
+        "SCAR"
+      ],
+      "summary": "A Southern California combat robot organization/event series with one of the most detailed published Plastic Ant rulesets and FAQs in the US scene, explicitly naming approved filament brands and banning TPU/nylon.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "event",
+        "plastic-ant",
+        "socal"
+      ],
+      "organization": "SoCal Attack Robots",
+      "location": "Southern California, USA",
+      "cadence": "regular meetups/events",
+      "classes_run": [
+        "Plastic Ant",
+        "standard antweight",
+        "beetleweight and larger classes"
+      ],
+      "website": "https://www.socalattackrobots.com/",
+      "sources": [
+        "https://www.socalattackrobots.com/2025-ruleset.html",
+        "https://www.socalattackrobots.com/plastic-ant-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "event-bot-blast",
+      "type": "event",
+      "name": "Bot Blast",
+      "aliases": [
+        "Bot Blast insectweight event"
+      ],
+      "summary": "An annual insectweight-focused combat robot event that runs modified SPARC rules, providing another regional venue for the plastic ant class outside SoCal.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "event",
+        "plastic-ant",
+        "insectweight"
+      ],
+      "organization": "Bot Blast",
+      "location": "unspecified US region",
+      "cadence": "annual",
+      "classes_run": [
+        "insectweight classes including antweight/plastic ant"
+      ],
+      "website": "https://botblast.webs.com/rules.htm",
+      "sources": [
+        "https://botblast.webs.com/rules.htm"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "event-nhrl",
+      "type": "event",
+      "name": "National Havoc Robot League (NHRL)",
+      "aliases": [
+        "NHRL"
+      ],
+      "summary": "A major US combat robot league best known for its livestreamed 3lb (beetleweight) and 12/30lb events; NHRL itself is not the primary home of the 1lb plastic ant class (its own plastic-material class is Plastic Beetleweight), but many smaller 'NHRL-adjacent' local and remote-competition circuits run 1lb plastic ant undercards using a similar remote-competition/streamed format.",
+      "weight_classes": [
+        "beetleweight",
+        "plastic-beetleweight"
+      ],
+      "tags": [
+        "event",
+        "beetleweight",
+        "context-only"
+      ],
+      "organization": "National Havoc Robot League",
+      "location": "Denver, Colorado, USA (event venue); competitors ship robots in",
+      "cadence": "frequent, roughly monthly events",
+      "classes_run": [
+        "3lb beetleweight",
+        "Plastic Beetleweight",
+        "12lb",
+        "30lb"
+      ],
+      "website": "https://wiki.nhrl.io/",
+      "notes": "Included here as context for the 'NHRL-adjacent' plastic-ant scene mentioned by many builders: local clubs running plastic ants often borrow NHRL's remote-shipping/streamed-match format even though NHRL's own smallest weight bracket is 3lb, not 1lb.",
+      "sources": [
+        "https://wiki.nhrl.io/wiki/index.php/Combat_Robotics_Starter's_Guide",
+        "https://en.wikipedia.org/wiki/National_Havoc_Robot_League"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "supplier-fingertech-robotics",
+      "type": "supplier",
+      "name": "FingerTech Robotics",
+      "aliases": [
+        "FingerTech"
+      ],
+      "summary": "A Canadian combat-robot parts supplier whose wheels, motors, and hubs are explicitly named as legal COTS options in plastic ant FAQs, making it one of the standard go-to sources for the non-plastic-exempt parts of a plastic ant build.",
+      "weight_classes": [
+        "plastic-antweight",
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "supplier",
+        "cots",
+        "wheels",
+        "motors"
+      ],
+      "country": "Canada",
+      "website": "https://www.fingertechrobotics.com/",
+      "specialties": [
+        "antweight/beetleweight wheels",
+        "hubs",
+        "small motors",
+        "combat robot hardware"
+      ],
+      "ships_internationally": true,
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-plastic-antweight-class-definition",
+      "title": "What Defines the Plastic Antweight Class",
+      "section": "Class Definition",
+      "body_md": "Plastic antweight (also called \"plastic ant,\" \"PLA ant,\" or \"3D printed antweight\") is a 1 lb / 454 g combat robot class where the weight limit is identical to a normal antweight, but the **construction material is restricted**: the chassis, armor and weapon(s) must be built only from a short list of 3D-printable plastics. Under the SPARC Robot Construction Specifications (v1.4, section 4.4), which most North American events either quote directly or lightly modify, the allowed list is **PET, PETG, ABS, PLA, or PLA+**, with SCAR's ruleset also explicitly naming **ASA**. No other plastic or material is legal for structural/armor/weapon use unless an event organizer grants an exception 'that meets the spirit of the rules.'\n\nCrucially, the rule targets *structure, armor, and weapons* — not every part of the robot. A wide range of non-plastic components are explicitly carved out as exempt: **motors, electronics, axles, fasteners, and adhesives can be any material**, as long as they are not used 'in such a way to enhance the structural integrity, armor the robot, or enhance any weapon' (SPARC 4.4.2, echoed nearly verbatim by SCAR and Robot Ruckus). In practice this means a plastic ant's motors, its steel weapon shaft, its bearings, and its screws can all be metal — only the printed shell, weapon disc/drum body, and any load-bearing armor panels must be plastic.\n\nMost events also require that the plastic be **3D printed specifically**, not just any plastic sheet or rod stock cut or machined into shape. This closes an obvious loophole: a CNC-milled or laser-cut solid polycarbonate/UHMW part would be far stronger than an FDM-printed part of the same material and geometry, defeating the class's purpose of keeping material strength low. The RobotCombatWiki entry on the class states this plainly: 'many if not most events will require plastic parts to be *only* 3D printed' specifically to prevent this kind of milled-part loophole.\n\nThe class runs as its own bracket — plastic ants never fight standard-material antweights in the same pool — because the material restriction is understood to make plastic ants meaningfully weaker/more fragile fighters than a metal antweight of the same weight, not merely a cosmetic build constraint.",
+      "entity_refs": [
+        "weight_class-plastic-antweight",
+        "ruleset-sparc-plastic-classes",
+        "ruleset-scar-plastic-ant"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "definition",
+        "material-restriction"
+      ],
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
+        "https://www.socalattackrobots.com/2025-ruleset.html",
+        "https://robotcombatwiki.com/wiki/Plastic_Antweights"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-metal-exemptions",
+      "title": "Exactly What Metal Is Allowed — Wording Across Organizations",
+      "section": "Rules",
+      "body_md": "Every plastic-ant ruleset carves out a near-identical exemption list, but it's worth reading the exact wording since enforcement details differ.\n\n**SPARC 4.4.2** (the most widely copied phrasing): *\"Non-plastic parts such as motors, electronics, axles, fasteners and adhesives can be any material, but cannot be used in such a way to enhance the structural integrity, armor the robot, or enhance any weapon.\"* This is a *functional* test, not a parts-list test — the question inspectors ask is whether a given metal part is doing double duty as armor or a weapon surface, not simply whether it's metal.\n\n**SCAR's Plastic Ant FAQ** gets more concrete, explicitly naming: metal bearings, axles, shafts and fasteners; COTS motor-mount adapters; and even metal servo horns/gears, *provided the weapon is non-functional without its plastic parts* (i.e., the metal gear alone couldn't act as the striking surface). SCAR also explicitly allows COTS wheel/tire components from vendors like FingerTech, Repeat Robotics, or Pololu — including their rubber, cast urethane, or foam tire materials — since wheels/tires are treated as outside the structural/armor/weapon restriction entirely.\n\n**Robot Ruckus** adds a specific enforcement detail not spelled out elsewhere: where metal fasteners appear on the *outer surface* of the robot, 'they should be countersunk or shrouded' — i.e., a proud screw head sticking up from the shell could be argued to function as tiny armor or a weapon-like protrusion, so it must be recessed or hidden under a plastic cap.\n\n**Practical exemption checklist most events agree on:**\n- Drive motors, weapon motors — any material (always metal in practice)\n- ESCs, receivers, wiring, connectors, switches — any material\n- Weapon shaft/axle — metal is normal and expected\n- Bearings — metal is normal and expected\n- Screws/fasteners/threaded inserts — metal allowed, but countersink/shroud outer-surface heads\n- Adhesives (super glue, epoxy used *as glue*, not as an armor coating) — any material\n- Battery — any material (never printed anyway)\n\nWhat's *not* on this list — and therefore must be plastic — is anything that is itself a structural panel, an armor plate, or the actual striking face/body of a weapon.",
+      "entity_refs": [
+        "ruleset-sparc-plastic-classes",
+        "ruleset-scar-plastic-ant-faq",
+        "ruleset-robot-ruckus-plastic-ant",
+        "component-flanged-bearing-small",
+        "component-weapon-shaft-steel",
+        "component-fastener-m2-m3-screw-insert"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "metal-exemption",
+        "fasteners",
+        "motors",
+        "bearings"
+      ],
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
+        "https://www.socalattackrobots.com/plastic-ant-faq.html",
+        "https://buildersdb.com/RobotRuckus2024"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-banned-materials",
+      "title": "Banned Materials and How Bans Are Written",
+      "section": "Rules",
+      "body_md": "The core ban across every ruleset reviewed is simple: **any material used for chassis, armor, or weapon that is not on the approved plastics list.** SPARC 4.4.1 spells this out with explicit examples — *\"No other types of plastics or materials allowed (ie. metal, carbon fiber, UHMW, etc).\"* SCAR's base ruleset repeats this trio (metal, carbon fiber, UHMW) verbatim.\n\nSCAR's supplementary Plastic Ant FAQ goes further and names several materials that are technically 3D-printed plastics but are still banned because they sit outside the PLA/PETG/ABS/PET/ASA family or are seen as violating the class's spirit:\n- **TPU** (including custom TPU wheel hubs) — banned by name, despite being popular for flexible armor in the wider (metal-legal) antweight/beetleweight community.\n- **Nylon** — banned by name, despite being a tough, useful engineering filament in general 3D printing.\n- **'Flex' or blended filaments** marketed for enhanced properties — banned as a category, to close the loophole of using an exotic blend that isn't literally named TPU or nylon but behaves the same way.\n- **Composite filaments** (carbon-fiber-filled or glass-filled plastics) — banned, consistent with the base ruleset's carbon-fiber ban.\n- **Epoxy coatings, Bondo, or similar fillers** — banned as post-processing 'armor' additions.\n- **Rubber shock-mount armor ('wubs')** and **multi-layer tape armor** — banned as improvised armor techniques borrowed from full-metal antweight practice that would circumvent the plastic-only spirit.\n\n**Magnets** are separately and universally banned when used to enhance traction or downforce (SPARC 4.4.2, SCAR ruleset) — this is a general antweight-class magnet rule, not specific to plastic ants, but it applies here too.\n\n**Post-processing carve-outs**: SCAR's FAQ explicitly *allows* annealing/heat-or-acid smoothing of a printed part, and thin decorative paint, distinguishing legitimate finishing techniques from material additives that change the part's mechanical properties or add foreign armor material.\n\nThe overall pattern: base rulesets ban by naming forbidden *material categories* (metal, carbon fiber, UHMW); FAQs and event-specific clarifications then ban by naming specific *filaments and techniques* that technically dodge the base wording but violate its intent. Builders bringing a design to a new event should always check for a supplementary FAQ, not just the headline ruleset.",
+      "entity_refs": [
+        "ruleset-sparc-plastic-classes",
+        "ruleset-scar-plastic-ant",
+        "ruleset-scar-plastic-ant-faq",
+        "material-tpu",
+        "material-nylon-printed"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "banned-materials",
+        "tpu",
+        "nylon",
+        "magnets"
+      ],
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
+        "https://www.socalattackrobots.com/plastic-ant-faq.html",
+        "https://www.socalattackrobots.com/2025-ruleset.html"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-org-variation",
+      "title": "Org-to-Org Variation in the Plastic Ant Rules",
+      "section": "Rules",
+      "body_md": "Although nearly every plastic-ant ruleset in North America descends from the same source (Western Allied Robotics' 2015 original, absorbed into SPARC's template), real differences exist once you compare specific events:\n\n| Organization | Base material list | TPU? | Nylon? | Notable extra rule |\n|---|---|---|---|---|\n| **SPARC (template)** | PET, PETG, ABS, PLA, PLA+ | Not listed (organizer discretion) | Not listed | Organizer can approve additional plastics 'meeting the spirit' |\n| **SCAR** | PET, PETG, ABS, ASA, PLA, PLA+ | Explicitly **banned** by FAQ | Explicitly **banned** by FAQ | Names approved filament brands (FusionFilaments HTPLA+, Duramic PLA+, Overture Super PLA+, Hatchbox ABS) |\n| **Robot Ruckus** | PLA, PLA+, ABS, PETG | Not explicitly addressed | Not explicitly addressed | Requires countersunk/shrouded surface screws |\n| **Western Allied Robotics (origin)** | PET, PETG, ABS, PLA, PLA+ | Not explicitly addressed | Not explicitly addressed | Founding 2015 ruleset; separate bracket from metal ants |\n| **Bot Blast** | Modified SPARC rules | Follows SPARC baseline | Follows SPARC baseline | Runs plastic ant as part of a broader insectweight program |\n| **UK plastic ant / 150g scene** | Broadly similar plastic-only philosophy | Varies by club | Varies by club | Often applied to the UK's 150g 'antweight' bracket, a *different* weight than the US 1lb class — naming overlap causes confusion |\n\n**The single most important variance to know**: whether TPU and nylon count as legal 'plastic.' SCAR bans both by name. Other events that only quote the bare SPARC 4.4.1 list (which doesn't mention TPU or nylon at all) leave it ambiguous — technically neither is on the approved list either, so a strict reading bans them everywhere unless an organizer explicitly grants an exception. Builders should never assume a design that used TPU tires or a nylon gear at one event will pass technical inspection at another; always check the specific event's FAQ or ask the organizer directly, exactly as SPARC 4.4.3 itself recommends: *'Contact the event organizer ahead of time if you are not sure your robot meets the above definition.'*\n\nOnline/remote plastic-ant competitions (where robots are shipped to a central venue and matches are run and streamed by event staff, a format popularized by NHRL for larger classes) generally adopt whichever local ruleset the hosting club already runs rather than inventing new material rules, so the same org-to-org variation applies to them too.",
+      "entity_refs": [
+        "ruleset-sparc-plastic-classes",
+        "ruleset-scar-plastic-ant-faq",
+        "ruleset-robot-ruckus-plastic-ant",
+        "ruleset-war-plastic-antweight-origin",
+        "event-bot-blast",
+        "material-tpu",
+        "material-nylon-printed"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "org-variation",
+        "comparison"
+      ],
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
+        "https://www.socalattackrobots.com/plastic-ant-faq.html",
+        "https://buildersdb.com/RobotRuckus2024",
+        "https://botblast.webs.com/rules.htm"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-uk-scene",
+      "title": "The UK Plastic Ant Scene and the 150g Naming Trap",
+      "section": "Community",
+      "body_md": "The UK combat robotics scene uses different weight-class names than the US, and this creates a real point of confusion for anyone researching \"plastic antweight\" online. In the UK, the term **\"antweight\" traditionally refers to the 150g class**, not the 1 lb / 454 g class that US builders mean when they say \"antweight\" or \"plastic ant.\" The US 1lb bracket has a rough UK-terminology equivalent, but the *plastic* movement is active at both scales in the UK: there are 150g plastic/printable antweights as well as heavier printable classes, and community-shared designs freely cross weight brackets in spirit even though they aren't the same competition category.\n\nA good concrete example is **Legally Distinct**, a free, open-source 150g UK antweight drum-spinner design shared on Thingiverse by community builder Blessy, explicitly described as \"heavily inspired by\" an established UK antweight called **Siren**. This shows the same open, iterative design culture found in the US 1lb plastic ant scene — successful designs get openly documented, and other builders print, remix, and re-share variants — just operating at the UK's 150g weight bracket rather than the US 1lb bracket most SPARC-derived rulesets target.\n\n**Practical implication for researchers and builders**: when reading a UK build log, forum post, or Thingiverse description, always check the stated gram weight rather than assuming \"antweight\" means 454g. A UK 150g printable drum spinner and a US 1lb / 454g SPARC-legal plastic ant are built to different weight budgets, different arena sizes, and sometimes different club-specific material rules, even though both fall under the broad 'plastic ant' / '3D-printed insect-class robot' umbrella this file otherwise treats as one class.\n\nThat said, the underlying design lessons transfer well across the naming gap: both scenes favor thick printed drum/disc weapons over thin cutting bars, both rely on PETG/PLA+/ABS as the workhorse filaments, and both treat a cracked printed part as a five-minute reprint rather than a season-ending failure.",
+      "entity_refs": [
+        "kit-legally-distinct-drum",
+        "bot-siren-uk-antweight",
+        "weight_class-plastic-antweight"
+      ],
+      "weight_classes": [
+        "plastic-antweight",
+        "fairyweight"
+      ],
+      "tags": [
+        "uk-scene",
+        "community",
+        "naming",
+        "150g"
+      ],
+      "sources": [
+        "https://www.thingiverse.com/thing:5316751"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-springs-magnets-ballast",
+      "title": "Springs, Rubber Bands, Magnets and Ballast Legality",
+      "section": "Rules",
+      "body_md": "**Magnets**: Universally banned when used 'to enhance traction or downforce' (SPARC 4.4.2, SCAR ruleset). This is a general antweight-class rule that also applies to plastic ants — the concern is that magnetic downforce would let a light robot behave like a much heavier one against a steel arena floor, which most 1lb-class arenas do use. Small magnets used for non-traction purposes (e.g., holding an access panel shut) are generally not the target of this rule, but builders should confirm with the organizer if in doubt.\n\n**Springs**: SPARC's general springs-and-flywheels section (13.1) explicitly *exempts* robots in the 12lb class or smaller — which includes every plastic ant — from its stricter large-spring loading/remote-actuation requirements, as long as 'safe operation and good engineering' are followed. This means a plastic ant can use a small pre-loaded spring (e.g., in a snap-action flipper or lifter) without needing the remote-arming mechanism required of larger robots' big weapon springs. The spring itself, if it's a coil or leaf spring, is metal and falls under the same 'non-plastic mechanical part' logic as a bearing or shaft — it's not armor or the primary weapon surface, so it's allowed.\n\n**Rubber bands**: Not specifically addressed in any plastic-ant ruleset reviewed, but by the same logic as springs, a rubber band used as a small mechanical actuator (e.g., snapping a lifter arm closed) is a functional non-plastic part, not armor or a weapon surface, and would be treated as legal under the standard exemption language. Builders relying on this for a weapon mechanism should still get organizer sign-off given the general 'contact us if borderline' guidance every ruleset repeats.\n\n**Ballast**: Not explicitly named as banned or allowed in the plastic-only material lists, but ballast is understood by the community to fall under the same test as everything else — if it's simply dense material added to bring the robot up to the full 454g weight limit and it isn't functioning as armor, it's legal regardless of material (a small chunk of steel ballast, screwed into an internal cavity and not exposed as a surface, does not 'enhance structural integrity, armor the robot, or enhance any weapon'). Many plastic ant builders instead use printed ballast (a solid, high-infill printed plug) simply because it's zero-cost and trivially plastic-legal, avoiding the question entirely.",
+      "entity_refs": [
+        "ruleset-sparc-plastic-classes",
+        "ruleset-scar-plastic-ant"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "springs",
+        "magnets",
+        "ballast"
+      ],
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
+        "https://www.socalattackrobots.com/2025-ruleset.html"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-tech-inspection",
+      "title": "How Tech Inspection Verifies 'Plastic Only'",
+      "section": "Rules",
+      "body_md": "Plastic ant technical inspection is, by design, lighter-weight than the pressure-vessel-certificate-checking inspection larger weight classes face for pneumatics/hydraulics — but it still has to answer one specific question with confidence: *is the structural/armor/weapon material actually one of the approved plastics, and is it actually 3D printed rather than machined?*\n\n**Visual inspection is the default and primary method.** SCAR's Plastic Ant FAQ states plainly that 'datasheets are not required' for a normal build — an inspector looks at the surface finish (visible layer lines are a good sign it's genuinely printed rather than milled/cast), checks that fasteners are countersunk or shrouded, and looks for obviously non-plastic materials like exposed sheet metal, carbon fiber weave, or a suspiciously glossy/dense coating that might indicate an epoxy or resin reinforcement layer.\n\n**Suspicious builds get closer scrutiny.** If a part looks implausibly rigid, dense, or smooth for its stated material (for example, a 'PETG' panel that doesn't flex at all when pressed, or a part that feels far heavier than its printed volume should), inspectors can investigate further — this might mean asking the builder directly what filament and settings were used, requesting to see other parts printed from the same spool, or in rare cases asking to cut into or otherwise verify a part before allowing the robot to compete.\n\n**Countersinking/shrouding is checked physically**, not just declared: Robot Ruckus's specific wording (screws 'should be countersunk or shrouded') implies an inspector will run a finger or eye over the outer shell looking for proud screw heads that could act as tiny armor studs or catch points.\n\n**Annealed/acid-smoothed parts are pre-approved as a category** (per SCAR's FAQ) so builders don't need to disclose post-processing that doesn't add foreign material — the rule targets *material additives*, coatings like Bondo/epoxy, and reinforcement layers, not heat or solvent treatments of the plastic itself.\n\n**No destructive testing is standard.** Because plastic ant inspection relies on visual/tactile checks and builder honesty backed by the threat of disqualification 'at the Event Organizer's discretion' for violating 'the spirit of the class' (SPARC 4.4.3), the system depends heavily on community trust and the fact that most violations (like a hidden carbon insert) would be visible on close inspection or would show up as an implausible durability advantage in the actual matches, which draws scrutiny from competitors and organizers alike.",
+      "entity_refs": [
+        "term-tech-inspection",
+        "ruleset-scar-plastic-ant-faq",
+        "ruleset-robot-ruckus-plastic-ant",
+        "term-annealing-print"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "rules",
+        "inspection",
+        "enforcement"
+      ],
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html",
+        "https://buildersdb.com/RobotRuckus2024"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-why-exists",
+      "title": "Why the Plastic Antweight Class Exists",
+      "section": "Why It Exists",
+      "body_md": "Plastic antweight exists to solve a specific on-ramp problem in combat robotics: a standard 1lb antweight built to be competitive against titanium/hardened-steel-weaponed opponents typically requires a machine shop, CNC access, or at minimum a mill/lathe and metalworking skill most newcomers don't have. Western Allied Robotics introduced the plastic-only class in 2015 specifically to remove that barrier, and SPARC's official language captures the intent directly: *'to have an easy entry point for new builders and to encourage creative designs by limiting materials to plastics that are easy to work with, commonly used in 3D printers and don't have strength characteristics common in the standard classes.'*\n\n**Accessibility**: A consumer FDM 3D printer costs a fraction of a benchtop mill, needs no specialized safety training, and can be run by a student or hobbyist in a bedroom. Anyone who can draw a shape in free CAD software (Onshape, Fusion 360's free tier, FreeCAD) can go from design to printed part with zero machining skill.\n\n**Cost**: PLA/PETG/ABS filament runs roughly $18-30/kg, and a complete plastic ant chassis rarely uses more than 150-250g of filament — call it $3-8 of raw material for the entire structural half of the robot. Compare that to CNC-machined 7075 aluminum or Delrin stock plus tooling wear for a metal antweight chassis of similar complexity, which easily runs into tens of dollars in material alone before accounting for machine time.\n\n**Damage economics**: This is the biggest practical driver of the class's popularity. When a metal antweight loses a fight to a hardened-steel spinner, repair can mean sourcing and re-machining a replacement part, which might take days and real money. When a plastic ant loses a wedge tip or cracks a weapon disc, the fix is re-slicing the same STL file and printing a replacement overnight for a few cents of filament — the whole philosophy of 'print-and-replace' repairability that pervades the class.\n\n**Why it's the best entry point**: combining low cost, low skill floor, fast iteration (a design change is a CAD edit and a few hours of print time, not a re-machining job), and a large base of freely shared open-source designs (Printables, Thingiverse) means a complete beginner can go from zero to a competing, reasonably durable robot faster and cheaper in plastic ant than in almost any other combat robotics class.\n\n**How the meta differs from metal ants**: because the weapon and armor are made from a weaker, lower-density material, plastic ants cannot rely on the metal-ant playbook of thin hardened cutting edges and high-density armor plates. Instead the class has developed its own meta around thick blunt weapons, generous wall counts, and control/wedge bots that win by denying the opponent's fragile spinner a clean hit — a genuinely different skillset and design philosophy from machining a titanium blade, not just a cheaper version of the same game.",
+      "entity_refs": [
+        "weight_class-plastic-antweight",
+        "ruleset-war-plastic-antweight-origin",
+        "ruleset-sparc-plastic-classes"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "why-it-exists",
+        "accessibility",
+        "cost",
+        "beginner"
+      ],
+      "sources": [
+        "https://robotcombatwiki.com/wiki/Plastic_Antweights",
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-meta-overview",
+      "title": "The Plastic Ant Meta: Which Archetypes Dominate and Why",
+      "section": "Meta",
+      "body_md": "The plastic-only material restriction reshapes which weapon archetypes actually work, producing a meta that looks noticeably different from standard metal antweight.\n\n**Vertical spinners dominate** because a thick printed disc keeps weapon mass close to the rotation axis and strikes with a wide, blunt ring rather than a thin edge — exactly the loading a printed part survives best. A vertical spinner disc is also relatively simple to reprint after damage since it's usually one or two printed parts plus a metal hub/shaft.\n\n**Drum spinners are the second pillar of the meta**, and for similar reasons: a full-width cylindrical drum distributes impact load around its circumference rather than concentrating it at a single tip, so it resists cracking better than a bar of the same weapon weight. Low ground clearance also makes drums hard for opposing wedges to get underneath.\n\n**Horizontal (bar) spinners are comparatively weak in this class** — see the dedicated discussion elsewhere in this file — because the thin tip cross-section that makes a metal bar spinner devastating is also the single most fragile geometry available in the weakest material the rules allow.\n\n**Wedge/control bots punch above their weight class** as both a beginner-friendly first build and a genuine competitive counter-strategy: since fragile plastic weapons are the norm, a robot that simply denies clean hits (via a low, thick, cheap-to-reprint wedge) and wins on driving/ring-outs/judges' decisions is a legitimate way to win matches without ever risking an expensive weapon failure.\n\n**Beater bars and lifters** round out the field as intermediate options — beater bars borrow drum-spinner durability logic in a simpler/cheaper package, while lifters trade weapon speed for control-style scoring opportunities (flips, exposure of an opponent's underside) using printed linkages and small servos instead of pneumatics.\n\n**Why this matters for a new builder**: the single most transferable lesson from the plastic ant meta is that *weapon geometry has to match the material's failure mode*. Printed plastic fails by cracking/delaminating along layer lines under sharp, concentrated, or perpendicular-to-layer loads — so winning weapon designs are the ones that spread load (discs, drums, thick wedges) rather than concentrate it (thin blades, sharp teeth), which is the opposite intuition a builder coming from metal antweight or general engineering might start with.",
+      "entity_refs": [
+        "archetype-plastic-ant-vertical-spinner",
+        "archetype-plastic-ant-drum-spinner",
+        "archetype-plastic-ant-horizontal-spinner",
+        "archetype-plastic-ant-wedge-control",
+        "archetype-plastic-ant-beater-bar",
+        "archetype-plastic-ant-lifter"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "meta",
+        "archetypes",
+        "overview"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-horizontal-spinner-weakness",
+      "title": "Why Horizontal Spinners Behave Differently in Plastic",
+      "section": "Meta",
+      "body_md": "In standard metal antweight, a horizontal (bar) spinner with a hardened tool-steel or titanium tip is one of the most feared weapons in the class: a thin, hard edge concentrates enormous force into a tiny contact area, which is exactly what lets it punch through an opponent's aluminum or polycarbonate armor. In plastic antweight, the exact same geometry becomes one of the *weakest* weapon choices, for reasons rooted directly in how FDM-printed plastic fails.\n\n**The tip has to be plastic.** The rules require the weapon's striking surface to be one of the approved printable plastics — no hardened steel edge is legal. A thin cross-section is the worst possible shape for a printed part because it has the least material spread across the load path and the fewest print layers bonded together resisting a perpendicular impact.\n\n**Layer-line anisotropy compounds the problem.** FDM parts are always weaker across their layer lines than along them ('3D printed parts will always have more strength parallel to their layers as opposed to perpendicular,' as community build guides consistently note). A thin spinning bar takes repeated shock loading at exactly the orientation most likely to peel layers apart at the tip, so bar spinners in this class are disproportionately prone to snapping their own tip off on an early hit — sometimes on the very first swing against a solid target.\n\n**The physics also work against it.** Kinetic energy in a spinning weapon scales with mass and the square of tip speed (KE = 1/2 I omega^2). Because printed plastics are roughly 3-6x less dense than steel, matching a metal bar's stored energy within the same weight budget means either much higher RPM (which raises tip stress and burst risk further) or a physically much larger/thicker bar (which then behaves more like a drum, undercutting the whole point of a thin cutting bar).\n\n**Profile and stability costs.** A bar spinner also typically sits higher and presents a larger flat vertical profile than a low drum or vertical disc, which raises the robot's center of gravity and gives control bots and wedges an easier target to get under or flip.\n\n**Net effect on the meta**: builders who bring a metal-ant bar-spinner mindset into plastic ant consistently find it underperforms drums and vertical spinners, which spread the same kinetic energy across a wider, lower-stress contact area (a disc rim or drum wall) instead of concentrating it at one thin tip — turning 'cutting' into 'blunt ramming,' which is what plastic can actually survive doing to someone else.",
+      "entity_refs": [
+        "archetype-plastic-ant-horizontal-spinner",
+        "archetype-plastic-ant-drum-spinner",
+        "archetype-plastic-ant-vertical-spinner",
+        "term-layer-adhesion-anisotropy",
+        "term-tip-speed"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "meta",
+        "horizontal-spinner",
+        "physics",
+        "weapon-design"
+      ],
+      "sources": [
+        "https://www.servomagazine.com/magazine/article/designing-3d-printed-bodies-for-insect-class-combat-robots",
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-tpu-flex-armor",
+      "title": "TPU Armor and Flexible Structures — Popular, But Check the Rules",
+      "section": "Meta",
+      "body_md": "A frequently repeated piece of combat-robotics wisdom is that flexible TPU armor 'beats' rigid armor in small weight classes: a rigid PLA/ABS panel absorbs an impact by cracking or shattering, transmitting shock into whatever it's bolted to, while a TPU panel *deflects* under the same impact and springs back to shape, spreading the load over time instead of failing catastrophically. This is genuinely true as material science, and it's why TPU shows up widely in the *general* (metal-legal) antweight and beetleweight scene as flexible skirts, shock-mounted panels, and wheel tires.\n\n**But plastic antweight is where this advice needs a hard caveat.** TPU is not on the SPARC 4.4.1 baseline approved-materials list (PET, PETG, ABS, PLA, PLA+) at all, and SCAR's Plastic Ant FAQ goes further and explicitly *bans TPU by name*, including for custom wheel hubs — one of the few uses that might otherwise seem like an obvious carve-out under the wheels/tires exemption. This makes TPU a genuine org-to-org trap: a builder who read general combat-robotics forum advice praising TPU armor, without separately checking their specific plastic-ant event's material list, can show up with a rules-illegal robot.\n\n**What plastic ant builders do instead, within the approved list:**\n- **PETG over PLA/PLA+** for anything expected to take a direct hit, since PETG's more ductile failure mode (bending/cracking slowly) approximates some of TPU's shock-spreading benefit without leaving the approved material family.\n- **Print-in-place flexures** — thin, deliberately flexible sections of an otherwise rigid PETG/ABS part, designed as living hinges or shock-absorbing tabs — get some of TPU's benefit from a rules-legal material by using geometry (thin walls) rather than a different filament chemistry to create flex.\n- **Where TPU IS explicitly permitted** (some events leave it un-addressed and treat organizer-approved 'additional plastics meeting the spirit of the rules' as covering it, or grant a specific written exception), builders do use it for wheel tires and armor skirts, getting the full flex benefit — but this should never be assumed without confirmation.\n\n**Bottom line**: TPU's flex-beats-rigid advantage is real physics, but its *legality* is the single most variable rule across plastic-ant events reviewed for this file. Always check the specific event's ruleset and FAQ, not general combat-robotics community wisdom, before designing TPU into a competition build.",
+      "entity_refs": [
+        "material-tpu",
+        "material-petg",
+        "ruleset-scar-plastic-ant-faq",
+        "term-printed-in-flexure"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "meta",
+        "tpu",
+        "armor",
+        "org-variance"
+      ],
+      "sources": [
+        "https://www.socalattackrobots.com/plastic-ant-faq.html",
+        "https://robotcombatwiki.com/wiki/3D_Printing"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-weapon-design-plastic",
+      "title": "Designing a Weapon That Must Be Plastic: Blunt Force Over Cutting",
+      "section": "Weapon Design",
+      "body_md": "Every plastic-ant weapon designer faces the same core constraint: no metal weapon teeth, no hardened cutting edge, no dense tungsten or steel mass concentrated at the tip. The entire striking body of the weapon has to be one of the approved printable plastics. This has pushed the class toward a distinct design doctrine: **blunt force over cutting.**\n\n**Printed drums** are the clearest expression of this doctrine — rather than a thin blade, the weapon is a full cylindrical wall, often 15-25mm thick in PETG, sometimes with small printed paddles or teeth around its circumference. The wall thickness itself (not a sharpened edge) delivers the hit, more like being struck by a rolling pin than cut by a knife. Damage to an opponent comes from blunt impact transferring kinetic energy into denting their armor or knocking them off-balance/into the arena wall, not from penetration.\n\n**Printed discs** for vertical spinners follow the same logic at a smaller scale: a thick disc (often reinforced with a metal hub insert bonded or press-fit into the printed body) with a rounded or lightly toothed rim outperforms a disc with sharp printed teeth, because printed teeth are exactly the thin, stress-concentrated geometry most likely to snap off on first contact.\n\n**What actually does damage without metal teeth**: mass times velocity squared delivered over a wide contact patch. A heavy, slow-spinning printed drum that reliably survives its own hits and knocks an opponent around consistently outperforms a fast, light printed blade that shatters on its first real impact. Community guides repeatedly emphasize over-building the weapon's wall thickness and using more print perimeters/walls than seems necessary, accepting the weight cost, because a weapon that survives to keep hitting is worth more than a lighter one that self-destructs in the first exchange.\n\n**Practical design rules that have emerged**:\n- Keep the weapon's outer profile as a smooth curve or wide flat face rather than a pointed tooth wherever possible.\n- Orient the print so that the load path runs *along* layer lines, not across them, at the weapon's highest-stress point (often means printing a disc/drum flat rather than on its edge).\n- Use a metal shaft/hub insert (explicitly rules-legal as an axle exemption) so the plastic body isn't also trying to survive the torsional load of driving the weapon, only the impact load of hitting something.\n- Print weapons in PETG or well-annealed ABS over plain PLA/PLA+ wherever the weapon is expected to take real hits, since both have more ductile (bend-before-break) failure behavior.",
+      "entity_refs": [
+        "term-blunt-force-over-cutting",
+        "archetype-plastic-ant-drum-spinner",
+        "archetype-plastic-ant-vertical-spinner",
+        "material-petg",
+        "component-weapon-shaft-steel"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-design",
+        "printing",
+        "drums",
+        "discs"
+      ],
+      "sources": [
+        "https://www.printables.com/model/88679-3d-printed-drum-spinner-combat-robot",
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-rpm-tip-speed",
+      "title": "Typical Weapon RPM and Tip Speeds Achievable in Plastic",
+      "section": "Weapon Design",
+      "body_md": "Tip speed — the linear speed of a spinning weapon's outermost point — is the standard way combat robotics talks about weapon power, and it's calculated with the formula SPARC itself uses for its speed-limited classes: **Tip Speed (ft/s) = RPM x diameter (inches) x 0.00436.**\n\n**Typical plastic ant weapon motor/RPM combinations**: small brushless outrunners in the 1811-2205 size class are the norm, run on 2S (7.4V) LiPo. A common vertical-spinner setup pairs a roughly 2600-2800kv outrunner direct-driving (no gearing) a 2-2.5-inch printed disc, giving a free-spin RPM in the 15,000-20,000 RPM range before load, settling lower under real combat load and with the added rotational inertia of the printed disc. Plugging a conservative 12,000 RPM combat-load estimate and a 2.5-inch diameter into the tip-speed formula gives roughly 12,000 x 2.5 x 0.00436 ≈ **131 ft/s** — a meaningful but not extreme tip speed compared to what a similarly-sized metal antweight spinner could sustain.\n\n**Why plastic ants tend to run lower kv/tip speed than metal ants of the same size**: the practical ceiling is set by the printed disc/drum's burst strength, not the motor's capability. Community guidance repeatedly notes that 1400kv motors suit slower horizontal/drum weapons (prioritizing torque and lower stress on the weapon body) while around 2800kv suits lighter vertical spinner discs — both meaningfully lower than the highest-kv motors used in metal-ant record-chasing builds, because a printed weapon spun to the RPM a metal disc could survive would simply fly apart.\n\n**SPARC's formal tip-speed limits** only bind in specific contexts: the 'Sportsman' class caps ordinary spinning weapons at 20 ft/s (with a higher allowance for saw-like weapons meeting a tooth-pitch test), and open-air combat classes cap slow spinners at the same 20 ft/s. Standard enclosed-arena plastic ant classes are not usually tip-speed-limited by the ruleset itself — the practical limit instead comes from the printed material's own failure point, which for a well-designed thick PETG disc or drum tends to land somewhere in the 80-150 ft/s range in community experience, well below what a hardened steel antweight weapon could achieve (some metal antweight spinners exceed 300-400 ft/s), and this gap is treated as a low-confidence estimate based on community reporting rather than a single authoritative source.\n\n*Note: RPM/tip-speed figures are community-sourced estimates, not from a single authoritative measurement; treat as approximate.*",
+      "entity_refs": [
+        "term-tip-speed",
+        "component-brushless-outrunner-2600kv",
+        "component-brushless-outrunner-1400kv",
+        "archetype-plastic-ant-vertical-spinner"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-design",
+        "rpm",
+        "tip-speed",
+        "physics"
+      ],
+      "sources": [
+        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-how-matches-won",
+      "title": "How Matches Are Actually Won: Plastic Ant vs Metal Ant",
+      "section": "Meta",
+      "body_md": "The path to victory in plastic antweight diverges from standard metal antweight in ways that follow directly from the material restriction.\n\n**In metal antweight**, a well-made hardened-steel spinner or a properly heat-treated blade can end a match in a single clean hit — knockouts and 'kill shots' that disable an opponent's drive or crack their armor open are a realistic, even expected, path to a first-round win for a well-executed weapon build. Damage output per hit is high, and matches often turn on whether a weapon connects cleanly even once.\n\n**In plastic antweight, single-hit knockouts are rarer.** A printed weapon delivers meaningfully less kinetic energy per hit than a metal one of the same weight (lower material density, lower survivable tip speed), and the weapon itself is also more likely to be the first casualty of a hard exchange. This shifts plastic ant matches toward a **war-of-attrition and control-based** win condition more often than metal ant: robots that survive longer, keep functioning after cosmetic damage, and control ring position tend to win on **judges' decision** (aggression, damage, control, strategy scoring) rather than by knockout.\n\n**Control and wedge bots are disproportionately successful** in this environment precisely because they don't depend on a fragile printed weapon surviving the match at all — a robot with nothing to break out-attritions a robot whose weapon might crack on hit one. This is a meaningfully different risk calculus than in metal antweight, where a strong weapon is close to mandatory to be competitive at a top level.\n\n**Damage that does matter**: cracking an opponent's drivetrain access panel, breaking a wheel or wheel hub (printed wheels are as vulnerable as any other printed part), and denting/deforming a chassis enough to jam internal components are the plastic-ant equivalents of the 'kill shots' metal ants chase, rather than clean armor penetration.\n\n**Practical strategic takeaway**: a new builder optimizing for plastic ant win rate should weight 'weapon survives 3 full matches without needing a reprint' above 'weapon deals maximum single-hit damage,' since reliability compounds across a tournament bracket in a way raw power doesn't when the underlying material is the failure-prone part of the system.",
+      "entity_refs": [
+        "archetype-plastic-ant-wedge-control",
+        "archetype-plastic-ant-vertical-spinner",
+        "weight_class-plastic-antweight",
+        "term-pit-repair"
+      ],
+      "weight_classes": [
+        "plastic-antweight",
+        "antweight"
+      ],
+      "tags": [
+        "meta",
+        "strategy",
+        "judges-decision",
+        "damage"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-build-vertical-spinner",
+      "title": "Build Spec: Competitive Plastic Ant Vertical Spinner (Full BOM)",
+      "section": "Build Specs",
+      "body_md": "A representative, rules-legal competitive plastic ant vertical spinner build, with a full bill of materials summing safely under the 454g limit. Figures are realistic community-typical values; treat exact grams as approximate (confidence: medium) since actual weight varies by printer/settings/hardware batch.\n\n| Part | Material/Spec | Weight (g) |\n|---|---|---|\n| Chassis/frame (printed, PETG, 5-6 walls, 40% gyroid infill) | PETG | 130 |\n| Top shell / weapon guard (printed) | PETG or PLA+ | 90 |\n| Vertical spinner disc + hub body (printed) | PETG | 55 |\n| Weapon shaft (steel, ~4mm dia, ~35mm long) | steel (exempt) | 5 |\n| Flanged bearings x2 (weapon shaft support) | steel/bronze (exempt) | 3 |\n| Weapon motor: brushless outrunner ~2600kv | metal/magnet (exempt) | 27 |\n| Weapon ESC (micro brushless, ~6A) | electronics (exempt) | 4 |\n| Drive motors x2 (N20 micro gearmotor, ~1000 RPM) | metal gearbox (exempt) | 18 |\n| Combo RX + dual brushed ESC board | electronics (exempt) | 6 |\n| Battery: 2S 300mAh LiPo | LiPo (exempt) | 21 |\n| Wheels x2 (printed hub + TPU or COTS foam tire) | printed/COTS (check TPU legality) | 20 |\n| Fasteners: M2/M3 screws + heat-set inserts (~20 pcs) | steel/brass (exempt) | 14 |\n| Wiring, connectors, switch, foam padding | mixed (exempt) | 12 |\n| Paint / decorative finish | paint (permitted) | 5 |\n| **Total** | | **~410 g** |\n\nThis leaves roughly **44g of headroom** under the 454g limit, typically used to thicken the weapon guard, add a printed skid plate underneath, or carry a small amount of printed ballast for weight distribution.\n\n**Weight budget as percentages**: weapon system (disc+shaft+bearings+motor+ESC = 94g) ≈ **23%**, drive system (motors+wheels+combo board = 44g) ≈ **11%**, armor/structure (chassis+shell = 220g) ≈ **54%**, electronics (battery+wiring = 33g) ≈ **8%**, fasteners ≈ **3%**. The armor/structure share is dramatically higher than a typical metal antweight's, which is the single biggest structural difference the plastic-only rule creates in how weight gets allocated.\n\n**Rules-legality notes**: the disc, shell and chassis are all printed PETG/PLA+ (approved list); the shaft, bearings, motor, ESC, fasteners, wiring and battery are all covered by the standard motors/electronics/axles/fasteners/adhesives exemption; wheel tire material should be confirmed against the specific event's TPU policy before finalizing.",
+      "entity_refs": [
+        "archetype-plastic-ant-vertical-spinner",
+        "component-brushless-outrunner-2600kv",
+        "component-esc-brushless-weapon-6a",
+        "component-n20-micro-gearmotor",
+        "component-combo-rx-esc-board",
+        "component-lipo-2s-300mah",
+        "component-printed-wheel-tpu-tire",
+        "component-fastener-m2-m3-screw-insert",
+        "component-flanged-bearing-small",
+        "component-weapon-shaft-steel",
+        "material-petg"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "build-spec",
+        "bom",
+        "vertical-spinner"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-build-control-wedge",
+      "title": "Build Spec: Plastic Ant Control/Wedge Bot (Full BOM)",
+      "section": "Build Specs",
+      "body_md": "A representative plastic ant control/wedge build — no fragile spinning weapon, built to win on driving, ring control, and durability. Figures are realistic community-typical values (confidence: medium).\n\n| Part | Material/Spec | Weight (g) |\n|---|---|---|\n| Chassis + integrated front wedge (printed, thick front face 4-6mm) | PETG | 180 |\n| Top shell/armor | PETG or PLA+ | 70 |\n| Drive motors x2 (higher-torque micro gearmotor) | metal gearbox (exempt) | 24 |\n| Small active-wedge/lifter servo (optional) | electronics/metal gears (exempt) | 15 |\n| Combo RX + dual brushed ESC board | electronics (exempt) | 6 |\n| Battery: 2S 400mAh LiPo (bigger pack, no weapon to power) | LiPo (exempt) | 26 |\n| Wheels x2 (printed hub + grippy foam/TPU tire) | printed/COTS | 18 |\n| Fasteners: M2/M3 screws + inserts | steel/brass (exempt) | 14 |\n| Wiring, switch, connectors | mixed (exempt) | 8 |\n| Printed ballast plug (high-infill, fills remaining budget for pushing power) | PETG/PLA+ | 90 |\n| **Total** | | **~451 g** |\n\n**Design rationale**: a control bot deliberately spends almost nothing on 'weapon' (just an optional small active-wedge servo) and instead maximizes armor thickness and low-CG ballast to win pushing matches and resist being flipped. The printed ballast plug is a simple, cheap, 100%-legal way to use the full weight budget when there's no weapon consuming it — solid PETG at high infill is denser and cheaper than any COTS metal ballast option would be to source, and it's trivially plastic-legal since it's just more of the same approved material.\n\n**Weight budget as percentages**: armor/structure (chassis+wedge+shell = 250g) ≈ **55%**, drive (motors+wheels+combo board = 48g) ≈ **11%**, weapon/active-wedge servo (15g) ≈ **3%**, electronics (battery+wiring = 34g) ≈ **8%**, fasteners ≈ **3%**, ballast (90g) ≈ **20%**.\n\n**Why this archetype is recommended as a first build**: every failure mode here (a cracked wedge, a worn wheel, a stripped screw hole) is a five-minute reprint or hardware-store fix, unlike a broken weapon motor mount or a snapped weapon shaft, which are common failure points on a first spinner build and are considerably more frustrating and costly to diagnose and fix mid-tournament.",
+      "entity_refs": [
+        "archetype-plastic-ant-wedge-control",
+        "component-n20-micro-gearmotor",
+        "component-combo-rx-esc-board",
+        "component-lipo-2s-300mah",
+        "component-cots-foam-wheel",
+        "component-fastener-m2-m3-screw-insert",
+        "material-petg"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "build-spec",
+        "bom",
+        "wedge",
+        "control-bot",
+        "beginner"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-build-cheapest-first",
+      "title": "Build Spec: Absolute-Cheapest First Plastic Ant",
+      "section": "Build Specs",
+      "body_md": "For a builder trying to spend as little as possible on a first legal, functional plastic ant (excluding a transmitter/charger they may already own, or plan to reuse across future robots), a minimal control-style build looks roughly like this. Prices are rough 2020s-hobby-market estimates and will vary by region/vendor/sales (confidence: low).\n\n| Part | Approx. cost (USD) | Weight (g) |\n|---|---|---|\n| Filament (PLA, own printer) for a simple wedge chassis, ~150g of material | $2-3 | 150 |\n| Drive motors x2 (N20 micro gearmotor, generic) | $6-8 | 20 |\n| Combo RX + dual brushed ESC board (budget option) | $15-20 | 5 |\n| Battery: 1S 300-500mAh LiPo | $5-7 | 12 |\n| Wheels x2 (printed hub + O-ring or scrap-rubber tire) | ~$1-2 (mostly free with scrap) | 12 |\n| Fasteners (from a hardware bin / cheap multi-pack) | $2 | 10 |\n| Wiring, switch, connector (from a cheap electronics assortment kit) | $3 | 6 |\n| **Incremental robot cost (excl. transmitter/charger)** | **≈ $35-42** | **≈ 215 g** |\n\n**One-time reusable costs not counted above** (a builder typically already owns these or buys them once for many future robots): a basic FlySky-compatible or similar hobby transmitter (~$35-45) and a LiPo-safe charger (~$20-30).\n\n**Note the large weight headroom**: this minimal build uses only about 215g of the 454g budget. Because filament is so cheap relative to the total build cost, the single best 'free' upgrade for a first-time builder is to simply print the chassis with **more walls and higher infill** than the bare minimum — using the full weight budget costs perhaps an extra $1-2 of filament but meaningfully increases durability, since the marginal cost of plastic mass is far lower than the marginal cost of any other component in this class. A cheapest-build budget should therefore prioritize spending the saved money on better electronics reliability (a name-brand combo board over the cheapest option) rather than on unnecessary weapon parts, and spend the 'free' leftover weight budget on structural thickness rather than leaving it unused.\n\n**No weapon in this build** — it is deliberately a bare-minimum control/wedge robot, both because it's the cheapest path to a functional, rules-legal, competition-ready first robot and because it avoids the weapon motor/ESC/shaft/bearing costs (which together typically add $35-50+ to a first build) entirely.",
+      "entity_refs": [
+        "archetype-plastic-ant-wedge-control",
+        "component-n20-micro-gearmotor",
+        "component-combo-rx-esc-board",
+        "component-lipo-1s-300mah",
+        "material-pla-plus"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "build-spec",
+        "budget",
+        "beginner",
+        "cheapest-build"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-print-materials-per-part",
+      "title": "Print Material Choice Per Part",
+      "section": "Printing",
+      "body_md": "Not every part of a plastic ant should be printed in the same filament; matching material properties to each part's job is a core competitive skill in this class.\n\n**PLA / PLA+ — chassis shells, low-stress structural parts, prototypes.** PLA is the easiest of the approved materials to print reliably (low warp, no enclosure needed, prints cool at 190-215C) and is fine for parts that see moderate load but aren't the primary impact-absorbing structure — electronics trays, standoffs, brackets, and early prototype iterations where print speed and reliability matter more than ultimate toughness. PLA+ specifically markets improved impact resistance over plain PLA while keeping PLA's easy-print behavior, making it a reasonable default for a first build's chassis.\n\n**PETG — weapon discs/drums, load-bearing chassis rails, anything expected to take a direct hit.** PETG's more ductile failure mode (it bends and cracks slowly rather than shattering) makes it the community's most-recommended choice for any part that will actually absorb combat impact, at the cost of slightly trickier print tuning (more prone to stringing, needs dialed-in retraction settings) and marginally higher density (1.27 g/cm3 vs PLA's 1.24 g/cm3).\n\n**ABS — weight-critical parts, acetone-smoothed weapons.** ABS is the lowest-density of the commonly used approved plastics (1.04 g/cm3) and can be acetone-vapor-smoothed, which welds surface layer lines together for extra strength at the outer surface — a real advantage for a weapon disc's outer rim. The tradeoff is that ABS needs an enclosed, heated-chamber printer to avoid warping, making it a more advanced-builder's material choice than PLA or PETG.\n\n**TPU — flexible armor/tires, WHERE LOCALLY LEGAL ONLY.** TPU is not on the SPARC baseline list and is explicitly banned by SCAR's FAQ; never design it into a competition part without confirming the specific event's rules first (see the dedicated TPU/org-variance discussion elsewhere in this file).\n\n**Nylon — generally avoid for competition use.** Nylon's toughness makes it tempting for gears/wear parts, but it sits outside the base approved list and is explicitly banned by SCAR by name; its moisture sensitivity also makes it one of the harder approved-adjacent materials to print reliably even where it might be allowed.\n\n**Practical per-part guide**: chassis body → PLA+ or PETG; weapon disc/drum → PETG (or well-annealed ABS for advanced builders); wheel hub → PLA+ or PETG (any of the rigid approved plastics work); armor shell over electronics → PETG for its ductility; brackets/standoffs → PLA is fine, they rarely take direct impact.",
+      "entity_refs": [
+        "material-pla-plus",
+        "material-petg",
+        "material-abs",
+        "material-tpu",
+        "material-nylon-printed"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "material-selection"
+      ],
+      "sources": [
+        "domain knowledge",
+        "https://www.betzbotz.com/plastic-ant-construction-rules"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-print-settings",
+      "title": "Print Settings That Survive Combat",
+      "section": "Printing",
+      "body_md": "Slicer settings for a decorative print and a combat-ready plastic ant part are worlds apart. The following settings reflect community-standard practice for parts expected to take real impact (chassis, weapon bodies, wedges); brackets and non-structural parts can use lighter settings to save print time and weight.\n\n**Wall count (perimeters): 5-8+, up from a typical decorative 2-3.** Since the solid outer walls carry most of an impact load (far more than the infill lattice inside), combat parts intentionally run many more perimeters than a normal print. Some builders go further and print small/critical parts at essentially 100% infill by using enough walls that no internal infill pattern is needed at all.\n\n**Infill: 40-100%, gyroid or cubic pattern, up from a typical 15-20%.** Gyroid infill in particular is popular in the community for combat parts because it provides fairly even strength in multiple directions, which matters when a weapon disc or wedge can be hit from an unpredictable angle. The weight cost is accepted deliberately, since (as covered in the build-spec chunks) armor/structure legitimately consumes the majority of a plastic ant's weight budget.\n\n**Layer height: 0.15-0.2mm is typical**, balancing print time against slightly better layer bonding than a faster 0.28-0.3mm layer height would give (thinner layers generally bond a bit better, improving the class's biggest weak point: interlayer strength).\n\n**Print orientation is the single highest-leverage decision.** Because printed plastic is much stronger along its layer lines than across them, parts should be oriented so the primary expected impact load runs *parallel* to the layers wherever geometry allows — for example, printing a weapon disc flat (layers stacked along the spin axis) rather than on its edge, so a radial impact loads the print in-plane rather than trying to peel layers apart.\n\n**Nozzle temperature and print speed**: run at the filament manufacturer's recommended temperature (often slightly hot-end of the suggested range for PETG/ABS specifically) to maximize interlayer adhesion, even at the cost of slightly worse surface finish or more stringing — strength matters more than cosmetics for a fighting robot.\n\n**Post-processing (where the local ruleset allows it)**: annealing (baking below the plastic's melt point, sometimes packed in sand to control warping) can meaningfully improve a part's layer strength and heat resistance after printing, and is explicitly permitted post-processing under at least one major event's FAQ (SCAR). Acetone vapor smoothing on ABS parts can similarly weld outer layers together for extra surface toughness.",
+      "entity_refs": [
+        "term-wall-count-perimeters",
+        "term-infill-percentage",
+        "term-layer-adhesion-anisotropy",
+        "term-annealing-print"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "settings",
+        "durability"
+      ],
+      "sources": [
+        "https://www.servomagazine.com/magazine/article/designing-3d-printed-bodies-for-insect-class-combat-robots",
+        "https://www.socalattackrobots.com/plastic-ant-faq.html",
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-design-patterns",
+      "title": "Design Patterns: Sacrificial Panels, Modular Sections, Flexures, 5-Minute Pit Repairs",
+      "section": "Printing",
+      "body_md": "The plastic ant class has developed a recognizable set of design patterns around one central goal: make damage cheap and fast to fix, since the material itself is the class's core weakness.\n\n**Sacrificial armor panels.** Rather than building one thick, monolithic shell, many designs place deliberately weaker, easily-detachable printed panels over the most exposed or vulnerable areas (electronics bay covers, corners most likely to take a hit). A hit cracks or pops off the sacrificial panel — which is designed to be reprinted in well under an hour — while the main chassis underneath stays intact. This trades a small amount of redundant weight for a much shorter repair time than a crack propagating into a load-bearing main-chassis part would cause.\n\n**Modular bolt-on sections.** Splitting the robot into independently printed, bolted-together modules (a separate front wedge/weapon pod, a separate drive base, a separate top shell) means a single damaged module can be swapped for a spare without remaking the whole robot. Competitive builders commonly print two or three spares of the most failure-prone module (usually the weapon pod or wedge tip) before an event specifically so a pit repair is a bolt-swap, not a print-and-wait.\n\n**Printed-in flexures (living hinges).** Instead of a separate metal hinge and pin, a thin flexible section printed as part of a single larger piece can act as a spring or hinge — used for snap-fit access panels, simple lifter linkages, or shock-absorbing tabs, staying entirely within the approved-plastic material list (unlike reaching for TPU) by using geometry rather than filament chemistry to create flex.\n\n**The five-minute pit repair philosophy.** The defining repairability advantage of plastic ant over metal antweight is that most damage is fixed by re-slicing an existing STL and printing a replacement, not by re-machining a part from raw stock. Competitive pit strategy reflects this directly: bringing a laptop with the robot's CAD/slicer files and a portable 3D printer to the event (increasingly common at plastic-ant-focused events) lets a builder print a replacement wedge or wheel between matches rather than being eliminated by damage that would end a metal antweight's tournament run outright.\n\n**Practical takeaway for new builders**: design for disassembly and reprintability from the very first CAD sketch, not as an afterthought — split your chassis at natural stress-concentration points (so a crack there just separates a module rather than propagating through the whole robot), and always keep spare printed copies of your most failure-prone single part ready before you arrive at an event.",
+      "entity_refs": [
+        "term-sacrificial-armor-panel",
+        "term-modular-bolt-on-section",
+        "term-printed-in-flexure",
+        "term-pit-repair"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "design-pattern",
+        "repairability",
+        "pit-strategy"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-community-resources",
+      "title": "Where the Plastic Ant Community Shares Designs",
+      "section": "Community",
+      "body_md": "Plastic antweight has one of the most open, actively-shared design cultures in combat robotics, which is itself part of why the class is such a strong entry point — a beginner rarely has to design a robot completely from scratch.\n\n**Printables** (printables.com, Prusa's model-sharing platform) hosts several named open-source plastic ant designs, including **Force Knight**, a free 1lb plastic antweight by community designer Michael K described as intended for SCAR-legal component kits, and a community-shared 3D-printed drum spinner design demonstrating the drum-spinner-as-durability-choice pattern discussed throughout this file.\n\n**Thingiverse** hosts additional well-known open designs, including the **CRNZ Antweight Combat Robot Kit** by CombatRoboticsNZ — an explicitly modular, extensible printable chassis meant to be a base other builders customize and upgrade rather than a fixed one-off design — and, on the UK 150g side of the naming divide, **Legally Distinct**, a drum spinner by community designer Blessy openly credited as inspired by the established UK antweight Siren.\n\n**Cults3D** also lists purchasable/downloadable plastic ant model files (e.g., a specifically-tagged 'Plastic 1lb Antweight Vertical Spinner' design), functioning similarly to Printables/Thingiverse but with more paid listings mixed among free ones.\n\n**Onshape and other cloud CAD tools** are widely used for public, shareable combat-robot CAD documents in the broader combat robotics community (a pattern well established in metal antweight/beetleweight circles), letting other builders view, fork, and remix a design's actual parametric CAD rather than just a fixed STL — though specific named public plastic-ant Onshape documents were not independently confirmed in the sources reviewed for this file (confidence: low on Onshape specifically, though the practice is well-established in the wider community).\n\n**Discord servers** run by regional combat robotics clubs and larger events (SCAR, Robot Ruckus, and similar organizations typically maintain one) are the community's primary place for real-time build questions, rules clarifications ('is X material legal at your event'), and informal design-sharing outside the more formal model-repository sites — a pattern consistent with how modern hobbyist engineering communities generally organize online, though this file was not able to confirm specific named plastic-ant Discord servers independently (confidence: low on specific server names).\n\n**RobotCombatWiki** (robotcombatwiki.com) serves as the community's reference wiki, with a dedicated 'Plastic Antweights' page summarizing the class's rules and history, plus a general '3D Printing' page covering combat-specific printing advice that applies directly to this class.\n\n**Practical entry point for a new builder**: starting from an existing open-source design (Force Knight, CRNZ's kit, or a Cults3D vertical spinner) and modifying it, rather than designing a first chassis from a blank CAD canvas, is both common and explicitly encouraged by how these designs are shared and licensed.",
+      "entity_refs": [
+        "kit-force-knight",
+        "kit-crnz-antweight-kit",
+        "kit-legally-distinct-drum"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "community",
+        "printables",
+        "thingiverse",
+        "open-source",
+        "resources"
+      ],
+      "sources": [
+        "https://www.printables.com/model/897022-force-knight-1lb-plastic-antweight-combat-robot",
+        "https://www.thingiverse.com/thing:6218302",
+        "https://www.thingiverse.com/thing:5316751",
+        "https://cults3d.com/en/3d-model/tool/plastic-1lb-antweight-vertical-spinner",
+        "https://robotcombatwiki.com/wiki/Plastic_Antweights"
+      ]
+    },
+    {
+      "id": "chunk-plastic-antweight-weapon-motor-selection",
+      "title": "Weapon and Drive Motor Selection for Plastic Ants",
+      "section": "Build Specs",
+      "body_md": "Motor selection in plastic ant follows the same electronics landscape as standard antweight (motors are exempt from the plastic-only rule), but the *sizing philosophy* differs because the weapon it drives has a lower burst strength ceiling.\n\n**Drive motors**: small brushed gearmotors dominate, most commonly the N20-size micro metal gearmotor family (roughly 10g each, available in gear ratios from crawler-slow to sprint-fast) or a 130-size can motor paired with a small gearbox. A control/wedge bot generally wants a lower, torquier gear ratio to maximize pushing power; a spinner-focused build can run a faster ratio since it relies on its weapon rather than raw ramming force to win exchanges.\n\n**Weapon motors**: small brushless outrunners in the 1811-2205 size class, run on 2S, are the standard choice. Kv selection is the key design lever: roughly **2600-2800kv suits light vertical spinner discs**, prioritizing RPM within the printed disc's survivable range, while **1400kv suits heavier drums/horizontal weapons**, prioritizing torque to spin up a heavier printed weapon body without stalling, at a lower top RPM that's kinder to the weapon's burst strength.\n\n**ESC pairing**: drive motors typically run off a combo RX+dual-brushed-ESC board (saving weight over separate receiver and ESC units), while the weapon motor needs its own small brushless ESC (roughly 4-6g, 6A-class is usually sufficient for these small outrunners) since a brushed combo board can't drive a brushless motor.\n\n**Why plastic ants don't chase the highest-kv motors available**: unlike metal antweight, where a builder can push a hardened steel disc to very high RPM because the disc can survive it, a plastic ant's practical RPM ceiling is set by the printed weapon's burst strength, not the motor or ESC's capability. Overdriving a light printed disc past its survivable RPM is a common beginner mistake that results in the weapon flying apart (sometimes literally, as shrapnel) on its very first spin-up test, well before the robot ever reaches a match. Community practice is to start conservative on kv/voltage and incrementally test spin-up rather than assuming the motor's rated RPM is a safe operating target for the printed weapon attached to it.",
+      "entity_refs": [
+        "component-brushless-outrunner-2600kv",
+        "component-brushless-outrunner-1400kv",
+        "component-n20-micro-gearmotor",
+        "component-esc-brushless-weapon-6a",
+        "component-combo-rx-esc-board"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "build-specs",
+        "motors",
+        "esc",
+        "weapon-design"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    }
+  ]
+}

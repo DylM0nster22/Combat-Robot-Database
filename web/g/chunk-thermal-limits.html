@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thermal limits and how weapon motors actually die — Combat Robot Database</title>
+<meta name="description" content="Weapon motors in combat robots are used completely differently from the drones they were designed for: instead of a fairly steady cruise load, they see violent ">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Thermal limits and how weapon motors actually die</div>
+<h1 class="page">Thermal limits and how weapon motors actually die</h1>
+<p class="page-sub">Failure Modes &amp; Durability</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">thermal</span><span class="pill">failure-mode</span><span class="pill">demagnetization</span><span class="pill">burnt-windings</span></div>
+<div class="two-col">
+  <div class="prose"><p>Weapon motors in combat robots are used completely differently from the drones they were designed for: instead of a fairly steady cruise load, they see violent stall-and-recover cycles every time the weapon hits something, plus sustained high-current spin-up after every stall. Four failure modes dominate:</p>
+<p><strong>Demagnetization.</strong> The rotor&#x27;s bonded or sintered magnets can permanently lose strength if driven with current well beyond rated stall current (common in a hard stall against a wall, an opponent&#x27;s weapon, or a jammed mechanism) or if the motor overheats past the magnet material&#x27;s practical temperature limit (well below the Curie point, but high enough to cause real, permanent flux loss in cheap ferrite or thin neodymium magnets). A demagnetized motor doesn&#x27;t stop working -- it just permanently loses torque and top speed, which often shows up mid-tournament as &quot;this motor used to hit harder.&quot;</p>
+<p><strong>Burnt/discolored windings.</strong> Direct evidence reported by builders: stator windings visibly discolored or burned through after repeated hard weapon impacts, indicating current far beyond the motor&#x27;s rated capacity was pushed through the copper for long enough to overheat the enamel insulation and, in bad cases, melt solder joints or short adjacent turns. This is the direct result of the copper-loss heating described by <code>P = I^2 * R</code>, concentrated during and immediately after every stall event rather than spread evenly like a drone&#x27;s steady hover/cruise load.</p>
+<p><strong>Bell separation.</strong> The classic antweight weapon-motor failure: the outer rotor bell, normally retained on the shaft only by a light press-fit plus a small C-clip (standard drone-motor practice, since drones never see shock loads), physically separates from the shaft under a hard weapon impact. The bell (with the weapon attached) can come completely off the motor mid-fight. This is a mechanical retention failure, not an electrical one, and is common enough that purpose-built combat weapon motors specifically call out screw-retained bells (rather than relying on a C-clip alone) as a selling point.</p>
+<p><strong>Magnet debonding.</strong> Under sustained high-RPM operation combined with impact shock, individual rotor magnets bonded to the inside of the bell can crack or separate from the bell wall, especially in cheaper motors using adhesive rather than a full magnet-retention sleeve. A debonded magnet destroys balance immediately, causing violent vibration, and can also puncture the stator windings if it contacts them.</p>
+<p><strong>Duty cycle and stator saturation</strong> are the underlying drivers behind all four. A weapon motor asked to deliver near-stall torque repeatedly in a 3-minute match, then rest between events (versus a drone&#x27;s fairly constant moderate load), sees short, intense heat spikes that a motor&#x27;s thermal mass and duty-cycle rating were never validated against. Likewise, pushing current well past a motor&#x27;s design current can drive the stator iron into magnetic saturation, where additional current stops producing proportionally more torque and instead mostly produces heat -- another reason &quot;just add more amps&quot; has diminishing and eventually harmful returns.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-power-draw.html">Weapon motor peak and steady electrical power draw</a></li><li><a href="../e/motor-1408.html">1408 brushless motor (weapon)</a></li><li><a href="../e/motor-2205.html">2205 brushless motor (weapon)</a></li><li><a href="../e/term-demagnetization.html">Demagnetization (weapon motor failure)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://runamok.tech/AskAaron/motors.html" rel="noopener">https://runamok.tech/AskAaron/motors.html</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

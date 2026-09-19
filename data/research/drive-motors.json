@@ -1,0 +1,2063 @@
+{
+ "topic_id": "drive-motors",
+ "title": "Drive Motors & Drivetrain Sizing",
+ "scope_note": "Drive motors, gearboxes, wheels, hubs, and drivetrain sizing for 1 lb antweight and plastic antweight combat robots, covering FingerTech, Repeat Robotics, N-series, Pololu, and brushless options plus the physics formulas used to size a drivetrain.",
+ "entities": [
+  {
+   "id": "motor-fingertech-silver-spark",
+   "type": "component",
+   "name": "FingerTech \"Silver Spark\" 16mm Gearmotor",
+   "aliases": [
+    "Silver Spark",
+    "FT Silver Spark"
+   ],
+   "summary": "The default drive gearmotor for 1 lb antweight robots: a Mabuchi FK-050 brushed motor mated to an all-metal 16mm spur gearhead, sold across a ladder of 9 gear ratios from 11.1:1 (fast) to 600:1 (slow/high-torque).",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "fingertech",
+    "workhorse"
+   ],
+   "specs": {
+    "weight_g": 29,
+    "voltage_nominal_v": 7.4,
+    "rpm_no_load": 11530,
+    "gear_ratio": 33.3,
+    "stall_current_a": 1.3,
+    "torque_stall_kgcm": 1.14,
+    "shaft_dia_mm": 3,
+    "length_mm": 38,
+    "price_usd": 19.29
+   },
+   "pros": [
+    "All-metal gearbox is far more durable than plastic-geared alternatives",
+    "9 stock ratios cover the whole speed/torque range antweights need",
+    "Extra-long 3mm shaft allows direct (live-axle) wheel mounting",
+    "Very well documented, huge installed base, easy to source spares"
+   ],
+   "cons": [
+    "More expensive per unit than generic N20/N30 motors",
+    "Bare motor (not brushless) has lower efficiency and shorter brush life than premium brushless drive pods",
+    "600:1 and 300:1 ratios are fragile-ish under sustained stall loads"
+   ],
+   "notes": "Base Mabuchi FK-050 motor spec (same for every ratio): 11,530 RPM no-load and 1.3A stall current, quoted for the 7.4V (2S LiPo) range typical of antweights; FingerTech states it runs 3V-18.5V. Bare-motor stall torque is ~0.0461 kg-cm; output stall torque at the wheel shaft is approximately bare_stall_torque x ratio x gearbox_efficiency, using ~0.75 efficiency for a 2-3 stage spur gearbox (medium confidence, not officially published). Full ratio ladder: 11.1, 22.2, 33.3, 50, 83.3 (discontinued/low stock), 100, 200, 300, 600:1. Weight by ratio: 11:1 = 28g, 22:1 through 100:1 = 29g, 200:1/300:1 = 31g, 600:1 = 32g. Shaft is 3mm with a flat, 38mm standard length, with a shorter 22mm version available on 22:1/33:1/50:1 for tighter builds. 11mm circular face-mount pattern for standard FingerTech motor mounts.",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+    "https://palmbeachbots.com/products/fingertech-silver-spark-16mm-gearmotor-33-1"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "motor-fingertech-silver-spark-11-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 11.1:1",
+   "aliases": [
+    "Silver Spark 11:1",
+    "Silver Spark fast"
+   ],
+   "summary": "The fastest stock Silver Spark ratio, used when a builder wants maximum top speed and dodge/reposition ability rather than pushing torque, typically paired with a larger (~2in) wheel.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "fingertech",
+    "fast-ratio"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "voltage_nominal_v": 7.4,
+    "rpm_no_load": 1048,
+    "gear_ratio": 11.1,
+    "stall_current_a": 1.3,
+    "torque_stall_kgcm": 0.38,
+    "shaft_dia_mm": 3,
+    "length_mm": 38,
+    "price_usd": 19.29
+   },
+   "pros": [
+    "Highest stock top speed of the Silver Spark family",
+    "Good choice for spinners that just need to aim/dodge, not ram hard"
+   ],
+   "cons": [
+    "Lowest stock torque of the ladder — can be traction-limited or torque-limited depending on wheel size and weight distribution"
+   ],
+   "notes": "rpm_no_load and torque_stall_kgcm here are computed from the shared base-motor spec (11,530 RPM / 0.0461 kg-cm) divided/multiplied by the 11.1:1 ratio with an assumed ~0.75 gearbox efficiency; treat as medium-confidence estimates, not a FingerTech-published per-ratio table (their site shows the ratio table as an image).",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-fingertech-silver-spark-100-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 100:1",
+   "aliases": [
+    "Silver Spark 100:1"
+   ],
+   "summary": "A mid-high torque Silver Spark ratio popular on control bots and lifters that need strong pushing/lifting force more than raw speed.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "fingertech",
+    "torque-ratio"
+   ],
+   "specs": {
+    "weight_g": 29,
+    "voltage_nominal_v": 7.4,
+    "rpm_no_load": 115,
+    "gear_ratio": 100,
+    "stall_current_a": 1.3,
+    "torque_stall_kgcm": 3.46,
+    "shaft_dia_mm": 3,
+    "length_mm": 38,
+    "price_usd": 19.29
+   },
+   "pros": [
+    "High torque headroom, good for pushing/wedge bots and small lifter actuation",
+    "Same footprint/price as every other Silver Spark ratio"
+   ],
+   "cons": [
+    "Slow top speed, not ideal for a bot that needs to dodge quickly"
+   ],
+   "notes": "Computed from base motor spec at ~0.75 gearbox efficiency; medium confidence.",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-fingertech-silver-spark-200-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 200:1",
+   "aliases": [
+    "Silver Spark 200:1"
+   ],
+   "summary": "One of the highest stock-ratio Silver Sparks, used for slow, high-torque applications like weapon lifters, self-righters, or extremely traction-limited pushing bots rather than main drive.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "fingertech",
+    "high-torque"
+   ],
+   "specs": {
+    "weight_g": 31,
+    "voltage_nominal_v": 7.4,
+    "rpm_no_load": 58,
+    "gear_ratio": 200,
+    "stall_current_a": 1.3,
+    "torque_stall_kgcm": 6.9,
+    "shaft_dia_mm": 3,
+    "length_mm": 38,
+    "price_usd": 19.29
+   },
+   "pros": [
+    "Very high torque for its size/weight",
+    "Same base motor reliability as the rest of the line"
+   ],
+   "cons": [
+    "Far too slow for main drive on a competitive bot",
+    "At this ratio the output gear stage becomes the limiting strength factor, not the motor"
+   ],
+   "notes": "Computed estimate at ~0.75 efficiency; medium confidence. FingerTech's Gold Spark datasheet explicitly warns that torque above 6.84 kg-cm (95 oz-in) will damage the output gear stage on that line, and a similar mechanical ceiling likely applies to Silver Spark's higher ratios even though it uses an all-metal gearbox.",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-fingertech-gold-spark",
+   "type": "component",
+   "name": "FingerTech \"Gold Spark\" 16mm Gearmotor",
+   "aliases": [
+    "Gold Spark"
+   ],
+   "summary": "FingerTech's budget-tier 16mm gearmotor: the same Mabuchi FK-050 base motor as the Silver Spark but with a plastic (not all-metal) gear stage, sold in 8 ratios from 20:1 to 360:1. Positioned for hobby/mini-sumo/line-following use and lighter-duty antweight builds rather than front-line competitive drive.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "fingertech",
+    "budget"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "voltage_nominal_v": 7.4,
+    "rpm_no_load": 231,
+    "gear_ratio": 50,
+    "stall_current_a": 1.3,
+    "torque_stall_kgcm": 1.5,
+    "shaft_dia_mm": 3,
+    "price_usd": 14.79
+   },
+   "pros": [
+    "Cheaper than Silver Spark for the same base motor",
+    "Fine for plastic antweights and lighter-contact builds",
+    "Same 11mm face-mount pattern as Silver Spark for easy swapping"
+   ],
+   "cons": [
+    "Plastic final gear stage is explicitly rated to fail above 6.84 kg-cm (95 oz-in) output torque",
+    "Not recommended as the sole drive on a bot expected to take direct hits or heavy ramming loads"
+   ],
+   "notes": "Ratio ladder: 20:1, 35:1, 50:1, 86:1, 115:1, 150:1, 250:1, 360:1. All ratios share the same 28g weight and $14.79 price point per FingerTech's page. Output rpm/torque here computed from the shared base motor (11,530 RPM / 0.0461 kg-cm) at an assumed ~0.65 efficiency (lower than Silver Spark due to the plastic stage) — medium confidence.",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-fingertech-gold-spark-150-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 150:1",
+   "aliases": [
+    "Gold Spark 150:1"
+   ],
+   "summary": "A higher-torque Gold Spark ratio near the top of its safe operating range before hitting the plastic output gear's 6.84 kg-cm damage threshold.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "fingertech",
+    "budget"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "voltage_nominal_v": 7.4,
+    "rpm_no_load": 77,
+    "gear_ratio": 150,
+    "stall_current_a": 1.3,
+    "torque_stall_kgcm": 4.5,
+    "shaft_dia_mm": 3,
+    "price_usd": 14.79
+   },
+   "pros": [
+    "Cheap way to get real torque for a plastic-ant lifter or pusher"
+   ],
+   "cons": [
+    "Approaching the gearbox's rated damage threshold under stall; avoid pinning at full stall for long periods"
+   ],
+   "notes": "Estimated output figures at ~0.65 efficiency; medium/low confidence on exact torque number.",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-fingertech-megaspark-brushless",
+   "type": "component",
+   "name": "FingerTech \"MegaSpark\" Brushless 24mm Planetary Gearmotor",
+   "aliases": [
+    "MegaSpark"
+   ],
+   "summary": "A premium 24mm brushless planetary gearmotor sold through the FingerTech ecosystem (via resellers), sized more for beetleweight than antweight but relevant as the high-end brushless benchmark antweight brushless pods are compared against.",
+   "weight_classes": [
+    "beetleweight",
+    "antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushless",
+    "planetary",
+    "premium"
+   ],
+   "specs": {
+    "dia_mm": 24
+   },
+   "pros": [
+    "All-metal planetary gearbox is far more torque-dense and durable than a spur gearbox",
+    "Brushless motor avoids brush wear"
+   ],
+   "cons": [
+    "Oversized/heavy for a standard 1 lb antweight budget; more common on beetleweights",
+    "Requires a reversing brushless ESC, adding cost/weight/complexity vs a plug-and-play brushed motor"
+   ],
+   "notes": "Included as context for how the antweight brushless drive-pod trend (Repeat Robotics, etc.) scales up; full spec sheet (kv, ratio options, price) was not available in this research pass — treat weight/price as unknown rather than guessed.",
+   "sources": [
+    "https://itgresa.com/product/megaspark-brushless-drive-gearmotor/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-repeat-mini-brushed-mk2",
+   "type": "component",
+   "name": "Repeat Robotics \"Mini Brushed\" Mk2 Antweight Gearmotor",
+   "aliases": [
+    "Repeat Mini Brushed Mk2",
+    "Repeat Drive Brushed"
+   ],
+   "summary": "Repeat Robotics' antweight brushed planetary gearmotor, positioned as a more durable alternative to spur-gear motors like Silver Spark, using a multi-stage all-metal planetary gearbox for higher torque density and durability.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "planetary",
+    "16mm",
+    "repeat-robotics"
+   ],
+   "specs": {
+    "price_usd": 25,
+    "shaft_dia_mm": 3
+   },
+   "pros": [
+    "Planetary gearbox is more durable under shock loading than a single-stage spur gearbox",
+    "Popular, well-regarded in the antweight community as a Silver Spark alternative"
+   ],
+   "cons": [
+    "Costs more than a Silver Spark or generic N20",
+    "Exact published RPM/torque/current spec table was not accessible in this research pass"
+   ],
+   "notes": "Listed at $25 on the Repeat Robotics shop as \"Mini Pro Brushed.\" Detailed numeric specs (no-load RPM, stall current, torque per ratio) were not extractable from the shop listing page in this pass; treat weight/rpm/torque as domain-knowledge estimates only, not sourced numbers, until verified directly against the product page.",
+   "sources": [
+    "https://repeat-robotics.com/shop/?products-per-page=all",
+    "https://itgresa.com/product/repeat-robotics-brushed-drive-gearmotor/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-repeat-mini-brushless-1106-mk4",
+   "type": "component",
+   "name": "Repeat Robotics \"Mini\" Brushless 1106 Mk4.1 Gearmotor",
+   "aliases": [
+    "Repeat Mini Brushless Mk4.1",
+    "Repeat 1106 drive pod"
+   ],
+   "summary": "Repeat Robotics' flagship antweight brushless drive gearmotor: a custom-wound 1106 outrunner brushless motor built directly into a 2-stage, 28.5:1, all-metal 16mm planetary gearbox with a 4mm hardened output shaft, aimed at builders who want more speed and efficiency than brushed Silver Sparks at a similar weight.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushless",
+    "planetary",
+    "16mm",
+    "repeat-robotics",
+    "outrunner"
+   ],
+   "specs": {
+    "weight_g": 24,
+    "gear_ratio": 28.5,
+    "shaft_dia_mm": 4,
+    "price_usd": 18
+   },
+   "pros": [
+    "Brushless motor = no brush wear, higher efficiency, higher power density than a same-size brushed motor",
+    "Metal planetary gearbox handles shock loads better than spur gears",
+    "Rated for 2S-4S, so voltage alone can retune top speed without swapping hardware"
+   ],
+   "cons": [
+    "Requires a reversing brushless ESC (not a simple brushed H-bridge)",
+    "Sensorless brushless motors can cog/stutter at very low duty cycle / near-stall, an issue brushed motors don't have",
+    "Historically has had periods of being sold out due to demand"
+   ],
+   "notes": "The earlier Mk3/Mk4 generation used a 1104-size custom-wound motor (~3500kv); Mk4.1 moved to a 1106 stator (more stator volume/copper) for more torque and power in the same 16mm gearbox footprint. Using a 3500kv assumption and the 28.5:1 gearbox: at 2S (7.4V) no-load motor speed is ~25,900 rpm giving ~909 rpm at the output shaft; at 3S (11.1V) ~1,363 rpm output; at 4S (14.8V) ~1,818 rpm output (all idealized, no-load, medium/low confidence since kv was reported for the earlier 1104 version, not confirmed for 1106).",
+   "sources": [
+    "https://palmbeachbots.com/products/repeat-robotics-mini-16mm-brushless-planetary-motor-mk4-4mm-shaft",
+    "https://repeat-robotics.com/products/repeat-mini-mk4",
+    "https://itgresa.com/product/repeat-robotics-mini-brushless-drive-gearmotor-mk4/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-repeat-mini-pro-1106",
+   "type": "component",
+   "name": "Repeat Robotics \"Mini Pro\" 1106 Gearmotor",
+   "aliases": [
+    "Repeat Mini Pro 1106"
+   ],
+   "summary": "A higher-spec / higher-price variant of Repeat's 1106 brushless antweight drive gearmotor line, sold alongside the standard Mk4.1 for builders wanting extra performance or refinement (e.g. better bearings, tighter tolerances).",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushless",
+    "planetary",
+    "16mm",
+    "repeat-robotics"
+   ],
+   "specs": {
+    "price_usd": 42
+   },
+   "pros": [
+    "Positioned as the premium option in Repeat's antweight brushless lineup"
+   ],
+   "cons": [
+    "More than double the price of the standard Mini Brushless variant",
+    "Detailed spec differences vs the standard Mk4.1 were not confirmed in this pass"
+   ],
+   "notes": "Price ($42) confirmed from the Repeat Robotics shop listing; exact technical differentiation from the standard Mini Brushless 1106 was not available in the pages fetched.",
+   "sources": [
+    "https://repeat-robotics.com/shop/?products-per-page=all"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-repeat-compact-1806-brushless",
+   "type": "component",
+   "name": "Repeat Robotics Compact Brushless 1806 Drive Gearmotor",
+   "aliases": [
+    "Repeat Compact 1806"
+   ],
+   "summary": "A lightweight brushless planetary gearmotor built around an 1806-size motor, marketed as the lightest brushless beetleweight drive motor on the market; included here as context for scaling brushless drive up from antweight, or for extra-light plastic-antweight-adjacent builds where a lower part count matters more than absolute minimum weight.",
+   "weight_classes": [
+    "beetleweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushless",
+    "planetary",
+    "repeat-robotics"
+   ],
+   "specs": {},
+   "pros": [
+    "Very light for a brushless beetleweight motor",
+    "Hardened steel 4mm shaft with dual bearings on the gearbox output"
+   ],
+   "cons": [
+    "Sized and priced for 3 lb beetleweight, oversized/overpriced for a standard 1 lb antweight budget"
+   ],
+   "notes": "Context only — not a direct fit for 1 lb antweight or plastic antweight, but shows the same drive-pod architecture (brushless motor cast directly into a planetary gearbox) scaled up one weight class.",
+   "sources": [
+    "https://itgresa.com/product/repeat-robotics-compact-brushless-1806-drive-gearmotor/",
+    "https://repeat-robotics.com/products/repeat-compact-1806"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-n20-generic-100-1",
+   "type": "component",
+   "name": "Generic N20 Gearmotor, 6V, 100:1",
+   "aliases": [
+    "N20 100:1",
+    "12mm N20 gearmotor"
+   ],
+   "summary": "A widely sold 12mm-diameter micro DC gearmotor (compatible with Sanyo NA4S-style gearboxes) used by budget and plastic-antweight builders as a cheap alternative to FingerTech/Repeat/Pololu motors, at the cost of unit-to-unit quality consistency.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "n-series",
+    "budget",
+    "quality-lottery"
+   ],
+   "specs": {
+    "weight_g": 10,
+    "voltage_nominal_v": 6,
+    "rpm_no_load": 150,
+    "gear_ratio": 100,
+    "shaft_dia_mm": 3,
+    "torque_stall_kgcm": 2,
+    "price_usd": 4
+   },
+   "pros": [
+    "Extremely cheap (a few dollars each), widely available from many sellers",
+    "Small and light, good for plastic antweights on a tight budget"
+   ],
+   "cons": [
+    "Quality varies drastically unit to unit and listing to listing (the \"quality lottery\")",
+    "Many units mix plastic gears into otherwise \"metal gear\" listings",
+    "No standardized spec sheet across sellers — published numbers are unreliable"
+   ],
+   "notes": "Base N20 motor is commonly quoted at ~15,000 RPM no-load at 6V for the bare motor before gearing; a 100:1 gearbox gives ~150 RPM output, consistent with a 298:1 listing observed selling at 50 RPM (15,000/298 ~= 50). Gearbox torque ratings published by manufacturers cap around 20 kg*mm (2.0 kg-cm) of continuous output torque for most ratios below 380:1, meaning the motor's theoretical stall torque at high ratios exceeds what the gearbox can survive — a mechanical, not electrical, limit. Price and exact weight vary a lot by seller; treat as representative, low-confidence figures.",
+   "sources": [
+    "https://ineedmicromotors.com/what-is-n20-gear-motor/",
+    "https://ozrobotics.com/shop/premium-12mm-dc-n20-gear-motor-6v-2981-ratio-50-rpm/",
+    "https://www.kindmotor.com/sale-14047663-n10-n20-n30-mini-dc-3v-6v-12v-100-1-150-1-210-1-298-1-380-1-340-1-1000-1-gear-ratio-motor-reduction-.html"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-n20-generic-298-1",
+   "type": "component",
+   "name": "Generic N20 Gearmotor, 6V, 298:1",
+   "aliases": [
+    "N20 298:1"
+   ],
+   "summary": "A slow, high-torque N20 variant near the top of the common ratio ladder, used for lifters, self-righters, or very traction-limited plastic-antweight drives rather than fast main drive.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "n-series",
+    "budget",
+    "quality-lottery"
+   ],
+   "specs": {
+    "weight_g": 10,
+    "voltage_nominal_v": 6,
+    "rpm_no_load": 50,
+    "gear_ratio": 298,
+    "shaft_dia_mm": 3,
+    "price_usd": 4
+   },
+   "pros": [
+    "High torque per dollar",
+    "Directly confirmed real-world sale listing (298:1, 50 RPM, 6V) validates the ~15,000 RPM bare-motor assumption"
+   ],
+   "cons": [
+    "Same quality-lottery risk as all generic N-series motors",
+    "Too slow alone for a competitive main-drive ratio"
+   ],
+   "notes": "The 50 RPM @ 298:1 @ 6V figure is directly from a specific commercial listing, which is good corroboration for the family's base-motor speed assumption.",
+   "sources": [
+    "https://ozrobotics.com/shop/premium-12mm-dc-n20-gear-motor-6v-2981-ratio-50-rpm/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-n20-generic-1000-1",
+   "type": "component",
+   "name": "Generic N20 Gearmotor, 12V, 1000:1",
+   "aliases": [
+    "N20 1000:1"
+   ],
+   "summary": "The slowest, highest-torque stock N20 ratio; the 1000:1 (and 380:1) versions get a slightly longer, reinforced gearbox and a higher torque rating than the rest of the line, making them the ones most likely to survive at this extreme reduction.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "n-series",
+    "budget",
+    "high-torque"
+   ],
+   "specs": {
+    "weight_g": 11,
+    "voltage_nominal_v": 12,
+    "rpm_no_load": 15,
+    "gear_ratio": 1000,
+    "shaft_dia_mm": 3,
+    "torque_stall_kgcm": 2.5
+   },
+   "pros": [
+    "Reinforced gearbox stage rated to ~25 kg*mm (2.5 kg-cm), higher than the ~20 kg*mm (2.0 kg-cm) rating of lower ratios",
+    "Very high torque for actuators/lifters"
+   ],
+   "cons": [
+    "Far too slow for drive; this ratio belongs on weapon-lift or self-righting mechanisms, not wheels",
+    "Gearbox is 3.5mm longer than other ratios, a minor packaging difference"
+   ],
+   "notes": "Torque rating sourced from a manufacturer listing noting 25 kg*mm for 1000:1 and 380:1 vs 20 kg*mm for other ratios; RPM computed from the ~15,000 RPM bare-motor assumption.",
+   "sources": [
+    "https://www.kindmotor.com/sale-14047663-n10-n20-n30-mini-dc-3v-6v-12v-100-1-150-1-210-1-298-1-380-1-340-1-1000-1-gear-ratio-motor-reduction-.html"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-n30-generic-50-1",
+   "type": "component",
+   "name": "Generic N30 Gearmotor, 6V, 50:1",
+   "aliases": [
+    "N30 50:1",
+    "30mm N-series gearmotor"
+   ],
+   "summary": "The larger sibling of the N20, using a bigger-diameter motor can (~30mm class) for more torque and current handling at the cost of extra weight; used in antweights (not usually plastic antweights, where every gram counts more) when N20 torque isn't enough but a 16mm FingerTech-class motor is still preferred to save weight.",
+   "weight_classes": [
+    "antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "n-series",
+    "budget"
+   ],
+   "specs": {
+    "weight_g": 20,
+    "voltage_nominal_v": 6,
+    "gear_ratio": 50,
+    "shaft_dia_mm": 4
+   },
+   "pros": [
+    "More torque and current headroom than N20 for a modest weight increase",
+    "Still cheap relative to name-brand combat motors"
+   ],
+   "cons": [
+    "Same quality-lottery sourcing risk as other generic N-series motors",
+    "Larger diameter can be harder to package in a slim 1 lb chassis than a 16mm motor"
+   ],
+   "notes": "N30 specs are far less standardized/published than N20; numbers here are rough, low-confidence estimates based on the general pattern that N30 motors run roughly 1.5-2x the torque of an equivalent-ratio N20 at somewhat higher current draw and weight.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-n10-generic-100-1",
+   "type": "component",
+   "name": "Generic N10 Gearmotor, 6V, 100:1",
+   "aliases": [
+    "N10 100:1",
+    "10mm N-series gearmotor"
+   ],
+   "summary": "The smallest of the common N-series (N10/N20/N30) gearmotor family, used in fairyweight robots and the very lightest plastic antweight builds where every gram matters more than raw torque.",
+   "weight_classes": [
+    "fairyweight",
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "n-series",
+    "budget",
+    "micro"
+   ],
+   "specs": {
+    "weight_g": 6,
+    "voltage_nominal_v": 6,
+    "gear_ratio": 100,
+    "shaft_dia_mm": 2
+   },
+   "pros": [
+    "Lightest option in the N-series family",
+    "Cheap and small enough for micro-scale plastic antweights"
+   ],
+   "cons": [
+    "Least torque and current handling of the family",
+    "Least standardized specs / hardest to verify quality before buying"
+   ],
+   "notes": "Specs are rough low-confidence estimates; N10 is far less documented in English-language combat-robot sources than N20.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-pololu-micro-metal-hp-30-1",
+   "type": "component",
+   "name": "Pololu Micro Metal Gearmotor HP 6V, 30:1",
+   "aliases": [
+    "Pololu 30:1 HP"
+   ],
+   "summary": "Pololu's High-Power (HP) tune of its popular micro metal gearmotor line at a fast 30:1 ratio: a 10x12mm all-metal gearbox on a 3mm D-shaft output, favoring speed and current draw over the LP/MP tunes of the same physical motor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "pololu",
+    "micro-metal-gearmotor"
+   ],
+   "specs": {
+    "voltage_nominal_v": 6,
+    "gear_ratio": 30,
+    "stall_current_a": 1.6,
+    "shaft_dia_mm": 3,
+    "weight_g": 10
+   },
+   "pros": [
+    "Precision-manufactured, far more consistent unit-to-unit than generic N-series motors",
+    "Well documented performance curves from Pololu",
+    "Very compact 10x12mm gearbox cross-section"
+   ],
+   "cons": [
+    "More expensive than generic N20 motors",
+    "3mm output shaft is short (9mm) — needs a hub or coupler, not usually long enough for direct antweight wheel mounting like a Silver Spark"
+   ],
+   "notes": "HP variant free-run current is ~100mA and stall current ~1.6A at 6V (confirmed). Exact no-load RPM at 30:1 was not independently confirmed this pass; Pololu's published family typically gives high-hundreds to low-thousands RPM at this ratio (medium/low confidence on the exact figure — verify against the specific product's datasheet before final BOM lock).",
+   "sources": [
+    "https://www.pololu.com/product/1093",
+    "https://www.pololu.com/category/60/micro-metal-gearmotors"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-pololu-micro-metal-mp-30-1",
+   "type": "component",
+   "name": "Pololu Micro Metal Gearmotor MP 6V, 30:1",
+   "aliases": [
+    "Pololu 30:1 MP"
+   ],
+   "summary": "The Medium-Power (MP) tune of Pololu's micro metal gearmotor, splitting the difference between the low-current LP and high-current HP versions of the same physical gearbox and ratio.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "pololu",
+    "micro-metal-gearmotor"
+   ],
+   "specs": {
+    "voltage_nominal_v": 6,
+    "gear_ratio": 30,
+    "stall_current_a": 0.67,
+    "shaft_dia_mm": 3,
+    "weight_g": 10
+   },
+   "pros": [
+    "Lower current draw than HP for the same ratio, easing ESC/battery sizing",
+    "Same precision metal gearbox as HP/LP"
+   ],
+   "cons": [
+    "Less torque/power than the HP tune at the same ratio"
+   ],
+   "notes": "Stall current (0.67A) and free-run current (~70mA) at 6V are confirmed from Pololu's published data; RPM/torque at this specific ratio were not independently confirmed this pass.",
+   "sources": [
+    "https://www.pololu.com/category/60/micro-metal-gearmotors"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-pololu-micro-metal-lp-50-1",
+   "type": "component",
+   "name": "Pololu Micro Metal Gearmotor LP 6V, 50:1",
+   "aliases": [
+    "Pololu 50:1 LP"
+   ],
+   "summary": "The Low-Power (LP) tune of Pololu's micro metal gearmotor, drawing the least current of the three power tunes for a given ratio — useful when a builder is current-budget constrained (e.g. a very small ESC or shared receiver battery).",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "pololu",
+    "micro-metal-gearmotor"
+   ],
+   "specs": {
+    "voltage_nominal_v": 6,
+    "gear_ratio": 50,
+    "stall_current_a": 0.36,
+    "shaft_dia_mm": 3,
+    "weight_g": 10
+   },
+   "pros": [
+    "Lowest current draw of the family, easiest on small ESCs",
+    "Same durable metal gearbox as MP/HP"
+   ],
+   "cons": [
+    "Least torque/power of the three tunes — can be traction- and power-limited on a heavier antweight"
+   ],
+   "notes": "Stall current (0.36A) and free-run current (~40mA) at 6V confirmed from Pololu data.",
+   "sources": [
+    "https://www.pololu.com/product/1098",
+    "https://www.pololu.com/category/60/micro-metal-gearmotors"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-pololu-micro-metal-hp-100-1",
+   "type": "component",
+   "name": "Pololu Micro Metal Gearmotor HP 6V, 100:1",
+   "aliases": [
+    "Pololu 100:1 HP"
+   ],
+   "summary": "A commonly chosen ratio/power combination for antweight-scale robots wanting a precision-made alternative to generic N20 motors, balancing speed and torque for typical 1.5-2in wheels.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "pololu",
+    "micro-metal-gearmotor"
+   ],
+   "specs": {
+    "voltage_nominal_v": 6,
+    "gear_ratio": 100,
+    "stall_current_a": 1.6,
+    "shaft_dia_mm": 3,
+    "weight_g": 10
+   },
+   "pros": [
+    "Good balance of speed and torque for a typical 1.5-2in antweight wheel",
+    "Precision metal gearbox, consistent unit to unit",
+    "Compact 10x12mm gearbox"
+   ],
+   "cons": [
+    "Higher stall current draw than MP/LP tunes — size ESC accordingly",
+    "Short 9mm output shaft needs a hub/coupler"
+   ],
+   "notes": "Stall current confirmed from the HP family spec (1.6A at 6V); exact no-load RPM/torque at 100:1 specifically was not independently re-confirmed this pass — Pololu's own product page datasheet should be checked for the final number before locking a BOM.",
+   "sources": [
+    "https://www.pololu.com/product/1101",
+    "https://www.pololu.com/category/60/micro-metal-gearmotors"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-pololu-micro-metal-extended-shaft",
+   "type": "component",
+   "name": "Pololu Micro Metal Gearmotor, Extended Motor Shaft variant",
+   "aliases": [
+    "Pololu extended-shaft gearmotor"
+   ],
+   "summary": "A version of the micro metal gearmotor line with the motor's rear shaft extended through the back of the case, letting a builder mount an encoder disc, a second small pulley, or a cooling/inertia element on the motor's non-gearbox end without modifying the motor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "pololu",
+    "micro-metal-gearmotor",
+    "extended-shaft"
+   ],
+   "specs": {
+    "voltage_nominal_v": 6,
+    "shaft_dia_mm": 3
+   },
+   "pros": [
+    "Enables encoder feedback or a rear-mounted pulley/sprocket without custom machining",
+    "Same gearbox performance as the standard version"
+   ],
+   "cons": [
+    "Small weight/cost premium over the standard (non-extended) version",
+    "Rarely needed on a simple 2WD antweight without closed-loop control"
+   ],
+   "notes": "Useful mainly for control-bot builders who want wheel-speed encoders for closed-loop drive, or who need to power a secondary belt/pulley off the back of the motor in a 4WD belt-driven layout.",
+   "sources": [
+    "https://www.pololu.com/category/60/micro-metal-gearmotors"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-brushless-1104-fpv-drive",
+   "type": "component",
+   "name": "1104-size Brushless Motor (FPV-derived) for Custom Drive Pods",
+   "aliases": [
+    "1104 brushless motor"
+   ],
+   "summary": "An 11mm-diameter, 4mm-tall outrunner brushless motor, originally developed for micro FPV drones, repurposed by combat robot builders into custom or off-the-shelf (e.g. Repeat Robotics) 16mm drive gearboxes for antweight main drive.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushless",
+    "fpv-derived",
+    "outrunner"
+   ],
+   "specs": {
+    "dia_mm": 11,
+    "length_mm": 4,
+    "voltage_nominal_v": 7.4
+   },
+   "pros": [
+    "Very high power-to-weight ratio compared to a brushed motor of similar size",
+    "No brushes to wear out",
+    "Wide range of kv (winding) options available from FPV motor market"
+   ],
+   "cons": [
+    "Sensorless variants can cog or stutter at very low speed/duty cycle, hurting fine driving control",
+    "Requires a reversing brushless ESC rather than a simple brushed driver",
+    "Needs to be built into or bought as part of a gearbox — not a drop-in drive-and-wheel solution by itself"
+   ],
+   "notes": "kv commonly seen in this application is in the 3000-6000kv range depending on the specific winding chosen by the seller/builder; Repeat Robotics' early Mk3/Mk4 drive pod used a custom-wound ~3500kv 1104 motor.",
+   "sources": [
+    "https://palmbeachbots.com/products/repeat-robotics-mini-16mm-brushless-planetary-motor-mk4-4mm-shaft"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-brushless-1404-fpv-drive",
+   "type": "component",
+   "name": "1404-size Brushless Motor (FPV-derived) for Custom Drive Pods",
+   "aliases": [
+    "1404 brushless motor"
+   ],
+   "summary": "A 14mm-diameter, 4mm-tall outrunner brushless motor, larger-stator sibling of the 1104/1106 sizes, used in higher-power antweight or lighter beetleweight custom drive builds where more torque/current handling is wanted from a similarly slim motor.",
+   "weight_classes": [
+    "antweight",
+    "beetleweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushless",
+    "fpv-derived",
+    "outrunner"
+   ],
+   "specs": {
+    "dia_mm": 14,
+    "length_mm": 4
+   },
+   "pros": [
+    "More stator volume than 1104/1106 for a given height, so more torque/current capability",
+    "Same FPV-market kv/winding flexibility"
+   ],
+   "cons": [
+    "Larger diameter can be harder to fit inside a slim antweight chassis",
+    "Same brushless-drive complexity: reversing ESC required, sensorless cogging risk at low speed"
+   ],
+   "notes": "Used mostly in custom-built drive pods (3D-printed or machined gearbox housing) rather than sold as a complete antweight-ready gearmotor product; treat as a component a builder pairs with their own gear reduction.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "motor-servo-continuous-rotation-modified",
+   "type": "component",
+   "name": "Modified Continuous-Rotation 9g Micro Servo (Drive)",
+   "aliases": [
+    "hacked servo drive",
+    "modified SG90 drive"
+   ],
+   "summary": "A standard 9g hobby micro servo (e.g. SG90-class) with its position-limiting potentiometer removed or bypassed (replaced with a fixed voltage divider) so it spins continuously instead of to a commanded angle, letting the transmitter's stick position set speed and direction directly with zero external electronics.",
+   "weight_classes": [
+    "plastic-antweight",
+    "fairyweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "servo",
+    "continuous-rotation",
+    "budget",
+    "plastic-antweight"
+   ],
+   "specs": {
+    "weight_g": 9,
+    "voltage_nominal_v": 5
+   },
+   "pros": [
+    "No separate ESC/driver needed — plugs straight into a receiver channel",
+    "Extremely cheap and small, ideal for gram-constrained plastic antweights",
+    "Simple to source and modify with widely available tutorials"
+   ],
+   "cons": [
+    "Low top speed and low torque compared to a dedicated gearmotor + ESC of similar weight",
+    "Modification quality varies (pot removal/centering must be done carefully or the \"stopped\" position drifts)",
+    "Internal gearbox (plastic in cheap servos) is not built for combat shock loads"
+   ],
+   "notes": "The standard mod: remove the servo's positional potentiometer and replace it with two fixed resistors (dividing voltage to sit at the servo's centered/neutral setpoint), and often trim/cut a mechanical stop tab inside the gearbox so the output gear can rotate freely. A 1ms pulse spins one direction, 2ms the other, ~1.5ms stops it, mirroring standard RC PWM servo signal ranges.",
+   "sources": [
+    "https://www.youtube.com/watch?v=HixZdhcLSdM"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "motor-servo-continuous-rotation-fs90r",
+   "type": "component",
+   "name": "Stock Continuous-Rotation Micro Servo (FS90R-class)",
+   "aliases": [
+    "FS90R",
+    "pre-modified continuous rotation servo"
+   ],
+   "summary": "A factory-built continuous-rotation micro servo (no user modification needed), functionally equivalent to a hand-modified 9g servo but sold ready to use, popular for beginner plastic antweight and fairyweight drive.",
+   "weight_classes": [
+    "plastic-antweight",
+    "fairyweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "servo",
+    "continuous-rotation",
+    "budget",
+    "beginner"
+   ],
+   "specs": {
+    "weight_g": 9,
+    "voltage_nominal_v": 5
+   },
+   "pros": [
+    "Zero-modification, works out of the box",
+    "Same weight/cost/simplicity benefits as the hand-modified version, with more consistent \"stopped\" centering"
+   ],
+   "cons": [
+    "Same low speed/torque ceiling as any 9g-servo-based drive",
+    "Still uses a small plastic internal gearbox not designed for combat impacts"
+   ],
+   "notes": "A good first-build option for absolute beginners or very light plastic antweights where simplicity and low part count outweigh top-end performance.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "gearbox-16mm-planetary-generic",
+   "type": "component",
+   "name": "16mm Planetary Gearbox Module (generic/Repeat-style)",
+   "aliases": [
+    "16mm planetary drive gearbox"
+   ],
+   "summary": "A multi-stage (typically 2-3 stage) all-metal planetary gearbox module in the same 16mm form factor popularized by FingerTech's spur-gear Spark line, used by Repeat Robotics and others to mate to brushed or brushless motors for higher torque density and durability than a comparable spur gearbox.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "gearbox",
+    "planetary",
+    "16mm",
+    "high-torque"
+   ],
+   "specs": {
+    "dia_mm": 16,
+    "shaft_dia_mm": 4
+   },
+   "pros": [
+    "Higher mechanical efficiency (typically ~80-90%) than a comparable spur gearbox (~65-80%)",
+    "Planetary gear meshing distributes load across multiple planet gears, more shock-tolerant than a single spur gear train",
+    "More torque-dense for the same envelope size"
+   ],
+   "cons": [
+    "More expensive and complex to manufacture than a simple spur gearbox",
+    "Harder to hand-repair/re-lubricate in the field than an open spur gearbox"
+   ],
+   "notes": "Represents the general category of planetary gearboxes used in Repeat Robotics' brushed and brushless antweight drive motors; efficiency figures are typical-range estimates from general gearbox engineering knowledge, not a specific manufacturer's published test data.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "gearbox-n-series-metal-vs-plastic",
+   "type": "component",
+   "name": "N-Series (N10/N20/N30) Gearbox: Metal vs Plastic Gear Stages",
+   "aliases": [
+    "N20 metal gear vs plastic gear"
+   ],
+   "summary": "A comparison entity describing the inconsistent internal construction of budget N-series gearmotors: many listings advertise \"metal gear\" but only some internal stages are actually metal, with the rest plastic, and quality varies not just by listing but by individual unit within the same order — the core of the antweight community's \"quality lottery\" problem with these motors.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "gearbox",
+    "n-series",
+    "quality-lottery",
+    "budget"
+   ],
+   "specs": {},
+   "pros": [
+    "When a unit is good, it is very cheap for the torque delivered",
+    "All-metal-gear versions do exist and can be nearly as durable as name-brand options at a fraction of the cost"
+   ],
+   "cons": [
+    "No reliable way to verify actual gear material from a listing photo or description alone",
+    "Reported failure modes include stripped final-stage gears, inconsistent KV/no-load speed between \"identical\" units, and out-of-box dead units",
+    "No standardized manufacturer datasheet across the many resellers of what is often the same underlying OEM part"
+   ],
+   "notes": "Community-standard mitigation: buy several spares from the start (treat them as a consumable), bench-test every motor before installing it (measure free-run current and no-load RPM, compare across the batch, and reject outliers), and avoid using an untested cheap N-series motor as the sole drive on a bot going into an important match. Name-brand options (FingerTech Silver/Gold Spark, Repeat Robotics, Pololu) cost more specifically because they remove this variance.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "wheel-fingertech-lite-flite-foam",
+   "type": "component",
+   "name": "FingerTech Lite Flite Foam Wheel",
+   "aliases": [
+    "Lite Flite wheel",
+    "FingerTech foam wheel"
+   ],
+   "summary": "FingerTech's neoprene foam wheel, the most widely used antweight wheel: extremely light, shock-absorbing, and surprisingly grippy for a plain foam tire, sold in a wide range of diameters and two widths to fit the Twist/Snap/Lite hub system.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "wheel",
+    "foam",
+    "fingertech",
+    "lightweight"
+   ],
+   "specs": {
+    "dia_mm": 38.1,
+    "length_mm": 19.1,
+    "weight_g": 4
+   },
+   "pros": [
+    "Very light — a major reason it's the default antweight wheel choice",
+    "Neoprene foam absorbs shock from arena floor impacts and hazards, protecting the gearbox/shaft",
+    "Surprisingly good grip for its weight, especially versus hard plastic wheels",
+    "Wide diameter range (25.4-76.2mm / 1.0-3.0in in 6.35mm/0.25in steps) lets builders dial in speed vs torque without changing motors"
+   ],
+   "cons": [
+    "Less absolute grip than a silicone-coated or compliant rubber tread wheel",
+    "Foam compresses/wears over many hard hits, eventually needs replacement",
+    "Needs a separate hub (Lite/Snap/Twist) adding a small amount of weight and an assembly step"
+   ],
+   "notes": "A 2.00in diameter tire alone weighs about 0.14oz (~4g); smaller/larger diameters scale roughly with tire volume. Widths available: 12.7mm (0.5in, \"Thin\") and 19.1mm (0.75in, \"Wide\"). Plastic hubs used with Lite Flites weigh about 3g each, so a full wheel+hub assembly at 1.5-2in is roughly 7-10g depending on width and hub choice.",
+   "sources": [
+    "https://palmbeachbots.com/products/fingertech-foam-wheels-pair-0-5-wide-x-1-75",
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "wheel-silicone-coated-foam",
+   "type": "component",
+   "name": "Silicone-Coated / Cast Silicone Tire",
+   "aliases": [
+    "silicone tire",
+    "cast silicone wheel"
+   ],
+   "summary": "A foam or 3D-printed wheel core coated or wrapped in a thin layer of cast silicone rubber (Shore A ~20-50 durometer), a common DIY upgrade path when bare foam or bare plastic doesn't provide enough grip for a control bot or pushing match.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "wheel",
+    "silicone",
+    "traction",
+    "diy"
+   ],
+   "specs": {
+    "hardness_shore_a": 30
+   },
+   "pros": [
+    "Significant traction improvement over bare foam or bare plastic/TPU",
+    "Durometer is tunable by the builder (softer = more grip but faster wear, harder = more durable but less grip)",
+    "Can be applied over an existing lightweight foam or printed core, keeping most of the weight savings"
+   ],
+   "cons": [
+    "Requires casting/mixing 2-part silicone rubber (extra build step, cure time, some skill)",
+    "Adds some weight over bare foam",
+    "Tackier compounds pick up arena debris faster, sometimes needing cleaning mid-event"
+   ],
+   "notes": "Shore A 30-50 durometer silicone/urethane compounds are commonly cited as delivering the best grip on polished wood or acrylic arena floors without being so soft they wear out quickly or gum up with debris.",
+   "sources": [
+    "https://zbotic.in/robot-wheel-traction-surface-tire-type-selection-guide/",
+    "https://www.gobilda.com/gripforce-mecanum-wheel-set-o104mm-40a-durometer-rollers/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "wheel-printed-tpu",
+   "type": "component",
+   "name": "3D-Printed TPU Wheel",
+   "aliases": [
+    "printed TPU tire",
+    "flexible filament wheel"
+   ],
+   "summary": "A wheel (tire, or tire+hub as one piece) 3D printed in flexible TPU filament (commonly 85-95A shore hardness), a zero-marginal-cost option extremely popular in plastic antweights since it fits the class's plastic-construction ethos and needs no purchased hub/tire hardware.",
+   "weight_classes": [
+    "plastic-antweight",
+    "antweight"
+   ],
+   "tags": [
+    "wheel",
+    "3d-printed",
+    "tpu",
+    "budget",
+    "plastic-antweight"
+   ],
+   "specs": {
+    "hardness_shore_a": 90
+   },
+   "pros": [
+    "Essentially free if you already own a printer and filament",
+    "Can be printed as a single piece with the hub/shaft-bore built in, saving assembly and weight of a separate metal hub",
+    "Tread pattern, diameter, and width are all fully custom per design",
+    "Very impact-resistant, harder to crack than rigid printed wheels"
+   ],
+   "cons": [
+    "TPU can be harder to print reliably (stringing, needs a direct-drive extruder ideally) than rigid filaments",
+    "Grip is generally lower than a soft cast-silicone tire at similar hardness, though still much better than a rigid PLA/PETG wheel",
+    "Print layer lines/infill can affect roundness/balance if not printed carefully"
+   ],
+   "notes": "Common shore hardness for printable TPU filament is 85A-95A; softer (lower shore) TPUs exist but are harder to print and more prone to tearing on impact.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "wheel-o-ring-tire",
+   "type": "component",
+   "name": "O-Ring Tire Wheel",
+   "aliases": [
+    "o-ring wheel",
+    "rubber band tire"
+   ],
+   "summary": "A lightweight wheel technique where a plain hub (aluminum, printed plastic, or Delrin) has a groove sized to hold a rubber O-ring (or several stacked), which is stretched onto the hub's outer diameter to act as a cheap, easily replaceable, grippy tire.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "wheel",
+    "o-ring",
+    "diy",
+    "budget"
+   ],
+   "specs": {},
+   "pros": [
+    "Very cheap and easy to replace when worn or damaged — just pull off the old o-ring and stretch on a new one",
+    "Rubber compound gives solid grip, often better than bare foam",
+    "Hub itself can be very light and simple to make or print"
+   ],
+   "cons": [
+    "O-ring can roll or shift in its groove under high torque/lateral load if the groove isn't sized tightly enough",
+    "Less shock absorption than a full foam tire",
+    "Buna-N/silicone o-ring compound and durometer choice affects grip and wear, requiring some trial and error"
+   ],
+   "notes": "A well-known low-cost DIY approach used across weight classes, including small o-ring sizes on antweight-scale hubs.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "wheel-banebots-t61-compliant",
+   "type": "component",
+   "name": "Banebots T61 Compliant Wheel",
+   "aliases": [
+    "Banebots T61",
+    "Banebots compliant wheel"
+   ],
+   "summary": "A compliant (flexible tread) wheel line from Banebots that conforms to surfaces for extra grip and control, sold in 6 hardness options, 4 diameters, and 4 hub-shaft sizes, primarily sized for beetleweight/hobbyweight but with small diameters usable in heavier antweight or control-bot-focused builds; the smaller Banebots T40 line is aimed more directly at ant/fairy scale.",
+   "weight_classes": [
+    "antweight",
+    "beetleweight"
+   ],
+   "tags": [
+    "wheel",
+    "banebots",
+    "compliant",
+    "traction"
+   ],
+   "specs": {},
+   "pros": [
+    "Compliant rubber tread conforms to the arena floor for better grip and control than a rigid wheel",
+    "Wide range of hardness options (10A soft/max-grip up to 60A firm/durable) to tune grip vs longevity",
+    "Well-known, widely trusted brand in combat robotics with a long track record"
+   ],
+   "cons": [
+    "Heavier than a foam or TPU wheel of similar diameter — a real cost on a 1 lb weight budget",
+    "Smallest available diameters may still be larger/heavier than what a competitive lightweight antweight wants"
+   ],
+   "notes": "T61 compliant hardness options: 10A (yellow, maximum flexibility/grip) and 60A (black, firmer/more durable) were specifically confirmed; the line is stated to offer 6 hardness options total, 4 diameters, and 4 hub shaft sizes. The smaller T40 line is described as better suited to antweight/fairyweight builds.",
+   "sources": [
+    "https://itgresa.com/product/banebots-t61-compliant-wheels/",
+    "https://itgresa.com/product/banebots-t40-wheels/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "hub-fingertech-lite-hub",
+   "type": "component",
+   "name": "FingerTech Lite Hub",
+   "aliases": [
+    "FT Lite Hub"
+   ],
+   "summary": "FingerTech's lightest wheel hub, designed to mount common foam wheels onto a 3mm motor shaft with minimal added weight.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "hub",
+    "fingertech",
+    "lightweight"
+   ],
+   "specs": {
+    "shaft_dia_mm": 3,
+    "weight_g": 3
+   },
+   "pros": [
+    "Lightest hub option in the FingerTech lineup",
+    "Simple, proven, widely used with Lite Flite wheels"
+   ],
+   "cons": [
+    "Less robust than Snap/Twist hubs under very high shock/torque loads"
+   ],
+   "notes": "Approximate weight ~3g each based on general FingerTech plastic-hub weight figures cited for Lite Flite assemblies.",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-lite-hubs"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "hub-fingertech-snap-hub",
+   "type": "component",
+   "name": "FingerTech Snap Hub",
+   "aliases": [
+    "FT Snap Hub"
+   ],
+   "summary": "An anodized 6061 aluminum hub from FingerTech that holds a foam tire tightly via a custom washer with a recess to prevent the retaining snap ring from coming loose, offering more strength than the plastic Lite Hub at a modest weight cost.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "hub",
+    "fingertech",
+    "aluminum"
+   ],
+   "specs": {
+    "shaft_dia_mm": 3
+   },
+   "pros": [
+    "Anodized 6061 aluminum construction is stronger and more durable than plastic hubs",
+    "Positive snap-ring retention keeps the tire from working loose over a match"
+   ],
+   "cons": [
+    "Heavier than the plastic Lite Hub"
+   ],
+   "notes": "Exact per-unit weight not confirmed this pass.",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-snap-hubs"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "hub-fingertech-twist-hub",
+   "type": "component",
+   "name": "FingerTech Twist Hub",
+   "aliases": [
+    "FT Twist Hub"
+   ],
+   "summary": "An anodized 6061 aluminum hub secured to the motor shaft with an 8-32 setscrew, holding the foam tire tightly via a locking washer; sold in Thin (0.50in) and Wide (0.75in) widths for both 3mm and 4mm shafts.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "hub",
+    "fingertech",
+    "aluminum"
+   ],
+   "specs": {
+    "shaft_dia_mm": 3,
+    "weight_g": 5.5
+   },
+   "pros": [
+    "Setscrew retention onto the motor shaft is very secure against slipping under torque",
+    "Aluminum build is strong and light",
+    "Available for both 3mm and 4mm shafts, and Thin/Wide widths"
+   ],
+   "cons": [
+    "Heavier than the plastic Lite Hub",
+    "Setscrew must be properly torqued/thread-locked or it can back out over repeated hits"
+   ],
+   "notes": "Thin (0.50in wide) version confirmed at 5.5g each.",
+   "sources": [
+    "https://palmbeachbots.com/products/fingertech-twist-hubs-thin-pair-0-50-x-3mm",
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "belt-pulley-gt2-antweight",
+   "type": "component",
+   "name": "GT2 Belt & Pulley Drivetrain Set (antweight scale)",
+   "aliases": [
+    "GT2 timing belt drive",
+    "belt-driven 4WD antweight"
+   ],
+   "summary": "A small GT2 (2mm pitch) timing belt and matching aluminum or 3D-printed pulley set used to link a front and rear wheel on each side of a 4WD antweight, letting two motors drive four wheels instead of needing four separate drive motors.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "belt-pulley",
+    "4wd",
+    "drivetrain",
+    "gt2"
+   ],
+   "specs": {},
+   "pros": [
+    "Gives 4-wheel traction and redundancy (surviving a lifted/high-centered wheel) using only 2 drive motors",
+    "GT2 belts are cheap, widely available (from 3D printer supply chains), and don't require the precision of chain",
+    "Printed pulleys keep the added weight low"
+   ],
+   "cons": [
+    "Adds mechanical complexity and a few extra failure points (belt tension, pulley wear, belt skipping teeth under shock)",
+    "Extra weight vs a simple 2WD direct-drive layout, competing with armor/weapon weight budget",
+    "Belt can be damaged by direct weapon hits if not shielded"
+   ],
+   "notes": "A common way to get 4WD traction and pushing power on a 1 lb control bot without the weight and complexity of 4 separate gearmotors and ESCs.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "formula-robot-speed-rpm-wheel-diameter",
+   "type": "formula",
+   "name": "Robot Speed from Motor RPM and Wheel Diameter",
+   "aliases": [
+    "top speed formula",
+    "wheel-rpm-to-mph formula"
+   ],
+   "summary": "Converts a drivetrain's output (wheel) RPM and wheel diameter into a theoretical no-load top speed, the first step in sizing any antweight drivetrain.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "speed",
+    "gear-ratio",
+    "wheel"
+   ],
+   "expression": "v_mph = (motor_rpm_no_load / gear_ratio) * pi * wheel_dia_in / 1056",
+   "variables": {
+    "motor_rpm_no_load": "no-load RPM of the bare motor at the chosen nominal voltage",
+    "gear_ratio": "total gearbox reduction, expressed as N:1 (use N)",
+    "wheel_dia_in": "wheel outer diameter in inches",
+    "v_mph": "theoretical no-load top speed in miles per hour (real-world loaded speed is lower)"
+   },
+   "worked_example": "FingerTech Silver Spark at 11.1:1 (motor_rpm_no_load = 11,530 at 7.4V) with a 2.0in wheel: wheel RPM = 11,530 / 11.1 = 1,038.7 RPM. v_mph = 1,038.7 x pi x 2.0 / 1056 = 1,038.7 x 6.283 / 1056 ~= 6.18 mph. This matches commonly reported antweight sprint speeds of roughly 6 mph. Real-world speed under load (current draw sagging the battery voltage, rolling resistance, and wheel slip) typically comes in at ~70-90% of this theoretical number.",
+   "applies_to": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "sources": [
+    "domain knowledge",
+    "https://runamok.tech/AskAaron/motors.html"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "formula-required-torque-acceleration-pushing",
+   "type": "formula",
+   "name": "Required Motor Torque for a Target Acceleration / Pushing Force",
+   "aliases": [
+    "torque sizing formula",
+    "F=ma drivetrain sizing"
+   ],
+   "summary": "Sizes the motor-shaft stall torque needed to accelerate a given robot mass at a target rate (or to sustain a target pushing force), working back through the wheel radius, gear ratio, and gearbox efficiency.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "torque",
+    "acceleration",
+    "gear-ratio"
+   ],
+   "expression": "F = m * a;  T_wheel = F * r / n_driven_wheels;  T_motor_stall_required = T_wheel / (gear_ratio * efficiency)",
+   "variables": {
+    "m": "robot mass, kg",
+    "a": "target acceleration or deceleration, m/s^2 (e.g. 1-2g for a fast start/ram)",
+    "F": "total force required, Newtons",
+    "r": "wheel radius, meters",
+    "n_driven_wheels": "number of powered wheels sharing the load",
+    "T_wheel": "required torque at the wheel/output shaft, N*m",
+    "gear_ratio": "gearbox reduction, N:1 (use N)",
+    "efficiency": "gearbox mechanical efficiency, ~0.65-0.80 for spur gearboxes, ~0.80-0.92 for planetary",
+    "T_motor_stall_required": "minimum motor-shaft stall torque needed, N*m (convert to kg-cm by dividing N*m by 0.09807)"
+   },
+   "worked_example": "1 lb robot (m = 0.4536 kg) targeting 2g acceleration (a = 19.6 m/s^2) on two driven wheels of radius 0.019 m (1.5in diameter): F = 0.4536 x 19.6 = 8.89 N. T_wheel per side = 8.89 x 0.019 / 2 = 0.0844 N*m = 0.86 kg-cm. With a 33.3:1 Silver Spark gearbox at ~0.75 efficiency: T_motor_stall_required = 0.86 / (33.3 x 0.75) = 0.0345 kg-cm, comfortably under the Silver Spark's ~0.046 kg-cm bare-motor stall torque, so this ratio has margin to spare for a 2g start. At the fast 11.1:1 ratio, the same math needs 0.86 / (11.1 x 0.75) = 0.103 kg-cm at the motor shaft — more than the bare motor's stall torque can supply, meaning 11.1:1 alone cannot sustain a full 2g acceleration at stall (though brief transient acceleration before the motor reaches that speed is a separate, more forgiving calculation).",
+   "applies_to": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "formula-traction-limit-pushing-force",
+   "type": "formula",
+   "name": "Traction Limit: Why Torque Beyond Available Grip Is Wasted",
+   "aliases": [
+    "traction limit formula",
+    "friction limit formula"
+   ],
+   "summary": "Defines the maximum pushing/accelerating force a drivetrain can actually put to the ground, set by wheel-to-floor friction rather than motor torque; any drivetrain torque capacity beyond this ceiling just spins the wheels and wastes battery/heat instead of producing more force.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "traction",
+    "friction",
+    "wheel-slip"
+   ],
+   "expression": "F_max = mu * N",
+   "variables": {
+    "mu": "coefficient of friction between the wheel tread and the arena floor (dimensionless; roughly 0.3-0.5 for bare foam on polycarbonate, 0.5-0.8 for silicone/compliant rubber tread on polycarbonate or wood)",
+    "N": "normal force pressing the driven wheels into the floor, Newtons (approximately the full robot weight for a 2WD antweight with no significant weight on non-driven casters/skids)",
+    "F_max": "maximum pushing/traction force before the wheels slip, Newtons"
+   },
+   "worked_example": "1 lb robot (weight = 0.4536 kg x 9.81 = 4.45 N) on silicone-tread wheels with mu ~= 0.6 on a polycarbonate floor: F_max = 0.6 x 4.45 = 2.67 N. Compare this to the pushing force available at the wheel from formula-required-torque-acceleration-pushing: even the lowest-torque stock Silver Spark ratio (11.1:1, ~0.38 kg-cm output stall torque, ~0.0373 N*m) on a 0.019 m wheel radius over 2 driven wheels can produce up to 2 x 0.0373 / 0.019 = 3.9 N of force at the wheel before the motor itself stalls — already above the 2.67 N traction ceiling. In other words, the wheels slip before the motor runs out of torque, so choosing a slower/higher-torque ratio than 11.1:1 purely to 'push harder' would not actually increase the robot's real-world pushing force; it would only reduce top speed. Common guidance (e.g. from Just 'Cuz Robotics) is to size the gear ratio with roughly 1.5-2x the torque strictly required to reach the traction limit, then optimize the remaining ratio choice for speed and control feel.",
+   "applies_to": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "sources": [
+    "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+    "https://zbotic.in/robot-wheel-traction-surface-tire-type-selection-guide/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "formula-stall-current-esc-thermal-limit",
+   "type": "formula",
+   "name": "Stall Current vs ESC Rating and Duty-Cycle Thermal Limits",
+   "aliases": [
+    "motor stall current sizing",
+    "ESC current rating formula"
+   ],
+   "summary": "Explains how to size a drive ESC/driver's continuous and burst current ratings against a motor's stall current, and why sustained full-stall (e.g. pinned against a wall or opponent) is a thermal, time-limited event rather than something a small combat robot motor can hold indefinitely.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "current",
+    "esc",
+    "thermal",
+    "stall"
+   ],
+   "expression": "I_stall_total = n_motors * I_stall_per_motor;  esc_continuous_rating >= I_cruise_expected;  esc_burst_rating >= I_stall_total (with margin);  t_safe_stall is inversely related to I^2 (I^2*R resistive heating)",
+   "variables": {
+    "I_stall_per_motor": "stall current of one drive motor at the operating voltage, Amps",
+    "n_motors": "number of drive motors on that ESC/battery branch",
+    "I_stall_total": "worst-case simultaneous stall current draw, Amps",
+    "I_cruise_expected": "typical current draw while driving normally (well below stall), Amps",
+    "esc_continuous_rating": "ESC/driver's continuous current rating, Amps",
+    "esc_burst_rating": "ESC/driver's short-burst peak current rating, Amps",
+    "t_safe_stall": "approximate time a motor can be safely held at stall before winding damage from resistive heating"
+   },
+   "worked_example": "Two FingerTech Silver Sparks, each 1.3A stall at 7.4V: I_stall_total = 2 x 1.3 = 2.6A combined worst case (both wheels pinned simultaneously). Normal cruising current is much lower, roughly 0.2-0.6A per motor. A drive ESC/driver should have a continuous rating comfortably above the cruising current (so it runs cool during normal driving) and a burst rating at or above the 1.3A per-channel stall figure with headroom (e.g. a 2-3A continuous per-channel rating is typical for antweight brushed ESCs). Because these small motors have very little thermal mass, holding full stall (e.g. wedged against an arena wall) for more than roughly 10-20 seconds risks overheating the winding insulation even though the ESC itself may tolerate the current — drivers are taught to 'bump' the throttle in short pulses rather than holding full stall continuously in a pushing match.",
+   "applies_to": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "formula-gear-ratio-selection-top-speed",
+   "type": "formula",
+   "name": "Selecting a Gear Ratio from a Desired Top Speed",
+   "aliases": [
+    "gear ratio selection formula",
+    "reverse-solve gear ratio"
+   ],
+   "summary": "Rearranges the speed formula to solve for the gear ratio needed to hit a target top speed with a given motor and wheel diameter, then checks the result against the ratios actually available off the shelf.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "gear-ratio",
+    "speed",
+    "drivetrain-sizing"
+   ],
+   "expression": "gear_ratio = motor_rpm_no_load * pi * wheel_dia_in / (target_mph * 1056)",
+   "variables": {
+    "motor_rpm_no_load": "no-load RPM of the bare motor at the chosen nominal voltage",
+    "wheel_dia_in": "wheel outer diameter in inches",
+    "target_mph": "desired no-load top speed, mph",
+    "gear_ratio": "gearbox reduction ratio needed, N:1 (solve for N)"
+   },
+   "worked_example": "Target: 8 mph top speed using a Silver Spark motor (motor_rpm_no_load = 11,530 at 7.4V) and a 2.0in wheel. gear_ratio = 11,530 x pi x 2.0 / (8 x 1056) = 72,444 / 8,448 ~= 8.6:1. Silver Spark's fastest stock ratio is 11.1:1, not 8.6:1, so an exact 8 mph target isn't reachable with this motor/wheel pairing off the shelf. Two fixes: (1) increase wheel diameter to 2.5in and re-check the stock 11.1:1 ratio: wheel RPM = 11,530/11.1 = 1,038.7, v_mph = 1,038.7 x pi x 2.5 / 1056 ~= 7.7 mph, very close to the 8 mph target; or (2) switch to a higher-RPM brushless drive pod (e.g. Repeat Robotics' 1106 gearmotor), which can exceed this speed range easily by running a higher supply voltage (3S/4S) instead of changing wheel size.",
+   "applies_to": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "chunks": [
+  {
+   "id": "chunk-drive-motor-landscape-antweight",
+   "title": "The 1 lb Antweight Drive Motor Landscape",
+   "section": "Drive Motors",
+   "body_md": "Antweight combat robots (1 lb / 454 g total weight) have a narrow but well-developed set of drive motor choices, almost all built around small brushed or brushless motors in the 12-16mm size range. The dominant, most trusted choice remains **FingerTech's Silver Spark**: a Mabuchi FK-050 brushed motor behind an all-metal 16mm spur gearbox, sold in nine stock ratios from a fast 11.1:1 to a crawling 600:1, all at the same ~29g weight and ~$19 price. Its budget sibling, the **Gold Spark**, uses the same base motor but a plastic final gear stage, trading some durability for a lower price (~$14.79) — fine for lighter-duty plastic antweights, riskier as the sole drive on a bot expected to take direct hits.\n\nA newer and increasingly popular tier is **Repeat Robotics'** lineup: brushed and brushless planetary gearmotors that swap the Spark line's simple spur gearbox for a multi-stage all-metal planetary gearbox, which is generally more shock-tolerant and torque-dense for its size. Repeat's brushless \"Mini\" 1106 gearmotor (evolved through Mk3, Mk4, and Mk4.1 revisions) packages a custom-wound outrunner brushless motor directly into a 28.5:1 planetary gearbox with a hardened 4mm shaft, letting builders trade a simple brushed H-bridge for a reversing brushless ESC in exchange for higher efficiency and higher top speed at the same weight.\n\nAt the budget end of the market sit the generic **N-series gearmotors** (N10/N20/N30, 10-30mm motor cans) sold by dozens of overlapping AliExpress/Amazon/Banggood listings, often for a few dollars each in a huge range of ratios (30:1 up to 1000:1). These are the cheapest way to get a drive motor and are extremely popular in plastic antweights, but they carry a well-known \"quality lottery\" risk: two motors from the same listing, or even the same order, can have different windings, different gear materials (mixed metal/plastic despite \"metal gear\" branding), and different failure rates. **Pololu's micro metal gearmotors** (HP/MP/LP power tunes, many ratio options) sit between these tiers: a precision-manufactured 10x12mm metal gearbox with well-documented, consistent specs, at a price above generic N-series but usually below FingerTech/Repeat.\n\nFinally, **modified or stock continuous-rotation 9g servos** offer the simplest possible drive for plastic antweights: no ESC required, direct receiver connection, at the cost of speed and torque. Choosing among these options is mostly a question of budget, desired reliability, and how much of the 454g weight budget is left after the weapon, battery, and armor.",
+   "entity_refs": [
+    "motor-fingertech-silver-spark",
+    "motor-fingertech-gold-spark",
+    "motor-repeat-mini-brushless-1106-mk4",
+    "motor-n20-generic-100-1",
+    "motor-pololu-micro-metal-hp-100-1",
+    "motor-servo-continuous-rotation-modified"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "overview",
+    "fingertech",
+    "repeat-robotics",
+    "n-series",
+    "pololu"
+   ],
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+    "https://repeat-robotics.com/shop/?products-per-page=all"
+   ]
+  },
+  {
+   "id": "chunk-fingertech-spark-family",
+   "title": "FingerTech Silver Spark and Gold Spark: The Ratio Ladder Explained",
+   "section": "Drive Motors",
+   "body_md": "Both FingerTech Spark motors share the exact same base motor: a Mabuchi FK-050 brushed can rated for roughly 11,530 RPM no-load and 1.3A stall current at the 7.4V (2S LiPo) voltage most antweights run on, though FingerTech states it will run anywhere from 3V to 18.5V. What differs between Silver and Gold Spark — and between the ratios within each line — is entirely in the gearbox.\n\n**Silver Spark** uses an all-metal spur gearhead across nine stock ratios: 11.1, 22.2, 33.3, 50, 83.3 (discontinued), 100, 200, 300, and 600:1. Weight climbs gently with ratio (28g at 11:1 up to 32g at 600:1) because the gearbox needs progressively more/larger gear stages to reach the higher reductions, but the motor and price stay constant across the whole family. The output shaft is a 3mm-diameter flatted shaft, standard length 38mm, with a shorter 22mm option on the 22:1/33:1/50:1 ratios for tighter builds — long enough that a wheel can be mounted directly onto it (a live-axle setup) without an intermediate shaft or bearing block, though FingerTech does offer an optional bearing block for extra support on the far side of the wheel.\n\n**Gold Spark** uses the identical base motor but a gearbox with a plastic final gear stage, across a slightly different eight-ratio ladder: 20, 35, 50, 86, 115, 150, 250, and 360:1, all at a constant 28g and roughly 25% lower price than Silver Spark. FingerTech explicitly documents a mechanical ceiling on Gold Spark: output torque above 6.84 kg-cm (95 oz-in) will damage the plastic output gear stage, which caps how much of the higher-ratio end of the ladder (250:1, 360:1) can actually be exploited before self-destructing under stall.\n\nBecause no-load RPM and stall current are properties of the shared base motor, output RPM at any given ratio is simply 11,530 divided by that ratio, and output stall torque is (very roughly) the bare-motor stall torque (~0.046 kg-cm) multiplied by the ratio and by gearbox efficiency (~0.75 for Silver Spark's metal spur stages, somewhat lower for Gold Spark's plastic stage). This lets a builder pick a ratio directly from a target speed or torque without needing FingerTech's full published table for every combination. In practice, 22.2:1 through 50:1 covers most competitive antweight main-drive builds — fast enough to dodge and reposition, with enough torque margin over the traction limit to push confidently — while 100:1 and above are reserved for weapon lifters, self-righters, or bots that specifically prioritize crawling torque over speed.",
+   "entity_refs": [
+    "motor-fingertech-silver-spark",
+    "motor-fingertech-silver-spark-11-1",
+    "motor-fingertech-silver-spark-100-1",
+    "motor-fingertech-silver-spark-200-1",
+    "motor-fingertech-gold-spark",
+    "motor-fingertech-gold-spark-150-1"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "fingertech",
+    "gear-ratio",
+    "silver-spark",
+    "gold-spark"
+   ],
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "chunk-repeat-robotics-drive-options",
+   "title": "Repeat Robotics: Brushed and Brushless Planetary Drive for Antweights",
+   "section": "Drive Motors",
+   "body_md": "Repeat Robotics built its antweight product line around one core idea: replace the simple spur gearbox found in motors like FingerTech's Spark line with a multi-stage, all-metal **planetary** gearbox, which generally handles shock loading and delivers torque more efficiently than a spur train of the same size. Their catalog spans both brushed and brushless motor options in the same 16mm-class form factor antweight builders are used to.\n\nOn the brushed side, the **Mini Brushed Mk2** (sold as the \"Mini Pro Brushed\" for around $25) offers a straightforward drop-in alternative to a Silver Spark, with the planetary gearbox as its main differentiator, at a modest price premium over FingerTech's spur-geared option.\n\nOn the brushless side, Repeat pioneered selling off-the-shelf 16mm brushless gearmotors specifically for combat robots — before this, brushless drive meant a builder sourcing a bare FPV-style outrunner motor and building or 3D-printing a custom gearbox around it. The **Mini Brushless** line went through several revisions: early Mk3/Mk4 versions used a custom-wound ~3500kv 1104-size motor; the current **Mk4.1** upgrades to a larger-stator 1106-size motor for more torque and power capability in the same envelope, paired with a 28.5:1 two-stage all-metal planetary gearbox and a hardened 4mm output shaft, weighing about 24g complete. Because it's brushless, it needs a reversing brushless ESC rather than a simple brushed H-bridge — Repeat sells a matching ESC designed specifically for their motors — but in exchange gets higher efficiency, no brush wear, and a rated 2S-4S voltage range that lets a builder retune top speed just by changing battery cell count rather than swapping hardware. A higher-spec \"Mini Pro 1106\" variant is also sold at roughly double the price for builders wanting the premium tier.\n\nRepeat's catalog also includes larger motors like the Compact Brushless 1806 (marketed as the lightest brushless beetleweight drive motor on the market), useful context for how this same drive-pod architecture scales up a weight class, though it's oversized for a standard 1 lb budget. The general trade-off across Repeat's line versus FingerTech's Spark motors is: more durability and (for brushless) more speed/efficiency, at a real cost premium and, for brushless specifically, added ESC complexity and the sensorless-cogging caveats that come with any FPV-derived brushless motor run at very low speed.",
+   "entity_refs": [
+    "motor-repeat-mini-brushed-mk2",
+    "motor-repeat-mini-brushless-1106-mk4",
+    "motor-repeat-mini-pro-1106",
+    "motor-repeat-compact-1806-brushless",
+    "gearbox-16mm-planetary-generic"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "repeat-robotics",
+    "brushless",
+    "planetary",
+    "gearbox"
+   ],
+   "sources": [
+    "https://repeat-robotics.com/shop/?products-per-page=all",
+    "https://palmbeachbots.com/products/repeat-robotics-mini-16mm-brushless-planetary-motor-mk4-4mm-shaft"
+   ]
+  },
+  {
+   "id": "chunk-n-series-quality-lottery",
+   "title": "N10/N20/N30 Gearmotors and the Quality-Lottery Problem",
+   "section": "Drive Motors",
+   "body_md": "The N-series family — N10 (smallest, ~10mm), N20 (most common, 12mm), and N30 (largest, ~30mm) micro gearmotors — is the budget backbone of plastic antweight and hobby-grade drivetrains. These motors are sold by dozens of overlapping resellers on AliExpress, Amazon, and similar marketplaces, almost always originating from the same small set of OEM factories, in an enormous range of stock gear ratios: 20:1, 30:1, 50:1, 75:1, 100:1, 150:1, 210:1, 250:1, 298:1, 380:1, and 1000:1 are all commonly available, alongside 3V/6V/12V motor voltage options.\n\nThe base N20 motor (before gearing) runs at roughly 15,000 RPM no-load at 6V — this is corroborated by real product listings, e.g. a 298:1 N20 gearmotor advertised and sold specifically as running 50 RPM at 6V (15,000 / 298 ≈ 50, a clean match). Gearbox length is constant across most ratios (~9mm) except 1000:1 (and sometimes 380:1), which get a 3.5mm-longer, reinforced housing rated for roughly 25 kg·mm (2.5 kg-cm) of continuous output torque versus ~20 kg·mm (2.0 kg-cm) for the standard ratios — a purely mechanical strength limit on the gear teeth, independent of how much torque the motor could theoretically produce electrically at that ratio.\n\nThe real problem with this whole family isn't the published spec sheet — it's that the spec sheet often doesn't reflect what actually arrives. Listings frequently advertise \"metal gear\" motors that turn out to have only some gear stages in metal and the rest in plastic, and even within a single order, individual units can vary in winding quality, no-load speed, stall current, and outright dead-on-arrival rate. This inconsistency is widely known in the antweight community as the \"quality lottery.\" It doesn't make N-series motors unusable — plenty of successful plastic antweights run on them — but it does change how a builder should treat them: buy spares from the start and treat them as a semi-consumable part, bench-test every single unit before final installation (measuring free-run current and no-load RPM and rejecting any outlier compared to its batch-mates), and avoid depending on an untested cheap motor as the sole drive for an important match. Builders who want to skip this risk entirely pay the premium for FingerTech, Repeat Robotics, or Pololu motors instead, all of which publish (and generally meet) a consistent, verifiable spec.",
+   "entity_refs": [
+    "motor-n20-generic-100-1",
+    "motor-n20-generic-298-1",
+    "motor-n20-generic-1000-1",
+    "motor-n30-generic-50-1",
+    "motor-n10-generic-100-1",
+    "gearbox-n-series-metal-vs-plastic"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "n-series",
+    "quality-lottery",
+    "budget"
+   ],
+   "sources": [
+    "https://ineedmicromotors.com/what-is-n20-gear-motor/",
+    "https://ozrobotics.com/shop/premium-12mm-dc-n20-gear-motor-6v-2981-ratio-50-rpm/",
+    "https://www.kindmotor.com/sale-14047663-n10-n20-n30-mini-dc-3v-6v-12v-100-1-150-1-210-1-298-1-380-1-340-1-1000-1-gear-ratio-motor-reduction-.html"
+   ]
+  },
+  {
+   "id": "chunk-pololu-micro-metal-gearmotors",
+   "title": "Pololu Micro Metal Gearmotors: HP, MP, LP and Extended-Shaft Variants",
+   "section": "Drive Motors",
+   "body_md": "Pololu's micro metal gearmotor line sits in a useful middle ground between the quality-lottery risk of generic N-series motors and the higher price of FingerTech/Repeat combat-specific products: a precision-manufactured, well-documented 10x12mm all-metal gearbox on a 3mm D-shaped output shaft (9mm long), sold in a wide range of gear ratios and, distinctively, in three separate power tunes of the same base motor.\n\nThe three tunes — **LP** (Low Power), **MP** (Medium Power), and **HP** (High Power) — use the same physical gearbox and shaft but different motor winding/brush choices, trading current draw for speed and torque at any given ratio. At 6V, LP draws a stall current of about 0.36A (free-run ~40mA), MP about 0.67A (free-run ~70mA), and HP about 1.6A (free-run ~100mA). All three use shorter-life precious-metal brushes at 6V, which are lower-friction and preferred for these lower-current applications; Pololu also sells higher-voltage (12V) versions of some ratios with carbon brushes better suited to sustained higher-current use. For antweight drive, HP is the tune most builders reach for when they want the most power in the smallest package, while LP or MP make sense when a design is current-budget constrained, for example sharing a small ESC or battery branch with other electronics.\n\nA useful variant is the **extended motor shaft** option, which brings the motor's rear shaft out through the back of the case in addition to the normal gearbox output shaft. This lets a builder mount a wheel-speed encoder disc, a second small pulley, or another accessory on the back of the motor without any machining — handy for a control-bot build that wants closed-loop wheel-speed feedback, or a 4WD layout that needs to drive an extra belt/pulley off the same motor.\n\nThe main trade-off versus FingerTech's Spark line is shaft length and mounting convention: Pololu's 9mm output shaft is too short for FingerTech's typical direct-wheel-mount (live-axle) approach and needs a hub or coupler, and Pololu doesn't publish a combat-specific mounting pattern the way FingerTech does. In exchange, a builder gets Pololu's much larger and more precisely documented range of ratios and power tunes, plus the reliability of a company whose entire business is measuring and publishing exactly this kind of spec — a meaningful advantage over generic N-series sourcing for a builder who wants predictable performance without over-paying for a combat-specific brand name.",
+   "entity_refs": [
+    "motor-pololu-micro-metal-hp-30-1",
+    "motor-pololu-micro-metal-mp-30-1",
+    "motor-pololu-micro-metal-lp-50-1",
+    "motor-pololu-micro-metal-hp-100-1",
+    "motor-pololu-micro-metal-extended-shaft"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "pololu",
+    "micro-metal-gearmotor",
+    "hp-mp-lp"
+   ],
+   "sources": [
+    "https://www.pololu.com/category/60/micro-metal-gearmotors",
+    "https://www.pololu.com/product/1093",
+    "https://www.pololu.com/product/998",
+    "https://www.pololu.com/product/1098"
+   ]
+  },
+  {
+   "id": "chunk-brushless-drive-fundamentals-cogging",
+   "title": "Brushless Drive for Antweights: 1104/1106/1404 Motors, Pods, and Low-Speed Cogging",
+   "section": "Drive Motors",
+   "body_md": "Brushless drive on antweights has grown mainly out of the FPV micro-drone motor market. Motors labeled by a four-digit size code — **1104**, **1106**, **1404**, and similar — describe their stator dimensions (the first two digits are diameter in mm, the last two are stack height/length in mm): an '1104' is roughly 11mm in diameter and 4mm tall, an '1106' is the same 11mm diameter but a taller 6mm stack (more copper/stator volume, meaning more achievable torque and current handling at similar RPM), and a '1404' steps up to a 14mm diameter for still more capability in a similarly slim package. These motors are sold at a range of kv (RPM per volt) windings, and combat builders — or companies like Repeat Robotics who now sell them pre-integrated — pick a kv and pair it with a small gear reduction (commonly a 2-3 stage planetary gearbox in the 16-24mm class) to land in a useful antweight speed/torque range.\n\nThe major practical difference from brushed drive is that brushless motors require a **reversing brushless ESC** rather than a simple brushed H-bridge, and most of these motors are **sensorless** — they infer rotor position from back-EMF rather than dedicated Hall-effect sensors. Back-EMF is proportional to rotor speed, so at very low RPM (exactly the speed range a combat robot spends a lot of time in — creeping, jockeying for position, or making a fine positioning move) the signal an ESC needs to commutate smoothly gets weak and noisy. This shows up as **cogging**: jerky, notchy, sometimes stalling rotation right around zero speed, instead of the smooth linear response a brushed motor gives down to a full stop. **Sensored** brushless motors (with embedded Hall sensors) avoid this because the ESC always has a clean absolute rotor-position signal regardless of speed, but sensored micro combat motors are rarer and typically cost more; the more common combat-robotics fix is a gear reduction high enough that the motor itself is still spinning at a meaningfully high electrical RPM even when the wheel is barely turning, combined with an ESC/firmware tuned specifically for low-speed sensorless combat driving (as opposed to a generic multirotor ESC optimized for one direction and a fast spin-up) — which is exactly what purpose-built combat brushless ESCs like Repeat Robotics' reversing ESC are designed to handle.\n\nThe upside that keeps builders choosing brushless despite this complexity is power density and efficiency: no brushes to wear out, generally more torque and speed available per gram of motor than an equivalent brushed can, and (since kv and voltage set speed directly) the ability to retune top speed just by changing battery cell count (2S/3S/4S) rather than swapping hardware, useful for quickly adapting a drivetrain between a slower control-bot setup and a faster spinner-chassis setup.",
+   "entity_refs": [
+    "motor-brushless-1104-fpv-drive",
+    "motor-brushless-1404-fpv-drive",
+    "motor-repeat-mini-brushless-1106-mk4",
+    "motor-fingertech-megaspark-brushless"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushless",
+    "sensorless",
+    "cogging",
+    "fpv-derived"
+   ],
+   "sources": [
+    "https://palmbeachbots.com/products/repeat-robotics-mini-16mm-brushless-planetary-motor-mk4-4mm-shaft",
+    "https://itgresa.com/product/repeat-robotics-mini-brushless-drive-gearmotor-mk4/"
+   ]
+  },
+  {
+   "id": "chunk-servo-drive-plastic-ants",
+   "title": "Servo-Based Drive for Plastic Antweights",
+   "section": "Drive Motors",
+   "body_md": "Plastic antweights, built and raced on tight budgets and gram counts, have long used the cheapest, simplest drive mechanism available in the RC hobby world: the **9g micro servo**, modified (or purchased pre-modified) for continuous rotation. A normal hobby servo takes a PWM pulse (typically 1-2ms) and moves its output shaft to a corresponding angle, using an internal potentiometer to sense and hold position via a small feedback control loop. Removing that positional feedback — physically pulling the potentiometer and replacing it with two fixed resistors set to the servo's centered voltage, and usually clipping a mechanical stop tab inside the gearbox — breaks the position-holding behavior and turns the same PWM signal into a direct speed-and-direction command instead: a 1ms pulse spins one direction, 2ms spins the other, and roughly 1.5ms (the old 'centered' position) stops the motor. The result behaves almost exactly like a small ESC-driven gearmotor from the transmitter's point of view, but needs zero separate ESC or motor driver hardware — the servo plugs straight into a receiver channel.\n\nBuilders who don't want to do the modification themselves can buy factory continuous-rotation servos (commonly referred to by part numbers like FS90R) that ship ready to use, with more consistent centering than a hand-modified unit, at a small price premium over a basic positional 9g servo.\n\nThe appeal for plastic antweights is straightforward: at roughly 9g each, two servos plus a receiver is often the lightest and cheapest complete drive system available, with no ESC weight or cost, no separate motor-driver wiring, and a huge amount of freely available documentation and tutorials for the modification. The trade-offs are real, though. Servo gearboxes are built from a stack of small plastic gears sized for holding a load still, not for absorbing repeated combat impacts, and the motor inside is sized for positioning torque rather than continuous drive torque — so top speed and pushing power both fall well short of what a dedicated gearmotor-plus-ESC combination of similar weight can deliver. In practice, servo drive suits beginner builds, very light or defensive plastic antweights that don't need to win pushing matches, and builds where simplicity of wiring and zero extra electronics genuinely outweighs raw performance. Builders chasing a competitive edge in the plastic antweight class typically graduate to N-series or Pololu gearmotors with a small ESC once they're ready to trade some of that simplicity for speed and torque.",
+   "entity_refs": [
+    "motor-servo-continuous-rotation-modified",
+    "motor-servo-continuous-rotation-fs90r"
+   ],
+   "weight_classes": [
+    "plastic-antweight",
+    "fairyweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "servo",
+    "continuous-rotation",
+    "plastic-antweight",
+    "beginner"
+   ],
+   "sources": [
+    "https://www.youtube.com/watch?v=HixZdhcLSdM",
+    "https://runamok.tech/AskAaron/ants.html"
+   ]
+  },
+  {
+   "id": "chunk-wheels-tires-traction-antweight",
+   "title": "Wheels and Tires: Foam, Silicone, TPU, O-Rings, and Banebots",
+   "section": "Wheels",
+   "body_md": "Wheel choice on an antweight is a direct trade between weight, grip, shock absorption, and cost, and the options span a wide range of approaches.\n\n**FingerTech Lite Flite foam wheels** are the default choice for most standard-material antweights: light neoprene foam tires available in diameters from 25.4mm to 76.2mm (1.0-3.0in) in 6.35mm (0.25in) steps, in two widths (12.7mm/0.5in and 19.1mm/0.75in), mounted via FingerTech's Lite, Snap, or Twist hub system. A 2.0in tire alone weighs only about 4g, and the foam's compliance absorbs shock from arena hazards and hard impacts that would otherwise transmit straight into the gearbox and shaft. Grip is described as \"surprisingly good\" for how light the material is, but it's still a step below purpose-built rubber compounds.\n\n**Silicone-coated or cast-silicone tires** address that grip gap directly: a thin layer of 2-part silicone rubber, typically in the Shore A 30-50 durometer range, cast or brushed onto a foam or printed core. Softer compounds in that range grip best on polished wood or acrylic/polycarbonate arena floors, at the cost of faster wear and more debris pickup; it's a common DIY upgrade for control bots that need to win pushing matches rather than just drive around.\n\n**3D-printed TPU wheels**, printed in flexible filament typically rated 85-95A Shore hardness, are the natural fit for plastic antweights: essentially free once a printer and filament are on hand, printable as a single piece with the hub bore built in (eliminating a separate hub's weight), and highly impact-resistant. Grip sits above rigid PLA/PETG wheels but below a soft cast-silicone tire at similar hardness.\n\n**O-ring tires** are a cheap, DIY-friendly technique across weight classes: a plain hub (aluminum, printed, or Delrin) machined or printed with a groove sized for a rubber O-ring, stretched on as the tread. They're inexpensive to replace when worn, give solid rubber-compound grip, and let the hub itself stay very light — the main risk is the O-ring rolling in its groove under high torque if the groove isn't sized tightly enough.\n\n**Banebots** wheels represent the name-brand compliant-tread option: the T61 line offers 6 hardness options (from a very soft, maximum-grip 10A yellow rubber up to a firmer, more durable 60A black rubber), 4 diameters, and 4 hub shaft sizes, while the smaller T40 line is aimed more specifically at ant/fairy-scale builds. Banebots wheels are heavier than foam or TPU for a given diameter — a real cost against a 1 lb weight budget — but their compliant tread conforms to the floor for grip and control that's hard to match with a rigid or foam alternative, which is why they show up more often on control-bot and pushing-focused designs than on speed- or weight-optimized spinners.\n\nAcross all of these, the general rule holds: softer/more compliant tread gives more grip but wears faster and adds weight/debris-pickup; harder/lighter tread (foam, rigid TPU) saves weight and lasts longer but gives up some pushing power to wheel slip on a smooth arena floor.",
+   "entity_refs": [
+    "wheel-fingertech-lite-flite-foam",
+    "wheel-silicone-coated-foam",
+    "wheel-printed-tpu",
+    "wheel-o-ring-tire",
+    "wheel-banebots-t61-compliant",
+    "hub-fingertech-lite-hub",
+    "hub-fingertech-snap-hub",
+    "hub-fingertech-twist-hub"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "wheel",
+    "traction",
+    "foam",
+    "silicone",
+    "tpu",
+    "banebots"
+   ],
+   "sources": [
+    "https://palmbeachbots.com/products/fingertech-foam-wheels-pair-0-5-wide-x-1-75",
+    "https://zbotic.in/robot-wheel-traction-surface-tire-type-selection-guide/",
+    "https://itgresa.com/product/banebots-t61-compliant-wheels/"
+   ]
+  },
+  {
+   "id": "chunk-drivetrain-topologies",
+   "title": "Drivetrain Topologies: 2WD, 4WD, Belt/Chain/Gear, Dead vs Live Axle",
+   "section": "Drivetrain",
+   "body_md": "The overwhelming majority of 1 lb antweights use **2WD direct (live-axle) drive**: two drive gearmotors, one per side, each with a wheel mounted straight onto its output shaft. This is the simplest, lightest, and most repairable layout — no belts, chains, or extra shafts to fail — and it's exactly what FingerTech's extra-long Silver Spark shaft is designed around. Its main limitation is that all of the robot's weight rides on two contact points (plus perhaps a rear skid or caster), so if one wheel is lifted off the ground (climbing over an opponent's wedge lip, or after a weapon hit), the robot can lose most of its drive traction at once.\n\n**4WD** layouts address that by putting a powered wheel at each corner, giving redundancy (the robot still has drive even with one wheel airborne) and more overall traction for pushing matches, at the cost of extra weight and complexity. On a 1 lb budget, running four full motors is often too heavy, so 4WD antweights frequently use a **belt-driven** approach instead: one motor per side, with a small GT2 timing belt and pulley set (common because GT2 hardware is cheap and widely available from the 3D-printer supply chain) linking the front and rear wheel on that side so they spin together. This gets 4-wheel traction from only 2 motors, at the cost of belt tension/wear as an extra maintenance and failure point, and the belt run needs to be shielded from direct weapon hits. **Chain** drive is a heavier, more robust alternative to belts seen more often on larger weight classes, and **gear-driven** linkages (a small gear train connecting front and rear wheel shafts) are a third option that trades some efficiency for eliminating belt tension entirely.\n\nA separate design axis is **dead axle vs live axle** mounting. In a live-axle setup (the antweight default), the wheel is mounted directly to the motor's output shaft, and that shaft is what takes the wheel's structural and impact loads. In a **dead axle** setup, the wheel spins freely on a fixed, non-rotating shaft (supported by its own bearings), and is driven separately — typically by a sprocket, pulley, or gear fixed to the wheel and linked back to the motor by a chain, belt, or gear train. This isolates the motor's own output shaft from direct impact loads (useful in wedge or lifter bots where a wheel might take a hard hit) and lets multiple wheels share a single structural axle, but adds parts, weight, and assembly complexity that most 1 lb antweights can't easily afford — dead axles show up far more often on beetleweight and larger designs.\n\nFinally, **ground clearance and wheel guards** matter more on an antweight than the raw drivetrain numbers might suggest: exposed wheels are one of the most common ways to lose a match, since a stray hit from an opposing weapon (or even the arena floor's hazards) can destroy a wheel or knock a robot immobile in seconds. Competitive builds usually keep wheels tucked fully inside the body's footprint (inboard, not protruding past the armor line) and add minimal ground clearance — just enough to clear floor screws, seams, and hazards, no more — since every extra millimeter of clearance is extra exposed wheel and extra leverage for an opponent's wedge to get underneath.",
+   "entity_refs": [
+    "belt-pulley-gt2-antweight",
+    "motor-fingertech-silver-spark",
+    "wheel-fingertech-lite-flite-foam"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "2wd",
+    "4wd",
+    "belt-drive",
+    "dead-axle",
+    "live-axle",
+    "wheel-guards"
+   ],
+   "sources": [
+    "https://www.pcbway.com/project/shareproject/Split_A_Combat_Robot_ef78de15.html",
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-formula-speed-worked",
+   "title": "Worked Example: Robot Speed from Motor RPM and Wheel Diameter",
+   "section": "Formulas",
+   "body_md": "The most basic drivetrain calculation a builder needs is converting a motor's rated speed into a robot's actual top speed on the floor. The relationship is: wheel RPM equals motor no-load RPM divided by the total gear ratio, and linear speed equals wheel RPM times the wheel's rolling circumference.\n\nIn a convenient mixed-units form: **v(mph) = (motor_rpm / gear_ratio) x pi x wheel_diameter(in) / 1056**. The constant 1056 converts inches-per-minute into miles-per-hour (there are 63,360 inches in a mile and 60 minutes in an hour, so 63,360/60 = 1,056).\n\n**Worked example:** Take a FingerTech Silver Spark at its fastest stock ratio, 11.1:1, with a base motor no-load speed of 11,530 RPM (at 7.4V, the common 2S LiPo antweight voltage), paired with a 2.0in diameter wheel.\n\n1. Wheel RPM = 11,530 / 11.1 = 1,038.7 RPM\n2. v(mph) = 1,038.7 x 3.1416 x 2.0 / 1056\n3. v(mph) = 1,038.7 x 6.283 / 1056 = 6,527 / 1056 ≈ 6.18 mph\n\nThis lines up well with commonly cited real-world antweight sprint speeds of roughly 6 mph across a short arena run. It's worth being clear about what this number is and isn't: it's a **theoretical no-load** top speed, calculated as if the motor were spinning completely unloaded at its rated voltage forever. In practice, actual top speed on the floor comes in lower — typically 70-90% of this figure — because of three effects this simple formula ignores: (1) **voltage sag**, since a small LiPo's internal resistance and the motor's own current draw pull the actual voltage at the motor below the pack's rated nominal voltage under load; (2) **rolling and gearbox friction losses**, which this formula doesn't subtract at all (it assumes 100% efficiency); and (3) the fact that a wheel does still need a small amount of torque even at 'cruising' speed to overcome friction, meaning the motor never quite reaches the true zero-load RPM the datasheet lists. Builders typically treat the no-load formula as a solid *upper bound* / rough comparison tool for choosing between ratios or wheel sizes, then confirm the real number with an actual timed run once the robot is built.",
+   "entity_refs": [
+    "formula-robot-speed-rpm-wheel-diameter",
+    "motor-fingertech-silver-spark-11-1"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "speed",
+    "worked-example",
+    "gear-ratio"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-formula-torque-worked",
+   "title": "Worked Example: Sizing Motor Torque for a Target Acceleration",
+   "section": "Formulas",
+   "body_md": "Once a target top speed sets the gear ratio in the ballpark, the next question is whether that ratio can actually deliver the acceleration or pushing force the robot needs — this is a torque-sizing problem, not a speed problem.\n\nStart from Newton's second law, F = m x a, to find the total force the robot needs at the ground. Convert that to a torque requirement at the wheel by multiplying by wheel radius and dividing across however many wheels share the load: **T_wheel = F x r / n_driven_wheels**. Finally, work back through the gearbox to the motor shaft itself: **T_motor_required = T_wheel / (gear_ratio x efficiency)**, using roughly 0.65-0.80 efficiency for a typical spur gearbox (like Silver Spark) or 0.80-0.92 for a planetary gearbox (like Repeat Robotics' motors).\n\n**Worked example:** Take a standard 1 lb robot, m = 0.4536 kg, targeting an aggressive 2g acceleration (a = 19.6 m/s²) — a reasonable target for a bot that wants to close distance quickly or absorb a ram — on two driven wheels of 1.5in diameter (radius r = 0.019 m).\n\n1. F = m x a = 0.4536 x 19.6 = 8.89 N\n2. T_wheel (per side) = F x r / n = 8.89 x 0.019 / 2 = 0.0844 N·m ≈ 0.86 kg-cm\n3. At a 33.3:1 gear ratio with ~0.75 gearbox efficiency: T_motor_required = 0.86 / (33.3 x 0.75) ≈ 0.0345 kg-cm\n\nCompare that 0.0345 kg-cm requirement to the Silver Spark's bare-motor stall torque of roughly 0.046 kg-cm: there's real margin, meaning 33.3:1 comfortably supports a 2g start. Repeat the same math at the fastest stock ratio, 11.1:1: T_motor_required = 0.86 / (11.1 x 0.75) ≈ 0.103 kg-cm — more than double the bare motor's stall torque, meaning 11.1:1 alone cannot sustain a full 2g acceleration all the way from a dead stop under stall conditions (it can still accelerate, just not at that aggressive a rate, and the motor will spend less time near stall as RPM builds).\n\nThe practical takeaway: faster (lower) gear ratios trade away low-speed acceleration/pushing headroom for top speed, and slower (higher) ratios do the reverse. A builder picks the ratio that keeps enough torque margin for the robot's actual job (a control bot needs more low-end torque margin than a spinner that mostly just needs to reposition) — but as the next formula shows, that torque margin only matters up to the point where the wheels can actually put it to the ground.",
+   "entity_refs": [
+    "formula-required-torque-acceleration-pushing",
+    "motor-fingertech-silver-spark",
+    "motor-fingertech-silver-spark-11-1"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "torque",
+    "worked-example",
+    "acceleration"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-formula-traction-worked",
+   "title": "Worked Example: The Traction Limit and Why Extra Torque Gets Wasted",
+   "section": "Formulas",
+   "body_md": "No matter how much torque a drivetrain can theoretically produce, it can only push as hard as the wheels' grip on the floor allows before they simply spin in place. That ceiling is the **traction limit**: F_max = μ x N, where μ is the coefficient of friction between the wheel tread and the arena floor, and N is the normal force (weight) pressing the driven wheels down.\n\n**Worked example:** A 1 lb robot weighs 0.4536 kg x 9.81 m/s² = 4.45 N. Fit it with silicone-tread wheels giving a friction coefficient around μ = 0.6 against a typical polycarbonate arena floor (foam alone would be lower, roughly 0.3-0.5; a soft compliant tread can push toward 0.7-0.8). F_max = 0.6 x 4.45 = 2.67 N — that's the absolute maximum forward force this robot can generate on this floor, no matter what drivetrain sits behind the wheels.\n\nNow compare that to what the drivetrain itself can supply. Take the lowest-torque stock Silver Spark ratio, 11.1:1, with an estimated output stall torque around 0.38 kg-cm (≈0.0373 N·m) per motor, on the same 1.5in-diameter (0.019m radius) wheels, split across 2 driven wheels: the wheels together can theoretically deliver up to F = 2 x T / r = 2 x 0.0373 / 0.019 ≈ 3.9 N of force before the *motors* stall out. That's already above the 2.67 N traction ceiling — meaning this robot's wheels will slip and spin before its motors ever reach their torque limit, even at the fastest, lowest-torque ratio in the whole Silver Spark lineup.\n\nThis is the core reason \"just gear it down more for more pushing power\" is often a wasted move on a well-traction-matched antweight: once a drivetrain's available torque already exceeds the traction limit, adding more torque (by choosing a higher, slower gear ratio) doesn't increase real-world pushing force at all — the extra torque just goes into wheel slip, heat, and battery drain, while the robot gets slower and less maneuverable for no pushing benefit. The useful design target, as commonly recommended in the antweight community, is to size the drivetrain with roughly 1.5-2x the torque strictly required to reach the traction limit (giving margin for wear, voltage sag, and imperfect weight distribution) and then spend any additional gear-ratio choice on speed and control feel rather than further torque, since torque beyond that point is traction-limited, not motor-limited.",
+   "entity_refs": [
+    "formula-traction-limit-pushing-force",
+    "wheel-silicone-coated-foam",
+    "motor-fingertech-silver-spark-11-1"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "traction",
+    "worked-example",
+    "friction"
+   ],
+   "sources": [
+    "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+    "https://zbotic.in/robot-wheel-traction-surface-tire-type-selection-guide/"
+   ]
+  },
+  {
+   "id": "chunk-formula-thermal-esc-worked",
+   "title": "Worked Example: Stall Current, ESC Ratings, and Duty-Cycle Heating",
+   "section": "Formulas",
+   "body_md": "Every drive motor draws its highest current right at stall (zero RPM, full voltage applied) — this is the number an ESC, wiring, connectors, and battery all need to be sized to survive, at least briefly, even though the robot won't spend most of a match sitting at true stall.\n\n**Worked example:** A 2WD antweight running two FingerTech Silver Sparks, each rated 1.3A stall current at 7.4V. Worst case, both motors stall simultaneously (e.g. the robot is pinned against a wall while still commanding full throttle): I_stall_total = 2 x 1.3A = 2.6A combined. Normal cruising current while driving freely is much lower, typically in the 0.2-0.6A-per-motor range, since a motor only draws current in proportion to the torque it's actually producing, not its theoretical maximum.\n\nSizing rule of thumb: an ESC or motor driver's **continuous current rating** should sit comfortably above the expected cruising current (so it runs cool through normal driving), while its **burst/peak current rating** needs to clear the full per-channel stall current with some safety margin — for a 1.3A-stall motor, a driver rated for 2-3A continuous per channel is typically adequate, which is why most small antweight brushed ESCs (FingerTech's own boards among them) are specified in that range.\n\nThe part that trips up new builders is the **duty-cycle / thermal** side of this, separate from the ESC's rating entirely: these tiny motors have very little thermal mass, so even a stall current well within the ESC's rated capability can still cook the motor's own windings if held for too long, because resistive (I²R) heating in the coil accumulates faster than the small motor can shed it. As a rough guide, holding a Silver Spark-class motor at full stall for more than about 10-20 seconds starts to risk winding insulation damage, even though the ESC itself may show no signs of distress. This is why experienced drivers are taught to **\"bump\" the throttle** — short pulses of full stall rather than holding it — during a pushing match or when momentarily jammed against an obstacle, treating the stall current rating as a brief-duration limit rather than something the motor can sustain indefinitely.",
+   "entity_refs": [
+    "formula-stall-current-esc-thermal-limit",
+    "motor-fingertech-silver-spark"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "stall-current",
+    "esc",
+    "thermal",
+    "worked-example"
+   ],
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "chunk-formula-ratio-selection-worked",
+   "title": "Worked Example: Reverse-Solving Gear Ratio from a Target Top Speed",
+   "section": "Formulas",
+   "body_md": "When a builder starts from a target top speed instead of a specific motor, the speed formula can be rearranged to solve directly for the gear ratio needed: **gear_ratio = motor_rpm_no_load x pi x wheel_diameter(in) / (target_mph x 1056)**.\n\n**Worked example:** Suppose the goal is an 8 mph top speed, using a FingerTech Silver Spark (motor_rpm_no_load = 11,530 at 7.4V) and a 2.0in wheel.\n\ngear_ratio = 11,530 x 3.1416 x 2.0 / (8 x 1056) = 72,444 / 8,448 ≈ **8.6:1**\n\nBut Silver Spark's fastest stock ratio is 11.1:1, not 8.6:1 — there's no off-the-shelf ratio fast enough to hit exactly 8 mph with this motor and this wheel size. This is a completely normal outcome of the reverse calculation, and it points to two practical fixes:\n\n1. **Increase the wheel diameter** and re-check the fastest available stock ratio. At 11.1:1 with a larger 2.5in wheel: wheel RPM = 11,530 / 11.1 = 1,038.7, so v(mph) = 1,038.7 x 3.1416 x 2.5 / 1056 ≈ **7.7 mph** — very close to the 8 mph target, achieved with a completely off-the-shelf Silver Spark by simply choosing a bigger wheel instead of hunting for a nonexistent ratio.\n2. **Switch to a higher-RPM drivetrain entirely**, most commonly a brushless drive pod. Because a brushless motor's speed is set by kv x voltage rather than a fixed brush-motor RPM, a brushless antweight gearmotor can be tuned well past this target simply by running a higher-cell-count battery (3S or 4S instead of 2S), without touching the gearbox or wheel at all.\n\nThe general lesson from reverse-solving gear ratio this way is that **wheel diameter and gear ratio are interchangeable knobs for hitting a speed target** — a builder isn't locked into whatever stock ratios a motor happens to ship in, because changing wheel size (within the traction and torque limits from the other formulas) shifts the achievable speed just as effectively as changing the gearbox. The final choice usually comes down to whichever knob has the least negative side effect on the rest of the build: a bigger wheel raises ground clearance and can increase rotational inertia (slower spin-up/braking) and often adds weight, while a different gear ratio may not exist as a stock part, and a different motor altogether means a bigger BOM and design change.",
+   "entity_refs": [
+    "formula-gear-ratio-selection-top-speed",
+    "formula-robot-speed-rpm-wheel-diameter",
+    "motor-repeat-mini-brushless-1106-mk4"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "formula",
+    "gear-ratio",
+    "worked-example",
+    "drivetrain-sizing"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-recommended-spinner-drivetrain",
+   "title": "Recommended Drivetrain: Competitive 1 lb Antweight Spinner",
+   "section": "Recommendations",
+   "body_md": "A competitive antweight spinner spends most of its weight budget on the weapon system (motor, bar/disc, containment) and armor, so the drivetrain's job is to be light, reliable, and \"just fast/agile enough\" to line up hits and dodge — not to win pushing matches. Recommended baseline:\n\n- **Topology:** 2WD direct (live-axle) drive. A spinner rarely needs 4WD's extra traction, and every gram saved on the drivetrain can go into the weapon or armor instead.\n- **Motors:** A pair of FingerTech Silver Spark gearmotors in the 22.2:1-33.3:1 range are the proven default — enough torque margin over the traction limit for confident repositioning, with a reasonable top speed (roughly 4-6 mph depending on wheel size) for closing distance and dodging counter-attacks. Builders chasing extra speed and efficiency at similar weight increasingly use a Repeat Robotics brushless \"Mini\" 1106 drive pod instead, which can be tuned faster on 3S while staying in the same weight class as a Silver Spark pair.\n- **Wheels:** 1.25-1.5in FingerTech Lite Flite foam wheels, prioritizing shock absorption (protecting the drivetrain from the vibration and impacts of being near an active spinning weapon and from opposing hits) over maximum grip — a spinner's own gyroscopic effects and hit-and-retreat playstyle rely less on sustained high-friction pushing than a control bot does.\n- **Ground clearance and wheel guards:** Keep wheels tucked fully inside the body's outer footprint, ideally behind a hardened skirt or armor lip, since exposed wheels are one of the most common ways a spinner robot gets killed — a single solid hit to an unguarded wheel can end the match instantly.\n- **Battery/voltage:** 2S LiPo (7.4V) is the standard baseline; 3S is worth considering specifically to unlock a brushless drive pod's higher speed range, but adds weight that must be budgeted against the (typically much heavier) weapon system.\n\nThe overarching principle for a spinner's drivetrain is: size it to comfortably clear the traction limit with margin (per the traction-limit formula) at a ratio that gives useful positioning speed, then stop — any drivetrain weight or complexity beyond that is weight the weapon system could have used instead.",
+   "entity_refs": [
+    "motor-fingertech-silver-spark",
+    "motor-repeat-mini-brushless-1106-mk4",
+    "wheel-fingertech-lite-flite-foam",
+    "formula-traction-limit-pushing-force"
+   ],
+   "weight_classes": [
+    "antweight"
+   ],
+   "tags": [
+    "recommendation",
+    "spinner",
+    "drivetrain",
+    "antweight"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-recommended-control-bot-drivetrain",
+   "title": "Recommended Drivetrain: 1 lb Antweight Control Bot",
+   "section": "Recommendations",
+   "body_md": "A control bot (wedge, rammer, or full-body pusher) lives or dies by its ability to win sustained pushing exchanges, hold a heading under load, and stay mobile after taking a hit — so its drivetrain deserves a noticeably larger share of the weight budget than a spinner's. Recommended baseline:\n\n- **Topology:** 4WD is genuinely worth its weight cost here, more so than on any other antweight archetype, because losing traction on even one corner during a pushing match can mean losing the match outright. The common, weight-efficient way to get there on a 1 lb budget is 2 motors per side linked front-to-rear with a small GT2 belt and pulley set, rather than 4 full independent motors. A well-executed 2WD layout with excellent traction and a low center of gravity is still a completely viable, simpler alternative for builders prioritizing reliability over maximum pushing power.\n- **Motors:** FingerTech Silver Spark at 50:1-100:1, or a Repeat Robotics planetary-gearbox brushed/brushless motor at a comparable ratio, favoring the higher-torque end of the practical range compared to a spinner's build — a control bot wants torque margin well above the traction limit so it's never the motor, only the tires, holding back a push.\n- **Wheels:** This is the one drivetrain decision worth spending real weight budget on: compliant, higher-grip options like silicone-coated foam or Banebots-style compliant tread genuinely change match outcomes for a control bot, unlike a spinner where wheel choice matters less. Accept the extra weight of a grippier tire here in exchange for meaningfully more pushing force per the traction-limit formula.\n- **Ground clearance:** Slightly more forgiving than a spinner's — a control bot often wants a wedge or forward scoop close to the floor, so ground clearance should be set by that geometry first, with wheels and their guards built around it rather than the reverse.\n- **Battery/voltage:** 2S (7.4V) remains standard; 3S is less commonly needed here than for a spinner chasing top speed, since a control bot's advantage comes from torque and traction, not raw speed.\n\nThe key sizing check for a control bot, more than any other archetype, is running the traction-limit formula against the actual tire compound chosen (not foam's default lower coefficient) and making sure the drivetrain's torque comfortably clears that number with room to spare — an underpowered control bot that can be shoved backward once its wheels break traction has effectively lost its entire strategic purpose.",
+   "entity_refs": [
+    "motor-fingertech-silver-spark-100-1",
+    "wheel-banebots-t61-compliant",
+    "wheel-silicone-coated-foam",
+    "belt-pulley-gt2-antweight",
+    "formula-traction-limit-pushing-force"
+   ],
+   "weight_classes": [
+    "antweight"
+   ],
+   "tags": [
+    "recommendation",
+    "control-bot",
+    "drivetrain",
+    "antweight"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-recommended-plastic-ant-drivetrain",
+   "title": "Recommended Drivetrain: Plastic Antweight",
+   "section": "Recommendations",
+   "body_md": "Plastic antweight classes (popularized as an entry-level, low-cost, low-damage-rate scale, generally run at the same 1 lb / 454g total weight as a standard antweight but requiring the robot's structure to be built primarily from plastic rather than metal) put a premium on low cost and simple, printable/hand-buildable parts over absolute competitive performance. Note that the plastic-only requirement almost always targets the robot's *structure/armor*, not its internal drive components — metal-geared motors are still legal even in a strict plastic build, but budget-minded builders in this class often gravitate toward the cheapest available motors anyway, which happen to be the same N-series and servo options with the internal-quality caveats already noted. Recommended baseline:\n\n- **Motors:** For a first build or a very tight budget, a pair of modified (or factory) continuous-rotation 9g servos is the simplest possible complete drive system — no ESC needed, direct receiver connection, and matches the class's low-cost ethos exactly. For a step up in speed and torque while staying cheap, a pair of N20 gearmotors (100:1-150:1 at 6V is a reasonable starting ratio range) is the most common upgrade path — but given the well-documented quality-lottery risk in this motor family, buy at least one or two spares per side and bench-test every unit (checking free-run current and no-load RPM) before final installation, rather than trusting an untested motor straight out of the bag for an event.\n- **Wheels:** 3D-printed TPU wheels are close to a perfect match for this class: essentially free, fully custom to the chassis design, printable with the hub built in to save an extra part and its weight, and tough enough to survive typical plastic-antweight-level impacts. A simple o-ring tire on a printed hub is a good lightweight alternative when a builder wants more grip than bare TPU without the complexity of casting silicone.\n- **Topology:** 2WD live-axle drive, kept as simple as possible — this class rewards a build that's quick and cheap to repair between matches over one with maximum drivetrain sophistication, and a straightforward direct-drive 2WD layout is the easiest to fix with commonly available parts (a spare N20 or servo, a printed wheel) between rounds.\n- **Ground clearance/guards:** Since armor is plastic and generally thinner/lighter than a metal-armored standard antweight, keeping wheels tucked inboard behind whatever armor the design does carry matters just as much here, if not more, since plastic armor may not stop as much as metal would if an opponent gets under an exposed wheel.\n\nOverall, the plastic antweight drivetrain recommendation prioritizes **cost, simplicity, and repairability** over raw performance metrics — the class exists specifically to lower the barrier to entry, and a drivetrain built around cheap, easily replaceable parts (spare N20s, printed wheels) serves that goal better than chasing the same Silver-Spark-and-Banebots spec sheet a competitive metal antweight would use.",
+   "entity_refs": [
+    "motor-servo-continuous-rotation-modified",
+    "motor-n20-generic-100-1",
+    "wheel-printed-tpu",
+    "wheel-o-ring-tire",
+    "gearbox-n-series-metal-vs-plastic"
+   ],
+   "weight_classes": [
+    "plastic-antweight"
+   ],
+   "tags": [
+    "recommendation",
+    "plastic-antweight",
+    "drivetrain",
+    "budget"
+   ],
+   "sources": [
+    "https://www.robotfighting.org/antweight-robots/",
+    "domain knowledge"
+   ]
+  }
+ ]
+}

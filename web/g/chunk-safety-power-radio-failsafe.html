@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Core Safety Systems: Power Switches, Weapon Locks, and Radio Fail-Safes — Combat Robot Database</title>
+<meta name="description" content="Three safety systems appear on essentially every rulebook&#x27;s inspection checklist regardless of weight class or organization, because they address the three most">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Core Safety Systems: Power Switches, Weapon Locks, and Radio Fail-Safes</div>
+<h1 class="page">Core Safety Systems: Power Switches, Weapon Locks, and Radio Fail-Safes</h1>
+<p class="page-sub">Safety &amp; Inspection</p>
+<div style="margin-bottom:20px"><span class="pill accent">fairyweight</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill accent">beetleweight</span><span class="pill">safety</span><span class="pill">power-switch</span><span class="pill">weapon-lock</span><span class="pill">failsafe</span><span class="pill">inspection</span></div>
+<div class="two-col">
+  <div class="prose"><p>Three safety systems appear on essentially every rulebook&#x27;s inspection checklist regardless of weight class or organization, because they address the three most common ways a combat robot can hurt someone outside the arena: an accidentally-live robot, an accidentally-spinning weapon during handling, and a robot that keeps moving after its driver loses control.</p>
+<p><strong>Main power disconnect / removable link</strong>: every ruleset requires a way to fully cut power to the robot&#x27;s motors and weapon that doesn&#x27;t require tools and can be operated quickly by the builder or a marshal. RoboGames is explicit about timing: the disconnect must be operable within 15 seconds without endangering the operator, and full deactivation of the robot must be achievable within 60 seconds. AWS (UK) simply requires it be &#x27;externally accessible&#x27; and operable &#x27;without tools.&#x27; Larger classes often add a secondary, more certain isolation method — a physically removable link or jumper that a marshal can pull even if a switch has failed or is hard to reach — on top of the primary switch, precisely because a bigger, more dangerous robot deserves more than one way to guarantee it goes dead.</p>
+<p><strong>Weapon lock</strong>: any robot with a weapon capable of moving under its own power (a spinning disc/drum, a lifting arm, a hammer) must have a physical lock fitted whenever it is powered on outside the arena — during transport, pit setup, and staging before a match. RoboGames requires this lock to be a clearly visible, high-visibility color (neon orange or similar) specifically so an inspector or bystander can tell at a glance whether a weapon is safed or live; NHRL requires a lock that prevents a spinning weapon from moving &#x27;outside of the cage,&#x27; i.e. it must contain the weapon even if it somehow spins up unexpectedly. Locks are fitted before power-on and removed only once the robot is placed in the arena and the match is about to begin.</p>
+<p><strong>Radio fail-safe</strong>: the receiver/ESC system must be programmed so that losing the transmitter signal (turned off, out of range, battery dies, interference) causes all motion — drive and weapon alike — to stop immediately, rather than continuing at whatever the last received command was (which could mean a weapon left spinning at full speed or a drivetrain left driving into a wall or an official). This is tested directly at inspection: an inspector or the driver deliberately powers off or unplugs the transmitter while the robot is live, and watches to confirm the robot goes fully inert. NHRL calls this out as a mandatory pass/fail test every robot must clear before competing; AWS requires the same behavior (&#x27;robot shall cease all motion when the controlling transmitter is switched off&#x27;) as a hard rule.</p>
+<p>Together these three systems form the backbone of virtually every technical inspection checklist in the sport: an inspector will check for a functioning, accessible power disconnect, a properly colored and fitted weapon lock, and a passing fail-safe test, typically in that order, before moving on to weight, dimensions, and weapon-specific checks.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/ruleset-aws-uk.html">Antweight World Series Rules (UK)</a></li><li><a href="../e/ruleset-nhrl.html">NHRL Open Rules (National Havoc Robot League)</a></li><li><a href="../e/ruleset-robogames.html">RoboGames Combat Robot Rules</a></li><li><a href="../e/term-radio-failsafe.html">Radio Fail-Safe</a></li><li><a href="../e/term-removable-link.html">Removable Link / Master Power Switch</a></li><li><a href="../e/term-weapon-lock.html">Weapon Lock</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://robogames.net/rules/combat.php" rel="noopener">https://robogames.net/rules/combat.php</a></li><li><a href="https://www.nhrl.io/rules" rel="noopener">https://www.nhrl.io/rules</a></li><li><a href="https://www.robotwars101.org/ants/rules.htm" rel="noopener">https://www.robotwars101.org/ants/rules.htm</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,1842 @@
+{
+  "topic_id": "weapon-motors",
+  "title": "Weapon Motors: Selection & Sizing for Antweights",
+  "scope_note": "How to pick and size a spinning-weapon motor for 1 lb antweight and plastic antweight combat robots, using the FPV-drone brushless motor size ladder (11xx-28xx). Covers KV selection, motor constants, drivetrain layout (direct/belt/gear), spin-up time, thermal and mechanical failure modes, mounting, and worked numeric examples.",
+  "entities": [
+    {
+      "id": "motor-1104",
+      "type": "component",
+      "name": "1104 brushless motor (weapon)",
+      "aliases": [
+        "1104"
+      ],
+      "summary": "Tiny 11mm-diameter, 4mm-tall stator motor from the FPV whoop/toothpick world, used as an ultra-light vertical spinner or micro-drum motor on plastic antweights and fairyweights.",
+      "weight_classes": [
+        "plastic-antweight",
+        "fairyweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "plastic-ant"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 5000,
+        "weight_g": 9,
+        "dia_mm": 11,
+        "length_mm": 4,
+        "shaft_dia_mm": 1.5,
+        "max_current_a": 8,
+        "resistance_ohm": 0.35,
+        "price_usd": 10,
+        "cells_s": 2
+      },
+      "pros": [
+        "Extremely light (under 10 g), leaves more of a 1 lb budget for armor/drive",
+        "Cheap and disposable, easy to keep spares"
+      ],
+      "cons": [
+        "Very small stator volume caps torque and stall current headroom",
+        "Fragile bearings/shaft under weapon shock loading, not designed for impacts"
+      ],
+      "notes": "1104-size motors are pulled straight from tiny whoop drones. In combat use they almost always run a small direct-drive vertical disc or paddle weapon under ~40g on a plastic antweight, at 2S. Confidence on the exact KV/weight is medium since this is a generic size class rather than one branded part; values are representative of typical 1104 whoop motors (4500-6000kv range).",
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-1106",
+      "type": "component",
+      "name": "1106 brushless motor (weapon)",
+      "aliases": [
+        "1106"
+      ],
+      "summary": "11mm x 6mm stator motor, one step up from 1104 in stator height/torque, used for slightly heavier plastic-ant vertical spinners and paddle weapons.",
+      "weight_classes": [
+        "plastic-antweight",
+        "fairyweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "plastic-ant"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 4500,
+        "weight_g": 11,
+        "dia_mm": 11,
+        "length_mm": 6,
+        "shaft_dia_mm": 1.5,
+        "max_current_a": 10,
+        "resistance_ohm": 0.25,
+        "price_usd": 11,
+        "cells_s": 2
+      },
+      "pros": [
+        "Noticeably more torque than 1104 for only ~2g extra weight",
+        "Still cheap, widely available as whoop replacement motors"
+      ],
+      "cons": [
+        "Still a whoop-grade bearing/shaft; not shock-rated for weapon impacts",
+        "Small mounting screws (M2) strip easily"
+      ],
+      "notes": "Representative specs for the 1106 class; treat exact numbers as a typical range, not a single branded product.",
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-1204",
+      "type": "component",
+      "name": "1204 brushless motor (weapon)",
+      "aliases": [
+        "1204"
+      ],
+      "summary": "12mm-diameter, 4mm-tall stator motor, a common toothpick-drone motor repurposed as a plastic-ant or fairyweight vertical spinner/beater motor.",
+      "weight_classes": [
+        "plastic-antweight",
+        "fairyweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 4000,
+        "weight_g": 14,
+        "dia_mm": 12,
+        "length_mm": 4,
+        "shaft_dia_mm": 1.5,
+        "max_current_a": 12,
+        "resistance_ohm": 0.2,
+        "price_usd": 10,
+        "cells_s": 2
+      },
+      "pros": [
+        "Good torque-to-weight step up from 11xx sizes",
+        "M2 mount, easy to print an adapter plate"
+      ],
+      "cons": [
+        "Still limited peak current before demagnetizing the small magnets"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-1306",
+      "type": "component",
+      "name": "1306 brushless motor (weapon)",
+      "aliases": [
+        "1306",
+        "1306 racing motor"
+      ],
+      "summary": "13mm x 6mm stator motor originally built for FPV micro racing quads (2-3 inch props); a very common plastic-ant and light 1 lb weapon motor because of its wide KV range and cheap availability.",
+      "weight_classes": [
+        "plastic-antweight",
+        "fairyweight",
+        "antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "racing-motor"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 3100,
+        "weight_g": 17,
+        "dia_mm": 13,
+        "length_mm": 6,
+        "shaft_dia_mm": 1.5,
+        "max_current_a": 15,
+        "resistance_ohm": 0.12,
+        "price_usd": 13,
+        "cells_s": 3
+      },
+      "pros": [
+        "Huge range of KV options on the market (2200-4000kv) from racing-drone suppliers",
+        "9x9mm M2 mount pattern is easy to adapt with a printed plate",
+        "Good torque for its 15-19g weight, popular for small vertical discs"
+      ],
+      "cons": [
+        "3mm-class magnets can demagnetize if driven well past rated current during a hard stall",
+        "1.5mm shaft is thin for anything beyond a small disc or paddle"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "motor-1404",
+      "type": "component",
+      "name": "1404 brushless motor (weapon)",
+      "aliases": [
+        "1404"
+      ],
+      "summary": "14mm x 4mm stator motor, a step above 1306 in diameter (more torque, similar height); used on heavier plastic ants and light 1 lb spinners.",
+      "weight_classes": [
+        "plastic-antweight",
+        "antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 2600,
+        "weight_g": 22,
+        "dia_mm": 14,
+        "length_mm": 4,
+        "shaft_dia_mm": 1.5,
+        "max_current_a": 18,
+        "resistance_ohm": 0.1,
+        "price_usd": 14,
+        "cells_s": 3
+      },
+      "pros": [
+        "Wider stator than 1306 gives more low-end torque at similar KV",
+        "Still under 25 g"
+      ],
+      "cons": [
+        "Less common than 1306/1408 so fewer KV choices in stock"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-1408",
+      "type": "component",
+      "name": "1408 brushless motor (weapon)",
+      "aliases": [
+        "1408"
+      ],
+      "summary": "14mm x 8mm stator motor, one of the most popular 'toothpick' drone sizes; a very common choice for 1 lb antweight vertical spinners, small drums, and light bars where a 1806 is too heavy.",
+      "weight_classes": [
+        "plastic-antweight",
+        "antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "toothpick"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 3000,
+        "weight_g": 30,
+        "dia_mm": 14,
+        "length_mm": 8,
+        "shaft_dia_mm": 1.5,
+        "max_current_a": 20,
+        "resistance_ohm": 0.09,
+        "price_usd": 15,
+        "cells_s": 4
+      },
+      "pros": [
+        "Tall stator (8mm) gives real torque for its size, good spin-up",
+        "12x12mm M2 mount pattern common and easy to adapt",
+        "Cheap, sold in bulk by every FPV motor vendor as 2.5in toothpick motors"
+      ],
+      "cons": [
+        "Bearings are still drone-spec, not shock-rated for hard weapon impacts",
+        "Bell can loosen/separate under repeated impact loading if not threadlocked"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "motor-1806",
+      "type": "component",
+      "name": "1806 brushless motor (weapon)",
+      "aliases": [
+        "1806",
+        "1806 mini quad motor"
+      ],
+      "summary": "18mm x 6mm stator motor from the older 200-250 class mini-quad era; a long-running staple antweight weapon motor thanks to its 3mm shaft and 16x16mm M3 mount that make it easy to bolt straight to a hub or pulley.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "bread-and-butter"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 2300,
+        "weight_g": 30,
+        "dia_mm": 18,
+        "length_mm": 6,
+        "shaft_dia_mm": 3,
+        "max_current_a": 22,
+        "resistance_ohm": 0.09,
+        "price_usd": 16,
+        "cells_s": 4
+      },
+      "pros": [
+        "3mm shaft is much stiffer than 1.5mm 13xx/14xx shafts, tolerates direct-drive hubs better",
+        "16x16mm M3 mount matches many printed and metal mount patterns",
+        "Wide KV selection (1400-2700kv) still sold new"
+      ],
+      "cons": [
+        "Heavier than 13xx/14xx for builders on a tight plastic-ant budget",
+        "Still uses drone-grade sleeve/ball bearings, not a combat-rated shaft"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "motor-2004",
+      "type": "component",
+      "name": "2004 brushless motor (weapon)",
+      "aliases": [
+        "2004"
+      ],
+      "summary": "20mm x 4mm cinewhoop-derived stator, a lighter-weight alternative in the 20xx bracket for antweight builders who want a bit more diameter/torque than 1806 without the weight of a 2205+.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 2300,
+        "weight_g": 33,
+        "dia_mm": 20,
+        "length_mm": 4,
+        "shaft_dia_mm": 1.5,
+        "max_current_a": 20,
+        "resistance_ohm": 0.1,
+        "price_usd": 15,
+        "cells_s": 4
+      },
+      "pros": [
+        "Wide stator diameter gives good torque despite short 4mm height",
+        "Common and cheap (cinewhoop production run)"
+      ],
+      "cons": [
+        "Thin 1.5mm shaft is the weak point versus 1806/2205's 3-4mm shafts"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-2205",
+      "type": "component",
+      "name": "2205 brushless motor (weapon)",
+      "aliases": [
+        "2205",
+        "2205 racing motor"
+      ],
+      "summary": "22mm x 5mm stator, one of the definitive FPV racing-motor sizes and a very common 1 lb antweight vertical-disc/bar weapon motor because of its balance of torque, RPM range, and cheap availability.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "bread-and-butter"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 2300,
+        "weight_g": 29,
+        "dia_mm": 22,
+        "length_mm": 5,
+        "shaft_dia_mm": 4,
+        "max_current_a": 30,
+        "resistance_ohm": 0.07,
+        "price_usd": 20,
+        "cells_s": 4
+      },
+      "pros": [
+        "4mm shaft is stiff enough for small direct-drive discs",
+        "16x16mm M3 bolt pattern is a de-facto antweight standard",
+        "Huge range of KV from 1300-2700 available from racing-drone brands"
+      ],
+      "cons": [
+        "At the top of the antweight weight budget once you add a bell/prop-nut hub",
+        "Needs a good ESC with real current headroom (30A+ burst) for hard weapon stalls"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/",
+        "https://phaserfpv.com.au/blogs/fpv-news/what-is-the-difference-between-1804-vs-2204-vs-2205-vs-2006"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "motor-2206",
+      "type": "component",
+      "name": "2206 brushless motor (weapon)",
+      "aliases": [
+        "2206"
+      ],
+      "summary": "22mm x 6mm stator, a taller/torquier sibling of the 2205, popular in freestyle-quad builds and equally popular as an antweight bar or disc spinner motor.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "bread-and-butter"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 2100,
+        "weight_g": 32,
+        "dia_mm": 22,
+        "length_mm": 6,
+        "shaft_dia_mm": 4,
+        "max_current_a": 32,
+        "resistance_ohm": 0.065,
+        "price_usd": 22,
+        "cells_s": 4
+      },
+      "pros": [
+        "Taller stator than 2205 gives noticeably more torque at similar KV",
+        "Good tip-speed headroom at 4S for 3-4in discs and bars"
+      ],
+      "cons": [
+        "A few extra grams versus 2205; matters on a tight 1 lb build"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "motor-2207",
+      "type": "component",
+      "name": "2207 brushless motor (weapon)",
+      "aliases": [
+        "2207",
+        "2207 freestyle motor"
+      ],
+      "summary": "22mm x 7mm stator, one of the most common freestyle/racing FPV motor sizes and a direct antweight favorite; Repeat Robotics' antweight hubmotor is built on this stator size for plug-and-play direct-drive weapons.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "bread-and-butter"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1950,
+        "weight_g": 35,
+        "dia_mm": 22,
+        "length_mm": 7,
+        "shaft_dia_mm": 5,
+        "max_current_a": 35,
+        "resistance_ohm": 0.06,
+        "price_usd": 25,
+        "cells_s": 4
+      },
+      "pros": [
+        "Best stator-volume-to-weight ratio in the 22xx family, strong low-RPM torque",
+        "5mm shaft handles direct-drive hub loads well",
+        "Base stator size used by purpose-built combat hubmotors (e.g. Repeat 2207)"
+      ],
+      "cons": [
+        "Near the top of what a 1 lb build can spend on motor weight alone if also running a full-size hub"
+      ],
+      "sources": [
+        "https://repeat-robotics.com/buy/2207-battle-ready-hubmotor/",
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "motor-2306",
+      "type": "component",
+      "name": "2306 brushless motor (weapon)",
+      "aliases": [
+        "2306"
+      ],
+      "summary": "23mm x 6mm stator, the long-time standard 5-inch mini-quad motor size; used in antweights as a slightly larger-diameter alternative to the 22xx family for bar and drum spinners needing more torque.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "bread-and-butter"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1900,
+        "weight_g": 34,
+        "dia_mm": 23,
+        "length_mm": 6,
+        "shaft_dia_mm": 4,
+        "max_current_a": 33,
+        "resistance_ohm": 0.06,
+        "price_usd": 23,
+        "cells_s": 4
+      },
+      "pros": [
+        "Larger diameter than 22xx gives a bit more stall torque for the same weight class",
+        "19x19mm and 16x16mm mount options both exist on most 2306 shells"
+      ],
+      "cons": [
+        "Slightly heavier than a 2205/2207 for a similar power band"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "motor-2504",
+      "type": "component",
+      "name": "2504 brushless motor (weapon)",
+      "aliases": [
+        "2504"
+      ],
+      "summary": "25mm x 4mm stator; a lighter member of the 25xx family used where extra diameter (torque) is wanted without jumping fully into 28xx weight, common on heavier 1 lb bar/drum builds pushing into light-beetle territory.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "heavy-ant-crossover"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1700,
+        "weight_g": 52,
+        "dia_mm": 25,
+        "length_mm": 4,
+        "shaft_dia_mm": 5,
+        "max_current_a": 35,
+        "resistance_ohm": 0.055,
+        "price_usd": 28,
+        "cells_s": 6
+      },
+      "pros": [
+        "Wide stator gives strong low-speed torque, good for belt-reduced drums",
+        "5mm shaft suits belt pulleys well"
+      ],
+      "cons": [
+        "Heavy for a strict 1 lb budget; usually only fits builds that skimp elsewhere"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-2508",
+      "type": "component",
+      "name": "2508 brushless motor (weapon)",
+      "aliases": [
+        "2508"
+      ],
+      "summary": "25mm x 8mm stator, a tall/high-torque long-range and heavy-lift drone motor; in combat it is a low-KV, high-torque option for belt-reduced 1 lb drums and bars that need bite more than raw tip speed.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "heavy-ant-crossover",
+        "high-torque"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1300,
+        "weight_g": 75,
+        "dia_mm": 25,
+        "length_mm": 8,
+        "shaft_dia_mm": 5,
+        "max_current_a": 40,
+        "resistance_ohm": 0.05,
+        "price_usd": 32,
+        "cells_s": 6
+      },
+      "pros": [
+        "Very strong stall torque for its class, low KV keeps bite high even geared 1:1",
+        "Popular, well-supported size from long-range FPV so parts are cheap"
+      ],
+      "cons": [
+        "75g+ is a big bite out of a 454g total robot weight; almost always needs the rest of the bot built light"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-2806",
+      "type": "component",
+      "name": "2806 brushless motor (weapon)",
+      "aliases": [
+        "2806"
+      ],
+      "summary": "28mm x 6mm stator, entry point of the 28xx family; used on heavy 1 lb builds and as a light-beetleweight crossover weapon motor, usually belt-driven to keep tip speed in range at low KV.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "heavy-ant-crossover"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1300,
+        "weight_g": 68,
+        "dia_mm": 28,
+        "length_mm": 6,
+        "shaft_dia_mm": 5,
+        "max_current_a": 38,
+        "resistance_ohm": 0.05,
+        "price_usd": 30,
+        "cells_s": 6
+      },
+      "pros": [
+        "Big stator diameter gives strong torque even at moderate weight for a 28xx",
+        "Good belt-drive drum/bar motor"
+      ],
+      "cons": [
+        "At 68g+ this is a beetleweight-style motor squeezed into a 1 lb build; leaves little weight for armor"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-2812",
+      "type": "component",
+      "name": "2812 brushless motor (weapon)",
+      "aliases": [
+        "2812"
+      ],
+      "summary": "28mm x 12mm stator, a very tall/torquey size from the heavy-lift/cinelifter drone world; occasionally used on the heaviest 1 lb builds or light beetles as a high-torque belt-driven weapon motor.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "heavy-ant-crossover",
+        "high-torque"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 900,
+        "weight_g": 95,
+        "dia_mm": 28,
+        "length_mm": 12,
+        "shaft_dia_mm": 6,
+        "max_current_a": 45,
+        "resistance_ohm": 0.04,
+        "price_usd": 40,
+        "cells_s": 6
+      },
+      "pros": [
+        "Exceptional stall torque and thermal mass for sustained weapon use",
+        "Low KV keeps bite very high"
+      ],
+      "cons": [
+        "Too heavy for almost any legal 1 lb build; realistically a light-beetleweight part"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-2814",
+      "type": "component",
+      "name": "2814 brushless motor (weapon)",
+      "aliases": [
+        "2814",
+        "Cobra 2814"
+      ],
+      "summary": "28mm x 14mm stator, the classic heavy-lift/heavy-ant-beetle-crossover size; the Cobra 2814 in particular is a well-known belt-drive weapon motor used across heavy 1 lb and light beetleweight spinners.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "size-ladder",
+        "outrunner",
+        "heavy-ant-crossover",
+        "belt-drive"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1850,
+        "weight_g": 112,
+        "dia_mm": 28,
+        "length_mm": 14,
+        "shaft_dia_mm": 6,
+        "max_current_a": 55,
+        "resistance_ohm": 0.035,
+        "price_usd": 45,
+        "cells_s": 6
+      },
+      "pros": [
+        "Huge stator volume gives serious torque and thermal headroom for belt-driven drums/discs",
+        "Cobra 2814 1850kv specifically documented as a belt-drive combat weapon motor choice"
+      ],
+      "cons": [
+        "Well over 1 lb (454g) motor-only weight budget on its own in some windings; realistically a beetleweight part used at the antweight/beetle crossover on the lightest windings"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "motor-repeat-2822",
+      "type": "component",
+      "name": "Repeat Robotics 2822 Weapon Motor",
+      "aliases": [
+        "Repeat 2822",
+        "Repeat 2822 Mk3",
+        "Repeat 2822 Direct Drive V2"
+      ],
+      "summary": "Purpose-built antweight weapon outrunner on a 28mm-diameter, 22mm-length can, sold specifically for direct-drive antweight spinners rather than repurposed from a drone; widely regarded as one of the most durable off-the-shelf antweight weapon motors.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "vendor": "Repeat Robotics",
+      "category": "weapon-motor",
+      "product_url": "https://repeat-robotics.com/buy/repeat-2822-antweight-motor/",
+      "tags": [
+        "weapon-motor",
+        "purpose-built",
+        "direct-drive",
+        "outrunner",
+        "bread-and-butter"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1100,
+        "dia_mm": 28,
+        "length_mm": 22,
+        "shaft_dia_mm": 4,
+        "cells_s": 4
+      },
+      "pros": [
+        "Designed from the start for weapon shock loads, not adapted from a camera-drone motor",
+        "Low-ish KV (1100kv seen in the product line) suits direct drive at 4S without gearing down",
+        "Screw-retained bell rather than relying only on a C-clip, addressing the classic bell-separation failure"
+      ],
+      "cons": [
+        "Costs more than a generic same-size drone motor",
+        "Weight/price not independently confirmed for every winding in this listing"
+      ],
+      "notes": "Multiple KV windings are sold under the Repeat 2822 name (e.g. 1100kv variants seen in resale listings). Exact weight and price were not confirmed in this pass; do not treat the numbers above as complete -- only KV, can size, and general design intent are confirmed.",
+      "sources": [
+        "https://repeat-robotics.com/products/repeat-2822-mk3",
+        "https://shop.robotsmashingleague.com/products/repeat-2822-1100-kv-1100",
+        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "motor-repeat-2207-hubmotor",
+      "type": "component",
+      "name": "Repeat Robotics 2207 Battle Ready Hubmotor",
+      "aliases": [
+        "Repeat 2207 Hubmotor"
+      ],
+      "summary": "A 2207-stator combat hubmotor sold as a complete direct-drive weapon solution for antweights: the weapon hub/disc bolts straight to the motor bell, eliminating a separate shaft-and-bearing weapon assembly.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "vendor": "Repeat Robotics",
+      "category": "weapon-motor",
+      "product_url": "https://repeat-robotics.com/buy/2207-battle-ready-hubmotor/",
+      "tags": [
+        "weapon-motor",
+        "hubmotor",
+        "direct-drive",
+        "purpose-built"
+      ],
+      "specs": {
+        "dia_mm": 22,
+        "length_mm": 7,
+        "cells_s": 4
+      },
+      "pros": [
+        "Simplifies a vertical-disc weapon to 'bolt disc to bell' with no separate weapon shaft/bearings needed",
+        "Purpose-hardened bell/bearing set for weapon shock versus a stock drone 2207"
+      ],
+      "cons": [
+        "Locks you into the hub's specific weapon-mounting interface",
+        "KV/weight/price not confirmed in this research pass"
+      ],
+      "sources": [
+        "https://repeat-robotics.com/buy/2207-battle-ready-hubmotor/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-repeat-scalar",
+      "type": "component",
+      "name": "Repeat Robotics Scalar Antweight Weapon Motor (2305)",
+      "aliases": [
+        "Repeat Scalar",
+        "Scalar 2305"
+      ],
+      "summary": "A 23mm-stator-class purpose-built antweight weapon motor with an oversized ~28.2mm outer bell for extra rotor mass/flywheel effect relative to its stator size.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "vendor": "Repeat Robotics",
+      "category": "weapon-motor",
+      "product_url": "https://itgresa.com/product/repeat-robotics-scalar-weapon-motor/",
+      "tags": [
+        "weapon-motor",
+        "purpose-built",
+        "outrunner"
+      ],
+      "specs": {
+        "dia_mm": 23
+      },
+      "notes": "Outer bell diameter (~28.2mm) is larger than the 23mm stator class, i.e. the bell itself adds rotating mass/inertia beyond a standard drone-motor bell of that stator size -- useful context when estimating total weapon-side MOI, since the motor bell is part of the flywheel, not just the blade. KV/weight/price not confirmed in this pass.",
+      "sources": [
+        "https://itgresa.com/product/repeat-robotics-scalar-weapon-motor/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-rdy-5022",
+      "type": "component",
+      "name": "RDY-5022 Antweight Hubmotor",
+      "aliases": [
+        "RDY-5022"
+      ],
+      "summary": "Just 'Cuz Robotics antweight direct-drive hubmotor, offered in 1100kv and 1700kv windings, sized for antweight vertical spinners at typical 3-4S antweight voltages.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "vendor": "Just 'Cuz Robotics",
+      "category": "weapon-motor",
+      "tags": [
+        "weapon-motor",
+        "hubmotor",
+        "direct-drive",
+        "purpose-built"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1700,
+        "cells_s": 4
+      },
+      "notes": "Also offered in a 1100kv winding for builders wanting more torque/less top speed at the same voltage. Weight, dimensions and price not confirmed in this pass.",
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-rdy-5536",
+      "type": "component",
+      "name": "RDY-5536 Beetleweight Hubmotor",
+      "aliases": [
+        "RDY-5536"
+      ],
+      "summary": "Just 'Cuz Robotics beetleweight-class direct-drive hubmotor, offered in 900kv and 1200kv windings; relevant to antweights mainly as the upper end of the size ladder / heavy-ant crossover reference point.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "vendor": "Just 'Cuz Robotics",
+      "category": "weapon-motor",
+      "tags": [
+        "weapon-motor",
+        "hubmotor",
+        "direct-drive",
+        "purpose-built",
+        "heavy-ant-crossover"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 900,
+        "cells_s": 6
+      },
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-jcr-4935",
+      "type": "component",
+      "name": "JCR-4935 Horizontal Spinner Motor",
+      "aliases": [
+        "JCR-4935"
+      ],
+      "summary": "Just 'Cuz Robotics 1000kv motor specifically marketed for horizontal spinners (bars/blades spun about a vertical-ish or horizontal axis with high aerodynamic drag), where a lower KV is used to keep current sane against drag.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "vendor": "Just 'Cuz Robotics",
+      "category": "weapon-motor",
+      "tags": [
+        "weapon-motor",
+        "horizontal-spinner",
+        "purpose-built"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1000
+      },
+      "notes": "1000kv is deliberately low for the size class because horizontal bars/blades have much higher aerodynamic drag than a thin vertical disc, so a lower target RPM keeps continuous current and heat manageable.",
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-badass-2315",
+      "type": "component",
+      "name": "BadAss 23-series 2315 Weapon Motor",
+      "aliases": [
+        "BadAss 2315"
+      ],
+      "summary": "A 23mm-diameter, 15mm-length belt-drive weapon motor at 1480kv, cited as a common antweight/heavy-ant belt-drive option that trades some direct-drive simplicity for a taller, torquier stator than typical 23xx drone motors.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "vendor": "BadAss Motors",
+      "category": "weapon-motor",
+      "tags": [
+        "weapon-motor",
+        "belt-drive",
+        "purpose-built"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1480,
+        "dia_mm": 23,
+        "length_mm": 15
+      },
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "motor-turbo-2830",
+      "type": "component",
+      "name": "Turbo 2830 Weapon Motor",
+      "aliases": [
+        "Turbo 2830"
+      ],
+      "summary": "A 28mm-diameter, 30mm-length belt-drive weapon motor at 1300kv; one of the largest commonly cited motors used at the antweight/beetleweight belt-drive crossover for high-torque drums and bars.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "vendor": "Turbo Motors",
+      "category": "weapon-motor",
+      "tags": [
+        "weapon-motor",
+        "belt-drive",
+        "purpose-built",
+        "heavy-ant-crossover"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1300,
+        "dia_mm": 28,
+        "length_mm": 30
+      },
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "formula-tip-speed",
+      "type": "formula",
+      "name": "Weapon tip speed from RPM and diameter",
+      "summary": "Converts weapon RPM and blade/disc diameter into linear tip speed, the number that actually determines impact energy transfer and 'bite'.",
+      "expression": "v_mps = (RPM * pi * D_mm) / 60000  |  v_ftps = v_mps * 3.281  |  v_mph = v_mps * 2.237",
+      "variables": {
+        "v_mps": "tip speed, meters/second",
+        "RPM": "weapon rotational speed, revolutions per minute",
+        "D_mm": "full weapon diameter at the tip, millimeters (NOT radius -- the /60000 already folds in the /2 from radius and the mm-to-m conversion)",
+        "v_ftps": "tip speed, feet/second",
+        "v_mph": "tip speed, miles/hour"
+      },
+      "worked_example": "A 4 in (101.6 mm) vertical disc spinning at 21,000 RPM: v = (21000 * pi * 101.6) / 60000 = (21000 * 3.1416 * 101.6) / 60000 = 6,703,000 / 60000 approx 111.7 m/s = 366 ft/s = 250 mph. This matches the commonly cited antweight vertical-spinner target of roughly 200-250 mph tip speed.",
+      "applies_to": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "formula",
+        "tip-speed"
+      ],
+      "sources": [
+        "https://bristolbotbuilders.com/tools/tipspeed/",
+        "https://justcuzrobotics.com/pages/spinner-calculator-combined"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "formula-required-kv",
+      "type": "formula",
+      "name": "Required motor KV from target tip speed and battery voltage",
+      "summary": "Back-solves the motor KV (or KV x gear-ratio) needed to hit a target tip speed on a given battery voltage, the single most common weapon-motor sizing question in the hobby.",
+      "expression": "RPM_target = v_mph * 336.14 / D_in   |   KV_needed = (RPM_target * ratio) / V_pack",
+      "variables": {
+        "v_mph": "target tip speed, miles/hour",
+        "D_in": "weapon diameter, inches",
+        "RPM_target": "weapon RPM needed to hit that tip speed",
+        "ratio": "reduction ratio, weapon-pulley-teeth / motor-pulley-teeth (1.0 for direct drive)",
+        "V_pack": "fully-charged pack voltage, e.g. 12.6V for 3S, 16.8V for 4S",
+        "KV_needed": "motor KV to select, in RPM per volt"
+      },
+      "worked_example": "Target: 250 mph tip speed on a 4 in disc, direct drive, 3S (12.6V full charge). RPM_target = 250 * 336.14 / 4 = 21,009 RPM. KV_needed = 21009 * 1.0 / 12.6 = 1667 kv. For an 8 in bar at the same 250 mph target, RPM_target halves to ~10,500 RPM, so KV_needed also halves to ~833 kv -- illustrating why bigger weapons want lower KV for the same tip speed.",
+      "applies_to": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "formula",
+        "kv-selection"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "formula-kt-from-kv",
+      "type": "formula",
+      "name": "Torque constant (Kt) from velocity constant (Kv)",
+      "summary": "For a sinusoidal-drive brushless motor, torque constant in Nm/A is derived directly from the velocity constant in RPM/V using the fixed 8.27 relationship.",
+      "expression": "Kt_Nm_per_A = 8.27 / Kv_rpm_per_v",
+      "variables": {
+        "Kt_Nm_per_A": "torque constant, newton-meters per amp",
+        "Kv_rpm_per_v": "motor velocity constant, RPM per volt"
+      },
+      "worked_example": "A 2207 antweight weapon motor at 1950 kv: Kt = 8.27 / 1950 = 0.00424 Nm/A. At a hypothetical 30A near-stall current, instantaneous torque approx 0.00424 * 30 = 0.127 Nm (1.27 kgf-cm). Compare to a 2814 at 1850kv is similar Kt per amp, but its much higher max current (50A+) gives far higher absolute stall torque -- this is why stator volume, not KV alone, sets how much torque a motor can actually produce.",
+      "applies_to": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "formula",
+        "motor-constants",
+        "torque"
+      ],
+      "sources": [
+        "https://source-robotics.com/blogs/blog/motor-constants-kv-kt-ke-km-explained",
+        "https://forum.allaboutcircuits.com/threads/how-to-calculate-the-torque-constant-for-a-bldc-motor.208423/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "formula-kinetic-energy",
+      "type": "formula",
+      "name": "Rotational kinetic energy stored in a spinning weapon",
+      "summary": "Computes the joules of kinetic energy stored in a weapon flywheel from its moment of inertia and angular velocity -- the number that actually predicts damage potential, not RPM alone.",
+      "expression": "KE_J = 0.5 * I_kgm2 * omega_rads^2   where omega_rads = RPM * pi / 30",
+      "variables": {
+        "KE_J": "stored rotational kinetic energy, joules",
+        "I_kgm2": "weapon moment of inertia about its spin axis, kg*m^2",
+        "omega_rads": "angular velocity, radians/second",
+        "RPM": "weapon speed, revolutions per minute"
+      },
+      "worked_example": "A 150 g (0.15 kg) solid steel disc, 4 in (0.0508 m radius), approximated as a uniform disc: I = 0.5 * m * r^2 = 0.5 * 0.15 * 0.0508^2 = 0.0001935 kg*m^2. At 21,000 RPM: omega = 21000 * pi / 30 = 2199 rad/s. KE = 0.5 * 0.0001935 * 2199^2 = 0.5 * 0.0001935 * 4,835,600 approx 468 J. Typical antweight vertical-disc spinners store roughly 100-500 J at full speed, so this is a fairly strong hit for the class.",
+      "applies_to": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "formula",
+        "kinetic-energy",
+        "moi"
+      ],
+      "sources": [
+        "https://runamok.tech/RunAmok/spincalc_examples2.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "formula-spinup-time",
+      "type": "formula",
+      "name": "Weapon spin-up time estimate from torque and MOI",
+      "summary": "Estimates the time to bring a weapon from rest to full speed given the weapon's moment of inertia and the motor's average available accelerating torque over that speed range -- the calculation that explains why an underpowered motor loses matches before the fight even starts.",
+      "expression": "t_s (approx) = (I_kgm2 * omega_final_rads) / tau_avg_Nm   where tau_avg is roughly half of stall torque for a fixed-voltage DC/BLDC speed-torque line",
+      "variables": {
+        "t_s": "spin-up time, seconds",
+        "I_kgm2": "weapon-side moment of inertia (blade/disc + bell + hub, reflected through any gear ratio)",
+        "omega_final_rads": "target angular velocity, rad/s",
+        "tau_avg_Nm": "average accelerating torque during spin-up, Nm (approx 0.5 x stall torque for a motor driven at constant voltage with a linear torque-speed curve)"
+      },
+      "worked_example": "Same 0.0001935 kg*m^2 disc targeting 2199 rad/s (21,000 RPM), driven direct-drive by a 2207 at 1950kv with an assumed 30A stall current: Kt = 8.27/1950 = 0.00424 Nm/A, so stall torque tau_stall = 0.00424*30 = 0.127 Nm, and average torque during spin-up approx 0.5*0.127 = 0.0636 Nm. t = (0.0001935 * 2199) / 0.0636 = 0.4255 / 0.0636 approx 6.7 s. A 6-7 second spin-up is dangerously slow in a 3-minute antweight match -- this is exactly why builders either shrink the weapon MOI, raise motor torque (bigger stator / lower KV / more cells), or accept a slower-spinning but faster-spooling weapon.",
+      "applies_to": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "formula",
+        "spin-up-time",
+        "moi",
+        "torque"
+      ],
+      "sources": [
+        "https://runamok.tech/AskAaron/spinner_FAQ.html"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "formula-power-draw",
+      "type": "formula",
+      "name": "Weapon motor peak and steady electrical power draw",
+      "summary": "Estimates electrical power draw during weapon spin-up (near stall) versus steady-state windmilling, used to size battery C-rating and ESC current headroom.",
+      "expression": "P_elec_W = V_applied * I_draw   |   P_mech_W = tau_Nm * omega_rads   |   P_copper_loss_W = I_draw^2 * R_ohm",
+      "variables": {
+        "P_elec_W": "electrical power drawn from the battery, watts",
+        "V_applied": "voltage applied to the motor (approx pack voltage minus ESC/wiring drop), volts",
+        "I_draw": "current draw, amps",
+        "P_mech_W": "mechanical power delivered to the weapon shaft, watts",
+        "tau_Nm": "torque at that instant, Nm",
+        "omega_rads": "angular velocity at that instant, rad/s",
+        "P_copper_loss_W": "power lost to heat in the windings, watts",
+        "R_ohm": "motor phase-to-phase winding resistance, ohms"
+      },
+      "worked_example": "2207 weapon motor, 1950kv, R=0.06 ohm, near stall on a 4S pack (14.8V nominal) pulling 30A: P_elec = 14.8 * 30 = 444 W peak electrical draw. Copper loss at that same 30A: P_copper = 30^2 * 0.06 = 54 W dissipated as heat in the stator -- a meaningful fraction of the 444 W, which is why repeated hard stalls (weapon hitting the floor/wall/opponent and stopping) heat the stator far faster than free-spinning. Once at full RPM with only bearing/aero drag to overcome, steady electrical draw for the same motor is typically only 5-20 W, which is why spin-up, not cruising, is what drains an antweight pack fastest.",
+      "applies_to": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "formula",
+        "power",
+        "thermal",
+        "esc-sizing"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "formula-rpm-to-radians",
+      "type": "formula",
+      "name": "RPM to angular velocity (rad/s) conversion",
+      "summary": "Simple unit conversion used throughout weapon-motor sizing math to move between RPM (what motor/ESC specs use) and rad/s (what physics formulas for torque, power and kinetic energy need).",
+      "expression": "omega_rads = RPM * pi / 30",
+      "variables": {
+        "omega_rads": "angular velocity, radians/second",
+        "RPM": "revolutions per minute"
+      },
+      "worked_example": "At 21,000 RPM: omega = 21000 * pi / 30 = 21000 * 0.10472 = 2199 rad/s.",
+      "applies_to": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "formula",
+        "unit-conversion"
+      ],
+      "sources": [
+        "https://runamok.tech/RunAmok/spincalc_examples2.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-kv-rating",
+      "type": "term",
+      "name": "KV (motor velocity constant)",
+      "summary": "The unloaded RPM a brushless motor spins per volt applied, in RPM/V. Determines top speed for a given voltage, but says nothing about torque or power by itself -- a motor's stator size and winding resistance matter just as much.",
+      "category": "motor-electrical",
+      "notes": "KV is fixed by the motor's winding turns/wire gauge, not by voltage or load. Doubling voltage roughly doubles no-load RPM for the same KV motor; changing KV via rewinding changes the RPM-per-volt but trades off torque per amp inversely (lower KV windings of the same stator generally deliver more torque per amp, higher KV windings more RPM per amp).",
+      "tags": [
+        "glossary",
+        "kv",
+        "motor-electrical"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-stator-volume",
+      "type": "term",
+      "name": "Stator volume (diameter x height)",
+      "summary": "The product of a brushless motor's stator diameter and stator height/stack length, encoded directly in FPV motor names (e.g. '2207' = 22mm diameter x 7mm height). Stator volume is the single best predictor of how much torque and continuous power a motor can produce, because it sets how much copper and iron can be packed in to carry current and hold magnetic flux without saturating.",
+      "category": "motor-mechanical",
+      "notes": "Diameter mostly buys torque (longer moment arm for the magnetic force acting at the rotor's radius); height mostly buys sustained power/RPM headroom (more copper per phase, more heat capacity, less current needed for the same torque). Two motors with the same stator volume but different diameter/height splits behave differently: a wide-short stator (e.g. 2504) favors low-RPM torque, a narrow-tall stator (e.g. 1408) favors higher RPM at less bulk. For weapons, bigger stator volume at a given KV always means more available stall torque and more thermal mass to survive hard stalls.",
+      "tags": [
+        "glossary",
+        "stator",
+        "sizing",
+        "naming-convention"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-back-emf",
+      "type": "term",
+      "name": "Back-EMF (counter-electromotive force)",
+      "summary": "The voltage a spinning motor generates that opposes the applied drive voltage, proportional to RPM and inversely proportional to KV (Back-EMF volts = RPM / KV). As a weapon motor spins up, rising back-EMF is what makes available current -- and therefore torque -- fall off as speed increases, producing the classic linear torque-speed line.",
+      "category": "motor-electrical",
+      "notes": "At stall (RPM=0) back-EMF is zero, so the only thing limiting current is winding resistance -- this is why stall current is so high and why stalls generate the most heat. At no-load top speed, back-EMF has risen until it nearly equals the applied voltage, current drops toward zero, and torque drops toward zero too.",
+      "tags": [
+        "glossary",
+        "back-emf",
+        "motor-electrical"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-outrunner-inrunner",
+      "type": "term",
+      "name": "Outrunner vs inrunner",
+      "category": "motor-mechanical",
+      "summary": "Outrunner motors spin the outer magnet-lined bell/can around a fixed inner stator (the common FPV/drone layout); inrunner motors spin a small magnet rotor inside a fixed outer stator can. Outrunners dominate weapon-motor use because their larger effective rotor radius gives more torque per amp and the bell itself doubles as a flywheel/weapon-mounting surface.",
+      "tags": [
+        "glossary",
+        "outrunner",
+        "inrunner"
+      ],
+      "notes": "Inrunners (common in RC car/boat brushless motors) spin at much higher RPM for a given KV-equivalent and need external gearing to be useful as low-speed, high-torque weapon drives; they are rarely chosen for antweight weapons because outrunner FPV motors are cheaper, lighter, and already torque-biased.",
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-dead-shaft",
+      "type": "term",
+      "name": "Dead shaft (weapon mounting)",
+      "category": "mechanical-design",
+      "summary": "A weapon-mounting scheme where the shaft itself does not rotate -- it is bolted rigidly to the frame -- while the weapon blade/hub and its pulley (bolted together) spin freely around the fixed shaft on bearings pressed into the hub.",
+      "notes": "Advantages: no need to machine a keyed rotating shaft, easier to swap a weapon belt in the pits since the hub simply lifts off the fixed shaft, and impact loads are reacted directly into the frame rather than through motor bearings. Disadvantage: the dead shaft's mounting screws must be re-torqued carefully every time it's removed, since a loose dead shaft binds and generates heat in the hub bearings.",
+      "tags": [
+        "glossary",
+        "dead-shaft",
+        "weapon-mounting",
+        "belt-drive"
+      ],
+      "sources": [
+        "https://runamok.tech/AskAaron/design.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-bite",
+      "type": "term",
+      "name": "Bite (weapon engagement depth)",
+      "category": "weapon-design",
+      "summary": "How deeply a spinning weapon's tooth/edge engages an opponent's armor per revolution before sliding off -- determined by weapon RPM relative to the combined driving speed of both robots, not by tip speed or KE alone. Lower weapon RPM (for the same tip speed, i.e. bigger diameter/lower KV) generally gives more bite because the tooth has more time to dig in per revolution.",
+      "notes": "This is why the community rule of thumb is 'low KV + high cell count beats high KV + low cells' for the same top speed: a bigger, slower-spinning weapon captures more material per hit even though the tip speed and stored energy can be identical to a smaller, faster one.",
+      "tags": [
+        "glossary",
+        "bite",
+        "weapon-design",
+        "kv-selection"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://www.fightingrobots.co.uk/threads/12410-bite-rpm-on-spinning-weapons"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "term-demagnetization",
+      "type": "term",
+      "name": "Demagnetization (weapon motor failure)",
+      "category": "failure-mode",
+      "summary": "Permanent partial loss of magnetic strength in a motor's rotor magnets, caused by driving current far beyond the motor's rated stall current (common during a hard weapon-vs-weapon or weapon-vs-wall impact stall) or by sustained overheating past the magnet's Curie-adjacent temperature limit. A demagnetized motor permanently loses torque and top KV-equivalent speed even after the fault current stops.",
+      "notes": "Small FPV-derived weapon motors are especially vulnerable because their magnets are thin and cheap; a single violent stall against a wedge or wall, or a jammed weapon, can push instantaneous current to several times rated stall current for a few milliseconds -- enough to demagnetize without ever tripping a slower-reacting ESC current limit.",
+      "tags": [
+        "glossary",
+        "demagnetization",
+        "failure-mode",
+        "thermal"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-motor-naming-convention",
+      "title": "FPV motor naming: stator diameter, stator height, and why volume predicts torque",
+      "section": "Weapon Motor Fundamentals",
+      "entity_refs": [
+        "term-stator-volume",
+        "motor-2207",
+        "motor-1408",
+        "motor-2504"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "naming-convention",
+        "stator",
+        "sizing"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "body_md": "Every combat-robot weapon motor pulled from the FPV drone world is named with a four-digit code: the first two digits are the stator **diameter** in millimeters, and the last two are the stator **height** (stack length) in millimeters. A \"2207\" motor has a 22mm-diameter, 7mm-tall stator. A \"1306\" is 13mm diameter, 6mm tall. This is not a marketing number -- it is a direct physical measurement of the laminated iron core the copper is wound around, and it is the single most useful spec for predicting what a motor can do as a weapon drive, more useful than KV alone.\n\n**Why volume, not KV, predicts torque and power.** Torque in a brushless motor comes from the magnetic force between the stator's electromagnets and the rotor's permanent magnets, multiplied by the radius at which that force acts. A wider stator (bigger diameter) puts the copper further from the shaft, giving a longer moment arm for the same force -- more torque per amp. A taller stator (bigger height) fits more copper per phase and more iron to carry flux without saturating, which raises the current (and therefore torque and sustained power) the motor can handle before overheating or magnetically saturating. Multiply the two together and you get an approximate \"stator volume,\" and torque and continuous power both scale roughly with that volume for motors of similar design and KV.\n\nThis is why two motors with the same first two digits can behave very differently: a 2504 (wide, short) is torque-biased and modest on continuous power, good for a belt-reduced drum needing bite; a 2207 (moderate diameter, taller) balances torque and RPM headroom well, which is why it is the antweight bread-and-butter size; a 1408 (narrow, tall for its diameter) gives surprisingly good torque for its 30g weight because the height compensates for the smaller diameter.\n\n**Practical rule of thumb for weapon selection:** when comparing two motors at the *same* KV, the one with more stator volume (bigger diameter x height) will produce more torque and tolerate more stall current before overheating or demagnetizing -- so it will spin up a given weapon MOI faster and survive more violent stalls. When comparing motors at *different* KV, remember that a lower-KV winding of the same stator generally trades top RPM for more torque per amp, which is exactly why the size ladder (11xx through 28xx) also correlates with typical KV ranges dropping as diameter/height increase: 1104-1408 motors commonly run 3000-6000kv, the 18xx-22xx bread-and-butter class runs 1300-2700kv, and 25xx-28xx motors commonly run 800-1900kv for the same voltage classes."
+    },
+    {
+      "id": "chunk-size-ladder-overview",
+      "title": "The weapon-motor size ladder: 11xx to 28xx for antweights",
+      "section": "Weapon Motor Fundamentals",
+      "entity_refs": [
+        "motor-1104",
+        "motor-1306",
+        "motor-1408",
+        "motor-1806",
+        "motor-2205",
+        "motor-2207",
+        "motor-2306",
+        "motor-2504",
+        "motor-2806",
+        "motor-2814"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "size-ladder",
+        "motor-selection"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "body_md": "The FPV drone industry has produced an enormous range of brushless outrunner motors at low cost, and combat builders have adopted a de-facto size ladder from that catalog rather than buying purpose-made weapon motors for every build:\n\n**11xx-14xx (1104, 1106, 1204, 1306, 1404, 1408) -- plastic antweight and fairyweight territory.** These are whoop and toothpick drone motors, 9-30g, with 1.5mm shafts and M2 mounting screws. They suit small plastic-ant vertical spinners and paddle/beater weapons under roughly 50-80g total weapon assembly weight. 1306 and 1408 in particular are extremely common because they are cheap, widely stocked in many KV options (2200-6000kv depending on size), and light enough to leave most of a plastic ant's tiny weight budget for drive and armor.\n\n**18xx-22xx (1806, 2004, 2205, 2206, 2207, 2306) -- the antweight bread and butter.** This is where the overwhelming majority of competitive 1 lb antweight spinners live. These motors have 3-5mm shafts, M3 mounting (mostly 16x16mm), weigh 28-36g bare, and are sold in KV ranges from roughly 1300 to 2700 across 4S-rated windings. A 2205 or 2207 direct-driving a 3-4 inch disc or short bar at 4S is probably the single most common antweight weapon configuration in the hobby.\n\n**25xx-28xx (2504, 2508, 2806, 2812, 2814) -- heavy antweight / light beetleweight crossover.** These are long-range and heavy-lift drone motors, 50-115g, with 5-6mm shafts, run at lower KV (800-1900), and are usually belt-driven rather than direct-drive because their bulk and shaft size don't always suit small antweight hub geometry. They show up on the heaviest 1 lb builds that sacrifice armor/drive weight for weapon torque, and are more at home on light beetleweights (2 lb / 3 lb classes) than on a weight-conscious antweight.\n\nAs a rough allocation, a competitive 1 lb antweight vertical spinner typically spends 60-120g of its 454g total weight on the weapon motor plus hub/disc, which naturally steers most builds toward the 18xx-22xx bracket: heavy enough for real torque and thermal margin, light enough to leave a meaningful armor and drive budget."
+    },
+    {
+      "id": "chunk-kv-selection-weapons",
+      "title": "KV selection for weapon motors: why low KV plus more cells beats high KV plus fewer cells",
+      "section": "KV & Motor Constants",
+      "entity_refs": [
+        "term-kv-rating",
+        "term-bite",
+        "formula-required-kv",
+        "motor-2207",
+        "motor-repeat-2822"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kv-selection",
+        "bite",
+        "tip-speed"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://www.fightingrobots.co.uk/threads/12410-bite-rpm-on-spinning-weapons"
+      ],
+      "body_md": "KV is the RPM a brushless motor spins per volt applied with no load. It is fixed by how the motor is wound -- more turns of thinner wire gives lower KV and more torque per amp; fewer turns of thicker wire gives higher KV and more RPM per amp, for the same stator. KV alone tells you nothing about power or torque; it only tells you the RPM-to-voltage relationship. Two motors can share a KV and differ enormously in torque if their stator volumes differ.\n\n**The community rule -- low KV, high cell count -- comes from bite, not efficiency.** For a fixed target tip speed, you can get there with a high-KV motor on a low cell count (say 2S) or a low-KV motor on a higher cell count (say 4S or 6S) reflected through gearing, or with a genuinely lower-KV motor direct-driving a bigger-diameter weapon. What matters in a hit is not tip speed alone but **bite**: how deeply the weapon's edge engages the opponent's armor before sliding off, which scales with how much torque is available *at* the RPM the weapon is turning, and with how large/heavy the weapon is relative to its RPM. A small, high-KV, low-torque motor spinning a light, fast weapon tends to skate across armor without digging in (\"all speed, no bite\"), while a bigger, lower-KV motor spinning a heavier weapon at proportionally lower RPM for the same tip speed captures more material per hit and transfers energy more effectively into denting or ejecting the opponent.\n\n**Tip speed targets.** The antweight community converges on roughly 60-115 m/s (200-380 ft/s, 130-260 mph) tip speed for most vertical disc and bar spinners, with 200-250 mph (about 90-112 m/s) treated as a sweet spot: fast enough to store real kinetic energy, slow enough to keep spin-up time and current draw reasonable and to preserve bite. Horizontal spinners/bars, which suffer far more aerodynamic drag, are usually tuned toward the lower end of that range or even lower, since a bar or blade pushing air is a much bigger drag load than a thin disc.\n\n**Practical selection method:** pick your target tip speed (m/s or mph), pick your weapon diameter, solve for target RPM with the tip-speed formula, then divide by your intended pack voltage (accounting for any gear/belt reduction) to get the KV you need. See `formula-required-kv` for the exact math and a worked example. If the resulting KV calls for a tiny, high-KV whoop motor to hit a big-diameter target, that is usually a sign to either accept a lower tip speed, add a belt reduction, or move up the size ladder to a lower-KV, higher-torque motor instead of overspeeding a small one."
+    },
+    {
+      "id": "chunk-motor-constants",
+      "title": "Motor constants: Kt, back-EMF, resistance, and estimating stall torque & peak power",
+      "section": "KV & Motor Constants",
+      "entity_refs": [
+        "formula-kt-from-kv",
+        "term-back-emf",
+        "formula-power-draw",
+        "motor-2207"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "motor-constants",
+        "torque",
+        "thermal"
+      ],
+      "sources": [
+        "https://source-robotics.com/blogs/blog/motor-constants-kv-kt-ke-km-explained"
+      ],
+      "body_md": "Beyond KV, three more numbers let you actually estimate how a weapon motor will perform rather than just guess from its size class.\n\n**Torque constant, Kt.** For a sinusoidally-driven brushless motor, `Kt (Nm/A) = 8.27 / Kv (RPM/V)`. This falls straight out of the physics linking electrical and mechanical power in an ideal motor (the 8.27 factor comes from unit conversion between RPM and rad/s and the specific definitions used for Kv and Kt). A 2207 at 1950kv has Kt = 8.27/1950 = 0.00424 Nm/A -- meaning every amp of current produces about 4.24 mN*m of torque. A lower-KV motor of the same stator, say 1300kv, would have Kt = 8.27/1300 = 0.00636 Nm/A, producing 50% more torque per amp, at the cost of proportionally lower RPM for the same voltage.\n\n**Back-EMF and the torque-speed line.** As the motor spins, it generates a back-EMF voltage proportional to RPM/Kv that opposes the applied drive voltage. At stall (RPM=0) back-EMF is zero, so current is limited only by winding resistance: `I_stall = V_applied / R_winding`. As RPM rises toward the no-load speed (RPM = Kv * V_applied), back-EMF rises to nearly cancel the applied voltage, current drops toward zero, and torque (which is proportional to current via Kt) drops toward zero along a straight line from stall torque down to zero at no-load speed. This straight-line torque-speed relationship is why average torque during spin-up is commonly approximated as about half of stall torque.\n\n**Winding resistance and copper loss.** Resistance (ohms, phase-to-phase) sets both stall current and how much of your electrical power is wasted as heat rather than converted to torque: `P_copper_loss = I^2 * R`. Weapon-motor stalls -- hitting a wall, jamming against an opponent's weapon, an opponent pinning your spinner -- push current toward `I_stall = V/R`, which for a typical 22xx-class weapon motor (R around 0.05-0.09 ohm) on a 4S pack (16.8V) can mean 180-330A of instantaneous stall current if nothing else limited it. In practice, ESC current limiting, battery internal resistance, and the wiring/connectors all clamp this well below the theoretical stall current, but repeated hard stalls still dump serious heat into the stator in a very short time -- this is the direct mechanism behind burnt windings.\n\n**Estimating stall torque and peak power.** `Stall torque = Kt * I_stall_actual` (using your realistic, current-limited stall current, not the theoretical V/R number). `Peak mechanical power` occurs at half the no-load speed and half of stall torque, i.e. `P_peak = 0.25 * tau_stall * omega_noload` -- a useful ballpark for how much mechanical power a given motor/battery/ESC combination can actually deliver to the weapon during the most demanding part of spin-up."
+    },
+    {
+      "id": "chunk-direct-drive-belt-gear",
+      "title": "Direct drive vs belt vs gear reduction for weapon drives",
+      "section": "Drivetrain Layout",
+      "entity_refs": [
+        "term-dead-shaft",
+        "motor-repeat-2207-hubmotor",
+        "motor-2814",
+        "motor-badass-2315"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "belt-drive",
+        "direct-drive",
+        "gear-ratio",
+        "htd",
+        "gt2"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://www.reca.lc/belts"
+      ],
+      "body_md": "**Direct drive** bolts the weapon (or its hub) straight onto the motor shaft or bell with a 1:1 ratio. It is mechanically simplest -- no belts, pulleys, or reduction to design -- and is the default for most 1 lb vertical disc/bar spinners using 18xx-22xx motors, especially purpose-built hubmotors like the Repeat 2207 that are designed for the weapon disc to bolt directly to the bell. Its downside is that the motor's shaft and bearings absorb every impact shock directly, and the motor's KV must already be close to the exact value needed for your target tip speed at your chosen voltage, since there is no ratio to tune it with.\n\n**Belt drive** (almost always GT2 or HTD 3mm pitch at antweight scale) puts a small pulley on the motor and a larger pulley on the weapon shaft (or dead shaft hub), connected by a toothed timing belt. This buys three things: (1) it isolates the motor's shaft and bearings from the worst of the weapon impact shock, since the belt has some compliance and the weapon load path can be routed through a separate, more robust weapon shaft and bearings instead of the motor's own; (2) it lets you use a motor whose *natural* KV doesn't match your target tip speed 1:1 -- you gear it down (or up) with the pulley ratio instead of hunting for an exact-KV motor; (3) it lets you mount the motor somewhere more protected in the frame rather than directly behind the weapon. Typical antweight belt ratios run from about 1.5:1 to 3:1 (weapon pulley teeth divided by motor pulley teeth), with something like a 10-tooth motor pulley and an 18-20 tooth weapon pulley being a common starting point for a roughly 2:1 reduction. Reduction ratio also multiplies torque at the weapon shaft (minus belt/bearing losses) while dividing RPM, so a 2:1 belt reduction on a high-torque, moderate-KV motor is a common way to get both good bite and comfortable spin-up time.\n\n**Gear reduction** (spur gears rather than a belt) is much less common at antweight scale -- it is heavier, less forgiving of misalignment, and offers no shock-isolation benefit over a belt, so most antweight builders who want a reduction reach for a timing belt instead. Gearboxes see more use in drive trains than in weapon drives at this weight class.\n\n**Dead-shaft belt mounting** is the standard way to combine a belt reduction with easy pit maintenance: the weapon shaft itself is bolted rigidly to the frame and does not rotate, while the weapon hub (blade + pulley, bolted together) spins on bearings around that fixed shaft. This makes swapping a stretched or damaged belt during a competition much faster than removing a rotating, keyed shaft and its retaining hardware -- you simply lift the hub/pulley/blade assembly off the fixed shaft."
+    },
+    {
+      "id": "chunk-spinup-time",
+      "title": "Spin-up time: why a slow-spooling weapon loses matches, and trading weapon mass for speed",
+      "section": "Performance & Match Strategy",
+      "entity_refs": [
+        "formula-spinup-time",
+        "formula-kinetic-energy",
+        "motor-2207",
+        "motor-1408"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "spin-up-time",
+        "moi",
+        "match-strategy"
+      ],
+      "sources": [
+        "https://runamok.tech/AskAaron/spinner_FAQ.html",
+        "https://runamok.tech/RunAmok/spincalc_examples2.html"
+      ],
+      "body_md": "Spin-up time is how long it takes a weapon to go from rest to fighting speed, and it is set almost entirely by two things: the weapon's moment of inertia (MOI) about its spin axis, and the average torque the motor can deliver across that speed range. Approximately, `t = (I * omega_final) / tau_avg`, where `tau_avg` is roughly half the motor's stall torque for a fixed-voltage drive (torque falls roughly linearly from stall torque at 0 RPM to zero at no-load speed, so the *average* over a full spin-up is close to half of stall).\n\nThis has an uncomfortable consequence: **MOI enters spin-up time linearly, but kinetic energy (and therefore hitting power) scales with MOI too** (`KE = 0.5 * I * omega^2`), so a builder chasing more damage by simply adding weapon mass or radius pays for it directly in spin-up time unless torque is increased to match. A 1 lb antweight typically gets one, maybe two chances to land a spun-up hit in a short match before being rammed, flipped, or grappled, so a weapon that takes 5+ seconds to reach useful speed after every stall or reversal is a serious competitive liability -- opponents learn to simply pressure the bot before the weapon can matter, and matches are frequently decided by which spinner actually got to hit at speed versus which one was still spooling up when the match ended.\n\n**Trading weapon mass for spin-up time** is one of the most consequential design decisions in antweight spinner design. Three levers exist: (1) reduce weapon MOI by using a smaller-diameter, lighter, or more centrally-massed weapon shape (a ring/rim-weighted disc has much higher MOI than a solid disc of the same mass, because MOI scales with the square of radius for mass at the rim); (2) increase available torque by moving up the motor size ladder (bigger stator volume), lowering KV, or adding a belt reduction that multiplies torque at the weapon shaft; (3) accept a slower top speed target, which lowers `omega_final` and therefore both spin-up time and stored energy together.\n\nA useful gut-check: run the spin-up formula for your actual weapon MOI and motor's realistic stall torque *before* committing to a design. If it comes out over 3-4 seconds for a full-power spin, that weapon will feel sluggish and vulnerable in every match no matter how much energy it eventually stores. Builders often deliberately undersize weapon MOI even below what would give maximum theoretical KE, purely to keep spin-up inside 1-2 seconds and get the weapon back to speed quickly after a partial hit or stall."
+    },
+    {
+      "id": "chunk-thermal-limits",
+      "title": "Thermal limits and how weapon motors actually die",
+      "section": "Failure Modes & Durability",
+      "entity_refs": [
+        "term-demagnetization",
+        "formula-power-draw",
+        "motor-1408",
+        "motor-2205"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "thermal",
+        "failure-mode",
+        "demagnetization",
+        "burnt-windings"
+      ],
+      "sources": [
+        "https://runamok.tech/AskAaron/motors.html"
+      ],
+      "body_md": "Weapon motors in combat robots are used completely differently from the drones they were designed for: instead of a fairly steady cruise load, they see violent stall-and-recover cycles every time the weapon hits something, plus sustained high-current spin-up after every stall. Four failure modes dominate:\n\n**Demagnetization.** The rotor's bonded or sintered magnets can permanently lose strength if driven with current well beyond rated stall current (common in a hard stall against a wall, an opponent's weapon, or a jammed mechanism) or if the motor overheats past the magnet material's practical temperature limit (well below the Curie point, but high enough to cause real, permanent flux loss in cheap ferrite or thin neodymium magnets). A demagnetized motor doesn't stop working -- it just permanently loses torque and top speed, which often shows up mid-tournament as \"this motor used to hit harder.\"\n\n**Burnt/discolored windings.** Direct evidence reported by builders: stator windings visibly discolored or burned through after repeated hard weapon impacts, indicating current far beyond the motor's rated capacity was pushed through the copper for long enough to overheat the enamel insulation and, in bad cases, melt solder joints or short adjacent turns. This is the direct result of the copper-loss heating described by `P = I^2 * R`, concentrated during and immediately after every stall event rather than spread evenly like a drone's steady hover/cruise load.\n\n**Bell separation.** The classic antweight weapon-motor failure: the outer rotor bell, normally retained on the shaft only by a light press-fit plus a small C-clip (standard drone-motor practice, since drones never see shock loads), physically separates from the shaft under a hard weapon impact. The bell (with the weapon attached) can come completely off the motor mid-fight. This is a mechanical retention failure, not an electrical one, and is common enough that purpose-built combat weapon motors specifically call out screw-retained bells (rather than relying on a C-clip alone) as a selling point.\n\n**Magnet debonding.** Under sustained high-RPM operation combined with impact shock, individual rotor magnets bonded to the inside of the bell can crack or separate from the bell wall, especially in cheaper motors using adhesive rather than a full magnet-retention sleeve. A debonded magnet destroys balance immediately, causing violent vibration, and can also puncture the stator windings if it contacts them.\n\n**Duty cycle and stator saturation** are the underlying drivers behind all four. A weapon motor asked to deliver near-stall torque repeatedly in a 3-minute match, then rest between events (versus a drone's fairly constant moderate load), sees short, intense heat spikes that a motor's thermal mass and duty-cycle rating were never validated against. Likewise, pushing current well past a motor's design current can drive the stator iron into magnetic saturation, where additional current stops producing proportionally more torque and instead mostly produces heat -- another reason \"just add more amps\" has diminishing and eventually harmful returns."
+    },
+    {
+      "id": "chunk-shaft-bell-retention",
+      "title": "Shaft and bell retention: fixing the classic bell-came-off failure",
+      "section": "Failure Modes & Durability",
+      "entity_refs": [
+        "motor-repeat-2822",
+        "motor-repeat-2207-hubmotor",
+        "term-dead-shaft"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "shaft",
+        "bell-retention",
+        "threadlock",
+        "reliability"
+      ],
+      "sources": [
+        "https://itgresa.com/product/repeat-robotics-scalar-weapon-motor/"
+      ],
+      "body_md": "Stock FPV drone motors retain their rotor bell on the shaft with a press-fit and a small internal C-clip (retaining ring), which is entirely adequate for a propeller's smooth aerodynamic load but is a known, common weak point when that same bell is asked to carry a metal weapon disc/bar through a full-speed impact. The impact reverses and shock-loads the shaft-to-bell connection far harder than anything a propeller ever does, and the C-clip -- a thin ring seated in a shallow groove -- can walk out of its groove or simply be overpowered, letting the bell (with the entire weapon attached) come off the shaft mid-match. This is widely known in the community simply as the bell coming off, and it is one of the most common single-point weapon failures in antweight combat.\n\n**Common fixes and upgrades:**\n\n- **Threadlock everything.** Any grub screw, prop nut, or set screw holding the bell, hub, or weapon to the shaft should get medium-strength threadlocker (e.g. Loctite 243) at minimum; impact vibration backs out unlocked fasteners far faster than normal drone vibration does.\n- **Grub screws through the bell into a flatted shaft.** Rather than relying on the stock C-clip alone, many builders drill and tap the bell (or use a motor/hub already designed this way) for one or two grub screws that bite into a flat machined or ground onto the shaft, giving a positive mechanical lock that does not depend on the C-clip surviving impact.\n- **Upgraded/oversized shafts.** Swapping a stock 1.5-3mm drone shaft for a thicker (typically 4-6mm) hardened steel shaft, or choosing a motor size further up the ladder that natively ships with a bigger shaft (2205+ commonly use 4mm, 2814-class motors use 5-6mm), directly increases the shaft's bending and shear strength against impact loads.\n- **Screw-retained bells.** Purpose-built combat weapon motors increasingly use a bell held on with a real screw or bolt through the shaft end (rather than only a C-clip), which is dramatically more resistant to axial and shock loading than a retaining ring -- this is called out explicitly as a design feature on several combat-specific weapon motors.\n- **Dead-shaft conversion.** Moving the weapon off the motor's own shaft entirely and onto a separate, fixed (non-rotating) shaft with its own bearings -- driven by a belt from the motor -- removes the motor's shaft/bell/C-clip from the weapon's impact load path altogether. The motor only ever sees smooth torque transmission through the belt, never a direct mechanical shock, which is one of the strongest arguments for belt drive over direct drive on harder-hitting antweight builds.\n\nIn practice, most experienced antweight builders treat \"will the bell survive a full-power hit\" as a design question to answer *before* competition, not after a failure -- by upgrading the shaft/retention on a direct-drive motor, or by moving to a belt-and-dead-shaft layout that sidesteps the problem structurally."
+    },
+    {
+      "id": "chunk-outrunner-inrunner",
+      "title": "Outrunner vs inrunner motors for weapons",
+      "section": "Weapon Motor Fundamentals",
+      "entity_refs": [
+        "term-outrunner-inrunner",
+        "motor-2207",
+        "motor-repeat-2822"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "outrunner",
+        "inrunner",
+        "motor-topology"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "body_md": "Brushless motors come in two basic mechanical layouts, and combat weapon drives overwhelmingly use one of them.\n\n**Outrunner:** the permanent magnets are glued around the inside of an outer bell/can, which spins around a stationary inner stator wound with copper. This is the layout used by essentially every FPV drone motor (11xx through 28xx alike) and therefore by nearly every combat weapon motor discussed in this file. Outrunners have two big advantages for weapon use: first, the magnets sit at a large radius from the shaft, giving a long moment arm that produces more torque per amp than an inrunner of similar size -- exactly what a direct-drive weapon wants, since there's no gearbox to multiply torque. Second, the spinning outer bell is itself a natural weapon-mounting surface and adds usable rotating mass (flywheel effect) to the weapon system for free, which inrunners can't offer since their rotor is buried inside a fixed can.\n\n**Inrunner:** the permanent-magnet rotor is a small cylinder spinning inside a fixed outer stator can, the classic layout for RC car and boat brushless motors. Inrunners run at much higher KV for a given physical size and need external gear reduction to produce useful torque at low speed, plus a way to attach the weapon to a shaft rather than to the motor's own housing. Because combat weapons want naturally low-KV, torque-biased motors close to direct-drive speeds, inrunners are a poor match for the antweight bread-and-butter application, and are essentially absent from weapon-motor discussions in the hobby (they do occasionally appear in drivetrain use, which is a separate topic).\n\nThe practical upshot: unless a build has an unusual reason to introduce a gearbox and separate weapon shaft anyway (in which case an inrunner could theoretically work), outrunner FPV-style motors are the default and near-universal choice for antweight and plastic-antweight weapon drives, and every motor cataloged in this file's size ladder is an outrunner."
+    },
+    {
+      "id": "chunk-mounting-bolt-patterns",
+      "title": "Mounting weapon motors: bolt patterns, face-mount vs clamp, why printed mounts fail",
+      "section": "Mounting & Mechanical Integration",
+      "entity_refs": [
+        "motor-1408",
+        "motor-1806",
+        "motor-2205",
+        "motor-2207"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "mounting",
+        "bolt-pattern",
+        "3d-printing"
+      ],
+      "sources": [
+        "https://www.thingiverse.com/thing:4234492",
+        "https://phaserfpv.com.au/blogs/fpv-news/what-is-the-difference-between-1804-vs-2204-vs-2205-vs-2006"
+      ],
+      "body_md": "FPV motors ship with a small number of standardized rear-face bolt patterns, and knowing them is essential for designing (or printing) a weapon-motor mount:\n\n- **9x9mm, M2 screws** -- the smallest common pattern, used on whoop-class 11xx-13xx motors.\n- **12x12mm, M2 screws** -- used on many 13xx-14xx and some 18xx-20xx motors; a few 1408/1806-class motors offer both 9x9 and 12x12 mounting holes on the same face for cross-compatibility.\n- **16x16mm, M3 screws** -- the de-facto standard for the antweight bread-and-butter 18xx-22xx class; most printed and machined antweight weapon-motor mounts are built around this pattern.\n- **16x19mm and 19x19mm, M3 screws** -- common alternate/additional patterns on 22xx-25xx motors, sometimes offered alongside 16x16 on the same motor face for frame compatibility.\n- **25.5x25.5mm and larger, M3** -- seen on some 25xx-28xx heavy-lift motors, at the upper end of what an antweight would use.\n\n**Face-mount vs clamp mount.** Nearly all FPV-derived weapon motors are face-mounted: four screws thread into blind holes on the motor's rear face, pulling the motor flush against a flat mounting plate. This is simple and lines up naturally with 3D-printed or laser-cut antweight frame plates, but it means 100% of the impact reaction load (both the weapon's radial impact force and the motor's own torque reaction) is carried by four small screws in relatively soft aluminum threads and whatever material the mounting plate is made of. Clamp-style mounts (a collar that clamps around the motor's outer can rather than threading into its face) are far less common at these small sizes -- they exist in some larger combat classes but are rare below beetleweight because there's little clean cylindrical can surface to clamp on a typical outrunner shell.\n\n**Why printed mounts fail.** A 3D-printed (FDM plastic) weapon-motor mount is loaded by (a) high-frequency vibration during normal spin, which fatigues layer lines over time, and (b) sudden, large shock loads on every weapon impact, which can exceed the interlayer bond strength of FDM plastic even when the same part would easily survive the vibration alone. Common printed-mount failure patterns are: mounting screw holes stripping or elongating under repeated impact torque reaction (worse with M2 in soft plastic than M3), and the print delaminating along a layer line running roughly perpendicular to the impact load direction. Mitigations builders commonly use: orienting the print so layer lines run parallel to the expected impact force rather than perpendicular to it, printing at high infill (or solid) specifically around the mounting bolt bosses, using threaded heat-set inserts instead of printing threads or relying on self-tapping screws directly into plastic, and backing the printed mount with a thin metal plate to spread the bolt load rather than reacting it purely against plastic. Many competitive antweight builders reserve metal (aluminum or steel) motor mount plates specifically for the weapon motor even when the rest of the frame is printed, precisely because the weapon mount sees the highest instantaneous loads on the entire robot."
+    },
+    {
+      "id": "chunk-recommend-plastic-ant-vertical",
+      "title": "Recommended weapon motor: plastic antweight vertical spinner",
+      "section": "Application-Specific Recommendations",
+      "entity_refs": [
+        "motor-1104",
+        "motor-1204",
+        "motor-1306",
+        "motor-1408"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "recommendation",
+        "vertical-spinner",
+        "plastic-ant"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "body_md": "Plastic antweights run under much tighter total-weight and often lower-cost-per-part budgets than metal 1 lb antweights (many events cap plastic ants around 1 lb / 454g with a plastic-only armor/structure rule, so every gram not spent on the drive/frame can go to the weapon). For a small vertical disc or paddle weapon in the 20-60g range, the 1204-1306-1408 bracket is the sweet spot: light enough (14-30g) to leave the vast majority of the weight budget for chassis and drive, cheap enough (roughly $10-16) to keep several spares on hand, and available in a wide enough KV range (2600-4500kv depending on exact size) to hit a reasonable 150-220 mph tip speed target on a small 2-3 inch disc at 2S-3S.\n\nA builder should size up to a 1408 rather than a 1306 if the weapon disc/paddle is pushing toward the 40-60g range or if the build wants more spin-up torque headroom for a thicker/heavier blade -- the taller 8mm stator of the 1408 gives noticeably more torque than the 6mm-tall 1306 for only a few extra grams. Conversely, a very small (sub-20g) weapon on a genuinely minimal plastic ant can stick with an 1104/1106/1204 to save every possible gram for drive motors and armor thickness, accepting a lower absolute tip speed and KE ceiling in exchange.\n\nPractical KV selection: for a 3 inch (76mm) disc targeting roughly 200 mph tip speed on 3S (11.1V nominal), the required RPM is about 200 * 336.14 / 3 = 22,409 RPM, giving a target KV of roughly 22409/11.1 approx 2020 kv -- squarely in the range of common 1306/1408 windings. Builders should always double-check the exact winding stocked by their chosen vendor rather than assuming a nominal \"1306\" or \"1408\" always ships at one fixed KV; these sizes are sold across a wide KV spread (roughly 2200-6000kv) specifically so builders can dial in tip speed without needing a belt reduction."
+    },
+    {
+      "id": "chunk-recommend-vertical-disc",
+      "title": "Recommended weapon motor: 1 lb vertical disc",
+      "section": "Application-Specific Recommendations",
+      "entity_refs": [
+        "motor-2205",
+        "motor-2206",
+        "motor-2207",
+        "motor-repeat-2207-hubmotor"
+      ],
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "recommendation",
+        "vertical-spinner",
+        "disc"
+      ],
+      "sources": [
+        "https://repeat-robotics.com/buy/2207-battle-ready-hubmotor/"
+      ],
+      "body_md": "The 1 lb vertical disc spinner is the single most common antweight archetype, and the 22xx family (2205/2206/2207) direct-driving a 3-4.5 inch steel or hardened-tool-steel disc is the default, extremely well-proven configuration. A 2205 or 2206 at roughly 2000-2400kv on 4S gives a natural direct-drive tip speed in the 200-260 mph range on a 4 inch disc without needing any belt reduction, which keeps the build mechanically simple (motor bolts to frame, disc bolts to motor bell or a hub on the shaft).\n\nThe 2207 is worth the small weight premium over a 2205/2206 whenever the disc is on the heavier end (steel discs pushing 100-180g) because its taller stator gives meaningfully more stall torque and thermal margin for the same rough KV, which directly shortens spin-up time and improves survivability against repeated hard stalls. Purpose-built combat hubmotors on the 2207 stator (such as the Repeat 2207 Battle Ready Hubmotor) go a step further by combining the motor and the weapon-mounting hub into one part with a hardened bell and screw-retained mounting interface, removing the classic bell-separation risk of a stock drone 2207 while keeping the same simple bolt-disc-to-bell assembly.\n\nSelection checklist for a 1 lb vertical disc: (1) pick disc diameter and target mass first (most competitive antweight discs run 3.5-4.5 inches, 80-180g); (2) use the tip-speed and required-KV formulas to find the KV that hits 200-250 mph at your intended pack voltage (almost always 4S for this class); (3) choose a 2205-2207 stator in that KV range, favoring the taller (2207) end of that range if the disc is heavy or you want faster spin-up; (4) budget for a hardened or 4-5mm shaft and threadlocked/screw-retained bell rather than trusting a stock drone motor's C-clip, since a vertical disc concentrates enormous shock load directly on the shaft-bell joint on every hit."
+    },
+    {
+      "id": "chunk-recommend-horizontal-bar",
+      "title": "Recommended weapon motor: 1 lb horizontal bar",
+      "section": "Application-Specific Recommendations",
+      "entity_refs": [
+        "motor-jcr-4935",
+        "motor-2206",
+        "motor-2306",
+        "motor-badass-2315"
+      ],
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "recommendation",
+        "horizontal-spinner",
+        "bar"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "body_md": "Horizontal bar spinners (a bar rotating about a roughly horizontal axis across the width of the robot) face a fundamentally different load than a thin vertical disc: much higher aerodynamic drag from the bar's flat faces pushing air, plus a bar shape that typically carries more of its mass further from the axis (higher MOI per unit weight) than a compact disc. Two practical consequences drive motor choice: continuous current tends to run higher for a given RPM than a disc of similar weight (because of drag), and torque demand during spin-up is higher (because of MOI), so builders deliberately favor **lower KV than a vertical-disc build of the same size class** to keep both current and spin-up time under control -- purpose-built horizontal-spinner motors like the JCR-4935 are specifically wound to a comparatively low 1000kv for exactly this reason, well below what a same-size vertical-disc motor would typically run.\n\nFor a direct-drive 1 lb horizontal bar, a 2206 or 2306 in a 1300-1700kv winding on 4S is a common, solid choice -- enough stator volume for real torque and thermal margin against sustained drag load, at a KV low enough to avoid overspeeding into a drag wall where added RPM stops translating into added tip speed efficiently. If the desired bar length/mass pushes tip speed targets down further (very common for full-width bars, which are usually heavier and slower-spinning by design than a compact disc), a belt-drive setup with something in the 2306-2504 range paired with a 1.5-2:1 reduction is a common step up, since it lets the motor run at a more efficient point on its torque-speed curve while still hitting a modest bar tip-speed target.\n\nBecause horizontal bars see sustained drag-driven current even at steady RPM (unlike a disc, which mostly only draws heavy current during spin-up and stalls), thermal margin matters more here than for a disc build of similar weapon mass -- favor the larger, cooler-running end of whatever KV/size bracket you land on, and budget real ESC current headroom (see `formula-power-draw`) rather than sizing the ESC to only the motor's brief peak."
+    },
+    {
+      "id": "chunk-recommend-drum",
+      "title": "Recommended weapon motor: 1 lb drum",
+      "section": "Application-Specific Recommendations",
+      "entity_refs": [
+        "motor-2504",
+        "motor-2508",
+        "motor-2806",
+        "term-dead-shaft"
+      ],
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "recommendation",
+        "drum-spinner"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "body_md": "Drum spinners (a full-width cylindrical drum with teeth along its length, spinning about a horizontal axis parallel to the ground and perpendicular to the direction of travel) are torque-hungry compared to a disc of similar weight, because a drum concentrates a large fraction of its mass at a moderate-to-large radius along its entire length, giving high MOI, and because drum weapons are typically run at deliberately low RPM/high-bite settings (drums rely on scooping/launching opponents more than pure kinetic penetration, so builders favor low tip speed and high torque over raw speed).\n\nThis pushes drum builds toward the lower-KV, larger-stator end of the antweight-to-heavy-ant bracket: a 2504 or 2508 at 1300-1700kv, or a 2806 at 1000-1400kv, direct-driving or lightly belt-reducing (1.3-2:1) the drum is a common, effective choice. The wider/taller stator of these sizes gives the stall torque needed to spin a drum's higher MOI up in a reasonable time and to recover quickly after every scoop/launch event, which functions almost like a repeated partial-stall on the motor.\n\nBecause drum motors are heavier (50-80g+) than the 22xx bracket used for discs, drum builds on a strict 1 lb budget usually compensate by keeping the drum itself relatively light-walled/short and by trimming weight elsewhere (thinner armor on non-weapon-facing panels, a lighter drivetrain), rather than trying to fit both a large heavy drum and a large heavy motor into 454g at the same time. A dead-shaft belt-drive layout is especially common on drum builds specifically because it lets the drum's own shaft/bearings (sized for the drum's load) be decoupled from the motor's shaft/bell, and because drum belt/pulley swaps in the pits are easier with a dead shaft than with a keyed rotating shaft running through the whole drum length."
+    },
+    {
+      "id": "chunk-recommend-beater-bar",
+      "title": "Recommended weapon motor: 1 lb beater bar",
+      "section": "Application-Specific Recommendations",
+      "entity_refs": [
+        "motor-1408",
+        "motor-1806",
+        "motor-2205",
+        "term-bite"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "recommendation",
+        "beater-bar",
+        "eggbeater"
+      ],
+      "sources": [
+        "https://itgresa.com/product/1lb-beater-bar/"
+      ],
+      "body_md": "A beater bar (sometimes called an eggbeater) is a vertical-axis weapon with two or more flat/angled paddles rather than a solid disc, usually run at a lower RPM and higher torque than a disc for the same rough tip speed target, because the individual paddles need to survive a much more concentrated, repeated impact than a continuous disc rim. Beater bars are popular on both plastic antweights and 1 lb metal antweights because a commercial beater-bar kit (blade plus a dead-shaft hex-bolt shaft arrangement) is one of the simplest weapons to bolt onto almost any drivetrain-only base kit.\n\nMotor sizing follows the same math as a disc (tip-speed and required-KV formulas apply identically), but builders commonly target the lower end of the usual 200-250 mph range, and lean toward a slightly lower KV / more torque-biased motor than they would choose for an equivalent-diameter disc, because a beater bar's paddles present more of an impulsive, tooth-like load per revolution (closer to a low-tooth-count drum than a smooth disc) and benefit from the extra bite that comes with somewhat lower RPM and higher available torque. For a plastic antweight beater bar, a 1408 in the 2200-3000kv range at 3-4S is a common, well-proven choice; for a full 1 lb metal antweight beater bar, builders typically step up to an 1806 or 2205 in the 1700-2300kv range at 4S for extra stall torque and shaft strength, since beater-bar impacts tend to load the shaft with more off-axis/bending force than a flat, evenly-loaded disc does.\n\nBecause many commercial beater-bar weapon kits use a dead-shaft design (a fixed hex-bolt shaft with the blade/hub spinning around it on bearings, driven by a belt from the motor), the motor itself is usually isolated from direct impact shock in these builds, which is one reason beater bars have a reputation as a relatively motor-friendly weapon choice for newer antweight builders compared to a harsh direct-drive disc."
+    },
+    {
+      "id": "chunk-worked-full-example",
+      "title": "Worked example: full weapon-motor sizing from target to selection",
+      "section": "Worked Examples",
+      "entity_refs": [
+        "formula-tip-speed",
+        "formula-required-kv",
+        "formula-kt-from-kv",
+        "formula-kinetic-energy",
+        "formula-spinup-time",
+        "motor-2207"
+      ],
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "worked-example",
+        "sizing-walkthrough"
+      ],
+      "sources": [
+        "https://bristolbotbuilders.com/tools/tipspeed/",
+        "https://runamok.tech/RunAmok/spincalc_examples2.html"
+      ],
+      "body_md": "This walks through a complete antweight weapon-motor sizing exercise end to end, chaining every formula in this file together, to show how the numbers actually connect in practice.\n\n**Goal:** a 1 lb antweight direct-drive vertical disc, 4 inch (101.6mm) diameter, 150g weapon mass, targeting a competitive but not extreme 230 mph tip speed on a 4S pack (16.8V fully charged).\n\n**Step 1 -- target RPM.** Using the tip-speed formula rearranged: `RPM = v_mph * 336.14 / D_in = 230 * 336.14 / 4 = 19,328 RPM`.\n\n**Step 2 -- required KV.** Direct drive means ratio = 1.0: `KV_needed = RPM / V_pack = 19328 / 16.8 = 1151 kv`. This lands squarely in the common 22xx-class KV range, so a 2205, 2206, or 2207 wound around 1100-1200kv is the natural choice; pick the 2207 for extra stator volume and torque margin.\n\n**Step 3 -- torque constant.** `Kt = 8.27 / 1151 = 0.00719 Nm/A`. At a realistic sustained/near-stall current of 30A for this class of motor, available torque approx `0.00719 * 30 = 0.216 Nm`.\n\n**Step 4 -- weapon MOI.** Approximating the 150g (0.15 kg) disc as a uniform solid disc of radius 0.0508m: `I = 0.5 * m * r^2 = 0.5 * 0.15 * 0.0508^2 = 0.0001935 kg*m^2`.\n\n**Step 5 -- stored kinetic energy at full speed.** `omega = RPM * pi/30 = 19328 * pi/30 = 2024 rad/s`. `KE = 0.5 * I * omega^2 = 0.5 * 0.0001935 * 2024^2 = 0.5 * 0.0001935 * 4,096,600 approx 396 J` -- a solid, competitive hit for a 1 lb vertical disc.\n\n**Step 6 -- spin-up time estimate.** Average accelerating torque approx half of stall torque: `tau_avg approx 0.5 * 0.216 = 0.108 Nm`. `t = (I * omega) / tau_avg = (0.0001935 * 2024) / 0.108 = 0.3917 / 0.108 approx 3.6 s`.\n\n**Interpretation.** A 3.6 second full spin-up is on the slower side of acceptable for a 3-minute antweight match -- workable, but a builder who wants faster recovery after a stall might trade some tip speed (say, dropping the target to 200 mph, which lowers RPM, KE, and spin-up time together) or move to a slightly larger-stator 2207/2306 winding at the same KV for more absolute torque without changing the speed target at all. This is exactly the kind of trade-off the size ladder and KV-selection formulas exist to make explicit rather than left to guesswork."
+    },
+    {
+      "id": "chunk-tip-speed-numeric-targets",
+      "title": "Tip speed targets in real numbers: m/s, ft/s, and why more speed isn't free",
+      "section": "KV & Motor Constants",
+      "entity_refs": [
+        "formula-tip-speed",
+        "formula-power-draw"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "tip-speed",
+        "aerodynamic-drag"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "body_md": "Concrete tip-speed numbers, converted across the units builders actually see in specs and forum threads:\n\n| mph | m/s | ft/s | typical use |\n|---|---|---|---|\n| 130 | 58 | 191 | conservative/beginner disc, plastic ant paddle |\n| 180 | 80 | 264 | modest antweight disc, good bite, easy spin-up |\n| 200-250 | 89-112 | 293-366 | community sweet spot for competitive antweight vertical discs |\n| 300 | 134 | 440 | upper limit cited for antweight-scale weapons; diminishing returns begin here |\n| 380+ | 170+ | 558+ | rarely used at antweight scale; extreme spin-up time, high failure risk |\n\n**Why more speed is not free.** Kinetic energy scales with the *square* of angular velocity (`KE = 0.5*I*omega^2`), so it is tempting to chase maximum RPM for maximum stored energy. Two things push back hard against that instinct. First, aerodynamic drag power scales roughly with the *cube* of tip speed (drag force scales with velocity squared, and power is force times velocity, so power to overcome drag scales as v^3) -- going from 200 mph to 400 mph tip speed does not just double the power needed to sustain that speed against air resistance, it roughly multiplies it by 8x, which very quickly exceeds what a small antweight motor and battery can supply continuously, especially on a horizontal bar or drum with much more frontal area than a thin disc. Second, higher RPM for the same weapon geometry means less bite (see `term-bite`): the weapon spends less time in contact with the opponent's armor per revolution, so beyond a certain point extra speed increasingly produces glancing, superficial hits rather than deeper, more damaging engagement.\n\nThe practical result is that the antweight community has converged on a fairly narrow effective band -- roughly 180-260 mph (80-116 m/s) for vertical discs, generally lower for horizontal bars and drums that carry more drag and are tuned for bite over raw speed -- rather than simply maximizing RPM. Builders selecting a weapon motor should treat \"highest KV I can fit\" as actively counterproductive past this band, and instead spend the extra motor/battery capacity on torque (lower KV, bigger stator, or a belt reduction) to improve spin-up time and bite at a fixed, sensible tip speed target."
+    },
+    {
+      "id": "chunk-esc-sizing",
+      "title": "ESC sizing and current headroom for weapon motors",
+      "section": "Drivetrain Layout",
+      "entity_refs": [
+        "formula-power-draw",
+        "motor-2207",
+        "motor-2814"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "esc",
+        "current-headroom",
+        "weapon-esc"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+      ],
+      "body_md": "A weapon ESC needs to be sized around the motor's realistic stall/spin-up current, not its steady-state cruise current, since spin-up and post-impact recovery are when current peaks hardest. The commonly cited rule of thumb is to choose an ESC rated for at least 20% more continuous current than the motor's expected max current draw at your chosen voltage, to leave margin for the FET/driver stage's own heating and for brief current spikes during hard stalls that exceed the motor's steady rating.\n\nWeapon ESCs differ from drive ESCs in one important way: many stock FPV racing/freestyle ESCs run soft-start firmware logic intended to protect propellers and smooth throttle response, which can actively fight a weapon's need to slam to full throttle and recover instantly from a dead stop after a stall. Purpose-built or reconfigured weapon ESCs (commonly running AM32 or BLHeli-family firmware with weapon-specific settings, or dedicated combat ESCs sold by hobby vendors) disable or minimize this soft-start behavior and raise or disable low-RPM current limiting so the weapon can recover from a stall as fast as the motor and battery physically allow.\n\nIt's also worth understanding what an ESC's amp rating actually means: a \"35A ESC\" is a rating for how much current the ESC's FETs and firmware can reliably pass without overheating or failing, not a hard current limit the ESC actively enforces on the motor. Actual current draw is set by the motor's load (locked-rotor/stall current is set by applied voltage and winding resistance, `I = V/R`, clamped by whatever the battery and wiring can deliver) -- if a motor's real stall current under your battery and voltage exceeds the ESC's rating, the ESC is what fails, typically by cooking its FETs, not the motor throttling itself back automatically. This is why builders pairing a low-resistance, high-stall-current motor (common in the bigger 25xx-28xx sizes) with a small-antweight-class ESC need to actually calculate or measure real stall current rather than assuming the ESC's rating alone protects the system."
+    },
+    {
+      "id": "chunk-copper-and-thermal-duty-cycle",
+      "title": "Duty cycle, stator saturation and continuous-vs-burst rating for weapon motors",
+      "section": "Failure Modes & Durability",
+      "entity_refs": [
+        "formula-power-draw",
+        "term-demagnetization",
+        "motor-2508"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "duty-cycle",
+        "thermal",
+        "stator-saturation"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://runamok.tech/AskAaron/motors.html",
+        "https://runamok.tech/AskAaron/ants.html",
+        "https://bristolbotbuilders.com/tools/tipspeed/"
+      ],
+      "body_md": "FPV drone motors are rated by their manufacturers around a duty cycle that looks nothing like combat use: a drone motor spends the overwhelming majority of its flight time at a fairly steady, moderate current near hover/cruise, with occasional short bursts to full throttle for maneuvers. A combat weapon motor instead spends most of a match either coasting at low current (weapon at speed, only overcoming bearing/aero drag) or pinned at very high current for a few hundred milliseconds to a few seconds during spin-up and post-stall recovery -- a duty cycle the manufacturer's continuous-current rating was never validated against.\n\nThis matters because a motor's practical current limit is really a thermal limit: current produces `I^2*R` copper loss as heat in the windings, and the motor's continuous-current rating is roughly the current at which heat generation matches the motor's ability to shed heat to the air around it in steady state. Combat weapon use routinely exceeds the *continuous* rating for the duration of a spin-up or stall-recovery event, relying on the stator's thermal mass to absorb that heat without reaching damaging temperatures before it can dissipate during the following lower-current period. This works fine for an occasional stall, but a match with many rapid stall/recovery cycles (grappling, being pinned, repeated wall hits) can accumulate heat faster than it dissipates, eventually cooking the winding insulation or demagnetizing the rotor even though no single instant exceeded the motor's absolute peak rating.\n\n**Stator saturation** is a related but distinct limit: iron cores can only support so much magnetic flux before they saturate, beyond which additional current stops producing a proportional increase in torque and instead mostly generates extra heat with little mechanical benefit. Bigger, higher-quality stators (thicker laminations, better core steel) saturate at higher currents, which is part of why purpose-built or premium weapon motors can safely run at currents that would saturate (and overheat) a cheap generic drone motor of the same nominal size.\n\n**Practical implication for motor choice:** for weapon use, favor motors with generous stator volume relative to your target torque/current (i.e., don't run a motor at the very top of its rated current as your *normal* operating point), since the thermal and saturation margin left over is what actually determines how many hard stalls a motor survives across a full tournament rather than just a single match."
+    }
+  ]
+}

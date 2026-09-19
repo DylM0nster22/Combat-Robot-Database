@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Battery Chemistry Choices for Antweights: LiPo, LiHV, Li-ion, LiFePO4, NiMH — Combat Robot Database</title>
+<meta name="description" content="LiPo (lithium polymer) is the default power source for essentially every competitive 1 lb antweight built since the mid-2000s, and for good reason: it offers th">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Battery Chemistry Choices for Antweights: LiPo, LiHV, Li-ion, LiFePO4, NiMH</div>
+<h1 class="page">Battery Chemistry Choices for Antweights: LiPo, LiHV, Li-ion, LiFePO4, NiMH</h1>
+<p class="page-sub">Chemistry</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">chemistry</span><span class="pill">lipo</span><span class="pill">lihv</span><span class="pill">li-ion</span><span class="pill">lifepo4</span><span class="pill">nimh</span></div>
+<div class="two-col">
+  <div class="prose"><p>LiPo (lithium polymer) is the default power source for essentially every competitive 1 lb antweight built since the mid-2000s, and for good reason: it offers the best combination of energy density (roughly 150-200+ Wh/kg), discharge rate, and pouch-format packaging flexibility of any chemistry available in small sizes. A standard LiPo cell is charged to 4.20V and discharged to about 3.0-3.3V under load, giving a 3.7V nominal per cell used for all voltage-tier math (2S = 7.4V, 3S = 11.1V, 4S = 14.8V).</p>
+<p><strong>LiHV (high-voltage LiPo)</strong> is a chemistry variant, not just a different label — the cell construction is tuned to tolerate a higher full-charge voltage, typically 4.35V/cell (some cells go to 4.40V) instead of 4.20V. Nominal voltage for LiHV is usually quoted as 3.8V/cell rather than 3.7V. The real gain is modest but real: at the same physical cell, LiHV stores roughly 5-10% more energy than standard LiPo, and since it runs at a higher voltage across the whole discharge curve, motors and ESCs see more usable voltage right up until the pack is nearly empty — a genuine antweight advantage for spinner tip speed and drive punch late in a match. The tradeoffs: an LiHV pack must be charged on a charger or profile that explicitly supports the 4.35V/cell ceiling (charging it on a standard LiPo profile just leaves capacity on the table; overcharging a standard cell to LiHV voltages is dangerous), and LiHV cells generally show somewhat shorter cycle life at aggressive charge/discharge rates than standard LiPo.</p>
+<p><strong>Li-ion (18650/21700 cylindrical, e.g. Molicel)</strong> offers even higher energy density and much better cycle life than LiPo pouch cells, and is the backbone of e-bikes, power tools, and larger combat weight classes&#x27; main packs. It is essentially absent from competitive 1 lb antweight main-battery use, though, because a single round cell is too heavy relative to its usable current for the weight budget, and the rigid cylindrical format doesn&#x27;t pack efficiently into a flat antweight chassis. It shows up in antweight discussions mostly as context or in bench/test setups, not in the ring.</p>
+<p><strong>LiFePO4 (LiFe)</strong> cells run a lower nominal voltage (3.3V/cell) and lower energy density than LiPo, but have a much flatter discharge curve, far higher abuse tolerance, and a dramatically lower fire risk. Antweight builders occasionally use a small 2S LiFe pack (6.6V nominal) as an <em>isolated receiver/electronics</em> power source specifically because it won&#x27;t sag or brown out the way the shared main LiPo can under weapon load — not as a main weapon/drive battery.</p>
+<p><strong>NiMH</strong> was the default antweight chemistry before affordable LiPo took over, typically a 6-cell 7.2V stick pack. It is essentially obsolete today: roughly 1/3 the energy density of LiPo by weight and unable to sustain modern brushless weapon current without severe sag. It survives only in legacy kit documentation and exhibition/vintage classes.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/battery-cnhl-lihv-ministar-3s-450mah-70c.html">CNHL LiHV MiniStar 3S 450mAh 70C</a></li><li><a href="../e/battery-lifepo4-2s-receiver-pack.html">2S LiFePO4 Receiver/Backup Pack</a></li><li><a href="../e/battery-molicel-p28a-18650.html">Molicel INR18650-P28A (Li-ion, context)</a></li><li><a href="../e/battery-nimh-legacy-antweight.html">NiMH Stick Pack (legacy antweight power)</a></li><li><a href="../e/battery-tattu-300mah-2s-75c-hv.html">Tattu 300mAh 2S 75C LiHV</a></li><li><a href="../e/term-lihv-chemistry.html">LiHV (High-Voltage LiPo)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li><li><a href="https://shop.robotsmashingleague.com/products/gnb-lihv-2s-7-6v-300mah-60c-jst-lipo-battery" rel="noopener">https://shop.robotsmashingleague.com/products/gnb-lihv-2s-7-6v-300mah-60c-jst-lipo-battery</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

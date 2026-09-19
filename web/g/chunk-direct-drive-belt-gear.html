@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direct drive vs belt vs gear reduction for weapon drives — Combat Robot Database</title>
+<meta name="description" content="**Direct drive** bolts the weapon (or its hub) straight onto the motor shaft or bell with a 1:1 ratio. It is mechanically simplest -- no belts, pulleys, or redu">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Direct drive vs belt vs gear reduction for weapon drives</div>
+<h1 class="page">Direct drive vs belt vs gear reduction for weapon drives</h1>
+<p class="page-sub">Drivetrain Layout</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">belt-drive</span><span class="pill">direct-drive</span><span class="pill">gear-ratio</span><span class="pill">htd</span><span class="pill">gt2</span></div>
+<div class="two-col">
+  <div class="prose"><p><strong>Direct drive</strong> bolts the weapon (or its hub) straight onto the motor shaft or bell with a 1:1 ratio. It is mechanically simplest -- no belts, pulleys, or reduction to design -- and is the default for most 1 lb vertical disc/bar spinners using 18xx-22xx motors, especially purpose-built hubmotors like the Repeat 2207 that are designed for the weapon disc to bolt directly to the bell. Its downside is that the motor&#x27;s shaft and bearings absorb every impact shock directly, and the motor&#x27;s KV must already be close to the exact value needed for your target tip speed at your chosen voltage, since there is no ratio to tune it with.</p>
+<p><strong>Belt drive</strong> (almost always GT2 or HTD 3mm pitch at antweight scale) puts a small pulley on the motor and a larger pulley on the weapon shaft (or dead shaft hub), connected by a toothed timing belt. This buys three things: (1) it isolates the motor&#x27;s shaft and bearings from the worst of the weapon impact shock, since the belt has some compliance and the weapon load path can be routed through a separate, more robust weapon shaft and bearings instead of the motor&#x27;s own; (2) it lets you use a motor whose <em>natural</em> KV doesn&#x27;t match your target tip speed 1:1 -- you gear it down (or up) with the pulley ratio instead of hunting for an exact-KV motor; (3) it lets you mount the motor somewhere more protected in the frame rather than directly behind the weapon. Typical antweight belt ratios run from about 1.5:1 to 3:1 (weapon pulley teeth divided by motor pulley teeth), with something like a 10-tooth motor pulley and an 18-20 tooth weapon pulley being a common starting point for a roughly 2:1 reduction. Reduction ratio also multiplies torque at the weapon shaft (minus belt/bearing losses) while dividing RPM, so a 2:1 belt reduction on a high-torque, moderate-KV motor is a common way to get both good bite and comfortable spin-up time.</p>
+<p><strong>Gear reduction</strong> (spur gears rather than a belt) is much less common at antweight scale -- it is heavier, less forgiving of misalignment, and offers no shock-isolation benefit over a belt, so most antweight builders who want a reduction reach for a timing belt instead. Gearboxes see more use in drive trains than in weapon drives at this weight class.</p>
+<p><strong>Dead-shaft belt mounting</strong> is the standard way to combine a belt reduction with easy pit maintenance: the weapon shaft itself is bolted rigidly to the frame and does not rotate, while the weapon hub (blade + pulley, bolted together) spins on bearings around that fixed shaft. This makes swapping a stretched or damaged belt during a competition much faster than removing a rotating, keyed shaft and its retaining hardware -- you simply lift the hub/pulley/blade assembly off the fixed shaft.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/motor-2814.html">2814 brushless motor (weapon)</a></li><li><a href="../e/motor-badass-2315.html">BadAss 23-series 2315 Weapon Motor</a></li><li><a href="../e/motor-repeat-2207-hubmotor.html">Repeat Robotics 2207 Battle Ready Hubmotor</a></li><li><a href="../e/term-dead-shaft.html">Dead shaft (weapon mounting)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design" rel="noopener">https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design</a></li><li><a href="https://www.reca.lc/belts" rel="noopener">https://www.reca.lc/belts</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

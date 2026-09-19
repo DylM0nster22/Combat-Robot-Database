@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spin-up time: why a slow-spooling weapon loses matches, and trading weapon mass for speed — Combat Robot Database</title>
+<meta name="description" content="Spin-up time is how long it takes a weapon to go from rest to fighting speed, and it is set almost entirely by two things: the weapon&#x27;s moment of inertia (MOI) ">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Spin-up time: why a slow-spooling weapon loses matches, and trading weapon mass for speed</div>
+<h1 class="page">Spin-up time: why a slow-spooling weapon loses matches, and trading weapon mass for speed</h1>
+<p class="page-sub">Performance &amp; Match Strategy</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">spin-up-time</span><span class="pill">moi</span><span class="pill">match-strategy</span></div>
+<div class="two-col">
+  <div class="prose"><p>Spin-up time is how long it takes a weapon to go from rest to fighting speed, and it is set almost entirely by two things: the weapon&#x27;s moment of inertia (MOI) about its spin axis, and the average torque the motor can deliver across that speed range. Approximately, <code>t = (I <em> omega_final) / tau_avg</code>, where <code>tau_avg</code> is roughly half the motor&#x27;s stall torque for a fixed-voltage drive (torque falls roughly linearly from stall torque at 0 RPM to zero at no-load speed, so the </em>average* over a full spin-up is close to half of stall).</p>
+<p>This has an uncomfortable consequence: <strong>MOI enters spin-up time linearly, but kinetic energy (and therefore hitting power) scales with MOI too</strong> (<code>KE = 0.5 <em> I </em> omega^2</code>), so a builder chasing more damage by simply adding weapon mass or radius pays for it directly in spin-up time unless torque is increased to match. A 1 lb antweight typically gets one, maybe two chances to land a spun-up hit in a short match before being rammed, flipped, or grappled, so a weapon that takes 5+ seconds to reach useful speed after every stall or reversal is a serious competitive liability -- opponents learn to simply pressure the bot before the weapon can matter, and matches are frequently decided by which spinner actually got to hit at speed versus which one was still spooling up when the match ended.</p>
+<p><strong>Trading weapon mass for spin-up time</strong> is one of the most consequential design decisions in antweight spinner design. Three levers exist: (1) reduce weapon MOI by using a smaller-diameter, lighter, or more centrally-massed weapon shape (a ring/rim-weighted disc has much higher MOI than a solid disc of the same mass, because MOI scales with the square of radius for mass at the rim); (2) increase available torque by moving up the motor size ladder (bigger stator volume), lowering KV, or adding a belt reduction that multiplies torque at the weapon shaft; (3) accept a slower top speed target, which lowers <code>omega_final</code> and therefore both spin-up time and stored energy together.</p>
+<p>A useful gut-check: run the spin-up formula for your actual weapon MOI and motor&#x27;s realistic stall torque <em>before</em> committing to a design. If it comes out over 3-4 seconds for a full-power spin, that weapon will feel sluggish and vulnerable in every match no matter how much energy it eventually stores. Builders often deliberately undersize weapon MOI even below what would give maximum theoretical KE, purely to keep spin-up inside 1-2 seconds and get the weapon back to speed quickly after a partial hit or stall.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-kinetic-energy.html">Rotational kinetic energy stored in a spinning weapon</a></li><li><a href="../e/formula-spinup-time.html">Weapon spin-up time estimate from torque and MOI</a></li><li><a href="../e/motor-1408.html">1408 brushless motor (weapon)</a></li><li><a href="../e/motor-2207.html">2207 brushless motor (weapon)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://runamok.tech/AskAaron/spinner_FAQ.html" rel="noopener">https://runamok.tech/AskAaron/spinner_FAQ.html</a></li><li><a href="https://runamok.tech/RunAmok/spincalc_examples2.html" rel="noopener">https://runamok.tech/RunAmok/spincalc_examples2.html</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiHV in Practice: Real Gain vs. Standard LiPo — Combat Robot Database</title>
+<meta name="description" content="LiHV&#x27;s pitch to antweight builders is straightforward: the same physical pack, the same weight, but charged to a higher per-cell ceiling (4.35V vs 4.20V) for mo">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › LiHV in Practice: Real Gain vs. Standard LiPo</div>
+<h1 class="page">LiHV in Practice: Real Gain vs. Standard LiPo</h1>
+<p class="page-sub">Chemistry</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">lihv</span><span class="pill">chemistry</span><span class="pill">energy-density</span></div>
+<div class="two-col">
+  <div class="prose"><p>LiHV&#x27;s pitch to antweight builders is straightforward: the same physical pack, the same weight, but charged to a higher per-cell ceiling (4.35V vs 4.20V) for more stored energy. Because energy scales with voltage, and LiHV runs at a higher voltage across essentially its entire discharge curve (not just at the very top), the real-world gain shows up both as slightly more total watt-hours and as <em>more usable voltage later in the discharge</em>, which is the part antweight builders actually feel: a weapon or drivetrain running on a partly-depleted LiHV pack sees a meaningfully higher voltage than the same drivetrain on an equally-depleted standard LiPo pack, translating to less RPM droop and less sag-driven brownout risk as the match goes on.</p>
+<p>Using the two CNHL MiniStar 3S 450mAh packs as a direct real-world comparison: the standard-LiPo version is rated 11.1V nominal (3.7V/cell) while the LiHV version of the same 450mAh/70C/XT30 spec is rated 11.4V nominal (3.8V/cell). Computed with the pack-energy formula, that is roughly 5.0 Wh for the standard pack versus roughly 5.13 Wh for the LiHV pack at the same nominal-voltage basis — about a 2.7% nominal-energy gain — and the gap widens further when comparing full-charge voltage (12.6V standard vs 13.05V LiHV) and the practical &quot;still has real voltage on the clock at match end&quot; behavior LiHV is prized for, since 4.35V/cell packs simply start and stay higher throughout discharge than 4.20V/cell packs of otherwise identical construction.</p>
+<p><strong>The tradeoffs are real but manageable:</strong> an LiHV pack absolutely requires a charger or charge profile that supports the 4.35V/cell ceiling — charging it on a plain &quot;LiPo&quot; setting on an older or budget charger will stop at 4.20V/cell and simply waste the extra capacity the pack was built for, while attempting to push a <em>standard</em> LiPo cell to 4.35V/cell on an LiHV setting is a genuine overcharge and fire risk, so builders need to know which chemistry each of their packs actually is and label packs clearly if they run a mixed drawer of both. LiHV cells also generally show somewhat reduced cycle life compared to standard LiPo when both are cycled hard at similar C-rates, meaning an LiHV pack used aggressively across many matches may need replacing somewhat sooner — an acceptable trade for most antweight builders given how cheap small packs are and how much competitive value the extra voltage-under-load provides during a match.</p>
+<p>For antweight builders deciding between an otherwise-identical standard and LiHV pack at similar price, the LiHV version is almost always the better choice given the modest but real gain and the low cost of chemistry-appropriate charging (most current chargers from ISDT, HOTA, and SkyRC already support LiHV profiles natively) — the main caveat is simply confirming the charger and charge profile match the chemistry before the first charge.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/battery-cnhl-lihv-ministar-3s-450mah-70c.html">CNHL LiHV MiniStar 3S 450mAh 70C</a></li><li><a href="../e/battery-cnhl-ministar-3s-450mah-70c.html">CNHL MiniStar 3S 450mAh 70C</a></li><li><a href="../e/formula-pack-energy-wh.html">Pack Energy (Watt-hours)</a></li><li><a href="../e/term-lihv-chemistry.html">LiHV (High-Voltage LiPo)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://chinahobbyline.com/products/cnhl-ministar-series-450mah-11-1v-3s-70c-lipo-battery-with-xt30-plug" rel="noopener">https://chinahobbyline.com/products/cnhl-ministar-series-450mah-11-1v-3s-70c-lipo-battery-with-xt30-plug</a></li><li><a href="https://chinahobbyline.com/products/3-packs-cnhl-lihv-ministar-450mah-11-1v-3s-70c-lipo-battery-with-xt30u" rel="noopener">https://chinahobbyline.com/products/3-packs-cnhl-lihv-ministar-450mah-11-1v-3s-70c-lipo-battery-with-xt30u</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

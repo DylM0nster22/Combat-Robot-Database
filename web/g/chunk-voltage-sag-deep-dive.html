@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voltage Sag: The Real Limiter in a 1 lb Bot — Combat Robot Database</title>
+<meta name="description" content="More antweight matches are lost to voltage sag than to an outright battery failure. Sag is the momentary drop in a pack&#x27;s output voltage that happens the instan">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Voltage Sag: The Real Limiter in a 1 lb Bot</div>
+<h1 class="page">Voltage Sag: The Real Limiter in a 1 lb Bot</h1>
+<p class="page-sub">Voltage Sag</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">voltage-sag</span><span class="pill">brownout</span><span class="pill">internal-resistance</span><span class="pill">reliability</span></div>
+<div class="two-col">
+  <div class="prose"><p>More antweight matches are lost to voltage sag than to an outright battery failure. Sag is the momentary drop in a pack&#x27;s output voltage that happens the instant current draw spikes, caused by the pack&#x27;s internal resistance (R_internal): <strong>V_sag = I_draw x R_internal</strong>. Every real battery has some internal resistance; it is never zero. A brand-new small antweight LiPo cell might have on the order of 0.015-0.04 ohm per cell, but that number climbs steadily as the pack ages, as it takes repeated hard cycles, as it gets cold, and especially after any physical damage (even damage too small to see) from a hit in a previous match.</p>
+<p>Why does this matter more in a 1 lb bot than in bigger classes? Because antweight packs are necessarily tiny — a 300-550mAh pack simply has less parallel cell area than a beetleweight or featherweight pack, so its <em>internal resistance per amp of current requested</em> is proportionally higher. At the same time, a 1 lb bot&#x27;s weapon motor spin-up and its drive motors under a hard push both draw current from the <em>same small pack simultaneously</em>, so the current spike a tiny antweight pack has to absorb is large relative to its own capacity.</p>
+<p>The consequence is a <strong>brownout</strong>: system voltage sags below the minimum operating voltage of the receiver, ESC, or weapon controller for a fraction of a second, which is enough to reset the receiver, cause the ESC to cut out, or make the weapon controller glitch — exactly the moment a bot appears to &quot;die&quot; mid-match even though the battery still reads a healthy voltage once the load is removed. This is why some builders isolate receiver power onto its own small, low-sag pack (a dedicated 2S LiPo or LiFe RX pack) rather than sharing the main weapon/drive battery&#x27;s rail for the receiver.</p>
+<p><strong>Sizing to avoid sag</strong> comes down to three levers: (1) choose a pack with genuinely low internal resistance for its size — larger mAh at the same physical footprint tends to help since more parallel cell material shares the current; (2) retire packs once they show age (a pack that sagged fine as new but now visibly dips further under the same load has risen internal resistance and should be rotated out of weapon-heavy duty); (3) don&#x27;t run a pack right at the edge of its <em>discounted</em> C rating (see the c-rating chunk) — headroom above your estimated draw directly buys headroom against sag. A pack that is &quot;big enough&quot; on paper capacity but chosen at the rock-bottom of its usable C rating will still sag hard, because sag is driven by resistance and instantaneous current, not by whether the pack has enough total energy left for the match.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/battery-lifepo4-2s-receiver-pack.html">2S LiFePO4 Receiver/Backup Pack</a></li><li><a href="../e/formula-voltage-sag-estimate.html">Voltage Sag from Internal Resistance</a></li><li><a href="../e/term-brownout.html">Brownout</a></li><li><a href="../e/term-internal-resistance.html">Internal Resistance</a></li><li><a href="../e/term-voltage-sag.html">Voltage Sag</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://wiki.nhrl.io/wiki/index.php/Batteries" rel="noopener">https://wiki.nhrl.io/wiki/index.php/Batteries</a></li><li><a href="https://www.unmannedtechshop.co.uk/blogs/knowledge-base/fpv-battery-problems-voltage-sag-puffing-brownouts" rel="noopener">https://www.unmannedtechshop.co.uk/blogs/knowledge-base/fpv-battery-problems-voltage-sag-puffing-brownouts</a></li><li><a href="https://robojackets.org/2021/08/02/battlebots-electrical-approach/" rel="noopener">https://robojackets.org/2021/08/02/battlebots-electrical-approach/</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

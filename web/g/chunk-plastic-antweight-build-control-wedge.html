@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Spec: Plastic Ant Control/Wedge Bot (Full BOM) — Combat Robot Database</title>
+<meta name="description" content="A representative plastic ant control/wedge build — no fragile spinning weapon, built to win on driving, ring control, and durability. Figures are realistic comm">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Build Spec: Plastic Ant Control/Wedge Bot (Full BOM)</div>
+<h1 class="page">Build Spec: Plastic Ant Control/Wedge Bot (Full BOM)</h1>
+<p class="page-sub">Build Specs</p>
+<div style="margin-bottom:20px"><span class="pill accent">plastic-antweight</span><span class="pill">build-spec</span><span class="pill">bom</span><span class="pill">wedge</span><span class="pill">control-bot</span><span class="pill">beginner</span></div>
+<div class="two-col">
+  <div class="prose"><p>A representative plastic ant control/wedge build — no fragile spinning weapon, built to win on driving, ring control, and durability. Figures are realistic community-typical values (confidence: medium).</p>
+<table><thead><tr><th>Part</th><th>Material/Spec</th><th>Weight (g)</th></tr></thead><tbody>
+<tr><td>Chassis + integrated front wedge (printed, thick front face 4-6mm)</td><td>PETG</td><td>180</td></tr>
+<tr><td>Top shell/armor</td><td>PETG or PLA+</td><td>70</td></tr>
+<tr><td>Drive motors x2 (higher-torque micro gearmotor)</td><td>metal gearbox (exempt)</td><td>24</td></tr>
+<tr><td>Small active-wedge/lifter servo (optional)</td><td>electronics/metal gears (exempt)</td><td>15</td></tr>
+<tr><td>Combo RX + dual brushed ESC board</td><td>electronics (exempt)</td><td>6</td></tr>
+<tr><td>Battery: 2S 400mAh LiPo (bigger pack, no weapon to power)</td><td>LiPo (exempt)</td><td>26</td></tr>
+<tr><td>Wheels x2 (printed hub + grippy foam/TPU tire)</td><td>printed/COTS</td><td>18</td></tr>
+<tr><td>Fasteners: M2/M3 screws + inserts</td><td>steel/brass (exempt)</td><td>14</td></tr>
+<tr><td>Wiring, switch, connectors</td><td>mixed (exempt)</td><td>8</td></tr>
+<tr><td>Printed ballast plug (high-infill, fills remaining budget for pushing power)</td><td>PETG/PLA+</td><td>90</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td><strong>~451 g</strong></td></tr>
+</tbody></table>
+<p><strong>Design rationale</strong>: a control bot deliberately spends almost nothing on &#x27;weapon&#x27; (just an optional small active-wedge servo) and instead maximizes armor thickness and low-CG ballast to win pushing matches and resist being flipped. The printed ballast plug is a simple, cheap, 100%-legal way to use the full weight budget when there&#x27;s no weapon consuming it — solid PETG at high infill is denser and cheaper than any COTS metal ballast option would be to source, and it&#x27;s trivially plastic-legal since it&#x27;s just more of the same approved material.</p>
+<p><strong>Weight budget as percentages</strong>: armor/structure (chassis+wedge+shell = 250g) ≈ <strong>55%</strong>, drive (motors+wheels+combo board = 48g) ≈ <strong>11%</strong>, weapon/active-wedge servo (15g) ≈ <strong>3%</strong>, electronics (battery+wiring = 34g) ≈ <strong>8%</strong>, fasteners ≈ <strong>3%</strong>, ballast (90g) ≈ <strong>20%</strong>.</p>
+<p><strong>Why this archetype is recommended as a first build</strong>: every failure mode here (a cracked wedge, a worn wheel, a stripped screw hole) is a five-minute reprint or hardware-store fix, unlike a broken weapon motor mount or a snapped weapon shaft, which are common failure points on a first spinner build and are considerably more frustrating and costly to diagnose and fix mid-tournament.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/archetype-plastic-ant-wedge-control.html">Plastic Ant Wedge / Control Bot</a></li><li><a href="../e/component-combo-rx-esc-board.html">Micro Combo RX + Dual Brushed ESC Board</a></li><li><a href="../e/component-cots-foam-wheel.html">COTS Foam/Silicone Antweight Wheel</a></li><li><a href="../e/component-fastener-m2-m3-screw-insert.html">M2/M3 Screws + Heat-Set Threaded Inserts</a></li><li><a href="../e/component-lipo-2s-300mah.html">2S 300mAh LiPo Battery</a></li><li><a href="../e/component-n20-micro-gearmotor.html">N20 Micro Gearmotor (6-12V)</a></li><li><a href="../e/material-petg.html">PETG</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

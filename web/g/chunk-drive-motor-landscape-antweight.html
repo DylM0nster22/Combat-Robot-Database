@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 1 lb Antweight Drive Motor Landscape — Combat Robot Database</title>
+<meta name="description" content="Antweight combat robots (1 lb / 454 g total weight) have a narrow but well-developed set of drive motor choices, almost all built around small brushed or brushl">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › The 1 lb Antweight Drive Motor Landscape</div>
+<h1 class="page">The 1 lb Antweight Drive Motor Landscape</h1>
+<p class="page-sub">Drive Motors</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">drive-motor</span><span class="pill">overview</span><span class="pill">fingertech</span><span class="pill">repeat-robotics</span><span class="pill">n-series</span><span class="pill">pololu</span></div>
+<div class="two-col">
+  <div class="prose"><p>Antweight combat robots (1 lb / 454 g total weight) have a narrow but well-developed set of drive motor choices, almost all built around small brushed or brushless motors in the 12-16mm size range. The dominant, most trusted choice remains <strong>FingerTech&#x27;s Silver Spark</strong>: a Mabuchi FK-050 brushed motor behind an all-metal 16mm spur gearbox, sold in nine stock ratios from a fast 11.1:1 to a crawling 600:1, all at the same ~29g weight and ~$19 price. Its budget sibling, the <strong>Gold Spark</strong>, uses the same base motor but a plastic final gear stage, trading some durability for a lower price (~$14.79) — fine for lighter-duty plastic antweights, riskier as the sole drive on a bot expected to take direct hits.</p>
+<p>A newer and increasingly popular tier is <strong>Repeat Robotics&#x27;</strong> lineup: brushed and brushless planetary gearmotors that swap the Spark line&#x27;s simple spur gearbox for a multi-stage all-metal planetary gearbox, which is generally more shock-tolerant and torque-dense for its size. Repeat&#x27;s brushless &quot;Mini&quot; 1106 gearmotor (evolved through Mk3, Mk4, and Mk4.1 revisions) packages a custom-wound outrunner brushless motor directly into a 28.5:1 planetary gearbox with a hardened 4mm shaft, letting builders trade a simple brushed H-bridge for a reversing brushless ESC in exchange for higher efficiency and higher top speed at the same weight.</p>
+<p>At the budget end of the market sit the generic <strong>N-series gearmotors</strong> (N10/N20/N30, 10-30mm motor cans) sold by dozens of overlapping AliExpress/Amazon/Banggood listings, often for a few dollars each in a huge range of ratios (30:1 up to 1000:1). These are the cheapest way to get a drive motor and are extremely popular in plastic antweights, but they carry a well-known &quot;quality lottery&quot; risk: two motors from the same listing, or even the same order, can have different windings, different gear materials (mixed metal/plastic despite &quot;metal gear&quot; branding), and different failure rates. <strong>Pololu&#x27;s micro metal gearmotors</strong> (HP/MP/LP power tunes, many ratio options) sit between these tiers: a precision-manufactured 10x12mm metal gearbox with well-documented, consistent specs, at a price above generic N-series but usually below FingerTech/Repeat.</p>
+<p>Finally, <strong>modified or stock continuous-rotation 9g servos</strong> offer the simplest possible drive for plastic antweights: no ESC required, direct receiver connection, at the cost of speed and torque. Choosing among these options is mostly a question of budget, desired reliability, and how much of the 454g weight budget is left after the weapon, battery, and armor.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/motor-fingertech-gold-spark.html">FingerTech &quot;Gold Spark&quot; 16mm Gearmotor</a></li><li><a href="../e/motor-fingertech-silver-spark.html">FingerTech &quot;Silver Spark&quot; 16mm Gearmotor</a></li><li><a href="../e/motor-n20-generic-100-1.html">Generic N20 Gearmotor, 6V, 100:1</a></li><li><a href="../e/motor-pololu-micro-metal-hp-100-1.html">Pololu Micro Metal Gearmotor HP 6V, 100:1</a></li><li><a href="../e/motor-repeat-mini-brushless-1106-mk4.html">Repeat Robotics &quot;Mini&quot; Brushless 1106 Mk4.1 Gearmotor</a></li><li><a href="../e/motor-servo-continuous-rotation-modified.html">Modified Continuous-Rotation 9g Micro Servo (Drive)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16" rel="noopener">https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16</a></li><li><a href="https://repeat-robotics.com/shop/?products-per-page=all" rel="noopener">https://repeat-robotics.com/shop/?products-per-page=all</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

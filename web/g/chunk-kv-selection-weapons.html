@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KV selection for weapon motors: why low KV plus more cells beats high KV plus fewer cells — Combat Robot Database</title>
+<meta name="description" content="KV is the RPM a brushless motor spins per volt applied with no load. It is fixed by how the motor is wound -- more turns of thinner wire gives lower KV and more">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › KV selection for weapon motors: why low KV plus more cells beats high KV plus fewer cells</div>
+<h1 class="page">KV selection for weapon motors: why low KV plus more cells beats high KV plus fewer cells</h1>
+<p class="page-sub">KV &amp; Motor Constants</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">kv-selection</span><span class="pill">bite</span><span class="pill">tip-speed</span></div>
+<div class="two-col">
+  <div class="prose"><p>KV is the RPM a brushless motor spins per volt applied with no load. It is fixed by how the motor is wound -- more turns of thinner wire gives lower KV and more torque per amp; fewer turns of thicker wire gives higher KV and more RPM per amp, for the same stator. KV alone tells you nothing about power or torque; it only tells you the RPM-to-voltage relationship. Two motors can share a KV and differ enormously in torque if their stator volumes differ.</p>
+<p><strong>The community rule -- low KV, high cell count -- comes from bite, not efficiency.</strong> For a fixed target tip speed, you can get there with a high-KV motor on a low cell count (say 2S) or a low-KV motor on a higher cell count (say 4S or 6S) reflected through gearing, or with a genuinely lower-KV motor direct-driving a bigger-diameter weapon. What matters in a hit is not tip speed alone but <strong>bite</strong>: how deeply the weapon&#x27;s edge engages the opponent&#x27;s armor before sliding off, which scales with how much torque is available <em>at</em> the RPM the weapon is turning, and with how large/heavy the weapon is relative to its RPM. A small, high-KV, low-torque motor spinning a light, fast weapon tends to skate across armor without digging in (&quot;all speed, no bite&quot;), while a bigger, lower-KV motor spinning a heavier weapon at proportionally lower RPM for the same tip speed captures more material per hit and transfers energy more effectively into denting or ejecting the opponent.</p>
+<p><strong>Tip speed targets.</strong> The antweight community converges on roughly 60-115 m/s (200-380 ft/s, 130-260 mph) tip speed for most vertical disc and bar spinners, with 200-250 mph (about 90-112 m/s) treated as a sweet spot: fast enough to store real kinetic energy, slow enough to keep spin-up time and current draw reasonable and to preserve bite. Horizontal spinners/bars, which suffer far more aerodynamic drag, are usually tuned toward the lower end of that range or even lower, since a bar or blade pushing air is a much bigger drag load than a thin disc.</p>
+<p><strong>Practical selection method:</strong> pick your target tip speed (m/s or mph), pick your weapon diameter, solve for target RPM with the tip-speed formula, then divide by your intended pack voltage (accounting for any gear/belt reduction) to get the KV you need. See <code>formula-required-kv</code> for the exact math and a worked example. If the resulting KV calls for a tiny, high-KV whoop motor to hit a big-diameter target, that is usually a sign to either accept a lower tip speed, add a belt reduction, or move up the size ladder to a lower-KV, higher-torque motor instead of overspeeding a small one.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-required-kv.html">Required motor KV from target tip speed and battery voltage</a></li><li><a href="../e/motor-2207.html">2207 brushless motor (weapon)</a></li><li><a href="../e/motor-repeat-2822.html">Repeat Robotics 2822 Weapon Motor</a></li><li><a href="../e/term-bite.html">Bite (weapon engagement depth)</a></li><li><a href="../e/term-kv-rating.html">KV (motor velocity constant)</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design" rel="noopener">https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design</a></li><li><a href="https://www.fightingrobots.co.uk/threads/12410-bite-rpm-on-spinning-weapons" rel="noopener">https://www.fightingrobots.co.uk/threads/12410-bite-rpm-on-spinning-weapons</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

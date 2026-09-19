@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worked Example: Sizing a Battery for a New Antweight Spinner — Combat Robot Database</title>
+<meta name="description" content="Putting the formulas in this file together for a concrete antweight build: a 1 lb horizontal spinner with two small brushed drive motors and a 3S-rated brushles">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Worked Example: Sizing a Battery for a New Antweight Spinner</div>
+<h1 class="page">Worked Example: Sizing a Battery for a New Antweight Spinner</h1>
+<p class="page-sub">Worked Example</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">worked-example</span><span class="pill">power-budget</span><span class="pill">sizing</span></div>
+<div class="two-col">
+  <div class="prose"><p>Putting the formulas in this file together for a concrete antweight build: a 1 lb horizontal spinner with two small brushed drive motors and a 3S-rated brushless weapon motor around 2200KV.</p>
+<p><strong>Step 1 — estimate current draw.</strong> Drive: two brushed motors at roughly 2A typical each under normal driving = 4A combined, with stall spikes to perhaps 12-16A if both jam simultaneously (formula-power-budget-drive-weapon). Weapon: the 2200KV motor on 3S (11.1V nominal) draws roughly 6-9A once spun up and cutting normally, with brief spikes above 15A at spin-up or on a hard hit to an opponent. Combined typical draw: roughly 10-13A; combined worst-case brief spike: roughly 25-30A.</p>
+<p><strong>Step 2 — set continuous and burst current targets.</strong> Applying a 1.5-2x safety margin to the 10-13A typical figure gives a target continuous rating of roughly 20-25A; the worst-case spike figure of ~30A sets the burst target.</p>
+<p><strong>Step 3 — pick a candidate pack and discount its C rating.</strong> A CNHL MiniStar 3S 450mAh 70C pack claims (0.45Ah x 70) = 31.5A continuous on paper (formula-continuous-current-c-rating). Applying the realistic 40-60% discount for planning gives roughly 13-19A of <em>trustworthy</em> continuous capability — this falls a bit short of the 20-25A target computed in Step 2, suggesting either stepping up to a higher-rated pack (a genuine 100C-class pack from a reputable brand) or a larger-capacity pack at the same C rating (a 550mAh pack at 70C nominally claims 38.5A, discounting to roughly 15-23A) to close the gap with more margin.</p>
+<p><strong>Step 4 — check runtime.</strong> Using the 450mAh pack at 80% usable capacity (360mAh) against the ~10-13A typical combined draw: Runtime = (360/11500) x 60 ≈ 1.9 minutes at continuous full-typical-load — noticeably short of a 3-minute match if the bot ran flat-out the whole time, but real matches include lulls, positioning, and pauses that bring <em>average</em> draw well below the &quot;flat-out typical&quot; figure used here, which is exactly why this worked example, like the real product landscape, points toward sizing up: a 550mAh (or a pair of 450mAh packs to swap between preliminary rounds) gives meaningfully more margin on both the current-rating shortfall from Step 3 and the runtime tightness from Step 4, for a a few extra grams of pack weight — a trade almost every antweight builder makes deliberately rather than by accident.</p>
+<p><strong>Step 5 — sanity-check voltage sag.</strong> Even a healthy 3S pack with 0.03 ohm/cell (0.09 ohm total) hit with a 25A worst-case spike sags roughly 2.25V (formula-voltage-sag-estimate), from 11.1V down to about 8.85V for that instant — comfortably above most 3S-rated ESC/receiver brownout thresholds when the pack is fresh, but a real warning that an aged or previously-hit pack with double that internal resistance would sag to a genuinely risky ~6.6V under the same spike, reinforcing why pack age and impact history matter as much as the printed spec sheet.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/battery-cnhl-ministar-3s-450mah-70c.html">CNHL MiniStar 3S 450mAh 70C</a></li><li><a href="../e/formula-continuous-current-c-rating.html">Continuous / Burst Current from Capacity and C Rating</a></li><li><a href="../e/formula-match-runtime-average-draw.html">Match Runtime from Average Current Draw</a></li><li><a href="../e/formula-power-budget-drive-weapon.html">Total System Current Draw (Drive + Weapon)</a></li><li><a href="../e/formula-voltage-sag-estimate.html">Voltage Sag from Internal Resistance</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

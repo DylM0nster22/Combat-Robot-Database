@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selecting a Gear Ratio from a Desired Top Speed — Combat Robot Database</title>
+<meta name="description" content="Rearranges the speed formula to solve for the gear ratio needed to hit a target top speed with a given motor and wheel diameter, then checks the result against the ratios actually available off the shelf.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../search.html">Formula</a> ›
+  Selecting a Gear Ratio from a Desired Top Speed</div>
+<h1 class="page">Selecting a Gear Ratio from a Desired Top Speed</h1>
+<p class="page-sub">Rearranges the speed formula to solve for the gear ratio needed to hit a target top speed with a given motor and wheel diameter, then checks the result against the ratios actually available off the shelf.</p>
+<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">formula</span><span class="pill">gear-ratio</span><span class="pill">speed</span><span class="pill">drivetrain-sizing</span></div>
+<div class="two-col">
+  <div class="prose">
+    
+    
+    
+    <h2>Expression</h2><pre><code>gear_ratio = motor_rpm_no_load * pi * wheel_dia_in / (target_mph * 1056)</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>motor_rpm_no_load</th><td>no-load RPM of the bare motor at the chosen nominal voltage</td></tr><tr><th>wheel_dia_in</th><td>wheel outer diameter in inches</td></tr><tr><th>target_mph</th><td>desired no-load top speed, mph</td></tr><tr><th>gear_ratio</th><td>gearbox reduction ratio needed, N:1 (solve for N)</td></tr></tbody></table><h2>Worked example</h2><p>Target: 8 mph top speed using a Silver Spark motor (motor_rpm_no_load = 11,530 at 7.4V) and a 2.0in wheel. gear_ratio = 11,530 x pi x 2.0 / (8 x 1056) = 72,444 / 8,448 ~= 8.6:1. Silver Spark&#x27;s fastest stock ratio is 11.1:1, not 8.6:1, so an exact 8 mph target isn&#x27;t reachable with this motor/wheel pairing off the shelf. Two fixes: (1) increase wheel diameter to 2.5in and re-check the stock 11.1:1 ratio: wheel RPM = 11,530/11.1 = 1,038.7, v_mph = 1,038.7 x pi x 2.5 / 1056 ~= 7.7 mph, very close to the 8 mph target; or (2) switch to a higher-RPM brushless drive pod (e.g. Repeat Robotics&#x27; 1106 gearmotor), which can exceed this speed range easily by running a higher supply voltage (3S/4S) instead of changing wheel size.</p>
+    
+    
+  </div>
+  <div><div class="side-box"><h4>Related guides</h4><ul><li><a href="../g/chunk-formula-ratio-selection-worked.html">Worked Example: Reverse-Solving Gear Ratio from a Target Top Speed</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div><div class="side-box"><h4>Also called</h4><p style="margin:0">gear ratio selection formula, reverse-solve gear ratio</p></div></div>
+</div>
+<p style="margin-top:34px"><code>formula-gear-ratio-selection-top-speed</code> — use this id with the
+Discord bot or MCP tools.</p>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

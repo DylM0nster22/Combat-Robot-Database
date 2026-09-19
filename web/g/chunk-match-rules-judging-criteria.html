@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Match Length, Win Conditions, and Judging Criteria — Combat Robot Database</title>
+<meta name="description" content="Match structure is one of the more standardized parts of combat robotics rules across organizations: nearly every event, from UK antweight club nights to NHRL a">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Match Length, Win Conditions, and Judging Criteria</div>
+<h1 class="page">Match Length, Win Conditions, and Judging Criteria</h1>
+<p class="page-sub">Match Rules</p>
+<div style="margin-bottom:20px"><span class="pill accent">fairyweight</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill accent">beetleweight</span><span class="pill">match-rules</span><span class="pill">judging</span><span class="pill">ko</span><span class="pill">tap-out</span><span class="pill">pinning</span></div>
+<div class="two-col">
+  <div class="prose"><p>Match structure is one of the more standardized parts of combat robotics rules across organizations: nearly every event, from UK antweight club nights to NHRL and BattleBots, runs 3-minute matches as the default duration, with the winner decided by one of a small set of standard outcomes rather than a running score kept throughout the fight.</p>
+<p><strong>Win conditions, in rough order of how often they end a match</strong>:</p>
+<ol>
+<li><strong>Knockout (KO) / immobility</strong>: a robot that shows no controlled, purposeful movement for a set count (commonly 10 seconds, as under AWS) is ruled out. Some rulesets apply this as a strict referee-operated countdown clock; others leave it to referee judgment of what counts as &#x27;controlled movement&#x27; (e.g. a weapon still spinning uselessly on a robot that can no longer drive may or may not count as &#x27;movement&#x27; depending on the event).</li>
+<li><strong>Tap-out</strong>: a driver can voluntarily concede to stop a match early, most often used when a robot is clearly beaten and continuing risks unnecessary damage or a safety issue (a stuck weapon, smoke, exposed wiring).</li>
+<li><strong>Pit fall / arena hazard</strong>: at venues with a pit or built-in hazard, touching the bottom of the pit is treated as an automatic loss under UK/AWS-style rules; most US hobby-class arenas are flat boxes without hazards, so this mainly applies to specific event designs.</li>
+<li><strong>Judges&#x27; decision</strong>: if the full match time elapses with both robots still mobile and neither has tapped out, a panel (commonly 3 judges) decides the winner. RoboGames formalizes this most explicitly: each judge scores Aggression (0-5 points) and Damage (0-6 points) independently, for 11 points per judge and 33 total across the panel. Damage is typically bucketed into severity tiers (trivial, cosmetic, minor, significant, major, massive) before being converted into points, and aggression specifically credits &#x27;translational movement toward the opponent&#x27; rather than just activity in place. Other organizations (BattleBots, NHRL) also judge on a mix of damage, aggression, and control, but publish less granular public point breakdowns than RoboGames.</li>
+</ol>
+<p><strong>Pinning and cornering limits</strong>: to prevent a robot from winning simply by holding an opponent against a wall or under itself without actively fighting, most rulesets cap how long a pin can be held — 15 seconds under RoboGames, 20 seconds under AWS — after which the pinning robot must back off enough to give the opponent a real chance to escape or continue fighting; cornering an opponent against the arena wall is generally treated the same as a physical pin for this purpose.</p>
+<p><strong>Between-match logistics</strong>: some organizations also specify minimum time between a team&#x27;s matches (RoboGames references a 40-minute minimum gap) to give builders enough time for repairs, battery swaps, and re-inspection before their next fight — a detail that matters a lot for a plastic antweight builder who may need to reprint or hot-glue a cracked chassis between rounds.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/ruleset-aws-uk.html">Antweight World Series Rules (UK)</a></li><li><a href="../e/ruleset-nhrl.html">NHRL Open Rules (National Havoc Robot League)</a></li><li><a href="../e/ruleset-robogames.html">RoboGames Combat Robot Rules</a></li><li><a href="../e/term-judges-decision.html">Judges&#x27; Decision</a></li><li><a href="../e/term-knockout-ko.html">Knockout (KO) / Immobility Count</a></li><li><a href="../e/term-pinning-rule.html">Pinning Time Limit</a></li><li><a href="../e/term-pit-hazard.html">Pit / Arena Hazard</a></li><li><a href="../e/term-tap-out.html">Tap-Out</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://robogames.net/rules/combat.php" rel="noopener">https://robogames.net/rules/combat.php</a></li><li><a href="https://www.robotwars101.org/ants/rules.htm" rel="noopener">https://www.robotwars101.org/ants/rules.htm</a></li><li><a href="https://www.nhrl.io/rules" rel="noopener">https://www.nhrl.io/rules</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
