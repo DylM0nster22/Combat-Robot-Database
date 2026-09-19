@@ -1,14 +1,22 @@
 {
  "meta": {
-  "built_at": "2026-09-19T04:25:23.042467+00:00",
+  "built_at": "2026-09-19T09:19:56.417539+00:00",
   "schema_version": "1",
-  "entity_count": "263",
-  "chunk_count": "100",
-  "topic_count": "6",
-  "chunk_word_count": "40174",
+  "entity_count": "312",
+  "chunk_count": "115",
+  "topic_count": "7",
+  "chunk_word_count": "44476",
   "focus": "antweight (1 lb) and plastic antweight"
  },
  "topics": [
+  {
+   "topic_id": "archetypes",
+   "title": "Combat Robot Design Archetypes",
+   "scope_note": "The complete taxonomy of combat robot design archetypes, biased toward 1 lb antweight and plastic antweight: how each works, what it counters, what counters it, realistic weight budgets, and the jargon around them.",
+   "source_file": "archetypes.json",
+   "entity_count": 55,
+   "chunk_count": 15
+  },
   {
    "topic_id": "batteries-power",
    "title": "Batteries & Power: Selection, Budgeting and Electrical Safety for Antweights",
@@ -22,7 +30,7 @@
    "title": "Design Math: The 1 lb Antweight Engineering Toolkit",
    "scope_note": "The complete engineering-math reference for designing a 1 lb (454 g) antweight combat robot: rotational dynamics and weapon inertia, gyroscopic effects, drivetrain and traction, electrical motor/battery sizing, structural impact and armor, weight/CG budgeting, and weapon bite geometry. Every formula carries a fully-worked numeric example using realistic antweight-scale values so an LLM (or a builder) can plug in their own numbers and compute a real answer.",
    "source_file": "design-math.json",
-   "entity_count": 64,
+   "entity_count": 61,
    "chunk_count": 12
   },
   {
@@ -38,7 +46,7 @@
    "title": "Plastic Antweight (1 lb All-Plastic) Combat Robots",
    "scope_note": "Complete reference for the 1 lb / 454 g all-plastic antweight combat robot class: exact ruleset wording and org-to-org variation on allowed/banned materials and metal exemptions, why the class exists, the dominant weapon/drive archetypes and why the plastic-only rule reshapes the meta, concrete build specs with per-part weight budgets, 3D printing material/settings/design-pattern practice, and where the community shares open-source designs.",
    "source_file": "plastic-antweight.json",
-   "entity_count": 53,
+   "entity_count": 52,
    "chunk_count": 22
   },
   {
@@ -46,7 +54,7 @@
    "title": "Weapon Motors: Selection & Sizing for Antweights",
    "scope_note": "How to pick and size a spinning-weapon motor for 1 lb antweight and plastic antweight combat robots, using the FPV-drone brushless motor size ladder (11xx-28xx). Covers KV selection, motor constants, drivetrain layout (direct/belt/gear), spin-up time, thermal and mechanical failure modes, mounting, and worked numeric examples.",
    "source_file": "weapon-motors.json",
-   "entity_count": 37,
+   "entity_count": 35,
    "chunk_count": 19
   },
   {
@@ -59,6 +67,2764 @@
   }
  ],
  "entities": [
+  {
+   "id": "archetype-vertical-disc-spinner",
+   "type": "archetype",
+   "name": "Vertical Disc Spinner",
+   "aliases": [
+    "vert",
+    "vertical spinner",
+    "disc spinner"
+   ],
+   "summary": "A toothed disc spinning on a horizontal axis at the front of the robot, throwing opponents upward. The dominant competitive antweight archetype.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "vertical",
+    "meta",
+    "damage"
+   ],
+   "specs": {},
+   "pros": [
+    "Vertical hits convert into lift, which removes the opponent's traction and often self-rights you",
+    "Impact forces load the weapon bearings axially in a direction the chassis can brace against",
+    "Gyroscopic forces are largely harmless and can even aid self-righting",
+    "Works when inverted if the weapon clears both ways"
+   ],
+   "cons": [
+    "Gyroscopic precession makes the robot resist turning and 'gyro dance' across the floor",
+    "Vulnerable to being wedged under before the weapon engages",
+    "Needs meaningful ground clearance control, or the disc hits the floor"
+   ],
+   "notes": "The vertical disc is the default competitive answer at 1 lb because its damage vector (upward) is the one a 454 g robot cannot brace against. A 1 lb bot weighs little enough that even a modest vertical hit lifts it clear of the floor, ending its ability to drive or defend for a second or more. Modern builds pair the disc with a front wedge so the archetype also wins the ground game it would otherwise lose to a dedicated wedge.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "wedge",
+     "forkbot",
+     "control-bot",
+     "lifter",
+     "thwackbot",
+     "rammer"
+    ],
+    "countered_by": [
+     "horizontal-bar-spinner",
+     "undercutter",
+     "grabber-clamper",
+     "flipper-spring"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "2205-2306 brushless outrunner, 1800-2600KV on 3S-4S",
+    "typical_drive": "Two brushed 16mm/N20 gearmotors, or brushless drive pods",
+    "weight_budget_pct": {
+     "weapon": 32,
+     "drive": 20,
+     "armor_chassis": 24,
+     "electronics": 12,
+     "battery": 8,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-vertical-bar-spinner",
+   "type": "archetype",
+   "name": "Vertical Bar Spinner",
+   "aliases": [
+    "vert bar",
+    "bar spinner"
+   ],
+   "summary": "A long bar spinning on a horizontal axis. Nearly all the stored energy sits in the two tips, giving very high energy for the mass.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "vertical",
+    "bar"
+   ],
+   "specs": {},
+   "pros": [
+    "Mass concentrated at the tips maximises moment of inertia per gram",
+    "A long bar reaches past an opponent's wedge better than a small disc",
+    "Simple to make: bar stock, two teeth, a hub"
+   ],
+   "cons": [
+    "Long bar means a long spin-up and large gyroscopic effects",
+    "A bent bar after a hard hit becomes an unbalanced bar, which destroys bearings",
+    "Harder to armour the weapon arc than a compact disc"
+   ],
+   "notes": "Bar versus disc at the same mass is a trade of energy against spin-up and robustness. A bar of length L about its centre has I = mL^2/12, so doubling length quadruples inertia at constant mass. That is free energy on paper, and a longer spin-up plus a bigger gyro problem in practice.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "wedge",
+     "control-bot",
+     "rammer",
+     "lifter"
+    ],
+    "countered_by": [
+     "horizontal-bar-spinner",
+     "undercutter",
+     "grabber-clamper"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "2205-2306 brushless outrunner, 1600-2300KV on 3S-4S",
+    "typical_drive": "Two brushed 16mm gearmotors or brushless pods",
+    "weight_budget_pct": {
+     "weapon": 34,
+     "drive": 19,
+     "armor_chassis": 23,
+     "electronics": 12,
+     "battery": 8,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-horizontal-bar-spinner",
+   "type": "archetype",
+   "name": "Horizontal Bar Spinner",
+   "aliases": [
+    "horizontal spinner",
+    "horizontal"
+   ],
+   "summary": "A bar spinning on a vertical axis, sweeping a circle far wider than the robot. Hits from any direction in the horizontal plane.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "horizontal",
+    "reach"
+   ],
+   "specs": {},
+   "pros": [
+    "Enormous reach — it threatens well outside the robot's footprint",
+    "Attacks the whole horizontal plane, so approach angle matters less",
+    "Devastating against other spinners' exposed weapons and against wheels"
+   ],
+   "cons": [
+    "Every hit throws the robot backwards as hard as the opponent — self-inflicted chaos",
+    "Loses to a low wedge that gets under before the bar can bite",
+    "Needs a lot of floor clearance discipline; scraping the floor kills energy"
+   ],
+   "notes": "Horizontals have fallen out of top-level antweight favour because a wedge beats them reliably: the bar passes harmlessly over a well-built wedge while the wedge drives under. They remain excellent against other spinners and against anything with exposed wheels, and they are still the archetype most likely to end a match in one hit.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "vertical-disc-spinner",
+     "vertical-bar-spinner",
+     "drum-spinner",
+     "hammer",
+     "thwackbot"
+    ],
+    "countered_by": [
+     "wedge",
+     "forkbot",
+     "rammer",
+     "grabber-clamper"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "2205-2812 brushless outrunner, 1400-2200KV on 3S-4S",
+    "typical_drive": "Two brushed gearmotors, often with extra ground clearance control",
+    "weight_budget_pct": {
+     "weapon": 33,
+     "drive": 19,
+     "armor_chassis": 24,
+     "electronics": 12,
+     "battery": 8,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-undercutter",
+   "type": "archetype",
+   "name": "Undercutter",
+   "aliases": [
+    "under-cutter",
+    "low horizontal"
+   ],
+   "summary": "A horizontal bar sweeping very low to the floor, striking beneath an opponent's armour line at wheels and ground clearance.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "horizontal",
+    "low",
+    "counter-meta"
+   ],
+   "specs": {},
+   "pros": [
+    "Defeats the wedge that beats an ordinary horizontal — it goes under the wedge's edge",
+    "Attacks wheels and drive pods, which are the least armoured parts of most robots",
+    "Very hard for a low flat robot to present a safe face to"
+   ],
+   "cons": [
+    "Extremely sensitive to floor contact; a few millimetres of ride-height error destroys the weapon",
+    "Arena floor seams and dents are a real hazard",
+    "Difficult to build with adequate ground clearance in 1 lb"
+   ],
+   "notes": "The undercutter is the specific counter to the wedge-heavy antweight meta. Because it runs below the wedge's leading edge, the wedge's shape no longer protects it. The cost is precision: the weapon must run a few millimetres off the floor and stay there after impacts.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "wedge",
+     "forkbot",
+     "vertical-disc-spinner",
+     "control-bot"
+    ],
+    "countered_by": [
+     "drum-spinner",
+     "grabber-clamper",
+     "rammer"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "2205-2306 brushless outrunner, 1400-2000KV on 3S-4S",
+    "typical_drive": "Two brushed gearmotors with protected wheels",
+    "weight_budget_pct": {
+     "weapon": 33,
+     "drive": 20,
+     "armor_chassis": 23,
+     "electronics": 12,
+     "battery": 8,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-drum-spinner",
+   "type": "archetype",
+   "name": "Drum Spinner",
+   "aliases": [
+    "drum"
+   ],
+   "summary": "A wide toothed cylinder spinning on a horizontal axis low at the front. Combines a vertical spinner's damage vector with exceptional bite.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "vertical",
+    "drum",
+    "bite"
+   ],
+   "specs": {},
+   "pros": [
+    "Best bite of any spinner: the large diameter and low mounting scoop under an opponent's edge",
+    "Wide face means you rarely miss laterally",
+    "Compact and rigid — the drum is its own structural member",
+    "Low gyroscopic effect compared to a large disc at the same energy"
+   ],
+   "cons": [
+    "Lower moment of inertia per gram than a bar, so less stored energy for the mass",
+    "Machining or printing a true, balanced drum is harder than cutting a disc",
+    "Dead-shaft drum construction is fiddly at 1 lb scale"
+   ],
+   "notes": "Drums are arguably the best all-round antweight weapon: they hit upward like a vertical spinner but engage far more reliably because the drum body itself acts as a wedge that pulls the opponent in. The tradeoff is energy density — a drum's mass sits at a smaller radius than a bar's tips.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "wedge",
+     "forkbot",
+     "control-bot",
+     "undercutter",
+     "lifter"
+    ],
+    "countered_by": [
+     "horizontal-bar-spinner",
+     "grabber-clamper",
+     "flipper-spring"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "2205-2812 brushless outrunner, 1600-2400KV on 3S-4S",
+    "typical_drive": "Two brushed 16mm gearmotors or brushless pods",
+    "weight_budget_pct": {
+     "weapon": 34,
+     "drive": 19,
+     "armor_chassis": 23,
+     "electronics": 12,
+     "battery": 8,
+     "fasteners_misc": 3
+    }
+   }
+  },
+  {
+   "id": "archetype-beater-bar",
+   "type": "archetype",
+   "name": "Beater Bar",
+   "aliases": [
+    "beater"
+   ],
+   "summary": "A simple bar spinning on a horizontal axis at the front — a drum's geometry without a drum's fabrication cost.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "vertical",
+    "beginner",
+    "budget"
+   ],
+   "specs": {},
+   "pros": [
+    "Cheapest real weapon to build — bar stock, a hub and a motor",
+    "Good bite from the low horizontal-axis mounting",
+    "Forgiving: a beater bar that takes a hit usually still works"
+   ],
+   "cons": [
+    "Much lower energy than a proper drum or disc of the same mass",
+    "Little reach; you must close the distance to use it",
+    "Easy to bend"
+   ],
+   "notes": "The beater bar is the standard first weapon for a new antweight or plastic ant builder. It teaches spinner driving, bite and spin-up management without the cost or the balancing precision of a disc, and it is genuinely competitive at club level.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "wedge",
+     "control-bot",
+     "rammer"
+    ],
+    "countered_by": [
+     "horizontal-bar-spinner",
+     "undercutter",
+     "grabber-clamper"
+    ],
+    "difficulty": "beginner",
+    "typical_weapon_motor": "1806-2205 brushless outrunner, 2000-2800KV on 2S-3S",
+    "typical_drive": "Two brushed N20 or 16mm gearmotors",
+    "weight_budget_pct": {
+     "weapon": 28,
+     "drive": 21,
+     "armor_chassis": 25,
+     "electronics": 13,
+     "battery": 9,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-eggbeater",
+   "type": "archetype",
+   "name": "Eggbeater",
+   "aliases": [
+    "egg beater",
+    "cage spinner"
+   ],
+   "summary": "An open cage weapon spinning on a horizontal axis — light for its diameter, and an excellent self-righter.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "vertical",
+    "self-righting"
+   ],
+   "specs": {},
+   "pros": [
+    "Large diameter for little mass, so it reaches over wedges",
+    "The cage shape makes self-righting almost automatic",
+    "Open structure sheds debris rather than jamming"
+   ],
+   "cons": [
+    "Lower energy density than a solid disc of the same mass",
+    "The cage deforms on hard hits and is awkward to true up again",
+    "More drag than a solid weapon"
+   ],
+   "notes": "Eggbeaters trade raw energy for geometry. The wide, tall cage engages opponents a low disc would pass under, and the same shape lets the robot roll itself back over. In plastic ant they are attractive because a printed cage is light and cheap to replace.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "wedge",
+     "control-bot",
+     "lifter"
+    ],
+    "countered_by": [
+     "horizontal-bar-spinner",
+     "undercutter",
+     "grabber-clamper"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "2205-2306 brushless outrunner, 1800-2400KV on 3S",
+    "typical_drive": "Two brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 30,
+     "drive": 20,
+     "armor_chassis": 25,
+     "electronics": 12,
+     "battery": 9,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-shell-spinner",
+   "type": "archetype",
+   "name": "Full-Body Shell Spinner",
+   "aliases": [
+    "shell",
+    "full body spinner",
+    "FBS"
+   ],
+   "summary": "The robot's entire outer shell rotates on a vertical axis, so every approach angle meets the weapon.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "horizontal",
+    "advanced"
+   ],
+   "specs": {},
+   "pros": [
+    "No safe angle of approach — the whole robot is the weapon",
+    "Huge moment of inertia because all the mass sits at maximum radius",
+    "The shell doubles as the armour"
+   ],
+   "cons": [
+    "Very hard to build in 1 lb: the support ring, bearings and drive must all fit inside",
+    "Any imbalance is catastrophic because the weapon is the whole robot",
+    "Self-righting is difficult, and the shell can ground out"
+   ],
+   "notes": "Shell spinners are the highest-energy archetype per gram because every gram sits at the maximum possible radius. At 1 lb the engineering is genuinely hard — you need a large-diameter bearing race, a drive system that fits inside it, and near-perfect balance — which is why they are rarer at antweight than at beetleweight and above.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "vertical-disc-spinner",
+     "wedge",
+     "rammer",
+     "hammer",
+     "thwackbot"
+    ],
+    "countered_by": [
+     "undercutter",
+     "grabber-clamper",
+     "flipper-spring",
+     "forkbot"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "2812-2814 brushless outrunner, 1000-1800KV on 3S-4S",
+    "typical_drive": "Two brushed gearmotors inside the shell, or hub drive",
+    "weight_budget_pct": {
+     "weapon": 38,
+     "drive": 18,
+     "armor_chassis": 22,
+     "electronics": 11,
+     "battery": 8,
+     "fasteners_misc": 3
+    }
+   }
+  },
+  {
+   "id": "archetype-ring-spinner",
+   "type": "archetype",
+   "name": "Full-Body Ring Spinner",
+   "aliases": [
+    "ring",
+    "undercutter ring"
+   ],
+   "summary": "A variant of the shell spinner where a ring rotates around a chassis that stays upright, usually on a vertical axis.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "horizontal",
+    "advanced"
+   ],
+   "specs": {},
+   "pros": [
+    "All the shell spinner's omnidirectional threat",
+    "The open centre makes internal access far easier than a closed shell",
+    "Ring geometry gives maximum inertia for the material used"
+   ],
+   "cons": [
+    "The ring must be supported at several points or it deflects and jams",
+    "Bearing and guide-roller wear is constant",
+    "Complex to make accurately at 1 lb"
+   ],
+   "notes": "The ring spinner solves the shell spinner's maintenance problem — you can reach the electronics without removing the weapon — at the cost of needing a ring that stays round under load. Guide rollers rather than a single bearing are the usual answer.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "vertical-disc-spinner",
+     "wedge",
+     "rammer"
+    ],
+    "countered_by": [
+     "undercutter",
+     "grabber-clamper",
+     "flipper-spring"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "2812 brushless outrunner, 1000-1800KV on 4S",
+    "typical_drive": "Two brushed gearmotors within the ring",
+    "weight_budget_pct": {
+     "weapon": 37,
+     "drive": 18,
+     "armor_chassis": 23,
+     "electronics": 11,
+     "battery": 8,
+     "fasteners_misc": 3
+    }
+   }
+  },
+  {
+   "id": "archetype-melty-brain",
+   "type": "archetype",
+   "name": "Melty Brain",
+   "aliases": [
+    "meltybrain",
+    "translational drift",
+    "melty"
+   ],
+   "summary": "The entire robot spins continuously and translates by pulsing its drive in sync with rotation, using an accelerometer to know which way is forward.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "software",
+    "advanced"
+   ],
+   "specs": {},
+   "pros": [
+    "No weapon motor needed — the drivetrain is the weapon",
+    "Omnidirectional threat like a shell spinner, with far simpler mechanics",
+    "Weapon energy and mobility come from the same system"
+   ],
+   "cons": [
+    "Requires custom firmware and an accelerometer; this is a software project as much as a mechanical one",
+    "Translation is slow and imprecise compared to normal driving",
+    "Loses all weapon energy the moment it needs to manoeuvre",
+    "Hard to drive and hard for judges to score"
+   ],
+   "notes": "Melty brain — also called translational drift — is the most software-dependent archetype in combat robotics. The controller reads centripetal acceleration to estimate heading, then pulses each drive motor once per revolution so net thrust points in the commanded direction. It is a brilliant solution to getting spinner energy without a weapon motor, and a difficult one to make reliable.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "wedge",
+     "control-bot",
+     "rammer",
+     "lifter"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "grabber-clamper"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "No separate weapon motor — the drive spins the robot",
+    "typical_drive": "Two brushed or brushless motors run continuously",
+    "weight_budget_pct": {
+     "weapon": 20,
+     "drive": 30,
+     "armor_chassis": 24,
+     "electronics": 18,
+     "battery": 6,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-overhead-saw",
+   "type": "archetype",
+   "name": "Overhead Saw",
+   "aliases": [
+    "saw",
+    "sawbot"
+   ],
+   "summary": "A spinning blade on a pivoting arm that comes down onto the top of an opponent.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "impact",
+    "novelty"
+   ],
+   "specs": {},
+   "pros": [
+    "Attacks the top surface, which is usually the thinnest armour",
+    "Visually dramatic and scores well on aggression",
+    "Can be used to hold an opponent down"
+   ],
+   "cons": [
+    "Needs both a weapon motor and an arm actuator inside 454 g",
+    "Very little energy actually transfers — saws cut, and combat armour resists cutting",
+    "The arm is a structural weak point"
+   ],
+   "notes": "Saws look spectacular and rarely win. In 1 lb the weight spent on an arm mechanism plus a blade motor buys less damage than the same grams in a disc. They persist because they are fun and because a saw that pins an opponent scores control points.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "control-bot",
+     "wedge",
+     "rammer"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "horizontal-bar-spinner",
+     "flipper-spring"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "1806-2205 brushless outrunner, 2000-3000KV on 3S",
+    "typical_drive": "Two brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 30,
+     "drive": 20,
+     "armor_chassis": 22,
+     "electronics": 14,
+     "battery": 9,
+     "fasteners_misc": 5
+    }
+   }
+  },
+  {
+   "id": "archetype-flywheel",
+   "type": "archetype",
+   "name": "Flywheel Spinner",
+   "aliases": [
+    "thick disc"
+   ],
+   "summary": "A thick, small-diameter disc chosen for mass concentration rather than reach — high energy in a compact package.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "vertical",
+    "compact"
+   ],
+   "specs": {},
+   "pros": [
+    "Compact and easy to armour around",
+    "Rigid — a thick disc resists bending far better than a bar",
+    "Shorter spin-up than a long bar of equal energy"
+   ],
+   "cons": [
+    "Little reach; you must get close",
+    "Mass at small radius means you need high rpm for the same energy"
+   ],
+   "notes": "A flywheel trades radius for thickness. Because energy scales with I and I scales with r^2, a small disc must spin much faster for the same energy — which puts the demand on the motor and the bearings rather than on the structure.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "wedge",
+     "control-bot",
+     "lifter"
+    ],
+    "countered_by": [
+     "horizontal-bar-spinner",
+     "undercutter",
+     "grabber-clamper"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "2205-2306 brushless outrunner, 1600-2200KV on 4S",
+    "typical_drive": "Two brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 33,
+     "drive": 20,
+     "armor_chassis": 23,
+     "electronics": 12,
+     "battery": 8,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-wedge",
+   "type": "archetype",
+   "name": "Wedge",
+   "aliases": [
+    "wedgelet",
+    "pushbot"
+   ],
+   "summary": "A low inclined plane whose job is to get beneath an opponent and take away their traction. The foundation of control robotics.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "passive",
+    "beginner",
+    "meta"
+   ],
+   "specs": {},
+   "pros": [
+    "No weapon motor means the entire weight budget goes to drive and armour",
+    "Beats every archetype whose weapon cannot reach below its own edge",
+    "Extremely reliable — there is almost nothing to break",
+    "Cheapest competitive robot to build"
+   ],
+   "cons": [
+    "Cannot generate damage, so it must win on control and judges' decisions",
+    "Loses to anything that attacks below the wedge line",
+    "A wedge that gets high-sided is helpless"
+   ],
+   "notes": "A wedge wins by making the opponent's weapon irrelevant. Ground clearance and edge quality matter more than anything else: the leading edge must be thin, hard, flat against the floor, and backed so it does not curl. A wedge that lifts even two millimetres off the floor stops being a wedge.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "control",
+    "counters": [
+     "horizontal-bar-spinner",
+     "shell-spinner",
+     "hammer",
+     "thwackbot",
+     "rammer",
+     "overhead-saw"
+    ],
+    "countered_by": [
+     "undercutter",
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "flipper-spring"
+    ],
+    "difficulty": "beginner",
+    "typical_weapon_motor": "None — the wedge is passive",
+    "typical_drive": "Four-wheel drive or two powerful brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 0,
+     "drive": 34,
+     "armor_chassis": 40,
+     "electronics": 14,
+     "battery": 8,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-wedge-spinner-hybrid",
+   "type": "archetype",
+   "name": "Wedge + Vertical Spinner Hybrid",
+   "aliases": [
+    "wedge spinner",
+    "hybrid"
+   ],
+   "summary": "A vertical spinner with wedge-shaped forks flanking the weapon, so the robot wins the ground game and still carries damage.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "control",
+    "meta",
+    "hybrid"
+   ],
+   "specs": {},
+   "pros": [
+    "Removes the vertical spinner's single biggest weakness — losing the wedge war",
+    "The forks feed opponents into the weapon rather than letting them ride over",
+    "Dominant in the modern antweight meta"
+   ],
+   "cons": [
+    "Packaging is tight: forks, weapon and drive all compete for the front of the robot",
+    "The forks must not foul the weapon arc",
+    "Heavier than a pure spinner, so weapon energy is slightly reduced"
+   ],
+   "notes": "This is the defining configuration of modern competitive antweight. A bare vertical spinner loses to a wedge; a bare wedge loses to anything that can out-control it. Bolting low hinged forks either side of a vertical weapon means the robot wins the initial engagement and then applies damage. Almost every top 1 lb design converges on some version of this.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "spinner",
+    "counters": [
+     "wedge",
+     "control-bot",
+     "forkbot",
+     "rammer",
+     "lifter",
+     "horizontal-bar-spinner"
+    ],
+    "countered_by": [
+     "undercutter",
+     "grabber-clamper"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "2205-2306 brushless outrunner, 1800-2400KV on 3S-4S",
+    "typical_drive": "Two brushed 16mm gearmotors or brushless pods",
+    "weight_budget_pct": {
+     "weapon": 30,
+     "drive": 20,
+     "armor_chassis": 26,
+     "electronics": 12,
+     "battery": 8,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-forkbot",
+   "type": "archetype",
+   "name": "Forkbot",
+   "aliases": [
+    "forks",
+    "hinged forks"
+   ],
+   "summary": "A control robot with thin hinged forks that ride on the floor, sliding under an opponent before they can get under you.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "passive",
+    "budget"
+   ],
+   "specs": {},
+   "pros": [
+    "Hinged forks self-level to the floor, beating fixed wedges on uneven arenas",
+    "Cheap, light and easy to replace between matches",
+    "Forks can be made sacrificial so damage costs nothing"
+   ],
+   "cons": [
+    "Forks bend, and a bent fork is worse than no fork",
+    "No damage output at all",
+    "Can be defeated by an opponent with even lower clearance"
+   ],
+   "notes": "Forks beat fixed wedges because they float. A rigid wedge is only as good as the flattest part of the arena; hinged forks follow the floor and stay in contact. Make them from spring steel or hardened stock and expect to straighten them between matches.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "control",
+    "counters": [
+     "horizontal-bar-spinner",
+     "shell-spinner",
+     "vertical-disc-spinner",
+     "rammer",
+     "hammer"
+    ],
+    "countered_by": [
+     "undercutter",
+     "grabber-clamper",
+     "drum-spinner"
+    ],
+    "difficulty": "beginner",
+    "typical_weapon_motor": "None — forks are passive",
+    "typical_drive": "Four-wheel drive or two high-torque brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 5,
+     "drive": 33,
+     "armor_chassis": 37,
+     "electronics": 13,
+     "battery": 8,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-control-bot",
+   "type": "archetype",
+   "name": "Control Bot",
+   "aliases": [
+    "pushbot",
+    "brick"
+   ],
+   "summary": "A weaponless robot built entirely around drivetrain and armour, winning on pushing, pinning, ring-outs and judges' decisions.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "beginner",
+    "reliability"
+   ],
+   "specs": {},
+   "pros": [
+    "Every gram not spent on a weapon goes into being unkillable",
+    "Reliability wins tournaments — a bot that finishes every match accumulates decisions",
+    "Ideal first build: teaches driving, which matters more than weapons at this level"
+   ],
+   "cons": [
+    "Must win on judges' scores, which is never guaranteed",
+    "Against a damaging opponent you have to be perfect for three minutes"
+   ],
+   "notes": "The control bot is the most underrated archetype for new builders. At 1 lb, more matches are lost to broken robots than to out-designed ones, and a robot that reliably drives for three minutes beats a fragile spinner more often than beginners expect.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "control",
+    "counters": [
+     "horizontal-bar-spinner",
+     "shell-spinner",
+     "hammer",
+     "overhead-saw",
+     "thwackbot"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "undercutter"
+    ],
+    "difficulty": "beginner",
+    "typical_weapon_motor": "None",
+    "typical_drive": "Four-wheel drive, high torque, maximum traction",
+    "weight_budget_pct": {
+     "weapon": 0,
+     "drive": 36,
+     "armor_chassis": 40,
+     "electronics": 14,
+     "battery": 8,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-invertible-brick",
+   "type": "archetype",
+   "name": "Invertible Brick",
+   "aliases": [
+    "invertible",
+    "two-way brick"
+   ],
+   "summary": "A symmetric armoured box that drives identically either way up, built to survive rather than to damage.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "invertible",
+    "reliability"
+   ],
+   "specs": {},
+   "pros": [
+    "Being flipped costs nothing — no self-righting mechanism needed",
+    "Extremely simple and hard to disable",
+    "The saved srimech weight goes into armour"
+   ],
+   "cons": [
+    "No damage output",
+    "Wheels must protrude both ways, which exposes them to undercutters"
+   ],
+   "notes": "Invertibility is the cheapest possible self-righting mechanism: build the robot so being upside down does not matter. At antweight this is nearly always the right call, because a dedicated srimech costs grams a 454 g robot cannot spare.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "control",
+    "counters": [
+     "horizontal-bar-spinner",
+     "hammer",
+     "overhead-saw",
+     "thwackbot"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "grabber-clamper"
+    ],
+    "difficulty": "beginner",
+    "typical_weapon_motor": "None",
+    "typical_drive": "Four-wheel drive with wheels protruding top and bottom",
+    "weight_budget_pct": {
+     "weapon": 0,
+     "drive": 34,
+     "armor_chassis": 42,
+     "electronics": 14,
+     "battery": 8,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-lifter",
+   "type": "archetype",
+   "name": "Lifter",
+   "aliases": [
+    "lifting arm"
+   ],
+   "summary": "A powered arm that pivots upward to lift an opponent's front off the floor, removing their traction and control.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "lifter"
+   ],
+   "specs": {},
+   "pros": [
+    "Controls opponents without needing to damage them",
+    "Slow, controllable lift is better for carrying an opponent than a flipper's single throw",
+    "Can hold an opponent up for the whole match, which scores heavily on control"
+   ],
+   "cons": [
+    "The arm is a lever that transmits impact straight into its pivot",
+    "Needs a wedge-quality edge to get under in the first place",
+    "Slow — a spinner will hit you during the lift"
+   ],
+   "notes": "A lifter is a wedge with a follow-through. The hard part is not the lifting, it is the getting under: a lifter whose leading edge is not as good as a dedicated wedge's never gets to use its arm.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "lifter",
+    "counters": [
+     "horizontal-bar-spinner",
+     "control-bot",
+     "rammer",
+     "wedge",
+     "shell-spinner"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "undercutter",
+     "flipper-spring"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "Geared brushed motor or a modified servo driving the arm",
+    "typical_drive": "Two to four brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 18,
+     "drive": 26,
+     "armor_chassis": 30,
+     "electronics": 15,
+     "battery": 8,
+     "fasteners_misc": 3
+    }
+   }
+  },
+  {
+   "id": "archetype-linear-lifter",
+   "type": "archetype",
+   "name": "Linear Actuator Lifter",
+   "aliases": [
+    "screw lifter",
+    "actuator lifter"
+   ],
+   "summary": "A lifter driven by a leadscrew or linear actuator rather than a rotating arm, giving high force at low speed.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "lifter",
+    "advanced"
+   ],
+   "specs": {},
+   "pros": [
+    "Very high force for the power consumed",
+    "Holds position without drawing current, so you can pin indefinitely",
+    "Compact compared to a long arm"
+   ],
+   "cons": [
+    "Slow — seconds per stroke",
+    "Leadscrews jam when bent or contaminated",
+    "Complex to build at 1 lb"
+   ],
+   "notes": "Linear actuators give a 1 lb robot genuine crushing or lifting force because a screw multiplies torque enormously. The price is speed: an actuator that can lift a robot takes a second or more to do it, which is a long time in a match.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "lifter",
+    "counters": [
+     "control-bot",
+     "wedge",
+     "rammer",
+     "horizontal-bar-spinner"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "undercutter"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "Small leadscrew actuator or geared motor with a screw drive",
+    "typical_drive": "Two to four brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 20,
+     "drive": 25,
+     "armor_chassis": 29,
+     "electronics": 15,
+     "battery": 8,
+     "fasteners_misc": 3
+    }
+   }
+  },
+  {
+   "id": "archetype-flipper-spring",
+   "type": "archetype",
+   "name": "Spring Flipper",
+   "aliases": [
+    "spring flipper"
+   ],
+   "summary": "An arm that releases stored spring energy in a single stroke to throw an opponent into the air.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "flipper",
+    "advanced"
+   ],
+   "specs": {},
+   "pros": [
+    "A successful flip can end a match instantly against a non-invertible robot",
+    "Beats vertical spinners by attacking them from underneath, where they cannot respond",
+    "No compressed gas system needed, so it is legal everywhere"
+   ],
+   "cons": [
+    "One shot, then a slow re-cock",
+    "Useless against an invertible opponent",
+    "The cocking mechanism is complex and a common failure point"
+   ],
+   "notes": "Spring flippers are the practical flipper for 1 lb, because pneumatics do not scale down well. The design problem is the latch: it must hold the full spring force, release cleanly on command, and survive being hit. Most antweight flipper failures are latch failures.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "lifter",
+    "counters": [
+     "vertical-disc-spinner",
+     "wedge",
+     "control-bot",
+     "drum-spinner",
+     "rammer"
+    ],
+    "countered_by": [
+     "horizontal-bar-spinner",
+     "undercutter",
+     "invertible-brick",
+     "shell-spinner"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "Spring or elastic store, cocked by a geared motor or servo",
+    "typical_drive": "Two to four brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 22,
+     "drive": 24,
+     "armor_chassis": 29,
+     "electronics": 14,
+     "battery": 8,
+     "fasteners_misc": 3
+    }
+   }
+  },
+  {
+   "id": "archetype-flipper-electric",
+   "type": "archetype",
+   "name": "Electric Flipper",
+   "aliases": [
+    "motor flipper",
+    "HDD flipper"
+   ],
+   "summary": "A flipper driven directly by a high-torque motor or a released flywheel rather than a gas or spring store.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "flipper"
+   ],
+   "specs": {},
+   "pros": [
+    "Repeatable — no gas to run out of and no re-cock cycle in the flywheel variant",
+    "Simpler plumbing than pneumatics and legal under every ruleset",
+    "Doubles as a self-righting mechanism"
+   ],
+   "cons": [
+    "Much less instantaneous power than a spring or gas system",
+    "Draws heavily on the same battery as the drive",
+    "Gearbox takes the full shock of every flip"
+   ],
+   "notes": "Electric flippers trade peak power for repeatability. At 1 lb the usual approach is a motor with a very large reduction driving a short, stiff arm — enough to upend an opponent even if it will not throw them across the arena.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "lifter",
+    "counters": [
+     "vertical-disc-spinner",
+     "wedge",
+     "control-bot",
+     "rammer"
+    ],
+    "countered_by": [
+     "horizontal-bar-spinner",
+     "undercutter",
+     "invertible-brick"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "High-torque geared brushed motor, or a spun-up flywheel released into the arm",
+    "typical_drive": "Two to four brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 22,
+     "drive": 24,
+     "armor_chassis": 29,
+     "electronics": 14,
+     "battery": 8,
+     "fasteners_misc": 3
+    }
+   }
+  },
+  {
+   "id": "archetype-flipper-pneumatic",
+   "type": "archetype",
+   "name": "Pneumatic Flipper",
+   "aliases": [
+    "gas flipper",
+    "CO2 flipper"
+   ],
+   "summary": "A flipper driven by compressed gas. Common at larger weights and rare at antweight, where the system's mass does not fit the budget.",
+   "weight_classes": [
+    "beetleweight",
+    "featherweight",
+    "heavyweight"
+   ],
+   "tags": [
+    "control",
+    "flipper",
+    "advanced"
+   ],
+   "specs": {},
+   "pros": [
+    "Enormous instantaneous power — the most violent flip available",
+    "Fast reset compared to a mechanically cocked spring"
+   ],
+   "cons": [
+    "Cylinder, regulator and valve rarely fit inside 454 g",
+    "Pressure systems attract extra safety scrutiny and are banned or restricted at some events",
+    "Leaks end your day"
+   ],
+   "notes": "Pneumatics are essentially a larger-class archetype. They are documented here because antweight builders copy the geometry downward using springs — the arm, pivot and latch design carry over even though the power source does not. Check your event's rules before building any pressurised system.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "lifter",
+    "counters": [
+     "vertical-disc-spinner",
+     "wedge",
+     "control-bot"
+    ],
+    "countered_by": [
+     "horizontal-bar-spinner",
+     "invertible-brick",
+     "undercutter"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "CO2 or HPA cylinder, regulator, valve and ram",
+    "typical_drive": "Two to four brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 34,
+     "drive": 20,
+     "armor_chassis": 24,
+     "electronics": 12,
+     "battery": 6,
+     "fasteners_misc": 4
+    }
+   }
+  },
+  {
+   "id": "archetype-grabber-clamper",
+   "type": "archetype",
+   "name": "Grabber / Clamper",
+   "aliases": [
+    "clamper",
+    "grabber",
+    "clampbot"
+   ],
+   "summary": "Two jaws that close on an opponent so the driver can carry them to a wall, a hazard or the pit.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "crusher",
+    "advanced"
+   ],
+   "specs": {},
+   "pros": [
+    "Completely neutralises a spinner once clamped — the weapon cannot reach you",
+    "Total control: you decide where the opponent goes",
+    "Scores extremely well on control with judges"
+   ],
+   "cons": [
+    "You must survive the approach against a live weapon to clamp at all",
+    "Useless if the grab fails, and grabs fail often",
+    "Mechanically the most complex archetype to build in 1 lb"
+   ],
+   "notes": "The grabber is the theoretical counter to every spinner and the hardest archetype to execute. Once you have hold of a spinner it is finished, but closing the distance to a weapon at full speed with jaws open is exactly the scenario spinners are built for.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "crusher",
+    "counters": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "undercutter",
+     "horizontal-bar-spinner",
+     "shell-spinner"
+    ],
+    "countered_by": [
+     "wedge",
+     "forkbot",
+     "control-bot",
+     "invertible-brick"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "Geared brushed motor or linear actuator driving the jaws",
+    "typical_drive": "Two to four brushed gearmotors, high torque",
+    "weight_budget_pct": {
+     "weapon": 22,
+     "drive": 26,
+     "armor_chassis": 27,
+     "electronics": 15,
+     "battery": 7,
+     "fasteners_misc": 3
+    }
+   }
+  },
+  {
+   "id": "archetype-crusher",
+   "type": "archetype",
+   "name": "Crusher",
+   "aliases": [
+    "piercer",
+    "beak"
+   ],
+   "summary": "A hardened beak or spike driven by a very high-force, low-speed actuator to punch through an opponent's armour.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "crusher",
+    "advanced",
+    "novelty"
+   ],
+   "specs": {},
+   "pros": [
+    "Does damage no spinner can do — it pierces rather than dents",
+    "Holding an opponent pierced is total control",
+    "Immune to the energy-transfer problem that limits spinners"
+   ],
+   "cons": [
+    "Extremely slow; you must already have the opponent held still",
+    "Hard to generate meaningful force in 454 g",
+    "Very complex for the result"
+   ],
+   "notes": "Crushers scale badly downward. The force needed to pierce even thin armour requires gearing that makes the mechanism slow and heavy, and a 1 lb robot has neither the weight budget nor the traction to hold an opponent still while it works. They appear at antweight mainly as novelty or demonstration builds.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "crusher",
+    "counters": [
+     "control-bot",
+     "invertible-brick",
+     "wedge",
+     "rammer"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "horizontal-bar-spinner",
+     "drum-spinner",
+     "undercutter"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "Leadscrew actuator or heavily geared brushed motor",
+    "typical_drive": "Two to four brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 26,
+     "drive": 24,
+     "armor_chassis": 28,
+     "electronics": 14,
+     "battery": 6,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-hammer",
+   "type": "archetype",
+   "name": "Hammer / Axe",
+   "aliases": [
+    "axe",
+    "hammerbot"
+   ],
+   "summary": "A weighted head swung through an arc to concentrate its energy into a single point of impact.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "impact",
+    "hammer",
+    "srimech"
+   ],
+   "specs": {},
+   "pros": [
+    "Concentrated point impact can punch through thin top armour",
+    "Doubles as a self-righting mechanism",
+    "Scores well on aggression and looks dramatic"
+   ],
+   "cons": [
+    "Very low total energy compared to a spinner — the arm only accelerates over a short arc",
+    "Must be almost touching the opponent to land a hit",
+    "The arm and its pivot take the full reaction force"
+   ],
+   "notes": "Hammers suffer from a simple energy problem: a spinner accumulates energy over seconds of spin-up, while a hammer only has the arc of its swing. At 1 lb the head mass you can afford is small enough that the result is rarely decisive. They remain popular because they self-right, look good, and are satisfying to drive.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "hammer",
+    "counters": [
+     "control-bot",
+     "invertible-brick",
+     "wedge",
+     "rammer"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "horizontal-bar-spinner",
+     "drum-spinner",
+     "undercutter"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "High-torque geared motor, or a spring/gas store released into the arm",
+    "typical_drive": "Two to four brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 26,
+     "drive": 23,
+     "armor_chassis": 28,
+     "electronics": 14,
+     "battery": 7,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-hammer-saw",
+   "type": "archetype",
+   "name": "Hammer Saw",
+   "aliases": [
+    "sawhammer"
+   ],
+   "summary": "A hammer whose head is a powered spinning blade, combining an overhead strike with a cutting weapon.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "impact",
+    "hammer",
+    "novelty"
+   ],
+   "specs": {},
+   "pros": [
+    "Keeps working after the swing lands — it grinds as well as strikes",
+    "Two threats from one mechanism"
+   ],
+   "cons": [
+    "Two actuators plus a blade inside 454 g is a severe packaging problem",
+    "Wiring to a moving arm is a reliability liability",
+    "Neither function is as good as a dedicated version of it"
+   ],
+   "notes": "The hammer saw is a larger-class idea that rarely survives the 1 lb weight budget. Documented for completeness; if you want an overhead threat at antweight, a plain hammer is lighter and a vertical spinner does more damage.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "hammer",
+    "counters": [
+     "control-bot",
+     "invertible-brick",
+     "wedge"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "horizontal-bar-spinner",
+     "undercutter"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "Small brushless outrunner on the head plus an arm actuator",
+    "typical_drive": "Two to four brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 30,
+     "drive": 21,
+     "armor_chassis": 26,
+     "electronics": 15,
+     "battery": 6,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-thwackbot",
+   "type": "archetype",
+   "name": "Thwackbot",
+   "aliases": [
+    "thwack",
+    "tailbot"
+   ],
+   "summary": "A robot that spins on its own axis so a rigid tail sweeps around and strikes — no weapon motor required.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "impact",
+    "budget",
+    "beginner"
+   ],
+   "specs": {},
+   "pros": [
+    "No weapon motor, no weapon ESC, no weapon battery draw",
+    "Very simple and very robust",
+    "Tail doubles as protection and as a self-righting lever"
+   ],
+   "cons": [
+    "Cannot attack and manoeuvre at the same time — spinning means not driving",
+    "Energy is limited by drivetrain torque and traction",
+    "Judges often score it poorly on aggression because it looks passive between swings"
+   ],
+   "notes": "The thwackbot is the cheapest way to have a weapon. Its fundamental limitation is that its weapon and its mobility are the same system: while it is spinning up to strike, it is not going anywhere, and a competent opponent simply drives away or gets underneath.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "hammer",
+    "counters": [
+     "control-bot",
+     "wedge",
+     "rammer"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "horizontal-bar-spinner",
+     "grabber-clamper"
+    ],
+    "difficulty": "beginner",
+    "typical_weapon_motor": "None — the drivetrain swings the tail",
+    "typical_drive": "Two powerful brushed gearmotors with good traction",
+    "weight_budget_pct": {
+     "weapon": 12,
+     "drive": 32,
+     "armor_chassis": 34,
+     "electronics": 14,
+     "battery": 6,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-overhead-thwack",
+   "type": "archetype",
+   "name": "Overhead Thwack",
+   "aliases": [
+    "overhead tail"
+   ],
+   "summary": "A thwackbot whose tail swings in a vertical plane, striking downward rather than sweeping horizontally.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "impact",
+    "budget"
+   ],
+   "specs": {},
+   "pros": [
+    "Strikes the top armour without needing a weapon motor",
+    "Self-rights naturally",
+    "Simple and hard to break"
+   ],
+   "cons": [
+    "Requires sharp drivetrain reversals to build momentum",
+    "Inconsistent — the arm does not always come over cleanly",
+    "Low energy"
+   ],
+   "notes": "An overhead thwack uses drivetrain reversal to throw a pivoting arm over the top of the robot. It is a clever way to get an overhead strike for almost no weight, and it is unreliable enough that it is best treated as a secondary threat on a control bot.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "hammer",
+    "counters": [
+     "control-bot",
+     "wedge",
+     "invertible-brick"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "horizontal-bar-spinner"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "None — momentum from the drivetrain flips the arm over",
+    "typical_drive": "Two high-torque brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 14,
+     "drive": 31,
+     "armor_chassis": 33,
+     "electronics": 14,
+     "battery": 6,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-rammer",
+   "type": "archetype",
+   "name": "Rammer",
+   "aliases": [
+    "ram",
+    "spikebot"
+   ],
+   "summary": "A reinforced nose and a powerful drivetrain — damage comes from the whole robot's momentum.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rammer",
+    "beginner",
+    "budget"
+   ],
+   "specs": {},
+   "pros": [
+    "Simple and durable",
+    "All the weight goes into drive and structure",
+    "Can genuinely damage lightly built opponents"
+   ],
+   "cons": [
+    "A 454 g robot carries very little momentum — ramming damage is modest",
+    "Loses the wedge war to anything with a proper edge",
+    "Every impact is taken by your own structure too"
+   ],
+   "notes": "Ramming works better in heavier classes where kinetic energy scales with mass. At 1 lb the energy in a full-speed ram is small next to even a modest spinner. Ram robots at antweight are better understood as control bots with a hard front.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "rammer",
+    "counters": [
+     "horizontal-bar-spinner",
+     "shell-spinner",
+     "control-bot"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "wedge",
+     "undercutter",
+     "grabber-clamper"
+    ],
+    "difficulty": "beginner",
+    "typical_weapon_motor": "None",
+    "typical_drive": "Four-wheel drive, geared for acceleration",
+    "weight_budget_pct": {
+     "weapon": 8,
+     "drive": 36,
+     "armor_chassis": 36,
+     "electronics": 12,
+     "battery": 6,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-multibot",
+   "type": "archetype",
+   "name": "Multibot / Swarm",
+   "aliases": [
+    "swarm",
+    "clusterbot"
+   ],
+   "summary": "The class weight limit divided between two or more robots that fight as a team.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "multibot",
+    "strategy"
+   ],
+   "specs": {},
+   "pros": [
+    "Two robots can pincer an opponent from both sides at once",
+    "Losing one robot does not necessarily lose the match",
+    "Forces the opponent to split attention"
+   ],
+   "cons": [
+    "Each robot is tiny and individually fragile",
+    "Usually both must be immobilised to lose, but check your ruleset — some require only one",
+    "Driving two robots on one transmitter is genuinely hard"
+   ],
+   "notes": "Multibots split 454 g into pieces that are each easy to destroy, in exchange for numbers and positioning. Rules vary sharply on what counts as a knockout, so read the specific event's ruleset before committing to the strategy.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "other",
+    "counters": [
+     "control-bot",
+     "wedge",
+     "vertical-disc-spinner",
+     "rammer"
+    ],
+    "countered_by": [
+     "drum-spinner",
+     "horizontal-bar-spinner",
+     "grabber-clamper"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "Usually one armed robot and one wedge, or two wedges",
+    "typical_drive": "Two small brushed gearmotors per robot",
+    "weight_budget_pct": {
+     "weapon": 18,
+     "drive": 28,
+     "armor_chassis": 30,
+     "electronics": 18,
+     "battery": 4,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-walker",
+   "type": "archetype",
+   "name": "Walker",
+   "aliases": [
+    "legged robot"
+   ],
+   "summary": "Legged locomotion instead of wheels, which most rulesets reward with a large weight bonus.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "walker",
+    "bonus",
+    "advanced"
+   ],
+   "specs": {},
+   "pros": [
+    "A true walker bonus can double the weight limit, which is an enormous advantage",
+    "Immune to having its wheels attacked",
+    "Novel and popular with crowds and judges"
+   ],
+   "cons": [
+    "Walking mechanisms are slow, complex and fragile",
+    "Qualifying as a 'true walker' is strictly judged — no wheels or cams touching the ground",
+    "The mechanism eats much of the bonus it earns"
+   ],
+   "notes": "Weight bonuses for genuine legged locomotion are substantial — commonly up to double the class limit for a true walker, with a smaller bonus for shufflers. The catch is that qualifying is strict and the mechanism is heavy, so the bonus is less free than it looks. Confirm the exact bonus with your event before designing around it.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "other",
+    "counters": [
+     "control-bot",
+     "wedge"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "horizontal-bar-spinner",
+     "drum-spinner",
+     "undercutter"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "Varies — the bonus weight usually funds a real weapon",
+    "typical_drive": "Linkage-driven legs powered by brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 20,
+     "drive": 34,
+     "armor_chassis": 26,
+     "electronics": 16,
+     "battery": 4,
+     "fasteners_misc": 0
+    }
+   }
+  },
+  {
+   "id": "archetype-shuffler",
+   "type": "archetype",
+   "name": "Shuffler",
+   "aliases": [
+    "shuffle drive"
+   ],
+   "summary": "A robot using cams or eccentric linkages to shuffle along, qualifying for a partial non-wheeled weight bonus at many events.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "walker",
+    "bonus"
+   ],
+   "specs": {},
+   "pros": [
+    "Earns a weight bonus at most events without a full walking linkage",
+    "Simpler than a true walker"
+   ],
+   "cons": [
+    "Smaller bonus than a true walker",
+    "Slow and imprecise to drive",
+    "Some rulesets classify shufflers as wheeled and give no bonus at all"
+   ],
+   "notes": "Shufflers sit between wheels and true walkers. Because classification varies by organisation, the bonus is the first thing to confirm — a shuffler judged to be wheeled is simply a slow robot with no compensation.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "other",
+    "counters": [
+     "control-bot",
+     "wedge"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "horizontal-bar-spinner"
+    ],
+    "difficulty": "advanced",
+    "typical_weapon_motor": "Varies — bonus weight typically funds a spinner",
+    "typical_drive": "Cam or crank-driven feet",
+    "weight_budget_pct": {
+     "weapon": 22,
+     "drive": 32,
+     "armor_chassis": 26,
+     "electronics": 16,
+     "battery": 4,
+     "fasteners_misc": 0
+    }
+   }
+  },
+  {
+   "id": "archetype-tracked-bot",
+   "type": "archetype",
+   "name": "Tracked Robot",
+   "aliases": [
+    "tank tracks",
+    "treads"
+   ],
+   "summary": "Tracks instead of wheels, for maximum ground contact and a very low, stable platform.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "drivetrain"
+   ],
+   "specs": {},
+   "pros": [
+    "Large contact patch gives excellent pushing traction",
+    "Naturally low and stable",
+    "Tracks can absorb hits that would break a wheel"
+   ],
+   "cons": [
+    "Thrown tracks are a very common and match-ending failure",
+    "Heavy for the traction gained",
+    "Steering scrubs and wastes power"
+   ],
+   "notes": "Tracks look ideal for a pushing robot and usually disappoint at 1 lb. A thrown track is an instant loss, and at antweight scale it is hard to build a tensioner robust enough to prevent it. Most builders who try tracks return to wheels.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "control",
+    "counters": [
+     "horizontal-bar-spinner",
+     "rammer",
+     "control-bot"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "undercutter",
+     "grabber-clamper"
+    ],
+    "difficulty": "intermediate",
+    "typical_weapon_motor": "Usually none, or a small lifter",
+    "typical_drive": "Two brushed gearmotors driving track loops",
+    "weight_budget_pct": {
+     "weapon": 10,
+     "drive": 34,
+     "armor_chassis": 34,
+     "electronics": 14,
+     "battery": 6,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-passive-spike",
+   "type": "archetype",
+   "name": "Passive Spike / Static Weapon",
+   "aliases": [
+    "spikes",
+    "static weapon",
+    "horns"
+   ],
+   "summary": "Fixed spikes, blades or horns with no moving parts, relying on the robot's own motion to do damage.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "passive",
+    "budget"
+   ],
+   "specs": {},
+   "pros": [
+    "Weighs almost nothing and cannot fail",
+    "Can catch and disrupt an opposing spinner's weapon",
+    "Legal everywhere and needs no extra electronics"
+   ],
+   "cons": [
+    "Almost no damage potential on its own",
+    "Can snag on the arena or on your own opponent awkwardly"
+   ],
+   "notes": "Static weapons are best understood as an accessory rather than an archetype: a spike on a control bot occasionally turns a push into a puncture, and costs nothing to carry.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "rammer",
+    "counters": [
+     "horizontal-bar-spinner",
+     "control-bot"
+    ],
+    "countered_by": [
+     "vertical-disc-spinner",
+     "drum-spinner",
+     "wedge",
+     "undercutter"
+    ],
+    "difficulty": "beginner",
+    "typical_weapon_motor": "None",
+    "typical_drive": "Two to four brushed gearmotors",
+    "weight_budget_pct": {
+     "weapon": 6,
+     "drive": 34,
+     "armor_chassis": 40,
+     "electronics": 12,
+     "battery": 6,
+     "fasteners_misc": 2
+    }
+   }
+  },
+  {
+   "id": "archetype-armor-bot",
+   "type": "archetype",
+   "name": "Defensive / Armour-Only Bot",
+   "aliases": [
+    "wall",
+    "tank"
+   ],
+   "summary": "A robot built purely to survive, betting that the opponent breaks itself or runs out of time.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "defensive"
+   ],
+   "specs": {},
+   "pros": [
+    "Spinners frequently destroy themselves on heavy armour",
+    "Simple, cheap and very hard to knock out",
+    "An excellent way to learn what actually survives"
+   ],
+   "cons": [
+    "Wins almost nothing on aggression or damage, so decisions go against you",
+    "Boring to drive and to watch"
+   ],
+   "notes": "A pure armour bot exploits the fact that a spinner's energy has to go somewhere. Against a hard, compliant, well-braced target, much of it goes back into the spinner. It rarely wins tournaments but it is an instructive build and a genuine counter to fragile high-energy opponents.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "family": "control",
+    "counters": [
+     "horizontal-bar-spinner",
+     "shell-spinner",
+     "vertical-disc-spinner"
+    ],
+    "countered_by": [
+     "control-bot",
+     "grabber-clamper",
+     "wedge"
+    ],
+    "difficulty": "beginner",
+    "typical_weapon_motor": "None",
+    "typical_drive": "Two to four brushed gearmotors, protected",
+    "weight_budget_pct": {
+     "weapon": 0,
+     "drive": 30,
+     "armor_chassis": 48,
+     "electronics": 14,
+     "battery": 8,
+     "fasteners_misc": 0
+    }
+   }
+  },
+  {
+   "id": "term-bite",
+   "type": "term",
+   "name": "Bite",
+   "aliases": [
+    "bite depth"
+   ],
+   "summary": "How deeply a spinning weapon's tooth/edge engages an opponent's armor per revolution before sliding off -- determined by weapon RPM relative to the combined driving speed of both robots, not by tip speed or KE alone. Lower weapon RPM (for the same tip speed, i.e. bigger diameter/lower KV) generally gives more bite because the tooth has more time to dig in per revolution.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "physics",
+    "damage",
+    "glossary",
+    "bite",
+    "weapon-design",
+    "kv-selection"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Bite depth is set by how far the robots close in the time between tooth arrivals. With a weapon at N rpm and t teeth, impacts arrive at N/60*t per second, so maximum bite = closing speed / that rate. Fewer teeth and lower rpm mean deeper bite. This is why a hard-hitting spinner often runs one or two teeth rather than six: a six-tooth weapon at 20,000 rpm presents a tooth every 0.5 ms, giving a bite measured in microns — it polishes the opponent instead of cutting them.",
+   "sources": [
+    "domain knowledge",
+    "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+    "https://www.fightingrobots.co.uk/threads/12410-bite-rpm-on-spinning-weapons"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "physics",
+    "also_from": [
+     "weapon-motors"
+    ]
+   }
+  },
+  {
+   "id": "term-tooth-count",
+   "type": "term",
+   "name": "Tooth Count",
+   "aliases": [],
+   "summary": "The number of impacting features on a spinning weapon; trades bite depth against hit frequency and balance.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "weapon-design"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "One tooth gives maximum bite but an inherently unbalanced weapon unless counterweighted. Two teeth balance naturally and halve the bite. Three or more are used mainly where the weapon is expected to grind rather than bite. Most competitive antweight discs run one or two effective teeth.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "weapon-design"
+   }
+  },
+  {
+   "id": "term-gyro-dance",
+   "type": "term",
+   "name": "Gyro Dance",
+   "aliases": [
+    "gyro walk",
+    "precession dance"
+   ],
+   "summary": "The wobbling, walking motion a robot with a spinning weapon makes when it turns, caused by gyroscopic precession.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "physics",
+    "driving"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "A spinning weapon resists any change to its axis of rotation. When the robot turns, that resistance appears as a torque about a perpendicular axis, which lifts one side of the robot. The robot lands, turns again, lifts again, and appears to dance across the floor. Precession torque = I * omega_weapon * omega_turn, so it grows with weapon inertia, weapon speed and how sharply you turn. Mitigate it by turning more gently, lowering weapon inertia, widening the wheelbase, or lowering the centre of gravity.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "physics"
+   }
+  },
+  {
+   "id": "term-gyroscopic-precession",
+   "type": "term",
+   "name": "Gyroscopic Precession",
+   "aliases": [
+    "precession"
+   ],
+   "summary": "The tendency of a spinning object's rotation axis to react to an applied torque by tilting perpendicular to both the spin axis and the applied torque, rather than in the direction naively expected. In vertical spinners, turning the chassis while the weapon is spinning applies exactly this kind of torque, producing an unwanted tipping reaction.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "physics",
+    "spinner",
+    "gyroscopic",
+    "precession"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "For a weapon of inertia I spinning at omega_w, turning the robot at omega_t produces a precession torque of I * omega_w * omega_t about the third axis. For a vertical spinner this lifts a wheel; for a horizontal spinner it tries to pitch the robot nose-up or nose-down. It is not a loss mechanism — no energy is consumed — but it strongly affects handling.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "physics",
+    "also_from": [
+     "design-math"
+    ]
+   }
+  },
+  {
+   "id": "term-tip-speed",
+   "type": "term",
+   "name": "Tip Speed",
+   "aliases": [
+    "tipspeed",
+    "weapon tip speed"
+   ],
+   "summary": "The linear speed of the outermost point of a rotating weapon, calculated as RPM x diameter x 0.00436 to get feet/second (the formula SPARC uses for its slow-spinner and open-air-combat speed limits); a key design variable because plastic weapons have a much lower survivable tip speed than metal ones before they self-destruct.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "physics",
+    "rotational",
+    "tip-speed",
+    "weapon-physics",
+    "formula"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Tip speed = omega * r, where omega = rpm * 2*pi/60. Competitive antweight weapons generally run somewhere in the region of 70-110 m/s. Higher is not automatically better: past a point, extra tip speed reduces bite and increases the share of energy that goes into noise, sparks and your own robot rather than the opponent.",
+   "sources": [
+    "domain knowledge",
+    "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "physics",
+    "also_from": [
+     "design-math",
+     "plastic-antweight"
+    ]
+   }
+  },
+  {
+   "id": "term-spin-up-time",
+   "type": "term",
+   "name": "Spin-Up Time",
+   "aliases": [
+    "spinup"
+   ],
+   "summary": "How long a weapon takes to reach its operating speed from rest (or from a partial-speed dip after a hit), set by the available average motor torque and the weapon's total moment of inertia. A liability when too long, since the weapon is weak while re-spinning.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "physics",
+    "strategy",
+    "rotational",
+    "spin-up"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Spin-up time scales with weapon inertia and inversely with motor torque. A weapon that takes more than about three seconds is a liability: opponents will box-rush you at the start of the match and attack during every recovery. Reducing weapon mass or moving mass inward shortens spin-up at the cost of stored energy.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "physics",
+    "also_from": [
+     "design-math"
+    ]
+   }
+  },
+  {
+   "id": "term-wedge-war",
+   "type": "term",
+   "name": "Wedge War",
+   "aliases": [],
+   "summary": "The opening contest between two robots each trying to get underneath the other.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "driving",
+    "meta"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Won by ground clearance, edge quality, approach angle and drivetrain power — roughly in that order. A wedge with a genuinely flat, sharp, floor-contacting edge beats a thicker or slightly raised one almost regardless of the rest of the robot. Hinged forks usually beat rigid wedges because they follow an imperfect floor.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "strategy"
+   }
+  },
+  {
+   "id": "term-high-siding",
+   "type": "term",
+   "name": "High-Siding",
+   "aliases": [
+    "highsided",
+    "beached"
+   ],
+   "summary": "Ending up balanced on an edge, a wedge or the arena wall with the wheels unable to reach the floor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "driving",
+    "failure"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "A high-sided robot is immobilised without being damaged, and is usually counted out. Wide wheels that protrude beyond the chassis, a low centre of gravity, and a body shape that cannot rest stably on an edge all reduce the risk.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "strategy"
+   }
+  },
+  {
+   "id": "term-tapout",
+   "type": "term",
+   "name": "Tapout",
+   "aliases": [
+    "tap out"
+   ],
+   "summary": "Conceding a match before the count, usually to protect a robot that is about to be destroyed.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rules",
+    "strategy"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Tapping out is a legitimate tournament strategy: a robot that survives to fight the next round is worth more than one extra minute of a lost match. Most rulesets require the team to signal clearly to the referee.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "rules"
+   }
+  },
+  {
+   "id": "term-pushout",
+   "type": "term",
+   "name": "Pushout",
+   "aliases": [
+    "ring out",
+    "ringout"
+   ],
+   "summary": "Forcing an opponent out of the arena, where the ruleset permits it, for an immediate win.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rules",
+    "strategy"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Not every arena has a pushout rule or a low wall. Where one exists, control robots gain enormously: a wedge that cannot damage anything can still win in seconds. Check the arena and the ruleset before relying on it.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "rules"
+   }
+  },
+  {
+   "id": "term-box-rush",
+   "type": "term",
+   "name": "Box Rush",
+   "aliases": [
+    "boxrush"
+   ],
+   "summary": "Charging the opponent the instant the match starts, before their weapon reaches speed.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "driving",
+    "strategy"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "The standard counter to any spinner with a long spin-up. To defend it, spin up before the count where rules allow, start at an angle rather than square on, and build a robot whose front is safe to be hit at any weapon speed. Driving away from a box rush usually works better than trying to meet it head-on.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "strategy"
+   }
+  },
+  {
+   "id": "term-self-righting",
+   "type": "term",
+   "name": "Self-Righting",
+   "aliases": [
+    "srimech",
+    "self righting"
+   ],
+   "summary": "Getting back onto your wheels after being flipped.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "design",
+    "reliability"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Three approaches: be invertible so it does not matter, use the weapon's reaction torque to flip yourself, or carry a dedicated mechanism. At 1 lb, invertibility is almost always the right answer because a srimech costs grams the weight budget cannot spare.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "design"
+   }
+  },
+  {
+   "id": "term-srimech",
+   "type": "term",
+   "name": "Srimech",
+   "aliases": [
+    "self-righting mechanism"
+   ],
+   "summary": "Self-righting mechanism — a dedicated device whose only job is to turn the robot back over.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "design"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Common forms are a pivoting arm, a gas or spring ram, or the weapon itself used as a lever. In antweight a srimech is a luxury: most builders make the robot invertible instead and spend the weight on armour or weapon.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "design"
+   }
+  },
+  {
+   "id": "term-invertibility",
+   "type": "term",
+   "name": "Invertibility",
+   "aliases": [
+    "invertible"
+   ],
+   "summary": "Being able to drive and fight equally well either way up.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "design",
+    "reliability"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Achieved with wheels that protrude above and below the chassis, a symmetric weapon arc, and a transmitter invert switch that reverses steering when upside down. It is the cheapest form of self-righting and the default choice at antweight.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "design"
+   }
+  },
+  {
+   "id": "term-ground-game",
+   "type": "term",
+   "name": "Ground Game",
+   "aliases": [],
+   "summary": "The contest for who gets underneath whom — the part of a match that decides whether weapons ever matter.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "meta",
+    "driving"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "A robot that wins the ground game controls the engagement: it chooses when contact happens and at what angle. This is why the modern antweight meta bolts wedges onto spinners rather than choosing between them.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "strategy"
+   }
+  },
+  {
+   "id": "term-ground-clearance",
+   "type": "term",
+   "name": "Ground Clearance",
+   "aliases": [],
+   "summary": "The gap between the bottom of the robot and the floor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "design",
+    "control"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Less is better for wedges and for not being wedged, but too little means scraping, snagging on arena seams, and losing drive on uneven floors. Wedge edges want to be effectively zero; the rest of the chassis usually wants 1-3 mm at antweight.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "design"
+   }
+  },
+  {
+   "id": "term-weight-budget",
+   "type": "term",
+   "name": "Weight Budget",
+   "aliases": [
+    "weight allocation"
+   ],
+   "summary": "The practice of planning, before printing or buying anything, how the full 454g allowance will be split between armor/structure, weapon, drive, electronics and fasteners — critical in plastic ants because printed structure typically consumes over half the total weight, far more than in a metal antweight of the same class.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "design",
+    "weight",
+    "planning"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "At antweight the limit is 454 g and every gram is contested. A typical competitive vertical spinner runs roughly 30-35% weapon, 18-22% drive, 22-26% armour and chassis, 10-14% electronics and 7-9% battery. Control robots move the weapon share into drive and armour. Always leave 3-5% slack — robots come in heavier than the CAD says.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "design",
+    "also_from": [
+     "plastic-antweight"
+    ]
+   }
+  },
+  {
+   "id": "term-dead-shaft",
+   "type": "term",
+   "name": "Dead Shaft",
+   "aliases": [
+    "deadshaft"
+   ],
+   "summary": "A weapon-mounting scheme where the shaft itself does not rotate -- it is bolted rigidly to the frame -- while the weapon blade/hub and its pulley (bolted together) spin freely around the fixed shaft on bearings pressed into the hub.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "weapon-design",
+    "mechanical",
+    "glossary",
+    "dead-shaft",
+    "weapon-mounting",
+    "belt-drive"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Advantages: no need to machine a keyed rotating shaft, easier to swap a weapon belt in the pits since the hub simply lifts off the fixed shaft, and impact loads are reacted directly into the frame rather than through motor bearings. Disadvantage: the dead shaft's mounting screws must be re-torqued carefully every time it's removed, since a loose dead shaft binds and generates heat in the hub bearings.",
+   "sources": [
+    "domain knowledge",
+    "https://runamok.tech/AskAaron/design.html"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "design",
+    "also_from": [
+     "weapon-motors"
+    ]
+   }
+  },
+  {
+   "id": "term-live-shaft",
+   "type": "term",
+   "name": "Live Shaft",
+   "aliases": [
+    "liveshaft"
+   ],
+   "summary": "A weapon mounting where the shaft rotates with the weapon, usually driven directly by the motor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "weapon-design",
+    "mechanical"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Simpler and lighter than dead-shaft, and much weaker in bending if supported at only one end. Acceptable for small discs mounted straight onto a motor; risky for anything long or heavy.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "design"
+   }
+  },
+  {
+   "id": "term-wedgelet",
+   "type": "term",
+   "name": "Wedgelet",
+   "aliases": [
+    "wedgelets",
+    "mini wedge"
+   ],
+   "summary": "A small hinged wedge or fork mounted at the front corners of a robot, usually flanking a weapon.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "meta"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Wedgelets float on the floor independently of the chassis, so they keep contact over an imperfect arena. They are the mechanism by which a modern vertical spinner also wins the wedge war.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "archetypes",
+   "extra": {
+    "category": "design"
+   }
+  },
   {
    "id": "battery-tattu-300mah-2s-45c",
    "type": "component",
@@ -3232,70 +5998,6 @@
    }
   },
   {
-   "id": "term-gyroscopic-precession",
-   "type": "term",
-   "name": "Gyroscopic precession",
-   "aliases": [
-    "precession"
-   ],
-   "summary": "The tendency of a spinning object's rotation axis to react to an applied torque by tilting perpendicular to both the spin axis and the applied torque, rather than in the direction naively expected. In vertical spinners, turning the chassis while the weapon is spinning applies exactly this kind of torque, producing an unwanted tipping reaction.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "gyroscopic",
-    "precession"
-   ],
-   "specs": {},
-   "pros": [],
-   "cons": [],
-   "notes": "",
-   "sources": [
-    "domain knowledge"
-   ],
-   "confidence": "medium",
-   "topic_id": "design-math",
-   "extra": {
-    "category": "dynamics"
-   }
-  },
-  {
-   "id": "term-tip-speed",
-   "type": "term",
-   "name": "Tip speed",
-   "aliases": [
-    "weapon tip speed"
-   ],
-   "summary": "The linear speed of the outermost point of a rotating weapon, calculated as RPM x diameter x 0.00436 to get feet/second (the formula SPARC uses for its slow-spinner and open-air-combat speed limits); a key design variable because plastic weapons have a much lower survivable tip speed than metal ones before they self-destruct.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "rotational",
-    "tip-speed",
-    "weapon-physics",
-    "formula"
-   ],
-   "specs": {},
-   "pros": [],
-   "cons": [],
-   "notes": "SPARC's open-air slow-spinner cap is 20 ft/s; ordinary enclosed-arena weight classes (like most plastic ant events) do not cap tip speed by default, but the printed material's own burst strength imposes a practical ceiling well below what a metal weapon could survive.",
-   "sources": [
-    "domain knowledge",
-    "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf"
-   ],
-   "confidence": "high",
-   "topic_id": "design-math",
-   "extra": {
-    "category": "weapon-design",
-    "also_from": [
-     "plastic-antweight"
-    ]
-   }
-  },
-  {
    "id": "term-stall-current",
    "type": "term",
    "name": "Stall current",
@@ -3489,33 +6191,6 @@
    "topic_id": "design-math",
    "extra": {
     "category": "rotational-dynamics"
-   }
-  },
-  {
-   "id": "term-spin-up-time",
-   "type": "term",
-   "name": "Spin-up time",
-   "aliases": [],
-   "summary": "How long a weapon takes to reach its operating speed from rest (or from a partial-speed dip after a hit), set by the available average motor torque and the weapon's total moment of inertia. A liability when too long, since the weapon is weak while re-spinning.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "rotational",
-    "spin-up"
-   ],
-   "specs": {},
-   "pros": [],
-   "cons": [],
-   "notes": "",
-   "sources": [
-    "domain knowledge"
-   ],
-   "confidence": "medium",
-   "topic_id": "design-math",
-   "extra": {
-    "category": "weapon-design"
    }
   },
   {
@@ -7266,34 +9941,6 @@
    }
   },
   {
-   "id": "term-weight-budget",
-   "type": "term",
-   "name": "Weight Budget",
-   "aliases": [
-    "weight allocation"
-   ],
-   "summary": "The practice of planning, before printing or buying anything, how the full 454g allowance will be split between armor/structure, weapon, drive, electronics and fasteners — critical in plastic ants because printed structure typically consumes over half the total weight, far more than in a metal antweight of the same class.",
-   "weight_classes": [
-    "plastic-antweight"
-   ],
-   "tags": [
-    "design",
-    "planning"
-   ],
-   "specs": {},
-   "pros": [],
-   "cons": [],
-   "notes": "",
-   "sources": [
-    "domain knowledge"
-   ],
-   "confidence": "medium",
-   "topic_id": "plastic-antweight",
-   "extra": {
-    "category": "design"
-   }
-  },
-  {
    "id": "term-pit-repair",
    "type": "term",
    "name": "Five-Minute Pit Repair",
@@ -8989,59 +11636,6 @@
    }
   },
   {
-   "id": "term-dead-shaft",
-   "type": "term",
-   "name": "Dead shaft (weapon mounting)",
-   "aliases": [],
-   "summary": "A weapon-mounting scheme where the shaft itself does not rotate -- it is bolted rigidly to the frame -- while the weapon blade/hub and its pulley (bolted together) spin freely around the fixed shaft on bearings pressed into the hub.",
-   "weight_classes": [],
-   "tags": [
-    "glossary",
-    "dead-shaft",
-    "weapon-mounting",
-    "belt-drive"
-   ],
-   "specs": {},
-   "pros": [],
-   "cons": [],
-   "notes": "Advantages: no need to machine a keyed rotating shaft, easier to swap a weapon belt in the pits since the hub simply lifts off the fixed shaft, and impact loads are reacted directly into the frame rather than through motor bearings. Disadvantage: the dead shaft's mounting screws must be re-torqued carefully every time it's removed, since a loose dead shaft binds and generates heat in the hub bearings.",
-   "sources": [
-    "https://runamok.tech/AskAaron/design.html"
-   ],
-   "confidence": "high",
-   "topic_id": "weapon-motors",
-   "extra": {
-    "category": "mechanical-design"
-   }
-  },
-  {
-   "id": "term-bite",
-   "type": "term",
-   "name": "Bite (weapon engagement depth)",
-   "aliases": [],
-   "summary": "How deeply a spinning weapon's tooth/edge engages an opponent's armor per revolution before sliding off -- determined by weapon RPM relative to the combined driving speed of both robots, not by tip speed or KE alone. Lower weapon RPM (for the same tip speed, i.e. bigger diameter/lower KV) generally gives more bite because the tooth has more time to dig in per revolution.",
-   "weight_classes": [],
-   "tags": [
-    "glossary",
-    "bite",
-    "weapon-design",
-    "kv-selection"
-   ],
-   "specs": {},
-   "pros": [],
-   "cons": [],
-   "notes": "This is why the community rule of thumb is 'low KV + high cell count beats high KV + low cells' for the same top speed: a bigger, slower-spinning weapon captures more material per hit even though the tip speed and stored energy can be identical to a smaller, faster one.",
-   "sources": [
-    "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
-    "https://www.fightingrobots.co.uk/threads/12410-bite-rpm-on-spinning-weapons"
-   ],
-   "confidence": "high",
-   "topic_id": "weapon-motors",
-   "extra": {
-    "category": "weapon-design"
-   }
-  },
-  {
    "id": "term-demagnetization",
    "type": "term",
    "name": "Demagnetization (weapon motor failure)",
@@ -10242,6 +12836,383 @@
   }
  ],
  "chunks": [
+  {
+   "id": "chunk-archetype-choosing",
+   "title": "Choosing an archetype for your first antweight",
+   "section": "Getting started",
+   "body_md": "The archetype you pick determines what you spend your 454 g on, what you need to be able to build, and which opponents you will struggle against. For a first robot, the honest ranking is:\n\n**Build a control bot or wedge first if** you have never driven a combat robot. Driving is the skill that decides more antweight matches than design does, and a control bot lets you practise it without a weapon that can destroy your own robot. You will also finish every match, which is how you learn what actually breaks.\n\n**Build a beater bar or small vertical spinner if** you want a weapon and have a printer or basic tools. The beater bar is the cheapest real weapon: bar stock, a hub, a brushless motor. You get to learn spin-up management, bite and gyro handling on a robot that survives its own mistakes.\n\n**Build a drum if** you are on your second or third robot and can machine or print accurately. Drums have the best bite of any spinner and hit upward, which is the damage vector a 1 lb robot cannot resist.\n\n**Avoid on a first build:** shell spinners, melty brains, grabbers, crushers and flippers. Each has a specific hard problem — a large bearing race, custom firmware, a reliable grab, enormous force, a latch that survives impact — that is not a good place to learn.\n\nA note on the meta: almost every top competitive antweight now looks like a vertical spinner with hinged wedgelets either side of the weapon. That combination exists because a bare spinner loses the ground game to a wedge and a bare wedge cannot generate damage. If you are optimising for winning rather than learning, that is the configuration to converge on.",
+   "entity_refs": [
+    "archetype-beater-bar",
+    "archetype-drum-spinner",
+    "archetype-wedge",
+    "archetype-wedge-spinner-hybrid"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "getting-started",
+    "meta"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 292
+  },
+  {
+   "id": "chunk-archetype-spinner-families",
+   "title": "The three spinner families and what separates them",
+   "section": "Spinners",
+   "body_md": "Every spinning weapon falls into one of three families defined by the axis it turns about, and the axis decides nearly everything else.\n\n**Vertical spinners** (discs, bars, drums, beater bars, eggbeaters) turn about a horizontal axis across the robot. Their damage vector is upward. This is the strongest vector at antweight because a 454 g robot has so little mass that a modest hit lifts it clear of the floor, and a robot in the air is not driving, not defending and not scoring. Their weakness is engagement: the weapon has to reach the opponent, and a good wedge prevents that.\n\n**Horizontal spinners** (bars, discs, shells) turn about a vertical axis. Their damage vector is sideways, and their reach is enormous — the weapon sweeps a circle far larger than the robot. They are devastating against wheels and against other spinners' weapons. Their weakness is that a wedge simply passes underneath the sweep, and every hit throws them backwards as hard as it throws the opponent.\n\n**Undercutters** are horizontal spinners mounted low enough to strike below an opponent's armour line. They exist specifically to beat the wedges that beat ordinary horizontals. The cost is precision: the weapon runs millimetres off the floor and must stay there after being hit.\n\nThe practical consequence is a rock-paper-scissors that is not quite balanced. Vertical spinners beat wedges and control bots. Wedges beat horizontal spinners. Horizontal spinners and undercutters beat vertical spinners by attacking the weapon and the wheels. Because the wedge is cheap and reliable, the meta settles on vertical spinners that carry wedges — which is why undercutters are the interesting counter-play.",
+   "entity_refs": [
+    "archetype-drum-spinner",
+    "archetype-horizontal-bar-spinner",
+    "archetype-undercutter",
+    "archetype-vertical-disc-spinner"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "meta",
+    "physics"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 270
+  },
+  {
+   "id": "chunk-archetype-bite-explained",
+   "title": "Why bite decides whether your spinner actually works",
+   "section": "Spinners",
+   "body_md": "Two robots can store identical energy and produce completely different results, because energy only matters if the weapon engages. That is bite.\n\nWhen two robots close at speed v and a weapon has t teeth turning at N rpm, teeth arrive at a rate of N/60 * t per second. The deepest a tooth can possibly reach is the distance the robots close between arrivals:\n\n    bite_depth = v / (N/60 * t)\n\nPut real numbers in. A 20,000 rpm weapon with two teeth, closing at 1.5 m/s, presents 667 teeth per second and can bite 2.25 mm. The same weapon with six teeth bites 0.75 mm — likely less than the opponent's armour thickness, so it skates off and converts its energy into noise and sparks.\n\nThis is counter-intuitive and it explains a lot of antweight design:\n\n- **Fewer teeth hit harder.** Most competitive discs run one or two effective teeth.\n- **Slower can hit harder.** Dropping weapon rpm increases bite. Past a point, spinning faster makes you less effective.\n- **Closing speed is part of your weapon.** Driving into the opponent increases bite. Sitting still and waiting reduces it to zero.\n- **Drums bite best.** A drum's large diameter and low mounting mean the drum body itself wedges under the opponent, forcing engagement rather than hoping for it.\n\nBite is also why the opponent's wedge is such an effective defence: a wedge presents a ramp that the tooth glances off, and raises the contact point away from the bite-favourable geometry.",
+   "entity_refs": [
+    "archetype-drum-spinner",
+    "term-bite",
+    "term-tooth-count"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "physics",
+    "damage"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 251
+  },
+  {
+   "id": "chunk-archetype-gyro-effects",
+   "title": "Gyroscopic effects and how to live with them",
+   "section": "Spinners",
+   "body_md": "A spinning weapon is a gyroscope, and it will fight you every time you turn.\n\nThe physics is simple. A weapon of inertia I spinning at angular velocity omega_w, in a robot turning at omega_t, produces a precession torque:\n\n    torque = I * omega_w * omega_t\n\nacting about the axis perpendicular to both. For a vertical spinner that torque tries to roll the robot — it lifts one wheel. Lift a wheel, and the robot loses traction on that side, turns further, precesses harder, and lands. Repeat, and the robot appears to walk sideways across the arena. That is gyro dance.\n\nWorked example: a 120 g, 90 mm disc has I = 1.2e-4 kg·m². At 20,000 rpm (2094 rad/s), turning at 180 deg/s (3.14 rad/s), precession torque is about 0.8 N·m. For a 454 g robot that is enough to unload a wheel comfortably.\n\nWhat to do about it:\n\n- **Turn gently.** Precession scales linearly with turn rate. Smooth, wide turns cost almost nothing; snap turns cost you the wheel.\n- **Lower the weapon's inertia**, or accept lower rpm. Both reduce the effect proportionally.\n- **Widen the wheelbase and lower the centre of gravity.** This does not reduce the torque, but it raises the torque needed to actually lift a wheel.\n- **Use it.** A vertical spinner's precession can be used deliberately to hop the robot back onto its wheels, and experienced drivers steer partly with it.\n\nHorizontal spinners precess too, but the torque tries to pitch the robot nose-up or nose-down rather than roll it, which is usually less disruptive — though it does change your ground clearance mid-turn, which matters a great deal for an undercutter.",
+   "entity_refs": [
+    "archetype-vertical-disc-spinner",
+    "term-gyro-dance",
+    "term-gyroscopic-precession"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "spinner",
+    "physics",
+    "driving"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 278
+  },
+  {
+   "id": "chunk-archetype-control-case",
+   "title": "The case for building a control bot",
+   "section": "Control",
+   "body_md": "New builders almost always want a spinner, and almost always would learn more from a control bot. The argument:\n\n**Most antweight matches are lost, not won.** At 1 lb the commonest outcomes are a loose bolt, a dead battery, a thrown wheel, a weapon that would not spin up, and a robot that failed inspection. A control bot has fewer things that can do any of that.\n\n**Driving is the dominant skill at this level and you cannot practise it with a broken robot.** A control bot finishes every match, which means every match is practice. A fragile spinner gets ninety seconds of experience and then goes back in the pit.\n\n**The weight budget is generous.** With no weapon, no weapon ESC and no weapon battery load, you have something like 75% of your mass for drive and armour. That buys a drivetrain that out-pushes everything in its bracket and armour that survives what does hit you.\n\n**Spinners beat themselves against good armour.** A significant fraction of a spinner's energy goes back into the spinner. A hard, compliant, well-braced target is a genuine counter to a fragile high-energy opponent.\n\nThe honest counter-argument: control bots must win on judges' decisions, which are not guaranteed, and a control bot that cannot generate damage will lose to a competent vertical spinner that also carries a wedge. That is real. But as a first or second robot, the learning rate is much higher, and the drivetrain and armour knowledge carries directly into whatever you build next.",
+   "entity_refs": [
+    "archetype-control-bot",
+    "archetype-forkbot",
+    "archetype-wedge"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "getting-started",
+    "strategy"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 252
+  },
+  {
+   "id": "chunk-archetype-wedge-design",
+   "title": "What makes a wedge actually work",
+   "section": "Control",
+   "body_md": "A wedge is conceptually the simplest robot in combat robotics and one of the easiest to build badly. Four things decide whether it works, roughly in order of importance.\n\n**1. The leading edge must touch the floor.** Not nearly touch. A wedge that rides two millimetres high is not a wedge; it is a ramp the opponent drives onto. Hinged forks or wedgelets solve this by floating independently of the chassis and following the floor.\n\n**2. The edge must be thin and hard.** A thick edge presents a step for the opponent to climb rather than a ramp to be lifted by. Thin means the opponent's edge cannot get under yours. Hard means it stays thin after contact — a soft edge curls upward on its first hit and then you are the one being wedged.\n\n**3. The edge must be backed.** A thin edge with nothing behind it folds. The usual construction is a hardened or spring-steel leading strip supported immediately behind by the chassis or by a thicker plate, so the tip cannot deflect upward.\n\n**4. The angle should be shallow.** A shallow wedge lifts progressively and keeps the opponent's weight forward of your own axle. A steep wedge acts like a wall — it stops the opponent instead of lifting them, and it gives their weapon a flat face to hit.\n\nBeyond the wedge itself: traction decides what happens once you are under. Pushing force is limited by friction, not by torque — a robot with more torque than its tyres can transmit simply spins its wheels. Soft, grippy tyres and weight over the driven wheels matter more than gear ratio.",
+   "entity_refs": [
+    "archetype-forkbot",
+    "archetype-wedge",
+    "term-ground-clearance",
+    "term-wedge-war"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "control",
+    "design"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 274
+  },
+  {
+   "id": "chunk-archetype-counter-matrix",
+   "title": "How the archetypes match up",
+   "section": "Strategy",
+   "body_md": "A compact summary of who beats whom at antweight, and why. Treat these as tendencies, not laws — driving overturns most of them.\n\n| Attacker | Beats | Loses to | Why |\n| --- | --- | --- | --- |\n| Vertical spinner | Wedges, control bots, rammers, hammers | Horizontals, undercutters, grabbers | Upward damage is unanswerable; but its own weapon and wheels are exposed to horizontal sweeps |\n| Drum | Wedges, control bots, undercutters | Horizontals, grabbers | Best bite of any spinner — it wedges under and then hits upward |\n| Horizontal bar | Vertical spinners, drums, hammers | Wedges, forkbots, rammers | Huge reach and attacks weapons and wheels; passes harmlessly over a good wedge |\n| Undercutter | Wedges, forkbots, vertical spinners | Drums, grabbers | Strikes below the wedge line, so the wedge no longer protects |\n| Wedge / forkbot | Horizontals, shells, hammers, rammers | Verticals, drums, undercutters | Removes traction from anything whose weapon cannot reach below its edge |\n| Grabber | Every spinner, once clamped | Wedges, control bots | Neutralises a weapon completely; but must survive the approach |\n| Hammer | Control bots, invertible bricks | All spinners | Concentrated point damage, but far less total energy than a spinner |\n| Thwackbot | Control bots, wedges | All spinners, grabbers | Free weapon, but cannot attack and manoeuvre simultaneously |\n| Flipper (spring) | Vertical spinners, wedges, control bots | Horizontals, invertible bricks | Attacks spinners from underneath where they cannot respond; useless against an invertible opponent |\n\nThe important structural fact: the wedge beats the horizontal, the vertical beats the wedge, and the horizontal beats the vertical. Because the wedge is cheap and can be bolted onto anything, the stable solution is a vertical spinner carrying wedgelets — which is exactly what the top of the class looks like. The genuine counter-play to that meta is the undercutter, which is why it persists despite being difficult to build.",
+   "entity_refs": [
+    "archetype-horizontal-bar-spinner",
+    "archetype-undercutter",
+    "archetype-vertical-disc-spinner",
+    "archetype-wedge",
+    "archetype-wedge-spinner-hybrid"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "meta",
+    "strategy",
+    "matchup"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 337
+  },
+  {
+   "id": "chunk-archetype-weight-budgets",
+   "title": "Weight budgets by archetype",
+   "section": "Design",
+   "body_md": "A 1 lb antweight is 454 g. Where those grams go is the single most consequential set of decisions in the design, and the split is largely determined by archetype.\n\n| Archetype | Weapon | Drive | Armour + chassis | Electronics | Battery |\n| --- | --- | --- | --- | --- | --- |\n| Vertical disc spinner | 32% | 20% | 24% | 12% | 8% |\n| Drum spinner | 34% | 19% | 23% | 12% | 8% |\n| Vertical bar spinner | 34% | 19% | 23% | 12% | 8% |\n| Beater bar | 28% | 21% | 25% | 13% | 9% |\n| Shell spinner | 38% | 18% | 22% | 11% | 8% |\n| Wedge / control bot | 0% | 34% | 40% | 14% | 8% |\n| Forkbot | 5% | 33% | 37% | 13% | 8% |\n| Lifter | 18% | 26% | 30% | 15% | 8% |\n| Spring flipper | 22% | 24% | 29% | 14% | 8% |\n| Grabber | 22% | 26% | 27% | 15% | 7% |\n| Hammer | 26% | 23% | 28% | 14% | 7% |\n| Thwackbot | 12% | 32% | 34% | 14% | 6% |\n\nIn grams against 454 g, a 32% weapon share is 145 g and a 20% drive share is 91 g.\n\nThree observations that catch people out:\n\n**Electronics is nearly fixed.** A receiver, ESCs, wiring and connectors come to something like 50-65 g regardless of archetype. You cannot economise your way out of it, so it is effectively a fixed tax on the budget.\n\n**Battery is smaller than people expect.** A 450 mAh 3S pack is around 35-40 g. Antweight matches are short; capacity is rarely the constraint, sag is.\n\n**Leave 3-5% slack.** Robots always come in heavier than the model says — fasteners, wire, glue, threadlocker and the bits you add in the pits. Budgeting to exactly 454 g means failing inspection.",
+   "entity_refs": [
+    "archetype-vertical-disc-spinner",
+    "archetype-wedge",
+    "term-weight-budget"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "design",
+    "weight"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 347
+  },
+  {
+   "id": "chunk-archetype-failure-modes",
+   "title": "How each archetype actually fails",
+   "section": "Reliability",
+   "body_md": "Archetypes do not fail randomly; each has a characteristic way it dies. Knowing yours tells you what to carry spares for.\n\n**Vertical spinners** lose the weapon bell off the motor. Stock drone motors retain the bell with a C-clip that was never designed for combat shock loads. They also bend weapon shafts, and a bent shaft means an unbalanced weapon, which destroys bearings within a match.\n\n**Bar spinners** bend the bar. A bent bar is an unbalanced bar, and the vibration will shake fasteners loose across the whole robot. Carry a spare bar, not a spare bolt.\n\n**Drums** fail at the hub-to-shaft interface. Set screws back out under vibration and the drum starts slipping on the shaft, which looks like a weapon that spins up slowly and then stops biting.\n\n**Horizontal spinners** destroy themselves on the arena wall. They also suffer the worst of the self-inflicted-recoil problem — every hit throws them into something.\n\n**Wedges and forkbots** bend their edges. A curled edge turns a wedge into a ramp, and the robot silently stops working without anything visibly breaking. Check the edge against a flat surface between matches.\n\n**Lifters and flippers** fail at the pivot or the latch. The arm is a lever that transmits every impact straight into its mounting, and latches that hold spring force are precision parts being hit repeatedly.\n\n**Grabbers** fail by not grabbing. The mechanism usually survives; the approach does not.\n\n**Thwackbots and control bots** mostly fail electrically — brownouts on impact, connectors shaking loose, a receiver that resets. With no weapon to break, the failure moves into the wiring.\n\n**Everything** loses bolts. Thread locker on every fastener, and a torque check between every match, is the highest-value maintenance in the sport.",
+   "entity_refs": [
+    "archetype-drum-spinner",
+    "archetype-thwackbot",
+    "archetype-vertical-disc-spinner",
+    "archetype-wedge"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "reliability",
+    "maintenance"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 287
+  },
+  {
+   "id": "chunk-archetype-plastic-differences",
+   "title": "How the archetype picture changes in plastic ant",
+   "section": "Plastic ant",
+   "body_md": "The plastic antweight class changes the relative value of the archetypes, because the weapon can no longer be made of metal.\n\n**Damage becomes blunt force.** A printed tooth cannot cut. What a plastic weapon does is deliver impulse — it knocks the opponent around, breaks printed parts by shock, and occasionally cracks a chassis. The archetypes that rely on cutting or piercing (saws, crushers) become almost pointless. The ones that rely on delivering impulse upward (vertical spinners, drums, beater bars) still work.\n\n**Compliance beats hardness.** In metal ant you armour with titanium or UHMW. In plastic ant, TPU armour is the strong choice, because a flexible panel spreads the impact over time and returns energy rather than fracturing. Rigid PLA armour cracks; an 85A-95A TPU panel bounces.\n\n**Spinners hurt themselves more.** A printed weapon taking a hard impact fails at the layer lines. Weapons become consumables, which is fine — that is the point of the class — but it shifts the design toward cheap, fast-to-reprint weapons rather than precious ones.\n\n**Control archetypes gain value.** Because damage is harder to achieve, more matches go to decisions and to ring-outs. A well-driven plastic wedge or control bot is proportionally stronger than its metal-ant equivalent.\n\n**Horizontal spinners get worse.** Their recoil problem is unchanged, but their ability to convert that recoil into opponent damage is reduced. Vertical spinners and drums dominate the class more completely than they do in metal ant.\n\nOne rules caveat worth knowing: organisations disagree about post-processing. SPARC's plastic class explicitly bans annealing, acetone smoothing and boiling as durability-enhancing treatments, while some other events permit them. A weapon that is legal at one event can be illegal at another, so check before you print.",
+   "entity_refs": [
+    "archetype-control-bot",
+    "archetype-drum-spinner",
+    "archetype-vertical-disc-spinner",
+    "archetype-wedge"
+   ],
+   "weight_classes": [
+    "plastic-antweight"
+   ],
+   "tags": [
+    "plastic-ant",
+    "meta",
+    "materials"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 285
+  },
+  {
+   "id": "chunk-archetype-novelty",
+   "title": "The novelty archetypes and whether they are worth it",
+   "section": "Other",
+   "body_md": "Some archetypes exist more for the challenge than for the win rate. An honest assessment of each at 1 lb:\n\n**Melty brain** — genuinely clever and genuinely hard. You need an accelerometer, custom firmware, and a tolerance for a robot that translates slowly and loses all its energy whenever it manoeuvres. Worth building if the software is the point. Not worth building to win.\n\n**Walkers** — the weight bonus is real and large, commonly up to double the class limit for a true walker. The catch is that qualifying is strictly judged and the mechanism consumes much of the bonus it earns. Confirm your event's exact bonus and qualification criteria before designing around it.\n\n**Shufflers** — a partial bonus for a simpler mechanism, but some rulesets classify shufflers as wheeled and award nothing. Check first; the entire value proposition depends on it.\n\n**Multibots** — splitting 454 g gives you numbers and positioning at the cost of each robot being individually fragile. Rules differ sharply on whether both robots must be immobilised to lose. Read the specific ruleset.\n\n**Crushers** — scale badly downward. The force needed to pierce armour demands gearing that makes the mechanism slow and heavy, and a 1 lb robot lacks the traction to hold an opponent still while it works.\n\n**Saws** — spectacular and ineffective. Combat armour resists cutting, and the weight spent on an arm plus a blade motor buys less damage than the same grams in a disc.\n\n**Tracked robots** — look ideal for pushing, disappoint in practice. A thrown track is an instant loss and antweight-scale tensioners are hard to make robust.\n\nNone of these are bad projects. They are bad *first* projects, and several are bad competitive choices. Build them because you want to solve their specific problem, not because you expect them to win a bracket.",
+   "entity_refs": [
+    "archetype-crusher",
+    "archetype-melty-brain",
+    "archetype-multibot",
+    "archetype-tracked-bot",
+    "archetype-walker"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "novelty",
+    "strategy"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 304
+  },
+  {
+   "id": "chunk-archetype-drivetrain-by-archetype",
+   "title": "What drivetrain each archetype needs",
+   "section": "Design",
+   "body_md": "The archetype sets the drivetrain requirement, and getting this wrong wastes more weight than any other single decision.\n\n**Spinners need enough drive, not maximum drive.** A spinner wins by landing hits, which needs controllable positioning rather than raw pushing force. Two brushed 16 mm gearmotors at a moderate ratio, giving roughly 2-4 m/s, is the standard. Spending more weight on drive takes it from the weapon, which is where a spinner's value is.\n\n**Control bots and wedges need traction above all.** Pushing force is limited by friction, not torque: max push = coefficient of friction × weight on driven wheels. For a 454 g robot with grippy tyres that is only around 4-5 N. Once you have enough torque to reach that limit, more gearing achieves nothing — the wheels just slip. So the priorities are soft tyres, weight over the driven wheels, and four-wheel drive to put all 454 g to work.\n\n**Lifters, flippers and grabbers need torque and control.** They must hold position while the mechanism works, which means low-speed controllability matters more than top speed. Higher gear ratios, and a drivetrain that does not stall when pushed.\n\n**Thwackbots need rotational acceleration.** Their weapon energy comes from how fast the drivetrain can spin the whole robot, so they want high torque and high-grip tyres at a wide track.\n\n**Melty brains need matched, predictable motors.** The translation algorithm assumes both sides respond identically. Mismatched motors make the robot curve.\n\nA general antweight rule: wheel diameter sets your speed for a given rpm, and it is usually easier to change speed by changing wheels than by changing gearboxes. A 500 rpm output on a 32 mm wheel gives about 0.84 m/s; the same motor on a 50 mm wheel gives 1.3 m/s with proportionally less torque at the contact patch.",
+   "entity_refs": [
+    "archetype-thwackbot",
+    "archetype-vertical-disc-spinner",
+    "archetype-wedge",
+    "term-weight-budget"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "design"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 300
+  },
+  {
+   "id": "chunk-archetype-self-righting",
+   "title": "Self-righting: invertibility versus a mechanism",
+   "section": "Design",
+   "body_md": "Every antweight will end up on its back. There are three answers, and at 1 lb only two are sensible.\n\n**Be invertible.** Build the robot so being upside down does not matter: wheels that protrude above and below the chassis, a weapon that works in both orientations, and an invert switch on the transmitter that reverses steering. This costs essentially nothing in weight and is the default choice at antweight. The main design constraints are that the wheels must stick out both ways — which exposes them to undercutters — and the weapon arc must clear in both orientations.\n\n**Use the weapon.** A vertical spinner or a drum can be used to flip the robot back over by firing the weapon against the floor and letting the reaction torque roll the robot. This is free — the mechanism already exists — but it is unreliable on a smooth floor and needs the weapon to be undamaged, which is exactly what it may not be when you are upside down.\n\n**Carry a srimech.** A dedicated arm, ram or lever whose only job is righting. At 1 lb this typically costs 8-15% of the weight budget for a function that invertibility provides for free. It is justified mainly when the archetype cannot be invertible — a wedge with a fixed low edge, a lifter with an arm that only works one way up.\n\nThe practical recommendation for antweight: design for invertibility from the start. It is much harder to retrofit than to plan for, and it removes an entire category of match-ending failure. If your archetype genuinely cannot be invertible, budget the srimech weight honestly rather than hoping the weapon will do it.",
+   "entity_refs": [
+    "archetype-invertible-brick",
+    "term-invertibility",
+    "term-self-righting",
+    "term-srimech"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "design",
+    "reliability"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 281
+  },
+  {
+   "id": "chunk-archetype-meta-evolution",
+   "title": "How the antweight meta got to where it is",
+   "section": "Strategy",
+   "body_md": "The current antweight meta is the product of a few technology shifts, and understanding them explains why robots look the way they do.\n\n**Cheap brushless motors changed weapons.** The FPV drone market made small, powerful outrunners — 1104 through 2814 — available for a few dollars. Before that, antweight weapons were limited by what a brushed motor could deliver. Afterwards, a 1 lb robot could store a few hundred joules, which is enough to end matches. The whole class became more damaging.\n\n**Cheap 3D printing changed iteration.** When a chassis is an afternoon's print rather than a week's machining, builders iterate faster and take more design risk. It also created the plastic antweight class outright, which is now many builders' entry point.\n\n**Integrated ESC/receiver boards changed reliability.** A single board carrying a receiver, two drive ESCs and a weapon ESC removed most of the wiring that used to shake loose on impact, and cut electronics weight substantially. That freed grams for weapon and armour.\n\n**AM32 and modern ESC firmware changed drive.** Proper low-rpm control, braking and reversing made brushless drive practical at antweight, where previously brushed gearmotors were the only sane option.\n\nThe design consequence of all this: weapons got strong enough that pure control bots stopped being reliably competitive, while wedges stayed cheap enough that pure spinners stopped being reliably competitive either. The equilibrium is the hybrid — a vertical spinner or drum with hinged wedgelets — which wins the ground game and then applies damage.\n\nWhere it goes next is contested. The undercutter is the principled counter to a meta built on wedges, and better brushless drive makes the precision it requires more achievable. Whether it displaces the hybrid depends largely on whether builders can solve its ground-clearance fragility.",
+   "entity_refs": [
+    "archetype-undercutter",
+    "archetype-vertical-disc-spinner",
+    "archetype-wedge-spinner-hybrid"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "meta",
+    "history",
+    "strategy"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 291
+  },
+  {
+   "id": "chunk-archetype-safety",
+   "title": "Archetype-specific safety",
+   "section": "Safety",
+   "body_md": "Different archetypes present different hazards, and the safety requirements follow the archetype.\n\n**Spinners** store the most energy and are the most dangerous. A competitive 1 lb spinner can hold a few hundred joules — enough to break bone or destroy an eye. The rules that exist because of spinners:\n\n- A **weapon lock** — a physical device that prevents the weapon rotating — must be fitted whenever the robot is powered outside the arena, and removed only inside it.\n- A **removable link or accessible power switch** so the robot can be made safe without tools.\n- A tested **failsafe** that stops the weapon if the radio signal is lost. This is the single most-checked item at tech inspection.\n\n**Flippers, springs and pressure systems** are dangerous when stored energy is released unexpectedly. A cocked spring is a loaded weapon. Never work on a cocked mechanism; discharge it first. Pressurised systems attract additional scrutiny and are restricted or banned at some events.\n\n**Thwackbots and melty brains** are unusual in that the whole robot is moving unpredictably. They are hard for a referee to make safe and hard for a driver to stop precisely.\n\n**Control bots and wedges** are the safest archetype to build and test, which is another argument for building one first.\n\nUniversal rules regardless of archetype: never spin a weapon outside a proper enclosure, treat the robot as live whenever the battery is connected, and set the failsafe before the first time you power up — not the night before the event.",
+   "entity_refs": [
+    "archetype-control-bot",
+    "archetype-flipper-spring",
+    "archetype-vertical-disc-spinner"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "safety",
+    "rules"
+   ],
+   "sources": [
+    "domain knowledge"
+   ],
+   "topic_id": "archetypes",
+   "word_count": 253
+  },
   {
    "id": "chunk-battery-chemistry-overview",
    "title": "Battery Chemistry Choices for Antweights: LiPo, LiHV, Li-ion, LiFePO4, NiMH",

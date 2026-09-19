@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why bite decides whether your spinner actually works — Combat Robot Database</title>
+<meta name="description" content="Two robots can store identical energy and produce completely different results, because energy only matters if the weapon engages. That is bite.
+
+When two robot">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Why bite decides whether your spinner actually works</div>
+<h1 class="page">Why bite decides whether your spinner actually works</h1>
+<p class="page-sub">Spinners</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">spinner</span><span class="pill">physics</span><span class="pill">damage</span></div>
+<div class="two-col">
+  <div class="prose"><p>Two robots can store identical energy and produce completely different results, because energy only matters if the weapon engages. That is bite.</p>
+<p>When two robots close at speed v and a weapon has t teeth turning at N rpm, teeth arrive at a rate of N/60 * t per second. The deepest a tooth can possibly reach is the distance the robots close between arrivals:</p>
+<p>bite_depth = v / (N/60 * t)</p>
+<p>Put real numbers in. A 20,000 rpm weapon with two teeth, closing at 1.5 m/s, presents 667 teeth per second and can bite 2.25 mm. The same weapon with six teeth bites 0.75 mm — likely less than the opponent&#x27;s armour thickness, so it skates off and converts its energy into noise and sparks.</p>
+<p>This is counter-intuitive and it explains a lot of antweight design:</p>
+<ul>
+<li><strong>Fewer teeth hit harder.</strong> Most competitive discs run one or two effective teeth.</li>
+<li><strong>Slower can hit harder.</strong> Dropping weapon rpm increases bite. Past a point, spinning faster makes you less effective.</li>
+<li><strong>Closing speed is part of your weapon.</strong> Driving into the opponent increases bite. Sitting still and waiting reduces it to zero.</li>
+<li><strong>Drums bite best.</strong> A drum&#x27;s large diameter and low mounting mean the drum body itself wedges under the opponent, forcing engagement rather than hoping for it.</li>
+</ul>
+<p>Bite is also why the opponent&#x27;s wedge is such an effective defence: a wedge presents a ramp that the tooth glances off, and raises the contact point away from the bite-favourable geometry.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/archetype-drum-spinner.html">Drum Spinner</a></li><li><a href="../e/term-bite.html">Bite</a></li><li><a href="../e/term-tooth-count.html">Tooth Count</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -374,6 +374,41 @@ class TestBuiltDatabase(unittest.TestCase):
         self.assertIsNotNone(self.db.get_entity(row["id"]))
         self.assertIsNotNone(self.db.get_entity(row["name"]))
 
+    def test_get_entity_resolves_bare_slug_and_alias(self):
+        """Cross-references and LLMs pass bare slugs, not prefixed ids."""
+        row = self.db.conn.execute(
+            "SELECT id FROM entities WHERE id LIKE 'archetype-%' LIMIT 1").fetchone()
+        if not row:
+            self.skipTest("no archetypes in database")
+        prefixed = row["id"]
+        bare = prefixed[len("archetype-"):]
+        found = self.db.get_entity(bare)
+        self.assertIsNotNone(found, f"bare slug {bare!r} did not resolve")
+        self.assertEqual(found["id"], prefixed)
+
+    def test_get_entity_handles_empty_and_missing(self):
+        self.assertIsNone(self.db.get_entity(""))
+        self.assertIsNone(self.db.get_entity(None))
+        self.assertIsNone(self.db.get_entity("definitely-not-an-entity-xyz"))
+
+    def test_archetype_counters_resolve_to_real_entities(self):
+        """A counters list full of unresolvable names makes the site's
+        relationship links useless, so most of them should resolve."""
+        rows = self.db.conn.execute(
+            "SELECT id FROM entities WHERE type = 'archetype'").fetchall()
+        if not rows:
+            self.skipTest("no archetypes in database")
+        total = resolved = 0
+        for row in rows:
+            entity = self.db.get_entity(row["id"]) or {}
+            for value in (entity.get("counters") or []) + (entity.get("countered_by") or []):
+                total += 1
+                if self.db.get_entity(str(value)):
+                    resolved += 1
+        if total:
+            self.assertGreater(resolved / total, 0.8,
+                               f"only {resolved}/{total} archetype references resolve")
+
     def test_build_guide_returns_all_sections(self):
         guide = self.db.build_guide("antweight")
         for key in ("drive_motors", "weapon_motors", "batteries", "guidance"):

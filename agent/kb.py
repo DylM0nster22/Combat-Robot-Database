@@ -196,14 +196,36 @@ class KnowledgeBase:
 
     # ------------------------------------------------------------- retrieval
 
+    # Entities are stored with a type prefix (`archetype-wedge`), but callers —
+    # LLMs, cross-references in research text, people typing in a URL — routinely
+    # use the bare slug or the display name. Try each in turn.
+    _ID_PREFIXES = ("archetype-", "component-", "material-", "formula-", "term-",
+                    "bot-", "event-", "supplier-", "ruleset-", "kit-", "weight-class-")
+
     def get_entity(self, entity_id: str) -> Optional[Dict[str, Any]]:
+        if not entity_id:
+            return None
+        needle = str(entity_id).strip()
+
         row = self.conn.execute(
-            "SELECT * FROM entities WHERE id = ?", (entity_id,)
+            "SELECT * FROM entities WHERE id = ?", (needle,)
         ).fetchone()
         if not row:
-            # Be forgiving: an LLM often passes the display name instead of the id.
             row = self.conn.execute(
-                "SELECT * FROM entities WHERE lower(name) = lower(?)", (entity_id,)
+                "SELECT * FROM entities WHERE lower(name) = lower(?)", (needle,)
+            ).fetchone()
+        if not row:
+            slug = re.sub(r"[^a-z0-9]+", "-", needle.lower()).strip("-")
+            candidates = [slug] + [prefix + slug for prefix in self._ID_PREFIXES]
+            placeholders = ",".join("?" * len(candidates))
+            row = self.conn.execute(
+                f"SELECT * FROM entities WHERE id IN ({placeholders})", candidates
+            ).fetchone()
+        if not row:
+            # Last resort: an alias match, so "vert" finds the vertical spinner.
+            row = self.conn.execute(
+                "SELECT * FROM entities WHERE lower(aliases) LIKE ?",
+                (f'%"{needle.lower()}"%',)
             ).fetchone()
         if not row:
             return None
