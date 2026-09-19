@@ -14,6 +14,167 @@
   });
 })();
 
+
+/* -------------------------------------------------------- real robot photos */
+
+/*
+ * Retrofit old generated pages in-place. The Python site generator now emits
+ * these photos directly, but committed HTML from before that change still
+ * contains Claude's schematic SVGs. Replace those at runtime and remove any
+ * guessed illustration from non-archetype pages.
+ */
+(function realRobotPhotos() {
+  function nhrl(robot, file) {
+    return {
+      robot: robot,
+      image: 'https://wiki.nhrl.io/wiki/index.php/Special:Redirect/file/' + encodeURIComponent(file),
+      source: 'https://wiki.nhrl.io/wiki/index.php?title=' + encodeURIComponent('File:' + file),
+      provider: 'NHRL Wiki'
+    };
+  }
+  function external(robot, image, source, provider) {
+    return { robot: robot, image: image, source: source, provider: provider };
+  }
+
+  var P = {
+    lynx: nhrl('Lynx', 'Lynx-removebg.png'),
+    flycut: nhrl('Flycut', 'Flycut-June24.png'),
+    actual: nhrl('Actual Size', 'Actualsize-April26.png'),
+    singularity: nhrl('Singularity', 'Singularity-removebg.png'),
+    chonki: nhrl('Chonki', 'Chonkiv-dec-2024.png'),
+    yoshimi: nhrl('Yoshimi', 'Yoshimi - August 2023.png'),
+    liftoff: nhrl('Project LiftOff', 'May 2026 Liftoff.jpg'),
+    cole: nhrl('Cole', 'Cole.png'),
+    beaterboy: nhrl('Beater Boy', 'Beaterboy-removebg.png'),
+    wumbo: nhrl('Wumbo', 'Wumbo-removebg.png'),
+    mavert: nhrl('MA Vert', 'MA Vert.jpg'),
+    john: nhrl('John Undercutter', 'Johnundercutter-March25.png'),
+    firstlaw: nhrl('1st Law', '1st Law V1.0.jpg'),
+    ramplan: nhrl('RAM PLAN', 'RAM PLAN no BG.png'),
+    countforkula: nhrl('Count Forkula', 'Countforkula-removebg.png'),
+    emulsifier: nhrl('Emulsifier', 'Emulsifier 2025.png'),
+    prettyfly: nhrl('Pretty Fly', 'Prettyfly-Oct24.jpg'),
+    lightwave: nhrl('Lightwave', 'Lightwave-Sept24.png'),
+    insidejob: nhrl('Inside Job', 'Insidejob 3lb July22.png'),
+    loophole: nhrl('Loophole', 'Loophole-removebg.png'),
+    gameon: nhrl('Game On', 'Gameon-removebg.png'),
+    spicytoucan: nhrl('Spicy Toucan', 'Spicytoucan-removebg.png'),
+    stinger: external(
+      'Stinger',
+      'https://www.robotcombatarchive.com/media/robot_images/2022/415_Stinger.png',
+      'https://www.robotcombatarchive.com/robot/stinger',
+      'Robot Combat Archive'
+    ),
+    rammingspeed: external(
+      'Ramming Speed',
+      'https://www.robotcombatarchive.com/media/robot_images/2022/964_RammingSpeed.png',
+      'https://www.robotcombatarchive.com/robot/ramming-speed',
+      'Robot Combat Archive'
+    ),
+    drillteam: external(
+      'Drill Team',
+      'https://www.robotcombatarchive.com/media/robot_images/2025/drill_team.jpg',
+      'https://www.robotcombatarchive.com/robot/drill-team',
+      'Robot Combat Archive'
+    )
+  };
+
+  var MAP = {
+    'archetype-beater-bar': P.lynx,
+    'archetype-drum-spinner': P.flycut,
+    'archetype-eggbeater': P.lynx,
+    'archetype-flywheel': P.actual,
+    'archetype-ring-spinner': P.singularity,
+    'archetype-shell-spinner': P.chonki,
+    'archetype-horizontal-bar-spinner': P.yoshimi,
+    'archetype-melty-brain': P.liftoff,
+    'archetype-overhead-saw': P.cole,
+    'archetype-plastic-ant-beater-bar': P.beaterboy,
+    'archetype-plastic-ant-drum-spinner': P.flycut,
+    'archetype-plastic-ant-horizontal-spinner': P.wumbo,
+    'archetype-plastic-ant-vertical-spinner': P.mavert,
+    'archetype-undercutter': P.john,
+    'archetype-vertical-bar-spinner': P.mavert,
+    'archetype-vertical-disc-spinner': P.actual,
+    'archetype-wedge-spinner-hybrid': P.firstlaw,
+    'archetype-control-bot': P.ramplan,
+    'archetype-armor-bot': P.rammingspeed,
+    'archetype-forkbot': P.countforkula,
+    'archetype-invertible-brick': P.rammingspeed,
+    'archetype-plastic-ant-wedge-control': P.ramplan,
+    'archetype-tracked-bot': P.emulsifier,
+    'archetype-wedge': P.rammingspeed,
+    'archetype-flipper-electric': P.prettyfly,
+    'archetype-lifter': P.countforkula,
+    'archetype-linear-lifter': P.countforkula,
+    'archetype-plastic-ant-lifter': P.countforkula,
+    'archetype-flipper-pneumatic': P.prettyfly,
+    'archetype-flipper-spring': P.prettyfly,
+    'archetype-crusher': P.insidejob,
+    'archetype-grabber-clamper': P.lightwave,
+    'archetype-hammer': P.spicytoucan,
+    'archetype-hammer-saw': P.cole,
+    'archetype-overhead-thwack': P.stinger,
+    'archetype-thwackbot': P.stinger,
+    'archetype-passive-spike': P.drillteam,
+    'archetype-rammer': P.rammingspeed,
+    'archetype-multibot': P.loophole,
+    'archetype-shuffler': P.singularity,
+    'archetype-walker': P.gameon
+  };
+
+  function archetypeId(value) {
+    var m = String(value || '').match(/(archetype-[^/?#]+)\.html(?:[?#]|$)/);
+    return m ? m[1] : null;
+  }
+
+  document.querySelectorAll('.card-art').forEach(function (host) {
+    if (!host.querySelector('.bot-svg')) return;
+
+    var card = host.closest('a.card');
+    var id = card ? archetypeId(card.getAttribute('href')) : archetypeId(location.pathname);
+    var photo = id && MAP[id];
+
+    // The old fuzzy matcher put robot diagrams on bearings, ESC terms, etc.
+    // Those pages should simply have no robot artwork.
+    if (!photo) {
+      host.remove();
+      return;
+    }
+
+    var detail = !card;
+    host.classList.add('photo-art');
+    if (detail) host.classList.add('detail-photo');
+    host.textContent = '';
+
+    var img = document.createElement('img');
+    img.className = 'robot-photo';
+    img.src = photo.image;
+    img.alt = 'Real combat robot example: ' + photo.robot;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.referrerPolicy = 'no-referrer';
+    img.addEventListener('error', function () {
+      host.innerHTML = '<div class="photo-fallback">Photo host did not load. ' +
+        '<a target="_blank" rel="noopener noreferrer" href="' + photo.source + '">Open the source photo</a></div>';
+    });
+    host.appendChild(img);
+
+    if (detail && !host.nextElementSibling?.classList.contains('photo-credit')) {
+      var credit = document.createElement('div');
+      credit.className = 'photo-credit';
+      credit.append('Representative real robot: ');
+      var link = document.createElement('a');
+      link.href = photo.source;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = photo.robot + ' — ' + photo.provider;
+      credit.appendChild(link);
+      host.insertAdjacentElement('afterend', credit);
+    }
+  });
+})();
+
 /* ------------------------------------------------------------------ search */
 
 (function search() {
