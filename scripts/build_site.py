@@ -355,7 +355,7 @@ def build_archetypes(database):
 
     body = f"""<div class="wrap">
 <h1 class="page" style="margin-top:34px">Archetypes</h1>
-<p class="page-sub">Every combat robot design family, drawn and explained, with what each
+<p class="page-sub">Every combat robot design family, shown with a real-world example and explained, with what each
 one counters and what counters it. Diagrams are schematic — they show the mechanism,
 not a specific robot.</p>
 {''.join(sections)}
