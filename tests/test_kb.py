@@ -21,6 +21,7 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
 import kb            # noqa: E402
 import illustrations  # noqa: E402
+import photos         # noqa: E402
 import build_site    # noqa: E402
 import build_db      # noqa: E402
 
@@ -259,6 +260,22 @@ class TestIllustrations(unittest.TestCase):
 
     def test_unknown_entity_gets_no_art(self):
         self.assertIsNone(illustrations.art_for("component-xt30", "XT30 connector"))
+
+
+class TestPhotos(unittest.TestCase):
+    def test_every_archetype_photo_is_distinct(self):
+        images = [photo["image"] for photo in photos.PHOTOS.values()]
+        self.assertEqual(len(images), 41)
+        self.assertEqual(len(images), len(set(images)),
+                         "each archetype should use a distinct real robot photo")
+
+    def test_photo_records_have_source_credit(self):
+        for entity_id, photo in photos.PHOTOS.items():
+            self.assertTrue(entity_id.startswith("archetype-"))
+            for key in ("robot", "image", "source", "provider"):
+                self.assertTrue(photo.get(key), f"{entity_id} missing {key}")
+            self.assertTrue(photo["image"].startswith("https://"))
+            self.assertTrue(photo["source"].startswith("https://"))
 
 
 class TestMCPServer(unittest.TestCase):
