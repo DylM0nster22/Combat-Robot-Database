@@ -50,7 +50,7 @@ data/
 scripts/
   build_db.py             research/*.json  ->  SQLite + JSON exports
   build_site.py           SQLite  ->  static HTML site
-  illustrations.py        Original SVG diagrams for each archetype
+  photos.py               Sourced real-robot photo mappings for archetypes\n  illustrations.py        Legacy schematic utility (not used by the website)
 agent/
   kb.py                   Query layer + engineering calculators (shared by all)
   mcp_server.py           MCP stdio server, zero dependencies
