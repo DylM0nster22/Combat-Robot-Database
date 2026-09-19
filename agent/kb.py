@@ -342,43 +342,107 @@ class KnowledgeBase:
 
     # -------------------------------------------------------------- matchups
 
+    def _matchup_slugs(self, value: str) -> List[str]:
+        """Candidate short slugs for an archetype, for matching matchup tags.
+
+        Matchup records are tagged with short keys ("vertical-spinner") while
+        archetype entities carry prefixed ids ("archetype-vertical-disc-spinner"),
+        so a query has to be reduced to every form it might be tagged under.
+        """
+        candidates = set()
+        raw = re.sub(r"[^a-z0-9]+", "-", str(value or "").lower()).strip("-")
+        if raw:
+            candidates.add(raw)
+            for prefix in self._ID_PREFIXES:
+                if raw.startswith(prefix):
+                    candidates.add(raw[len(prefix):])
+        entity = self.get_entity(value)
+        if entity:
+            ent_id = entity["id"]
+            candidates.add(ent_id)
+            for prefix in self._ID_PREFIXES:
+                if ent_id.startswith(prefix):
+                    candidates.add(ent_id[len(prefix):])
+            candidates.add(re.sub(r"[^a-z0-9]+", "-", entity["name"].lower()).strip("-"))
+            for alias in entity.get("aliases", []):
+                candidates.add(re.sub(r"[^a-z0-9]+", "-", str(alias).lower()).strip("-"))
+        return [c for c in candidates if c]
+
     def matchup(self, archetype_a: str, archetype_b: str) -> Dict[str, Any]:
         """What the database knows about one archetype fighting another.
 
-        Matchups are stored as their own records where the research covered
-        them; where it didn't, the two archetypes' own counters/countered_by
-        lists still give a usable answer.
+        Only returns matchup records that genuinely concern BOTH archetypes —
+        a loose full-text match would otherwise surface an unrelated pairing
+        and present it as the answer.
         """
         a = self.get_entity(archetype_a) or {}
         b = self.get_entity(archetype_b) or {}
-        needles = [t for t in (archetype_a, archetype_b) if t]
-        match = _fts_query(" ".join(needles))
+        slugs_a = self._matchup_slugs(archetype_a)
+        slugs_b = self._matchup_slugs(archetype_b)
+
         records = []
-        if match:
+        seen = set()
+
+        # An exact record for this pairing, in either order, is authoritative.
+        exact_ids = [f"matchup-{x}-vs-{y}" for x in slugs_a for y in slugs_b]
+        exact_ids += [f"matchup-{y}-vs-{x}" for x in slugs_a for y in slugs_b]
+        if exact_ids:
+            placeholders = ",".join("?" * len(exact_ids))
+            for row in self.conn.execute(
+                f"SELECT * FROM entities WHERE id IN ({placeholders})", exact_ids
+            ).fetchall():
+                if row["id"] not in seen:
+                    seen.add(row["id"])
+                    records.append(_entity_row(row))
+
+        # Otherwise accept any matchup record tagged with both archetypes.
+        if not records:
             rows = self.conn.execute(
-                """SELECT e.* FROM entities_fts
-                   JOIN entities e ON e.id = entities_fts.id
-                   WHERE entities_fts MATCH ? AND (e.id LIKE 'matchup%' OR e.tags LIKE '%matchup%')
-                   ORDER BY bm25(entities_fts) LIMIT 5""",
-                (match,),
+                "SELECT * FROM entities WHERE type = 'term'"
+                " AND (id LIKE 'matchup-%' OR tags LIKE '%matchup%')"
             ).fetchall()
-            records = [_entity_row(r) for r in rows]
+            for row in rows:
+                tags = set(_loads(row["tags"], []))
+                blob = f"{row['id']} {row['name']}".lower()
+                hit_a = any(s in tags or s in blob for s in slugs_a)
+                hit_b = any(s in tags or s in blob for s in slugs_b)
+                if hit_a and hit_b and row["id"] not in seen:
+                    seen.add(row["id"])
+                    records.append(_entity_row(row))
+
+        def _pretty(entity, fallback):
+            if entity.get("name"):
+                return entity["name"]
+            return str(fallback).replace("-", " ").replace("_", " ").strip().capitalize()
 
         def _verdict():
-            a_name, b_name = a.get("name", archetype_a), b.get("name", archetype_b)
+            a_name = _pretty(a, archetype_a)
+            b_name = _pretty(b, archetype_b)
+            # A stored record's own judgement beats any inference.
+            for record in records:
+                favoured = str(record.get("specs", {}).get("favoured", "")).lower()
+                if not favoured:
+                    continue
+                pct = record.get("specs", {}).get("confidence_pct")
+                qualifier = f" (~{pct}% confidence)" if pct else ""
+                if any(s == favoured for s in slugs_a):
+                    return f"{a_name} is favoured{qualifier}"
+                if any(s == favoured for s in slugs_b):
+                    return f"{b_name} is favoured{qualifier}"
+            # Fall back to the archetypes' own counters lists.
             a_beats = {str(x).lower() for x in (a.get("counters") or [])}
             b_beats = {str(x).lower() for x in (b.get("counters") or [])}
-            b_id, a_id = str(archetype_b).lower(), str(archetype_a).lower()
-            if any(b_id in x or x in b_id for x in a_beats):
-                return f"{a_name} is favoured"
-            if any(a_id in x or x in a_id for x in b_beats):
-                return f"{b_name} is favoured"
-            return "No stored verdict; see the archetype records for the tradeoffs."
+            if any(s in a_beats for s in slugs_b):
+                return f"{a_name} is favoured (inferred from its counters list)"
+            if any(s in b_beats for s in slugs_a):
+                return f"{b_name} is favoured (inferred from its counters list)"
+            return ("No stored verdict for this pairing; see both archetype "
+                    "records for the tradeoffs.")
 
         return {
             "a": {k: v for k, v in a.items() if k != "related_chunks"},
             "b": {k: v for k, v in b.items() if k != "related_chunks"},
-            "matchup_records": records,
+            "matchup_records": records[:4],
             "heuristic_verdict": _verdict(),
         }
 

@@ -1,20 +1,20 @@
 # Knowledge base build report
 
-Built: 2026-09-19T09:19:56.417539+00:00
+Built: 2026-09-19T09:26:09.681113+00:00
 
 ## Totals
 
-- Entities: **312**
-- Knowledge chunks: **115** (44476 words)
-- Research topics: **7**
-- Entities citing at least one source: **312** (100%)
+- Entities: **357**
+- Knowledge chunks: **125** (47558 words)
+- Research topics: **8**
+- Entities citing at least one source: **357** (100%)
 
 ## Entities by type
 
 | type | count |
 | --- | --- |
+| term | 118 |
 | component | 97 |
-| term | 73 |
 | formula | 61 |
 | archetype | 41 |
 | ruleset | 12 |
@@ -29,8 +29,8 @@ Built: 2026-09-19T09:19:56.417539+00:00
 
 | weight class | count |
 | --- | --- |
-| plastic-antweight | 236 |
-| antweight | 204 |
+| plastic-antweight | 281 |
+| antweight | 250 |
 | beetleweight | 20 |
 | fairyweight | 13 |
 | featherweight | 3 |
@@ -44,8 +44,8 @@ Built: 2026-09-19T09:19:56.417539+00:00
 
 | level | count |
 | --- | --- |
-| high | 150 |
-| medium | 121 |
+| high | 196 |
+| medium | 120 |
 | low | 41 |
 
 ## Source files
@@ -57,10 +57,11 @@ Built: 2026-09-19T09:19:56.417539+00:00
 | design-math.json | 61 | 12 |
 | drive-motors.json | 41 | 17 |
 | plastic-antweight.json | 52 | 22 |
+| strategy-meta.json | 45 | 10 |
 | weapon-motors.json | 35 | 19 |
 | weight-classes-rules.json | 33 | 16 |
 
-## Warnings (16)
+## Warnings (18)
 
 - design-math.json: id 'term-gyroscopic-precession' also covered by archetypes — merged
 - design-math.json: id 'term-tip-speed' also covered by archetypes — merged
@@ -70,6 +71,7 @@ Built: 2026-09-19T09:19:56.417539+00:00
 - design-math.json: id 'term-internal-resistance' also covered by batteries-power — merged
 - plastic-antweight.json: id 'term-tip-speed' also covered by archetypes — merged
 - plastic-antweight.json: id 'term-weight-budget' also covered by archetypes — merged
+- strategy-meta.json: id 'term-pit-repair' also covered by plastic-antweight — merged
 - weapon-motors.json: id 'formula-tip-speed' also covered by design-math — merged
 - weapon-motors.json: id 'formula-kt-from-kv' also covered by design-math — merged
 - weapon-motors.json: id 'term-dead-shaft' also covered by archetypes — merged
@@ -78,3 +80,4 @@ Built: 2026-09-19T09:19:56.417539+00:00
 - weight-classes-rules.json: id 'event-nhrl' also covered by plastic-antweight — merged
 - weight-classes-rules.json: id 'event-robot-ruckus' also covered by plastic-antweight — merged
 - weight-classes-rules.json: id 'event-bot-blast' also covered by plastic-antweight — merged
+- cross-references: 562 resolved, 1 pointed at entities that do not exist (dropped)

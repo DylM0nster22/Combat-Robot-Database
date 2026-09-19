@@ -1,0 +1,1779 @@
+{
+ "topic_id": "strategy-meta",
+ "title": "Competition Strategy, Driving and the Antweight Meta",
+ "scope_note": "Matchup analysis across the antweight archetypes, driving skill, event and tournament strategy, and why the modern 1 lb meta looks the way it does.",
+ "entities": [
+  {
+   "id": "matchup-vertical-spinner-vs-wedge",
+   "type": "term",
+   "name": "Vertical spinner vs Wedge",
+   "aliases": [
+    "vertical-spinner vs wedge",
+    "wedge vs vertical-spinner"
+   ],
+   "summary": "The wedge wins the initial engagement but has no way to convert it into a win, while the spinner only needs one clean hit.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "wedge"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "vertical-spinner",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Do not charge head-on into the wedge face. Circle, attack the side or rear, and use the arena wall to deny the wedge a straight approach. Keep the weapon at speed so any contact is a hit."
+   ],
+   "cons": [
+    "Game plan for Wedge: Get under and stay under. Drive the spinner into a wall and hold it there, deny it any opening, and bank control points for the decision."
+   ],
+   "notes": "**Favoured:** Vertical spinner (~60% confidence).\n\n**Why:** The wedge wins the initial engagement but has no way to convert it into a win, while the spinner only needs one clean hit.\n\n**Vertical spinner should:** Do not charge head-on into the wedge face. Circle, attack the side or rear, and use the arena wall to deny the wedge a straight approach. Keep the weapon at speed so any contact is a hit.\n\n**Wedge should:** Get under and stay under. Drive the spinner into a wall and hold it there, deny it any opening, and bank control points for the decision.\n\n**The mistake that loses it:** The spinner drives straight at the wedge face repeatedly, gets ramped every time, and loses on control.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-vertical-spinner-vs-horizontal-bar-spinner",
+   "type": "term",
+   "name": "Vertical spinner vs Horizontal bar spinner",
+   "aliases": [
+    "vertical-spinner vs horizontal-bar-spinner",
+    "horizontal-bar-spinner vs vertical-spinner"
+   ],
+   "summary": "The horizontal's reach and sweep attack the vertical's exposed weapon and wheels before the vertical can close to its own engagement range.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "horizontal-bar-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "horizontal-bar-spinner",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Approach at an angle and time the gap between bar passes. Armour the wheels and keep the weapon between you and the bar."
+   ],
+   "cons": [
+    "Game plan for Horizontal bar spinner: Keep the bar at full speed and stay at range. Let the vertical come to you; every approach it makes is a chance to hit its weapon or wheels."
+   ],
+   "notes": "**Favoured:** Horizontal bar spinner (~60% confidence).\n\n**Why:** The horizontal's reach and sweep attack the vertical's exposed weapon and wheels before the vertical can close to its own engagement range.\n\n**Vertical spinner should:** Approach at an angle and time the gap between bar passes. Armour the wheels and keep the weapon between you and the bar.\n\n**Horizontal bar spinner should:** Keep the bar at full speed and stay at range. Let the vertical come to you; every approach it makes is a chance to hit its weapon or wheels.\n\n**The mistake that loses it:** The vertical closes head-on at full speed and loses its weapon or a wheel to the first bar strike.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-vertical-spinner-vs-undercutter",
+   "type": "term",
+   "name": "Vertical spinner vs Undercutter",
+   "aliases": [
+    "vertical-spinner vs undercutter",
+    "undercutter vs vertical-spinner"
+   ],
+   "summary": "The undercutter strikes below the vertical spinner's weapon arc, hitting wheels and ground clearance where the vertical cannot defend.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "undercutter"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "undercutter",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Attack from directly in front where the disc can meet the bar, or rush before the undercutter reaches speed. Protect the wheels."
+   ],
+   "cons": [
+    "Game plan for Undercutter: Stay low, keep the bar spinning and let the vertical approach. Target the wheels and the front wedge mounts."
+   ],
+   "notes": "**Favoured:** Undercutter (~60% confidence).\n\n**Why:** The undercutter strikes below the vertical spinner's weapon arc, hitting wheels and ground clearance where the vertical cannot defend.\n\n**Vertical spinner should:** Attack from directly in front where the disc can meet the bar, or rush before the undercutter reaches speed. Protect the wheels.\n\n**Undercutter should:** Stay low, keep the bar spinning and let the vertical approach. Target the wheels and the front wedge mounts.\n\n**The mistake that loses it:** The vertical tries to circle and gives the undercutter a clean side profile full of wheels.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-vertical-spinner-vs-drum-spinner",
+   "type": "term",
+   "name": "Vertical spinner vs Drum spinner",
+   "aliases": [
+    "vertical-spinner vs drum-spinner",
+    "drum-spinner vs vertical-spinner"
+   ],
+   "summary": "Both hit upward, but the drum's larger diameter and lower mounting give it better bite, so it usually lands first in a head-on exchange.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "drum-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "drum-spinner",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Avoid the head-on exchange. Attack from the side where the drum's advantage disappears."
+   ],
+   "cons": [
+    "Game plan for Drum spinner: Take the head-on engagement. Your bite advantage means you win the exchange more often than not."
+   ],
+   "notes": "**Favoured:** Drum spinner (~55% confidence).\n\n**Why:** Both hit upward, but the drum's larger diameter and lower mounting give it better bite, so it usually lands first in a head-on exchange.\n\n**Vertical spinner should:** Avoid the head-on exchange. Attack from the side where the drum's advantage disappears.\n\n**Drum spinner should:** Take the head-on engagement. Your bite advantage means you win the exchange more often than not.\n\n**The mistake that loses it:** Trading head-on with a weapon that has better bite than yours.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-vertical-spinner-vs-control-bot",
+   "type": "term",
+   "name": "Vertical spinner vs Control bot",
+   "aliases": [
+    "vertical-spinner vs control-bot",
+    "control-bot vs vertical-spinner"
+   ],
+   "summary": "The control bot has no answer to accumulating damage, and at 1 lb a few clean upward hits end the match.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "control-bot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "vertical-spinner",
+    "confidence_pct": 70
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Stay at weapon speed and take the hits that present themselves. Do not get pushed into a wall and pinned."
+   ],
+   "cons": [
+    "Game plan for Control bot: Pin immediately and never let the weapon spin up. Push to the wall, hold, and win on control."
+   ],
+   "notes": "**Favoured:** Vertical spinner (~70% confidence).\n\n**Why:** The control bot has no answer to accumulating damage, and at 1 lb a few clean upward hits end the match.\n\n**Vertical spinner should:** Stay at weapon speed and take the hits that present themselves. Do not get pushed into a wall and pinned.\n\n**Control bot should:** Pin immediately and never let the weapon spin up. Push to the wall, hold, and win on control.\n\n**The mistake that loses it:** The control bot lets the spinner disengage and re-spin repeatedly.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-vertical-spinner-vs-grabber",
+   "type": "term",
+   "name": "Vertical spinner vs Grabber",
+   "aliases": [
+    "vertical-spinner vs grabber",
+    "grabber vs vertical-spinner"
+   ],
+   "summary": "If the grabber closes on the spinner the match is effectively over, but surviving the approach against a live weapon is genuinely hard.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "grabber"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "grabber",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Never let the grabber close. Keep moving, keep the weapon up, and punish every failed grab attempt."
+   ],
+   "cons": [
+    "Game plan for Grabber: Approach from an angle with jaws low. Absorb one hit if you must, then clamp and carry to the wall or the pit."
+   ],
+   "notes": "**Favoured:** Grabber (~55% confidence).\n\n**Why:** If the grabber closes on the spinner the match is effectively over, but surviving the approach against a live weapon is genuinely hard.\n\n**Vertical spinner should:** Never let the grabber close. Keep moving, keep the weapon up, and punish every failed grab attempt.\n\n**Grabber should:** Approach from an angle with jaws low. Absorb one hit if you must, then clamp and carry to the wall or the pit.\n\n**The mistake that loses it:** The grabber approaches head-on with jaws open and loses a jaw to the weapon.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-vertical-spinner-vs-flipper",
+   "type": "term",
+   "name": "Vertical spinner vs Flipper",
+   "aliases": [
+    "vertical-spinner vs flipper",
+    "flipper vs vertical-spinner"
+   ],
+   "summary": "The flipper attacks from underneath, which is the one direction a vertical spinner cannot defend, and a flip against a non-invertible spinner ends it.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "flipper"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "flipper",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Be invertible. Keep the weapon low and forward so the flipper cannot get its arm under."
+   ],
+   "cons": [
+    "Game plan for Flipper: Get under and fire. Against a non-invertible spinner one good flip is the whole match."
+   ],
+   "notes": "**Favoured:** Flipper (~55% confidence).\n\n**Why:** The flipper attacks from underneath, which is the one direction a vertical spinner cannot defend, and a flip against a non-invertible spinner ends it.\n\n**Vertical spinner should:** Be invertible. Keep the weapon low and forward so the flipper cannot get its arm under.\n\n**Flipper should:** Get under and fire. Against a non-invertible spinner one good flip is the whole match.\n\n**The mistake that loses it:** A spinner that cannot self-right meeting a flipper that can get under it.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-vertical-spinner-vs-hammer",
+   "type": "term",
+   "name": "Vertical spinner vs Hammer",
+   "aliases": [
+    "vertical-spinner vs hammer",
+    "hammer vs vertical-spinner"
+   ],
+   "summary": "The spinner accumulates energy over seconds; the hammer only has its swing arc. The energy difference is decisive at 1 lb.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "hammer"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "vertical-spinner",
+    "confidence_pct": 75
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Stay at speed and engage normally. The hammer must be almost touching you to be a threat."
+   ],
+   "cons": [
+    "Game plan for Hammer: Close the distance behind a wedge and strike the top. Your only path is landing on thin top armour while the weapon cannot reach."
+   ],
+   "notes": "**Favoured:** Vertical spinner (~75% confidence).\n\n**Why:** The spinner accumulates energy over seconds; the hammer only has its swing arc. The energy difference is decisive at 1 lb.\n\n**Vertical spinner should:** Stay at speed and engage normally. The hammer must be almost touching you to be a threat.\n\n**Hammer should:** Close the distance behind a wedge and strike the top. Your only path is landing on thin top armour while the weapon cannot reach.\n\n**The mistake that loses it:** The hammer trades in the open and loses its arm to the disc.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-vertical-spinner-vs-thwackbot",
+   "type": "term",
+   "name": "Vertical spinner vs Thwackbot",
+   "aliases": [
+    "vertical-spinner vs thwackbot",
+    "thwackbot vs vertical-spinner"
+   ],
+   "summary": "The thwackbot cannot attack and manoeuvre at once; the spinner simply engages while it is spinning up.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "thwackbot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "vertical-spinner",
+    "confidence_pct": 75
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Attack while it is rotating to build tail speed — it cannot steer during that."
+   ],
+   "cons": [
+    "Game plan for Thwackbot: Use the tail to keep the spinner at distance and look for a wall pin. Do not trade."
+   ],
+   "notes": "**Favoured:** Vertical spinner (~75% confidence).\n\n**Why:** The thwackbot cannot attack and manoeuvre at once; the spinner simply engages while it is spinning up.\n\n**Vertical spinner should:** Attack while it is rotating to build tail speed — it cannot steer during that.\n\n**Thwackbot should:** Use the tail to keep the spinner at distance and look for a wall pin. Do not trade.\n\n**The mistake that loses it:** The thwackbot spins up in the open and gets hit mid-rotation.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-vertical-spinner-vs-rammer",
+   "type": "term",
+   "name": "Vertical spinner vs Rammer",
+   "aliases": [
+    "vertical-spinner vs rammer",
+    "rammer vs vertical-spinner"
+   ],
+   "summary": "A 454 g ram carries very little energy, and the rammer must close to contact range where the weapon lives.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "vertical-spinner",
+    "rammer"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "vertical-spinner",
+    "confidence_pct": 80
+   },
+   "pros": [
+    "Game plan for Vertical spinner: Hold your ground with the weapon up. Any contact is on your terms."
+   ],
+   "cons": [
+    "Game plan for Rammer: Attack the rear or sides only, and try to push out or pin. Never approach the weapon face."
+   ],
+   "notes": "**Favoured:** Vertical spinner (~80% confidence).\n\n**Why:** A 454 g ram carries very little energy, and the rammer must close to contact range where the weapon lives.\n\n**Vertical spinner should:** Hold your ground with the weapon up. Any contact is on your terms.\n\n**Rammer should:** Attack the rear or sides only, and try to push out or pin. Never approach the weapon face.\n\n**The mistake that loses it:** The rammer charges the weapon face and destroys itself.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-wedge-vs-horizontal-bar-spinner",
+   "type": "term",
+   "name": "Wedge vs Horizontal bar spinner",
+   "aliases": [
+    "wedge vs horizontal-bar-spinner",
+    "horizontal-bar-spinner vs wedge"
+   ],
+   "summary": "The bar sweeps harmlessly over a wedge that touches the floor, while the wedge lifts the spinner and removes its traction.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "wedge",
+    "horizontal-bar-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "wedge",
+    "confidence_pct": 70
+   },
+   "pros": [
+    "Game plan for Wedge: Drive straight in. Your edge goes under the sweep. Once under, push to the wall and hold."
+   ],
+   "cons": [
+    "Game plan for Horizontal bar spinner: Stay at range and attack the wedge's sides and wheels. Never let it get square to you."
+   ],
+   "notes": "**Favoured:** Wedge (~70% confidence).\n\n**Why:** The bar sweeps harmlessly over a wedge that touches the floor, while the wedge lifts the spinner and removes its traction.\n\n**Wedge should:** Drive straight in. Your edge goes under the sweep. Once under, push to the wall and hold.\n\n**Horizontal bar spinner should:** Stay at range and attack the wedge's sides and wheels. Never let it get square to you.\n\n**The mistake that loses it:** The horizontal lets the wedge approach head-on and gets ramped.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-wedge-vs-shell-spinner",
+   "type": "term",
+   "name": "Wedge vs Shell spinner",
+   "aliases": [
+    "wedge vs shell-spinner",
+    "shell-spinner vs wedge"
+   ],
+   "summary": "A shell spinner's weapon is its outer edge, which a good wedge slides beneath; once lifted, a shell has no recovery.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "wedge",
+    "shell-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "wedge",
+    "confidence_pct": 65
+   },
+   "pros": [
+    "Game plan for Wedge: Approach square and low, get under the shell's edge, and lift. A lifted shell spinner loses all its ground contact."
+   ],
+   "cons": [
+    "Game plan for Shell spinner: Keep the shell at full speed and stay away from the wedge's front. Attack the wedge's rear and wheels."
+   ],
+   "notes": "**Favoured:** Wedge (~65% confidence).\n\n**Why:** A shell spinner's weapon is its outer edge, which a good wedge slides beneath; once lifted, a shell has no recovery.\n\n**Wedge should:** Approach square and low, get under the shell's edge, and lift. A lifted shell spinner loses all its ground contact.\n\n**Shell spinner should:** Keep the shell at full speed and stay away from the wedge's front. Attack the wedge's rear and wheels.\n\n**The mistake that loses it:** The shell spinner engages the wedge face-on and gets ramped while its energy does nothing.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-wedge-vs-undercutter",
+   "type": "term",
+   "name": "Wedge vs Undercutter",
+   "aliases": [
+    "wedge vs undercutter",
+    "undercutter vs wedge"
+   ],
+   "summary": "The undercutter's whole purpose is beating wedges — it strikes below the wedge's leading edge, where the wedge offers no protection.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "wedge",
+    "undercutter"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "undercutter",
+    "confidence_pct": 70
+   },
+   "pros": [
+    "Game plan for Wedge: Rush before the bar reaches speed. If it is already up, disengage and force it to chase you, spending its energy."
+   ],
+   "cons": [
+    "Game plan for Undercutter: Keep the bar low and spinning. Let the wedge come to you; its edge is exactly what you are aiming at."
+   ],
+   "notes": "**Favoured:** Undercutter (~70% confidence).\n\n**Why:** The undercutter's whole purpose is beating wedges — it strikes below the wedge's leading edge, where the wedge offers no protection.\n\n**Wedge should:** Rush before the bar reaches speed. If it is already up, disengage and force it to chase you, spending its energy.\n\n**Undercutter should:** Keep the bar low and spinning. Let the wedge come to you; its edge is exactly what you are aiming at.\n\n**The mistake that loses it:** The wedge treats the undercutter like an ordinary horizontal and drives straight in.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-wedge-vs-drum-spinner",
+   "type": "term",
+   "name": "Wedge vs Drum spinner",
+   "aliases": [
+    "wedge vs drum-spinner",
+    "drum-spinner vs wedge"
+   ],
+   "summary": "The drum's low mounting and large diameter let it engage a wedge's edge rather than riding over it.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "wedge",
+    "drum-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "drum-spinner",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Wedge: Attack the drum's sides. Try to get under from an angle where the drum body cannot scoop you."
+   ],
+   "cons": [
+    "Game plan for Drum spinner: Meet the wedge head-on. Your geometry beats its geometry."
+   ],
+   "notes": "**Favoured:** Drum spinner (~60% confidence).\n\n**Why:** The drum's low mounting and large diameter let it engage a wedge's edge rather than riding over it.\n\n**Wedge should:** Attack the drum's sides. Try to get under from an angle where the drum body cannot scoop you.\n\n**Drum spinner should:** Meet the wedge head-on. Your geometry beats its geometry.\n\n**The mistake that loses it:** The wedge assumes its edge will win and drives straight into the drum.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-wedge-vs-control-bot",
+   "type": "term",
+   "name": "Wedge vs Control bot",
+   "aliases": [
+    "wedge vs control-bot",
+    "control-bot vs wedge"
+   ],
+   "summary": "Two control robots meeting is decided almost entirely by ground clearance, edge quality and driving.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "wedge",
+    "control-bot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "wedge",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Wedge: Win the edge. A flatter, thinner, floor-contacting edge beats a thicker one regardless of power."
+   ],
+   "cons": [
+    "Game plan for Control bot: Out-drive rather than out-wedge. Use the walls, attack from angles, and avoid a straight edge-to-edge contest."
+   ],
+   "notes": "**Favoured:** Wedge (~55% confidence).\n\n**Why:** Two control robots meeting is decided almost entirely by ground clearance, edge quality and driving.\n\n**Wedge should:** Win the edge. A flatter, thinner, floor-contacting edge beats a thicker one regardless of power.\n\n**Control bot should:** Out-drive rather than out-wedge. Use the walls, attack from angles, and avoid a straight edge-to-edge contest.\n\n**The mistake that loses it:** Meeting edge-to-edge with the worse edge and pushing anyway.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-wedge-vs-hammer",
+   "type": "term",
+   "name": "Wedge vs Hammer",
+   "aliases": [
+    "wedge vs hammer",
+    "hammer vs wedge"
+   ],
+   "summary": "A hammer has to be nearly touching to strike; a wedge that gets under removes its footing before the arm comes down.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "wedge",
+    "hammer"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "wedge",
+    "confidence_pct": 70
+   },
+   "pros": [
+    "Game plan for Wedge: Get under and keep pushing. A hammer being carried cannot aim."
+   ],
+   "cons": [
+    "Game plan for Hammer: Strike as the wedge commits, then reverse out. Never let it settle underneath you."
+   ],
+   "notes": "**Favoured:** Wedge (~70% confidence).\n\n**Why:** A hammer has to be nearly touching to strike; a wedge that gets under removes its footing before the arm comes down.\n\n**Wedge should:** Get under and keep pushing. A hammer being carried cannot aim.\n\n**Hammer should:** Strike as the wedge commits, then reverse out. Never let it settle underneath you.\n\n**The mistake that loses it:** The hammer stands still to aim and gets wedged.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-horizontal-bar-spinner-vs-shell-spinner",
+   "type": "term",
+   "name": "Horizontal bar spinner vs Shell spinner",
+   "aliases": [
+    "horizontal-bar-spinner vs shell-spinner",
+    "shell-spinner vs horizontal-bar-spinner"
+   ],
+   "summary": "Two horizontal weapons meeting is largely a coin-flip decided by which has more energy and better tooth geometry; the bar usually has higher tip speed.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "horizontal-bar-spinner",
+    "shell-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "horizontal-bar-spinner",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Horizontal bar spinner: Engage at full speed and accept the exchange. Your tip speed advantage decides it."
+   ],
+   "cons": [
+    "Game plan for Shell spinner: Use the shell's mass and omnidirectional coverage to survive the exchange, then close."
+   ],
+   "notes": "**Favoured:** Horizontal bar spinner (~55% confidence).\n\n**Why:** Two horizontal weapons meeting is largely a coin-flip decided by which has more energy and better tooth geometry; the bar usually has higher tip speed.\n\n**Horizontal bar spinner should:** Engage at full speed and accept the exchange. Your tip speed advantage decides it.\n\n**Shell spinner should:** Use the shell's mass and omnidirectional coverage to survive the exchange, then close.\n\n**The mistake that loses it:** Engaging at partial weapon speed.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-horizontal-bar-spinner-vs-drum-spinner",
+   "type": "term",
+   "name": "Horizontal bar spinner vs Drum spinner",
+   "aliases": [
+    "horizontal-bar-spinner vs drum-spinner",
+    "drum-spinner vs horizontal-bar-spinner"
+   ],
+   "summary": "The horizontal's reach lets it strike the drum's supports and wheels before the drum closes to its own range.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "horizontal-bar-spinner",
+    "drum-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "horizontal-bar-spinner",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Horizontal bar spinner: Stay at range, target the drum's shaft supports and wheels."
+   ],
+   "cons": [
+    "Game plan for Drum spinner: Close fast and get under. Inside the bar's arc you win; outside it you lose."
+   ],
+   "notes": "**Favoured:** Horizontal bar spinner (~55% confidence).\n\n**Why:** The horizontal's reach lets it strike the drum's supports and wheels before the drum closes to its own range.\n\n**Horizontal bar spinner should:** Stay at range, target the drum's shaft supports and wheels.\n\n**Drum spinner should:** Close fast and get under. Inside the bar's arc you win; outside it you lose.\n\n**The mistake that loses it:** The drum spends time at mid-range where only the bar can reach.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-horizontal-bar-spinner-vs-forkbot",
+   "type": "term",
+   "name": "Horizontal bar spinner vs Forkbot",
+   "aliases": [
+    "horizontal-bar-spinner vs forkbot",
+    "forkbot vs horizontal-bar-spinner"
+   ],
+   "summary": "Hinged forks float on the floor and slide under the bar's sweep, which passes over them harmlessly.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "horizontal-bar-spinner",
+    "forkbot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "forkbot",
+    "confidence_pct": 70
+   },
+   "pros": [
+    "Game plan for Horizontal bar spinner: Attack the forkbot's rear and sides. Never present your front to its forks."
+   ],
+   "cons": [
+    "Game plan for Forkbot: Drive straight in. The bar cannot reach your forks and you can reach its underside."
+   ],
+   "notes": "**Favoured:** Forkbot (~70% confidence).\n\n**Why:** Hinged forks float on the floor and slide under the bar's sweep, which passes over them harmlessly.\n\n**Horizontal bar spinner should:** Attack the forkbot's rear and sides. Never present your front to its forks.\n\n**Forkbot should:** Drive straight in. The bar cannot reach your forks and you can reach its underside.\n\n**The mistake that loses it:** The horizontal lets a forkbot approach from the front.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-drum-spinner-vs-control-bot",
+   "type": "term",
+   "name": "Drum spinner vs Control bot",
+   "aliases": [
+    "drum-spinner vs control-bot",
+    "control-bot vs drum-spinner"
+   ],
+   "summary": "A drum's bite means it engages a control bot reliably, and repeated upward hits break wheels and armour.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "drum-spinner",
+    "control-bot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "drum-spinner",
+    "confidence_pct": 70
+   },
+   "pros": [
+    "Game plan for Drum spinner: Engage normally; your bite means you rarely miss."
+   ],
+   "cons": [
+    "Game plan for Control bot: Pin before the drum reaches speed, and keep it against the wall."
+   ],
+   "notes": "**Favoured:** Drum spinner (~70% confidence).\n\n**Why:** A drum's bite means it engages a control bot reliably, and repeated upward hits break wheels and armour.\n\n**Drum spinner should:** Engage normally; your bite means you rarely miss.\n\n**Control bot should:** Pin before the drum reaches speed, and keep it against the wall.\n\n**The mistake that loses it:** The control bot gives the drum space to re-engage repeatedly.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-drum-spinner-vs-undercutter",
+   "type": "term",
+   "name": "Drum spinner vs Undercutter",
+   "aliases": [
+    "drum-spinner vs undercutter",
+    "undercutter vs drum-spinner"
+   ],
+   "summary": "The drum's low front can engage the undercutter's bar and supports, and its bite works even against a low target.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "drum-spinner",
+    "undercutter"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "drum-spinner",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Drum spinner: Meet it low and let the drum scoop under the bar."
+   ],
+   "cons": [
+    "Game plan for Undercutter: Stay at range and target the drum's wheels rather than its front."
+   ],
+   "notes": "**Favoured:** Drum spinner (~55% confidence).\n\n**Why:** The drum's low front can engage the undercutter's bar and supports, and its bite works even against a low target.\n\n**Drum spinner should:** Meet it low and let the drum scoop under the bar.\n\n**Undercutter should:** Stay at range and target the drum's wheels rather than its front.\n\n**The mistake that loses it:** The undercutter trades head-on with a weapon designed to engage low.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-flipper-vs-horizontal-bar-spinner",
+   "type": "term",
+   "name": "Flipper vs Horizontal bar spinner",
+   "aliases": [
+    "flipper vs horizontal-bar-spinner",
+    "horizontal-bar-spinner vs flipper"
+   ],
+   "summary": "The flipper needs to close and get under, and the bar's reach punishes the approach.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "flipper",
+    "horizontal-bar-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "horizontal-bar-spinner",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Flipper: Time the approach between bar passes and get under in one committed move."
+   ],
+   "cons": [
+    "Game plan for Horizontal bar spinner: Stay at range and hit the flipper arm and wheels during its approach."
+   ],
+   "notes": "**Favoured:** Horizontal bar spinner (~60% confidence).\n\n**Why:** The flipper needs to close and get under, and the bar's reach punishes the approach.\n\n**Flipper should:** Time the approach between bar passes and get under in one committed move.\n\n**Horizontal bar spinner should:** Stay at range and hit the flipper arm and wheels during its approach.\n\n**The mistake that loses it:** The flipper approaches slowly and loses its arm.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-flipper-vs-control-bot",
+   "type": "term",
+   "name": "Flipper vs Control bot",
+   "aliases": [
+    "flipper vs control-bot",
+    "control-bot vs flipper"
+   ],
+   "summary": "A control bot with no weapon has nothing to deter the flipper's approach, and a flip removes its only asset — ground contact.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "flipper",
+    "control-bot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "flipper",
+    "confidence_pct": 65
+   },
+   "pros": [
+    "Game plan for Flipper: Get under and fire. Repeat until the opponent is out or counted out."
+   ],
+   "cons": [
+    "Game plan for Control bot: Stay square and low, deny the arm any gap, and push the flipper into the wall."
+   ],
+   "notes": "**Favoured:** Flipper (~65% confidence).\n\n**Why:** A control bot with no weapon has nothing to deter the flipper's approach, and a flip removes its only asset — ground contact.\n\n**Flipper should:** Get under and fire. Repeat until the opponent is out or counted out.\n\n**Control bot should:** Stay square and low, deny the arm any gap, and push the flipper into the wall.\n\n**The mistake that loses it:** The control bot lets the flipper get a corner underneath.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-flipper-vs-invertible-brick",
+   "type": "term",
+   "name": "Flipper vs Invertible brick",
+   "aliases": [
+    "flipper vs invertible-brick",
+    "invertible-brick vs flipper"
+   ],
+   "summary": "Flipping an invertible robot achieves nothing — it drives away the same either way up.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "flipper",
+    "invertible-brick"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "invertible-brick",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Flipper: Use the flipper for pushouts rather than flips. Aim to put the opponent over the wall or into the pit."
+   ],
+   "cons": [
+    "Game plan for Invertible brick: Ignore the flips entirely and play your normal control game."
+   ],
+   "notes": "**Favoured:** Invertible brick (~60% confidence).\n\n**Why:** Flipping an invertible robot achieves nothing — it drives away the same either way up.\n\n**Flipper should:** Use the flipper for pushouts rather than flips. Aim to put the opponent over the wall or into the pit.\n\n**Invertible brick should:** Ignore the flips entirely and play your normal control game.\n\n**The mistake that loses it:** The flipper keeps flipping an opponent that does not care and banks no points for it.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-grabber-vs-horizontal-bar-spinner",
+   "type": "term",
+   "name": "Grabber vs Horizontal bar spinner",
+   "aliases": [
+    "grabber vs horizontal-bar-spinner",
+    "horizontal-bar-spinner vs grabber"
+   ],
+   "summary": "Once clamped, a horizontal spinner's weapon cannot reach the grabber at all, and its energy becomes useless.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "grabber",
+    "horizontal-bar-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "grabber",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Grabber: Approach from an angle, absorb one hit, clamp and carry."
+   ],
+   "cons": [
+    "Game plan for Horizontal bar spinner: Never let the grabber close. Keep moving and keep the bar between you and the jaws."
+   ],
+   "notes": "**Favoured:** Grabber (~60% confidence).\n\n**Why:** Once clamped, a horizontal spinner's weapon cannot reach the grabber at all, and its energy becomes useless.\n\n**Grabber should:** Approach from an angle, absorb one hit, clamp and carry.\n\n**Horizontal bar spinner should:** Never let the grabber close. Keep moving and keep the bar between you and the jaws.\n\n**The mistake that loses it:** The spinner stops moving to line up a hit and gets grabbed.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-grabber-vs-wedge",
+   "type": "term",
+   "name": "Grabber vs Wedge",
+   "aliases": [
+    "grabber vs wedge",
+    "wedge vs grabber"
+   ],
+   "summary": "A wedge gets under the grabber before the jaws can close, and a lifted grabber cannot grip anything.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "grabber",
+    "wedge"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "wedge",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Grabber: Grab from the side or rear where the wedge's edge does not point at you."
+   ],
+   "cons": [
+    "Game plan for Wedge: Drive straight at the jaws. Your edge gets under before they close."
+   ],
+   "notes": "**Favoured:** Wedge (~60% confidence).\n\n**Why:** A wedge gets under the grabber before the jaws can close, and a lifted grabber cannot grip anything.\n\n**Grabber should:** Grab from the side or rear where the wedge's edge does not point at you.\n\n**Wedge should:** Drive straight at the jaws. Your edge gets under before they close.\n\n**The mistake that loses it:** The grabber meets a wedge head-on with jaws open.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-hammer-vs-control-bot",
+   "type": "term",
+   "name": "Hammer vs Control bot",
+   "aliases": [
+    "hammer vs control-bot",
+    "control-bot vs hammer"
+   ],
+   "summary": "Against an opponent with no weapon, the hammer can close safely and work on the top armour at leisure.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "hammer",
+    "control-bot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "hammer",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Hammer: Close behind your wedge, then strike repeatedly at one spot on the top armour."
+   ],
+   "cons": [
+    "Game plan for Control bot: Stay mobile and push. Never let the hammer settle on top of you."
+   ],
+   "notes": "**Favoured:** Hammer (~60% confidence).\n\n**Why:** Against an opponent with no weapon, the hammer can close safely and work on the top armour at leisure.\n\n**Hammer should:** Close behind your wedge, then strike repeatedly at one spot on the top armour.\n\n**Control bot should:** Stay mobile and push. Never let the hammer settle on top of you.\n\n**The mistake that loses it:** The control bot lets the hammer sit on it and take free swings.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-thwackbot-vs-control-bot",
+   "type": "term",
+   "name": "Thwackbot vs Control bot",
+   "aliases": [
+    "thwackbot vs control-bot",
+    "control-bot vs thwackbot"
+   ],
+   "summary": "The thwackbot's tail outranges a weaponless pushing robot and can damage wheels.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "thwackbot",
+    "control-bot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "thwackbot",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Thwackbot: Use the tail to keep distance and target wheels. Do not let it close."
+   ],
+   "cons": [
+    "Game plan for Control bot: Close inside the tail's arc where it cannot hit you, then push."
+   ],
+   "notes": "**Favoured:** Thwackbot (~55% confidence).\n\n**Why:** The thwackbot's tail outranges a weaponless pushing robot and can damage wheels.\n\n**Thwackbot should:** Use the tail to keep distance and target wheels. Do not let it close.\n\n**Control bot should:** Close inside the tail's arc where it cannot hit you, then push.\n\n**The mistake that loses it:** The control bot stays at exactly tail range.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-multibot-vs-vertical-spinner",
+   "type": "term",
+   "name": "Multibot vs Vertical spinner",
+   "aliases": [
+    "multibot vs vertical-spinner",
+    "vertical-spinner vs multibot"
+   ],
+   "summary": "Each half of a multibot is small and fragile, and a spinner only needs to destroy one at a time.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "multibot",
+    "vertical-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "vertical-spinner",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Multibot: Split the opponents and destroy them sequentially. Never let both engage at once."
+   ],
+   "cons": [
+    "Game plan for Vertical spinner: Pincer from two sides at once so the weapon can only face one robot."
+   ],
+   "notes": "**Favoured:** Vertical spinner (~60% confidence).\n\n**Why:** Each half of a multibot is small and fragile, and a spinner only needs to destroy one at a time.\n\n**Multibot should:** Split the opponents and destroy them sequentially. Never let both engage at once.\n\n**Vertical spinner should:** Pincer from two sides at once so the weapon can only face one robot.\n\n**The mistake that loses it:** The multibot attacks one at a time and gets picked off.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-multibot-vs-wedge",
+   "type": "term",
+   "name": "Multibot vs Wedge",
+   "aliases": [
+    "multibot vs wedge",
+    "wedge vs multibot"
+   ],
+   "summary": "A single wedge can only face one direction; two robots attacking from opposite sides defeat that.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "multibot",
+    "wedge"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "multibot",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Multibot: Attack from both sides simultaneously. One holds the front, the other takes the rear."
+   ],
+   "cons": [
+    "Game plan for Wedge: Isolate one robot against a wall and immobilise it before the other arrives."
+   ],
+   "notes": "**Favoured:** Multibot (~60% confidence).\n\n**Why:** A single wedge can only face one direction; two robots attacking from opposite sides defeat that.\n\n**Multibot should:** Attack from both sides simultaneously. One holds the front, the other takes the rear.\n\n**Wedge should:** Isolate one robot against a wall and immobilise it before the other arrives.\n\n**The mistake that loses it:** The multibot's two robots attack together from the same side.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-armor-bot-vs-vertical-spinner",
+   "type": "term",
+   "name": "Armour bot vs Vertical spinner",
+   "aliases": [
+    "armor-bot vs vertical-spinner",
+    "vertical-spinner vs armor-bot"
+   ],
+   "summary": "A spinner's energy has to go somewhere, and against heavy compliant armour a large share goes back into the spinner.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "armor-bot",
+    "vertical-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "armor-bot",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Armour bot: Present your thickest, most compliant face and let the spinner hurt itself. Survive to the decision."
+   ],
+   "cons": [
+    "Game plan for Vertical spinner: Do not attack the armour. Target wheels and any exposed structure, and win on control instead."
+   ],
+   "notes": "**Favoured:** Armour bot (~55% confidence).\n\n**Why:** A spinner's energy has to go somewhere, and against heavy compliant armour a large share goes back into the spinner.\n\n**Armour bot should:** Present your thickest, most compliant face and let the spinner hurt itself. Survive to the decision.\n\n**Vertical spinner should:** Do not attack the armour. Target wheels and any exposed structure, and win on control instead.\n\n**The mistake that loses it:** The spinner repeatedly hits the strongest part of the armour bot and breaks its own weapon.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-wedge-spinner-hybrid-vs-wedge",
+   "type": "term",
+   "name": "Wedge + spinner hybrid vs Wedge",
+   "aliases": [
+    "wedge-spinner-hybrid vs wedge",
+    "wedge vs wedge-spinner-hybrid"
+   ],
+   "summary": "The hybrid matches the wedge's ground game with its own wedgelets, then adds damage the wedge cannot answer.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "wedge-spinner-hybrid",
+    "wedge"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "wedge-spinner-hybrid",
+    "confidence_pct": 70
+   },
+   "pros": [
+    "Game plan for Wedge + spinner hybrid: Win the edge with your wedgelets, then apply the weapon. You have both tools."
+   ],
+   "cons": [
+    "Game plan for Wedge: Attack from the rear or side, away from the wedgelets, and try to pin."
+   ],
+   "notes": "**Favoured:** Wedge + spinner hybrid (~70% confidence).\n\n**Why:** The hybrid matches the wedge's ground game with its own wedgelets, then adds damage the wedge cannot answer.\n\n**Wedge + spinner hybrid should:** Win the edge with your wedgelets, then apply the weapon. You have both tools.\n\n**Wedge should:** Attack from the rear or side, away from the wedgelets, and try to pin.\n\n**The mistake that loses it:** The wedge engages the hybrid's front, loses the edge contest and then takes weapon hits.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-wedge-spinner-hybrid-vs-undercutter",
+   "type": "term",
+   "name": "Wedge + spinner hybrid vs Undercutter",
+   "aliases": [
+    "wedge-spinner-hybrid vs undercutter",
+    "undercutter vs wedge-spinner-hybrid"
+   ],
+   "summary": "The hybrid's advantage is its wedgelets, and the undercutter attacks below exactly that line.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "wedge-spinner-hybrid",
+    "undercutter"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "undercutter",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Wedge + spinner hybrid: Rush before the bar is up, or force it to chase you and drain its energy."
+   ],
+   "cons": [
+    "Game plan for Undercutter: Target the wedgelets and wheels, which sit in your strike zone."
+   ],
+   "notes": "**Favoured:** Undercutter (~55% confidence).\n\n**Why:** The hybrid's advantage is its wedgelets, and the undercutter attacks below exactly that line.\n\n**Wedge + spinner hybrid should:** Rush before the bar is up, or force it to chase you and drain its energy.\n\n**Undercutter should:** Target the wedgelets and wheels, which sit in your strike zone.\n\n**The mistake that loses it:** The hybrid assumes its wedgelets protect it and drives straight in.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-melty-brain-vs-wedge",
+   "type": "term",
+   "name": "Melty brain vs Wedge",
+   "aliases": [
+    "melty-brain vs wedge",
+    "wedge vs melty-brain"
+   ],
+   "summary": "The melty presents a spinning face from every direction, so the wedge has no safe approach angle.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "melty-brain",
+    "wedge"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "melty-brain",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Melty brain: Keep spinning and translate into the wedge's side."
+   ],
+   "cons": [
+    "Game plan for Wedge: Rush it during translation, when it is slow and predictable."
+   ],
+   "notes": "**Favoured:** Melty brain (~55% confidence).\n\n**Why:** The melty presents a spinning face from every direction, so the wedge has no safe approach angle.\n\n**Melty brain should:** Keep spinning and translate into the wedge's side.\n\n**Wedge should:** Rush it during translation, when it is slow and predictable.\n\n**The mistake that loses it:** The melty stops spinning to reposition and gets wedged.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-beater-bar-vs-control-bot",
+   "type": "term",
+   "name": "Beater bar vs Control bot",
+   "aliases": [
+    "beater-bar vs control-bot",
+    "control-bot vs beater-bar"
+   ],
+   "summary": "Even a modest beater bar accumulates damage that a weaponless robot cannot answer.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "beater-bar",
+    "control-bot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "beater-bar",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Beater bar: Engage often. Your weapon is weak but the opponent has none."
+   ],
+   "cons": [
+    "Game plan for Control bot: Pin early and keep the bar against a wall where it cannot spin freely."
+   ],
+   "notes": "**Favoured:** Beater bar (~60% confidence).\n\n**Why:** Even a modest beater bar accumulates damage that a weaponless robot cannot answer.\n\n**Beater bar should:** Engage often. Your weapon is weak but the opponent has none.\n\n**Control bot should:** Pin early and keep the bar against a wall where it cannot spin freely.\n\n**The mistake that loses it:** The control bot trades space for time and lets the bar keep hitting.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-beater-bar-vs-vertical-spinner",
+   "type": "term",
+   "name": "Beater bar vs Vertical spinner",
+   "aliases": [
+    "beater-bar vs vertical-spinner",
+    "vertical-spinner vs beater-bar"
+   ],
+   "summary": "Same damage vector, far more energy on the vertical spinner's side.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "beater-bar",
+    "vertical-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "vertical-spinner",
+    "confidence_pct": 70
+   },
+   "pros": [
+    "Game plan for Beater bar: Avoid the head-on exchange entirely; play for control and pushouts."
+   ],
+   "cons": [
+    "Game plan for Vertical spinner: Take the head-on exchange — you win it on energy."
+   ],
+   "notes": "**Favoured:** Vertical spinner (~70% confidence).\n\n**Why:** Same damage vector, far more energy on the vertical spinner's side.\n\n**Beater bar should:** Avoid the head-on exchange entirely; play for control and pushouts.\n\n**Vertical spinner should:** Take the head-on exchange — you win it on energy.\n\n**The mistake that loses it:** The beater bar trades directly with a much higher-energy weapon.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-shell-spinner-vs-control-bot",
+   "type": "term",
+   "name": "Shell spinner vs Control bot",
+   "aliases": [
+    "shell-spinner vs control-bot",
+    "control-bot vs shell-spinner"
+   ],
+   "summary": "There is no safe angle to push a shell spinner from, and its energy is enormous.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "shell-spinner",
+    "control-bot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "shell-spinner",
+    "confidence_pct": 70
+   },
+   "pros": [
+    "Game plan for Shell spinner: Stay at speed. Any contact from any direction is a hit."
+   ],
+   "cons": [
+    "Game plan for Control bot: Attack only when the shell is spinning down, and aim for a pushout."
+   ],
+   "notes": "**Favoured:** Shell spinner (~70% confidence).\n\n**Why:** There is no safe angle to push a shell spinner from, and its energy is enormous.\n\n**Shell spinner should:** Stay at speed. Any contact from any direction is a hit.\n\n**Control bot should:** Attack only when the shell is spinning down, and aim for a pushout.\n\n**The mistake that loses it:** The control bot tries to push a shell spinner at full speed.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-lifter-vs-vertical-spinner",
+   "type": "term",
+   "name": "Lifter vs Vertical spinner",
+   "aliases": [
+    "lifter vs vertical-spinner",
+    "vertical-spinner vs lifter"
+   ],
+   "summary": "The lifter must get under to work, and the approach exposes its arm to the weapon.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "lifter",
+    "vertical-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "vertical-spinner",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Lifter: Protect the arm. Get under from an angle and lift before the weapon engages."
+   ],
+   "cons": [
+    "Game plan for Vertical spinner: Keep the weapon facing the lifter's front and punish the approach."
+   ],
+   "notes": "**Favoured:** Vertical spinner (~60% confidence).\n\n**Why:** The lifter must get under to work, and the approach exposes its arm to the weapon.\n\n**Lifter should:** Protect the arm. Get under from an angle and lift before the weapon engages.\n\n**Vertical spinner should:** Keep the weapon facing the lifter's front and punish the approach.\n\n**The mistake that loses it:** The lifter approaches with its arm raised and loses it.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-lifter-vs-horizontal-bar-spinner",
+   "type": "term",
+   "name": "Lifter vs Horizontal bar spinner",
+   "aliases": [
+    "lifter vs horizontal-bar-spinner",
+    "horizontal-bar-spinner vs lifter"
+   ],
+   "summary": "A lifter with a wedge-quality edge gets under the sweep, then carries the spinner where it likes.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "lifter",
+    "horizontal-bar-spinner"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "lifter",
+    "confidence_pct": 60
+   },
+   "pros": [
+    "Game plan for Lifter: Get under, lift, and carry to the wall. A lifted spinner has no traction."
+   ],
+   "cons": [
+    "Game plan for Horizontal bar spinner: Stay at range and target the lifter's arm and wheels."
+   ],
+   "notes": "**Favoured:** Lifter (~60% confidence).\n\n**Why:** A lifter with a wedge-quality edge gets under the sweep, then carries the spinner where it likes.\n\n**Lifter should:** Get under, lift, and carry to the wall. A lifted spinner has no traction.\n\n**Horizontal bar spinner should:** Stay at range and target the lifter's arm and wheels.\n\n**The mistake that loses it:** The horizontal lets the lifter approach square-on.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "matchup-rammer-vs-control-bot",
+   "type": "term",
+   "name": "Rammer vs Control bot",
+   "aliases": [
+    "rammer vs control-bot",
+    "control-bot vs rammer"
+   ],
+   "summary": "Two weaponless robots — the one with better traction, edge and driving wins.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "matchup",
+    "strategy",
+    "rammer",
+    "control-bot"
+   ],
+   "category": "matchup",
+   "specs": {
+    "favoured": "control-bot",
+    "confidence_pct": 55
+   },
+   "pros": [
+    "Game plan for Rammer: Commit to pushouts and use momentum on the approach."
+   ],
+   "cons": [
+    "Game plan for Control bot: Win the edge and out-drive. You do not need to out-muscle."
+   ],
+   "notes": "**Favoured:** Control bot (~55% confidence).\n\n**Why:** Two weaponless robots — the one with better traction, edge and driving wins.\n\n**Rammer should:** Commit to pushouts and use momentum on the approach.\n\n**Control bot should:** Win the edge and out-drive. You do not need to out-muscle.\n\n**The mistake that loses it:** Relying on momentum against a robot that simply wedges you.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "term-judging-criteria",
+   "type": "term",
+   "name": "Judging Criteria",
+   "aliases": [],
+   "summary": "When a match goes the distance, judges score it — usually on damage, aggression and control.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "strategy"
+   ],
+   "category": "strategy",
+   "notes": "Most rulesets weight damage most heavily, then aggression, then control, though the exact split varies by organisation. Practical consequences: a robot that lands two clean hits and then hides often beats one that pushed for three minutes without damaging anything; conversely a control robot that pins, carries and dominates position can beat a spinner that missed all match. Know your event's published split before you plan a strategy around it.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "term-driving-practice",
+   "type": "term",
+   "name": "Driving Practice",
+   "aliases": [],
+   "summary": "Deliberate practice at driving, which decides more antweight matches than design does.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "strategy"
+   ],
+   "category": "strategy",
+   "notes": "The highest-value drills: driving a figure-eight without touching walls; driving the same course inverted; driving with one side disabled (unplug a motor); approaching a stationary target from an angle rather than head-on; and practising the first three seconds of a match over and over, because box rushes decide a surprising share of outcomes. Twenty minutes a week beats any component upgrade you can buy.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "term-scouting",
+   "type": "term",
+   "name": "Scouting",
+   "aliases": [],
+   "summary": "Watching your bracket before you fight it, and adapting your configuration.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "strategy"
+   ],
+   "category": "strategy",
+   "notes": "At a one-day antweight event you can usually watch every opponent before you meet them. Note their weapon spin-up time, whether they are invertible, which side their weakest armour is on, and whether they drive well. A configuration swap — different wedge, different wheels, weapon removed for a control match — is legal at most events between matches and is often worth more than any in-match adjustment.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "term-configuration-swap",
+   "type": "term",
+   "name": "Configuration Swap",
+   "aliases": [],
+   "summary": "Changing the robot between matches to counter a specific opponent.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "strategy"
+   ],
+   "category": "strategy",
+   "notes": "Common antweight swaps: fitting a taller wedge against an undercutter, switching to grippier wheels for a pushing match, removing a weapon to add armour against a much stronger spinner, or swapping a two-tooth disc for a one-tooth to increase bite against thick armour. Confirm the event allows it and that every configuration passes weigh-in.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "term-pit-repair",
+   "type": "term",
+   "name": "Pit Repair",
+   "aliases": [],
+   "summary": "Fixing a robot between matches, usually with far less time than you want.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "strategy"
+   ],
+   "category": "strategy",
+   "notes": "The realistic window at a busy event is ten to twenty minutes. That is enough to swap a wheel, replace a weapon, re-solder a wire, change a battery or straighten a wedge. It is not enough to re-print a chassis or rebuild a gearbox. Design for it: modular bolt-on armour, spare weapons already balanced, and pre-made wiring harnesses.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "term-weigh-in",
+   "type": "term",
+   "name": "Weigh-In",
+   "aliases": [],
+   "summary": "The check that your robot is inside the class weight limit.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "strategy"
+   ],
+   "category": "strategy",
+   "notes": "Antweight is 454 g. Weigh on your own scale before you travel and again at the event, because event scales are the ones that count and they disagree with yours. Build to about 445 g so you have margin for threadlocker, tape, and the bolt you add in the pits. Being overweight at check-in is one of the commonest ways to lose a match without fighting.",
+   "confidence": "high",
+   "sources": [
+    "domain knowledge"
+   ]
+  }
+ ],
+ "chunks": [
+  {
+   "id": "chunk-driving-beats-design",
+   "title": "Why driving beats design at antweight",
+   "section": "Driving",
+   "body_md": "The single most common mistake a new antweight builder makes is believing the robot decides the match. At 1 lb it mostly does not. Here is why.\n\n**The robots are close in capability.** Antweight is a mature class with well-known parts. Most competitive robots in a bracket have similar motors, similar batteries and similar energy. The spread in driver skill is far wider than the spread in robot quality.\n\n**Engagement is a driving problem.** Bite depends on closing speed. Getting under depends on approach angle. Avoiding a horizontal's sweep depends on timing. Every one of those is the driver, not the robot.\n\n**Matches are decided in the first five seconds.** The box rush — charging before the opponent's weapon is up — wins an enormous share of antweight matches, and both executing it and defending it are pure driving.\n\n**Damaged robots still drive.** A robot that has lost its weapon can still win on control if the driver knows how. A robot with a dead side can still be driven in circles well enough to survive to a decision. Both require practice you can only get by driving.\n\nWhat to actually practise, in order of value:\n\n1. **The first three seconds.** Set up, count down, and execute your opening. Do it fifty times.\n2. **Driving inverted.** Flip the robot over and drive the same course. Use your transmitter's invert switch so the controls make sense.\n3. **Angled approaches.** Never drive straight at anything. Practise arriving at 30-45 degrees, which is where bite and wedge geometry both favour you.\n4. **One side dead.** Unplug a drive motor and learn to steer on one side. You will need this.\n5. **Wall work.** Pinning, carrying and pushing out all use the arena. Learn where the walls help you.\n\nA cheap robot with a practised driver beats an expensive robot with an unpractised one, reliably, at this weight class.",
+   "entity_refs": [
+    "term-driving-practice",
+    "term-box-rush"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "driving",
+    "strategy",
+    "getting-started"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-box-rush",
+   "title": "The box rush: executing it and defending it",
+   "section": "Driving",
+   "body_md": "The box rush is charging the opponent the instant the match starts, before their weapon reaches speed. It is the highest-value opening in antweight because spinners are helpless during spin-up and spin-up takes seconds.\n\n**Executing one.** You need a robot that is dangerous immediately — a wedge, a control bot, or a spinner with a very short spin-up. Line up square to the opponent, commit fully on the count, and aim to arrive under them before their weapon is useful. Against a spinner, getting under it during spin-up often wins the match outright: you pin it, it never spins up, and you bank three minutes of control.\n\n**Defending one.** Several layers, use as many as apply:\n\n- **Spin up before the count** if your event's rules allow it. Many do. This removes the entire vulnerability.\n- **Start at an angle,** not square on. A rushing opponent has to change direction to reach you, and changing direction costs them speed.\n- **Reverse off the line.** Backing away buys a second of spin-up and forces the rusher to cross the arena again.\n- **Build a safe front.** If your robot's front face is safe to be hit at any weapon speed — thick armour, wedgelets, nothing fragile exposed — a box rush costs you position rather than the match.\n- **Shorten your spin-up.** This is a design fix: less weapon inertia, more motor torque, higher cell count. A weapon that is up in one second cannot be box-rushed meaningfully.\n\n**The judgement call.** If you are a spinner facing a known rusher, the question is whether to meet them or run. Generally: run. Reversing and circling while your weapon comes up costs you a few control points and preserves your entire game plan. Meeting a rush at half weapon speed loses the weapon.",
+   "entity_refs": [
+    "term-box-rush",
+    "term-spin-up-time"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "driving",
+    "strategy"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-meta-why-hybrid",
+   "title": "Why the wedge-plus-spinner hybrid dominates",
+   "section": "Meta",
+   "body_md": "Modern competitive antweight converges on one configuration: a vertical spinner or drum with low hinged wedgelets flanking the weapon. The reason is a rock-paper-scissors that does not quite close.\n\nStart with the three pure archetypes:\n\n- **Vertical spinners beat control bots.** Upward damage is unanswerable by a robot with no weapon.\n- **Wedges beat horizontal spinners.** The bar sweeps over a floor-contacting edge while the wedge lifts them.\n- **Horizontal spinners beat vertical spinners.** Reach and sweep attack the vertical's exposed weapon and wheels.\n\nIf that were the whole picture the class would cycle. It does not, because of one asymmetry: **a wedge can be bolted onto a spinner, but a spinner cannot be bolted onto a wedge.** Wedgelets cost 20-30 grams and no weapon-system complexity. A weapon costs 30% of the weight budget plus an ESC plus battery load.\n\nSo the stable equilibrium is the archetype that carries both: it wins the ground game against wedges and control bots, and it carries enough damage to beat them, while still having a weapon for anything else.\n\n**What actually counters it.** Two things:\n\n- **The undercutter,** which strikes below the wedgelet line. This is the principled counter — it attacks exactly the component that makes the hybrid strong. The reason it has not taken over is that running a bar a few millimetres off the floor, and keeping it there after impacts, is genuinely difficult.\n- **The grabber,** which neutralises any weapon once clamped. The reason it has not taken over is that closing on a live weapon with jaws open rarely works.\n\nBoth counters are hard to build. That is why the hybrid is stable rather than just currently popular. If someone solves undercutter ground-clearance robustness at 1 lb, the meta moves.",
+   "entity_refs": [
+    "archetype-wedge-spinner-hybrid",
+    "archetype-undercutter",
+    "archetype-grabber"
+   ],
+   "weight_classes": [
+    "antweight"
+   ],
+   "tags": [
+    "meta",
+    "strategy"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-winning-decisions",
+   "title": "Winning a decision you did not dominate",
+   "section": "Strategy",
+   "body_md": "Most antweight matches that do not end in a knockout end in a judges' decision, and decisions are winnable by design as well as by performance.\n\n**Understand the split.** Most rulesets score damage, aggression and control, with damage weighted heaviest. Check your event's published weighting — it varies, and a control-heavy ruleset changes your whole strategy.\n\n**Damage is what the judges saw.** A hit that visibly removes a panel, bends a weapon or stops a wheel scores. A hit that dents armour invisibly does not. If you are a spinner, aim for things that come off: wedgelets, armour panels, wheels. Visible damage is scored damage.\n\n**Aggression means initiating, not flailing.** Judges reward the robot that goes forward and makes the match happen. Spinning in place waiting to be approached scores badly even if it is tactically sound. If you must play defensively, at least drive toward the opponent between engagements.\n\n**Control means the match went where you wanted.** Pins, carries, pushing the opponent into hazards, and controlling the centre of the arena all count. A control bot that carries the opponent around for three minutes has a real case even with no damage.\n\n**Practical tactics for a close decision:**\n\n- **Finish strong.** Judges remember the last thirty seconds disproportionately. If you are unsure, be aggressive at the end.\n- **Do not hide.** Running away for the last minute loses more decisions than it saves robots — unless you are protecting a robot that needs to survive to the next round, which is a legitimate tournament trade.\n- **Make your damage visible.** Hitting the same spot repeatedly produces one obvious failure rather than five invisible dents.\n- **Do not argue with judges.** It has never worked and it affects how you are treated next time.\n\nThe meta-point: if you build a robot with no damage output, you have chosen to win every close match on aggression and control. That is possible, but it means you must drive forward constantly.",
+   "entity_refs": [
+    "term-judging-criteria"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "strategy",
+    "rules"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-first-event",
+   "title": "Your first event: what to bring and what happens",
+   "section": "Events",
+   "body_md": "**Before you go.** Weigh the robot on your own scale and build to about 445 g, not 454 g. Set and test your failsafe. Fit a weapon lock. Charge every battery and bring them at storage voltage if you are travelling. Print or bookmark the event's ruleset.\n\n**What to pack.** The list that actually matters:\n\n- Spare weapon, already balanced\n- Spare wheels and hubs\n- Spare battery, at least two, ideally four\n- The exact drivers and hex keys your robot uses, plus spares of the sizes that strip\n- Soldering iron, solder, heat-shrink, wire\n- Threadlocker (blue), superglue, zip ties, electrical tape\n- Spare fasteners in every size the robot uses\n- Multimeter\n- Your transmitter, its charger, and a spare receiver if you have one\n- LiPo-safe bag\n- Spare printed parts if it is a plastic ant — print a whole spare chassis\n\n**What happens on the day.** You arrive, check in, and go to safety inspection. The inspector will check weight, the removable link or power switch, the weapon lock, and your failsafe — they will usually ask you to power up, then turn the transmitter off, and watch that everything stops. Then you wait, fight your matches with variable amounts of warning, and repair between them.\n\n**What actually goes wrong for first-timers:** overweight at check-in; no failsafe set; no weapon lock; a battery that was not charged; a transmitter that was not bound to the right model memory; and forgetting a tool that only fits one fastener on the robot.\n\n**What to expect of yourself.** You will probably lose. Almost everyone does at their first event, and the robots that win have usually been to several. The value is in watching what breaks, seeing what the good robots do differently, and talking to other builders — who are, almost universally, generous with help and spare parts.",
+   "entity_refs": [
+    "term-weigh-in",
+    "term-pit-repair"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "events",
+    "getting-started"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-non-weapon-losses",
+   "title": "The ways antweights lose that have nothing to do with the weapon",
+   "section": "Reliability",
+   "body_md": "Track why robots actually lose at an antweight event and the weapon is rarely the story. In rough order of frequency:\n\n**A fastener came loose.** Vibration from any spinning weapon backs bolts out. The robot does not explode; a wheel gets loose, a motor mount shifts, and suddenly it drives in circles. Fix: blue threadlocker on everything, and a torque check between every match.\n\n**The battery was not charged.** The robot works in the pits, dies in the arena. Fix: a charging routine and more packs than you think you need.\n\n**The failsafe tripped.** Interference or a momentary signal loss stops the robot mid-match, and it counts out. Fix: proper antenna placement away from metal and from the battery, and a receiver that is not sharing a sagging power rail with the weapon.\n\n**Brownout on impact.** The first hit causes a voltage dip, the receiver resets, and the robot is dead for the two seconds that decide the match. Fix: a capacitor across the battery leads, a separate BEC for the receiver, and connectors that cannot shake apart.\n\n**A wheel came off.** Set screws on a smooth shaft back out. Fix: flat the shaft, use threadlocker, or use a positive retention method.\n\n**High-sided.** The robot ends up balanced on an edge with the wheels off the floor, and is counted out undamaged. Fix: wheels that protrude beyond the chassis, low centre of gravity.\n\n**Overweight at check-in.** No match at all. Fix: build to 445 g.\n\n**A wire broke at a solder joint.** Vibration concentrates at the joint. Fix: strain relief, and hot glue over every joint.\n\nThe pattern: almost all of these are preventable with maintenance discipline rather than better design. A checklist run between every match — check fasteners, check the link, check the battery, check the wedge edge is straight, wiggle every connector — prevents most of them and takes three minutes.",
+   "entity_refs": [
+    "term-high-siding",
+    "term-weigh-in",
+    "term-pit-repair"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "reliability",
+    "strategy"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-improve-fastest",
+   "title": "How to improve fastest as a new builder",
+   "section": "Getting started",
+   "body_md": "An honest ordering of what actually makes you better, from highest return to lowest.\n\n**1. Go to an event, even without a robot.** One day of watching the pits teaches more than a month of reading. You will see what breaks, how people fix it, and how much of the sport is driving.\n\n**2. Finish a simple robot and fight it.** A control bot or a beater bar that survives every match teaches you more than an ambitious spinner that fails inspection. Completion beats sophistication for the first build.\n\n**3. Drive deliberately.** Twenty minutes a week of structured practice — the opening three seconds, inverted driving, angled approaches, one side dead — is worth more than any component upgrade.\n\n**4. Fix the thing that broke, properly.** After each event, find the actual root cause rather than the symptom. A wheel that fell off twice is a retention design problem, not a tightening problem.\n\n**5. Copy a good design and understand why it works.** The antweight community shares designs freely. Building a proven design teaches you the reasoning; the mistake is copying without understanding, because you cannot then repair or adapt it.\n\n**6. Learn the maths for the decisions that matter.** You do not need all of it. You need: tip speed and kinetic energy (is my weapon worth anything), spin-up time (will I be box-rushed), traction limit (is more gearing pointless), and the weight budget (what am I actually spending grams on).\n\n**7. Then optimise components.** Better motors and better materials are real but they are the last 10%, and they only pay off once the robot reliably finishes matches.\n\nThe single most common failure mode for new builders is inverting this list: starting with an ambitious design and expensive parts, never finishing it, and never getting the driving practice that would have mattered most.",
+   "entity_refs": [
+    "term-driving-practice",
+    "archetype-control-bot"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "getting-started",
+    "strategy"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-arena-control",
+   "title": "Using the arena",
+   "section": "Driving",
+   "body_md": "The arena is a weapon that costs no weight. Most antweight drivers under-use it.\n\n**Walls.** A robot held against a wall cannot manoeuvre, cannot spin up properly, and often cannot escape. Pinning against a wall is the highest-value control action available to a weaponless robot, and it stops a spinner's weapon from being useful. Learn where the walls are without looking at them.\n\n**Corners.** A corner is better than a wall because the opponent loses two escape directions. Driving an opponent into a corner and holding them is close to a win on control.\n\n**Pushouts, where the ruleset allows them.** Not every arena has them. Where one exists, a control robot can win in seconds against anything. Check before the event whether your arena has a pushout rule and how low the wall is.\n\n**Hazards and the pit.** Where present, these convert a control advantage into an immediate win. A grabber or lifter that can carry an opponent should be aiming at the pit from the first second.\n\n**The floor.** Arena floors are not perfectly flat. Seams, dents and paint changes all affect a low wedge or an undercutter. Walk the arena before your match if you are allowed, and notice where the floor is bad — then fight your opponent over that spot.\n\n**Your own position.** Avoid fighting with your back to a wall against a pushing robot; you have nowhere to retreat and no room to build speed. Equally, do not sit in the centre against a spinner — you have no wall to use and they have every approach angle.\n\nA practical drill: in practice, drive the perimeter of your arena in both directions, inverted and upright, until you can do it without looking away from the robot. Wall awareness is a skill and it transfers directly into match control.",
+   "entity_refs": [
+    "term-pushout"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "driving",
+    "strategy"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-plastic-vs-metal-meta",
+   "title": "How the plastic ant meta differs",
+   "section": "Meta",
+   "body_md": "Plastic antweight is not just metal antweight with worse materials. The constraint changes which strategies win.\n\n**Damage is harder, so more matches go to decisions.** A printed weapon delivers impulse rather than cutting. It knocks robots around and breaks printed parts by shock, but it rarely removes a component cleanly. The practical result is that a larger share of plastic ant matches are decided by judges, which raises the value of aggression and control relative to raw weapon energy.\n\n**Control archetypes are proportionally stronger.** A well-driven plastic wedge or control bot is more competitive against a plastic spinner than its metal equivalent would be, because the spinner cannot reliably convert engagement into a knockout.\n\n**Compliance beats hardness.** In metal ant you armour with titanium or UHMW and rely on strength. In plastic ant, TPU armour wins — a flexible panel spreads impact over time and springs back where a rigid PLA panel cracks. Designs that deliberately flex outperform designs that resist.\n\n**Weapons are consumables.** A printed weapon that takes a hard hit fails at the layer lines. This is fine and is arguably the point of the class: print three, bring all three. It shifts design toward fast-to-reprint weapons rather than precious ones, and it makes pit repair a printing question rather than a machining one.\n\n**Horizontal spinners get worse.** Their recoil problem is unchanged while their ability to convert that recoil into damage is reduced. Vertical spinners and drums dominate more completely than in metal ant.\n\n**Spin-up matters more, not less.** Printed weapons are lighter for their size, which shortens spin-up — but the motors available in the class are often smaller too. Box rushes remain decisive.\n\n**One rules caveat.** Organisations disagree about post-processing. SPARC's plastic class explicitly bans annealing, acetone smoothing and boiling as durability-enhancing treatments; some other events permit them. The same weapon can be legal at one event and illegal at another, so confirm before you print.",
+   "entity_refs": [
+    "archetype-wedge",
+    "archetype-drum-spinner"
+   ],
+   "weight_classes": [
+    "plastic-antweight"
+   ],
+   "tags": [
+    "meta",
+    "plastic-ant"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  },
+  {
+   "id": "chunk-tournament-strategy",
+   "title": "Tournament strategy across a bracket",
+   "section": "Strategy",
+   "body_md": "A single match and a whole bracket call for different decisions.\n\n**Your robot has to survive the day, not the match.** A robot destroyed winning round one is worth less than a robot that tapped out and fought three more times. Tapping out is a legitimate strategic tool, and most rulesets provide for it. If you are clearly losing and the robot is being destroyed, conceding preserves it.\n\n**Know the format.** Double elimination means an early loss is survivable and you should take risks less readily in the losers' bracket, where one more loss ends your day. Round-robin means every match counts equally and consistency beats brilliance. A single-elimination bracket means a conservative, reliable robot is worth more than a fragile high-damage one.\n\n**Manage your spares across the day.** If you have one spare weapon and five matches, do not use it in round one because the weapon is slightly bent. Triage: fix what stops the robot working, live with what is merely ugly.\n\n**Scout your side of the bracket.** You can usually see two rounds ahead. If your likely next opponent is a horizontal spinner and you have a taller wedge in the pit, fit it before that match rather than during it.\n\n**Battery discipline.** Rotate packs so every match starts on a full one and nothing gets deep-discharged. Label them. This sounds trivial and it decides matches.\n\n**Pace yourself.** Events run long, pits are hot, and mistakes made at hour eight are the ones that lose brackets. Eat, drink water, and do your between-match checklist even when you are tired — especially then.\n\n**The conservative option is usually right.** At antweight, the robot that reliably finishes matches accumulates wins against flashier opponents that break. Across a full bracket, reliability compounds.",
+   "entity_refs": [
+    "term-tapout",
+    "term-configuration-swap",
+    "term-scouting"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "strategy",
+    "events"
+   ],
+   "sources": [
+    "domain knowledge"
+   ]
+  }
+ ]
+}

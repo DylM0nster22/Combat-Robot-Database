@@ -409,6 +409,42 @@ class TestBuiltDatabase(unittest.TestCase):
             self.assertGreater(resolved / total, 0.8,
                                f"only {resolved}/{total} archetype references resolve")
 
+    def test_matchup_returns_only_records_about_both_archetypes(self):
+        """A loose full-text match would surface an unrelated pairing and
+        present it as the answer, which is worse than returning nothing."""
+        rows = self.db.conn.execute(
+            "SELECT id, tags FROM entities WHERE id LIKE 'matchup-%' LIMIT 1").fetchall()
+        if not rows:
+            self.skipTest("no matchup records in database")
+        import json as _json
+        tags = [t for t in _json.loads(rows[0]["tags"]) if t != "matchup" and t != "strategy"]
+        if len(tags) < 2:
+            self.skipTest("matchup record has no archetype tags")
+        a, b = tags[0], tags[1]
+        result = self.db.matchup(a, b)
+        self.assertTrue(result["matchup_records"], f"{a} vs {b} found no record")
+        for record in result["matchup_records"]:
+            blob = (record["id"] + " " + " ".join(record.get("tags", []))).lower()
+            self.assertIn(a, blob)
+            self.assertIn(b, blob)
+
+    def test_matchup_prefers_stored_verdict(self):
+        rows = self.db.conn.execute(
+            "SELECT id, tags, specs FROM entities WHERE id LIKE 'matchup-%'"
+            " AND specs LIKE '%favoured%' LIMIT 1").fetchall()
+        if not rows:
+            self.skipTest("no matchup record carries a verdict")
+        import json as _json
+        tags = [t for t in _json.loads(rows[0]["tags"]) if t not in ("matchup", "strategy")]
+        result = self.db.matchup(tags[0], tags[1])
+        self.assertIn("favoured", result["heuristic_verdict"])
+        self.assertNotIn("No stored verdict", result["heuristic_verdict"])
+
+    def test_matchup_of_unrelated_pair_returns_no_false_record(self):
+        result = self.db.matchup("definitely-not-an-archetype-x",
+                                 "definitely-not-an-archetype-y")
+        self.assertEqual(result["matchup_records"], [])
+
     def test_build_guide_returns_all_sections(self):
         guide = self.db.build_guide("antweight")
         for key in ("drive_motors", "weapon_motors", "batteries", "guidance"):
