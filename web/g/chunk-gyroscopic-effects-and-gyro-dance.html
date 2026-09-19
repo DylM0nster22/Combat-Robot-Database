@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gyroscopic effects on a spinner-weapon chassis, and predicting &#x27;gyro dance&#x27; — Combat Robot Database</title>
+<meta name="description" content="A spinning weapon carries angular momentum along its own spin axis. When the chassis carrying that weapon is itself rotated (yawed) by the drivetrain -- turning">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Gyroscopic effects on a spinner-weapon chassis, and predicting &#x27;gyro dance&#x27;</div>
+<h1 class="page">Gyroscopic effects on a spinner-weapon chassis, and predicting &#x27;gyro dance&#x27;</h1>
+<p class="page-sub">Gyroscopic Fundamentals</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">gyroscopic</span><span class="pill">precession</span><span class="pill">vertical-spinner</span><span class="pill">chassis-stability</span><span class="pill">fundamentals</span></div>
+<div class="two-col">
+  <div class="prose"><p>A spinning weapon carries angular momentum along its own spin axis. When the chassis carrying that weapon is itself rotated (yawed) by the drivetrain -- turning in place, or even just cornering hard -- that angular momentum reacts via gyroscopic precession, producing a torque about a THIRD axis, perpendicular to both the weapon spin axis and the turn axis. In a vertical spinner (weapon axis roughly horizontal, side to side), turning the chassis produces a precession torque that tries to pitch the front or back of the robot up -- the visible &quot;gyro dance&quot; or &quot;gyro wobble&quot; many builders describe.</p>
+<p><strong>The core relation</strong> is <code>formula-gyroscopic-precession-torque</code>: tau_precession = I <em> omega_weapon </em> omega_turn. Precession torque scales directly (linearly) with all three of weapon inertia, weapon speed, AND how fast the driver yaws the chassis -- meaning a robot that feels perfectly planted driving straight, or even turning gently, can suddenly start rocking the instant the driver spins hard in place at full weapon RPM.</p>
+<p><strong>Comparing against the chassis&#x27;s own resistance to tipping</strong> (<code>formula-tipping-moment-threshold</code>, M_tip = W <em> track_width/2) tells you whether a given turn rate is actually going to destabilize the robot. In the worked example (I = 3.25e-5 kg</em>m^2, weapon at 20,000 rpm, 454 g chassis with a 90 mm track), a fairly modest 3 rad/s (~0.5 rev/s) in-place turn rate produces 0.204 N<em>m of precession torque against a 0.200 N</em>m tipping threshold -- meaning this specific robot is right at its tipping edge at that turn rate and weapon speed.</p>
+<p><strong>Predicting the safe limit directly</strong> (<code>formula-max-safe-turn-rate-gyro</code>): rearranging for the maximum safe turn rate gives omega_turn_max = M_tip/(I*omega_weapon) = 2.94 rad/s (~169 deg/s) for this example -- a concrete number a driver or an autonomous turn-rate limiter can be tuned against.</p>
+<p><strong>Practical mitigations</strong> informed by these formulas: widen the track/wheelbase (raises M_tip), lower the CG (raises the tipping angle per <code>formula-cg-tipping-angle</code>, giving more margin at the same M_tip), reduce weapon MOI or top speed if turning agility matters more than raw hitting power, or simply train the driver to turn in wide arcs rather than spinning in place whenever the weapon is at speed.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-cg-tipping-angle.html">Tipping angle from CG height and track/wheelbase</a></li><li><a href="../e/formula-gyroscopic-precession-torque.html">Gyroscopic precession torque from turning while the weapon spins</a></li><li><a href="../e/formula-max-safe-turn-rate-gyro.html">Predicting the maximum safe turn rate before gyro-dance tipping</a></li><li><a href="../e/formula-tipping-moment-threshold.html">Tipping-moment threshold for a 1 lb chassis</a></li><li><a href="../e/term-gyroscopic-precession.html">Gyroscopic precession</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sanity-check numbers every antweight should hit — Combat Robot Database</title>
+<meta name="description" content="A quick set of realistic target ranges to check any new 1 lb design against, before committing to parts.
+
+| Metric | Typical metal-weapon spinner | Typical plas">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Sanity-check numbers every antweight should hit</div>
+<h1 class="page">Sanity-check numbers every antweight should hit</h1>
+<p class="page-sub">Reference Ranges</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">sanity-check</span><span class="pill">reference-ranges</span><span class="pill">vertical-spinner</span><span class="pill">plastic-antweight</span></div>
+<div class="two-col">
+  <div class="prose"><p>A quick set of realistic target ranges to check any new 1 lb design against, before committing to parts.</p>
+<table><thead><tr><th>Metric</th><th>Typical metal-weapon spinner</th><th>Typical plastic-antweight</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Weapon tip speed</td><td>100-200+ ft/s (30-60+ m/s)</td><td>60-100 ft/s (18-30 m/s)</td><td>Higher isn&#x27;t always better once structural survival is the limit</td></tr>
+<tr><td>Stored weapon KE</td><td>20-80 J (some builds 100 J+)</td><td>2-10 J</td><td>Use <code>formula-rotational-ke</code>; energy scales with the SQUARE of speed, so doubling rpm quadruples KE</td></tr>
+<tr><td>Drivetrain top speed</td><td>0.6-1.5 m/s (2-5 ft/s)</td><td>0.6-1.5 m/s</td><td>Faster control bots can push 2+ m/s but trade off pushing torque and precision</td></tr>
+<tr><td>Weapon spin-up time</td><td>0.5-3 s (direct/lightly-geared)</td><td>0.5-2 s</td><td>Large slow high-inertia drums can run 5-10 s+, a real tactical liability</td></tr>
+<tr><td>Run time on a 300 mAh pack</td><td>~2-6 minutes depending on average current draw</td><td>~3-8 minutes (lower average current)</td><td>A typical fight runs 2-3 minutes, so margin matters more than max theoretical runtime</td></tr>
+<tr><td>Weight budget: weapon system</td><td>25-40% of total weight</td><td>10-20% of total weight</td><td>Metal weapons carry proportionally more weight for their energy payoff</td></tr>
+<tr><td>Weight budget: armor/frame</td><td>20-30%</td><td>35-45%</td><td>Plastic structure needs more mass for equivalent stiffness</td></tr>
+</tbody></table>
+<p><strong>Worked run-time sanity check:</strong> a 300 mAh (0.3 Ah) pack under an average combined draw of 8 A (mixing idle weapon-maintain current with occasional drive current) gives runtime = Capacity_Ah / I_avg = 0.3/8 = 0.0375 h = <strong>2.25 minutes</strong> -- right in the expected range for a spinner-class build, underscoring why battery capacity vs average current draw needs an explicit check rather than an assumption.</p>
+<p>Use these ranges as a first filter: if your design&#x27;s tip speed, KE, or spin-up time falls far outside these bands, re-check your MOI, Kt/Kv, and gear-ratio math before assuming the design itself is simply &quot;better&quot; or &quot;worse&quot; than the norm.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-battery-c-rating-to-amps.html">Battery C-rating to continuous amps</a></li><li><a href="../e/formula-rotational-ke.html">Rotational kinetic energy stored in a spinning weapon</a></li><li><a href="../e/formula-spin-up-time.html">Spin-up time from motor torque and weapon MOI</a></li><li><a href="../e/formula-tip-speed.html">Tip speed of a spinning weapon</a></li><li><a href="../e/formula-weight-budget-allocation.html">Weight budget allocation across subsystems</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DC motor power curve and peak power at half stall speed — Combat Robot Database</title>
+<meta name="description" content="For an ideal DC (brushed or BLDC-as-DC-equivalent) motor, torque falls off linearly with speed from T_stall at 0 rpm to 0 at no-load rpm. Multiplying torque by speed gives a power curve that peaks exactly halfway between (at half the no-load speed and half the stall torque), which is the operating point a weapon or drivetrain wants to sit near for maximum mechanical power.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../search.html">Formula</a> ›
+  DC motor power curve and peak power at half stall speed</div>
+<h1 class="page">DC motor power curve and peak power at half stall speed</h1>
+<p class="page-sub">For an ideal DC (brushed or BLDC-as-DC-equivalent) motor, torque falls off linearly with speed from T_stall at 0 rpm to 0 at no-load rpm. Multiplying torque by speed gives a power curve that peaks exactly halfway between (at half the no-load speed and half the stall torque), which is the operating point a weapon or drivetrain wants to sit near for maximum mechanical power.</p>
+<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">electrical</span><span class="pill">power-curve</span><span class="pill">motor-sizing</span></div>
+<div class="two-col">
+  <div class="prose">
+    
+    
+    
+    <h2>Expression</h2><pre><code>T(omega) = T_stall * (1 - omega/omega_no_load) ; P(omega) = T(omega) * omega ; P_max = T_stall * omega_no_load / 4 at omega = omega_no_load / 2</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>T(omega)</th><td>torque at angular velocity omega, N*m</td></tr><tr><th>T_stall</th><td>stall torque, N*m</td></tr><tr><th>omega</th><td>angular velocity, rad/s</td></tr><tr><th>omega_no_load</th><td>no-load angular velocity, rad/s</td></tr><tr><th>P(omega)</th><td>mechanical power at that angular velocity, W</td></tr><tr><th>P_max</th><td>peak mechanical power, W (occurs at omega_no_load/2)</td></tr></tbody></table><h2>Worked example</h2><p>T_stall = 0.1042 N<em>m, omega_no_load = 3196 rad/s. Peak power point: omega = 3196/2 = 1598 rad/s (15,262 rpm), T there = 0.1042/2 = 0.0521 N</em>m. P_max = T_stall <em> omega_no_load / 4 = 0.1042 </em> 3196 / 4 = 333.2 / 4 = 83.3 W. At the actual 20,000 rpm (2094.4 rad/s) operating point used elsewhere on this page (past the peak-power point, on the higher-speed/lower-torque side): T = 0.1042<em>(1-2094.4/3196) = 0.03595 N</em>m, P = 0.03595*2094.4 = 75.3 W -- slightly below the 83.3 W peak, consistent with running a bit faster than the ideal peak-power point.</p>
+    
+    
+  </div>
+  <div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+<p style="margin-top:34px"><code>formula-power-curve-peak-power</code> — use this id with the
+Discord bot or MCP tools.</p>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

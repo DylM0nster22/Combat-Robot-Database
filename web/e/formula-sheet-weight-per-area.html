@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sheet/panel weight from area, thickness, and material density — Combat Robot Database</title>
+<meta name="description" content="Basic mass-from-volume-and-density calculation, used constantly when picking armor or frame stock thickness against the weight budget.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../search.html">Formula</a> ›
+  Sheet/panel weight from area, thickness, and material density</div>
+<h1 class="page">Sheet/panel weight from area, thickness, and material density</h1>
+<p class="page-sub">Basic mass-from-volume-and-density calculation, used constantly when picking armor or frame stock thickness against the weight budget.</p>
+<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">weight-and-cg</span><span class="pill">materials</span><span class="pill">sheet-stock</span></div>
+<div class="two-col">
+  <div class="prose">
+    
+    
+    
+    <h2>Expression</h2><pre><code>weight = area * thickness * density</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>weight</th><td>mass of the sheet/panel, g (if density is g/cm^3 and area/thickness are in cm)</td></tr><tr><th>area</th><td>panel area, cm^2</td></tr><tr><th>thickness</th><td>panel thickness, cm</td></tr><tr><th>density</th><td>material density, g/cm^3</td></tr></tbody></table><h2>Worked example</h2><p>HDPE (plastic-antweight-legal) panel: area = 100 cm^2 (10cm x 10cm), thickness = 0.6 cm (6mm), density = 0.95 g/cm^3. weight = 100 <em> 0.6 </em> 0.95 = 57.0 g. For comparison, the same 100 cm^2 panel in 6061 aluminum (density 2.70 g/cm^3) at a thinner 0.3 cm (3mm): weight = 100 <em> 0.3 </em> 2.70 = 81.0 g -- illustrating why plastic-class frames need much greater thickness to compete structurally, but still often land lighter or comparable per panel once thickness is matched to stiffness needs.</p>
+    
+    
+  </div>
+  <div><div class="side-box"><h4>Related guides</h4><ul><li><a href="../g/chunk-plastic-ant-vertical-spinner-walkthrough.html">Designing a 1 lb plastic-antweight vertical spinner: a numeric walkthrough</a></li><li><a href="../g/chunk-weight-budget-and-cg.html">Weight budgeting and center-of-gravity math for a 1 lb chassis</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li></ul></div></div>
+</div>
+<p style="margin-top:34px"><code>formula-sheet-weight-per-area</code> — use this id with the
+Discord bot or MCP tools.</p>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

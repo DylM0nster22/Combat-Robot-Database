@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Torque constant (Kt) from velocity constant (Kv) — Combat Robot Database</title>
-<meta name="description" content="For a sinusoidal-drive brushless motor, torque constant in Nm/A is derived directly from the velocity constant in RPM/V using the fixed 8.27 relationship.">
+<title>Torque constant Kt from velocity constant Kv (exact form AND common hobby shorthand) — Combat Robot Database</title>
+<meta name="description" content="Kv (rpm per volt of back-EMF) and Kt (torque per amp) describe the same physical motor constant in different units. The EXACT, physically-derived relation is Kt[N*m/A] = 60 / (2*pi*Kv[rpm/V]) = 9.5493 / Kv. The widely-used HOBBY SHORTHAND Kt = 8.27 / Kv is NOT the same physical law -- it silently bakes in an assumed ~87% mechanical/electrical efficiency (8.27/9.5493 = 0.866), so it already includes a loss derating. Use the exact 9.5493 form for real torque/spin-up physics, and only use 8.27 if you specifically want a quick &#x27;expected real-world output torque&#x27; guess and are not also applying a separate efficiency factor on top of it.">
 <link rel="stylesheet" href="../assets/site.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
 <script>
@@ -21,20 +21,20 @@
 <div class="wrap">
 <div class="breadcrumb"><a href="../index.html">Home</a> ›
   <a href="../search.html">Formula</a> ›
-  Torque constant (Kt) from velocity constant (Kv)</div>
-<h1 class="page">Torque constant (Kt) from velocity constant (Kv)</h1>
-<p class="page-sub">For a sinusoidal-drive brushless motor, torque constant in Nm/A is derived directly from the velocity constant in RPM/V using the fixed 8.27 relationship.</p>
-<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill">formula</span><span class="pill">motor-constants</span><span class="pill">torque</span></div>
+  Torque constant Kt from velocity constant Kv (exact form AND common hobby shorthand)</div>
+<h1 class="page">Torque constant Kt from velocity constant Kv (exact form AND common hobby shorthand)</h1>
+<p class="page-sub">Kv (rpm per volt of back-EMF) and Kt (torque per amp) describe the same physical motor constant in different units. The EXACT, physically-derived relation is Kt[N*m/A] = 60 / (2*pi*Kv[rpm/V]) = 9.5493 / Kv. The widely-used HOBBY SHORTHAND Kt = 8.27 / Kv is NOT the same physical law -- it silently bakes in an assumed ~87% mechanical/electrical efficiency (8.27/9.5493 = 0.866), so it already includes a loss derating. Use the exact 9.5493 form for real torque/spin-up physics, and only use 8.27 if you specifically want a quick &#x27;expected real-world output torque&#x27; guess and are not also applying a separate efficiency factor on top of it.</p>
+<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">electrical</span><span class="pill">kt</span><span class="pill">kv</span><span class="pill">motor-constant</span><span class="pill">core-formula</span><span class="pill">formula</span><span class="pill">motor-constants</span><span class="pill">torque</span></div>
 <div class="two-col">
   <div class="prose">
     
     
     
-    <h2>Expression</h2><pre><code>Kt_Nm_per_A = 8.27 / Kv_rpm_per_v</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>Kt_Nm_per_A</th><td>torque constant, newton-meters per amp</td></tr><tr><th>Kv_rpm_per_v</th><td>motor velocity constant, RPM per volt</td></tr></tbody></table><h2>Worked example</h2><p>A 2207 antweight weapon motor at 1950 kv: Kt = 8.27 / 1950 = 0.00424 Nm/A. At a hypothetical 30A near-stall current, instantaneous torque approx 0.00424 * 30 = 0.127 Nm (1.27 kgf-cm). Compare to a 2814 at 1850kv is similar Kt per amp, but its much higher max current (50A+) gives far higher absolute stall torque -- this is why stator volume, not KV alone, sets how much torque a motor can actually produce.</p>
+    <h2>Expression</h2><pre><code>Kt_exact = 9.5493 / Kv ; Kt_hobby_shorthand = 8.27 / Kv</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>Kt_exact</th><td>physically exact torque constant, N*m/A</td></tr><tr><th>Kt_hobby_shorthand</th><td>hobby rule-of-thumb torque constant that already assumes ~87% efficiency, N*m/A</td></tr><tr><th>Kv</th><td>motor velocity constant, rpm per volt</td></tr></tbody></table><h2>Worked example</h2><p>A small antweight weapon brushless motor is rated Kv = 2750 rpm/V. Kt_exact = 9.5493 / 2750 = 0.003472 N<em>m/A. Kt_hobby_shorthand = 8.27 / 2750 = 0.003007 N</em>m/A. The hobby value is 0.003007 / 0.003472 = 86.6% of the exact value, matching the ~87% efficiency it bakes in. All other worked examples on this page use the EXACT form (9.5493/Kv) for Kt.</p>
     
     
   </div>
-  <div><div class="side-box"><h4>Related guides</h4><ul><li><a href="../g/chunk-motor-constants.html">Motor constants: Kt, back-EMF, resistance, and estimating stall torque &amp; peak power</a></li><li><a href="../g/chunk-worked-full-example.html">Worked example: full weapon-motor sizing from target to selection</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://source-robotics.com/blogs/blog/motor-constants-kv-kt-ke-km-explained" rel="noopener">https://source-robotics.com/blogs/blog/motor-constants-kv-kt-ke-km-explained</a></li><li><a href="https://forum.allaboutcircuits.com/threads/how-to-calculate-the-torque-constant-for-a-bldc-motor.208423/" rel="noopener">https://forum.allaboutcircuits.com/threads/how-to-calculate-the-torque-constant-for-a-bldc-motor.208423/</a></li></ul></div></div>
+  <div><div class="side-box"><h4>Related guides</h4><ul><li><a href="../g/chunk-vertical-spinner-walkthrough.html">Designing a 1 lb vertical spinner from scratch: a numeric walkthrough</a></li><li><a href="../g/chunk-five-common-mistakes.html">The five most common numeric mistakes in antweight design</a></li><li><a href="../g/chunk-kt-kv-exact-vs-hobby.html">Kt from Kv: the exact relation vs the hobby shorthand, and why the difference matters</a></li><li><a href="../g/chunk-motor-constants.html">Motor constants: Kt, back-EMF, resistance, and estimating stall torque &amp; peak power</a></li><li><a href="../g/chunk-worked-full-example.html">Worked example: full weapon-motor sizing from target to selection</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge (standard DC/BLDC motor-constant physics: Kt[N<em>m/A] = 60/(2</em>pi*Kv[rpm/V]))</li><li><a href="https://source-robotics.com/blogs/blog/motor-constants-kv-kt-ke-km-explained" rel="noopener">https://source-robotics.com/blogs/blog/motor-constants-kv-kt-ke-km-explained</a></li><li><a href="https://forum.allaboutcircuits.com/threads/how-to-calculate-the-torque-constant-for-a-bldc-motor.208423/" rel="noopener">https://forum.allaboutcircuits.com/threads/how-to-calculate-the-torque-constant-for-a-bldc-motor.208423/</a></li></ul></div></div>
 </div>
 <p style="margin-top:34px"><code>formula-kt-from-kv</code> — use this id with the
 Discord bot or MCP tools.</p>

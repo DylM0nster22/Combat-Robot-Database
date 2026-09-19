@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The five most common numeric mistakes in antweight design — Combat Robot Database</title>
+<meta name="description" content="**1. Confusing the exact Kt = 9.5493/Kv with the hobby shorthand Kt = 8.27/Kv.** The hobby shorthand already assumes ~87% efficiency baked in (8.27/9.5493 = 0.8">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › The five most common numeric mistakes in antweight design</div>
+<h1 class="page">The five most common numeric mistakes in antweight design</h1>
+<p class="page-sub">Common Mistakes</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">common-mistakes</span><span class="pill">design-pitfalls</span></div>
+<div class="two-col">
+  <div class="prose"><p><strong>1. Confusing the exact Kt = 9.5493/Kv with the hobby shorthand Kt = 8.27/Kv.</strong> The hobby shorthand already assumes ~87% efficiency baked in (8.27/9.5493 = 0.866). Using the exact form and THEN separately derating for efficiency is correct; using the hobby shorthand and derating AGAIN double-counts losses and can understate real available torque by ~25% or more, leading to over-gearing or oversized motors that were never actually needed. See <code>formula-kt-from-kv</code>.</p>
+<p><strong>2. Assuming all available motor torque converts into acceleration or pushing force.</strong> For a 454 g robot, wheel-to-floor traction is almost always the real limit, not motor torque. In the worked drivetrain example on this page, the drivetrain could theoretically deliver 20.0 N of driving force, but the traction limit (<code>formula-traction-limited-force</code>) was only 3.56 N -- meaning the wheels would spin long before the motor ran out of torque. Builders who chase higher-torque motors or lower gear ratios to &quot;push harder&quot; without also improving wheel grip are solving the wrong problem.</p>
+<p><strong>3. Treating total stored kinetic energy as the energy delivered in one hit.</strong> A weapon rarely gives up all its stored KE in a single strike; it slows down by only however much the impact actually resisted it, keeping the rest of its spin for the next hit. In the worked example, only about 19.8 J of a 71.3 J stored total was delivered in one hit (<code>formula-energy-per-hit-vs-stored</code>) -- using the full stored KE number to size structure or predict single-hit damage overstates the real per-hit force.</p>
+<p><strong>4. Ignoring gyroscopic precession torque when picking turn rate for a vertical spinner.</strong> Precession torque scales directly with weapon MOI, weapon speed, AND commanded turn rate (<code>formula-gyroscopic-precession-torque</code>); a chassis that seems perfectly stable standing still or driving straight can start to rock or tip the instant the driver spins it in place at full weapon speed. The worked example shows a case where the precession torque (0.204 N<em>m) barely exceeds the chassis&#x27;s own tipping threshold (0.200 N</em>m) -- a small change in turn rate is the difference between stable and &quot;gyro dance.&quot;</p>
+<p><strong>5. Sizing the ESC and motor from no-load rpm and stall current alone, without checking spin-up time or battery voltage sag under load.</strong> A motor&#x27;s real available torque at the actual operating point is much lower than its stall torque, and battery voltage sags under load (<code>formula-voltage-sag</code>) right when full stall current is being demanded (weapon impacts, drivetrain stalls). Skipping this check leads to slower-than-expected spin-up, ESC brownouts under load, and weapon motors that seem &quot;weaker than the spec sheet&quot; mid-fight -- when the real cause is under-provisioned battery C-rating or ESC current headroom (<code>formula-esc-current-headroom</code>).</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-energy-per-hit-vs-stored.html">Energy actually delivered in one hit, vs total energy stored</a></li><li><a href="../e/formula-esc-current-headroom.html">ESC current headroom / derating</a></li><li><a href="../e/formula-gyroscopic-precession-torque.html">Gyroscopic precession torque from turning while the weapon spins</a></li><li><a href="../e/formula-kt-from-kv.html">Torque constant Kt from velocity constant Kv (exact form AND common hobby shorthand)</a></li><li><a href="../e/formula-traction-limited-force.html">Traction-limited pushing/driving force</a></li><li><a href="../e/formula-voltage-sag.html">Voltage sag from internal resistance under load</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

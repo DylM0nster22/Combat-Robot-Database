@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Weapon tip speed from RPM and diameter — Combat Robot Database</title>
-<meta name="description" content="Converts weapon RPM and blade/disc diameter into linear tip speed, the number that actually determines impact energy transfer and &#x27;bite&#x27;.">
+<title>Tip speed of a spinning weapon — Combat Robot Database</title>
+<meta name="description" content="The linear (straight-line) speed of the outermost point of the weapon -- the speed at which the tooth or blade edge is actually moving through the air, which is what does the cutting/hitting.">
 <link rel="stylesheet" href="../assets/site.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
 <script>
@@ -21,20 +21,20 @@
 <div class="wrap">
 <div class="breadcrumb"><a href="../index.html">Home</a> ›
   <a href="../search.html">Formula</a> ›
-  Weapon tip speed from RPM and diameter</div>
-<h1 class="page">Weapon tip speed from RPM and diameter</h1>
-<p class="page-sub">Converts weapon RPM and blade/disc diameter into linear tip speed, the number that actually determines impact energy transfer and &#x27;bite&#x27;.</p>
-<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill">formula</span><span class="pill">tip-speed</span></div>
+  Tip speed of a spinning weapon</div>
+<h1 class="page">Tip speed of a spinning weapon</h1>
+<p class="page-sub">The linear (straight-line) speed of the outermost point of the weapon -- the speed at which the tooth or blade edge is actually moving through the air, which is what does the cutting/hitting.</p>
+<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">rotational</span><span class="pill">tip-speed</span><span class="pill">core-formula</span><span class="pill">formula</span></div>
 <div class="two-col">
   <div class="prose">
     
     
     
-    <h2>Expression</h2><pre><code>v_mps = (RPM * pi * D_mm) / 60000  |  v_ftps = v_mps * 3.281  |  v_mph = v_mps * 2.237</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>v_mps</th><td>tip speed, meters/second</td></tr><tr><th>RPM</th><td>weapon rotational speed, revolutions per minute</td></tr><tr><th>D_mm</th><td>full weapon diameter at the tip, millimeters (NOT radius -- the /60000 already folds in the /2 from radius and the mm-to-m conversion)</td></tr><tr><th>v_ftps</th><td>tip speed, feet/second</td></tr><tr><th>v_mph</th><td>tip speed, miles/hour</td></tr></tbody></table><h2>Worked example</h2><p>A 4 in (101.6 mm) vertical disc spinning at 21,000 RPM: v = (21000 <em> pi </em> 101.6) / 60000 = (21000 <em> 3.1416 </em> 101.6) / 60000 = 6,703,000 / 60000 approx 111.7 m/s = 366 ft/s = 250 mph. This matches the commonly cited antweight vertical-spinner target of roughly 200-250 mph tip speed.</p>
+    <h2>Expression</h2><pre><code>v_tip = omega * r_tip</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>v_tip</th><td>tip speed, m/s</td></tr><tr><th>omega</th><td>weapon angular velocity, rad/s</td></tr><tr><th>r_tip</th><td>radius from the spin axis to the outermost striking point (including any tooth extension), m</td></tr></tbody></table><h2>Worked example</h2><p>Same compound weapon, tooth tip extends out to r_tip = 0.032 m (32 mm) at omega = 2094.4 rad/s: v_tip = 2094.4 <em> 0.032 = 67.0 m/s. Converting: 67.0 m/s </em> 3.281 ft/m = 219.8 ft/s (~149.9 mph) -- a hard-hitting but achievable tip speed for a 1 lb vertical spinner.</p>
     
     
   </div>
-  <div><div class="side-box"><h4>Related guides</h4><ul><li><a href="../g/chunk-worked-full-example.html">Worked example: full weapon-motor sizing from target to selection</a></li><li><a href="../g/chunk-tip-speed-numeric-targets.html">Tip speed targets in real numbers: m/s, ft/s, and why more speed isn&#x27;t free</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://bristolbotbuilders.com/tools/tipspeed/" rel="noopener">https://bristolbotbuilders.com/tools/tipspeed/</a></li><li><a href="https://justcuzrobotics.com/pages/spinner-calculator-combined" rel="noopener">https://justcuzrobotics.com/pages/spinner-calculator-combined</a></li></ul></div></div>
+  <div><div class="side-box"><h4>Related guides</h4><ul><li><a href="../g/chunk-vertical-spinner-walkthrough.html">Designing a 1 lb vertical spinner from scratch: a numeric walkthrough</a></li><li><a href="../g/chunk-sanity-check-numbers.html">Sanity-check numbers every antweight should hit</a></li><li><a href="../g/chunk-worked-full-example.html">Worked example: full weapon-motor sizing from target to selection</a></li><li><a href="../g/chunk-tip-speed-numeric-targets.html">Tip speed targets in real numbers: m/s, ft/s, and why more speed isn&#x27;t free</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li>domain knowledge</li><li><a href="https://bristolbotbuilders.com/tools/tipspeed/" rel="noopener">https://bristolbotbuilders.com/tools/tipspeed/</a></li><li><a href="https://justcuzrobotics.com/pages/spinner-calculator-combined" rel="noopener">https://justcuzrobotics.com/pages/spinner-calculator-combined</a></li></ul></div></div>
 </div>
 <p style="margin-top:34px"><code>formula-tip-speed</code> — use this id with the
 Discord bot or MCP tools.</p>

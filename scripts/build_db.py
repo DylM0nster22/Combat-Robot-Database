@@ -330,9 +330,11 @@ def merge_entities(existing, incoming, report, filename):
     if rank.get(incoming["confidence"], 1) > rank.get(existing["confidence"], 1):
         existing["confidence"] = incoming["confidence"]
 
-    existing.setdefault("also_from", [])
-    if incoming["topic_id"] not in existing["also_from"]:
-        existing["also_from"].append(incoming["topic_id"])
+    # Record provenance in `extra`, which is the part of the record that
+    # actually gets persisted — a top-level key here would be dropped on write.
+    also_from = existing["extra"].setdefault("also_from", [])
+    if incoming["topic_id"] not in also_from:
+        also_from.append(incoming["topic_id"])
 
 def load_research(report):
     """Read every research file, normalizing and de-duplicating as we go."""

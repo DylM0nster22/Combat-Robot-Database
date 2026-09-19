@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drivetrain sizing: why traction, not torque, usually sets the limit for a 1 lb bot — Combat Robot Database</title>
+<meta name="description" content="Drivetrain sizing for an antweight starts with `formula-top-speed-drivetrain`: v_top = (rpm_motor/gear_ratio/60) * pi * D_wheel. A base motor at 11,000 rpm thro">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../guides.html">Guides</a> › Drivetrain sizing: why traction, not torque, usually sets the limit for a 1 lb bot</div>
+<h1 class="page">Drivetrain sizing: why traction, not torque, usually sets the limit for a 1 lb bot</h1>
+<p class="page-sub">Drivetrain Fundamentals</p>
+<div style="margin-bottom:20px"><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">drivetrain</span><span class="pill">traction</span><span class="pill">fundamentals</span></div>
+<div class="two-col">
+  <div class="prose"><p>Drivetrain sizing for an antweight starts with <code>formula-top-speed-drivetrain</code>: v_top = (rpm_motor/gear_ratio/60) <em> pi </em> D_wheel. A base motor at 11,000 rpm through a 20:1 gearbox and a 32 mm wheel gives an output shaft speed of 550 rpm and a top speed of 0.92 m/s -- solidly in the typical antweight range of 0.6-1.5 m/s.</p>
+<p><strong>The trap most new builders fall into is stopping there and assuming more gear reduction (or a beefier motor) automatically means more real-world pushing power.</strong> <code>formula-acceleration-from-torque</code> shows the drivetrain COULD deliver a driving force of 20.0 N from a small motor (10 mN*m stall torque) through a 20:1 gearbox at 80% efficiency -- but <code>formula-traction-limited-force</code> shows the wheels can only actually transmit about 3.56 N to the floor before slipping, using a realistic mu = 0.8 and the robot&#x27;s own 4.453 N weight. Since 20.0 N (available) far exceeds 3.56 N (transmittable), this drivetrain is firmly <strong>traction-limited</strong>, not torque-limited (<code>formula-wheel-slip-threshold</code>) -- real achievable acceleration is 3.56/0.454 = 7.85 m/s^2, set entirely by wheel grip and robot weight, with huge spare motor torque doing nothing useful.</p>
+<p><strong>This has a direct, practical design consequence:</strong> for a 454 g robot, spending weight or money on a lower gear ratio or a higher-torque motor rarely improves pushing power once you&#x27;re already past the point where torque exceeds what the wheels can grip -- which happens at a surprisingly low torque for such a light robot. Better wheel material (higher mu), more weight over the drive wheels, or a wider contact patch improve pushing power far more reliably than more gear reduction.</p>
+<p><strong>Climbing an opponent&#x27;s wedge</strong> (<code>formula-torque-to-climb-wedge</code>) requires checking BOTH conditions separately: the torque needed at the wheel to overcome gravity up the slope (usually easily available), and the traction needed to actually grip the (possibly slippery, now-tilted) wedge surface, which caps out entirely at theta_max = atan(mu) regardless of how much torque is on tap -- at mu = 0.8, that&#x27;s about 38.7 degrees, a hard physical ceiling no amount of extra motor torque can push past.</p>
+<p><strong>Power draw stays modest at cruise and only climbs near the traction limit</strong> (<code>formula-power-at-speed</code>): P = F*v gives just 0.205 W cruising against rolling resistance, versus 3.28 W pushing at the full traction-limited force while still moving at top speed -- useful bounds when sizing drive ESCs and battery current budget.</p></div>
+  <div><div class="side-box"><h4>Related entries</h4><ul><li><a href="../e/formula-acceleration-from-torque.html">Acceleration from motor torque (torque-limited case)</a></li><li><a href="../e/formula-power-at-speed.html">Mechanical power delivered at a given speed</a></li><li><a href="../e/formula-top-speed-drivetrain.html">Top speed from motor RPM, gear ratio, and wheel diameter</a></li><li><a href="../e/formula-torque-to-climb-wedge.html">Torque and traction required to climb an opponent&#x27;s wedge</a></li><li><a href="../e/formula-traction-limited-force.html">Traction-limited pushing/driving force</a></li><li><a href="../e/formula-wheel-slip-threshold.html">Wheel-slip threshold and the resulting real acceleration</a></li><li><a href="../e/term-traction-limited.html">Traction-limited (vs torque-limited)</a></li></ul></div></div>
+</div>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Battery C-rating to continuous amps — Combat Robot Database</title>
+<meta name="description" content="Converts a LiPo pack&#x27;s C-rating (a multiple of its own capacity) into an actual continuous-current figure in amps, the number that needs to be compared against total robot current draw.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%23ff7a1a' stroke-width='3'/><rect x='14' y='5' width='4' height='22' fill='%23ff7a1a' transform='rotate(32 16 16)'/></svg>">
+<script>
+// Applied before paint so a light-theme reader never sees a dark flash.
+(function(){try{var t=localStorage.getItem('crdb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><span class="mark"></span>Combat Robot Database</a>
+  <nav class="main"><a href="../index.html">Home</a><a href="../archetypes.html">Archetypes</a><a href="../parts.html">Parts</a><a href="../materials.html">Materials</a><a href="../guides.html">Guides</a><a href="../calculators.html">Calculators</a><a href="../rules.html">Rules</a><a href="../search.html">Search</a></nav>
+  <button class="theme-btn" id="theme-toggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+</div></header>
+<div class="wrap">
+<div class="breadcrumb"><a href="../index.html">Home</a> ›
+  <a href="../search.html">Formula</a> ›
+  Battery C-rating to continuous amps</div>
+<h1 class="page">Battery C-rating to continuous amps</h1>
+<p class="page-sub">Converts a LiPo pack&#x27;s C-rating (a multiple of its own capacity) into an actual continuous-current figure in amps, the number that needs to be compared against total robot current draw.</p>
+<div style="margin-bottom:22px"><span class="pill type">Formula</span><span class="pill accent">antweight</span><span class="pill accent">plastic-antweight</span><span class="pill">electrical</span><span class="pill">battery</span><span class="pill">c-rating</span></div>
+<div class="two-col">
+  <div class="prose">
+    
+    
+    
+    <h2>Expression</h2><pre><code>I_continuous = C_rating * Capacity_Ah</code></pre><h2>Variables</h2><table class="specs"><tbody><tr><th>I_continuous</th><td>continuous discharge current the pack is rated for, A</td></tr><tr><th>C_rating</th><td>battery C-rating, dimensionless multiple</td></tr><tr><th>Capacity_Ah</th><td>battery capacity, Ah (= mAh / 1000)</td></tr></tbody></table><h2>Worked example</h2><p>A 300 mAh (0.3 Ah) 2S LiPo rated at 60C: I_continuous = 60 * 0.3 = 18 A.</p>
+    
+    
+  </div>
+  <div><div class="side-box"><h4>Related guides</h4><ul><li><a href="../g/chunk-vertical-spinner-walkthrough.html">Designing a 1 lb vertical spinner from scratch: a numeric walkthrough</a></li><li><a href="../g/chunk-sanity-check-numbers.html">Sanity-check numbers every antweight should hit</a></li><li><a href="../g/chunk-battery-esc-electrical-sizing.html">Battery and ESC sizing: C-rating, voltage sag, and current headroom</a></li></ul></div><div class="side-box"><h4>Sources</h4><ul><li><a href="https://www.grepow.com/blog/what-is-the-c-rating-on-a-lipo-battery.html" rel="noopener">https://www.grepow.com/blog/what-is-the-c-rating-on-a-lipo-battery.html</a></li></ul></div></div>
+</div>
+<p style="margin-top:34px"><code>formula-battery-c-rating-to-amps</code> — use this id with the
+Discord bot or MCP tools.</p>
+</div>
+<footer class="site"><div class="wrap">
+  <p>Built from automated research into antweight and plastic antweight combat robotics.
+  Figures are compiled from public sources and should be verified against your event's
+  current ruleset and the manufacturer's own specifications before you cut metal or enter a competition.</p>
+  <p><a href="../about.html">About &amp; data sources</a> · <a href="../search.html">Search</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

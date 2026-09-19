@@ -1,11 +1,11 @@
 {
  "meta": {
-  "built_at": "2026-09-19T04:20:03.656242+00:00",
+  "built_at": "2026-09-19T04:25:23.042467+00:00",
   "schema_version": "1",
-  "entity_count": "202",
-  "chunk_count": "88",
-  "topic_count": "5",
-  "chunk_word_count": "35834",
+  "entity_count": "263",
+  "chunk_count": "100",
+  "topic_count": "6",
+  "chunk_word_count": "40174",
   "focus": "antweight (1 lb) and plastic antweight"
  },
  "topics": [
@@ -16,6 +16,14 @@
    "source_file": "batteries-power.json",
    "entity_count": 35,
    "chunk_count": 14
+  },
+  {
+   "topic_id": "design-math",
+   "title": "Design Math: The 1 lb Antweight Engineering Toolkit",
+   "scope_note": "The complete engineering-math reference for designing a 1 lb (454 g) antweight combat robot: rotational dynamics and weapon inertia, gyroscopic effects, drivetrain and traction, electrical motor/battery sizing, structural impact and armor, weight/CG budgeting, and weapon bite geometry. Every formula carries a fully-worked numeric example using realistic antweight-scale values so an LLM (or a builder) can plug in their own numbers and compute a real answer.",
+   "source_file": "design-math.json",
+   "entity_count": 64,
+   "chunk_count": 12
   },
   {
    "topic_id": "drive-motors",
@@ -30,7 +38,7 @@
    "title": "Plastic Antweight (1 lb All-Plastic) Combat Robots",
    "scope_note": "Complete reference for the 1 lb / 454 g all-plastic antweight combat robot class: exact ruleset wording and org-to-org variation on allowed/banned materials and metal exemptions, why the class exists, the dominant weapon/drive archetypes and why the plastic-only rule reshapes the meta, concrete build specs with per-part weight budgets, 3D printing material/settings/design-pattern practice, and where the community shares open-source designs.",
    "source_file": "plastic-antweight.json",
-   "entity_count": 54,
+   "entity_count": 53,
    "chunk_count": 22
   },
   {
@@ -38,7 +46,7 @@
    "title": "Weapon Motors: Selection & Sizing for Antweights",
    "scope_note": "How to pick and size a spinning-weapon motor for 1 lb antweight and plastic antweight combat robots, using the FPV-drone brushless motor size ladder (11xx-28xx). Covers KV selection, motor constants, drivetrain layout (direct/belt/gear), spin-up time, thermal and mechanical failure modes, mounting, and worked numeric examples.",
    "source_file": "weapon-motors.json",
-   "entity_count": 39,
+   "entity_count": 37,
    "chunk_count": 19
   },
   {
@@ -908,24 +916,34 @@
     "discharge rating",
     "C rate"
    ],
-   "summary": "A LiPo/LiHV pack's discharge rating, expressed as a multiple of its capacity; multiplying the C rating by the capacity in amp-hours gives the manufacturer-claimed maximum current the pack can supply.",
-   "weight_classes": [],
+   "summary": "A LiPo battery's discharge capability expressed as a multiple of its own capacity per hour -- a 300 mAh pack rated 60C can (by the label) sustain 60 x 0.3 A = 18 A continuously. Real sustained performance is often lower than the printed rating suggests.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
    "tags": [
     "c-rating",
-    "discharge"
+    "discharge",
+    "electrical",
+    "battery"
    ],
    "specs": {
     "category": "electrical-spec"
    },
    "pros": [],
    "cons": [],
-   "notes": "See the formula-continuous-current-c-rating entity and the c-rating chunk for why the printed number should be discounted heavily for real-world antweight sizing.",
+   "notes": "Real-world LiPo packs commonly deliver less than their printed C-rating in sustained use; loaded voltage under real test conditions is a better indicator than the label alone.",
    "sources": [
     "domain knowledge"
    ],
    "confidence": "high",
    "topic_id": "batteries-power",
-   "extra": {}
+   "extra": {
+    "category": "electrical",
+    "also_from": [
+     "design-math"
+    ]
+   }
   },
   {
    "id": "term-voltage-sag",
@@ -936,10 +954,15 @@
     "voltage droop"
    ],
    "summary": "The temporary drop in a battery's output voltage under load, caused by the pack's internal resistance; the higher the current draw and the higher the internal resistance, the larger the sag, and severe sag can drop system voltage below what the ESC or receiver needs to keep operating.",
-   "weight_classes": [],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
    "tags": [
     "voltage-sag",
-    "internal-resistance"
+    "internal-resistance",
+    "electrical",
+    "battery"
    ],
    "specs": {
     "category": "electrical-phenomenon"
@@ -952,7 +975,12 @@
    ],
    "confidence": "high",
    "topic_id": "batteries-power",
-   "extra": {}
+   "extra": {
+    "category": "electrical",
+    "also_from": [
+     "design-math"
+    ]
+   }
   },
   {
    "id": "term-lihv-chemistry",
@@ -1070,10 +1098,15 @@
     "pack resistance"
    ],
    "summary": "The effective resistance inside a battery pack (cell chemistry plus connections) that causes its terminal voltage to drop under load; internal resistance rises with cell age, cycle count, cold temperature and physical damage, which is why an older or damaged pack sags far more than a fresh one of the same rated C rating.",
-   "weight_classes": [],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
    "tags": [
     "internal-resistance",
-    "voltage-sag"
+    "voltage-sag",
+    "electrical",
+    "battery"
    ],
    "specs": {
     "category": "electrical-property"
@@ -1086,7 +1119,12 @@
    ],
    "confidence": "high",
    "topic_id": "batteries-power",
-   "extra": {}
+   "extra": {
+    "category": "electrical",
+    "also_from": [
+     "design-math"
+    ]
+   }
   },
   {
    "id": "term-puffed-pack",
@@ -1291,6 +1329,2331 @@
      "antweight",
      "plastic-antweight"
     ]
+   }
+  },
+  {
+   "id": "formula-angular-velocity-from-rpm",
+   "type": "formula",
+   "name": "Angular velocity from RPM",
+   "aliases": [],
+   "summary": "Converts a motor or weapon speed given in RPM (revolutions per minute) into angular velocity in radians per second, the unit every rotational-KE and torque formula on this page needs.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "conversion",
+    "core-formula"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "omega = rpm * 2 * pi / 60",
+    "variables": {
+     "omega": "angular velocity, rad/s",
+     "rpm": "rotational speed, revolutions per minute"
+    },
+    "worked_example": "A vertical-spinner disc is spinning at 20,000 rpm. omega = 20000 * 2 * 3.14159 / 60 = 20000 * 6.28318 / 60 = 125,663.7 / 60 = 2094.4 rad/s.",
+    "applies_to": [
+     "vertical-spinner",
+     "horizontal-spinner",
+     "drum",
+     "drivetrain",
+     "all-weapon-archetypes"
+    ]
+   }
+  },
+  {
+   "id": "formula-moi-solid-disc",
+   "type": "formula",
+   "name": "Moment of inertia — solid disc / cylinder about its central axis",
+   "aliases": [],
+   "summary": "MOI of a uniform solid disc (or short solid cylinder) spinning about the axis through its own center, perpendicular to its face. This is the base case for most vertical-spinner and drum weapon discs.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "weapon-inertia"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I = 0.5 * m * r^2",
+    "variables": {
+     "I": "moment of inertia, kg*m^2",
+     "m": "mass of the disc, kg",
+     "r": "outer radius of the disc, m"
+    },
+    "worked_example": "A single-tooth vertical-spinner disc has mass m = 0.060 kg (60 g) and radius r = 0.028 m (56 mm diameter). I = 0.5 * 0.060 * 0.028^2 = 0.5 * 0.060 * 0.000784 = 0.0000235 kg*m^2 (2.35e-5 kg*m^2).",
+    "applies_to": [
+     "vertical-spinner",
+     "drum"
+    ]
+   }
+  },
+  {
+   "id": "formula-moi-annulus",
+   "type": "formula",
+   "name": "Moment of inertia — annulus (ring with a hole, e.g. a hub or drum wall)",
+   "aliases": [],
+   "summary": "MOI of a flat ring-shaped mass with both an outer and inner radius (a washer shape), such as a weapon disc with a large center bore, or a drum's cylindrical wall seen end-on.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "weapon-inertia"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I = 0.5 * m * (r_outer^2 + r_inner^2)",
+    "variables": {
+     "I": "moment of inertia, kg*m^2",
+     "m": "mass of the annulus, kg",
+     "r_outer": "outer radius, m",
+     "r_inner": "inner (bore) radius, m"
+    },
+    "worked_example": "A drum-spinner end plate has mass m = 0.025 kg (25 g), outer radius r_outer = 0.030 m, and a large center bore r_inner = 0.012 m for the motor shaft. I = 0.5 * 0.025 * (0.030^2 + 0.012^2) = 0.5 * 0.025 * (0.0009 + 0.000144) = 0.5 * 0.025 * 0.001044 = 0.00001305 kg*m^2 (1.305e-5 kg*m^2).",
+    "applies_to": [
+     "drum",
+     "vertical-spinner"
+    ]
+   }
+  },
+  {
+   "id": "formula-moi-thin-ring",
+   "type": "formula",
+   "name": "Moment of inertia — thin ring / hoop (all mass at one radius)",
+   "aliases": [],
+   "summary": "MOI of a thin hoop or ring where essentially all the mass sits at a single radius, such as a steel reinforcement band shrunk onto the rim of a disc weapon.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "weapon-inertia"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I = m * r^2",
+    "variables": {
+     "I": "moment of inertia, kg*m^2",
+     "m": "mass of the ring, kg",
+     "r": "radius of the ring, m"
+    },
+    "worked_example": "A thin steel rim-reinforcement ring has mass m = 0.015 kg (15 g) at radius r = 0.030 m. I = 0.015 * 0.030^2 = 0.015 * 0.0009 = 0.0000135 kg*m^2 (1.35e-5 kg*m^2).",
+    "applies_to": [
+     "vertical-spinner",
+     "horizontal-spinner",
+     "drum"
+    ]
+   }
+  },
+  {
+   "id": "formula-moi-slender-rod-center",
+   "type": "formula",
+   "name": "Moment of inertia — slender rod about its own center (horizontal bar spinner)",
+   "aliases": [],
+   "summary": "MOI of a uniform straight bar rotating about an axis through its own midpoint, perpendicular to its length. This is the standard model for a horizontal (full-width) bar spinner weapon.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "weapon-inertia"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I = (1/12) * m * L^2",
+    "variables": {
+     "I": "moment of inertia, kg*m^2",
+     "m": "total mass of the bar, kg",
+     "L": "total length of the bar (tip to tip), m"
+    },
+    "worked_example": "A horizontal bar-spinner blade has mass m = 0.090 kg (90 g) and total length L = 0.090 m (90 mm, so each tip is 45 mm from center). I = (1/12) * 0.090 * 0.090^2 = (1/12) * 0.090 * 0.0081 = (1/12) * 0.000729 = 0.00006075 kg*m^2 (6.075e-5 kg*m^2).",
+    "applies_to": [
+     "horizontal-spinner"
+    ]
+   }
+  },
+  {
+   "id": "formula-moi-slender-rod-end",
+   "type": "formula",
+   "name": "Moment of inertia — slender rod about one end (hammer / axe / flail arm)",
+   "aliases": [],
+   "summary": "MOI of a uniform straight arm rotating about a pivot at one of its own ends, rather than its center — the correct model for a hammer, axe, or single-pivot flail arm.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "weapon-inertia"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I = (1/3) * m * L^2",
+    "variables": {
+     "I": "moment of inertia, kg*m^2",
+     "m": "mass of the arm, kg",
+     "L": "length of the arm from the pivot to its free tip, m"
+    },
+    "worked_example": "A hammer weapon's swinging arm has mass m = 0.050 kg (50 g) and length L = 0.080 m (80 mm) from the pivot to the striking head. I = (1/3) * 0.050 * 0.080^2 = (1/3) * 0.050 * 0.0064 = (1/3) * 0.00032 = 0.0001067 kg*m^2 (1.067e-4 kg*m^2).",
+    "applies_to": [
+     "hammer",
+     "axe",
+     "flail"
+    ]
+   }
+  },
+  {
+   "id": "formula-moi-point-mass",
+   "type": "formula",
+   "name": "Moment of inertia — point mass at a radius",
+   "aliases": [],
+   "summary": "MOI of a small, compact mass treated as concentrated at a single point, a distance r from the rotation axis. Used for bolts, counterweights, or small hard-faced tips whose own size is negligible next to their distance from the axis.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "weapon-inertia"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I = m * r^2",
+    "variables": {
+     "I": "moment of inertia, kg*m^2",
+     "m": "mass of the point-like object, kg",
+     "r": "distance from the rotation axis to the mass, m"
+    },
+    "worked_example": "A small steel balance-counterweight bolt has mass m = 0.005 kg (5 g) mounted at radius r = 0.040 m. I = 0.005 * 0.040^2 = 0.005 * 0.0016 = 0.000008 kg*m^2 (8.0e-6 kg*m^2).",
+    "applies_to": [
+     "vertical-spinner",
+     "horizontal-spinner",
+     "drum",
+     "any-weapon-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-moi-thin-walled-cylinder",
+   "type": "formula",
+   "name": "Moment of inertia — thin-walled cylinder / tube about its long axis",
+   "aliases": [],
+   "summary": "MOI of a thin cylindrical shell (a tube or drum's outer wall) spinning about its own central longitudinal axis. Mathematically identical in form to the thin-ring case (all wall mass sits at radius r regardless of the tube's length), and is the right model for a hollow drum-spinner shell or a shaft/hub.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "weapon-inertia"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I = m * r^2",
+    "variables": {
+     "I": "moment of inertia, kg*m^2",
+     "m": "mass of the cylindrical shell/wall, kg",
+     "r": "radius of the cylindrical wall, m"
+    },
+    "worked_example": "A drum-spinner's hardened-steel outer shell (thin wall, ignoring the end plates) has mass m = 0.040 kg (40 g) and radius r = 0.020 m (20 mm). I = 0.040 * 0.020^2 = 0.040 * 0.0004 = 0.000016 kg*m^2 (1.6e-5 kg*m^2).",
+    "applies_to": [
+     "drum"
+    ]
+   }
+  },
+  {
+   "id": "formula-parallel-axis-theorem",
+   "type": "formula",
+   "name": "Parallel axis theorem — combining a compound weapon's parts into one total MOI",
+   "aliases": [],
+   "summary": "The general rule for adding up the MOI of a multi-part weapon (a disc plus a bolted-on tooth, a hub plus inserts, etc.): each part's own MOI about its own center of mass, plus that part's mass times the square of how far its center of mass sits from the actual rotation axis. Summing this over every part gives the true total MOI used in every KE/tip-speed/spin-up calculation.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "parallel-axis",
+    "core-formula"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I_axis = I_cm + m * d^2 ; I_total = sum over all parts of (I_cm_part + m_part * d_part^2)",
+    "variables": {
+     "I_axis": "moment of inertia of one part about the actual rotation axis, kg*m^2",
+     "I_cm": "that part's own moment of inertia about a parallel axis through its own center of mass, kg*m^2",
+     "m": "mass of that part, kg",
+     "d": "perpendicular distance from the part's center of mass to the actual rotation axis, m"
+    },
+    "worked_example": "A compound vertical-spinner weapon = a solid disc (from formula-moi-solid-disc: I_disc = 2.35e-5 kg*m^2, already about the rotation axis since the disc is centered on it) plus one bolt-on steel tooth treated as a point mass m_tooth = 0.010 kg (10 g) whose own I_cm is negligible, bolted at d = 0.030 m from center. Tooth contribution = I_cm + m*d^2 = 0 + 0.010 * 0.030^2 = 0.010 * 0.0009 = 0.000009 kg*m^2 (9.0e-6 kg*m^2). I_total = 2.35e-5 + 9.0e-6 = 3.25e-5 kg*m^2 -- this compound-weapon total (3.25e-5 kg*m^2) is the number used in every rotational-KE, tip-speed and spin-up example elsewhere on this page.",
+    "applies_to": [
+     "vertical-spinner",
+     "drum",
+     "compound-weapon"
+    ]
+   }
+  },
+  {
+   "id": "formula-rotational-ke",
+   "type": "formula",
+   "name": "Rotational kinetic energy stored in a spinning weapon",
+   "aliases": [],
+   "summary": "The total kinetic energy stored in the weapon at a given spin speed -- the number combat robotics people mean when they say a weapon 'has X joules'.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "kinetic-energy",
+    "core-formula"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "KE = 0.5 * I * omega^2",
+    "variables": {
+     "KE": "stored rotational kinetic energy, J",
+     "I": "total weapon moment of inertia about its spin axis, kg*m^2",
+     "omega": "weapon angular velocity, rad/s"
+    },
+    "worked_example": "Using the compound weapon I_total = 3.25e-5 kg*m^2 spinning at omega = 2094.4 rad/s (20,000 rpm): KE = 0.5 * 3.25e-5 * 2094.4^2 = 0.5 * 3.25e-5 * 4,386,506 = 0.5 * 142.56 = 71.3 J stored.",
+    "applies_to": [
+     "vertical-spinner",
+     "horizontal-spinner",
+     "drum",
+     "any-weapon-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-tip-speed",
+   "type": "formula",
+   "name": "Tip speed of a spinning weapon",
+   "aliases": [],
+   "summary": "The linear (straight-line) speed of the outermost point of the weapon -- the speed at which the tooth or blade edge is actually moving through the air, which is what does the cutting/hitting.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "tip-speed",
+    "core-formula",
+    "formula"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge",
+    "https://bristolbotbuilders.com/tools/tipspeed/",
+    "https://justcuzrobotics.com/pages/spinner-calculator-combined"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "v_tip = omega * r_tip",
+    "variables": {
+     "v_tip": "tip speed, m/s",
+     "omega": "weapon angular velocity, rad/s",
+     "r_tip": "radius from the spin axis to the outermost striking point (including any tooth extension), m"
+    },
+    "worked_example": "Same compound weapon, tooth tip extends out to r_tip = 0.032 m (32 mm) at omega = 2094.4 rad/s: v_tip = 2094.4 * 0.032 = 67.0 m/s. Converting: 67.0 m/s * 3.281 ft/m = 219.8 ft/s (~149.9 mph) -- a hard-hitting but achievable tip speed for a 1 lb vertical spinner.",
+    "applies_to": [
+     "vertical-spinner",
+     "horizontal-spinner",
+     "drum",
+     "any-weapon-archetype"
+    ],
+    "also_from": [
+     "weapon-motors"
+    ]
+   }
+  },
+  {
+   "id": "formula-effective-mass-at-tooth",
+   "type": "formula",
+   "name": "Effective (reduced) mass of a spinning weapon at its tooth",
+   "aliases": [],
+   "summary": "Converts a rotating weapon's inertia into an equivalent straight-line mass, as felt at one specific radius (usually the tooth/tip). This lets you treat a weapon hit like a simple linear collision: KE = 0.5 * m_eff * v_tip^2 gives the same energy as the rotational formula.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "effective-mass",
+    "impact-modeling"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "m_eff = I / r_tip^2",
+    "variables": {
+     "m_eff": "effective linear mass at the reference radius, kg",
+     "I": "total weapon moment of inertia about its spin axis, kg*m^2",
+     "r_tip": "radius from the spin axis to the reference point (usually the tooth tip), m"
+    },
+    "worked_example": "I_total = 3.25e-5 kg*m^2, r_tip = 0.032 m. m_eff = 3.25e-5 / 0.032^2 = 3.25e-5 / 0.001024 = 0.03174 kg (31.7 g). Check: KE = 0.5 * 0.03174 * 67.0^2 = 0.5 * 0.03174 * 4489 = 71.2 J, matching formula-rotational-ke's 71.3 J.",
+    "applies_to": [
+     "vertical-spinner",
+     "drum",
+     "any-weapon-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-momentum-transfer-impact",
+   "type": "formula",
+   "name": "Momentum transfer to the opponent on impact",
+   "aliases": [],
+   "summary": "Models a weapon strike as a partially-inelastic collision between the weapon's effective mass (at the tip) and the opponent's total mass, to estimate how fast the opponent gets thrown/launched. Coefficient of restitution e is empirical: roughly 0.2-0.3 for a mostly-absorbed/deforming hit, 0.4-0.5 for a stiffer, more elastic bounce-off hit.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "impact",
+    "momentum"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "Coefficient of restitution for robot-on-robot hits is not rigorously measured in the hobby; treat e as a tunable estimate, not a precise material constant.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "delta_v_opponent = (1 + e) * m_eff * v_tip / (m_eff + m_opponent)",
+    "variables": {
+     "delta_v_opponent": "velocity imparted to the opponent by the hit, m/s",
+     "e": "coefficient of restitution, dimensionless (0 = perfectly inelastic, 1 = perfectly elastic)",
+     "m_eff": "weapon's effective mass at the tip, kg (see formula-effective-mass-at-tooth)",
+     "v_tip": "weapon tip speed just before impact, m/s",
+     "m_opponent": "mass of the struck opponent robot, kg"
+    },
+    "worked_example": "m_eff = 0.03174 kg, v_tip = 67.0 m/s, hitting a full 1 lb opponent m_opponent = 0.454 kg, e = 0.4: delta_v = (1.4) * 0.03174 * 67.0 / (0.03174 + 0.454) = (1.4 * 2.127) / 0.4857 = 2.978 / 0.4857 = 6.13 m/s -- the opponent can be launched/kicked at roughly 6 m/s from a solid hit if it is free to move.",
+    "applies_to": [
+     "vertical-spinner",
+     "horizontal-spinner",
+     "drum"
+    ]
+   }
+  },
+  {
+   "id": "formula-spin-up-time",
+   "type": "formula",
+   "name": "Spin-up time from motor torque and weapon MOI",
+   "aliases": [],
+   "summary": "Estimates how long a weapon takes to reach operating speed from a standstill, using the average available motor torque over the acceleration and the weapon's total MOI. Long spin-up times are a real tactical liability (weapon is weak/inert while re-spinning after a hit).",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "spin-up",
+    "electrical",
+    "motor-sizing"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "t_spinup = I * delta_omega / T_avg",
+    "variables": {
+     "t_spinup": "time to spin up, s",
+     "I": "total weapon moment of inertia, kg*m^2",
+     "delta_omega": "change in angular velocity, rad/s (target minus starting, usually target minus 0)",
+     "T_avg": "average torque delivered by the motor over the spin-up range, N*m"
+    },
+    "worked_example": "I_total = 3.25e-5 kg*m^2, target omega = 2094.4 rad/s (20,000 rpm) from rest. Motor: Kv = 2750 rpm/V, V = 11.1 V (3S), stall current I_stall = 30 A. Kt (exact) = 9.5493 / 2750 = 0.003472 N*m/A. T_stall = Kt * I_stall = 0.003472 * 30 = 0.1042 N*m. No-load rpm = Kv * V = 2750 * 11.1 = 30,525 rpm (omega_nl = 3196 rad/s). Torque at the 20,000 rpm operating point (linear torque-speed curve): T(omega) = T_stall * (1 - omega/omega_nl) = 0.1042 * (1 - 2094.4/3196) = 0.1042 * 0.345 = 0.03595 N*m. T_avg (approx, midpoint of a linear torque curve) = (0.1042 + 0.03595) / 2 = 0.0701 N*m. t_spinup = 3.25e-5 * 2094.4 / 0.0701 = 0.06807 / 0.0701 = 0.97 s -- under one second, a good, fight-safe spin-up time.",
+    "applies_to": [
+     "vertical-spinner",
+     "drum",
+     "any-weapon-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-energy-per-hit-vs-stored",
+   "type": "formula",
+   "name": "Energy actually delivered in one hit, vs total energy stored",
+   "aliases": [],
+   "summary": "A weapon rarely dumps its entire stored KE into a single hit -- the disc only slows down by however much the impact actually resists it, and keeps most of its spin for the next hit. This computes the energy actually delivered from the RPM drop observed/expected during a strike.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "kinetic-energy",
+    "impact"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "E_hit = 0.5 * I * (omega_before^2 - omega_after^2)",
+    "variables": {
+     "E_hit": "kinetic energy delivered to the target in one hit, J",
+     "I": "total weapon moment of inertia, kg*m^2",
+     "omega_before": "weapon angular velocity just before the hit, rad/s",
+     "omega_after": "weapon angular velocity just after the hit, rad/s"
+    },
+    "worked_example": "I = 3.25e-5 kg*m^2, weapon at 20,000 rpm before the hit (omega_before = 2094.4 rad/s) drops to 17,000 rpm after (omega_after = 1780.2 rad/s). E_hit = 0.5 * 3.25e-5 * (2094.4^2 - 1780.2^2) = 0.5 * 3.25e-5 * (4,386,506 - 3,169,112) = 0.5 * 3.25e-5 * 1,217,394 = 0.5 * 39.57 = 19.8 J delivered -- only about 28% of the 71.3 J total stored KE from formula-rotational-ke. The rest stays in the still-spinning weapon for the next hit, and the ~1s spin-up time formula shows how quickly the lost 3,000 rpm can be recovered mid-fight.",
+    "applies_to": [
+     "vertical-spinner",
+     "horizontal-spinner",
+     "drum"
+    ]
+   }
+  },
+  {
+   "id": "formula-gyroscopic-precession-torque",
+   "type": "formula",
+   "name": "Gyroscopic precession torque from turning while the weapon spins",
+   "aliases": [],
+   "summary": "When a chassis carrying a spinning weapon is itself rotated (yawed) by the drivetrain, gyroscopic precession produces a reaction torque trying to tip the chassis about a THIRD axis, perpendicular to both the weapon's spin axis and the turn axis. This is the physics behind vertical-spinner 'gyro dance'.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "gyroscopic",
+    "precession",
+    "drivetrain"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "tau_precession = I * omega_weapon * omega_turn",
+    "variables": {
+     "tau_precession": "precession (tipping) reaction torque, N*m",
+     "I": "weapon moment of inertia about its spin axis, kg*m^2",
+     "omega_weapon": "weapon angular velocity, rad/s",
+     "omega_turn": "chassis turning (yaw) angular velocity commanded by the drivetrain, rad/s"
+    },
+    "worked_example": "I = 3.25e-5 kg*m^2, weapon at omega_weapon = 2094.4 rad/s (20,000 rpm), driver spins the chassis in place at omega_turn = 3.0 rad/s (~0.48 rev/s, a brisk turn-in-place). tau_precession = 3.25e-5 * 2094.4 * 3.0 = 3.25e-5 * 6283.2 = 0.2042 N*m.",
+    "applies_to": [
+     "vertical-spinner"
+    ]
+   }
+  },
+  {
+   "id": "formula-tipping-moment-threshold",
+   "type": "formula",
+   "name": "Tipping-moment threshold for a 1 lb chassis",
+   "aliases": [],
+   "summary": "A first-order estimate of how much overturning moment a lightweight chassis can resist before it starts to lift/rock about the edge of its wheel track, using just weight and half the track width. It ignores CG height (a more complete model also uses formula-cg-tipping-angle), but is a fast way to check a precession torque against a real robot.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "gyroscopic",
+    "tipping",
+    "chassis-stability"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "A simplified planar moment-balance estimate; real tipping also depends on CG height and suspension compliance.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "M_tip = W * (track_width / 2)",
+    "variables": {
+     "M_tip": "approximate moment needed to lift the chassis about one side's wheel line, N*m",
+     "W": "robot weight, N (= mass_kg * 9.81)",
+     "track_width": "side-to-side distance between the drive wheels' contact patches, m"
+    },
+    "worked_example": "A 454 g (0.454 kg) antweight has W = 0.454 * 9.81 = 4.453 N, track_width = 0.090 m (90 mm). M_tip = 4.453 * (0.090/2) = 4.453 * 0.045 = 0.2004 N*m. Compare this to the 0.2042 N*m precession torque computed in formula-gyroscopic-precession-torque for the same robot: the precession torque slightly EXCEEDS the tipping threshold -- this robot would start to rock/tip if the driver spun it that fast while the weapon was at full speed. This is exactly the 'gyro dance' effect vertical-spinner drivers are warned about.",
+    "applies_to": [
+     "vertical-spinner"
+    ]
+   }
+  },
+  {
+   "id": "formula-max-safe-turn-rate-gyro",
+   "type": "formula",
+   "name": "Predicting the maximum safe turn rate before gyro-dance tipping",
+   "aliases": [],
+   "summary": "Rearranges the precession-torque and tipping-moment formulas to solve directly for the fastest a driver can yaw the chassis (at a given weapon speed) before the precession reaction exceeds the tipping threshold and the robot starts to rock.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "gyroscopic",
+    "precession",
+    "driving-technique"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "omega_turn_max = M_tip / (I * omega_weapon)",
+    "variables": {
+     "omega_turn_max": "maximum safe chassis turning (yaw) rate before tipping, rad/s",
+     "M_tip": "tipping-moment threshold of the chassis, N*m (formula-tipping-moment-threshold)",
+     "I": "weapon moment of inertia, kg*m^2",
+     "omega_weapon": "weapon angular velocity, rad/s"
+    },
+    "worked_example": "M_tip = 0.2004 N*m, I = 3.25e-5 kg*m^2, omega_weapon = 2094.4 rad/s (20,000 rpm weapon speed): omega_turn_max = 0.2004 / (3.25e-5 * 2094.4) = 0.2004 / 0.06807 = 2.944 rad/s (~28.1 deg per 60ms tick, or about 169 deg/s, ~0.47 rev/s). A driver should keep in-place turns slower than this, or turn in a wide arc instead of spinning on the spot, whenever the weapon is at full speed.",
+    "applies_to": [
+     "vertical-spinner"
+    ]
+   }
+  },
+  {
+   "id": "formula-top-speed-drivetrain",
+   "type": "formula",
+   "name": "Top speed from motor RPM, gear ratio, and wheel diameter",
+   "aliases": [],
+   "summary": "Converts a drive motor's raw (ungeared) no-load RPM through the gearbox ratio and wheel size into the robot's theoretical top ground speed.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "top-speed",
+    "gear-ratio"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "v_top = (rpm_motor / gear_ratio / 60) * pi * D_wheel",
+    "variables": {
+     "v_top": "theoretical top speed, m/s",
+     "rpm_motor": "drive motor's own (ungeared) no-load RPM at the battery's nominal voltage",
+     "gear_ratio": "gearbox reduction, dimensionless (output turns once per this many motor turns)",
+     "D_wheel": "wheel diameter, m"
+    },
+    "worked_example": "Drive motor no-load rpm_motor = 11,000 rpm at 7.4V (2S), gear_ratio = 20:1, wheel diameter D_wheel = 0.032 m (32 mm). Output shaft speed = 11000/20 = 550 rpm. v_top = (550/60) * pi * 0.032 = 9.167 * 0.1005 = 0.921 m/s (~3.02 ft/s, ~2.06 mph) -- a typical, controllable antweight top speed.",
+    "applies_to": [
+     "drivetrain",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-acceleration-from-torque",
+   "type": "formula",
+   "name": "Acceleration from motor torque (torque-limited case)",
+   "aliases": [],
+   "summary": "Converts drive-motor output torque, through the gearbox and wheel radius, into a forward driving force, and from there into acceleration -- BEFORE checking whether the wheels can actually put that much force onto the arena floor (see formula-traction-limited-force, which usually governs instead for lightweight antweights).",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "acceleration",
+    "torque"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "F_drive = (T_motor * gear_ratio * eta) / r_wheel ; a = (F_drive * n_wheels) / m_robot",
+    "variables": {
+     "F_drive": "driving force delivered at one wheel's contact patch, N",
+     "T_motor": "motor output (shaft) torque before the gearbox, N*m",
+     "gear_ratio": "gearbox reduction, dimensionless",
+     "eta": "drivetrain mechanical efficiency, dimensionless (0-1; typical small spur gearbox ~0.75-0.85)",
+     "r_wheel": "wheel radius, m",
+     "n_wheels": "number of independently driven wheels contributing force",
+     "m_robot": "total robot mass, kg",
+     "a": "resulting acceleration, m/s^2 (torque-limited, ignoring traction)"
+    },
+    "worked_example": "T_motor = 0.010 N*m (10 mN*m), gear_ratio = 20, eta = 0.80, r_wheel = 0.016 m (32mm dia wheel), n_wheels = 2, m_robot = 0.454 kg. F_drive (per wheel) = (0.010 * 20 * 0.80) / 0.016 = 0.16 / 0.016 = 10.0 N. Total force = 10.0 * 2 = 20.0 N. a = 20.0 / 0.454 = 44.1 m/s^2 IF the wheels could grip that hard -- see formula-traction-limited-force for why they usually can't, and formula-wheel-slip-threshold for the real limit.",
+    "applies_to": [
+     "drivetrain",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-traction-limited-force",
+   "type": "formula",
+   "name": "Traction-limited pushing/driving force",
+   "aliases": [],
+   "summary": "The maximum forward (or pushing) force a robot's drive wheels can transmit to the floor before they simply spin in place, set by the robot's weight on the wheels and the wheel-to-floor friction coefficient -- NOT by how much torque the motors can produce. For a 454 g robot this is almost always the true limiting factor, well below what the drivetrain can output.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "traction",
+    "friction"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "F_max = mu * N",
+    "variables": {
+     "F_max": "maximum available traction force, N",
+     "mu": "coefficient of friction between wheel and arena floor, dimensionless (foam/rubber on polycarbonate/Lexan: roughly 0.6-1.0)",
+     "N": "normal force pressing the drive wheels onto the floor, N (approximately the full robot weight if all wheels are driven)"
+    },
+    "worked_example": "A 0.454 kg antweight, all weight on driven wheels: N = 0.454 * 9.81 = 4.453 N. Using mu = 0.8 (grippy foam wheel on a typical arena floor): F_max = 0.8 * 4.453 = 3.56 N. Compare to the 20.0 N the drivetrain could produce in formula-acceleration-from-torque -- the wheels will spin/slip long before the motors run out of torque.",
+    "applies_to": [
+     "drivetrain",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-wheel-slip-threshold",
+   "type": "formula",
+   "name": "Wheel-slip threshold and the resulting real acceleration",
+   "aliases": [],
+   "summary": "Compares the torque-limited drive force against the traction-limited force to determine which one actually governs, then computes the robot's real (traction-limited) acceleration -- the number that matters for a 1 lb robot, which is almost always far below the torque-limited number.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "traction",
+    "acceleration"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "if F_drive > F_max: a_real = F_max / m_robot (traction-limited) ; else: a_real = F_drive_total / m_robot (torque-limited)",
+    "variables": {
+     "F_drive": "total force the drivetrain could deliver from torque alone, N",
+     "F_max": "maximum traction force available, N",
+     "a_real": "actual achievable acceleration, m/s^2",
+     "m_robot": "total robot mass, kg"
+    },
+    "worked_example": "F_drive (total, both wheels) = 20.0 N, F_max = 3.56 N. Since 20.0 N > 3.56 N, the drivetrain is traction-limited: a_real = F_max / m_robot = 3.56 / 0.454 = 7.85 m/s^2 -- roughly 0.8g, reached almost instantly since there is huge spare motor torque behind it. This also means a lighter/higher-torque motor swap would do nothing for straight-line acceleration here; better wheels/tires (higher mu) would.",
+    "applies_to": [
+     "drivetrain",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-torque-to-climb-wedge",
+   "type": "formula",
+   "name": "Torque and traction required to climb an opponent's wedge",
+   "aliases": [],
+   "summary": "Two separate conditions must both hold to drive up onto an opponent's wedge at angle theta: (1) the drivetrain must supply enough torque at the wheel, and (2) the wheels must have enough traction against the now-tilted (and often slippery) wedge surface -- whichever is smaller sets the actual climbable angle.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "traction",
+    "wedge",
+    "incline"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "F_needed = m_robot * g * sin(theta) ; T_needed_at_wheel = F_needed * r_wheel / eta ; traction_ok if mu * m_robot * g * cos(theta) >= F_needed",
+    "variables": {
+     "F_needed": "force needed up the slope to overcome gravity component, N (ignoring rolling resistance)",
+     "m_robot": "total robot mass, kg",
+     "theta": "wedge angle from horizontal, rad",
+     "T_needed_at_wheel": "output torque needed at the wheel to supply F_needed, N*m",
+     "r_wheel": "wheel radius, m",
+     "eta": "drivetrain efficiency, dimensionless",
+     "mu": "wheel-to-wedge-surface friction coefficient, dimensionless"
+    },
+    "worked_example": "m_robot = 0.454 kg, theta = 15 deg (0.2618 rad), r_wheel = 0.016 m, eta = 0.80, mu = 0.8 (assume similar grip on the wedge surface). F_needed = 0.454 * 9.81 * sin(15deg) = 4.453 * 0.2588 = 1.152 N. T_needed_at_wheel = 1.152 * 0.016 / 0.80 = 0.01843 / 0.80 = 0.02304 N*m -- well inside the drivetrain's available 0.16 N*m per wheel from formula-acceleration-from-torque, so torque is not the bottleneck. Traction check: mu * m_robot * g * cos(theta) = 0.8 * 4.453 * cos(15deg) = 3.562 * 0.966 = 3.44 N, which is far more than the 1.152 N needed, so this 15 degree wedge is climbable. Solving tan(theta_max) = mu gives theta_max = atan(0.8) = 38.7 deg as the traction-limited steepest wedge this robot could climb at all (before its own weight component alone overcomes available friction), independent of motor torque.",
+    "applies_to": [
+     "drivetrain",
+     "any-archetype",
+     "wedge",
+     "control"
+    ]
+   }
+  },
+  {
+   "id": "formula-power-at-speed",
+   "type": "formula",
+   "name": "Mechanical power delivered at a given speed",
+   "aliases": [],
+   "summary": "Basic power = force x velocity relationship, used to check how much continuous power the drivetrain is actually asking of the battery/ESC at cruising speed versus during a hard push.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "power"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "P = F * v",
+    "variables": {
+     "P": "mechanical power delivered, W",
+     "F": "force being delivered (driving or pushing force), N",
+     "v": "speed at which that force is being delivered, m/s"
+    },
+    "worked_example": "Cruising at top speed v_top = 0.921 m/s while only overcoming rolling resistance F_roll = 0.223 N (about 5% of weight): P = 0.223 * 0.921 = 0.205 W -- trivial power draw at cruise. Pushing hard at the traction limit F_max = 3.56 N while still moving at 0.921 m/s: P = 3.56 * 0.921 = 3.28 W -- the practical upper bound on continuous drivetrain mechanical power for this robot.",
+    "applies_to": [
+     "drivetrain",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-kt-from-kv",
+   "type": "formula",
+   "name": "Torque constant Kt from velocity constant Kv (exact form AND common hobby shorthand)",
+   "aliases": [],
+   "summary": "Kv (rpm per volt of back-EMF) and Kt (torque per amp) describe the same physical motor constant in different units. The EXACT, physically-derived relation is Kt[N*m/A] = 60 / (2*pi*Kv[rpm/V]) = 9.5493 / Kv. The widely-used HOBBY SHORTHAND Kt = 8.27 / Kv is NOT the same physical law -- it silently bakes in an assumed ~87% mechanical/electrical efficiency (8.27/9.5493 = 0.866), so it already includes a loss derating. Use the exact 9.5493 form for real torque/spin-up physics, and only use 8.27 if you specifically want a quick 'expected real-world output torque' guess and are not also applying a separate efficiency factor on top of it.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "kt",
+    "kv",
+    "motor-constant",
+    "core-formula",
+    "formula",
+    "motor-constants",
+    "torque"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge (standard DC/BLDC motor-constant physics: Kt[N*m/A] = 60/(2*pi*Kv[rpm/V]))",
+    "https://source-robotics.com/blogs/blog/motor-constants-kv-kt-ke-km-explained",
+    "https://forum.allaboutcircuits.com/threads/how-to-calculate-the-torque-constant-for-a-bldc-motor.208423/"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "Kt_exact = 9.5493 / Kv ; Kt_hobby_shorthand = 8.27 / Kv",
+    "variables": {
+     "Kt_exact": "physically exact torque constant, N*m/A",
+     "Kt_hobby_shorthand": "hobby rule-of-thumb torque constant that already assumes ~87% efficiency, N*m/A",
+     "Kv": "motor velocity constant, rpm per volt"
+    },
+    "worked_example": "A small antweight weapon brushless motor is rated Kv = 2750 rpm/V. Kt_exact = 9.5493 / 2750 = 0.003472 N*m/A. Kt_hobby_shorthand = 8.27 / 2750 = 0.003007 N*m/A. The hobby value is 0.003007 / 0.003472 = 86.6% of the exact value, matching the ~87% efficiency it bakes in. All other worked examples on this page use the EXACT form (9.5493/Kv) for Kt.",
+    "applies_to": [
+     "electrical",
+     "any-weapon-archetype",
+     "drivetrain"
+    ],
+    "also_from": [
+     "weapon-motors"
+    ]
+   }
+  },
+  {
+   "id": "formula-stall-torque",
+   "type": "formula",
+   "name": "Stall torque from Kt and stall current",
+   "aliases": [],
+   "summary": "The maximum torque a motor can produce, occurring at zero RPM (locked rotor) when the full stall current flows.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "torque",
+    "stall"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "T_stall = Kt * I_stall",
+    "variables": {
+     "T_stall": "stall torque, N*m",
+     "Kt": "torque constant, N*m/A (use the exact 9.5493/Kv form)",
+     "I_stall": "stall current, A"
+    },
+    "worked_example": "Kt (exact) = 0.003472 N*m/A, I_stall = 30 A (typical small antweight weapon brushless motor at 3S). T_stall = 0.003472 * 30 = 0.1042 N*m (about 1.06 kgf*cm).",
+    "applies_to": [
+     "electrical",
+     "any-weapon-archetype",
+     "drivetrain"
+    ]
+   }
+  },
+  {
+   "id": "formula-stall-current",
+   "type": "formula",
+   "name": "Stall current from voltage and winding resistance",
+   "aliases": [],
+   "summary": "The current a motor draws when its rotor is locked (RPM = 0), limited only by the winding resistance since there is no back-EMF at zero speed. This is the highest current the motor (and its ESC) will ever be asked to pass.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "stall-current",
+    "resistance"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I_stall = V / R",
+    "variables": {
+     "I_stall": "stall current, A",
+     "V": "applied voltage, V",
+     "R": "motor winding resistance (phase-to-phase or armature), ohm"
+    },
+    "worked_example": "A small brushed antweight drive motor has R = 1.2 ohm and is run at V = 7.4 V (2S): I_stall = 7.4 / 1.2 = 6.17 A.",
+    "applies_to": [
+     "electrical",
+     "drivetrain",
+     "any-weapon-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-no-load-rpm",
+   "type": "formula",
+   "name": "No-load RPM from Kv and voltage",
+   "aliases": [],
+   "summary": "The speed a motor spins at with no mechanical load and no current-draw losses -- an idealized upper bound. Real no-load speed under actual bearing/brush/air-drag friction is slightly lower than this.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "kv",
+    "no-load-speed"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "rpm_no_load = Kv * V",
+    "variables": {
+     "rpm_no_load": "no-load rotational speed, rpm",
+     "Kv": "motor velocity constant, rpm/V",
+     "V": "applied voltage, V"
+    },
+    "worked_example": "Kv = 2750 rpm/V at V = 11.1 V (3S): rpm_no_load = 2750 * 11.1 = 30,525 rpm (omega_nl = 30525 * 2*pi/60 = 3196 rad/s). Actual free-spin speed will be a few percent lower once bearing drag and air resistance are subtracted.",
+    "applies_to": [
+     "electrical",
+     "any-weapon-archetype",
+     "drivetrain"
+    ]
+   }
+  },
+  {
+   "id": "formula-power-curve-peak-power",
+   "type": "formula",
+   "name": "DC motor power curve and peak power at half stall speed",
+   "aliases": [],
+   "summary": "For an ideal DC (brushed or BLDC-as-DC-equivalent) motor, torque falls off linearly with speed from T_stall at 0 rpm to 0 at no-load rpm. Multiplying torque by speed gives a power curve that peaks exactly halfway between (at half the no-load speed and half the stall torque), which is the operating point a weapon or drivetrain wants to sit near for maximum mechanical power.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "power-curve",
+    "motor-sizing"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "T(omega) = T_stall * (1 - omega/omega_no_load) ; P(omega) = T(omega) * omega ; P_max = T_stall * omega_no_load / 4 at omega = omega_no_load / 2",
+    "variables": {
+     "T(omega)": "torque at angular velocity omega, N*m",
+     "T_stall": "stall torque, N*m",
+     "omega": "angular velocity, rad/s",
+     "omega_no_load": "no-load angular velocity, rad/s",
+     "P(omega)": "mechanical power at that angular velocity, W",
+     "P_max": "peak mechanical power, W (occurs at omega_no_load/2)"
+    },
+    "worked_example": "T_stall = 0.1042 N*m, omega_no_load = 3196 rad/s. Peak power point: omega = 3196/2 = 1598 rad/s (15,262 rpm), T there = 0.1042/2 = 0.0521 N*m. P_max = T_stall * omega_no_load / 4 = 0.1042 * 3196 / 4 = 333.2 / 4 = 83.3 W. At the actual 20,000 rpm (2094.4 rad/s) operating point used elsewhere on this page (past the peak-power point, on the higher-speed/lower-torque side): T = 0.1042*(1-2094.4/3196) = 0.03595 N*m, P = 0.03595*2094.4 = 75.3 W -- slightly below the 83.3 W peak, consistent with running a bit faster than the ideal peak-power point.",
+    "applies_to": [
+     "electrical",
+     "any-weapon-archetype",
+     "drivetrain"
+    ]
+   }
+  },
+  {
+   "id": "formula-esc-current-headroom",
+   "type": "formula",
+   "name": "ESC current headroom / derating",
+   "aliases": [],
+   "summary": "An ESC's continuous-current rating should be sized well above the motor's realistic stall current, since brief stalls (weapon impacts, drivetrain jams against a wall) are normal in combat and are exactly when full stall current flows.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "esc",
+    "motor-sizing"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I_esc_rated_min = k_headroom * I_stall",
+    "variables": {
+     "I_esc_rated_min": "minimum recommended ESC continuous-current rating, A",
+     "k_headroom": "safety/headroom factor, dimensionless (typical 1.5-2.0 for weapon ESCs that will see real stalls)",
+     "I_stall": "motor stall current, A"
+    },
+    "worked_example": "Weapon motor I_stall = 30 A, using k_headroom = 1.75 (mid-range, since vertical-spinner weapon motors do stall briefly on every hit): I_esc_rated_min = 1.75 * 30 = 52.5 A -- round up to a commonly-available 60A-rated ESC.",
+    "applies_to": [
+     "electrical",
+     "any-weapon-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-battery-c-rating-to-amps",
+   "type": "formula",
+   "name": "Battery C-rating to continuous amps",
+   "aliases": [],
+   "summary": "Converts a LiPo pack's C-rating (a multiple of its own capacity) into an actual continuous-current figure in amps, the number that needs to be compared against total robot current draw.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "battery",
+    "c-rating"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "https://www.grepow.com/blog/what-is-the-c-rating-on-a-lipo-battery.html"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "I_continuous = C_rating * Capacity_Ah",
+    "variables": {
+     "I_continuous": "continuous discharge current the pack is rated for, A",
+     "C_rating": "battery C-rating, dimensionless multiple",
+     "Capacity_Ah": "battery capacity, Ah (= mAh / 1000)"
+    },
+    "worked_example": "A 300 mAh (0.3 Ah) 2S LiPo rated at 60C: I_continuous = 60 * 0.3 = 18 A.",
+    "applies_to": [
+     "electrical",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-battery-wh-capacity",
+   "type": "formula",
+   "name": "Battery energy capacity in watt-hours",
+   "aliases": [],
+   "summary": "Converts a battery's amp-hour capacity and nominal voltage into total stored energy in watt-hours, useful for comparing packs across different cell counts (voltages) on an equal-energy basis.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "battery",
+    "energy-capacity"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "Wh = V_nominal * Capacity_Ah",
+    "variables": {
+     "Wh": "stored energy, watt-hours",
+     "V_nominal": "battery nominal voltage, V (2S LiPo = 7.4V, 3S = 11.1V)",
+     "Capacity_Ah": "battery capacity, Ah"
+    },
+    "worked_example": "300 mAh (0.3 Ah) 2S (7.4V) LiPo: Wh = 7.4 * 0.3 = 2.22 Wh.",
+    "applies_to": [
+     "electrical",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-voltage-sag",
+   "type": "formula",
+   "name": "Voltage sag from internal resistance under load",
+   "aliases": [],
+   "summary": "The battery's terminal voltage drops below its nominal/open-circuit voltage in proportion to the current drawn and the pack's internal resistance. Underestimating this leads to overestimating available torque/power right when it's needed most (weapon stall, hard push).",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "battery",
+    "voltage-sag",
+    "internal-resistance"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "V_loaded = V_nominal - I_draw * R_internal",
+    "variables": {
+     "V_loaded": "actual terminal voltage under load, V",
+     "V_nominal": "nominal (open-circuit / resting) battery voltage, V",
+     "I_draw": "current being drawn, A",
+     "R_internal": "battery pack internal resistance, ohm"
+    },
+    "worked_example": "2S LiPo, V_nominal = 7.4 V, R_internal = 0.020 ohm (20 mOhm, typical small high-C pack). At a modest I_draw = 10 A: V_loaded = 7.4 - 10*0.020 = 7.4 - 0.20 = 7.20 V. At the pack's rated max continuous I_draw = 18 A (from formula-battery-c-rating-to-amps): V_loaded = 7.4 - 18*0.020 = 7.4 - 0.36 = 7.04 V -- a ~5% sag right when the weapon needs full torque.",
+    "applies_to": [
+     "electrical",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-motor-efficiency-estimate",
+   "type": "formula",
+   "name": "Motor efficiency estimate at an operating point",
+   "aliases": [],
+   "summary": "Ratio of useful mechanical power out to electrical power in, at a specific torque/speed operating point -- NOT a constant, it varies across the motor's speed range and is generally best near (but not exactly at) the peak-power point.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "efficiency",
+    "motor-sizing"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "eta = P_out / P_in = (T * omega) / (V * I)",
+    "variables": {
+     "eta": "efficiency at this operating point, dimensionless (0-1)",
+     "T": "torque delivered at this operating point, N*m",
+     "omega": "angular velocity at this operating point, rad/s",
+     "V": "applied voltage, V",
+     "I": "current drawn at this operating point, A"
+    },
+    "worked_example": "At the 20,000 rpm (omega = 2094.4 rad/s) operating point: T = 0.03595 N*m (from formula-power-curve-peak-power), V = 11.1 V. Current at that torque: I = T/Kt = 0.03595/0.003472 = 10.36 A. P_out = T*omega = 0.03595*2094.4 = 75.3 W. P_in = V*I = 11.1*10.36 = 115.0 W. eta = 75.3/115.0 = 0.655 -> 65.5% efficient at this operating point.",
+    "applies_to": [
+     "electrical",
+     "any-weapon-archetype",
+     "drivetrain"
+    ]
+   }
+  },
+  {
+   "id": "formula-impact-force-momentum-time",
+   "type": "formula",
+   "name": "Impact force from momentum change and contact time",
+   "aliases": [],
+   "summary": "The average force during an impact equals the momentum change divided by how long the impact takes -- the key reason very brief, stiff impacts produce enormous peak forces compared to the same momentum change spread over a longer contact time (see formula-compliance-reduces-peak-force).",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "structure",
+    "impact-force",
+    "momentum"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "F_avg = delta_p / delta_t = m_eff * delta_v / delta_t",
+    "variables": {
+     "F_avg": "average force during the impact, N",
+     "delta_p": "momentum change during the impact, kg*m/s",
+     "m_eff": "effective mass involved (e.g. weapon effective mass at the tip), kg",
+     "delta_v": "velocity change during the impact, m/s",
+     "delta_t": "contact/impact duration, s"
+    },
+    "worked_example": "Weapon effective mass m_eff = 0.03174 kg slows from v = 67.0 m/s to about 57.0 m/s tip speed during a hit (delta_v = 10.0 m/s, consistent with the 20,000->17,000 rpm drop used in formula-energy-per-hit-vs-stored), over a contact time delta_t = 0.0015 s (1.5 ms, typical for a hard metal-on-metal impact). delta_p = 0.03174 * 10.0 = 0.3174 kg*m/s. F_avg = 0.3174 / 0.0015 = 211.6 N.",
+    "applies_to": [
+     "structure",
+     "any-weapon-archetype",
+     "armor"
+    ]
+   }
+  },
+  {
+   "id": "formula-stress-force-area",
+   "type": "formula",
+   "name": "Basic stress from force and area",
+   "aliases": [],
+   "summary": "The foundational stress equation, used to check whether an impact force is survivable for a given material and contact-patch size, by comparing the resulting stress to the material's yield strength.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "structure",
+    "stress",
+    "armor"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "sigma = F / A",
+    "variables": {
+     "sigma": "stress, Pa (N/m^2)",
+     "F": "applied force, N",
+     "A": "cross-sectional or contact area the force acts over, m^2"
+    },
+    "worked_example": "Impact force F = 211.6 N (from formula-impact-force-momentum-time) concentrated over a small contact patch A = 5mm x 5mm = 0.005 * 0.005 = 0.000025 m^2 (25 mm^2). sigma = 211.6 / 0.000025 = 8,464,000 Pa = 8.46 MPa -- comfortably below 6061-T6 aluminum's ~276 MPa yield strength, but could still locally dent a softer plastic armor panel at that same contact area.",
+    "applies_to": [
+     "structure",
+     "armor",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-beam-bending-armor-panel",
+   "type": "formula",
+   "name": "Beam bending stress in a flat armor panel",
+   "aliases": [],
+   "summary": "Models an armor panel bolted at two edges as a simply-supported beam under a central point impact load, giving the peak bending stress at the panel's surface -- the standard first check for whether a given armor thickness/material will survive a hit without cracking or permanently bending.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "structure",
+    "beam-bending",
+    "armor"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "M = F * L / 4 ; I_beam = b * t^3 / 12 ; sigma_max = M * c / I_beam , with c = t/2",
+    "variables": {
+     "M": "bending moment at the panel's midspan, N*m",
+     "F": "impact force applied at midspan, N",
+     "L": "span between the panel's two support/mount points, m",
+     "I_beam": "second moment of area of the panel's cross-section, m^4",
+     "b": "panel width, m",
+     "t": "panel thickness, m",
+     "c": "distance from the neutral axis to the outer surface (= t/2 for a symmetric panel), m",
+     "sigma_max": "maximum bending stress at the panel surface, Pa"
+    },
+    "worked_example": "Aluminum armor panel: b = 0.050 m (50mm wide), t = 0.003 m (3mm thick), mounted with L = 0.040 m (40mm) between bolts, hit at midspan with F = 211.6 N. M = 211.6 * 0.040 / 4 = 8.464/4 = 2.116 N*m. I_beam = 0.050 * 0.003^3 / 12 = 0.050 * 0.000000027 / 12 = 0.00000000135/12 = 1.125e-10 m^4. c = 0.0015 m. sigma_max = 2.116 * 0.0015 / 1.125e-10 = 0.003174 / 1.125e-10 = 2.82e7 Pa = 28.2 MPa -- well under 6061-T6 aluminum's ~276 MPa yield strength (safety factor ~9.8x), so this panel survives the hit with margin to spare.",
+    "applies_to": [
+     "structure",
+     "armor"
+    ]
+   }
+  },
+  {
+   "id": "formula-compliance-reduces-peak-force",
+   "type": "formula",
+   "name": "Why compliance (a longer stopping time) reduces peak impact force",
+   "aliases": [],
+   "summary": "For the same momentum change, spreading the impact over a longer contact time (via a compliant mount, standoff, or slightly flexible armor) directly and proportionally lowers the peak force -- the physical reason 'a little give' in a mount often survives hits that a rigid one cracks under.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "structure",
+    "compliance",
+    "impact-force"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "F_peak_compliant = delta_p / delta_t_compliant , where delta_t_compliant > delta_t_rigid",
+    "variables": {
+     "F_peak_compliant": "peak force with the more compliant mounting, N",
+     "delta_p": "momentum change (same regardless of mounting stiffness), kg*m/s",
+     "delta_t_compliant": "longer contact/deceleration time provided by the compliant mount, s"
+    },
+    "worked_example": "Same delta_p = 0.3174 kg*m/s as formula-impact-force-momentum-time. Rigid mount: delta_t = 0.0015 s gives F_peak = 211.6 N. A compliant standoff (rubber bushing, slight frame flex) doubles the stopping time to delta_t = 0.0030 s: F_peak = 0.3174 / 0.0030 = 105.8 N -- exactly half the peak force, for the same impact.",
+    "applies_to": [
+     "structure",
+     "armor",
+     "weapon-mount"
+    ]
+   }
+  },
+  {
+   "id": "formula-bolt-shear-estimate",
+   "type": "formula",
+   "name": "Bolt shear stress estimate",
+   "aliases": [],
+   "summary": "Estimates the shear stress carried by a group of bolts resisting a reaction force (e.g. a weapon-motor mount reacting the impact force), by spreading the force evenly across the bolts' shear cross-sectional area.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "structure",
+    "bolts",
+    "fasteners"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "tau = F / (n_bolts * A_bolt)",
+    "variables": {
+     "tau": "shear stress per bolt, Pa",
+     "F": "total force the bolted joint must resist, N",
+     "n_bolts": "number of bolts sharing the load",
+     "A_bolt": "cross-sectional (shear) area of one bolt, m^2 (= pi/4 * d^2)"
+    },
+    "worked_example": "A weapon-motor mount uses n_bolts = 2 M3 bolts (d = 0.003 m). A_bolt = pi/4 * 0.003^2 = 0.7854 * 0.000009 = 7.065e-6 m^2. Reaction force F = 211.6 N (from the impact-force example). tau = 211.6 / (2 * 7.065e-6) = 211.6 / 1.413e-5 = 1.497e7 Pa = 15.0 MPa -- far below typical alloy-steel socket-head cap screw shear strength (~350-500 MPa), a safety factor of over 20x on a single hit, which is appropriate given bolts see this load repeatedly (fatigue) rather than just once.",
+    "applies_to": [
+     "structure",
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-weight-budget-allocation",
+   "type": "formula",
+   "name": "Weight budget allocation across subsystems",
+   "aliases": [],
+   "summary": "Splits the robot's total weight limit into subsystem budgets by percentage, the first step of any antweight design before a single part is chosen. Typical splits differ sharply between a metal-weapon spinner and a plastic-antweight build (see the two worked-walkthrough chunks).",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "weight-budget",
+    "design-process"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "weight_component_g = total_weight_g * (pct_component / 100)",
+    "variables": {
+     "weight_component_g": "weight budget for one subsystem, g",
+     "total_weight_g": "total robot weight limit, g (454 g for a 1 lb antweight)",
+     "pct_component": "percentage of total weight allocated to that subsystem"
+    },
+    "worked_example": "A metal-weapon vertical-spinner budget at total_weight_g = 454 g: weapon 30% -> 454*0.30 = 136.2 g; drive 20% -> 454*0.20 = 90.8 g; armor/frame 30% -> 454*0.30 = 136.2 g; electronics 12% -> 454*0.12 = 54.5 g; fasteners/misc 8% -> 454*0.08 = 36.3 g. Sum = 136.2+90.8+136.2+54.5+36.3 = 454.0 g, exactly on budget.",
+    "applies_to": [
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-cg-tipping-angle",
+   "type": "formula",
+   "name": "Tipping angle from CG height and track/wheelbase",
+   "aliases": [],
+   "summary": "The lateral (or fore-aft) tilt angle at which a robot's center of gravity passes directly over its wheel contact line and it starts to roll over -- a low, wide robot with a low CG resists tipping far better than a tall, narrow one, which matters both for wedge rammer defense and for the gyro-dance check above.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "weight-and-cg",
+    "tipping",
+    "stability"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "theta_tip = atan( (track_or_wheelbase / 2) / h_cg )",
+    "variables": {
+     "theta_tip": "tipping angle, rad (convert to degrees for intuition)",
+     "track_or_wheelbase": "distance between the two wheel contact lines being tipped over (track width for side tipping, wheelbase for fore-aft tipping), m",
+     "h_cg": "height of the center of gravity above the ground, m"
+    },
+    "worked_example": "Low, wide build: track_width = 0.090 m, h_cg = 0.025 m (25mm, low battery/electronics stack). theta_tip = atan((0.090/2)/0.025) = atan(0.045/0.025) = atan(1.8) = 60.9 deg -- very stable, hard to tip. Tall, narrow build for contrast: track_width = 0.060 m, h_cg = 0.040 m (40mm, stacked components). theta_tip = atan((0.060/2)/0.040) = atan(0.03/0.04) = atan(0.75) = 36.9 deg -- noticeably easier to tip over from a side hit or an aggressive turn.",
+    "applies_to": [
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-self-righting-shell-condition",
+   "type": "formula",
+   "name": "Approximate self-righting condition for a rounded-shell design",
+   "aliases": [],
+   "summary": "A simplified rule of thumb for shell/dome-shaped robots (common on shell spinners and some invertible bots): if the robot's center-of-gravity height stays below the radius of its rounded shell, gravity alone tends to roll it back onto its wheels when flipped, rather than leaving it balanced or stuck upside-down.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "weight-and-cg",
+    "self-righting"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "A rough qualitative rule of thumb, not a rigorous rigid-body stability derivation; real self-righting also depends on shell shape uniformity, weapon drag, and floor friction.",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "low",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "self_rights_readily if h_cg < R_shell",
+    "variables": {
+     "h_cg": "height of the center of gravity above the ground when the robot rests normally, m",
+     "R_shell": "radius of the rounded outer shell profile, m"
+    },
+    "worked_example": "A shell-spinner has a domed shell of radius R_shell = 0.045 m (45mm) and its CG sits at h_cg = 0.030 m (30mm, low battery/motor placement). Since 0.030 < 0.045, the design satisfies the rule of thumb and should tend to self-right if flipped. If h_cg were instead 0.050 m (a top-heavy build), it would fail the check and risk resting stably upside-down.",
+    "applies_to": [
+     "shell-spinner",
+     "any-invertible-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-sheet-weight-per-area",
+   "type": "formula",
+   "name": "Sheet/panel weight from area, thickness, and material density",
+   "aliases": [],
+   "summary": "Basic mass-from-volume-and-density calculation, used constantly when picking armor or frame stock thickness against the weight budget.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "weight-and-cg",
+    "materials",
+    "sheet-stock"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "weight = area * thickness * density",
+    "variables": {
+     "weight": "mass of the sheet/panel, g (if density is g/cm^3 and area/thickness are in cm)",
+     "area": "panel area, cm^2",
+     "thickness": "panel thickness, cm",
+     "density": "material density, g/cm^3"
+    },
+    "worked_example": "HDPE (plastic-antweight-legal) panel: area = 100 cm^2 (10cm x 10cm), thickness = 0.6 cm (6mm), density = 0.95 g/cm^3. weight = 100 * 0.6 * 0.95 = 57.0 g. For comparison, the same 100 cm^2 panel in 6061 aluminum (density 2.70 g/cm^3) at a thinner 0.3 cm (3mm): weight = 100 * 0.3 * 2.70 = 81.0 g -- illustrating why plastic-class frames need much greater thickness to compete structurally, but still often land lighter or comparable per panel once thickness is matched to stiffness needs.",
+    "applies_to": [
+     "any-archetype"
+    ]
+   }
+  },
+  {
+   "id": "formula-bite-depth",
+   "type": "formula",
+   "name": "Bite depth from closing speed, weapon RPM, and tooth count",
+   "aliases": [],
+   "summary": "How far (in material depth) a spinning weapon's tooth advances into an opponent between successive tooth strikes, given how fast the two robots are closing together. Fewer teeth at the same RPM means a LONGER gap between hits, so each hit gets a deeper 'bite' -- the core reason single-tooth vertical spinners are favored for maximum per-hit penetration over multi-tooth designs.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "bite",
+    "weapon-geometry",
+    "tooth-count"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "f_hit = (rpm / 60) * tooth_count ; bite_depth = v_closing / f_hit",
+    "variables": {
+     "f_hit": "hit frequency, hits/s",
+     "rpm": "weapon rotational speed, rpm",
+     "tooth_count": "number of teeth/striking points on the weapon",
+     "bite_depth": "material depth engaged per hit, m",
+     "v_closing": "closing speed between the two robots at the moment of contact, m/s"
+    },
+    "worked_example": "Weapon at rpm = 20,000, single tooth (tooth_count = 1), closing speed v_closing = 1.5 m/s (combined approach speed of both robots). f_hit = (20000/60) * 1 = 333.3 hits/s. bite_depth = 1.5 / 333.3 = 0.0045 m (4.5 mm) engaged per hit.",
+    "applies_to": [
+     "vertical-spinner",
+     "drum",
+     "horizontal-spinner"
+    ]
+   }
+  },
+  {
+   "id": "formula-hit-frequency",
+   "type": "formula",
+   "name": "Hit frequency from RPM and tooth count",
+   "aliases": [],
+   "summary": "How many times per second a spinning weapon's tooth (or teeth) strike, used both for the bite-depth formula above and for estimating cumulative impact loading on the weapon mount and motor over a fight.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "bite",
+    "weapon-geometry",
+    "tooth-count",
+    "hit-frequency"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "expression": "f_hit = (rpm / 60) * tooth_count",
+    "variables": {
+     "f_hit": "hit frequency, hits/s",
+     "rpm": "weapon rotational speed, rpm",
+     "tooth_count": "number of teeth/striking points on the weapon"
+    },
+    "worked_example": "Same weapon re-designed with 2 teeth instead of 1, same rpm = 20,000: f_hit = (20000/60) * 2 = 666.7 hits/s -- double the single-tooth hit rate. At the same v_closing = 1.5 m/s, bite_depth becomes 1.5/666.7 = 0.00225 m (2.25 mm), HALF the single-tooth bite depth -- the direct trade-off between hit rate and per-hit penetration depth that drives the classic 'single big tooth vs multiple smaller teeth' vertical-spinner design debate.",
+    "applies_to": [
+     "vertical-spinner",
+     "drum",
+     "horizontal-spinner"
+    ]
+   }
+  },
+  {
+   "id": "term-kv-velocity-constant",
+   "type": "term",
+   "name": "Kv (velocity constant)",
+   "aliases": [
+    "velocity constant",
+    "RPM per volt"
+   ],
+   "summary": "A motor's Kv rating describes how many RPM it would spin per volt applied, with no load and no back-EMF losses considered. Higher Kv motors spin faster but produce less torque per amp for a given size/winding.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "motor-constant"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "electrical"
+   }
+  },
+  {
+   "id": "term-kt-torque-constant",
+   "type": "term",
+   "name": "Kt (torque constant)",
+   "aliases": [
+    "torque constant"
+   ],
+   "summary": "A motor's Kt rating describes how much torque it produces per amp of current. The physically exact relation to Kv is Kt[N*m/A] = 9.5493/Kv[rpm/V]; a widely-used hobby shorthand, Kt = 8.27/Kv, bakes in an assumed ~87% efficiency and gives a lower number than the exact form. See formula-kt-from-kv.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "motor-constant"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "electrical"
+   }
+  },
+  {
+   "id": "term-moment-of-inertia",
+   "type": "term",
+   "name": "Moment of inertia (MOI)",
+   "aliases": [
+    "MOI",
+    "I",
+    "rotational inertia"
+   ],
+   "summary": "A measure of how a mass's distribution around a rotation axis resists angular acceleration -- the rotational equivalent of mass. Depends strongly on how far mass sits from the spin axis (radius squared), which is why small changes in weapon radius have an outsized effect on stored energy.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "rotational-dynamics"
+   }
+  },
+  {
+   "id": "term-radius-of-gyration",
+   "type": "term",
+   "name": "Radius of gyration",
+   "aliases": [],
+   "summary": "The distance from the rotation axis at which the weapon's entire mass could be concentrated as a single point and produce the same moment of inertia. Useful as a single number summarizing how spread-out (vs concentrated) a weapon's mass distribution is.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "rotational-dynamics"
+   }
+  },
+  {
+   "id": "term-gyroscopic-precession",
+   "type": "term",
+   "name": "Gyroscopic precession",
+   "aliases": [
+    "precession"
+   ],
+   "summary": "The tendency of a spinning object's rotation axis to react to an applied torque by tilting perpendicular to both the spin axis and the applied torque, rather than in the direction naively expected. In vertical spinners, turning the chassis while the weapon is spinning applies exactly this kind of torque, producing an unwanted tipping reaction.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "gyroscopic",
+    "precession"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "dynamics"
+   }
+  },
+  {
+   "id": "term-tip-speed",
+   "type": "term",
+   "name": "Tip speed",
+   "aliases": [
+    "weapon tip speed"
+   ],
+   "summary": "The linear speed of the outermost point of a rotating weapon, calculated as RPM x diameter x 0.00436 to get feet/second (the formula SPARC uses for its slow-spinner and open-air-combat speed limits); a key design variable because plastic weapons have a much lower survivable tip speed than metal ones before they self-destruct.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "tip-speed",
+    "weapon-physics",
+    "formula"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "SPARC's open-air slow-spinner cap is 20 ft/s; ordinary enclosed-arena weight classes (like most plastic ant events) do not cap tip speed by default, but the printed material's own burst strength imposes a practical ceiling well below what a metal weapon could survive.",
+   "sources": [
+    "domain knowledge",
+    "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf"
+   ],
+   "confidence": "high",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "weapon-design",
+    "also_from": [
+     "plastic-antweight"
+    ]
+   }
+  },
+  {
+   "id": "term-stall-current",
+   "type": "term",
+   "name": "Stall current",
+   "aliases": [],
+   "summary": "The current a motor draws when its rotor is fully locked (zero RPM), limited only by winding resistance. This is the highest current the motor and its ESC will ever see, and is the number ESC/wire/connector sizing should be checked against.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "stall-current"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "electrical"
+   }
+  },
+  {
+   "id": "term-stall-torque",
+   "type": "term",
+   "name": "Stall torque",
+   "aliases": [],
+   "summary": "The maximum torque a motor can produce, occurring at zero RPM when the full stall current flows.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "torque"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "electrical"
+   }
+  },
+  {
+   "id": "term-no-load-speed",
+   "type": "term",
+   "name": "No-load speed",
+   "aliases": [
+    "no-load RPM",
+    "free-run speed"
+   ],
+   "summary": "The RPM a motor spins at with no mechanical load applied, close to (but slightly above) its real free-spinning speed once bearing drag and air resistance are accounted for.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "motor-constant"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "electrical"
+   }
+  },
+  {
+   "id": "term-esc",
+   "type": "term",
+   "name": "ESC (Electronic Speed Controller)",
+   "aliases": [
+    "speed controller"
+   ],
+   "summary": "The electronic module that takes a control signal and battery power and drives a motor (brushed or brushless) at a commanded speed/direction. Antweights use one ESC per drive motor plus a separate ESC for the weapon motor, each sized with current headroom above the motor's stall current.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "esc"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "electronics"
+   }
+  },
+  {
+   "id": "term-gear-ratio",
+   "type": "term",
+   "name": "Gear ratio",
+   "aliases": [],
+   "summary": "The reduction between a motor's own shaft speed and its output shaft speed after a gearbox, expressed as motor-turns-per-output-turn (e.g. 20:1 means the output turns once for every 20 motor turns, at 1/20th the RPM but roughly 20x the torque, efficiency losses aside).",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "gear-ratio"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "drivetrain"
+   }
+  },
+  {
+   "id": "term-bite-depth",
+   "type": "term",
+   "name": "Bite depth",
+   "aliases": [],
+   "summary": "How far into an opponent's material a spinning weapon's tooth penetrates before the next tooth (or the same tooth on its next revolution) arrives -- governed by closing speed, weapon RPM, and tooth count.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "bite",
+    "weapon-geometry"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "weapon-design"
+   }
+  },
+  {
+   "id": "term-effective-mass",
+   "type": "term",
+   "name": "Effective (reduced) mass",
+   "aliases": [
+    "reduced mass"
+   ],
+   "summary": "A way of re-expressing a rotating weapon's inertia as an equivalent straight-line mass at a chosen reference radius (usually the tooth tip), so that ordinary linear collision/impact formulas can be applied directly.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "effective-mass"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "rotational-dynamics"
+   }
+  },
+  {
+   "id": "term-spin-up-time",
+   "type": "term",
+   "name": "Spin-up time",
+   "aliases": [],
+   "summary": "How long a weapon takes to reach its operating speed from rest (or from a partial-speed dip after a hit), set by the available average motor torque and the weapon's total moment of inertia. A liability when too long, since the weapon is weak while re-spinning.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "spin-up"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "weapon-design"
+   }
+  },
+  {
+   "id": "term-traction-limited",
+   "type": "term",
+   "name": "Traction-limited (vs torque-limited)",
+   "aliases": [],
+   "summary": "Describes a drivetrain whose real-world acceleration/pushing force is set by how much force the wheels can transmit to the floor (weight x friction coefficient) rather than by how much torque the motors can produce -- the normal condition for lightweight (1 lb class) combat robots.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "traction"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "drivetrain"
+   }
+  },
+  {
+   "id": "term-parallel-axis-theorem",
+   "type": "term",
+   "name": "Parallel axis theorem",
+   "aliases": [],
+   "summary": "The rule for computing a part's moment of inertia about an axis other than its own center of mass: add the mass times the square of the offset distance to the part's own center-of-mass MOI. Used to combine a multi-part weapon (disc plus bolted-on tooth, etc.) into one total MOI.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "parallel-axis"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "rotational-dynamics"
+   }
+  },
+  {
+   "id": "term-compliance-structural",
+   "type": "term",
+   "name": "Compliance (structural)",
+   "aliases": [],
+   "summary": "Deliberate flexibility or give in a mount, standoff, or panel that extends the time over which an impact decelerates a part, which lowers the peak force for the same momentum change -- a key reason 'slightly soft' mounts often survive hits that fully rigid ones crack under.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "structure",
+    "compliance"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "structure"
+   }
+  },
+  {
+   "id": "term-center-of-gravity",
+   "type": "term",
+   "name": "Center of gravity (CG)",
+   "aliases": [
+    "CG",
+    "center of mass"
+   ],
+   "summary": "The single point at which a robot's entire weight can be considered to act. Its height above the ground and its position relative to the wheelbase/track strongly influence tipping resistance, wedge performance, and self-righting behavior.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "weight-and-cg"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "weight-and-cg"
+   }
+  },
+  {
+   "id": "term-tipping-angle",
+   "type": "term",
+   "name": "Tipping angle",
+   "aliases": [],
+   "summary": "The angle of tilt at which a robot's center of gravity passes directly over its wheel (or shell) contact line and it begins to roll over, set by CG height relative to track width or wheelbase.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "weight-and-cg",
+    "tipping"
+   ],
+   "specs": {},
+   "pros": [],
+   "cons": [],
+   "notes": "",
+   "sources": [
+    "domain knowledge"
+   ],
+   "confidence": "medium",
+   "topic_id": "design-math",
+   "extra": {
+    "category": "weight-and-cg"
    }
   },
   {
@@ -3054,11 +5417,11 @@
      "Growing Stems / school programs",
      "UK antweight circuit (150g variant)"
     ],
-    "typical_arena": "Same antweight arena as the standard 1lb class: a small (roughly 4x4 to 8x8 ft) Lexan/polycarbonate-walled box, run as its own bracket rather than mixed with metal antweights"
-   },
-   "also_from": [
-    "weight-classes-rules"
-   ]
+    "typical_arena": "Same antweight arena as the standard 1lb class: a small (roughly 4x4 to 8x8 ft) Lexan/polycarbonate-walled box, run as its own bracket rather than mixed with metal antweights",
+    "also_from": [
+     "weight-classes-rules"
+    ]
+   }
   },
   {
    "id": "ruleset-sparc-plastic-classes",
@@ -4640,34 +7003,6 @@
    }
   },
   {
-   "id": "term-tip-speed",
-   "type": "term",
-   "name": "Tip Speed",
-   "aliases": [
-    "weapon tip speed"
-   ],
-   "summary": "The linear speed of the outermost point of a rotating weapon, calculated as RPM x diameter x 0.00436 to get feet/second (the formula SPARC uses for its slow-spinner and open-air-combat speed limits); a key design variable because plastic weapons have a much lower survivable tip speed than metal ones before they self-destruct.",
-   "weight_classes": [
-    "plastic-antweight"
-   ],
-   "tags": [
-    "weapon-physics",
-    "formula"
-   ],
-   "specs": {},
-   "pros": [],
-   "cons": [],
-   "notes": "SPARC's open-air slow-spinner cap is 20 ft/s; ordinary enclosed-arena weight classes (like most plastic ant events) do not cap tip speed by default, but the printed material's own burst strength imposes a practical ceiling well below what a metal weapon could survive.",
-   "sources": [
-    "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf"
-   ],
-   "confidence": "high",
-   "topic_id": "plastic-antweight",
-   "extra": {
-    "category": "weapon-physics"
-   }
-  },
-  {
    "id": "term-cots",
    "type": "term",
    "name": "COTS (Commercial Off-The-Shelf)",
@@ -5025,11 +7360,11 @@
      "Plastic Ant",
      "standard antweight and larger classes"
     ],
-    "website": "https://buildersdb.com/RobotRuckus2024"
-   },
-   "also_from": [
-    "weight-classes-rules"
-   ]
+    "website": "https://buildersdb.com/RobotRuckus2024",
+    "also_from": [
+     "weight-classes-rules"
+    ]
+   }
   },
   {
    "id": "event-scar-socal-attack-robots",
@@ -5105,11 +7440,11 @@
     "classes_run": [
      "insectweight classes including antweight/plastic ant"
     ],
-    "website": "https://botblast.webs.com/rules.htm"
-   },
-   "also_from": [
-    "weight-classes-rules"
-   ]
+    "website": "https://botblast.webs.com/rules.htm",
+    "also_from": [
+     "weight-classes-rules"
+    ]
+   }
   },
   {
    "id": "event-nhrl",
@@ -5153,11 +7488,11 @@
      "12lb",
      "30lb"
     ],
-    "website": "https://wiki.nhrl.io/"
-   },
-   "also_from": [
-    "weight-classes-rules"
-   ]
+    "website": "https://wiki.nhrl.io/",
+    "also_from": [
+     "weight-classes-rules"
+    ]
+   }
   },
   {
    "id": "supplier-fingertech-robotics",
@@ -6352,44 +8687,6 @@
    }
   },
   {
-   "id": "formula-tip-speed",
-   "type": "formula",
-   "name": "Weapon tip speed from RPM and diameter",
-   "aliases": [],
-   "summary": "Converts weapon RPM and blade/disc diameter into linear tip speed, the number that actually determines impact energy transfer and 'bite'.",
-   "weight_classes": [],
-   "tags": [
-    "formula",
-    "tip-speed"
-   ],
-   "specs": {},
-   "pros": [],
-   "cons": [],
-   "notes": "",
-   "sources": [
-    "https://bristolbotbuilders.com/tools/tipspeed/",
-    "https://justcuzrobotics.com/pages/spinner-calculator-combined"
-   ],
-   "confidence": "high",
-   "topic_id": "weapon-motors",
-   "extra": {
-    "expression": "v_mps = (RPM * pi * D_mm) / 60000  |  v_ftps = v_mps * 3.281  |  v_mph = v_mps * 2.237",
-    "variables": {
-     "v_mps": "tip speed, meters/second",
-     "RPM": "weapon rotational speed, revolutions per minute",
-     "D_mm": "full weapon diameter at the tip, millimeters (NOT radius -- the /60000 already folds in the /2 from radius and the mm-to-m conversion)",
-     "v_ftps": "tip speed, feet/second",
-     "v_mph": "tip speed, miles/hour"
-    },
-    "worked_example": "A 4 in (101.6 mm) vertical disc spinning at 21,000 RPM: v = (21000 * pi * 101.6) / 60000 = (21000 * 3.1416 * 101.6) / 60000 = 6,703,000 / 60000 approx 111.7 m/s = 366 ft/s = 250 mph. This matches the commonly cited antweight vertical-spinner target of roughly 200-250 mph tip speed.",
-    "applies_to": [
-     "antweight",
-     "plastic-antweight",
-     "beetleweight"
-    ]
-   }
-  },
-  {
    "id": "formula-required-kv",
    "type": "formula",
    "name": "Required motor KV from target tip speed and battery voltage",
@@ -6423,42 +8720,6 @@
     "applies_to": [
      "antweight",
      "plastic-antweight"
-    ]
-   }
-  },
-  {
-   "id": "formula-kt-from-kv",
-   "type": "formula",
-   "name": "Torque constant (Kt) from velocity constant (Kv)",
-   "aliases": [],
-   "summary": "For a sinusoidal-drive brushless motor, torque constant in Nm/A is derived directly from the velocity constant in RPM/V using the fixed 8.27 relationship.",
-   "weight_classes": [],
-   "tags": [
-    "formula",
-    "motor-constants",
-    "torque"
-   ],
-   "specs": {},
-   "pros": [],
-   "cons": [],
-   "notes": "",
-   "sources": [
-    "https://source-robotics.com/blogs/blog/motor-constants-kv-kt-ke-km-explained",
-    "https://forum.allaboutcircuits.com/threads/how-to-calculate-the-torque-constant-for-a-bldc-motor.208423/"
-   ],
-   "confidence": "high",
-   "topic_id": "weapon-motors",
-   "extra": {
-    "expression": "Kt_Nm_per_A = 8.27 / Kv_rpm_per_v",
-    "variables": {
-     "Kt_Nm_per_A": "torque constant, newton-meters per amp",
-     "Kv_rpm_per_v": "motor velocity constant, RPM per volt"
-    },
-    "worked_example": "A 2207 antweight weapon motor at 1950 kv: Kt = 8.27 / 1950 = 0.00424 Nm/A. At a hypothetical 30A near-stall current, instantaneous torque approx 0.00424 * 30 = 0.127 Nm (1.27 kgf-cm). Compare to a 2814 at 1850kv is similar Kt per amp, but its much higher max current (50A+) gives far higher absolute stall torque -- this is why stator volume, not KV alone, sets how much torque a motor can actually produce.",
-    "applies_to": [
-     "antweight",
-     "plastic-antweight",
-     "beetleweight"
     ]
    }
   },
@@ -8377,6 +10638,332 @@
    ],
    "topic_id": "batteries-power",
    "word_count": 470
+  },
+  {
+   "id": "chunk-vertical-spinner-walkthrough",
+   "title": "Designing a 1 lb vertical spinner from scratch: a numeric walkthrough",
+   "section": "Design Walkthroughs",
+   "body_md": "This walkthrough sizes a full metal-weapon vertical spinner for a 454 g (1 lb) antweight, using the formulas on this page end to end.\n\n**1. Set targets.** Aim for a hard-hitting but achievable tip speed around 150 mph (67 m/s) and a spin-up time under ~1.5 s.\n\n**2. Size the weapon.** Pick a compound weapon: a 60 g solid disc (radius 28 mm) plus a 10 g bolt-on steel tooth at 30 mm radius, tooth tip reaching out to 32 mm. Using `formula-moi-solid-disc` and `formula-parallel-axis-theorem`: I_disc = 0.5*0.060*0.028^2 = 2.35e-5 kg*m^2; tooth adds 0.010*0.030^2 = 9.0e-6 kg*m^2. **I_total = 3.25e-5 kg*m^2.**\n\n**3. Pick the operating speed.** Target v_tip = 67 m/s at r_tip = 0.032 m gives omega = v/r = 2094 rad/s = 20,000 rpm (`formula-tip-speed` rearranged). Stored energy (`formula-rotational-ke`): KE = 0.5 * 3.25e-5 * 2094.4^2 = **71.3 J** -- a genuinely hard-hitting 1 lb spinner.\n\n**4. Pick the motor.** A small brushless weapon motor at Kv = 2750 rpm/V on 3S (11.1 V) gives no-load rpm = 30,525 (`formula-no-load-rpm`), comfortably above the 20,000 rpm target so the motor isn't being asked to run at its very top end. Using the exact Kt relation (`formula-kt-from-kv`): Kt = 9.5493/2750 = 0.003472 N*m/A. With a 30 A stall current: T_stall = 0.1042 N*m.\n\n**5. Check spin-up time.** Average torque across the 0-20,000 rpm range works out to about 0.0701 N*m (`formula-spin-up-time`), giving t_spinup = I*omega/T_avg = 3.25e-5*2094.4/0.0701 = **0.97 s** -- meets the under-1.5s target.\n\n**6. Check the gyro-dance risk.** At full weapon speed, the tipping-moment threshold for a 90 mm track / 454 g chassis is 0.2004 N*m (`formula-tipping-moment-threshold`), and the max safe in-place turn rate before the precession torque exceeds that is about 2.94 rad/s (~169 deg/s) (`formula-max-safe-turn-rate-gyro`) -- driving software/driver technique should respect that limit, or turn in wider arcs.\n\n**7. Weight budget.** Weapon system (motor+disc+ESC) 30% = 136 g; drive 20% = 91 g; armor/frame 30% = 136 g; electronics 12% = 55 g; fasteners 8% = 36 g (`formula-weight-budget-allocation`), summing to 454 g.\n\n**8. Battery check.** A 300 mAh 2S/3S 60C pack gives 18-60A continuous depending on cell count/rating (`formula-battery-c-rating-to-amps`) -- plenty above the weapon's ~10 A cruise current and enough headroom for the 30 A stall.\n\n**Final spec:** 3.25e-5 kg*m^2 compound disc weapon, 20,000 rpm / 67 m/s tip speed, 71.3 J stored, ~1.0 s spin-up, 2750 Kv / 30 A-stall brushless weapon motor on 3S, 60A-rated weapon ESC, 90 mm track width chassis for gyro stability, within a 454 g total budget.",
+   "entity_refs": [
+    "formula-battery-c-rating-to-amps",
+    "formula-kt-from-kv",
+    "formula-max-safe-turn-rate-gyro",
+    "formula-moi-solid-disc",
+    "formula-no-load-rpm",
+    "formula-parallel-axis-theorem",
+    "formula-rotational-ke",
+    "formula-spin-up-time",
+    "formula-stall-torque",
+    "formula-tip-speed",
+    "formula-tipping-moment-threshold",
+    "formula-weight-budget-allocation"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "walkthrough",
+    "vertical-spinner",
+    "design-process"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 419
+  },
+  {
+   "id": "chunk-plastic-ant-vertical-spinner-walkthrough",
+   "title": "Designing a 1 lb plastic-antweight vertical spinner: a numeric walkthrough",
+   "section": "Design Walkthroughs",
+   "body_md": "Plastic-antweight rulesets generally restrict most structural/weapon material to non-metal (motors, fasteners, bearings, and small hardened inserts are usually still allowed in metal, but frame, armor and the bulk of the weapon typically must be plastic). This changes the weight-math story significantly compared to the metal-weapon walkthrough above.\n\n**1. Weapon in plastic.** A nylon disc (density ~1.15 g/cm^3) at the same 30 mm radius / 6 mm thick geometry as a metal example has volume = pi*r^2*t = pi*0.030^2*0.006 = 1.70e-5 m^3 = 16.96 cm^3, giving mass = 16.96*1.15 = **19.5 g** -- versus 133 g if the identical shape were cut from steel (16.96*7.85). Using `formula-moi-solid-disc`: I = 0.5*0.0195*0.030^2 = **8.775e-6 kg*m^2**, roughly a quarter of the metal build's compound-weapon MOI.\n\n**2. Pick a realistic plastic-weapon tip speed.** Plastic teeth/edges are far more failure-prone at high tip speed than hardened steel, so plastic-class spinners are usually run slower: target ~80 ft/s (24.4 m/s) rather than 150+ mph. omega = v/r = 24.4/0.030 = 813 rad/s = **7,767 rpm**.\n\n**3. Stored energy.** KE = 0.5*8.775e-6*813.3^2 = 0.5*8.775e-6*661,457 = **2.9 J** -- an order of magnitude below the metal build's 71 J. This is normal and expected: plastic-antweight spinners are built for board-clearing and harassment rather than devastating single hits; wedges and control tactics carry more relative weight in this class.\n\n**4. Drivetrain is unaffected by the material rule** (motors, wheels, gearboxes are usually still metal/off-the-shelf), so the same drivetrain numbers as the metal build apply: 11,000 rpm base motor, 20:1 gearbox, 32 mm wheel -> 0.92 m/s top speed (`formula-top-speed-drivetrain`).\n\n**5. Weight budget shifts toward armor/frame.** Because plastic structure needs much greater thickness for the same stiffness (see `formula-sheet-weight-per-area`: a 6mm HDPE panel weighs 57 g vs 81 g for a thinner 3mm aluminum panel of the same area, but the HDPE panel needed 2x the thickness just to compete structurally), a realistic plastic-ant budget is: weapon 15% = 68 g; drive 20% = 91 g; armor/frame 40% = 182 g; electronics 15% = 68 g; fasteners 10% = 45 g -- notice armor/frame roughly doubles its percentage share versus the metal build's 30%.\n\n**Final spec:** ~20 g nylon disc weapon, ~7,800 rpm / 24.4 m/s tip speed, ~2.9 J stored, same drivetrain as a metal build, but with 40% of weight (182 g) committed to armor/frame instead of 30%.",
+   "entity_refs": [
+    "formula-moi-solid-disc",
+    "formula-rotational-ke",
+    "formula-sheet-weight-per-area",
+    "formula-top-speed-drivetrain",
+    "formula-weight-budget-allocation"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "walkthrough",
+    "vertical-spinner",
+    "plastic-antweight",
+    "design-process"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 389
+  },
+  {
+   "id": "chunk-sanity-check-numbers",
+   "title": "Sanity-check numbers every antweight should hit",
+   "section": "Reference Ranges",
+   "body_md": "A quick set of realistic target ranges to check any new 1 lb design against, before committing to parts.\n\n| Metric | Typical metal-weapon spinner | Typical plastic-antweight | Notes |\n|---|---|---|---|\n| Weapon tip speed | 100-200+ ft/s (30-60+ m/s) | 60-100 ft/s (18-30 m/s) | Higher isn't always better once structural survival is the limit |\n| Stored weapon KE | 20-80 J (some builds 100 J+) | 2-10 J | Use `formula-rotational-ke`; energy scales with the SQUARE of speed, so doubling rpm quadruples KE |\n| Drivetrain top speed | 0.6-1.5 m/s (2-5 ft/s) | 0.6-1.5 m/s | Faster control bots can push 2+ m/s but trade off pushing torque and precision |\n| Weapon spin-up time | 0.5-3 s (direct/lightly-geared) | 0.5-2 s | Large slow high-inertia drums can run 5-10 s+, a real tactical liability |\n| Run time on a 300 mAh pack | ~2-6 minutes depending on average current draw | ~3-8 minutes (lower average current) | A typical fight runs 2-3 minutes, so margin matters more than max theoretical runtime |\n| Weight budget: weapon system | 25-40% of total weight | 10-20% of total weight | Metal weapons carry proportionally more weight for their energy payoff |\n| Weight budget: armor/frame | 20-30% | 35-45% | Plastic structure needs more mass for equivalent stiffness |\n\n**Worked run-time sanity check:** a 300 mAh (0.3 Ah) pack under an average combined draw of 8 A (mixing idle weapon-maintain current with occasional drive current) gives runtime = Capacity_Ah / I_avg = 0.3/8 = 0.0375 h = **2.25 minutes** -- right in the expected range for a spinner-class build, underscoring why battery capacity vs average current draw needs an explicit check rather than an assumption.\n\nUse these ranges as a first filter: if your design's tip speed, KE, or spin-up time falls far outside these bands, re-check your MOI, Kt/Kv, and gear-ratio math before assuming the design itself is simply \"better\" or \"worse\" than the norm.",
+   "entity_refs": [
+    "formula-battery-c-rating-to-amps",
+    "formula-rotational-ke",
+    "formula-spin-up-time",
+    "formula-tip-speed",
+    "formula-weight-budget-allocation"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "sanity-check",
+    "reference-ranges",
+    "vertical-spinner",
+    "plastic-antweight"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 331
+  },
+  {
+   "id": "chunk-five-common-mistakes",
+   "title": "The five most common numeric mistakes in antweight design",
+   "section": "Common Mistakes",
+   "body_md": "**1. Confusing the exact Kt = 9.5493/Kv with the hobby shorthand Kt = 8.27/Kv.** The hobby shorthand already assumes ~87% efficiency baked in (8.27/9.5493 = 0.866). Using the exact form and THEN separately derating for efficiency is correct; using the hobby shorthand and derating AGAIN double-counts losses and can understate real available torque by ~25% or more, leading to over-gearing or oversized motors that were never actually needed. See `formula-kt-from-kv`.\n\n**2. Assuming all available motor torque converts into acceleration or pushing force.** For a 454 g robot, wheel-to-floor traction is almost always the real limit, not motor torque. In the worked drivetrain example on this page, the drivetrain could theoretically deliver 20.0 N of driving force, but the traction limit (`formula-traction-limited-force`) was only 3.56 N -- meaning the wheels would spin long before the motor ran out of torque. Builders who chase higher-torque motors or lower gear ratios to \"push harder\" without also improving wheel grip are solving the wrong problem.\n\n**3. Treating total stored kinetic energy as the energy delivered in one hit.** A weapon rarely gives up all its stored KE in a single strike; it slows down by only however much the impact actually resisted it, keeping the rest of its spin for the next hit. In the worked example, only about 19.8 J of a 71.3 J stored total was delivered in one hit (`formula-energy-per-hit-vs-stored`) -- using the full stored KE number to size structure or predict single-hit damage overstates the real per-hit force.\n\n**4. Ignoring gyroscopic precession torque when picking turn rate for a vertical spinner.** Precession torque scales directly with weapon MOI, weapon speed, AND commanded turn rate (`formula-gyroscopic-precession-torque`); a chassis that seems perfectly stable standing still or driving straight can start to rock or tip the instant the driver spins it in place at full weapon speed. The worked example shows a case where the precession torque (0.204 N*m) barely exceeds the chassis's own tipping threshold (0.200 N*m) -- a small change in turn rate is the difference between stable and \"gyro dance.\"\n\n**5. Sizing the ESC and motor from no-load rpm and stall current alone, without checking spin-up time or battery voltage sag under load.** A motor's real available torque at the actual operating point is much lower than its stall torque, and battery voltage sags under load (`formula-voltage-sag`) right when full stall current is being demanded (weapon impacts, drivetrain stalls). Skipping this check leads to slower-than-expected spin-up, ESC brownouts under load, and weapon motors that seem \"weaker than the spec sheet\" mid-fight -- when the real cause is under-provisioned battery C-rating or ESC current headroom (`formula-esc-current-headroom`).",
+   "entity_refs": [
+    "formula-energy-per-hit-vs-stored",
+    "formula-esc-current-headroom",
+    "formula-gyroscopic-precession-torque",
+    "formula-kt-from-kv",
+    "formula-traction-limited-force",
+    "formula-voltage-sag"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "common-mistakes",
+    "design-pitfalls"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 435
+  },
+  {
+   "id": "chunk-moi-and-compound-weapons",
+   "title": "Moment of inertia shapes and building a compound weapon's total MOI",
+   "section": "Rotational Fundamentals",
+   "body_md": "Moment of inertia (MOI, symbol I, units kg*m^2) is the rotational equivalent of mass: it measures how hard it is to angularly accelerate a spinning object, and it depends heavily on how far the mass sits from the spin axis (radius SQUARED, not just radius). Nearly every weapon-sizing calculation on this page starts from getting I right.\n\n**Standard shapes** (see the individual formula entities for each): a solid disc/cylinder about its own axis (I = 0.5*m*r^2), an annulus/washer with a bore (I = 0.5*m*(r_outer^2+r_inner^2)), a thin ring or thin-walled cylinder where all mass sits at one radius (I = m*r^2), a slender rod about its own center as in a horizontal bar spinner (I = (1/12)*m*L^2), the same rod about one end as in a hammer or axe arm (I = (1/3)*m*L^2), and a small point mass at a radius as in a counterweight or bolt-on tooth (I = m*r^2).\n\n**Real weapons are almost never a single pure shape.** A typical single-tooth vertical-spinner disc is really a solid disc PLUS a bolted-on hardened tooth sticking out further than the disc's own radius. The **parallel axis theorem** is what lets you combine these correctly: each part's own moment of inertia about its own center of mass, plus that part's mass times the square of its distance from the ACTUAL rotation axis, summed over every part.\n\n**Worked compound example:** a 60 g solid disc (radius 28 mm, I_disc = 0.5*0.060*0.028^2 = 2.35e-5 kg*m^2, already centered on the rotation axis) plus a 10 g bolt-on tooth, small enough that its own MOI about its own center is negligible, mounted 30 mm from center: tooth contribution = 0 + 0.010*0.030^2 = 9.0e-6 kg*m^2. **I_total = 2.35e-5 + 9.0e-6 = 3.25e-5 kg*m^2.**\n\nA useful intuition check: since I scales with r^2, a tooth mounted twice as far out contributes four times as much MOI for the same mass -- which is exactly why single, far-flung teeth are so effective at maximizing stored energy per gram of added weapon mass, at the cost of needing a longer spin-up time for that same reason (more MOI per gram means more torque-seconds needed to reach the same rpm).",
+   "entity_refs": [
+    "formula-moi-annulus",
+    "formula-moi-point-mass",
+    "formula-moi-slender-rod-center",
+    "formula-moi-slender-rod-end",
+    "formula-moi-solid-disc",
+    "formula-moi-thin-ring",
+    "formula-moi-thin-walled-cylinder",
+    "formula-parallel-axis-theorem"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "rotational",
+    "moi",
+    "compound-weapon",
+    "fundamentals"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 360
+  },
+  {
+   "id": "chunk-kt-kv-exact-vs-hobby",
+   "title": "Kt from Kv: the exact relation vs the hobby shorthand, and why the difference matters",
+   "section": "Electrical Fundamentals",
+   "body_md": "Every brushed or brushless DC motor has two closely related constants: Kv (rpm produced per volt of back-EMF, at no load) and Kt (torque produced per amp of current). They describe the SAME underlying physical motor constant, just in different units, and are related by a fixed physical law -- but the combat-robotics hobby commonly uses a shortcut formula that is NOT the same thing.\n\n**The exact, physically derived relation** is: **Kt [N*m/A] = 60 / (2*pi*Kv[rpm/V]) = 9.5493 / Kv**. This comes directly from the definitions of Kv and Kt in consistent SI units and holds for an ideal motor regardless of size, winding, or efficiency.\n\n**The hobby shorthand** commonly seen in RC and combat robotics circles is **Kt = 8.27 / Kv**. This is NOT a different physical law -- it is the exact relation with an assumed real-world mechanical/electrical efficiency of roughly 87% already multiplied in (8.27/9.5493 = 0.866). It's a convenient \"expected real output torque\" estimate for a typical small hobby motor, but it silently bundles in a loss assumption that may not match your actual motor.\n\n**Why this matters:** if you use the exact 9.5493/Kv form to compute Kt, then SEPARATELY apply your own efficiency estimate downstream (e.g. in `formula-motor-efficiency-estimate`), your math is internally consistent. But if you use the hobby's 8.27/Kv shorthand AND THEN also apply a separate efficiency derating on top of it, you are double-counting losses -- understating real available torque by roughly 13-25%+ depending on the second derating applied. This directly skews spin-up time predictions (`formula-spin-up-time`) and stall-torque estimates (`formula-stall-torque`) toward being overly pessimistic (or, if done backwards, overly optimistic).\n\n**Worked comparison** for a Kv = 2750 rpm/V motor: Kt_exact = 9.5493/2750 = 0.003472 N*m/A. Kt_hobby = 8.27/2750 = 0.003007 N*m/A -- 86.6% of the exact value. Every other worked example on this page uses the exact 9.5493/Kv form for Kt, and applies efficiency as a separate, explicit factor where relevant, so the two effects can always be told apart.",
+   "entity_refs": [
+    "formula-kt-from-kv",
+    "formula-motor-efficiency-estimate",
+    "formula-stall-torque",
+    "term-kt-torque-constant",
+    "term-kv-velocity-constant"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "kt",
+    "kv",
+    "motor-constant",
+    "fundamentals"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 329
+  },
+  {
+   "id": "chunk-gyroscopic-effects-and-gyro-dance",
+   "title": "Gyroscopic effects on a spinner-weapon chassis, and predicting 'gyro dance'",
+   "section": "Gyroscopic Fundamentals",
+   "body_md": "A spinning weapon carries angular momentum along its own spin axis. When the chassis carrying that weapon is itself rotated (yawed) by the drivetrain -- turning in place, or even just cornering hard -- that angular momentum reacts via gyroscopic precession, producing a torque about a THIRD axis, perpendicular to both the weapon spin axis and the turn axis. In a vertical spinner (weapon axis roughly horizontal, side to side), turning the chassis produces a precession torque that tries to pitch the front or back of the robot up -- the visible \"gyro dance\" or \"gyro wobble\" many builders describe.\n\n**The core relation** is `formula-gyroscopic-precession-torque`: tau_precession = I * omega_weapon * omega_turn. Precession torque scales directly (linearly) with all three of weapon inertia, weapon speed, AND how fast the driver yaws the chassis -- meaning a robot that feels perfectly planted driving straight, or even turning gently, can suddenly start rocking the instant the driver spins hard in place at full weapon RPM.\n\n**Comparing against the chassis's own resistance to tipping** (`formula-tipping-moment-threshold`, M_tip = W * track_width/2) tells you whether a given turn rate is actually going to destabilize the robot. In the worked example (I = 3.25e-5 kg*m^2, weapon at 20,000 rpm, 454 g chassis with a 90 mm track), a fairly modest 3 rad/s (~0.5 rev/s) in-place turn rate produces 0.204 N*m of precession torque against a 0.200 N*m tipping threshold -- meaning this specific robot is right at its tipping edge at that turn rate and weapon speed.\n\n**Predicting the safe limit directly** (`formula-max-safe-turn-rate-gyro`): rearranging for the maximum safe turn rate gives omega_turn_max = M_tip/(I*omega_weapon) = 2.94 rad/s (~169 deg/s) for this example -- a concrete number a driver or an autonomous turn-rate limiter can be tuned against.\n\n**Practical mitigations** informed by these formulas: widen the track/wheelbase (raises M_tip), lower the CG (raises the tipping angle per `formula-cg-tipping-angle`, giving more margin at the same M_tip), reduce weapon MOI or top speed if turning agility matters more than raw hitting power, or simply train the driver to turn in wide arcs rather than spinning in place whenever the weapon is at speed.",
+   "entity_refs": [
+    "formula-cg-tipping-angle",
+    "formula-gyroscopic-precession-torque",
+    "formula-max-safe-turn-rate-gyro",
+    "formula-tipping-moment-threshold",
+    "term-gyroscopic-precession"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "gyroscopic",
+    "precession",
+    "vertical-spinner",
+    "chassis-stability",
+    "fundamentals"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 354
+  },
+  {
+   "id": "chunk-drivetrain-sizing-traction-vs-torque",
+   "title": "Drivetrain sizing: why traction, not torque, usually sets the limit for a 1 lb bot",
+   "section": "Drivetrain Fundamentals",
+   "body_md": "Drivetrain sizing for an antweight starts with `formula-top-speed-drivetrain`: v_top = (rpm_motor/gear_ratio/60) * pi * D_wheel. A base motor at 11,000 rpm through a 20:1 gearbox and a 32 mm wheel gives an output shaft speed of 550 rpm and a top speed of 0.92 m/s -- solidly in the typical antweight range of 0.6-1.5 m/s.\n\n**The trap most new builders fall into is stopping there and assuming more gear reduction (or a beefier motor) automatically means more real-world pushing power.** `formula-acceleration-from-torque` shows the drivetrain COULD deliver a driving force of 20.0 N from a small motor (10 mN*m stall torque) through a 20:1 gearbox at 80% efficiency -- but `formula-traction-limited-force` shows the wheels can only actually transmit about 3.56 N to the floor before slipping, using a realistic mu = 0.8 and the robot's own 4.453 N weight. Since 20.0 N (available) far exceeds 3.56 N (transmittable), this drivetrain is firmly **traction-limited**, not torque-limited (`formula-wheel-slip-threshold`) -- real achievable acceleration is 3.56/0.454 = 7.85 m/s^2, set entirely by wheel grip and robot weight, with huge spare motor torque doing nothing useful.\n\n**This has a direct, practical design consequence:** for a 454 g robot, spending weight or money on a lower gear ratio or a higher-torque motor rarely improves pushing power once you're already past the point where torque exceeds what the wheels can grip -- which happens at a surprisingly low torque for such a light robot. Better wheel material (higher mu), more weight over the drive wheels, or a wider contact patch improve pushing power far more reliably than more gear reduction.\n\n**Climbing an opponent's wedge** (`formula-torque-to-climb-wedge`) requires checking BOTH conditions separately: the torque needed at the wheel to overcome gravity up the slope (usually easily available), and the traction needed to actually grip the (possibly slippery, now-tilted) wedge surface, which caps out entirely at theta_max = atan(mu) regardless of how much torque is on tap -- at mu = 0.8, that's about 38.7 degrees, a hard physical ceiling no amount of extra motor torque can push past.\n\n**Power draw stays modest at cruise and only climbs near the traction limit** (`formula-power-at-speed`): P = F*v gives just 0.205 W cruising against rolling resistance, versus 3.28 W pushing at the full traction-limited force while still moving at top speed -- useful bounds when sizing drive ESCs and battery current budget.",
+   "entity_refs": [
+    "formula-acceleration-from-torque",
+    "formula-power-at-speed",
+    "formula-top-speed-drivetrain",
+    "formula-torque-to-climb-wedge",
+    "formula-traction-limited-force",
+    "formula-wheel-slip-threshold",
+    "term-traction-limited"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drivetrain",
+    "traction",
+    "fundamentals"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 389
+  },
+  {
+   "id": "chunk-battery-esc-electrical-sizing",
+   "title": "Battery and ESC sizing: C-rating, voltage sag, and current headroom",
+   "section": "Electrical Fundamentals",
+   "body_md": "Sizing the electrical system starts from the battery. `formula-battery-c-rating-to-amps` converts a pack's label rating into a real continuous-current number: a common 300 mAh (0.3 Ah) 2S pack rated 60C gives I_continuous = 60*0.3 = 18 A. `formula-battery-wh-capacity` gives its total stored energy on an equal footing across cell counts: Wh = V*Ah = 7.4*0.3 = 2.22 Wh for that same 2S pack.\n\n**Voltage sag is the detail most commonly skipped.** `formula-voltage-sag`: V_loaded = V_nominal - I_draw*R_internal. With a typical small high-C pack's R_internal = 0.020 ohm, drawing a modest 10 A sags the 7.4 V pack to 7.20 V, and drawing the full rated 18 A sags it to 7.04 V -- a ~5% voltage drop exactly when the weapon or drivetrain needs full torque most (during a stall or hard impact). Since motor torque and power both scale with applied voltage, ignoring sag means overestimating real available torque right when it matters.\n\n**ESC sizing should headroom well above stall current, not cruise current** (`formula-esc-current-headroom`): a weapon motor with a 30 A stall current should sit behind an ESC rated at least 1.5-2x that (52.5-60 A), since weapon motors stall briefly on every real hit -- an ESC sized only to the motor's typical cruise draw will brown out or cook itself the first time the weapon connects solidly.\n\n**Efficiency is not a fixed number** (`formula-motor-efficiency-estimate`): eta = P_out/P_in = (T*omega)/(V*I) varies across the motor's speed range. In the worked weapon-motor example, efficiency at the 20,000 rpm operating point came out to 65.5% -- useful for estimating how much of the battery's Wh capacity actually turns into weapon KE and run time, rather than assuming a fixed number pulled from a datasheet's single peak-efficiency point.\n\n**Putting it together for run time:** with an average combined current draw of 8 A (mixing idle weapon-maintain current with occasional drive current) and the 0.3 Ah pack above, runtime = Capacity_Ah/I_avg = 0.3/8 = 0.0375 h = 2.25 minutes -- worth checking explicitly against the typical 2-3 minute fight length, since it's easy to assume a battery's mAh number is \"plenty\" without doing this division.",
+   "entity_refs": [
+    "formula-battery-c-rating-to-amps",
+    "formula-battery-wh-capacity",
+    "formula-esc-current-headroom",
+    "formula-motor-efficiency-estimate",
+    "formula-voltage-sag",
+    "term-c-rating",
+    "term-internal-resistance",
+    "term-voltage-sag"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "electrical",
+    "battery",
+    "esc",
+    "fundamentals"
+   ],
+   "sources": [
+    "https://www.grepow.com/blog/what-is-the-c-rating-on-a-lipo-battery.html"
+   ],
+   "topic_id": "design-math",
+   "word_count": 351
+  },
+  {
+   "id": "chunk-structural-impact-armor-and-compliance",
+   "title": "Structural math for impact survival: force, stress, bending, and why compliance helps",
+   "section": "Structural Fundamentals",
+   "body_md": "Impact survival math starts from the impulse-momentum relation, `formula-impact-force-momentum-time`: F_avg = delta_p/delta_t = m_eff*delta_v/delta_t. A weapon's effective mass (0.03174 kg, from `formula-effective-mass-at-tooth`) losing 10 m/s of tip speed over a brief 1.5 ms contact produces an average force around 212 N -- a genuinely large force from a genuinely small, light part, entirely because the contact time is so short.\n\n**That force then has to be checked against real materials and geometry.** `formula-stress-force-area` (sigma = F/A) shows the same 212 N spread over a small 25 mm^2 contact patch produces about 8.5 MPa of stress -- fine against aluminum's ~276 MPa yield strength, but potentially enough to locally dent a softer plastic panel at that same tiny contact area. For an actual armor panel bolted at two edges, `formula-beam-bending-armor-panel` models it as a simply-supported beam under a midspan point load: a 3mm-thick, 50mm-wide aluminum panel spanning 40mm between mounts under that same 212 N hit sees about 28.2 MPa peak bending stress -- roughly a 9.8x safety margin against yield, comfortably surviving the hit.\n\n**Why compliance (a little \"give\") helps** (`formula-compliance-reduces-peak-force`): for the SAME momentum change, doubling the contact/stopping time exactly halves the peak force (F = delta_p/delta_t). A rigid mount stopping the same impact in 1.5 ms sees 212 N; a compliant standoff or slightly flexible frame stretching that to 3.0 ms sees only about 106 N -- half the peak force, for physically the same hit. This is why armor and weapon mounts that allow a small amount of flex often outlast perfectly rigid ones: they're not absorbing less energy, they're absorbing the SAME energy over more time, which is what peak force (and therefore cracking/yielding) actually cares about.\n\n**Fasteners get checked the same way** (`formula-bolt-shear-estimate`): two M3 bolts sharing that 212 N reaction force see about 15.0 MPa of shear stress each, versus a typical alloy-steel bolt's 350-500 MPa shear strength -- over 20x margin on a single hit, though real mounts should still account for fatigue from repeated hits across a fight, not just a single worst-case load.",
+   "entity_refs": [
+    "formula-beam-bending-armor-panel",
+    "formula-bolt-shear-estimate",
+    "formula-compliance-reduces-peak-force",
+    "formula-impact-force-momentum-time",
+    "formula-stress-force-area",
+    "term-compliance-structural"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "structure",
+    "impact",
+    "armor",
+    "fundamentals"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 342
+  },
+  {
+   "id": "chunk-weight-budget-and-cg",
+   "title": "Weight budgeting and center-of-gravity math for a 1 lb chassis",
+   "section": "Weight & CG Fundamentals",
+   "body_md": "Every antweight design starts with splitting the 454 g total weight limit into subsystem budgets (`formula-weight-budget-allocation`): weight_component = total_weight * pct/100. A metal-weapon vertical spinner typically runs weapon 30% / drive 20% / armor 30% / electronics 12% / fasteners 8%, while a plastic-antweight build shifts hard toward armor/frame (weapon 15% / drive 20% / armor 40% / electronics 15% / fasteners 10%) because non-metal structure needs more mass for the same stiffness.\n\n**Center of gravity (CG) height, relative to track width or wheelbase, sets tipping resistance** (`formula-cg-tipping-angle`): theta_tip = atan((track_or_wheelbase/2)/h_cg). A low, wide chassis (90mm track, 25mm CG height) resists tipping to nearly 61 degrees of tilt; a tall, narrow one (60mm track, 40mm CG height) tips at just under 37 degrees -- a huge practical difference in how easily a side hit, a hard turn, or an opponent's wedge can flip the robot over. This same math underlies both wedge defense (a low-CG robot is harder to flip up and over a wedge) and the gyro-dance tipping-moment check elsewhere on this page (a wider/lower robot has a higher tipping-moment threshold for the same reason).\n\n**Self-righting shapes** (`formula-self-righting-shell-condition`) use a simplified rule of thumb for domed/shell designs: keeping the CG height below the shell's own radius (h_cg < R_shell) tends to make gravity roll the robot back onto its wheels if flipped, rather than leaving it resting stably upside-down. This is a rough qualitative check, not a rigorous stability proof -- real self-righting also depends on shell uniformity, weapon drag during the roll, and floor friction.\n\n**Sheet/panel weight** (`formula-sheet-weight-per-area`, weight = area*thickness*density) is the workhorse calculation for checking any armor or frame stock choice against the weight budget before cutting it: a 100 cm^2 panel in 6mm HDPE (density 0.95 g/cm^3) weighs 57 g, while the same area in 3mm aluminum (density 2.70 g/cm^3) weighs 81 g despite being half the thickness -- illustrating why plastic needs roughly double the thickness to be structurally competitive, but can still sometimes land at a comparable or lower weight once thickness is matched to the actual stiffness requirement rather than compared at equal thickness.",
+   "entity_refs": [
+    "formula-cg-tipping-angle",
+    "formula-self-righting-shell-condition",
+    "formula-sheet-weight-per-area",
+    "formula-weight-budget-allocation",
+    "term-center-of-gravity",
+    "term-tipping-angle"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "weight-and-cg",
+    "fundamentals"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 352
+  },
+  {
+   "id": "chunk-bite-depth-and-tooth-count",
+   "title": "Bite depth and tooth count: the hit-frequency trade-off",
+   "section": "Weapon Geometry Fundamentals",
+   "body_md": "\"Bite\" refers to how deep a spinning weapon's tooth digs into an opponent's material before the next tooth strike arrives -- and it depends on three things: how fast the two robots are closing together, how fast the weapon spins, and how many teeth it has.\n\n**The core relation** (`formula-bite-depth`): hit frequency f_hit = (rpm/60)*tooth_count, and bite_depth = v_closing/f_hit. At 20,000 rpm with a single tooth and a 1.5 m/s closing speed, f_hit = 333.3 hits/s and bite_depth = 1.5/333.3 = 4.5 mm engaged per hit.\n\n**Adding a second tooth at the same RPM doubles the hit frequency and HALVES the bite depth** (`formula-hit-frequency`): the same weapon with 2 teeth at the same 20,000 rpm gives f_hit = 666.7 hits/s and bite_depth = 1.5/666.7 = 2.25 mm -- half the per-hit penetration, for twice the hit rate.\n\n**This is the physical reason single-tooth designs dominate hard-hitting vertical spinners:** for a given weapon RPM and closing speed, fewer teeth means a longer gap between successive strikes, which means more material gets engaged (and more damage delivered) per individual hit -- at the cost of a lower overall hit rate and, if the tooth is mounted further out to add MOI, a longer spin-up time (see `formula-parallel-axis-theorem`). Multi-tooth designs trade this away for a higher, steadier hit rate and (often) a smoother-spinning, easier-to-balance weapon, which suits control-oriented or lower-power builds where sheer per-hit penetration matters less than reliable, frequent contact.\n\n**Practical use:** given an opponent's known or estimated armor thickness, this formula can be run in reverse to check whether a given tooth-count/RPM combination will actually penetrate on a single pass, or whether the design needs either a slower/single-tooth weapon for deeper bite, or simply relies on cumulative multi-hit damage instead.",
+   "entity_refs": [
+    "formula-bite-depth",
+    "formula-hit-frequency",
+    "term-bite-depth"
+   ],
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "bite",
+    "weapon-geometry",
+    "tooth-count",
+    "fundamentals"
+   ],
+   "sources": [],
+   "topic_id": "design-math",
+   "word_count": 289
   },
   {
    "id": "chunk-drive-motor-landscape-antweight",
