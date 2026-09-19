@@ -10,7 +10,7 @@ Three things come out of one dataset:
 |---|---|---|
 | **Website** | Static site with schematic diagrams, spec tables, guides and interactive calculators | `web/index.html` |
 | **MCP server** | Nine tools any MCP client can call — search, lookup, compare, matchups, build guides, calculations | `agent/mcp_server.py` |
-| **Discord bot** | Claude answers build questions in your server, using the same tools | `discord-bot/bot.py` |
+| **Discord bot** | An OpenAI-compatible LLM answers build questions in your server, using the same tools | `discord-bot/bot.py` |
 | **HTTP API** | Read-only JSON endpoints for anything else | `agent/api.py` |
 
 All three call the same query layer (`agent/kb.py`), so the site, the bot and the
@@ -56,7 +56,7 @@ agent/
   mcp_server.py           MCP stdio server, zero dependencies
   api.py                  Read-only HTTP JSON API, zero dependencies
 discord-bot/
-  bot.py                  Discord bot driven by Claude tool use
+  bot.py                  Discord bot using OpenAI-compatible tool calling
 web/                      Generated site (committed so it can be hosted directly)
 tests/test_kb.py          Test suite for the query layer, builders and MCP server
 ```
@@ -101,12 +101,32 @@ Tools exposed:
 
 ### Discord bot
 
+The bot uses the standard OpenAI-compatible Chat Completions + function-calling
+format. OpenRouter is the default endpoint, but you can point the same code at
+Agent Router or another compatible gateway with environment variables.
+
 ```bash
 pip install -r discord-bot/requirements.txt
-export DISCORD_TOKEN=...        # from the Discord developer portal
-export ANTHROPIC_API_KEY=...    # or use an `ant auth login` profile
+
+export DISCORD_TOKEN=...                       # Discord developer portal
+export OPENROUTER_API_KEY=...                  # or set LLM_API_KEY
+export LLM_MODEL=anthropic/claude-sonnet-4.6  # any tool-capable model
 python3 discord-bot/bot.py
 ```
+
+Optional provider settings:
+
+```bash
+export LLM_BASE_URL=https://openrouter.ai/api/v1
+export LLM_API_KEY=...          # overrides OPENROUTER_API_KEY
+export LLM_MODEL=...            # provider-specific model id
+export LLM_MAX_TOKENS=4000
+export LLM_MAX_TOOL_TURNS=8
+```
+
+For an Agent Router or other OpenAI-compatible gateway, change only
+`LLM_BASE_URL`, `LLM_API_KEY`, and `LLM_MODEL`. The database/MCP tool layer
+does not need any provider-specific changes.
 
 The bot needs the **Message Content** intent enabled in the Discord developer
 portal. Then mention it, or use the slash commands:
@@ -121,10 +141,9 @@ portal. Then mention it, or use the slash commands:
 /stats    what's in the database
 ```
 
-Claude is instructed to search the database rather than answer from memory, and to
-call the calculators rather than doing arithmetic in its head. Configure the model
-with `CLAUDE_MODEL` (default `claude-opus-5`) and depth with `CLAUDE_EFFORT`
-(default `medium`; raise to `high` for hard design questions).
+The model is instructed to search the database rather than answer from memory,
+and to call the calculators rather than doing arithmetic in its head. Use a model
+that supports function/tool calling.
 
 ### HTTP API
 

@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Discord bot that answers combat robotics questions from the knowledge base.
 
-Claude drives the conversation and calls into the same tool layer the MCP
-server exposes (agent/kb.py), so the bot can only answer from researched data
-and real calculations rather than from the model's own recollection.
+An OpenAI-compatible LLM drives the conversation and calls into the same tool
+layer the MCP server exposes (agent/kb.py), so the bot can use OpenRouter,
+Agent Router, or another compatible gateway without changing the knowledge
+base or tool code.
 
 Setup:
     pip install -r discord-bot/requirements.txt
-    export DISCORD_TOKEN=...          # Discord bot token
-    export ANTHROPIC_API_KEY=...      # or an `ant auth login` profile
+    export DISCORD_TOKEN=...                    # Discord bot token
+    export OPENROUTER_API_KEY=...               # easiest default
+    export LLM_MODEL=anthropic/claude-sonnet-4.6
     python3 discord-bot/bot.py
 
 Usage in Discord:
@@ -30,8 +32,9 @@ import textwrap
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "agent"))
 
-import anthropic
 import discord
+import openai
+from openai import OpenAI
 from discord import app_commands
 
 import kb
@@ -41,11 +44,13 @@ logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 log = logging.getLogger("combat-robot-bot")
 
-MODEL = os.environ.get("CLAUDE_MODEL", "claude-opus-5")
-# Chat Q&A does not need the default `high`; medium keeps replies quick and
-# cheap. Raise it with CLAUDE_EFFORT=high for deeper design questions.
-EFFORT = os.environ.get("CLAUDE_EFFORT", "medium")
-MAX_TOOL_TURNS = 8
+BASE_URL = os.environ.get("LLM_BASE_URL", "https://openrouter.ai/api/v1").rstrip("/")
+API_KEY = (os.environ.get("LLM_API_KEY")
+           or os.environ.get("OPENROUTER_API_KEY")
+           or "not-needed")
+MODEL = os.environ.get("LLM_MODEL", "anthropic/claude-sonnet-4.6")
+MAX_TOKENS = int(os.environ.get("LLM_MAX_TOKENS", "4000"))
+MAX_TOOL_TURNS = int(os.environ.get("LLM_MAX_TOOL_TURNS", "8"))
 DISCORD_LIMIT = 2000
 
 SYSTEM_PROMPT = """You are a combat robotics expert assistant for a Discord server, \
@@ -69,16 +74,22 @@ Style for Discord:
 """
 
 
-def anthropic_tools():
-    """Convert the MCP tool definitions into Anthropic tool format."""
+def openai_tools():
+    """Convert MCP tool definitions into OpenAI-compatible function tools."""
     return [
-        {"name": t["name"], "description": t["description"],
-         "input_schema": t["inputSchema"]}
+        {
+            "type": "function",
+            "function": {
+                "name": t["name"],
+                "description": t["description"],
+                "parameters": t["inputSchema"],
+            },
+        }
         for t in mcp_server.TOOLS
     ]
 
 
-TOOLS = anthropic_tools()
+TOOLS = openai_tools()
 
 
 def run_tool(name, args):
@@ -92,51 +103,70 @@ def run_tool(name, args):
 
 
 def _blocking_agent_turn(client, question, author_name):
-    """One full agentic exchange. Runs in a thread; returns the reply text.
+    """Run one complete OpenAI-compatible tool-calling exchange."""
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user",
+         "content": f"[Discord user {author_name} asks] {question}"},
+    ]
 
-    A manual loop rather than the SDK tool runner: the runner is beta, and the
-    explicit loop lets us cap tool turns so a confused model can't spend the
-    channel's patience (or the API budget) in a runaway loop.
-    """
-    messages = [{"role": "user",
-                 "content": f"[Discord user {author_name} asks] {question}"}]
-
-    for turn in range(MAX_TOOL_TURNS):
-        response = client.messages.create(
+    for _turn in range(MAX_TOOL_TURNS):
+        response = client.chat.completions.create(
             model=MODEL,
-            max_tokens=8000,
-            system=SYSTEM_PROMPT,
-            thinking={"type": "adaptive"},
-            output_config={"effort": EFFORT},
+            max_tokens=MAX_TOKENS,
             tools=TOOLS,
+            tool_choice="auto",
             messages=messages,
         )
 
-        if response.stop_reason == "refusal":
+        message = response.choices[0].message
+        refusal = getattr(message, "refusal", None)
+        if refusal and not message.tool_calls:
             return ("I can't answer that one. Try rephrasing, or ask about a "
                     "specific part, archetype or calculation.")
 
-        if response.stop_reason != "tool_use":
-            text = "\n".join(b.text for b in response.content if b.type == "text")
-            return text.strip() or "I couldn't find an answer for that."
+        assistant_message = {
+            "role": "assistant",
+            "content": message.content or "",
+        }
 
-        messages.append({"role": "assistant", "content": response.content})
-        results = []
-        for block in response.content:
-            if block.type != "tool_use":
-                continue
-            log.info("tool call: %s %s", block.name, json.dumps(block.input)[:200])
-            output = run_tool(block.name, block.input)
-            results.append({
-                "type": "tool_result",
-                "tool_use_id": block.id,
+        if message.tool_calls:
+            assistant_message["tool_calls"] = [
+                {
+                    "id": tool_call.id,
+                    "type": "function",
+                    "function": {
+                        "name": tool_call.function.name,
+                        "arguments": tool_call.function.arguments,
+                    },
+                }
+                for tool_call in message.tool_calls
+            ]
+
+        messages.append(assistant_message)
+
+        if not message.tool_calls:
+            return (message.content or "").strip() or "I couldn't find an answer for that."
+
+        for tool_call in message.tool_calls:
+            name = tool_call.function.name
+            raw_args = tool_call.function.arguments or "{}"
+            try:
+                args = json.loads(raw_args)
+            except (json.JSONDecodeError, TypeError) as exc:
+                output = {"error": f"Invalid tool arguments returned by model: {exc}"}
+            else:
+                log.info("tool call: %s %s", name, json.dumps(args)[:200])
+                output = run_tool(name, args)
+
+            messages.append({
+                "role": "tool",
+                "tool_call_id": tool_call.id,
                 "content": json.dumps(output, ensure_ascii=False)[:60000],
             })
-        messages.append({"role": "user", "content": results})
 
     return ("I looked through the database but couldn't converge on an answer "
             "in a reasonable number of steps. Try asking something narrower.")
-
 
 def chunk_message(text, limit=DISCORD_LIMIT):
     """Split a reply into Discord-sized pieces without cutting mid-line."""
@@ -163,7 +193,7 @@ class CombatRobotBot(discord.Client):
         intents.message_content = True
         super().__init__(intents=intents)
         self.tree = app_commands.CommandTree(self)
-        self.anthropic = anthropic.Anthropic()
+        self.llm = OpenAI(api_key=API_KEY, base_url=BASE_URL)
         self.kb = kb.KnowledgeBase(os.environ.get("COMBAT_ROBOT_DB", kb.DEFAULT_DB))
 
     async def setup_hook(self):
@@ -179,7 +209,7 @@ class CombatRobotBot(discord.Client):
 
     async def ask(self, question, author_name):
         return await asyncio.to_thread(
-            _blocking_agent_turn, self.anthropic, question, author_name)
+            _blocking_agent_turn, self.llm, question, author_name)
 
     async def on_message(self, message):
         if message.author.bot:
@@ -197,7 +227,7 @@ class CombatRobotBot(discord.Client):
         async with message.channel.typing():
             try:
                 answer = await self.ask(question, message.author.display_name)
-            except anthropic.APIStatusError as exc:
+            except openai.APIStatusError as exc:
                 log.exception("API error")
                 answer = f"The model API returned an error ({exc.status_code}). Try again shortly."
             except Exception as exc:
@@ -347,8 +377,10 @@ def main():
     token = os.environ.get("DISCORD_TOKEN")
     if not token:
         sys.exit("DISCORD_TOKEN is not set. See discord-bot/README.md")
-    if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")):
-        log.warning("No ANTHROPIC_API_KEY set; relying on an `ant auth login` profile.")
+    if BASE_URL == "https://openrouter.ai/api/v1" and API_KEY == "not-needed":
+        sys.exit("OPENROUTER_API_KEY or LLM_API_KEY is not set.")
+    log.info("LLM endpoint: %s", BASE_URL)
+    log.info("LLM model: %s", MODEL)
     bot.run(token)
 
 
