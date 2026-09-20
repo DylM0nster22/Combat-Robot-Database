@@ -56,19 +56,32 @@ DISCORD_LIMIT = 2000
 SYSTEM_PROMPT = """You are a combat robotics expert assistant for a Discord server, \
 specialising in 1 lb antweight and plastic antweight (3D-printed) combat robots.
 
-You have tools onto a researched knowledge base. Use them — do not answer from memory.
-Search first, then fetch the specific entity or chunk you need. For any numeric question
-(tip speed, kinetic energy, spin-up, gear ratios, traction, battery sizing, weight budget)
-call the `calculate` tool rather than doing arithmetic in your head.
+Use the researched knowledge base rather than relying on memory. For most normal
+natural-language questions, call `answer_context` FIRST with the user's original
+question. It returns full top-matching records and full guide chunks in one call;
+if that evidence is relevant, answer from it instead of repeatedly searching.
+
+Use `search_knowledge` when the user explicitly wants to browse/search, when you
+need a special type/filter, or when answer_context was genuinely insufficient.
+Use get_entity/get_chunk only for a specific follow-up record you still need.
+For broad build questions, `build_guide` is useful and already returns full guidance.
+For any numeric question (tip speed, kinetic energy, spin-up, gear ratios, traction,
+battery sizing, weight budget), call `calculate` rather than doing arithmetic in
+your head.
+
+Tool discipline:
+- Usually answer after 1-3 tool calls. Retrieval does not need to be exhaustive.
+- Do not repeat the same tool call or slightly reword the same search over and over.
+- Prefer one strong context result over many weak searches.
+- If the database is thin on a point, say so and give your best general engineering
+  answer clearly labelled as general guidance. Never invent a part number, price,
+  rule, event, or specification.
 
 Style for Discord:
 - Lead with the direct answer in the first sentence.
 - Keep replies under about 1500 characters unless asked for detail. Use short bullets.
-- Give real numbers and real part names. Cite the entity id in backticks when it helps
-  someone look it up, e.g. `motor-repeat-2205`.
-- If the knowledge base does not cover something, say so plainly and give your best
-  general engineering answer clearly labelled as such. Never invent a part number,
-  price, rule, or event.
+- Give real numbers and real part names. Cite the entity id in `backticks` when it
+  helps someone look it up, e.g. `motor-repeat-2205`.
 - Safety matters: these are spinning weapons. Mention weapon locks, failsafes and
   removable links when the question touches on testing or running a bot.
 """
@@ -165,8 +178,34 @@ def _blocking_agent_turn(client, question, author_name):
                 "content": json.dumps(output, ensure_ascii=False)[:60000],
             })
 
-    return ("I looked through the database but couldn't converge on an answer "
-            "in a reasonable number of steps. Try asking something narrower.")
+    # The model used the whole tool budget. Do not throw away the evidence it
+    # already gathered: make one final completion with tools disabled and force
+    # a best-effort answer from the retrieved context.
+    messages.append({
+        "role": "system",
+        "content": (
+            "Tool budget reached. Answer the user's original question NOW using the "
+            "evidence already present in this conversation. Do not ask for another "
+            "tool call. If evidence is incomplete, state the uncertainty briefly and "
+            "give the best supported answer you can."
+        ),
+    })
+    try:
+        response = client.chat.completions.create(
+            model=MODEL,
+            max_tokens=MAX_TOKENS,
+            messages=messages,
+        )
+        final_message = response.choices[0].message
+        return (final_message.content or "").strip() or (
+            "I found relevant database material, but the model returned an empty final answer."
+        )
+    except Exception:
+        log.exception("final no-tools completion failed")
+        return (
+            "I found relevant database material but couldn't format the final reply. "
+            "Try /search with the main part or design term from your question."
+        )
 
 def chunk_message(text, limit=DISCORD_LIMIT):
     """Split a reply into Discord-sized pieces without cutting mid-line."""
