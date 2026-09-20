@@ -161,6 +161,19 @@ class TestFTSSanitisation(unittest.TestCase):
     def test_single_character_still_searches(self):
         self.assertTrue(kb._fts_query("a"))
 
+    def test_natural_language_search_drops_filler_and_expands_shorthand(self):
+        query = kb._fts_query("what is the best motor for my plastic ant vert")
+        self.assertNotIn('"what"', query)
+        self.assertNotIn('"best"', query)
+        self.assertIn('"motor"*', query)
+        self.assertIn('"antweight"*', query)
+        self.assertIn('"vertical"*', query)
+        self.assertIn('"spinner"*', query)
+
+    def test_precision_mode_uses_and(self):
+        query = kb._fts_query("weapon motor plastic ant", operator="AND")
+        self.assertIn(" AND ", query)
+
 
 class TestNormalisation(unittest.TestCase):
     def test_weight_class_aliases_repaired(self):
@@ -302,7 +315,7 @@ class TestMCPServer(unittest.TestCase):
         ])
         self.assertEqual(replies[0]["result"]["serverInfo"]["name"], "combat-robot-database")
         tools = replies[1]["result"]["tools"]
-        self.assertEqual(len(tools), 9)
+        self.assertEqual(len(tools), 10)
         for tool in tools:
             self.assertIn("name", tool)
             self.assertIn("description", tool)
@@ -319,6 +332,13 @@ class TestMCPServer(unittest.TestCase):
     def test_unknown_method_returns_error(self):
         replies = self._rpc([{"jsonrpc": "2.0", "id": 5, "method": "nope/nope"}])
         self.assertIn("error", replies[0])
+
+    def test_answer_context_tool_is_exposed(self):
+        replies = self._rpc([
+            {"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
+        ])
+        names = [tool["name"] for tool in replies[0]["result"]["tools"]]
+        self.assertIn("answer_context", names)
 
     def test_calculate_tool_roundtrip(self):
         replies = self._rpc([{
@@ -362,6 +382,24 @@ class TestBuiltDatabase(unittest.TestCase):
 
     def test_search_returns_results(self):
         self.assertGreater(self.db.search("motor", limit=5)["total"], 0)
+
+    def test_natural_language_search_returns_terms(self):
+        result = self.db.search("what is the best motor for my plastic ant vert", limit=5)
+        self.assertGreater(result["total"], 0)
+        self.assertIn("motor", result["search_terms"])
+        self.assertIn("vertical", result["search_terms"])
+        self.assertNotIn("what", result["search_terms"])
+
+    def test_answer_context_returns_expanded_records(self):
+        context = self.db.answer_context(
+            "what weapon motor should I use for a plastic ant vertical spinner")
+        self.assertEqual(context["inferred_weight_class"], "plastic-antweight")
+        self.assertGreater(context["coverage"]["raw_matches"], 0)
+        self.assertTrue(context["entities"] or context["chunks"])
+        if context["entities"]:
+            self.assertIn("sources", context["entities"][0])
+        if context["chunks"]:
+            self.assertIn("body_md", context["chunks"][0])
 
     def test_search_survives_hostile_input(self):
         for text in ['"', '*', 'a AND OR b', "'; DROP TABLE entities;--", "((("]:
