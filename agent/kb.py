@@ -160,6 +160,131 @@ class KnowledgeBase:
     def close(self):
         self.conn.close()
 
+    # ------------------------------------------------------------- raw database
+
+    def database_schema(self) -> Dict[str, Any]:
+        """Return the SQLite schema an LLM needs to compose its own queries."""
+        public_tables = [
+            "entities", "chunks", "topics", "entity_tags",
+            "entity_weight_classes", "chunk_entity_refs", "meta",
+            "entities_fts", "chunks_fts",
+        ]
+        tables = {}
+        for name in public_tables:
+            row = self.conn.execute(
+                "SELECT type, sql FROM sqlite_master WHERE name = ?", (name,)
+            ).fetchone()
+            if not row:
+                continue
+            # Names come from the fixed allow-list above, never user input.
+            columns = [
+                {"name": c["name"], "type": c["type"], "notnull": bool(c["notnull"]),
+                 "primary_key": bool(c["pk"])}
+                for c in self.conn.execute(f'PRAGMA table_info("{name}")').fetchall()
+            ]
+            tables[name] = {
+                "type": row["type"],
+                "columns": columns,
+                "create_sql": row["sql"],
+            }
+        return {
+            "tables": tables,
+            "json_columns": {
+                "entities": ["aliases", "weight_classes", "tags", "specs", "pros",
+                             "cons", "sources", "extra"],
+                "chunks": ["entity_refs", "weight_classes", "tags", "sources"],
+            },
+            "notes": [
+                "Use json_extract/json_each for JSON text columns such as entities.specs and entities.extra.",
+                "Join entity_weight_classes for exact weight-class filtering.",
+                "entities_fts and chunks_fts are FTS5 virtual tables; use MATCH for full-text retrieval.",
+                "query_database is read-only and caps returned rows, but the model chooses the SQL and does the reasoning.",
+            ],
+            "examples": [
+                "SELECT id, name, json_extract(specs, '$.weight_g') AS weight_g FROM entities WHERE type='component' ORDER BY weight_g LIMIT 20",
+                "SELECT e.id, e.name, e.specs FROM entities e JOIN entity_weight_classes w ON w.entity_id=e.id WHERE e.type='component' AND w.weight_class='antweight' LIMIT 20",
+                "SELECT e.id, e.name, e.summary FROM entities_fts f JOIN entities e ON e.id=f.id WHERE entities_fts MATCH 'weapon AND motor' ORDER BY bm25(entities_fts) LIMIT 10",
+            ],
+        }
+
+    def query_database(self, sql: str, params=None, max_rows: int = 50) -> Dict[str, Any]:
+        """Execute one model-written read-only SQLite query and return raw rows.
+
+        This is intentionally a database primitive, not an answer generator. The
+        caller chooses the SELECT, receives rows, and is responsible for reasoning.
+        A fresh read-only connection plus SQLite's authorizer prevents writes,
+        ATTACH/DETACH, PRAGMA changes, and other side effects.
+        """
+        statement = str(sql or "").strip()
+        if not statement:
+            return {"error": "sql is required"}
+        if len(statement) > 12000:
+            return {"error": "sql is too long (12000 character maximum)"}
+        if not re.match(r"^(SELECT|WITH)\\b", statement, flags=re.IGNORECASE):
+            return {"error": "Only SELECT or WITH queries are allowed."}
+
+        if params is None:
+            params = []
+        if not isinstance(params, (list, tuple, dict)):
+            return {"error": "params must be a JSON array or object"}
+        max_rows = max(1, min(int(max_rows or 50), 200))
+
+        conn = sqlite3.connect(f"file:{self.db_path}?mode=ro", uri=True)
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA query_only=ON")
+
+        allowed_actions = {
+            sqlite3.SQLITE_SELECT,
+            sqlite3.SQLITE_READ,
+            sqlite3.SQLITE_FUNCTION,
+        }
+        if hasattr(sqlite3, "SQLITE_RECURSIVE"):
+            allowed_actions.add(sqlite3.SQLITE_RECURSIVE)
+        dangerous_functions = {
+            "load_extension", "writefile", "readfile", "fts3_tokenizer",
+        }
+
+        def _authorizer(action, arg1, arg2, db_name, trigger_name):
+            if action not in allowed_actions:
+                return sqlite3.SQLITE_DENY
+            if action == sqlite3.SQLITE_FUNCTION:
+                function_name = str(arg2 or arg1 or "").lower()
+                if function_name in dangerous_functions:
+                    return sqlite3.SQLITE_DENY
+            return sqlite3.SQLITE_OK
+
+        conn.set_authorizer(_authorizer)
+        try:
+            cursor = conn.execute(statement, params)
+            if cursor.description is None:
+                return {"error": "Query did not return rows."}
+            columns = [col[0] for col in cursor.description]
+            fetched = cursor.fetchmany(max_rows + 1)
+            truncated = len(fetched) > max_rows
+            fetched = fetched[:max_rows]
+            rows = []
+            cell_truncated = False
+            for row in fetched:
+                item = {}
+                for column in columns:
+                    value = row[column]
+                    if isinstance(value, str) and len(value) > 12000:
+                        value = value[:12000] + "… [truncated]"
+                        cell_truncated = True
+                    item[column] = value
+                rows.append(item)
+            return {
+                "columns": columns,
+                "rows": rows,
+                "returned": len(rows),
+                "more_rows_available": truncated,
+                "cell_text_truncated": cell_truncated,
+            }
+        except sqlite3.Error as exc:
+            return {"error": f"SQLite query failed: {exc}"}
+        finally:
+            conn.close()
+
     # ---------------------------------------------------------------- search
 
     def search(self, query: str, kind: str = "all", entity_type: Optional[str] = None,
@@ -248,67 +373,6 @@ class KnowledgeBase:
 
         results["total"] = len(results["entities"]) + len(results["chunks"])
         return results
-
-    def infer_weight_class(self, text: str) -> Optional[str]:
-        """Infer the most specific weight class explicitly named in a question."""
-        value = (text or "").lower().replace("_", " ").replace("-", " ")
-        compact = re.sub(r"\s+", " ", value).strip()
-        aliases = (
-            ("plastic-antweight", ("plastic antweight", "plastic ant", "plastic 1 lb", "plastic 1lb")),
-            ("plastic-beetleweight", ("plastic beetleweight", "plastic beetle")),
-            ("fairyweight", ("fairyweight", "fairy weight", "150g", "150 g")),
-            ("antweight", ("antweight", "ant weight", "1lb", "1 lb", "one pound")),
-            ("beetleweight", ("beetleweight", "beetle weight", "3lb", "3 lb")),
-            ("hobbyweight", ("hobbyweight", "hobby weight", "12lb", "12 lb")),
-            ("featherweight", ("featherweight", "feather weight", "30lb", "30 lb")),
-            ("lightweight", ("lightweight", "light weight", "60lb", "60 lb")),
-            ("middleweight", ("middleweight", "middle weight", "120lb", "120 lb")),
-            ("heavyweight", ("heavyweight", "heavy weight", "250lb", "250 lb")),
-        )
-        for weight_class_name, names in aliases:
-            if any(name in compact for name in names):
-                return weight_class_name
-        return None
-
-    def answer_context(self, question: str, weight_class: Optional[str] = None,
-                       entity_limit: int = 6, chunk_limit: int = 4) -> Dict[str, Any]:
-        """Gather answer-ready evidence for a natural-language question in one call.
-
-        Search previews are expanded into full entity records and complete guide
-        chunks so an LLM usually does not need a search -> get -> get -> get loop.
-        """
-        inferred = weight_class or self.infer_weight_class(question)
-        search_limit = max(entity_limit, chunk_limit)
-        hits = self.search(question, weight_class=inferred, limit=search_limit)
-        used_fallback = False
-        if inferred and hits.get("total", 0) == 0:
-            hits = self.search(question, limit=search_limit)
-            used_fallback = True
-
-        entities = []
-        for hit in hits.get("entities", [])[:max(1, min(int(entity_limit or 6), 12))]:
-            full = self.get_entity(hit["id"])
-            if full:
-                entities.append(full)
-
-        chunks = []
-        for hit in hits.get("chunks", [])[:max(1, min(int(chunk_limit or 4), 8))]:
-            full = self.get_chunk(hit["id"])
-            if full:
-                chunks.append(full)
-
-        return {
-            "question": question,
-            "query_terms": hits.get("query_terms", []),
-            "weight_class": inferred,
-            "weight_class_filter_fell_back": used_fallback,
-            "entities": entities,
-            "chunks": chunks,
-            "coverage": {
-                "entity_count": len(entities),
-                "chunk_count": len(chunks),
-            },
-        }
 
     # ------------------------------------------------------------- retrieval
 
