@@ -24,6 +24,19 @@ DEFAULT_DB = os.path.join(
 # otherwise produce a syntax error rather than results.
 _FTS_TOKEN = re.compile(r"[A-Za-z0-9_]+")
 
+# Natural-language Discord questions contain lots of filler that is actively
+# harmful to OR-based full-text search ("what is the best motor for my..." can
+# match almost everything). Keep domain words and numbers, discard only common
+# question/grammar words that carry little retrieval value.
+_SEARCH_STOPWORDS = {
+    "a", "an", "and", "are", "as", "at", "be", "best", "better", "bot",
+    "build", "building", "can", "combat", "could", "do", "does", "for", "from",
+    "good", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or",
+    "please", "robot", "should", "something", "tell", "that", "the", "this", "to",
+    "use", "using", "want", "what", "when", "where", "which", "who", "why", "with",
+    "would", "you", "your",
+}
+
 WEIGHT_CLASSES = [
     "fairyweight", "antweight", "plastic-antweight", "beetleweight",
     "plastic-beetleweight", "hobbyweight", "featherweight", "lightweight",
@@ -35,26 +48,42 @@ class KnowledgeBaseError(RuntimeError):
     pass
 
 
-def _fts_query(text: str, prefix: bool = True) -> str:
-    """Turn arbitrary user text into a safe FTS5 MATCH expression.
-
-    Each word becomes a quoted term, optionally with a prefix wildcard so
-    "motor" also finds "motors". Terms are OR-ed: partial matches are much more
-    useful than no matches when someone asks a loose question in Discord.
-    """
-    tokens = _FTS_TOKEN.findall(text or "")
-    if not tokens:
-        return ""
-    parts = []
+def _query_tokens(text: str, drop_stopwords: bool = True) -> List[str]:
+    """Extract useful, de-duplicated search tokens from natural-language text."""
+    tokens = [t.lower() for t in _FTS_TOKEN.findall(text or "")]
+    useful = []
+    seen = set()
     for token in tokens:
         if len(token) < 2:
             continue
-        parts.append(f'"{token}"*' if prefix else f'"{token}"')
-    if not parts:
-        # Single-character search: fall back to an exact term so we still
-        # return something rather than raising.
-        parts = [f'"{tokens[0]}"']
-    return " OR ".join(parts)
+        if drop_stopwords and token in _SEARCH_STOPWORDS:
+            continue
+        if token not in seen:
+            seen.add(token)
+            useful.append(token)
+    # If the whole query was stopwords/single letters, retain the original
+    # searchable tokens so callers still get a graceful result instead of none.
+    if not useful:
+        useful = [t for t in tokens if len(t) >= 2]
+    return useful
+
+
+def _fts_query(text: str, prefix: bool = True, operator: str = "OR",
+               drop_stopwords: bool = True) -> str:
+    """Turn arbitrary user text into a safe FTS5 MATCH expression.
+
+    The default remains an OR query for backwards compatibility. Search itself
+    first tries an AND query over meaningful terms, then falls back to OR so a
+    natural-language Discord question gets precise hits without becoming brittle.
+    """
+    tokens = _query_tokens(text, drop_stopwords=drop_stopwords)
+    if not tokens:
+        # Preserve the old single-character behaviour for direct callers.
+        raw = _FTS_TOKEN.findall(text or "")
+        return f'"{raw[0]}"' if raw else ""
+    joiner = " AND " if str(operator).upper() == "AND" else " OR "
+    parts = [f'"{token}"*' if prefix else f'"{token}"' for token in tokens]
+    return joiner.join(parts)
 
 
 def _loads(value: Optional[str], fallback):
@@ -137,19 +166,38 @@ class KnowledgeBase:
                weight_class: Optional[str] = None, limit: int = 10) -> Dict[str, Any]:
         """Full-text search across entities and knowledge chunks.
 
-        `kind` is "all", "entities" or "chunks". Results are ranked by FTS5's
-        bm25, with entities boosted slightly since a direct part/archetype hit
-        is usually what someone means.
+        Natural-language questions are searched in two passes: first all useful
+        terms must match (high precision), then an OR fallback fills any remaining
+        slots (high recall). Common question filler is removed before either pass.
         """
         limit = max(1, min(int(limit or 10), 50))
-        match = _fts_query(query)
-        if not match:
-            return {"query": query, "entities": [], "chunks": [],
+        strict_match = _fts_query(query, operator="AND")
+        broad_match = _fts_query(query, operator="OR")
+        if not broad_match:
+            return {"query": query, "query_terms": [], "entities": [], "chunks": [],
                     "note": "Empty or unsearchable query."}
 
-        results: Dict[str, Any] = {"query": query, "entities": [], "chunks": []}
+        results: Dict[str, Any] = {
+            "query": query,
+            "query_terms": _query_tokens(query),
+            "entities": [],
+            "chunks": [],
+        }
 
-        if kind in ("all", "entities"):
+        def _merge_rows(primary, fallback):
+            merged = []
+            seen = set()
+            for row in list(primary) + list(fallback):
+                row_id = row["id"]
+                if row_id in seen:
+                    continue
+                seen.add(row_id)
+                merged.append(row)
+                if len(merged) >= limit:
+                    break
+            return merged
+
+        def _entity_rows(match):
             sql = """
                 SELECT e.*, bm25(entities_fts, 10.0, 6.0, 4.0, 2.0, 3.0, 2.0, 1.0) AS rank
                 FROM entities_fts
@@ -166,33 +214,101 @@ class KnowledgeBase:
                 params.append(weight_class)
             sql += " ORDER BY rank LIMIT ?"
             params.append(limit)
-            try:
-                rows = self.conn.execute(sql, params).fetchall()
-            except sqlite3.OperationalError as exc:
-                raise KnowledgeBaseError(f"search failed: {exc}") from exc
-            results["entities"] = [_entity_row(r, include_body=False) for r in rows]
+            return self.conn.execute(sql, params).fetchall()
 
-        if kind in ("all", "chunks"):
+        def _chunk_rows(match):
             sql = """
                 SELECT c.*, bm25(chunks_fts, 8.0, 3.0, 1.0, 2.0) AS rank
                 FROM chunks_fts
                 JOIN chunks c ON c.id = chunks_fts.id
                 WHERE chunks_fts MATCH ?
             """
-            params = [match]
+            params: List[Any] = [match]
             if weight_class:
                 sql += " AND c.weight_classes LIKE ?"
                 params.append(f'%"{weight_class}"%')
             sql += " ORDER BY rank LIMIT ?"
             params.append(limit)
-            try:
-                rows = self.conn.execute(sql, params).fetchall()
-            except sqlite3.OperationalError as exc:
-                raise KnowledgeBaseError(f"search failed: {exc}") from exc
-            results["chunks"] = [_chunk_row(r, include_body=False) for r in rows]
+            return self.conn.execute(sql, params).fetchall()
+
+        try:
+            if kind in ("all", "entities"):
+                strict = _entity_rows(strict_match) if strict_match else []
+                broad = _entity_rows(broad_match) if len(strict) < limit else []
+                rows = _merge_rows(strict, broad)
+                results["entities"] = [_entity_row(r, include_body=False) for r in rows]
+
+            if kind in ("all", "chunks"):
+                strict = _chunk_rows(strict_match) if strict_match else []
+                broad = _chunk_rows(broad_match) if len(strict) < limit else []
+                rows = _merge_rows(strict, broad)
+                results["chunks"] = [_chunk_row(r, include_body=False) for r in rows]
+        except sqlite3.OperationalError as exc:
+            raise KnowledgeBaseError(f"search failed: {exc}") from exc
 
         results["total"] = len(results["entities"]) + len(results["chunks"])
         return results
+
+    def infer_weight_class(self, text: str) -> Optional[str]:
+        """Infer the most specific weight class explicitly named in a question."""
+        value = (text or "").lower().replace("_", " ").replace("-", " ")
+        compact = re.sub(r"\s+", " ", value).strip()
+        aliases = (
+            ("plastic-antweight", ("plastic antweight", "plastic ant", "plastic 1 lb", "plastic 1lb")),
+            ("plastic-beetleweight", ("plastic beetleweight", "plastic beetle")),
+            ("fairyweight", ("fairyweight", "fairy weight", "150g", "150 g")),
+            ("antweight", ("antweight", "ant weight", "1lb", "1 lb", "one pound")),
+            ("beetleweight", ("beetleweight", "beetle weight", "3lb", "3 lb")),
+            ("hobbyweight", ("hobbyweight", "hobby weight", "12lb", "12 lb")),
+            ("featherweight", ("featherweight", "feather weight", "30lb", "30 lb")),
+            ("lightweight", ("lightweight", "light weight", "60lb", "60 lb")),
+            ("middleweight", ("middleweight", "middle weight", "120lb", "120 lb")),
+            ("heavyweight", ("heavyweight", "heavy weight", "250lb", "250 lb")),
+        )
+        for weight_class_name, names in aliases:
+            if any(name in compact for name in names):
+                return weight_class_name
+        return None
+
+    def answer_context(self, question: str, weight_class: Optional[str] = None,
+                       entity_limit: int = 6, chunk_limit: int = 4) -> Dict[str, Any]:
+        """Gather answer-ready evidence for a natural-language question in one call.
+
+        Search previews are expanded into full entity records and complete guide
+        chunks so an LLM usually does not need a search -> get -> get -> get loop.
+        """
+        inferred = weight_class or self.infer_weight_class(question)
+        search_limit = max(entity_limit, chunk_limit)
+        hits = self.search(question, weight_class=inferred, limit=search_limit)
+        used_fallback = False
+        if inferred and hits.get("total", 0) == 0:
+            hits = self.search(question, limit=search_limit)
+            used_fallback = True
+
+        entities = []
+        for hit in hits.get("entities", [])[:max(1, min(int(entity_limit or 6), 12))]:
+            full = self.get_entity(hit["id"])
+            if full:
+                entities.append(full)
+
+        chunks = []
+        for hit in hits.get("chunks", [])[:max(1, min(int(chunk_limit or 4), 8))]:
+            full = self.get_chunk(hit["id"])
+            if full:
+                chunks.append(full)
+
+        return {
+            "question": question,
+            "query_terms": hits.get("query_terms", []),
+            "weight_class": inferred,
+            "weight_class_filter_fell_back": used_fallback,
+            "entities": entities,
+            "chunks": chunks,
+            "coverage": {
+                "entity_count": len(entities),
+                "chunk_count": len(chunks),
+            },
+        }
 
     # ------------------------------------------------------------- retrieval
 
@@ -474,7 +590,10 @@ class KnowledgeBase:
                 )["entities"]
 
         terms = " ".join(filter(None, [weight_class, archetype, "build guide weight budget"]))
-        out["guidance"] = self.search(terms, kind="chunks", limit=8)["chunks"]
+        guidance_hits = self.search(terms, kind="chunks", limit=8)["chunks"]
+        # Return full guide bodies here. Previously build_guide only returned
+        # 300-character previews, forcing an LLM to spend several more tool turns.
+        out["guidance"] = [self.get_chunk(c["id"]) or c for c in guidance_hits]
         return out
 
 
