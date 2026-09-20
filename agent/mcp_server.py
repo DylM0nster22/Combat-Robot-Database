@@ -24,7 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kb  # noqa: E402
 
 PROTOCOL_VERSION = "2024-11-05"
-SERVER_INFO = {"name": "combat-robot-database", "version": "1.0.0"}
+SERVER_INFO = {"name": "combat-robot-database", "version": "1.1.0"}
 
 _KB = None
 
@@ -41,6 +41,27 @@ ENTITY_TYPE_ENUM = ["weight_class", "archetype", "component", "material",
                     "formula", "bot", "event", "supplier", "ruleset", "term", "kit"]
 
 TOOLS = [
+    {
+        "name": "answer_context",
+        "description": (
+            "Best first tool for a natural-language combat-robot question. It cleans "
+            "up conversational wording, infers an obvious weight class, searches the "
+            "knowledge base, expands the strongest entity matches, follows related "
+            "guides, and returns bounded full-text context in one call. Prefer this "
+            "over repeated search_knowledge/get_entity/get_chunk loops."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "query": {"type": "string", "description": "The user's full natural-language question."},
+                "weight_class": {"type": "string", "enum": WEIGHT_CLASS_ENUM,
+                                  "description": "Optional explicit class override."},
+                "entity_limit": {"type": "integer", "default": 6, "minimum": 1, "maximum": 12},
+                "chunk_limit": {"type": "integer", "default": 5, "minimum": 1, "maximum": 10},
+            },
+            "required": ["query"],
+        },
+    },
     {
         "name": "search_knowledge",
         "description": (
@@ -194,6 +215,13 @@ def call_tool(name, args):
     args = args or {}
     database = get_kb()
 
+    if name == "answer_context":
+        return database.answer_context(
+            query=args.get("query", ""),
+            weight_class=args.get("weight_class"),
+            entity_limit=args.get("entity_limit", 6),
+            chunk_limit=args.get("chunk_limit", 5),
+        )
     if name == "search_knowledge":
         return database.search(
             query=args.get("query", ""), kind=args.get("kind", "all"),
