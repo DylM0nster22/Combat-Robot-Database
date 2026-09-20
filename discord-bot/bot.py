@@ -56,19 +56,29 @@ DISCORD_LIMIT = 2000
 SYSTEM_PROMPT = """You are a combat robotics expert assistant for a Discord server, \
 specialising in 1 lb antweight and plastic antweight (3D-printed) combat robots.
 
-You have tools onto a researched knowledge base. Use them — do not answer from memory.
-Search first, then fetch the specific entity or chunk you need. For any numeric question
-(tip speed, kinetic energy, spin-up, gear ratios, traction, battery sizing, weight budget)
-call the `calculate` tool rather than doing arithmetic in your head.
+A compact DATABASE CONTEXT pack is automatically retrieved for every question. Start
+from that context and answer directly when it is sufficient. Use tools only to refine
+or calculate something the context does not already contain.
+
+Tool strategy:
+- For another broad natural-language lookup, prefer `answer_context`; it searches,
+  expands entities and follows related guides in one call.
+- Use `get_entity`/`get_chunk` only when you need one specific record in full.
+- Use `list_entities` for "what options are there" questions, `compare_entities` for
+  X-vs-Y, `build_guide` for complete build advice, and `archetype_matchup` for fights.
+- For numeric questions (tip speed, kinetic energy, spin-up, gear ratios, traction,
+  battery sizing, weight budget), call `calculate` rather than doing arithmetic in
+  your head.
+- Do not repeat an identical tool call. Once you have enough evidence, synthesize the
+  answer instead of continuing to browse the database.
 
 Style for Discord:
 - Lead with the direct answer in the first sentence.
 - Keep replies under about 1500 characters unless asked for detail. Use short bullets.
-- Give real numbers and real part names. Cite the entity id in backticks when it helps
-  someone look it up, e.g. `motor-repeat-2205`.
+- Give real numbers and real part names. Cite entity/chunk ids in backticks when useful.
 - If the knowledge base does not cover something, say so plainly and give your best
   general engineering answer clearly labelled as such. Never invent a part number,
-  price, rule, or event.
+  price, rule, event, or specification.
 - Safety matters: these are spinning weapons. Mention weapon locks, failsafes and
   removable links when the question touches on testing or running a bot.
 """
@@ -104,11 +114,23 @@ def run_tool(name, args):
 
 def _blocking_agent_turn(client, question, author_name):
     """Run one complete OpenAI-compatible tool-calling exchange."""
+    context = run_tool("answer_context", {"query": question})
+    context_json = json.dumps(context, ensure_ascii=False)
+    # Keep the first model turn comfortably inside provider context limits even
+    # if future database entries contain unusually long notes.
+    if len(context_json) > 45000:
+        context_json = context_json[:45000] + "...[context truncated]"
+
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user",
-         "content": f"[Discord user {author_name} asks] {question}"},
+         "content": (
+             f"[Discord user {author_name} asks] {question}\n\n"
+             "DATABASE CONTEXT (automatically retrieved; grounded source data):\n"
+             f"{context_json}"
+         )},
     ]
+    seen_tool_calls = set()
 
     for _turn in range(MAX_TOOL_TURNS):
         response = client.chat.completions.create(
@@ -156,8 +178,16 @@ def _blocking_agent_turn(client, question, author_name):
             except (json.JSONDecodeError, TypeError) as exc:
                 output = {"error": f"Invalid tool arguments returned by model: {exc}"}
             else:
-                log.info("tool call: %s %s", name, json.dumps(args)[:200])
-                output = run_tool(name, args)
+                signature = (name, json.dumps(args, sort_keys=True, ensure_ascii=False))
+                if signature in seen_tool_calls:
+                    output = {
+                        "duplicate_call": True,
+                        "hint": "You already have this tool result. Use the earlier result and answer now.",
+                    }
+                else:
+                    seen_tool_calls.add(signature)
+                    log.info("tool call: %s %s", name, json.dumps(args)[:200])
+                    output = run_tool(name, args)
 
             messages.append({
                 "role": "tool",
@@ -165,8 +195,31 @@ def _blocking_agent_turn(client, question, author_name):
                 "content": json.dumps(output, ensure_ascii=False)[:60000],
             })
 
-    return ("I looked through the database but couldn't converge on an answer "
-            "in a reasonable number of steps. Try asking something narrower.")
+    # Tool budget exhaustion should still produce a useful answer. Make one
+    # final synthesis pass with tool calling disabled instead of telling the user
+    # to make their question narrower.
+    messages.append({
+        "role": "system",
+        "content": (
+            "The tool-call budget is exhausted. Do not request more tools. Answer the "
+            "user now using the database context and tool results already in this "
+            "conversation. State any uncertainty briefly."
+        ),
+    })
+    try:
+        response = client.chat.completions.create(
+            model=MODEL,
+            max_tokens=MAX_TOKENS,
+            messages=messages,
+        )
+        final = (response.choices[0].message.content or "").strip()
+        if final:
+            return final
+    except Exception:
+        log.exception("final synthesis after tool budget failed")
+
+    return ("I found database material for this question, but the model failed to "
+            "turn it into a final reply. Try /search with the main part or topic name.")
 
 def chunk_message(text, limit=DISCORD_LIMIT):
     """Split a reply into Discord-sized pieces without cutting mid-line."""
