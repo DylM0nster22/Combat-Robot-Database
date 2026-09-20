@@ -9,7 +9,7 @@ Three things come out of one dataset:
 | | What it is | Entry point |
 |---|---|---|
 | **Website** | Static site with schematic diagrams, spec tables, guides and interactive calculators | `web/index.html` |
-| **MCP server** | Nine tools any MCP client can call — search, lookup, compare, matchups, build guides, calculations | `agent/mcp_server.py` |
+| **MCP server** | Ten tools any MCP client can call — answer-ready retrieval, search, lookup, compare, matchups, build guides, calculations | `agent/mcp_server.py` |
 | **Discord bot** | An OpenAI-compatible LLM answers build questions in your server, using the same tools | `discord-bot/bot.py` |
 | **HTTP API** | Read-only JSON endpoints for anything else | `agent/api.py` |
 
@@ -89,6 +89,7 @@ Tools exposed:
 
 | Tool | What it does |
 |---|---|
+| `answer_context` | Best first call for a natural-language question: cleans the query, infers an obvious class, expands top entities, and includes related guide text |
 | `search_knowledge` | Full-text search entities and guides, filterable by type and weight class |
 | `get_entity` | One record in full, by id or name |
 | `get_chunk` | Full markdown body of a guide |
@@ -141,9 +142,17 @@ portal. Then mention it, or use the slash commands:
 /stats    what's in the database
 ```
 
-The model is instructed to search the database rather than answer from memory,
-and to call the calculators rather than doing arithmetic in its head. Use a model
-that supports function/tool calling.
+The bot automatically retrieves an answer-ready context pack before the model sees
+each question. That pack removes conversational filler from the search, expands common
+builder shorthand such as `vert`, follows related guide links, and includes bounded
+full-text excerpts. The model can usually answer broad questions immediately instead of
+burning several tool turns on search/fetch loops. If it does use the entire tool budget,
+the bot makes a final synthesis pass with tool calling disabled rather than replying
+"ask something narrower."
+
+The model is still instructed to use specialist tools when needed and to call the
+calculators rather than doing arithmetic in its head. Use a model that supports
+function/tool calling.
 
 ### HTTP API
 
@@ -156,7 +165,7 @@ curl 'http://127.0.0.1:8080/search?q=drum+spinner&weight_class=antweight'
 curl 'http://127.0.0.1:8080/calculate/tip_speed?rpm=20000&radius_mm=45'
 ```
 
-Endpoints: `/health` `/stats` `/search` `/entities` `/entity/<id>` `/chunk/<id>`
+Endpoints: `/health` `/stats` `/context` `/search` `/entities` `/entity/<id>` `/chunk/<id>`
 `/compare` `/matchup` `/build` `/calculators` `/calculate/<name>`. Standard
 library only, read-only, CORS-enabled.
 
@@ -167,6 +176,7 @@ import sys; sys.path.insert(0, "agent")
 import kb
 
 db = kb.KnowledgeBase()
+db.answer_context("what motor should I use for a plastic ant vert?")
 db.search("drum spinner bite", weight_class="antweight")
 db.get_entity("archetype-drum-spinner")
 db.compare(["motor-2205", "motor-2306"])
