@@ -9,6 +9,7 @@ a custom GPT/tool definition.
 
     GET /health
     GET /stats
+    GET /context?q=what+weapon+motor+for+a+plastic+ant+vert
     GET /search?q=drum+spinner&kind=all&type=component&weight_class=antweight&limit=10
     GET /entities?type=component&category=weapon-motor&weight_class=antweight&limit=50
     GET /entity/<id>
@@ -68,6 +69,16 @@ def route(path, params):
 
     if path == "/stats":
         return 200, DB.stats()
+
+    if path == "/context":
+        query = _one(params, "q") or _one(params, "query") or ""
+        if not query:
+            return 400, {"error": "missing ?q="}
+        return 200, DB.answer_context(
+            query,
+            weight_class=_one(params, "weight_class"),
+            entity_limit=_int(params, "entity_limit", 6),
+            chunk_limit=_int(params, "chunk_limit", 5))
 
     if path == "/search":
         query = _one(params, "q") or _one(params, "query") or ""
@@ -130,7 +141,7 @@ def route(path, params):
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "CombatRobotDB/1.0"
+    server_version = "CombatRobotDB/1.1"
 
     def do_GET(self):
         parsed = urlparse(self.path)
