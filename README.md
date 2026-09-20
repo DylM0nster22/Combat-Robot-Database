@@ -224,7 +224,7 @@ the result, so the live site always matches the committed data.
 python3 -m unittest discover -s tests -v
 ```
 
-67 tests covering the calculators against hand-worked values, FTS input
+75 tests covering the calculators against hand-worked values, FTS input
 sanitisation, the research-file normaliser and merge logic, the markdown
 renderer, diagram matching, the MCP server over real stdio JSON-RPC, and
 integrity of whatever database is currently built.
