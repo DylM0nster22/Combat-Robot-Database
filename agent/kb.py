@@ -220,7 +220,7 @@ class KnowledgeBase:
             return {"error": "sql is required"}
         if len(statement) > 12000:
             return {"error": "sql is too long (12000 character maximum)"}
-        if not re.match(r"^(SELECT|WITH)\\b", statement, flags=re.IGNORECASE):
+        if not re.match(r"^(SELECT|WITH)\b", statement, flags=re.IGNORECASE):
             return {"error": "Only SELECT or WITH queries are allowed."}
 
         if params is None:
