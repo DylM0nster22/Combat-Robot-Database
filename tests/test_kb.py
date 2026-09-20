@@ -161,6 +161,17 @@ class TestFTSSanitisation(unittest.TestCase):
     def test_single_character_still_searches(self):
         self.assertTrue(kb._fts_query("a"))
 
+    def test_natural_language_stopwords_are_removed(self):
+        query = kb._fts_query("what is the best weapon motor for my plastic ant")
+        self.assertIn('"weapon"*', query)
+        self.assertIn('"motor"*', query)
+        self.assertNotIn('"what"*', query)
+        self.assertNotIn('"best"*', query)
+
+    def test_fts_query_can_require_all_meaningful_terms(self):
+        query = kb._fts_query("weapon motor", operator="AND")
+        self.assertEqual(query, '"weapon"* AND "motor"*')
+
 
 class TestNormalisation(unittest.TestCase):
     def test_weight_class_aliases_repaired(self):
@@ -302,7 +313,7 @@ class TestMCPServer(unittest.TestCase):
         ])
         self.assertEqual(replies[0]["result"]["serverInfo"]["name"], "combat-robot-database")
         tools = replies[1]["result"]["tools"]
-        self.assertEqual(len(tools), 9)
+        self.assertEqual(len(tools), 10)
         for tool in tools:
             self.assertIn("name", tool)
             self.assertIn("description", tool)
@@ -328,6 +339,15 @@ class TestMCPServer(unittest.TestCase):
                                      "params": {"rpm": 20000, "radius_mm": 45}}}}])
         result = json.loads(replies[0]["result"]["content"][0]["text"])
         self.assertAlmostEqual(result["tip_speed_m_s"], 94.25, places=1)
+
+    def test_answer_context_tool_roundtrip(self):
+        replies = self._rpc([{
+            "jsonrpc": "2.0", "id": 2, "method": "tools/call",
+            "params": {"name": "answer_context",
+                       "arguments": {"question": "weapon motor for a plastic ant vertical spinner"}}}])
+        result = json.loads(replies[0]["result"]["content"][0]["text"])
+        self.assertEqual(result["weight_class"], "plastic-antweight")
+        self.assertTrue(result["entities"] or result["chunks"])
 
     def test_bad_tool_call_is_flagged_not_fatal(self):
         replies = self._rpc([{
@@ -466,6 +486,24 @@ class TestBuiltDatabase(unittest.TestCase):
         guide = self.db.build_guide("antweight")
         for key in ("drive_motors", "weapon_motors", "batteries", "guidance"):
             self.assertIn(key, guide)
+
+    def test_answer_context_expands_full_records(self):
+        context = self.db.answer_context(
+            "what weapon motor should I use for a plastic ant vertical spinner?")
+        self.assertEqual(context["weight_class"], "plastic-antweight")
+        self.assertTrue(context["entities"] or context["chunks"])
+        for entity in context["entities"]:
+            self.assertIn("sources", entity)
+            self.assertIn("notes", entity)
+        for chunk in context["chunks"]:
+            self.assertIn("body_md", chunk)
+            self.assertNotIn("preview", chunk)
+
+    def test_build_guide_returns_full_guidance_bodies(self):
+        guide = self.db.build_guide("antweight")
+        if not guide["guidance"]:
+            self.skipTest("no build guidance chunks in database")
+        self.assertIn("body_md", guide["guidance"][0])
 
 
 if __name__ == "__main__":
