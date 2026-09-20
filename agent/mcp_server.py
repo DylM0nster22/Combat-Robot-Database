@@ -24,7 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kb  # noqa: E402
 
 PROTOCOL_VERSION = "2024-11-05"
-SERVER_INFO = {"name": "combat-robot-database", "version": "1.0.0"}
+SERVER_INFO = {"name": "combat-robot-database", "version": "1.1.0"}
 
 _KB = None
 
@@ -61,6 +61,28 @@ TOOLS = [
                 "limit": {"type": "integer", "default": 10, "minimum": 1, "maximum": 50},
             },
             "required": ["query"],
+        },
+    },
+    {
+        "name": "answer_context",
+        "description": (
+            "Preferred first tool for a normal natural-language combat robotics question. "
+            "It searches the knowledge base, infers an explicitly named weight class, and "
+            "returns the top matching entities and guide chunks in FULL so you can usually "
+            "answer immediately without repeated search/get calls. Use search_knowledge "
+            "instead when the user explicitly wants to browse or when you need a special filter."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "question": {"type": "string",
+                             "description": "The user's original question, not a shortened keyword query."},
+                "weight_class": {"type": "string", "enum": WEIGHT_CLASS_ENUM,
+                                 "description": "Optional explicit class override."},
+                "entity_limit": {"type": "integer", "default": 6, "minimum": 1, "maximum": 12},
+                "chunk_limit": {"type": "integer", "default": 4, "minimum": 1, "maximum": 8},
+            },
+            "required": ["question"],
         },
     },
     {
@@ -199,6 +221,11 @@ def call_tool(name, args):
             query=args.get("query", ""), kind=args.get("kind", "all"),
             entity_type=args.get("entity_type"), weight_class=args.get("weight_class"),
             limit=args.get("limit", 10),
+        )
+    if name == "answer_context":
+        return database.answer_context(
+            question=args.get("question", ""), weight_class=args.get("weight_class"),
+            entity_limit=args.get("entity_limit", 6), chunk_limit=args.get("chunk_limit", 4),
         )
     if name == "get_entity":
         result = database.get_entity(args.get("id", ""))
