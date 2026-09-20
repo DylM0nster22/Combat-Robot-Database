@@ -10,7 +10,6 @@ a custom GPT/tool definition.
     GET /health
     GET /stats
     GET /search?q=drum+spinner&kind=all&type=component&weight_class=antweight&limit=10
-    GET /context?q=what+weapon+motor+for+a+plastic+ant+vertical+spinner
     GET /entities?type=component&category=weapon-motor&weight_class=antweight&limit=50
     GET /entity/<id>
     GET /chunk/<id>
@@ -79,16 +78,6 @@ def route(path, params):
             entity_type=_one(params, "type"),
             weight_class=_one(params, "weight_class"),
             limit=_int(params, "limit", 10))
-
-    if path == "/context":
-        question = _one(params, "q") or _one(params, "question") or ""
-        if not question:
-            return 400, {"error": "missing ?q="}
-        return 200, DB.answer_context(
-            question,
-            weight_class=_one(params, "weight_class"),
-            entity_limit=_int(params, "entity_limit", 6),
-            chunk_limit=_int(params, "chunk_limit", 4))
 
     if path == "/entities":
         return 200, DB.list_entities(
