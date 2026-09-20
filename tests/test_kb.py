@@ -313,7 +313,7 @@ class TestMCPServer(unittest.TestCase):
         ])
         self.assertEqual(replies[0]["result"]["serverInfo"]["name"], "combat-robot-database")
         tools = replies[1]["result"]["tools"]
-        self.assertEqual(len(tools), 10)
+        self.assertEqual(len(tools), 9)
         for tool in tools:
             self.assertIn("name", tool)
             self.assertIn("description", tool)
@@ -340,14 +340,26 @@ class TestMCPServer(unittest.TestCase):
         result = json.loads(replies[0]["result"]["content"][0]["text"])
         self.assertAlmostEqual(result["tip_speed_m_s"], 94.25, places=1)
 
-    def test_answer_context_tool_roundtrip(self):
+    def test_database_schema_tool_roundtrip(self):
         replies = self._rpc([{
             "jsonrpc": "2.0", "id": 2, "method": "tools/call",
-            "params": {"name": "answer_context",
-                       "arguments": {"question": "weapon motor for a plastic ant vertical spinner"}}}])
+            "params": {"name": "database_schema", "arguments": {}}}])
         result = json.loads(replies[0]["result"]["content"][0]["text"])
-        self.assertEqual(result["weight_class"], "plastic-antweight")
-        self.assertTrue(result["entities"] or result["chunks"])
+        self.assertIn("entities", result["tables"])
+        self.assertIn("chunks", result["tables"])
+
+    def test_query_database_tool_roundtrip(self):
+        replies = self._rpc([{
+            "jsonrpc": "2.0", "id": 3, "method": "tools/call",
+            "params": {"name": "query_database",
+                       "arguments": {
+                           "sql": "SELECT id, name FROM entities WHERE type=? ORDER BY name LIMIT 3",
+                           "params": ["component"]
+                       }}}])
+        result = json.loads(replies[0]["result"]["content"][0]["text"])
+        self.assertNotIn("error", result)
+        self.assertLessEqual(result["returned"], 3)
+        self.assertEqual(result["columns"], ["id", "name"])
 
     def test_bad_tool_call_is_flagged_not_fatal(self):
         replies = self._rpc([{
@@ -487,17 +499,55 @@ class TestBuiltDatabase(unittest.TestCase):
         for key in ("drive_motors", "weapon_motors", "batteries", "guidance"):
             self.assertIn(key, guide)
 
-    def test_answer_context_expands_full_records(self):
-        context = self.db.answer_context(
-            "what weapon motor should I use for a plastic ant vertical spinner?")
-        self.assertEqual(context["weight_class"], "plastic-antweight")
-        self.assertTrue(context["entities"] or context["chunks"])
-        for entity in context["entities"]:
-            self.assertIn("sources", entity)
-            self.assertIn("notes", entity)
-        for chunk in context["chunks"]:
-            self.assertIn("body_md", chunk)
-            self.assertNotIn("preview", chunk)
+    def test_database_schema_exposes_raw_tables(self):
+        schema = self.db.database_schema()
+        self.assertIn("entities", schema["tables"])
+        self.assertIn("entity_weight_classes", schema["tables"])
+        entity_columns = {c["name"] for c in schema["tables"]["entities"]["columns"]}
+        self.assertTrue({"id", "type", "name", "specs", "extra"}.issubset(entity_columns))
+
+    def test_query_database_returns_raw_rows_and_json_specs(self):
+        result = self.db.query_database(
+            """SELECT id, name, json_extract(specs, '$.weight_g') AS weight_g
+               FROM entities
+               WHERE type='component'
+               ORDER BY name
+               LIMIT 5"""
+        )
+        self.assertNotIn("error", result)
+        self.assertLessEqual(result["returned"], 5)
+        self.assertEqual(result["columns"], ["id", "name", "weight_g"])
+
+    def test_query_database_supports_joins_and_parameters(self):
+        result = self.db.query_database(
+            """SELECT e.id, e.name
+               FROM entities e
+               JOIN entity_weight_classes w ON w.entity_id=e.id
+               WHERE e.type=? AND w.weight_class=?
+               ORDER BY e.name LIMIT 5""",
+            ["component", "antweight"],
+        )
+        self.assertNotIn("error", result)
+        self.assertTrue(result["rows"])
+
+    def test_query_database_is_strictly_read_only(self):
+        direct_write = self.db.query_database(
+            "UPDATE entities SET name='nope' WHERE id='does-not-matter'")
+        self.assertIn("error", direct_write)
+
+        disguised_write = self.db.query_database(
+            "WITH x AS (SELECT 1) DELETE FROM entities WHERE 0")
+        self.assertIn("error", disguised_write)
+
+        attach = self.db.query_database(
+            "WITH x AS (SELECT 1) SELECT * FROM x; ATTACH DATABASE 'x.db' AS x")
+        self.assertIn("error", attach)
+
+    def test_query_database_caps_rows(self):
+        result = self.db.query_database(
+            "SELECT id FROM entities ORDER BY id", max_rows=3)
+        self.assertEqual(result["returned"], 3)
+        self.assertTrue(result["more_rows_available"])
 
     def test_build_guide_returns_full_guidance_bodies(self):
         guide = self.db.build_guide("antweight")
