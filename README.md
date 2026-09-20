@@ -9,7 +9,7 @@ Three things come out of one dataset:
 | | What it is | Entry point |
 |---|---|---|
 | **Website** | Static site with schematic diagrams, spec tables, guides and interactive calculators | `web/index.html` |
-| **MCP server** | Nine tools any MCP client can call — search, lookup, compare, matchups, build guides, calculations | `agent/mcp_server.py` |
+| **MCP server** | Ten tools any MCP client can call — search, lookup, compare, matchups, build guides, calculations | `agent/mcp_server.py` |
 | **Discord bot** | An OpenAI-compatible LLM answers build questions in your server, using the same tools | `discord-bot/bot.py` |
 | **HTTP API** | Read-only JSON endpoints for anything else | `agent/api.py` |
 
@@ -89,6 +89,7 @@ Tools exposed:
 
 | Tool | What it does |
 |---|---|
+| `answer_context` | Preferred one-call retrieval for a natural-language question; returns full top records and guide text |
 | `search_knowledge` | Full-text search entities and guides, filterable by type and weight class |
 | `get_entity` | One record in full, by id or name |
 | `get_chunk` | Full markdown body of a guide |
@@ -141,8 +142,13 @@ portal. Then mention it, or use the slash commands:
 /stats    what's in the database
 ```
 
-The model is instructed to search the database rather than answer from memory,
-and to call the calculators rather than doing arithmetic in its head. Use a model
+The model is instructed to use the database rather than answer from memory. For
+normal questions it starts with `answer_context`, which strips conversational filler,
+tries precise matches before a broad fallback, infers an explicitly named weight
+class, and returns full records/guide text in one tool call. It uses the calculators
+rather than doing arithmetic in its head. If the model still uses its entire tool
+budget, the bot makes a final no-tools completion from the evidence already gathered
+instead of discarding the work and replying "ask something narrower." Use a model
 that supports function/tool calling.
 
 ### HTTP API
@@ -153,11 +159,12 @@ another language, a custom tool definition:
 ```bash
 python3 agent/api.py --port 8080
 curl 'http://127.0.0.1:8080/search?q=drum+spinner&weight_class=antweight'
+curl 'http://127.0.0.1:8080/context?q=what+weapon+motor+for+a+plastic+ant+vertical+spinner'
 curl 'http://127.0.0.1:8080/calculate/tip_speed?rpm=20000&radius_mm=45'
 ```
 
-Endpoints: `/health` `/stats` `/search` `/entities` `/entity/<id>` `/chunk/<id>`
-`/compare` `/matchup` `/build` `/calculators` `/calculate/<name>`. Standard
+Endpoints: `/health` `/stats` `/search` `/context` `/entities` `/entity/<id>`
+`/chunk/<id>` `/compare` `/matchup` `/build` `/calculators` `/calculate/<name>`. Standard
 library only, read-only, CORS-enabled.
 
 ### Direct Python
@@ -206,7 +213,7 @@ the result, so the live site always matches the committed data.
 python3 -m unittest discover -s tests -v
 ```
 
-57 tests covering the calculators against hand-worked values, FTS input
+62 tests covering the calculators against hand-worked values, FTS input
 sanitisation, the research-file normaliser and merge logic, the markdown
 renderer, diagram matching, the MCP server over real stdio JSON-RPC, and
 integrity of whatever database is currently built.
