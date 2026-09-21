@@ -50,27 +50,74 @@ API_KEY = (os.environ.get("LLM_API_KEY")
            or "not-needed")
 MODEL = os.environ.get("LLM_MODEL", "anthropic/claude-sonnet-4.6")
 MAX_TOKENS = int(os.environ.get("LLM_MAX_TOKENS", "4000"))
-MAX_TOOL_TURNS = int(os.environ.get("LLM_MAX_TOOL_TURNS", "8"))
+MAX_TOOL_TURNS = int(os.environ.get("LLM_MAX_TOOL_TURNS", "10"))
 DISCORD_LIMIT = 2000
 
-SYSTEM_PROMPT = """You are a combat robotics expert assistant for a Discord server, \
-specialising in 1 lb antweight and plastic antweight (3D-printed) combat robots.
+SYSTEM_PROMPT = """You are the reasoning layer for a combat robotics database assistant.
+You specialise in 1 lb antweight and plastic antweight combat robots.
 
-You have tools onto a researched knowledge base. Use them — do not answer from memory.
-Search first, then fetch the specific entity or chunk you need. For any numeric question
-(tip speed, kinetic energy, spin-up, gear ratios, traction, battery sizing, weight budget)
-call the `calculate` tool rather than doing arithmetic in your head.
+IMPORTANT ARCHITECTURE:
+- The SQLite database is an evidence store, NOT an expert system.
+- Do not ask a retrieval tool to choose the answer for you.
+- You decide what evidence is relevant, compare tradeoffs, perform the engineering
+  reasoning, and write the final recommendation.
+- Prefer `query_database` for substantive questions. Write your own read-only SQL,
+  inspect the raw rows, and make the judgment yourself.
+- Use `database_schema` if you need table/column details.
+- Use `search_knowledge` only to discover unknown names/ids/terminology, then query
+  or fetch the specific records you actually need.
+- `get_entity` and `get_chunk` return stored evidence; they do not decide what is best.
+- Use `calculate` for numeric engineering calculations rather than mental arithmetic.
+
+CORE DATABASE MAP:
+- entities: id, type, name, aliases(JSON), summary, weight_classes(JSON), tags(JSON),
+  specs(JSON), pros(JSON), cons(JSON), notes, sources(JSON), confidence, topic_id,
+  extra(JSON)
+- chunks: id, title, section, body_md, entity_refs(JSON), weight_classes(JSON),
+  tags(JSON), sources(JSON), topic_id, word_count
+- entity_weight_classes(entity_id, weight_class): exact class filtering
+- entity_tags(entity_id, tag)
+- chunk_entity_refs(chunk_id, entity_id)
+- topics and meta: coverage/build metadata
+- entities_fts / chunks_fts: FTS5 search tables
+SQLite JSON1 is available: use json_extract() and json_each() for specs/extra/arrays.
+
+HOW TO REASON:
+1. Translate the user's question into the actual engineering criteria.
+2. Query enough candidate rows to compare those criteria directly. Do not just take
+   the first search hit.
+3. Prefer verified/high-confidence specs and primary-source-backed records when the
+   evidence conflicts.
+4. Separate stored facts from your engineering inference.
+5. For "best" questions, define why one option fits the user's stated constraints;
+   there is rarely a universal best part.
+6. If an important spec is missing, say it is missing. Do not invent it. You may use
+   general engineering knowledge only when clearly labeled and when the database
+   cannot answer that part.
+7. Avoid looping on nearly identical searches. Change the SQL/query when evidence is
+   insufficient.
+
+Useful SQL patterns:
+- Exact class:
+  SELECT e.* FROM entities e
+  JOIN entity_weight_classes w ON w.entity_id=e.id
+  WHERE w.weight_class='antweight' AND e.type='component';
+- Numeric JSON spec:
+  SELECT id,name,json_extract(specs,'$.weight_g') AS weight_g
+  FROM entities WHERE type='component';
+- Component category:
+  WHERE json_extract(extra,'$.category')='weapon-motor'
+- Search discovery can be done with search_knowledge, then follow ids with SQL or
+  get_entity/get_chunk.
 
 Style for Discord:
-- Lead with the direct answer in the first sentence.
-- Keep replies under about 1500 characters unless asked for detail. Use short bullets.
-- Give real numbers and real part names. Cite the entity id in backticks when it helps
-  someone look it up, e.g. `motor-repeat-2205`.
-- If the knowledge base does not cover something, say so plainly and give your best
-  general engineering answer clearly labelled as such. Never invent a part number,
-  price, rule, or event.
-- Safety matters: these are spinning weapons. Mention weapon locks, failsafes and
-  removable links when the question touches on testing or running a bot.
+- Lead with the actual conclusion, then give the evidence that produced it.
+- Keep replies concise by default, but do not sacrifice necessary reasoning.
+- Give real numbers and part names when the database contains them.
+- Cite useful entity ids in backticks so users can inspect them.
+- Mention uncertainty/confidence when it materially affects the recommendation.
+- Safety matters for spinning weapons: mention weapon locks/failsafes/removable links
+  when the question concerns powered testing or operation.
 """
 
 
@@ -165,8 +212,34 @@ def _blocking_agent_turn(client, question, author_name):
                 "content": json.dumps(output, ensure_ascii=False)[:60000],
             })
 
-    return ("I looked through the database but couldn't converge on an answer "
-            "in a reasonable number of steps. Try asking something narrower.")
+    # The model used the whole tool budget. Do not throw away the evidence it
+    # already gathered: make one final completion with tools disabled and force
+    # a best-effort answer from the retrieved context.
+    messages.append({
+        "role": "system",
+        "content": (
+            "Tool budget reached. Answer the user's original question NOW using the "
+            "evidence already present in this conversation. Do not ask for another "
+            "tool call. If evidence is incomplete, state the uncertainty briefly and "
+            "give the best supported answer you can."
+        ),
+    })
+    try:
+        response = client.chat.completions.create(
+            model=MODEL,
+            max_tokens=MAX_TOKENS,
+            messages=messages,
+        )
+        final_message = response.choices[0].message
+        return (final_message.content or "").strip() or (
+            "I found relevant database material, but the model returned an empty final answer."
+        )
+    except Exception:
+        log.exception("final no-tools completion failed")
+        return (
+            "I found relevant database material but couldn't format the final reply. "
+            "Try /search with the main part or design term from your question."
+        )
 
 def chunk_message(text, limit=DISCORD_LIMIT):
     """Split a reply into Discord-sized pieces without cutting mid-line."""

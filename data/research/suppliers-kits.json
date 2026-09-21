@@ -1,0 +1,354 @@
+{
+  "topic_id": "suppliers-kits",
+  "title": "Current Antweight Suppliers & Starter Kits",
+  "scope_note": "Current supplier landscape and beginner-friendly commercial options for 1 lb antweight and plastic antweight builders, based on official vendor/product pages checked in September 2026. Stock and prices change, so product pages should be rechecked before buying.",
+  "entities": [
+    {
+      "id": "supplier-repeat-robotics",
+      "type": "supplier",
+      "name": "Repeat Robotics",
+      "aliases": [
+        "Repeat"
+      ],
+      "summary": "Combat-robotics vendor with a large dedicated 1 lb antweight catalog, including brushed and brushless drive systems, weapon motors and hubmotors, ESCs, weapon parts, hardware, and other purpose-built small-robot components.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "supplier",
+        "antweight-parts",
+        "weapon-motors",
+        "drive-motors",
+        "esc",
+        "hardware"
+      ],
+      "website": "https://repeat-robotics.com/",
+      "specialties": [
+        "antweight drive systems",
+        "weapon motors and hubmotors",
+        "ESCs",
+        "weapon hardware"
+      ],
+      "notes": "The official Antweight collection listed dozens of products specifically intended for 1 lb robots when checked in September 2026. Use the product page rather than an old cached price or stock status when buying.",
+      "sources": [
+        "https://repeat-robotics.com/collections/antweight"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "supplier-itgresa",
+      "type": "supplier",
+      "name": "ItGresa",
+      "aliases": [
+        "ITGRESA"
+      ],
+      "summary": "Combat-robotics retailer carrying kits, weapons, electronics, motors, batteries, and parts from multiple established brands. ItGresa explicitly says it focuses on keeping commonly needed robot-fighting parts in stock and names FingerTech and Robot Power among its partners.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "supplier",
+        "multi-brand",
+        "kits",
+        "electronics",
+        "weapons",
+        "parts"
+      ],
+      "website": "https://itgresa.com/",
+      "specialties": [
+        "combat robot kits",
+        "electronics",
+        "weapons",
+        "multi-brand replacement parts"
+      ],
+      "notes": "Useful as a multi-brand source when a builder wants to combine parts from several ecosystems instead of buying everything from one manufacturer.",
+      "sources": [
+        "https://itgresa.com/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "supplier-palm-beach-bots",
+      "type": "supplier",
+      "name": "Palm Beach Bots",
+      "aliases": [
+        "PBB"
+      ],
+      "summary": "Combat-robotics vendor with a substantial 1 lb antweight kit catalog plus batteries, radio gear, parts, and configurable ready-to-build or ready-to-fight packages.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "supplier",
+        "antweight-kits",
+        "batteries",
+        "radio",
+        "ready-to-fight"
+      ],
+      "website": "https://palmbeachbots.com/",
+      "specialties": [
+        "antweight kits",
+        "plastic antweight kits",
+        "batteries",
+        "radio systems",
+        "replacement parts"
+      ],
+      "notes": "The official 1 lb kit collection showed dozens of products when checked in September 2026, including modular full-combat kits and configured FingerTech Viper variants.",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "supplier-just-cuz-robotics",
+      "type": "supplier",
+      "name": "Just 'Cuz Robotics",
+      "aliases": [
+        "Just Cuz Robotics",
+        "JCR"
+      ],
+      "summary": "Combat-robotics manufacturer and retailer known for purpose-built robot parts and kits across small weight classes. Its catalog includes drive gearmotors, electronics and complete robot kits, with documented 1 lb designs alongside its beetleweight products.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "supplier",
+        "motors",
+        "electronics",
+        "kits",
+        "combat-robotics"
+      ],
+      "website": "https://justcuzrobotics.com/",
+      "specialties": [
+        "drive gearmotors",
+        "electronics",
+        "combat robot kits",
+        "small-weight-class parts"
+      ],
+      "notes": "The current home page emphasizes the SSP kit and lists Mini Mulcher as a 1 lb team robot; use category/product pages to confirm whether a specific part is intended for 1 lb or 3 lb use.",
+      "sources": [
+        "https://justcuzrobotics.com/pages/home"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "kit-fingertech-viper-v3",
+      "type": "kit",
+      "name": "FingerTech Viper Combat Robot Kit",
+      "aliases": [
+        "Viper Kit",
+        "Viper V3"
+      ],
+      "summary": "A beginner-oriented 1 lb antweight base kit built around a formed 6061-T6 aluminum chassis, Silver Spark drive gearmotors, tinyESC motor controllers, foam wheels and combat armor, with room and weight left for upgrades.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "beginner",
+        "wedge",
+        "fingertech",
+        "silver-spark",
+        "upgradeable"
+      ],
+      "specs": {
+        "base_weight_g": 313,
+        "body_width_mm": 165,
+        "body_length_mm": 140,
+        "body_height_mm": 30
+      },
+      "vendor": "FingerTech Robotics",
+      "skill_level": "beginner",
+      "includes": [
+        "formed 6061-T6 aluminum chassis",
+        "2 Silver Spark gearmotors",
+        "2 tinyESC drive controllers",
+        "2 foam wheels and hubs",
+        "front/top combat armor",
+        "hardware"
+      ],
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-robot",
+      "pros": [
+        "Well documented and intentionally designed as a first combat robot",
+        "Uses common replaceable FingerTech drive parts",
+        "Leaves meaningful weight for weapon or armor upgrades"
+      ],
+      "cons": [
+        "Base configuration is a drivetrain/control platform rather than a high-energy spinner",
+        "Radio and battery options vary by configuration; verify exactly what the current listing includes"
+      ],
+      "notes": "FingerTech lists the Viper as sized for the 1 lb Antweight class and encourages builders to drill, cut, modify and upgrade it. The official page listed a 313 g base weight, leaving roughly 141 g under a 454 g class limit before optional additions.",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-robot"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "kit-palm-beach-skizo",
+      "type": "kit",
+      "name": "Palm Beach Bots Skizo Modular Full Combat Antweight Kit",
+      "aliases": [
+        "Skizo",
+        "Skizo Modular Combat Kit"
+      ],
+      "summary": "A modular full-combat 1 lb antweight kit with selectable horizontal, vertical or lifter weapon modules and configurable radio/battery options. It is aimed at beginners through intermediate builders and includes access to CAD files for modification.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "full-combat",
+        "modular",
+        "vertical-spinner",
+        "horizontal-spinner",
+        "lifter",
+        "cad"
+      ],
+      "vendor": "Palm Beach Bots",
+      "skill_level": "beginner-intermediate",
+      "includes": [
+        "modular antweight chassis",
+        "selected weapon module",
+        "build instructions",
+        "lifetime STEP/STL file access"
+      ],
+      "product_url": "https://palmbeachbots.com/products/skizo-modular-full-combat-antweight-kit",
+      "pros": [
+        "Multiple weapon modules can share one platform",
+        "CAD access makes it easier to learn by modifying a working design",
+        "Sold as a genuine full-combat platform rather than only a drivetrain base"
+      ],
+      "cons": [
+        "Configuration changes what is included and the total price",
+        "Some soldering is required; the product page specifically notes soldering drive-motor leads"
+      ],
+      "notes": "Palm Beach Bots lists 2S 300 mAh as the standard battery option and offers a 3S upgrade for more drive/weapon speed, with a caution about lifter-servo voltage regulation. Verify the current selected configuration before ordering.",
+      "sources": [
+        "https://palmbeachbots.com/products/skizo-modular-full-combat-antweight-kit"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "kit-repeat-plastic-ant-hardware",
+      "type": "kit",
+      "name": "Repeat Robotics Plastic Antweight Hardware Kit",
+      "aliases": [
+        "Repeat Plastic Ant Hardware Kit"
+      ],
+      "summary": "A low-cost hardware pack for scratch-built 1 lb plastic antweights containing common screws, standoffs, weapon bearings, O-rings, locknuts and hex keys. It is not a complete robot, but it removes a common sourcing headache for a first custom printed build.",
+      "weight_classes": [
+        "plastic-antweight",
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "hardware",
+        "plastic-antweight",
+        "scratch-build",
+        "fasteners",
+        "bearings"
+      ],
+      "specs": {
+        "price_usd": 15
+      },
+      "vendor": "Repeat Robotics",
+      "price_usd": 15,
+      "skill_level": "beginner-intermediate",
+      "includes": [
+        "M3 and M2 fasteners",
+        "steel standoffs",
+        "weapon-support bearings",
+        "O-rings",
+        "M5 weapon-support hardware",
+        "hex keys"
+      ],
+      "product_url": "https://repeat-robotics.com/products/plastic-antweight-hardware-kit",
+      "pros": [
+        "Bundles many awkward small hardware items in one purchase",
+        "Designed specifically around common plastic-antweight construction"
+      ],
+      "cons": [
+        "Not a complete robot kit; motors, electronics, battery, weapon and printed structure are still required",
+        "Price and stock can change"
+      ],
+      "notes": "The official product page listed the hardware pack at $15 and in stock when checked in September 2026. Treat that as a dated price anchor, not a permanent price.",
+      "sources": [
+        "https://repeat-robotics.com/products/plastic-antweight-hardware-kit"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-current-antweight-suppliers",
+      "title": "Where to Buy 1 lb Antweight Parts: What the Main Suppliers Are Good At",
+      "section": "Sourcing",
+      "body_md": "For a 1 lb antweight or plastic antweight, the most useful supplier question is not simply “who sells combat robot parts?” but “which store is strongest for the subsystem I am trying to solve?” The current vendor landscape has several overlapping ecosystems. **FingerTech Robotics** is the long-running reference point for classic antweight drive hardware and the Viper starter platform; Silver Spark gearmotors, tinyESCs, wheels and the Viper are useful when you want a well-documented brushed-drive ecosystem. **Repeat Robotics** has a deep dedicated antweight catalog and is especially useful for purpose-built modern drive and weapon hardware: its 1 lb collection includes brushed and brushless planetary drive motors, dual drive ESCs, hubmotor weapon systems, weapon parts and small hardware. **ItGresa** is valuable as a multi-brand retailer: its own site explicitly says it stocks combat kits, weapons and electronics and works with companies such as FingerTech and Robot Power, so it can be useful when one build mixes several brands. **Palm Beach Bots** leans heavily into complete and configurable 1 lb kits, batteries, radios and replacement parts; its antweight-kit collection includes both its own platforms and configured Viper variants. **Just 'Cuz Robotics** is another purpose-built combat supplier with motors, electronics and kits across small weight classes.\n\nFor the AI assistant, these supplier records should be used as routing information rather than as permanent stock or price claims. A good answer should first identify the part category—drive motor, weapon system, ESC, battery, hardware or complete kit—then recommend the supplier whose current catalog is strongest in that category, and finally tell the builder to verify the live product page before buying. Stock and prices change much faster than engineering facts. For a scratch-built plastic ant, a practical shopping split is often purpose-built motors/ESCs from Repeat, FingerTech or another combat vendor; standardized fasteners/bearings from a hardware pack or industrial supplier; and printed structure made locally. For a first robot where learning and successful assembly matter more than maximum performance per dollar, a complete or semi-complete platform such as the Viper or Skizo can reduce integration mistakes.",
+      "entity_refs": [
+        "supplier-fingertech-robotics",
+        "supplier-repeat-robotics",
+        "supplier-itgresa",
+        "supplier-palm-beach-bots",
+        "supplier-just-cuz-robotics",
+        "kit-fingertech-viper-v3",
+        "kit-palm-beach-skizo",
+        "kit-repeat-plastic-ant-hardware"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "suppliers",
+        "buying",
+        "parts",
+        "kits",
+        "sourcing",
+        "beginner"
+      ],
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-robot",
+        "https://repeat-robotics.com/collections/antweight",
+        "https://itgresa.com/",
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound",
+        "https://justcuzrobotics.com/pages/home"
+      ]
+    },
+    {
+      "id": "chunk-antweight-kit-vs-scratch-build",
+      "title": "Starter Kit vs Scratch Build for a First Antweight",
+      "section": "Build Planning",
+      "body_md": "A starter kit and a scratch build solve different problems. A **drivetrain/base kit** such as the FingerTech Viper gives a new builder a known-good chassis, drive motors, motor controllers, wheels and armor arrangement. The main benefit is not that every included part is the highest-performance choice; it is that the mechanical mounting, electrical compatibility and basic driving system are already proven. FingerTech explicitly designs the Viper to be modified, and its roughly 313 g base weight leaves meaningful room below the 1 lb limit for upgrades. A **full-combat modular kit** such as Palm Beach Bots' Skizo goes further by offering actual weapon modules (horizontal, vertical or lifter) plus configurable radio and battery choices. That reduces the number of first-build interfaces you must design at once, while the included STEP/STL access still gives you room to learn CAD by modifying a working platform.\n\nA **scratch build** is the better route when your goal is learning design, minimizing cost through parts you already own, or optimizing every gram. Scratch building also lets you choose exactly the drive ratio, battery voltage, weapon geometry, armor material and service layout you want. The tradeoff is integration risk: small incompatibilities in shaft diameter, mounting pattern, connector, ESC firmware, battery current capability or fastener size can stop the entire robot from working even if every individual part looked reasonable on paper. Hardware bundles such as Repeat Robotics' plastic-antweight hardware kit sit in the middle: they do not design the robot for you, but they remove the tedious job of sourcing dozens of tiny screws, standoffs, bearings and O-rings.\n\nFor a first robot, choose a kit when the priority is getting a legal, reliable machine driving quickly and learning from a known baseline. Choose scratch-built when the priority is CAD/mechanical experimentation or when you already understand radio setup, soldering, motor/ESC pairing and weight budgeting. A strong progression is often: build a proven platform, compete once, document what broke or limited you, then redesign only the subsystems you now have evidence to improve.",
+      "entity_refs": [
+        "kit-fingertech-viper-v3",
+        "kit-palm-beach-skizo",
+        "kit-repeat-plastic-ant-hardware"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "starter-kit",
+        "scratch-build",
+        "beginner",
+        "build-planning",
+        "cad",
+        "sourcing"
+      ],
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-robot",
+        "https://palmbeachbots.com/products/skizo-modular-full-combat-antweight-kit",
+        "https://repeat-robotics.com/products/plastic-antweight-hardware-kit"
+      ]
+    }
+  ]
+}

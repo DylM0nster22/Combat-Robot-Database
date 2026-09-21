@@ -24,6 +24,19 @@ DEFAULT_DB = os.path.join(
 # otherwise produce a syntax error rather than results.
 _FTS_TOKEN = re.compile(r"[A-Za-z0-9_]+")
 
+# Natural-language Discord questions contain lots of filler that is actively
+# harmful to OR-based full-text search ("what is the best motor for my..." can
+# match almost everything). Keep domain words and numbers, discard only common
+# question/grammar words that carry little retrieval value.
+_SEARCH_STOPWORDS = {
+    "a", "an", "and", "are", "as", "at", "be", "best", "better", "bot",
+    "build", "building", "can", "combat", "could", "do", "does", "for", "from",
+    "good", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or",
+    "please", "robot", "should", "something", "tell", "that", "the", "this", "to",
+    "use", "using", "want", "what", "when", "where", "which", "who", "why", "with",
+    "would", "you", "your",
+}
+
 WEIGHT_CLASSES = [
     "fairyweight", "antweight", "plastic-antweight", "beetleweight",
     "plastic-beetleweight", "hobbyweight", "featherweight", "lightweight",
@@ -35,26 +48,42 @@ class KnowledgeBaseError(RuntimeError):
     pass
 
 
-def _fts_query(text: str, prefix: bool = True) -> str:
-    """Turn arbitrary user text into a safe FTS5 MATCH expression.
-
-    Each word becomes a quoted term, optionally with a prefix wildcard so
-    "motor" also finds "motors". Terms are OR-ed: partial matches are much more
-    useful than no matches when someone asks a loose question in Discord.
-    """
-    tokens = _FTS_TOKEN.findall(text or "")
-    if not tokens:
-        return ""
-    parts = []
+def _query_tokens(text: str, drop_stopwords: bool = True) -> List[str]:
+    """Extract useful, de-duplicated search tokens from natural-language text."""
+    tokens = [t.lower() for t in _FTS_TOKEN.findall(text or "")]
+    useful = []
+    seen = set()
     for token in tokens:
         if len(token) < 2:
             continue
-        parts.append(f'"{token}"*' if prefix else f'"{token}"')
-    if not parts:
-        # Single-character search: fall back to an exact term so we still
-        # return something rather than raising.
-        parts = [f'"{tokens[0]}"']
-    return " OR ".join(parts)
+        if drop_stopwords and token in _SEARCH_STOPWORDS:
+            continue
+        if token not in seen:
+            seen.add(token)
+            useful.append(token)
+    # If the whole query was stopwords/single letters, retain the original
+    # searchable tokens so callers still get a graceful result instead of none.
+    if not useful:
+        useful = [t for t in tokens if len(t) >= 2]
+    return useful
+
+
+def _fts_query(text: str, prefix: bool = True, operator: str = "OR",
+               drop_stopwords: bool = True) -> str:
+    """Turn arbitrary user text into a safe FTS5 MATCH expression.
+
+    The default remains an OR query for backwards compatibility. Search itself
+    first tries an AND query over meaningful terms, then falls back to OR so a
+    natural-language Discord question gets precise hits without becoming brittle.
+    """
+    tokens = _query_tokens(text, drop_stopwords=drop_stopwords)
+    if not tokens:
+        # Preserve the old single-character behaviour for direct callers.
+        raw = _FTS_TOKEN.findall(text or "")
+        return f'"{raw[0]}"' if raw else ""
+    joiner = " AND " if str(operator).upper() == "AND" else " OR "
+    parts = [f'"{token}"*' if prefix else f'"{token}"' for token in tokens]
+    return joiner.join(parts)
 
 
 def _loads(value: Optional[str], fallback):
@@ -131,25 +160,169 @@ class KnowledgeBase:
     def close(self):
         self.conn.close()
 
+    # ------------------------------------------------------------- raw database
+
+    def database_schema(self) -> Dict[str, Any]:
+        """Return the SQLite schema an LLM needs to compose its own queries."""
+        public_tables = [
+            "entities", "chunks", "topics", "entity_tags",
+            "entity_weight_classes", "chunk_entity_refs", "meta",
+            "entities_fts", "chunks_fts",
+        ]
+        tables = {}
+        for name in public_tables:
+            row = self.conn.execute(
+                "SELECT type, sql FROM sqlite_master WHERE name = ?", (name,)
+            ).fetchone()
+            if not row:
+                continue
+            # Names come from the fixed allow-list above, never user input.
+            columns = [
+                {"name": c["name"], "type": c["type"], "notnull": bool(c["notnull"]),
+                 "primary_key": bool(c["pk"])}
+                for c in self.conn.execute(f'PRAGMA table_info("{name}")').fetchall()
+            ]
+            tables[name] = {
+                "type": row["type"],
+                "columns": columns,
+                "create_sql": row["sql"],
+            }
+        return {
+            "tables": tables,
+            "json_columns": {
+                "entities": ["aliases", "weight_classes", "tags", "specs", "pros",
+                             "cons", "sources", "extra"],
+                "chunks": ["entity_refs", "weight_classes", "tags", "sources"],
+            },
+            "notes": [
+                "Use json_extract/json_each for JSON text columns such as entities.specs and entities.extra.",
+                "Join entity_weight_classes for exact weight-class filtering.",
+                "entities_fts and chunks_fts are FTS5 virtual tables; use MATCH for full-text retrieval.",
+                "query_database is read-only and caps returned rows, but the model chooses the SQL and does the reasoning.",
+            ],
+            "examples": [
+                "SELECT id, name, json_extract(specs, '$.weight_g') AS weight_g FROM entities WHERE type='component' ORDER BY weight_g LIMIT 20",
+                "SELECT e.id, e.name, e.specs FROM entities e JOIN entity_weight_classes w ON w.entity_id=e.id WHERE e.type='component' AND w.weight_class='antweight' LIMIT 20",
+                "SELECT e.id, e.name, e.summary FROM entities_fts f JOIN entities e ON e.id=f.id WHERE entities_fts MATCH 'weapon AND motor' ORDER BY bm25(entities_fts) LIMIT 10",
+            ],
+        }
+
+    def query_database(self, sql: str, params=None, max_rows: int = 50) -> Dict[str, Any]:
+        """Execute one model-written read-only SQLite query and return raw rows.
+
+        This is intentionally a database primitive, not an answer generator. The
+        caller chooses the SELECT, receives rows, and is responsible for reasoning.
+        A fresh read-only connection plus SQLite's authorizer prevents writes,
+        ATTACH/DETACH, PRAGMA changes, and other side effects.
+        """
+        statement = str(sql or "").strip()
+        if not statement:
+            return {"error": "sql is required"}
+        if len(statement) > 12000:
+            return {"error": "sql is too long (12000 character maximum)"}
+        if not re.match(r"^(SELECT|WITH)\b", statement, flags=re.IGNORECASE):
+            return {"error": "Only SELECT or WITH queries are allowed."}
+
+        if params is None:
+            params = []
+        if not isinstance(params, (list, tuple, dict)):
+            return {"error": "params must be a JSON array or object"}
+        max_rows = max(1, min(int(max_rows or 50), 200))
+
+        conn = sqlite3.connect(f"file:{self.db_path}?mode=ro", uri=True)
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA query_only=ON")
+
+        allowed_actions = {
+            sqlite3.SQLITE_SELECT,
+            sqlite3.SQLITE_READ,
+            sqlite3.SQLITE_FUNCTION,
+        }
+        if hasattr(sqlite3, "SQLITE_RECURSIVE"):
+            allowed_actions.add(sqlite3.SQLITE_RECURSIVE)
+        dangerous_functions = {
+            "load_extension", "writefile", "readfile", "fts3_tokenizer",
+        }
+
+        def _authorizer(action, arg1, arg2, db_name, trigger_name):
+            if action not in allowed_actions:
+                return sqlite3.SQLITE_DENY
+            if action == sqlite3.SQLITE_FUNCTION:
+                function_name = str(arg2 or arg1 or "").lower()
+                if function_name in dangerous_functions:
+                    return sqlite3.SQLITE_DENY
+            return sqlite3.SQLITE_OK
+
+        conn.set_authorizer(_authorizer)
+        try:
+            cursor = conn.execute(statement, params)
+            if cursor.description is None:
+                return {"error": "Query did not return rows."}
+            columns = [col[0] for col in cursor.description]
+            fetched = cursor.fetchmany(max_rows + 1)
+            truncated = len(fetched) > max_rows
+            fetched = fetched[:max_rows]
+            rows = []
+            cell_truncated = False
+            for row in fetched:
+                item = {}
+                for column in columns:
+                    value = row[column]
+                    if isinstance(value, str) and len(value) > 12000:
+                        value = value[:12000] + "… [truncated]"
+                        cell_truncated = True
+                    item[column] = value
+                rows.append(item)
+            return {
+                "columns": columns,
+                "rows": rows,
+                "returned": len(rows),
+                "more_rows_available": truncated,
+                "cell_text_truncated": cell_truncated,
+            }
+        except sqlite3.Error as exc:
+            return {"error": f"SQLite query failed: {exc}"}
+        finally:
+            conn.close()
+
     # ---------------------------------------------------------------- search
 
     def search(self, query: str, kind: str = "all", entity_type: Optional[str] = None,
                weight_class: Optional[str] = None, limit: int = 10) -> Dict[str, Any]:
         """Full-text search across entities and knowledge chunks.
 
-        `kind` is "all", "entities" or "chunks". Results are ranked by FTS5's
-        bm25, with entities boosted slightly since a direct part/archetype hit
-        is usually what someone means.
+        Natural-language questions are searched in two passes: first all useful
+        terms must match (high precision), then an OR fallback fills any remaining
+        slots (high recall). Common question filler is removed before either pass.
         """
         limit = max(1, min(int(limit or 10), 50))
-        match = _fts_query(query)
-        if not match:
-            return {"query": query, "entities": [], "chunks": [],
+        strict_match = _fts_query(query, operator="AND")
+        broad_match = _fts_query(query, operator="OR")
+        if not broad_match:
+            return {"query": query, "query_terms": [], "entities": [], "chunks": [],
                     "note": "Empty or unsearchable query."}
 
-        results: Dict[str, Any] = {"query": query, "entities": [], "chunks": []}
+        results: Dict[str, Any] = {
+            "query": query,
+            "query_terms": _query_tokens(query),
+            "entities": [],
+            "chunks": [],
+        }
 
-        if kind in ("all", "entities"):
+        def _merge_rows(primary, fallback):
+            merged = []
+            seen = set()
+            for row in list(primary) + list(fallback):
+                row_id = row["id"]
+                if row_id in seen:
+                    continue
+                seen.add(row_id)
+                merged.append(row)
+                if len(merged) >= limit:
+                    break
+            return merged
+
+        def _entity_rows(match):
             sql = """
                 SELECT e.*, bm25(entities_fts, 10.0, 6.0, 4.0, 2.0, 3.0, 2.0, 1.0) AS rank
                 FROM entities_fts
@@ -166,30 +339,37 @@ class KnowledgeBase:
                 params.append(weight_class)
             sql += " ORDER BY rank LIMIT ?"
             params.append(limit)
-            try:
-                rows = self.conn.execute(sql, params).fetchall()
-            except sqlite3.OperationalError as exc:
-                raise KnowledgeBaseError(f"search failed: {exc}") from exc
-            results["entities"] = [_entity_row(r, include_body=False) for r in rows]
+            return self.conn.execute(sql, params).fetchall()
 
-        if kind in ("all", "chunks"):
+        def _chunk_rows(match):
             sql = """
                 SELECT c.*, bm25(chunks_fts, 8.0, 3.0, 1.0, 2.0) AS rank
                 FROM chunks_fts
                 JOIN chunks c ON c.id = chunks_fts.id
                 WHERE chunks_fts MATCH ?
             """
-            params = [match]
+            params: List[Any] = [match]
             if weight_class:
                 sql += " AND c.weight_classes LIKE ?"
                 params.append(f'%"{weight_class}"%')
             sql += " ORDER BY rank LIMIT ?"
             params.append(limit)
-            try:
-                rows = self.conn.execute(sql, params).fetchall()
-            except sqlite3.OperationalError as exc:
-                raise KnowledgeBaseError(f"search failed: {exc}") from exc
-            results["chunks"] = [_chunk_row(r, include_body=False) for r in rows]
+            return self.conn.execute(sql, params).fetchall()
+
+        try:
+            if kind in ("all", "entities"):
+                strict = _entity_rows(strict_match) if strict_match else []
+                broad = _entity_rows(broad_match) if len(strict) < limit else []
+                rows = _merge_rows(strict, broad)
+                results["entities"] = [_entity_row(r, include_body=False) for r in rows]
+
+            if kind in ("all", "chunks"):
+                strict = _chunk_rows(strict_match) if strict_match else []
+                broad = _chunk_rows(broad_match) if len(strict) < limit else []
+                rows = _merge_rows(strict, broad)
+                results["chunks"] = [_chunk_row(r, include_body=False) for r in rows]
+        except sqlite3.OperationalError as exc:
+            raise KnowledgeBaseError(f"search failed: {exc}") from exc
 
         results["total"] = len(results["entities"]) + len(results["chunks"])
         return results
@@ -474,7 +654,10 @@ class KnowledgeBase:
                 )["entities"]
 
         terms = " ".join(filter(None, [weight_class, archetype, "build guide weight budget"]))
-        out["guidance"] = self.search(terms, kind="chunks", limit=8)["chunks"]
+        guidance_hits = self.search(terms, kind="chunks", limit=8)["chunks"]
+        # Return full guide bodies here. Previously build_guide only returned
+        # 300-character previews, forcing an LLM to spend several more tool turns.
+        out["guidance"] = [self.get_chunk(c["id"]) or c for c in guidance_hits]
         return out
 
 

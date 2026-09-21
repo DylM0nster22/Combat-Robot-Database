@@ -130,7 +130,7 @@ def route(path, params):
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "CombatRobotDB/1.0"
+    server_version = "CombatRobotDB/1.1"
 
     def do_GET(self):
         parsed = urlparse(self.path)

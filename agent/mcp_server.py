@@ -24,7 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kb  # noqa: E402
 
 PROTOCOL_VERSION = "2024-11-05"
-SERVER_INFO = {"name": "combat-robot-database", "version": "1.0.0"}
+SERVER_INFO = {"name": "combat-robot-database", "version": "1.2.0"}
 
 _KB = None
 
@@ -42,12 +42,53 @@ ENTITY_TYPE_ENUM = ["weight_class", "archetype", "component", "material",
 
 TOOLS = [
     {
+        "name": "database_schema",
+        "description": (
+            "Inspect the raw SQLite schema. Use this when you need to know table or "
+            "column names before writing SQL. The database stores evidence; YOU are "
+            "responsible for deciding what facts matter and for reasoning from them."
+        ),
+        "inputSchema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "query_database",
+        "description": (
+            "Run one read-only SELECT/WITH query against the combat-robot SQLite "
+            "database and return RAW ROWS. This is the preferred tool for serious "
+            "analysis: write the SQL yourself, join/filter/aggregate the evidence you "
+            "need, then make the engineering judgment yourself. JSON fields can be "
+            "queried with json_extract/json_each. No tool-generated recommendation "
+            "or verdict is added."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "sql": {
+                    "type": "string",
+                    "description": "One SQLite SELECT or WITH query."
+                },
+                "params": {
+                    "description": "Optional SQLite bind parameters as a JSON array or object.",
+                    "oneOf": [
+                        {"type": "array", "items": {}},
+                        {"type": "object", "additionalProperties": {}}
+                    ],
+                },
+                "max_rows": {
+                    "type": "integer", "default": 50, "minimum": 1, "maximum": 200,
+                    "description": "Maximum rows returned to the model."
+                },
+            },
+            "required": ["sql"],
+        },
+    },
+    {
         "name": "search_knowledge",
         "description": (
-            "Full-text search the combat robot knowledge base. Returns matching "
-            "entities (parts, archetypes, materials, formulas, bots, events, rules) "
-            "and knowledge chunks (long-form explainers). Start here for almost any "
-            "question, then call get_entity or get_chunk for the full text."
+            "FTS5 retrieval helper for when you do not yet know the exact entity/chunk "
+            "ids or terminology. Returns search hits/previews only; it does NOT decide "
+            "the answer. After discovery, fetch the record or query_database for the "
+            "specific raw facts you need."
         ),
         "inputSchema": {
             "type": "object",
@@ -66,8 +107,8 @@ TOOLS = [
     {
         "name": "get_entity",
         "description": (
-            "Fetch one entity in full by id (or exact name): all specs, pros, cons, "
-            "notes, sources and the knowledge chunks that reference it."
+            "Fetch one stored entity in full by id or exact name. Returns its raw "
+            "structured specs, prose, sources, confidence, and related chunk ids."
         ),
         "inputSchema": {
             "type": "object",
@@ -77,7 +118,7 @@ TOOLS = [
     },
     {
         "name": "get_chunk",
-        "description": "Fetch the full markdown body of one knowledge chunk by id.",
+        "description": "Fetch one stored long-form evidence/guidance chunk in full by id.",
         "inputSchema": {
             "type": "object",
             "properties": {"id": {"type": "string"}},
@@ -87,9 +128,8 @@ TOOLS = [
     {
         "name": "list_entities",
         "description": (
-            "Browse entities by type, weight class, tag or component category "
-            "(drive-motor, weapon-motor, esc-weapon, battery, wheel, ...). Use this "
-            "to answer 'what options are there for X' questions."
+            "Browse stored entities by type, weight class, tag or component category. "
+            "This returns database records/previews, not a recommendation."
         ),
         "inputSchema": {
             "type": "object",
@@ -107,8 +147,8 @@ TOOLS = [
     {
         "name": "compare_entities",
         "description": (
-            "Compare 2-6 entities side by side, returning a spec table keyed by the "
-            "union of their spec fields. Ideal for 'X vs Y' part questions."
+            "Return raw stored records plus a side-by-side union of spec fields for "
+            "2-6 entities. The model must interpret the tradeoffs itself."
         ),
         "inputSchema": {
             "type": "object",
@@ -120,43 +160,9 @@ TOOLS = [
         },
     },
     {
-        "name": "archetype_matchup",
-        "description": (
-            "How two archetypes fare against each other: stored matchup records "
-            "where researched, plus both archetypes' counters/countered_by and a "
-            "heuristic verdict."
-        ),
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "archetype_a": {"type": "string"},
-                "archetype_b": {"type": "string"},
-            },
-            "required": ["archetype_a", "archetype_b"],
-        },
-    },
-    {
-        "name": "build_guide",
-        "description": (
-            "Assemble everything needed to advise on a build for a weight class and "
-            "optional archetype: the class rules, the archetype record, candidate "
-            "drive motors, weapon motors, ESCs, batteries and wheels, plus relevant "
-            "guidance chunks."
-        ),
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "weight_class": {"type": "string", "enum": WEIGHT_CLASS_ENUM,
-                                  "default": "antweight"},
-                "archetype": {"type": "string",
-                              "description": "Archetype id or name, e.g. 'vertical-spinner'."},
-            },
-        },
-    },
-    {
         "name": "calculate",
         "description": (
-            "Run a combat robotics engineering calculation. Available: "
+            "Run a deterministic combat-robot engineering calculation. Available: "
             "tip_speed(rpm, radius_mm); moment_of_inertia(shape, mass_g, dim_mm, "
             "inner_dim_mm) with shape disc|ring|annulus|bar|bar_end|point|cylinder; "
             "kinetic_energy(moi_kg_m2, rpm); spin_up_time(moi_kg_m2, rpm_target, "
@@ -181,9 +187,8 @@ TOOLS = [
     {
         "name": "kb_stats",
         "description": (
-            "What is in the knowledge base: totals, entity counts by type and weight "
-            "class, and the research topics it was built from. Use it to tell a user "
-            "what you can and cannot answer."
+            "Raw database coverage metadata: totals, entity counts by type/weight "
+            "class, and research topics."
         ),
         "inputSchema": {"type": "object", "properties": {}},
     },
@@ -194,6 +199,14 @@ def call_tool(name, args):
     args = args or {}
     database = get_kb()
 
+    if name == "database_schema":
+        return database.database_schema()
+    if name == "query_database":
+        return database.query_database(
+            sql=args.get("sql", ""),
+            params=args.get("params"),
+            max_rows=args.get("max_rows", 50),
+        )
     if name == "search_knowledge":
         return database.search(
             query=args.get("query", ""), kind=args.get("kind", "all"),
@@ -203,7 +216,7 @@ def call_tool(name, args):
     if name == "get_entity":
         result = database.get_entity(args.get("id", ""))
         return result or {"error": f"No entity with id or name {args.get('id')!r}.",
-                          "hint": "Try search_knowledge first."}
+                          "hint": "Try search_knowledge or query_database first."}
     if name == "get_chunk":
         result = database.get_chunk(args.get("id", ""))
         return result or {"error": f"No chunk with id {args.get('id')!r}."}
@@ -215,13 +228,6 @@ def call_tool(name, args):
         )
     if name == "compare_entities":
         return database.compare(args.get("ids", []))
-    if name == "archetype_matchup":
-        return database.matchup(args.get("archetype_a", ""), args.get("archetype_b", ""))
-    if name == "build_guide":
-        return database.build_guide(
-            weight_class=args.get("weight_class", "antweight"),
-            archetype=args.get("archetype"),
-        )
     if name == "calculate":
         calc_name = args.get("name", "")
         func = kb.CALCULATORS.get(calc_name)

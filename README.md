@@ -89,15 +89,15 @@ Tools exposed:
 
 | Tool | What it does |
 |---|---|
-| `search_knowledge` | Full-text search entities and guides, filterable by type and weight class |
-| `get_entity` | One record in full, by id or name |
-| `get_chunk` | Full markdown body of a guide |
-| `list_entities` | Browse by type, weight class, tag or component category |
-| `compare_entities` | Side-by-side spec table for 2–6 parts |
-| `archetype_matchup` | How two archetypes fare against each other |
-| `build_guide` | Everything needed to advise on a build for a class and archetype |
-| `calculate` | Eleven engineering calculations (below) |
-| `kb_stats` | What's in the database, so the agent can say what it can't answer |
+| `database_schema` | Inspect raw SQLite tables/columns and JSON fields |
+| `query_database` | Run model-written, read-only SQL and return raw rows |
+| `search_knowledge` | FTS5 discovery when the model does not know an id/name yet |
+| `get_entity` | Fetch one stored record in full by id or name |
+| `get_chunk` | Fetch one long-form stored chunk in full |
+| `list_entities` | Browse stored entities by type/class/tag/category |
+| `compare_entities` | Return raw records plus a side-by-side spec table |
+| `calculate` | Eleven deterministic engineering calculations (below) |
+| `kb_stats` | Raw database coverage metadata |
 
 ### Discord bot
 
@@ -121,7 +121,7 @@ export LLM_BASE_URL=https://openrouter.ai/api/v1
 export LLM_API_KEY=...          # overrides OPENROUTER_API_KEY
 export LLM_MODEL=...            # provider-specific model id
 export LLM_MAX_TOKENS=4000
-export LLM_MAX_TOOL_TURNS=8
+export LLM_MAX_TOOL_TURNS=10
 ```
 
 For an Agent Router or other OpenAI-compatible gateway, change only
@@ -141,9 +141,20 @@ portal. Then mention it, or use the slash commands:
 /stats    what's in the database
 ```
 
-The model is instructed to search the database rather than answer from memory,
-and to call the calculators rather than doing arithmetic in its head. Use a model
-that supports function/tool calling.
+The **LLM is the reasoning layer; SQLite is only the evidence store.** The bot's
+preferred analysis tool is `query_database`: the model writes its own read-only SQL,
+joins/filter/aggregates the raw records it needs, compares candidates, and makes the
+engineering judgment itself. `database_schema` lets it inspect the schema, while
+`search_knowledge` is only a discovery helper for unknown names/ids. Higher-level
+helpers that preassemble a build recommendation or matchup verdict are intentionally
+not exposed to the LLM tool list.
+
+The database connection used by `query_database` is opened read-only and guarded by
+a SQLite authorizer, so the model cannot INSERT/UPDATE/DELETE, ATTACH another
+database, or change PRAGMAs. Numeric engineering math still goes through
+`calculate`. If the model uses its entire tool budget, the bot makes a final
+no-tools completion from the raw evidence already gathered instead of discarding it.
+Use a strong model that supports function/tool calling.
 
 ### HTTP API
 
@@ -156,8 +167,8 @@ curl 'http://127.0.0.1:8080/search?q=drum+spinner&weight_class=antweight'
 curl 'http://127.0.0.1:8080/calculate/tip_speed?rpm=20000&radius_mm=45'
 ```
 
-Endpoints: `/health` `/stats` `/search` `/entities` `/entity/<id>` `/chunk/<id>`
-`/compare` `/matchup` `/build` `/calculators` `/calculate/<name>`. Standard
+Endpoints: `/health` `/stats` `/search` `/entities` `/entity/<id>`
+`/chunk/<id>` `/compare` `/matchup` `/build` `/calculators` `/calculate/<name>`. Standard
 library only, read-only, CORS-enabled.
 
 ### Direct Python
@@ -167,9 +178,16 @@ import sys; sys.path.insert(0, "agent")
 import kb
 
 db = kb.KnowledgeBase()
+db.database_schema()
+db.query_database("""
+    SELECT id, name, json_extract(specs, '$.weight_g') AS weight_g
+    FROM entities
+    WHERE type='component'
+    ORDER BY weight_g
+    LIMIT 20
+""")
 db.search("drum spinner bite", weight_class="antweight")
 db.get_entity("archetype-drum-spinner")
-db.compare(["motor-2205", "motor-2306"])
 
 kb.tip_speed(rpm=20000, radius_mm=45)          # -> 94.25 m/s
 moi = kb.moment_of_inertia("disc", mass_g=120, dim_mm=90)
@@ -206,7 +224,7 @@ the result, so the live site always matches the committed data.
 python3 -m unittest discover -s tests -v
 ```
 
-57 tests covering the calculators against hand-worked values, FTS input
+75 tests covering the calculators against hand-worked values, FTS input
 sanitisation, the research-file normaliser and merge logic, the markdown
 renderer, diagram matching, the MCP server over real stdio JSON-RPC, and
 integrity of whatever database is currently built.
