@@ -470,6 +470,7 @@ class KnowledgeBase:
                       weight_class: Optional[str] = None,
                       tag: Optional[str] = None,
                       category: Optional[str] = None,
+                      include_reference: bool = False,
                       limit: int = 50, offset: int = 0) -> Dict[str, Any]:
         limit = max(1, min(int(limit or 50), 300))
         sql = "SELECT e.* FROM entities e WHERE 1=1"
@@ -489,6 +490,10 @@ class KnowledgeBase:
             # `category` lives in the extra blob for components and materials.
             sql += " AND e.extra LIKE ?"
             params.append(f'%"category": "{category}"%')
+        if not include_reference:
+            # Generic size classes/standards stay searchable and directly fetchable,
+            # but normal browse/build flows should prefer exact products.
+            sql += " AND COALESCE(json_extract(e.extra, '$.reference_only'), 0) != 1"
         sql += " ORDER BY e.name LIMIT ? OFFSET ?"
         params.extend([limit, max(0, int(offset or 0))])
         rows = self.conn.execute(sql, params).fetchall()
