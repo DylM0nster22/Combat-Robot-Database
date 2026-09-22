@@ -578,13 +578,7 @@
       "alternatives": [
         "component-brushed-130-size-motor"
       ],
-      "specs": {
-        "weight_g": 10,
-        "voltage_nominal_v": 6,
-        "rpm_no_load": 1000,
-        "price_usd": 4,
-        "shaft_dia_mm": 3
-      },
+      "specs": {},
       "pros": [
         "Very cheap and widely available",
         "Metal gearbox is more durable than plastic-gear toy motors",
@@ -594,11 +588,12 @@
         "Low torque compared to bigger motors, limits ramming power",
         "Output shaft can shear under sudden weapon-strike shock loads if used for anything but drive"
       ],
-      "notes": "Realistic weight range 9-12g depending on gear ratio; price typically $3-5 each bought in bulk.",
+      "notes": "Realistic weight range 9-12g depending on gear ratio; price typically $3-5 each bought in bulk.\n\nGeneric N20 form factors vary substantially by winding, ratio, shaft, gearbox internals, and supplier. Use a specific motor record for numeric design work.",
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true
     },
     {
       "id": "component-brushed-130-size-motor",
@@ -621,12 +616,7 @@
       "alternatives": [
         "component-n20-micro-gearmotor"
       ],
-      "specs": {
-        "weight_g": 18,
-        "voltage_nominal_v": 6,
-        "rpm_no_load": 15000,
-        "price_usd": 2
-      },
+      "specs": {},
       "pros": [
         "Extremely cheap",
         "High no-load RPM gives room for a wide range of gear ratios"
@@ -638,7 +628,9 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "notes": "130-size is a motor envelope/class, not one winding or performance specification."
     },
     {
       "id": "component-brushless-outrunner-2600kv",
@@ -663,11 +655,7 @@
         "component-brushless-outrunner-1400kv"
       ],
       "specs": {
-        "weight_g": 28,
-        "kv_rpm_per_v": 2600,
-        "cells_s": 2,
-        "price_usd": 15,
-        "stall_current_a": 15
+        "kv_rpm_per_v_nominal": 2600
       },
       "pros": [
         "Good RPM-to-weight ratio for spinning a light printed disc/drum",
@@ -676,11 +664,12 @@
       "cons": [
         "Needs a compatible brushless ESC and careful gearing/direct-drive sizing to avoid over-revving a plastic weapon past its burst speed"
       ],
-      "notes": "2800kv is commonly cited as a 'vertical spinner' sweet spot kv in community guides; 1400kv is more typical for slower horizontal spinners.",
+      "notes": "2800kv is commonly cited as a 'vertical spinner' sweet spot kv in community guides; 1400kv is more typical for slower horizontal spinners.\n\nThis is a nominal-KV reference class, not a specific SKU; mass, current, voltage rating, shaft and mounting vary by motor.",
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true
     },
     {
       "id": "component-brushless-outrunner-1400kv",
@@ -704,10 +693,7 @@
         "component-brushless-outrunner-2600kv"
       ],
       "specs": {
-        "weight_g": 30,
-        "kv_rpm_per_v": 1400,
-        "cells_s": 3,
-        "price_usd": 15
+        "kv_rpm_per_v_nominal": 1400
       },
       "pros": [
         "Lower RPM is easier on a printed weapon's burst strength",
@@ -719,7 +705,9 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "notes": "This is a nominal-KV reference class, not a specific SKU; mass, current, voltage rating, shaft and mounting vary by motor."
     },
     {
       "id": "component-esc-brushless-weapon-6a",
@@ -740,10 +728,7 @@
       ],
       "category": "esc-weapon",
       "specs": {
-        "weight_g": 4,
-        "max_current_a": 6,
-        "price_usd": 10,
-        "voltage_nominal_v": 7.4
+        "current_class_a_approx": 6
       },
       "pros": [
         "Extremely light",
@@ -756,7 +741,9 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true,
+      "notes": "Representative micro-ESC class only; firmware, voltage range, real thermal current capability and mass depend on the exact board."
     },
     {
       "id": "component-combo-rx-esc-board",
@@ -778,12 +765,7 @@
         "beginner"
       ],
       "category": "receiver",
-      "specs": {
-        "weight_g": 5,
-        "max_current_a": 3,
-        "price_usd": 20,
-        "voltage_nominal_v": 8.4
-      },
+      "specs": {},
       "pros": [
         "One part instead of three (receiver + two ESCs), saving weight and wiring",
         "Common failsafe-on-signal-loss behavior built in, satisfying rules requiring drive failsafe"
@@ -795,7 +777,9 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true,
+      "notes": "Generic combo-board concept. Use a specific Malenki, Catalyst, or other exact board record for ratings."
     },
     {
       "id": "component-lipo-2s-300mah",
@@ -815,11 +799,8 @@
       ],
       "category": "battery",
       "specs": {
-        "weight_g": 21,
         "capacity_mah": 300,
         "cells_s": 2,
-        "c_rating": 30,
-        "price_usd": 8,
         "voltage_nominal_v": 7.4
       },
       "pros": [
@@ -833,7 +814,9 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true,
+      "notes": "Capacity/cell count define this reference class; mass, C-rating, connector and price vary by pack."
     },
     {
       "id": "component-lipo-1s-300mah",
@@ -853,11 +836,8 @@
       ],
       "category": "battery",
       "specs": {
-        "weight_g": 12,
-        "capacity_mah": 350,
         "cells_s": 1,
-        "c_rating": 25,
-        "price_usd": 6,
+        "capacity_range_mah": "300-500",
         "voltage_nominal_v": 3.7
       },
       "pros": [
@@ -870,7 +850,9 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "notes": "Reference class only; exact mass, discharge rating and connector depend on the pack."
     },
     {
       "id": "component-printed-wheel-tpu-tire",
@@ -894,11 +876,7 @@
       "alternatives": [
         "component-cots-foam-wheel"
       ],
-      "specs": {
-        "weight_g": 9,
-        "dia_mm": 32,
-        "price_usd": 0
-      },
+      "specs": {},
       "pros": [
         "Essentially free once you own a printer and TPU spool",
         "Easy to redesign tread pattern for grip",
@@ -912,7 +890,9 @@
         "domain knowledge",
         "https://www.socalattackrobots.com/plastic-ant-faq.html"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true,
+      "notes": "Representative component class; use an exact part/drawing before relying on dimensions, weight, rating or price."
     },
     {
       "id": "component-cots-foam-wheel",
@@ -936,11 +916,7 @@
       "alternatives": [
         "component-printed-wheel-tpu-tire"
       ],
-      "specs": {
-        "weight_g": 8,
-        "dia_mm": 32,
-        "price_usd": 6
-      },
+      "specs": {},
       "pros": [
         "Consistent, well-tested grip",
         "No printing/gluing labor",
@@ -953,7 +929,9 @@
       "sources": [
         "https://www.socalattackrobots.com/plastic-ant-faq.html"
       ],
-      "confidence": "high"
+      "confidence": "high",
+      "reference_only": true,
+      "notes": "Representative component class; use an exact part/drawing before relying on dimensions, weight, rating or price."
     },
     {
       "id": "component-flanged-bearing-small",
@@ -973,11 +951,7 @@
         "metal-exemption"
       ],
       "category": "bearing",
-      "specs": {
-        "weight_g": 1.5,
-        "shaft_dia_mm": 4,
-        "price_usd": 2
-      },
+      "specs": {},
       "pros": [
         "Cheap and standardized sizes",
         "Explicitly rules-legal as a metal component in every plastic-ant ruleset reviewed"
@@ -988,7 +962,9 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true,
+      "notes": "Representative component class; use an exact part/drawing before relying on dimensions, weight, rating or price."
     },
     {
       "id": "component-weapon-shaft-steel",
@@ -1008,12 +984,7 @@
         "metal-exemption"
       ],
       "category": "misc",
-      "specs": {
-        "weight_g": 5,
-        "dia_mm": 4,
-        "length_mm": 40,
-        "price_usd": 3
-      },
+      "specs": {},
       "pros": [
         "Much stiffer and more wear-resistant than a printed shaft would be",
         "Explicitly allowed as an axle exemption in every ruleset reviewed"
@@ -1024,7 +995,9 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true,
+      "notes": "Representative component class; use an exact part/drawing before relying on dimensions, weight, rating or price."
     },
     {
       "id": "component-fastener-m2-m3-screw-insert",
@@ -1044,10 +1017,7 @@
         "assembly"
       ],
       "category": "fastener",
-      "specs": {
-        "weight_g": 0.3,
-        "price_usd": 0.1
-      },
+      "specs": {},
       "pros": [
         "Reusable threads in soft plastic (printed threads alone strip quickly)",
         "Universally rules-legal metal exemption"
@@ -1060,7 +1030,9 @@
         "https://buildersdb.com/RobotRuckus2024",
         "domain knowledge"
       ],
-      "confidence": "high"
+      "confidence": "high",
+      "reference_only": true,
+      "notes": "Representative component class; use an exact part/drawing before relying on dimensions, weight, rating or price."
     },
     {
       "id": "component-micro-power-switch",
@@ -1080,11 +1052,7 @@
         "electronics"
       ],
       "category": "switch",
-      "specs": {
-        "weight_g": 2,
-        "price_usd": 2,
-        "max_current_a": 5
-      },
+      "specs": {},
       "pros": [
         "Cheap, simple, satisfies safety inspection requirements"
       ],
@@ -1094,7 +1062,9 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true,
+      "notes": "Representative component class; use an exact part/drawing before relying on dimensions, weight, rating or price."
     },
     {
       "id": "material-pla-plus",
