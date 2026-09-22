@@ -957,7 +957,9 @@
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "notes": "Legacy/example motor retained for historical design context. No current exact product listing was verified in the 2026 catalog pass."
     },
     {
       "id": "motor-turbo-2830",
@@ -987,7 +989,9 @@
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "notes": "Legacy/example motor retained for historical design context. No current exact product listing was verified in the 2026 catalog pass."
     },
     {
       "id": "formula-tip-speed",
