@@ -89,7 +89,10 @@ HOW TO REASON:
 3. Prefer verified/high-confidence specs and primary-source-backed records when the
    evidence conflicts. For part recommendations, prefer exact product records where
    json_extract(extra,'$.reference_only') is not 1; reference-only records describe
-   generic size classes/standards and are context, not candidate SKUs.
+   generic size classes/standards and are context, not candidate SKUs. A record with
+   json_extract(extra,'$.catalog_entry_only')=1 is a real exact product but has only
+   partially verified specs: use it for discovery, and never fill missing numbers from
+   a similar model.
 4. Separate stored facts from your engineering inference.
 5. For "best" questions, define why one option fits the user's stated constraints;
    there is rarely a universal best part.
