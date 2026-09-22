@@ -40,7 +40,8 @@
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
       "confidence": "low",
-      "category": "weapon-motor"
+      "category": "weapon-motor",
+      "reference_only": true
     },
     {
       "id": "motor-1106",
@@ -79,7 +80,8 @@
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
       "confidence": "low",
-      "category": "weapon-motor"
+      "category": "weapon-motor",
+      "reference_only": true
     },
     {
       "id": "motor-1204",
@@ -117,7 +119,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-1306",
@@ -158,7 +161,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-1404",
@@ -196,7 +200,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-1408",
@@ -235,7 +240,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-1806",
@@ -274,7 +280,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2004",
@@ -311,7 +318,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2205",
@@ -351,7 +359,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2206",
@@ -389,7 +398,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2207",
@@ -429,7 +439,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2306",
@@ -467,7 +478,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2504",
@@ -506,7 +518,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2508",
@@ -546,7 +559,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2806",
@@ -585,7 +599,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2812",
@@ -624,7 +639,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2814",
@@ -661,7 +677,8 @@
       ],
       "confidence": "low",
       "category": "weapon-motor",
-      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions."
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-repeat-2822",
