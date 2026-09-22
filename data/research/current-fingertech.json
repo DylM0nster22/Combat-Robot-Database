@@ -673,6 +673,106 @@
       "sources": [
         "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels"
       ]
+    },
+    {
+      "id": "hub-fingertech-blade-mount",
+      "type": "component",
+      "name": "FingerTech Blade Mount",
+      "category": "hub",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-blade-mount",
+      "summary": "Compact weapon blade mount that bolts to compatible brushless motor faces and accepts FingerTech or custom spinner blades.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-hub",
+        "blade-mount",
+        "fingertech",
+        "4mm-shaft"
+      ],
+      "specs": {
+        "outside_dia_mm": 29,
+        "hub_height_mm": 12,
+        "blade_bore_mm": 10,
+        "blade_screw_thread": "6-32",
+        "blade_screw_spacing_mm": 20,
+        "motor_shaft_dia_mm": 4,
+        "motor_mount_circle_mm": 10.4,
+        "weight_g": 6.2
+      },
+      "notes": "Can fit smaller-shaft motors and can be drilled up to 10mm. Blade retention uses interlocking slots plus screws; FingerTech recommends threadlocker rather than over-tightening the screws.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-blade-mount"
+      ]
+    },
+    {
+      "id": "hub-fingertech-lightweight-twist-wide-3mm",
+      "type": "component",
+      "name": "FingerTech Lightweight Twist Hub 3mm Wide",
+      "category": "hub",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs-LW",
+      "summary": "Glass-filled nylon 3mm-bore wide Twist Hub used in the Viper and lightweight ant/fairyweight drive systems.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "hub",
+        "glass-filled-nylon",
+        "3mm",
+        "foam-wheel",
+        "fingertech"
+      ],
+      "specs": {
+        "shaft_dia_mm": 3,
+        "width_in": 0.75,
+        "weight_each_g": 3.7,
+        "weight_pair_g": 7.4,
+        "setscrew": "8-32 with aluminum threaded insert",
+        "price_pair_usd": 12.29
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs-LW"
+      ]
+    },
+    {
+      "id": "wheel-fingertech-foam-pair",
+      "type": "component",
+      "name": "FingerTech Foam Wheels (pair)",
+      "category": "wheel",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels",
+      "summary": "FingerTech's current neoprene foam-wheel family for Twist Hubs, offered in many diameters and two widths.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "wheel",
+        "foam",
+        "neoprene",
+        "fingertech"
+      ],
+      "specs": {
+        "diameter_min_mm": 25.4,
+        "diameter_max_mm": 76.2,
+        "diameter_increment_mm": 6.35,
+        "width_options_mm": "12.7, 19.1",
+        "hub_bore_mm": 10
+      },
+      "notes": "Wheel mass depends on diameter/width. The DB intentionally does not assign one generic mass to the entire family.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels"
+      ]
     }
   ],
   "chunks": [
