@@ -571,7 +571,8 @@
     "domain knowledge"
    ],
    "confidence": "low",
-   "category": "drive-motor"
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-n20-generic-298-1",
@@ -608,7 +609,8 @@
     "domain knowledge"
    ],
    "confidence": "low",
-   "category": "drive-motor"
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-n20-generic-1000-1",
@@ -645,7 +647,8 @@
     "domain knowledge"
    ],
    "confidence": "low",
-   "category": "drive-motor"
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-n30-generic-50-1",
@@ -681,7 +684,8 @@
     "domain knowledge"
    ],
    "confidence": "low",
-   "category": "drive-motor"
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-n10-generic-100-1",
@@ -720,7 +724,8 @@
     "domain knowledge"
    ],
    "confidence": "low",
-   "category": "drive-motor"
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-pololu-micro-metal-hp-30-1",
@@ -965,7 +970,8 @@
     "https://palmbeachbots.com/products/repeat-robotics-mini-16mm-brushless-planetary-motor-mk4-4mm-shaft"
    ],
    "confidence": "low",
-   "category": "drive-motor"
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-brushless-1404-fpv-drive",
@@ -1002,7 +1008,8 @@
     "domain knowledge"
    ],
    "confidence": "low",
-   "category": "drive-motor"
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-servo-continuous-rotation-modified",
@@ -1043,7 +1050,8 @@
     "https://www.youtube.com/watch?v=HixZdhcLSdM"
    ],
    "confidence": "medium",
-   "category": "drive-motor"
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-servo-continuous-rotation-fs90r",
@@ -1082,7 +1090,8 @@
     "domain knowledge"
    ],
    "confidence": "medium",
-   "category": "drive-motor"
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "gearbox-16mm-planetary-generic",
@@ -1120,7 +1129,8 @@
     "domain knowledge"
    ],
    "confidence": "medium",
-   "category": "gearbox"
+   "category": "gearbox",
+   "reference_only": true
   },
   {
    "id": "gearbox-n-series-metal-vs-plastic",
@@ -1155,7 +1165,8 @@
     "domain knowledge"
    ],
    "confidence": "medium",
-   "category": "gearbox"
+   "category": "gearbox",
+   "reference_only": true
   },
   {
    "id": "wheel-fingertech-lite-flite-foam",
@@ -1239,7 +1250,8 @@
     "https://www.gobilda.com/gripforce-mecanum-wheel-set-o104mm-40a-durometer-rollers/"
    ],
    "confidence": "medium",
-   "category": "wheel"
+   "category": "wheel",
+   "reference_only": true
   },
   {
    "id": "wheel-printed-tpu",
@@ -1280,7 +1292,8 @@
     "domain knowledge"
    ],
    "confidence": "medium",
-   "category": "wheel"
+   "category": "wheel",
+   "reference_only": true
   },
   {
    "id": "wheel-o-ring-tire",
@@ -1317,7 +1330,8 @@
     "domain knowledge"
    ],
    "confidence": "medium",
-   "category": "wheel"
+   "category": "wheel",
+   "reference_only": true
   },
   {
    "id": "wheel-banebots-t61-compliant",
@@ -1501,7 +1515,8 @@
     "domain knowledge"
    ],
    "confidence": "medium",
-   "category": "belt-pulley"
+   "category": "belt-pulley",
+   "reference_only": true
   },
   {
    "id": "formula-robot-speed-rpm-wheel-diameter",
