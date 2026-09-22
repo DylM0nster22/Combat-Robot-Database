@@ -1373,11 +1373,11 @@
   {
    "id": "hub-fingertech-lite-hub",
    "type": "component",
-   "name": "FingerTech Lite Hub",
+   "name": "FingerTech Lite Hubs (pair)",
    "aliases": [
     "FT Lite Hub"
    ],
-   "summary": "FingerTech's lightest wheel hub, designed to mount common foam wheels onto a 3mm motor shaft with minimal added weight.",
+   "summary": "Very light press-in hub pair for Lite Flite/Lectra Lite foam wheels on 3mm shafts.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -1389,7 +1389,7 @@
    ],
    "specs": {
     "shaft_dia_mm": 3,
-    "weight_g": 3
+    "price_pair_usd": 3.92
    },
    "pros": [
     "Lightest hub option in the FingerTech lineup",
@@ -1398,22 +1398,23 @@
    "cons": [
     "Less robust than Snap/Twist hubs under very high shock/torque loads"
    ],
-   "notes": "Approximate weight ~3g each based on general FingerTech plastic-hub weight figures cited for Lite Flite assemblies.",
+   "notes": "Can be drilled for 1/8in shafts. Secured to the motor shaft with a setscrew.",
    "sources": [
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-lite-hubs"
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "category": "hub",
-   "vendor": "FingerTech Robotics"
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-lite-hubs"
   },
   {
    "id": "hub-fingertech-snap-hub",
    "type": "component",
-   "name": "FingerTech Snap Hub",
+   "name": "FingerTech Snap Hubs (pair)",
    "aliases": [
     "FT Snap Hub"
    ],
-   "summary": "An anodized 6061 aluminum hub from FingerTech that holds a foam tire tightly via a custom washer with a recess to prevent the retaining snap ring from coming loose, offering more strength than the plastic Lite Hub at a modest weight cost.",
+   "summary": "Legacy anodized-aluminum foam-wheel hub retained for spares; FingerTech recommends Twist Hubs for new projects.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -1433,22 +1434,23 @@
    "cons": [
     "Heavier than the plastic Lite Hub"
    ],
-   "notes": "Exact per-unit weight not confirmed this pass.",
+   "notes": "FingerTech says Snap Hubs are being replaced by Twist Hubs and are not recommended for new projects. Uses a custom washer and 7/16in snap ring plus an 8-32 shaft setscrew.",
    "sources": [
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-snap-hubs"
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "category": "hub",
-   "vendor": "FingerTech Robotics"
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-snap-hubs"
   },
   {
    "id": "hub-fingertech-twist-hub",
    "type": "component",
-   "name": "FingerTech Twist Hub",
+   "name": "FingerTech Aluminum Twist Hubs (pair)",
    "aliases": [
     "FT Twist Hub"
    ],
-   "summary": "An anodized 6061 aluminum hub secured to the motor shaft with an 8-32 setscrew, holding the foam tire tightly via a locking washer; sold in Thin (0.50in) and Wide (0.75in) widths for both 3mm and 4mm shafts.",
+   "summary": "6061 aluminum Twist Hub pair for FingerTech foam wheels, offered in multiple bores and thin/wide widths.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -1459,8 +1461,13 @@
     "aluminum"
    ],
    "specs": {
-    "shaft_dia_mm": 3,
-    "weight_g": 5.5
+    "bore_options_mm": "3, 4, 6",
+    "thin_width_in": 0.5,
+    "wide_width_in": 0.75,
+    "weight_thin_each_g": 5.6,
+    "weight_wide_each_g": 7.1,
+    "setscrew": "8-32",
+    "price_pair_usd": 20.24
    },
    "pros": [
     "Setscrew retention onto the motor shaft is very secure against slipping under torque",
@@ -1471,14 +1478,14 @@
     "Heavier than the plastic Lite Hub",
     "Setscrew must be properly torqued/thread-locked or it can back out over repeated hits"
    ],
-   "notes": "Thin (0.50in wide) version confirmed at 5.5g each.",
+   "notes": "Current page was out of stock when checked September 2026. Can be drilled up to 6.35mm (1/4in).",
    "sources": [
-    "https://palmbeachbots.com/products/fingertech-twist-hubs-thin-pair-0-50-x-3mm",
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs"
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "category": "hub",
-   "vendor": "FingerTech Robotics"
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs"
   },
   {
    "id": "belt-pulley-gt2-antweight",
@@ -1780,6 +1787,191 @@
    "confidence": "high",
    "sources": [
     "https://repeat-robotics.com/products/tangent-drive-1406"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-22-2-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 22.2:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "22.2:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 29,
+    "gear_ratio": 22.2,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 12.9,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "Silver Spark ratios share the same FK-050 motor and 14T pinion, allowing gearbox swaps between ratios.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-50-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 50:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "50:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 29,
+    "gear_ratio": 50,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 12.9,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "Silver Spark ratios share the same FK-050 motor and 14T pinion, allowing gearbox swaps between ratios.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-83-3-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 83.3:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "83.3:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 29,
+    "gear_ratio": 83.3,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 14.3,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "FingerTech marks the 83.3:1 ratio discontinued with dwindling stock.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-300-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 300:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "300:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 31,
+    "gear_ratio": 300,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 16.4,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "Silver Spark ratios share the same FK-050 motor and 14T pinion, allowing gearbox swaps between ratios.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-600-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 600:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "600:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 32,
+    "gear_ratio": 600,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 17.9,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "Silver Spark ratios share the same FK-050 motor and 14T pinion, allowing gearbox swaps between ratios.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
    ]
   }
  ],
