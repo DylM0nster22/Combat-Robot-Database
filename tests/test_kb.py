@@ -211,6 +211,18 @@ class TestNormalisation(unittest.TestCase):
         self.assertIsNone(build_db.normalize_entity({"summary": "s"}, "topic", report))
         self.assertTrue(report.errors)
 
+    def test_extra_metadata_becomes_searchable_text(self):
+        text = build_db.extra_to_text({
+            "category": "esc-drive",
+            "vendor": "Example Robotics",
+            "image_url": "https://example.invalid/image.jpg",
+            "also_from": ["topic-a"],
+        })
+        self.assertIn("category esc-drive", text)
+        self.assertIn("vendor Example Robotics", text)
+        self.assertNotIn("image", text)
+        self.assertNotIn("also_from", text)
+
     def test_merge_prefers_longer_prose_and_keeps_first_specs(self):
         report = build_db.Report()
         a = build_db.normalize_entity(
@@ -287,6 +299,23 @@ class TestPhotos(unittest.TestCase):
                 self.assertTrue(photo.get(key), f"{entity_id} missing {key}")
             self.assertTrue(photo["image"].startswith("https://"))
             self.assertTrue(photo["source"].startswith("https://"))
+
+
+    def test_entity_product_photo_requires_source_credit(self):
+        good = {
+            "id": "component-test", "name": "Test Part",
+            "image_url": "https://example.invalid/part.jpg",
+            "image_source_url": "https://example.invalid/product",
+            "image_provider": "Example Vendor",
+        }
+        rendered = build_site.photo_html(good, detail=True)
+        self.assertIn("Verified product photo", rendered)
+        self.assertIn("Product photo", rendered)
+        self.assertIn("Example Vendor", rendered)
+
+        incomplete = dict(good)
+        incomplete.pop("image_provider")
+        self.assertEqual(build_site.photo_html(incomplete, detail=True), "")
 
 
 class TestMCPServer(unittest.TestCase):
@@ -403,6 +432,47 @@ class TestBuiltDatabase(unittest.TestCase):
         rows = self.db.conn.execute("SELECT id, type, name FROM entities").fetchall()
         for row in rows:
             self.assertTrue(row["id"] and row["type"] and row["name"])
+
+    def test_every_component_has_a_known_category(self):
+        valid = {
+            "drive-motor", "weapon-motor", "esc-drive", "esc-weapon",
+            "receiver", "transmitter", "battery", "charger", "wheel", "hub",
+            "weapon", "bearing", "fastener", "switch", "servo", "gearbox",
+            "belt-pulley", "connector", "misc",
+        }
+        rows = self.db.conn.execute(
+            "SELECT id, extra FROM entities WHERE type='component'").fetchall()
+        self.assertTrue(rows)
+        for row in rows:
+            extra = json.loads(row["extra"])
+            category = extra.get("category")
+            self.assertIn(category, valid, f"{row['id']} has invalid/missing category {category!r}")
+
+    def test_entity_images_are_complete_and_credited(self):
+        rows = self.db.conn.execute("SELECT id, extra FROM entities").fetchall()
+        for row in rows:
+            extra = json.loads(row["extra"])
+            fields = [extra.get("image_url"), extra.get("image_source_url"),
+                      extra.get("image_provider")]
+            if any(fields):
+                self.assertTrue(all(fields), f"{row['id']} has incomplete image metadata")
+                self.assertTrue(extra["image_url"].startswith("https://"), row["id"])
+                self.assertTrue(extra["image_source_url"].startswith("https://"), row["id"])
+
+    def test_generic_weapon_motor_sizes_do_not_fake_product_specs(self):
+        rows = self.db.conn.execute(
+            "SELECT id, specs, notes FROM entities "
+            "WHERE id GLOB 'motor-[0-9][0-9][0-9][0-9]'").fetchall()
+        self.assertGreater(len(rows), 10)
+        for row in rows:
+            specs = json.loads(row["specs"])
+            self.assertEqual(set(specs), {"stator_dia_mm", "stator_height_mm"}, row["id"])
+            self.assertIn("not a purchasable product", row["notes"].lower(), row["id"])
+
+    def test_component_category_metadata_is_full_text_searchable(self):
+        count = self.db.conn.execute(
+            "SELECT COUNT(*) FROM entities_fts WHERE entities_fts MATCH 'charger'").fetchone()[0]
+        self.assertGreater(count, 0)
 
     def test_entity_ids_are_unique_and_slug_shaped(self):
         rows = self.db.conn.execute("SELECT id FROM entities").fetchall()
