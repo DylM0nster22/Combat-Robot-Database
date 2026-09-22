@@ -417,12 +417,13 @@ def build_parts(database):
         "receiver": "Receivers", "transmitter": "Transmitters",
         "battery": "Batteries", "charger": "Chargers", "wheel": "Wheels", "hub": "Hubs", "weapon": "Weapons",
         "gearbox": "Gearboxes", "bearing": "Bearings", "fastener": "Fasteners",
-        "switch": "Switches & links", "servo": "Servos",
+        "switch": "Switches & links", "servo": "Servos", "mixer": "Radio mixers",
+        "voltage-regulator": "BECs & voltage regulators", "motor-mount": "Motor mounts",
         "belt-pulley": "Belts & pulleys", "connector": "Connectors", "misc": "Other",
     }
     priority = ["weapon-motor", "drive-motor", "esc-weapon", "esc-drive", "battery", "charger",
                 "receiver", "transmitter", "weapon", "wheel", "gearbox", "hub", "belt-pulley",
-                "switch", "servo", "bearing", "fastener", "connector", "misc"]
+                "switch", "servo", "mixer", "voltage-regulator", "motor-mount", "bearing", "fastener", "connector", "misc"]
 
     sections = []
     for category in sorted(by_category,
