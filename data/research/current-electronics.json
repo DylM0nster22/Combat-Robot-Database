@@ -527,6 +527,78 @@
       "sources": [
         "https://repeat-robotics.com/products/repeat-screw-switch"
       ]
+    },
+    {
+      "id": "servo-repeat-battle-ready-40kg",
+      "type": "component",
+      "name": "Repeat Robotics Battle Ready Lifter Servo, 40kg",
+      "category": "servo",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/repeat-40kg-standard-servo",
+      "summary": "Combat-hardened standard-size 270-degree servo for 1 lb and 3 lb lifter/control robots, with steel gears, aluminum horn, and stall protection.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "servo",
+        "lifter",
+        "control-bot",
+        "steel-gears",
+        "270-degree"
+      ],
+      "specs": {
+        "weight_with_horn_g": 66,
+        "weight_without_horn_g": 62.5,
+        "stall_torque_kgcm_7_4v": 40,
+        "speed_s_per_60deg_7_4v": 0.16,
+        "travel_deg": 270,
+        "signal_min_us": 1000,
+        "signal_max_us": 2000,
+        "wire_length_mm": 50,
+        "price_usd": 25
+      },
+      "notes": "Repeat describes this as a standard-size servo with larger steel gears, a spot-welded pinion, current-limited stall protection, and combat-oriented gearing.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/repeat-40kg-standard-servo"
+      ]
+    },
+    {
+      "id": "regulator-repeat-inline-servo-bec",
+      "type": "component",
+      "name": "Repeat Robotics Micro Inline Servo BEC",
+      "category": "voltage-regulator",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/micro-inline-servo-bec",
+      "summary": "Tiny inline servo regulator that steps robot battery voltage down to 7.4V at up to 5A.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "bec",
+        "servo",
+        "voltage-regulator",
+        "inline"
+      ],
+      "specs": {
+        "input_voltage_max_v": 60,
+        "output_voltage_v": 7.4,
+        "output_current_rating_a": 5,
+        "weight_with_wires_g": 3.9,
+        "length_mm": 20,
+        "width_mm": 12,
+        "height_mm": 7,
+        "price_usd": 10
+      },
+      "notes": "Repeat lists thermal/over-current protection. At 12V input, its published thermal examples are 5A for 30s, 4A for 60s, and 3A for 200s before protection.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/micro-inline-servo-bec"
+      ]
     }
   ],
   "chunks": [
@@ -594,6 +666,31 @@
         "https://www.turnabot.com/shop/malenki-nano-46"
       ],
       "body_md": "**AFHDS and AFHDS 2A are not interchangeable names.** Small combat-robot receivers such as the FS2A and the integrated receivers in the Malenki Nano/HV and Catalyst use **AFHDS 2A**, so the transmitter must support that protocol. The FS2A is useful when you want discrete electronics: it is a 4-channel board about 11 x 25 mm and 1 g bare. Integrated boards save even more wiring by combining the receiver with motor controllers.\n\nThe FlySky FS-GT5 is a six-channel pistol transmitter using AFHDS 2A. Whatever transmitter/receiver pair you choose, verify that the robot fails safe with drive and weapon commands returning to a safe state when the transmitter is turned off or signal is lost. Test that behavior before installing a weapon."
+    },
+    {
+      "id": "chunk-servo-power-for-small-control-bots",
+      "title": "Servo power for antweight lifters and control bots",
+      "section": "Electronics",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "servo",
+        "bec",
+        "lifter",
+        "control-bot"
+      ],
+      "entity_refs": [
+        "servo-repeat-battle-ready-40kg",
+        "regulator-repeat-inline-servo-bec"
+      ],
+      "sources": [
+        "https://repeat-robotics.com/products/repeat-40kg-standard-servo",
+        "https://repeat-robotics.com/products/micro-inline-servo-bec"
+      ],
+      "body_md": "A high-torque lifter servo should not automatically be powered from the receiver's ordinary 5V rail. The Repeat 40kg servo is specified at 7.4V, while its matching Micro Inline Servo BEC accepts a much higher main-battery voltage and provides a regulated 7.4V output. This separates the servo's high transient current from a small receiver BEC and makes the power path explicit. Always check the exact servo voltage and current requirements before choosing a BEC; a regulator's current rating and thermal duty cycle matter as much as its output voltage."
     }
   ]
 }
