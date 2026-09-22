@@ -1,0 +1,599 @@
+{
+  "topic": "Current combat-robot electronics and controls",
+  "entities": [
+    {
+      "id": "esc-repeat-budget-ant-desc",
+      "type": "component",
+      "name": "Repeat Robotics Budget Ant Dual Brushed ESC",
+      "aliases": [
+        "Budget Ant DESC",
+        "Repeat Dual Brushed ESC"
+      ],
+      "category": "esc-drive",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/budget-ant-desc",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/da01a120-DESC.jpg?v=1770829449&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/budget-ant-desc",
+      "image_provider": "Repeat Robotics",
+      "summary": "Compact dual brushed drive ESC for 1 lb robots with onboard mixing, center braking, a 5 V BEC, and XT30 power input.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "dual-esc",
+        "mixing",
+        "bec",
+        "xt30"
+      ],
+      "specs": {
+        "weight_g": 7,
+        "length_mm": 24,
+        "width_mm": 18,
+        "height_mm": 5,
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "current_rating_a": 2,
+        "bec_voltage_v": 5,
+        "price_usd": 15
+      },
+      "notes": "Manufacturer recommends 3S for typical antweight use. Mixing is disabled by default. This board does not provide active current limiting, so extended motor stalls can damage the motor or ESC.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/budget-ant-desc"
+      ]
+    },
+    {
+      "id": "esc-repeat-dominion-dual-brushed",
+      "type": "component",
+      "name": "Repeat Robotics Dominion Dual Brushed Drive ESC",
+      "aliases": [
+        "Dominion DESC"
+      ],
+      "category": "esc-drive",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/dominion-dual-brushed-drive-esc",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/fcd86848-dominionDesc1.jpg?v=1770827498&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/dominion-dual-brushed-drive-esc",
+      "image_provider": "Repeat Robotics",
+      "summary": "Dual brushed drive ESC with active current limiting, over-temperature protection, mixing, and a receiver BEC in a very small package.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushed",
+        "dual-esc",
+        "current-limit",
+        "bec",
+        "mixing"
+      ],
+      "specs": {
+        "weight_g": 9,
+        "length_mm": 21.2,
+        "width_mm": 21.2,
+        "height_mm": 2.5,
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "current_limit_a_per_channel": 6.25,
+        "bec_voltage_v": 5,
+        "bec_current_a": 0.5,
+        "price_usd": 27.5
+      },
+      "notes": "Two brushed channels. Mixing is supported but ships disabled. Voltage rating is 2-4S LiHV.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/dominion-dual-brushed-drive-esc"
+      ]
+    },
+    {
+      "id": "esc-repeat-am32-single-35a",
+      "type": "component",
+      "name": "Repeat Robotics AM32 35A Single Drive ESC",
+      "aliases": [
+        "Repeat AM32 Drive ESC"
+      ],
+      "category": "esc-drive",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/repeat-am32-drive-esc",
+      "summary": "Single-channel brushless drive ESC preconfigured with bidirectional AM32 settings for combat-robot drivetrains.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight",
+        "hobbyweight"
+      ],
+      "tags": [
+        "brushless",
+        "am32",
+        "bidirectional"
+      ],
+      "specs": {
+        "weight_g": 5,
+        "length_mm": 26,
+        "width_mm": 13,
+        "height_mm": 5,
+        "cells_s_min": 3,
+        "cells_s_max": 6,
+        "current_rating_a": 35,
+        "price_usd": 25
+      },
+      "notes": "Manufacturer describes the current figure as a 35A-equivalent rating. Ships pre-flashed with Repeat's combat-drive AM32 settings.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/repeat-am32-drive-esc"
+      ]
+    },
+    {
+      "id": "esc-repeat-am32-dual",
+      "type": "component",
+      "name": "Repeat Robotics AM32 Dual Brushless Drive ESC",
+      "category": "esc-drive",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/repeat-am32-dual-brushless-drive-esc",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/AM32_dual.jpg?v=1770830864&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/repeat-am32-dual-brushless-drive-esc",
+      "image_provider": "Repeat Robotics",
+      "summary": "Two-channel AM32 brushless drive ESC with a 5 V BEC, per-channel active current limiting, and bidirectional combat-drive settings.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "am32",
+        "dual-esc",
+        "current-limit",
+        "bec"
+      ],
+      "specs": {
+        "weight_g": 6,
+        "length_mm": 28,
+        "width_mm": 20,
+        "height_mm": 5,
+        "cells_s_min": 2,
+        "cells_s_max": 6,
+        "bec_voltage_v": 5,
+        "recommended_current_limit_a_min": 4,
+        "recommended_current_limit_a_max": 8,
+        "price_usd": 45
+      },
+      "notes": "Repeat says the hardware uses components equivalent to 45A drone ESCs. The 4-8A setting is the manufacturer's suggested current-limit range for 1-3 lb robots, not a maximum board rating. No onboard mixing.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/repeat-am32-dual-brushless-drive-esc"
+      ]
+    },
+    {
+      "id": "esc-repeat-am32-micro",
+      "type": "component",
+      "name": "Repeat Robotics AM32 Micro Drive ESC",
+      "category": "esc-drive",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/repeat-micro-am32-drive-esc",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/74023932-MicroESC2.jpg?v=1770827478&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/repeat-micro-am32-drive-esc",
+      "image_provider": "Repeat Robotics",
+      "summary": "Tiny single-channel AM32 brushless drive ESC tuned for smooth bidirectional drive in 1-3 lb combat robots.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "am32",
+        "bidirectional",
+        "micro"
+      ],
+      "specs": {
+        "weight_g": 5,
+        "length_mm": 18,
+        "width_mm": 12,
+        "height_mm": 4,
+        "cells_s_min": 3,
+        "cells_s_max": 4,
+        "current_rating_a": 25,
+        "price_usd": 20
+      },
+      "notes": "Approximately 5 g with 10 cm wires. Brushless motors only.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/repeat-micro-am32-drive-esc"
+      ]
+    },
+    {
+      "id": "esc-repeat-readytosky-35a-weapon",
+      "type": "component",
+      "name": "Readytosky 35A BLHeli_S Ant Spinner ESC",
+      "aliases": [
+        "Readytosky 35A Ant Weapon ESC"
+      ],
+      "category": "esc-weapon",
+      "vendor": "Readytosky / Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/readytosky-35a-blheli_s-ant-weapon-esc",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/02cff6eb-35A-ESC.jpg?v=1763605795&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/readytosky-35a-blheli_s-ant-weapon-esc",
+      "image_provider": "Repeat Robotics",
+      "summary": "Small BLHeli_S brushless ESC sold pre-tuned by Repeat Robotics for antweight spinner weapons.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushless",
+        "weapon-esc",
+        "blheli-s",
+        "spinner"
+      ],
+      "specs": {
+        "weight_g": 6,
+        "length_mm": 29,
+        "width_mm": 13,
+        "cells_s_min": 2,
+        "cells_s_max": 6,
+        "current_rating_a": 35,
+        "price_usd": 13.5
+      },
+      "notes": "Repeat Robotics sells this ESC pre-tuned for weapon use. The 35A figure is the vendor current rating; real safe current depends on cooling, wiring, battery, firmware, and duty cycle.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/readytosky-35a-blheli_s-ant-weapon-esc"
+      ]
+    },
+    {
+      "id": "combo-turnabot-malenki-nano",
+      "type": "component",
+      "name": "Turnabot Malenki Nano Integrated Triple Brushed ESC + Receiver",
+      "aliases": [
+        "Malenki Nano",
+        "Malenki Nano Integrated"
+      ],
+      "category": "esc-drive",
+      "vendor": "Turnabot",
+      "product_url": "https://www.turnabot.com/shop/malenki-nano-46",
+      "image_url": "https://www.turnabot.com/web/image/product.product/96/image_1024/%5BC-E-Boards-Nano-F%5D%20Malenki%20Nano%20Integrated%3A%20a%20Triple%20Brushed%20ESC%20%2B%20Receiver%20Combo?unique=b70dcd1",
+      "image_source_url": "https://www.turnabot.com/shop/malenki-nano-46",
+      "image_provider": "Turnabot",
+      "summary": "Integrated AFHDS2A receiver plus three brushed motor drivers and two PWM outputs for very small combat robots.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "receiver",
+        "afhds2a",
+        "combo-board",
+        "mixing"
+      ],
+      "specs": {
+        "weight_g": 2.4,
+        "length_mm": 32,
+        "width_mm": 19,
+        "cells_s_min": 1,
+        "cells_s_max": 2,
+        "current_rating_a_per_channel": 1.8,
+        "overcurrent_typical_a": 2.2,
+        "brushed_channels": 3,
+        "pwm_outputs": 2,
+        "price_usd": 28
+      },
+      "notes": "Official battery rating is 1S-2S. Turnabot explicitly notes that 3S use is outside the rated specification even though some builders do it. Use Malenki HV for 2S-4S builds.",
+      "confidence": "high",
+      "sources": [
+        "https://www.turnabot.com/shop/malenki-nano-46",
+        "https://github.com/MarkR42/malenki-nano"
+      ]
+    },
+    {
+      "id": "combo-turnabot-malenki-hv",
+      "type": "component",
+      "name": "Turnabot Malenki HV Triple Brushed ESC + Receiver",
+      "aliases": [
+        "Malenki HV"
+      ],
+      "category": "esc-drive",
+      "vendor": "Turnabot",
+      "product_url": "https://www.turnabot.com/shop/electronics-4/malenki-hv-47",
+      "image_url": "https://www.turnabot.com/web/image/product.product/97/image_1024/%5BC-E-Boards-HV-F%5D%20Malenki%20HV%20%28High%20Voltage%29%3A%20a%20Triple%20Brushed%20ESC%20%2B%20Receiver%20Combo?unique=24a2f25",
+      "image_source_url": "https://www.turnabot.com/shop/electronics-4/malenki-hv-47",
+      "image_provider": "Turnabot",
+      "summary": "High-voltage Malenki combo board integrating an AFHDS2A receiver, three brushed motor drivers, and two PWM outputs.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "receiver",
+        "afhds2a",
+        "combo-board",
+        "2s-4s"
+      ],
+      "specs": {
+        "weight_g": 2.4,
+        "length_mm": 32,
+        "width_mm": 19,
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "current_rating_a_per_channel": 3.5,
+        "overcurrent_typical_a": 4.2,
+        "brushed_channels": 3,
+        "pwm_outputs": 2,
+        "price_usd": 46
+      },
+      "notes": "Designed for 2S-4S LiPo operation. Each of the three brushed channels is rated 3.5A; Turnabot reports typical over-current protection near 4.2A.",
+      "confidence": "high",
+      "sources": [
+        "https://www.turnabot.com/shop/electronics-4/malenki-hv-47",
+        "https://github.com/MarkR42/malenki-nano"
+      ]
+    },
+    {
+      "id": "esc-turnabot-dual-brushed",
+      "type": "component",
+      "name": "Turnabot Dual Brushed ESC",
+      "category": "esc-drive",
+      "vendor": "Turnabot",
+      "product_url": "https://www.turnabot.com/shop/dual-esc-48",
+      "image_url": "https://www.turnabot.com/web/image/product.product/98/image_1024/%5BC-E-Boards-DESC-F%5D%20Turnabot%20Dual%20ESC?unique=b70dcd1",
+      "image_source_url": "https://www.turnabot.com/shop/dual-esc-48",
+      "image_provider": "Turnabot",
+      "summary": "Very light dual brushed ESC intended to provide Malenki-like drive control while working with a separate standard receiver.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "dual-esc",
+        "micro"
+      ],
+      "specs": {
+        "weight_g": 1.35,
+        "length_mm": 28,
+        "width_mm": 16.5,
+        "voltage_max_v": 12,
+        "current_rating_a_per_channel": 1.8,
+        "price_usd": 15
+      },
+      "notes": "Turnabot rates each channel at 1.8A and up to 12.0V. Their testing reports unit-to-unit real-world tolerance above that current, but the official 1.8A rating is the value to design around.",
+      "confidence": "high",
+      "sources": [
+        "https://www.turnabot.com/shop/dual-esc-48"
+      ]
+    },
+    {
+      "id": "receiver-flysky-fs2a",
+      "type": "component",
+      "name": "FlySky FS2A 4-Channel Mini Receiver",
+      "aliases": [
+        "FS2A"
+      ],
+      "category": "receiver",
+      "vendor": "FlySky",
+      "product_url": "https://palmbeachbots.com/products/fs2a-4-channel-mini-receiver-afhds-2a-works-with-flysky-fs-i6",
+      "image_url": "https://palmbeachbots.com/cdn/shop/files/FS2A-4CH-AFHDS-2A-Mini-Compatible-Receiver-PWM-Output-for-Flysky-i6-i6X-i6S-FS-i6.jpg__1_06f537d4-c0a9-4db6-ba04-9990f39a4b08.jpg?v=1775269671&width=741",
+      "image_source_url": "https://palmbeachbots.com/products/fs2a-4-channel-mini-receiver-afhds-2a-works-with-flysky-fs-i6",
+      "image_provider": "Palm Beach Bots",
+      "summary": "Tiny 4-channel AFHDS 2A receiver commonly used in antweight combat robots.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "afhds2a",
+        "flysky",
+        "receiver",
+        "4-channel"
+      ],
+      "specs": {
+        "weight_g": 1,
+        "length_mm": 25,
+        "width_mm": 11,
+        "channels": 4,
+        "voltage_min_v": 3.3,
+        "voltage_max_v": 10,
+        "price_usd": 12.99
+      },
+      "notes": "Weight is 1 g for the bare board and about 2 g with the supplied pins installed. Not compatible with AFHDS-only transmitters such as CT6B/T6A.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/fs2a-4-channel-mini-receiver-afhds-2a-works-with-flysky-fs-i6"
+      ]
+    },
+    {
+      "id": "esc-cronos-catalyst-dual-rx",
+      "type": "component",
+      "name": "Cronos Labs Catalyst Dual Brushless ESC with AFHDS2A Receiver",
+      "aliases": [
+        "Catalyst MK1"
+      ],
+      "category": "esc-drive",
+      "vendor": "Cronos Labs",
+      "product_url": "https://palmbeachbots.com/products/catalyst-dual-brushless-esc-with-rx-afhds2a",
+      "image_url": "https://palmbeachbots.com/cdn/shop/files/PXL_20260127_141309488.jpg?v=1769524644&width=1947",
+      "image_source_url": "https://palmbeachbots.com/products/catalyst-dual-brushless-esc-with-rx-afhds2a",
+      "image_provider": "Palm Beach Bots",
+      "summary": "All-in-one dual-channel AM32 brushless drive ESC with an integrated four-channel AFHDS2A receiver and weapon-ESC power pads.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "am32",
+        "receiver",
+        "afhds2a",
+        "combo-board"
+      ],
+      "specs": {
+        "weight_g": 4,
+        "length_mm": 29,
+        "width_mm": 19,
+        "height_mm": 5,
+        "cells_s_min": 2,
+        "cells_s_max": 6,
+        "radio_channels": 4,
+        "price_usd": 64.99
+      },
+      "notes": "CH1/CH2 are drive channels; CH3/CH4 are PWM outputs. Palm Beach Bots notes that 6S operation requires the included capacitor.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/catalyst-dual-brushless-esc-with-rx-afhds2a",
+        "https://github.com/CronosLabsTech/Catalyst-MK1/wiki"
+      ]
+    },
+    {
+      "id": "transmitter-flysky-gt5",
+      "type": "component",
+      "name": "FlySky FS-GT5 6-Channel Pistol Transmitter",
+      "aliases": [
+        "FlySky GT5",
+        "FS-GT5"
+      ],
+      "category": "transmitter",
+      "vendor": "FlySky",
+      "product_url": "https://www.flysky-cn.com/gt5",
+      "image_url": "https://images.squarespace-cdn.com/content/v1/5bc852d6b9144934c40d499c/1579331478391-586S97D6J8UPA7BCCDZO/GT5.jpg",
+      "image_source_url": "https://www.flysky-cn.com/gt5",
+      "image_provider": "FlySky",
+      "summary": "Six-channel pistol-grip transmitter using FlySky's AFHDS 2A protocol.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "afhds2a",
+        "pistol-radio",
+        "6-channel"
+      ],
+      "specs": {
+        "channels": 6,
+        "frequency_min_ghz": 2.408,
+        "frequency_max_ghz": 2.475,
+        "weight_g": 296
+      },
+      "notes": "Official FlySky specifications list AFHDS 2A, six channels, and under-15ms channel delay. Commonly paired with AFHDS2A receivers such as FS2A.",
+      "confidence": "high",
+      "sources": [
+        "https://www.flysky-cn.com/gt5",
+        "https://www.flysky-cn.com/gt5-gaishu"
+      ]
+    },
+    {
+      "id": "switch-repeat-screw",
+      "type": "component",
+      "name": "Repeat Robotics Screw Switch",
+      "category": "switch",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/repeat-screw-switch",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/30046.jpg?v=1788208343&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/repeat-screw-switch",
+      "image_provider": "Repeat Robotics",
+      "summary": "Ultralight T10-actuated main power switch designed around antweight and fairyweight combat robots.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "power-switch",
+        "screw-switch",
+        "t10"
+      ],
+      "specs": {
+        "weight_g": 1.5,
+        "weight_with_screws_g": 1.95,
+        "length_mm": 12.7,
+        "width_mm": 9,
+        "height_mm": 7,
+        "price_usd": 5
+      },
+      "notes": "Actuated with a T10 driver and mounts with M2 screws. Housing is Tough PLA+; electrical terminals are PCB tabs for direct soldering.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/repeat-screw-switch"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-current-antweight-drive-electronics",
+      "title": "Current antweight drive electronics: brushed, brushless, and integrated receiver boards",
+      "section": "Electronics",
+      "applies_to": [
+        "antweight",
+        "plastic-antweight",
+        "fairyweight"
+      ],
+      "tags": [
+        "esc",
+        "receiver",
+        "drive",
+        "am32",
+        "brushed"
+      ],
+      "entity_refs": [
+        "esc-repeat-budget-ant-desc",
+        "esc-repeat-dominion-dual-brushed",
+        "esc-repeat-am32-dual",
+        "esc-repeat-am32-micro",
+        "combo-turnabot-malenki-nano",
+        "combo-turnabot-malenki-hv",
+        "esc-cronos-catalyst-dual-rx"
+      ],
+      "sources": [
+        "https://repeat-robotics.com/products/budget-ant-desc",
+        "https://repeat-robotics.com/products/dominion-dual-brushed-drive-esc",
+        "https://repeat-robotics.com/products/repeat-am32-dual-brushless-drive-esc",
+        "https://www.turnabot.com/shop/malenki-nano-46",
+        "https://www.turnabot.com/shop/electronics-4/malenki-hv-47",
+        "https://palmbeachbots.com/products/catalyst-dual-brushless-esc-with-rx-afhds2a"
+      ],
+      "body_md": "For **brushed drive**, choose the controller around the motor's measured or manufacturer-rated stall current, voltage, and whether you want active current limiting. Repeat's Budget Ant DESC is a simple 2A dual controller with a BEC and optional mixing, but it explicitly has **no active current limiting**. The Dominion adds per-channel current limiting and thermal protection at a higher weight. Turnabot's Malenki boards combine three brushed channels with an AFHDS2A receiver, which can remove a separate receiver and a lot of wiring.\n\nFor **brushless drive**, AM32 is common because it supports true bidirectional operation and tunable startup/current behavior. Repeat's Micro, Single, and Dual boards trade size, channel count, voltage range, and current-control features. The Catalyst goes further by putting dual AM32 drive channels and an AFHDS2A receiver on one 4 g board.\n\nDo not select an ESC only by the large amp number in its product name. Firmware, current limiting, cooling, battery voltage, motor winding, wiring, and repeated stalls matter. For small robots, a controller with a lower configured current limit can be safer and more driveable than a physically larger ESC run unrestricted."
+    },
+    {
+      "id": "chunk-afhds2a-combat-radio-chain",
+      "title": "AFHDS 2A radio chain for small combat robots",
+      "section": "Electronics",
+      "applies_to": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "radio",
+        "receiver",
+        "afhds2a",
+        "failsafe"
+      ],
+      "entity_refs": [
+        "receiver-flysky-fs2a",
+        "transmitter-flysky-gt5",
+        "combo-turnabot-malenki-nano",
+        "combo-turnabot-malenki-hv",
+        "esc-cronos-catalyst-dual-rx"
+      ],
+      "sources": [
+        "https://palmbeachbots.com/products/fs2a-4-channel-mini-receiver-afhds-2a-works-with-flysky-fs-i6",
+        "https://www.flysky-cn.com/gt5",
+        "https://www.turnabot.com/shop/malenki-nano-46"
+      ],
+      "body_md": "**AFHDS and AFHDS 2A are not interchangeable names.** Small combat-robot receivers such as the FS2A and the integrated receivers in the Malenki Nano/HV and Catalyst use **AFHDS 2A**, so the transmitter must support that protocol. The FS2A is useful when you want discrete electronics: it is a 4-channel board about 11 x 25 mm and 1 g bare. Integrated boards save even more wiring by combining the receiver with motor controllers.\n\nThe FlySky FS-GT5 is a six-channel pistol transmitter using AFHDS 2A. Whatever transmitter/receiver pair you choose, verify that the robot fails safe with drive and weapon commands returning to a safe state when the transmitter is turned off or signal is lost. Test that behavior before installing a weapon."
+    }
+  ]
+}
