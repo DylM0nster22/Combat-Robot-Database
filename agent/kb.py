@@ -324,7 +324,7 @@ class KnowledgeBase:
 
         def _entity_rows(match):
             sql = """
-                SELECT e.*, bm25(entities_fts, 10.0, 6.0, 4.0, 2.0, 3.0, 2.0, 1.0) AS rank
+                SELECT e.*, bm25(entities_fts, 0.0, 10.0, 6.0, 4.0, 2.0, 3.0, 2.0, 1.0, 2.0) AS rank
                 FROM entities_fts
                 JOIN entities e ON e.id = entities_fts.id
                 WHERE entities_fts MATCH ?
