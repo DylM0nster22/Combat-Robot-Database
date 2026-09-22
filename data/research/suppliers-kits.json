@@ -383,6 +383,87 @@
         "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-lifter-addon"
       ],
       "confidence": "high"
+    },
+    {
+      "id": "kit-fingertech-viper-horizontal-addon",
+      "type": "kit",
+      "name": "FingerTech Viper Horizontal Spinner Add-On",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-h-spinner-addon",
+      "summary": "Bolt-on overhead horizontal-spinner conversion for the Viper using an F2822 1100KV 4mm motor, BL20A ESC, FingerTech Blade Mount and angled motor mount.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "weapon-addon",
+        "horizontal-spinner",
+        "viper",
+        "fingertech"
+      ],
+      "skill_level": "beginner-intermediate",
+      "includes": [
+        "optional 5.5in weapon bar",
+        "F2822 1100KV 4mm-shaft brushless motor",
+        "20A brushless ESC",
+        "FingerTech Blade Mount",
+        "angled F2822 motor mount",
+        "mounting hardware"
+      ],
+      "specs": {
+        "max_custom_blade_dia_in": 6,
+        "max_custom_blade_weight_g": 79,
+        "total_robot_weight_2s_300mah_g": 421,
+        "total_robot_weight_3s_300mah_g": 428
+      },
+      "notes": "Product page offers multiple bar choices; current displayed base/no-bar pricing can be misleading, so no single kit price is stored here. Requires modifying/replacing the Viper top armor.",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-h-spinner-addon"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "kit-fingertech-viper-tailspinner-addon",
+      "type": "kit",
+      "name": "FingerTech Viper Tail Spinner Add-On",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-t-spinner-addon",
+      "summary": "Rear-mounted horizontal tail-spinner conversion for the Viper using a UHMW tail structure and FingerTech 2822/blade hardware.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "weapon-addon",
+        "tail-spinner",
+        "horizontal-spinner",
+        "viper",
+        "fingertech"
+      ],
+      "price_usd": 81.79,
+      "skill_level": "beginner-intermediate",
+      "includes": [
+        "UHMW tail arm",
+        "UHMW motor guard",
+        "F2822 brushless motor",
+        "20A brushless ESC",
+        "angled motor mount",
+        "FingerTech Blade Mount",
+        "3.5in titanium blade",
+        "front armor",
+        "hardware"
+      ],
+      "specs": {
+        "addon_weight_g": 118,
+        "total_robot_weight_2s_300mah_g": 433,
+        "total_robot_weight_3s_300mah_g": 440,
+        "max_alternate_blade_dia_in": 10
+      },
+      "notes": "Current FingerTech page lists 112.61 CAD / about 81.79 USD when checked September 2026.",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-t-spinner-addon"
+      ],
+      "confidence": "high"
     }
   ],
   "chunks": [
