@@ -145,6 +145,15 @@ def _entity_row(row: sqlite3.Row, include_body: bool = True) -> Dict[str, Any]:
         "confidence": row["confidence"],
         "topic_id": row["topic_id"],
     }
+    # Type-specific fields (category, vendor, reference_only, builder, ...)
+    # live in `extra`. Flatten them even in lightweight list/search results so
+    # an agent can distinguish exact products from reference classes without a
+    # second lookup.
+    extra = _loads(row["extra"], {})
+    if isinstance(extra, dict):
+        for key, value in extra.items():
+            entity.setdefault(key, value)
+
     if include_body:
         entity.update({
             "pros": _loads(row["pros"], []),
@@ -152,12 +161,6 @@ def _entity_row(row: sqlite3.Row, include_body: bool = True) -> Dict[str, Any]:
             "notes": row["notes"],
             "sources": _loads(row["sources"], []),
         })
-        # Type-specific fields (builder, counters, expression, ...) live in
-        # `extra`; flatten them so callers don't need to know that.
-        extra = _loads(row["extra"], {})
-        if isinstance(extra, dict):
-            for key, value in extra.items():
-                entity.setdefault(key, value)
     return entity
 
 
