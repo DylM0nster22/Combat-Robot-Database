@@ -361,11 +361,12 @@
     {
       "id": "battery-fingertech-galaxy-2s",
       "type": "component",
-      "name": "FingerTech Galaxy 2S LiPoly Pack",
+      "name": "FingerTech Galaxy 2S 300mAh LiPo",
       "aliases": [
-        "FingerTech Galaxy 7.4V Pack"
+        "FingerTech Galaxy 7.4V 300mAh",
+        "Galaxy 2S 300"
       ],
-      "summary": "FingerTech Robotics' house line of small LiPo packs sold in multiple capacities for antweight and beetleweight kits such as the Viper V3; a long-running, combat-specific option predating the recent wave of Chinese FPV-brand crossover packs.",
+      "summary": "300mAh variant of FingerTech's Galaxy 2S combat-robot LiPo family.",
       "weight_classes": [
         "antweight",
         "plastic-antweight"
@@ -377,18 +378,28 @@
         "kit-battery"
       ],
       "specs": {
-        "category": "battery",
+        "capacity_mah": 300,
         "cells_s": 2,
-        "voltage_nominal_v": 7.4
+        "voltage_nominal_v": 7.4,
+        "c_rating_continuous": 45,
+        "c_rating_burst": 90,
+        "current_continuous_a": 13.5,
+        "current_burst_15s_a": 27,
+        "width_mm": 19,
+        "length_mm": 45,
+        "height_mm": 14,
+        "weight_g": 19,
+        "max_charge_c": 2,
+        "connector": "JST-RCY"
       },
       "vendor": "FingerTech Robotics",
-      "notes": "FingerTech sells the Galaxy line in a range of mAh sizes rather than one fixed SKU; exact capacity/weight/price depend on which size is ordered, so specific numeric specs are intentionally left out here rather than guessed. Commonly bundled with FingerTech's own kits (e.g. Viper V3).",
+      "notes": "This entry is specifically the 300mAh variant. FingerTech also sells 120/180/250/450mAh 2S Galaxy variants with different weights and dimensions.",
       "sources": [
-        "https://www.fingertechrobotics.com/proddetail.php?prod=G-2S-mAh",
-        "https://itgresa.com/product/viper-combat-robot-kit-radio/"
+        "https://www.fingertechrobotics.com/proddetail.php?prod=G-2S-mAh"
       ],
-      "confidence": "low",
-      "category": "battery"
+      "confidence": "high",
+      "category": "battery",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=G-2S-mAh"
     },
     {
       "id": "battery-gens-ace-2s-300mah-45c",
@@ -1084,6 +1095,89 @@
         "domain knowledge"
       ],
       "confidence": "medium"
+    },
+    {
+      "id": "battery-fingertech-galaxy-3s-300mah",
+      "type": "component",
+      "name": "FingerTech Galaxy 3S 300mAh LiPo",
+      "aliases": [
+        "Galaxy 3S 300",
+        "FingerTech 11.1V 300mAh"
+      ],
+      "category": "battery",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=G-3S-mAh",
+      "summary": "300mAh 3S Galaxy pack sized for small combat robots and FingerTech antweight weapon systems.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "lipo",
+        "3s",
+        "300mah",
+        "combat-specific"
+      ],
+      "specs": {
+        "capacity_mah": 300,
+        "cells_s": 3,
+        "voltage_nominal_v": 11.1,
+        "c_rating_continuous": 45,
+        "c_rating_burst": 90,
+        "current_continuous_a": 13.5,
+        "current_burst_15s_a": 27,
+        "width_mm": 18,
+        "length_mm": 45,
+        "height_mm": 20,
+        "weight_g": 26,
+        "max_charge_c": 2,
+        "connector": "JST-RCY or XT30 option"
+      },
+      "notes": "FingerTech currently lists both JST and XT30 connector options for the 300mAh 3S size. This record uses the published maximum physical dimensions.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=G-3S-mAh"
+      ]
+    },
+    {
+      "id": "charger-fingertech-c6d-mini",
+      "type": "component",
+      "name": "C6D Mini 60W 6A AC Balance Charger",
+      "category": "charger",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=C6D-mini-ac-charger",
+      "summary": "Compact AC balance charger supporting common lithium chemistries, NiCd/NiMH, and lead-acid packs without an external DC power supply.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "charger",
+        "balance-charger",
+        "lipo",
+        "lihv"
+      ],
+      "specs": {
+        "charge_power_w": 60,
+        "discharge_power_w": 10,
+        "charge_current_min_a": 0.1,
+        "charge_current_max_a": 6,
+        "discharge_current_max_a": 2,
+        "lithium_cells_s_min": 2,
+        "lithium_cells_s_max": 4,
+        "balancing_current_ma_per_cell": 300,
+        "length_mm": 115,
+        "width_mm": 112,
+        "height_mm": 55,
+        "weight_g": 302
+      },
+      "notes": "Supports LiPo, LiHV, LiFe, Li-ion, NiCd, NiMH, and Pb chemistries. Includes AC input and a multi-charge harness.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=C6D-mini-ac-charger"
+      ]
     }
   ],
   "chunks": [
