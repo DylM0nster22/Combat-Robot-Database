@@ -486,6 +486,497 @@
       "sources": [
         "https://palmbeachbots.com/collections/antweight-kits-1-pound"
       ]
+    },
+    {
+      "id": "servo-pbb-25kg",
+      "type": "component",
+      "name": "PBB 25KG Digital Metal Gear Servo",
+      "category": "servo",
+      "vendor": "Palm Beach Bots",
+      "product_url": "https://palmbeachbots.com/products/pbb-25kg-metal-gear-servo-ccw-rotation-viper-lifter-upgrade",
+      "summary": "Current standard lifter servo for PBB Super Scooper and a drop-in Viper Lifter replacement with extended travel.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "servo",
+        "lifter",
+        "25t-spline",
+        "metal-gears",
+        "pbb"
+      ],
+      "specs": {
+        "voltage_min_v": 4.8,
+        "voltage_max_v": 10,
+        "rotation_standard_pwm_deg": 120,
+        "rotation_extended_deg": 270,
+        "pwm_extended_min_us": 500,
+        "pwm_extended_max_us": 2500,
+        "length_mm": 40,
+        "height_mm": 40.5,
+        "width_mm": 20,
+        "weight_g": 69.8,
+        "spline": "25T Futaba",
+        "speed_s_per_60deg_9v": 0.11,
+        "stall_torque_kgcm_9v": 30,
+        "speed_s_per_60deg_8_4v": 0.125,
+        "stall_torque_kgcm_8_4v": 28.7,
+        "speed_s_per_60deg_7_2v": 0.14,
+        "stall_torque_kgcm_7_2v": 26.8,
+        "price_usd": 14.99
+      },
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/pbb-25kg-metal-gear-servo-ccw-rotation-viper-lifter-upgrade"
+      ]
+    },
+    {
+      "id": "servo-pbb-45kg-coreless",
+      "type": "component",
+      "name": "PBB 45KG Coreless Metal Gear Servo",
+      "category": "servo",
+      "vendor": "Palm Beach Bots",
+      "product_url": "https://palmbeachbots.com/products/45kg-coreless-metal-gear-servo-ccw-rotation-viper-lifter-upgrade",
+      "summary": "High-power Viper Lifter upgrade with coreless motor, metal gears and aluminum case.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "servo",
+        "lifter",
+        "flipper",
+        "coreless",
+        "45kg",
+        "pbb"
+      ],
+      "specs": {
+        "voltage_min_v": 4.8,
+        "voltage_max_v": 10,
+        "rotation_standard_pwm_deg": 120,
+        "rotation_extended_deg": 270,
+        "pwm_extended_min_us": 500,
+        "pwm_extended_max_us": 2500,
+        "length_mm": 40,
+        "height_mm": 40.5,
+        "width_mm": 20,
+        "weight_g": 81,
+        "spline": "25T Futaba",
+        "speed_s_per_60deg_9v": 0.1,
+        "stall_torque_kgcm_9v": 50,
+        "speed_s_per_60deg_8_4v": 0.11,
+        "stall_torque_kgcm_8_4v": 45,
+        "speed_s_per_60deg_6v": 0.12,
+        "stall_torque_kgcm_6v": 35,
+        "price_usd": 39.99
+      },
+      "availability_note": "Sold out when checked September 2026.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/45kg-coreless-metal-gear-servo-ccw-rotation-viper-lifter-upgrade"
+      ]
+    },
+    {
+      "id": "switch-pbb-3-5mm-charge-jack",
+      "type": "component",
+      "name": "PBB 3.5mm Switch / Charge Jack",
+      "category": "switch",
+      "vendor": "Palm Beach Bots",
+      "summary": "Compact 3.5mm jack used as a removable power/charge interface in PBB plastic-ant kits.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "switch",
+        "charge-jack",
+        "3.5mm",
+        "pbb"
+      ],
+      "specs": {
+        "price_usd": 6.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/plastic-ant-spare-parts"
+      ]
+    },
+    {
+      "id": "mount-pbb-ant-drive-carbon",
+      "type": "component",
+      "name": "PBB Ant Drive Motor Mount Pair - Carbon Fiber",
+      "category": "motor-mount",
+      "vendor": "Palm Beach Bots",
+      "summary": "Carbon-fiber antweight drive motor mount pair compatible with Repeat 16mm motors and Silver Sparks.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "motor-mount",
+        "carbon-fiber",
+        "16mm",
+        "silver-spark",
+        "repeat"
+      ],
+      "specs": {
+        "quantity": 2,
+        "price_usd": 3.49
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/plastic-ant-spare-parts"
+      ]
+    },
+    {
+      "id": "belt-pbb-s3m-177-59t-4mm",
+      "type": "component",
+      "name": "PBB S3M Timing Belt 177mm 59T 4mm",
+      "category": "belt-pulley",
+      "vendor": "Palm Beach Bots",
+      "summary": "4mm-wide S3M timing belt stocked for one-pound beater/plastic-ant weapon systems.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "belt",
+        "s3m",
+        "177mm",
+        "59t",
+        "weapon-drive"
+      ],
+      "specs": {
+        "belt_pitch_mm": 3,
+        "length_mm": 177,
+        "teeth": 59,
+        "width_mm": 4,
+        "price_usd": 1.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/plastic-ant-spare-parts"
+      ]
+    },
+    {
+      "id": "pulley-pbb-fingertech-s3m-15t-1-8",
+      "type": "component",
+      "name": "FingerTech S3M Timing Pulley 15T 1/8in Bore - PBB Beater",
+      "category": "belt-pulley",
+      "vendor": "FingerTech / Palm Beach Bots",
+      "summary": "15-tooth S3M weapon pulley stocked by PBB for its one-pound beater bar system.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "pulley",
+        "15t",
+        "s3m",
+        "1/8-bore",
+        "beater"
+      ],
+      "specs": {
+        "teeth": 15,
+        "bore_in": 0.125,
+        "price_usd": 4.79
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/plastic-ant-spare-parts"
+      ]
+    },
+    {
+      "id": "weapon-safety-pbb-clamp",
+      "type": "component",
+      "name": "Palm Beach Bots Safety Clamp",
+      "category": "misc",
+      "vendor": "Palm Beach Bots",
+      "summary": "Purpose-sold weapon safety clamp for immobilizing combat weapon systems during transport/pit work.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-safety",
+        "clamp",
+        "pit-safety"
+      ],
+      "specs": {
+        "price_usd": 4.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/weapon-systems"
+      ]
+    },
+    {
+      "id": "kit-pbb-skizo-horizontal-addon",
+      "type": "kit",
+      "name": "Horizontal Addon for Skizo",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Horizontal Addon for Skizo catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "skizo",
+        "horizontal-spinner",
+        "weapon-addon"
+      ],
+      "price_usd": 129.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-skizo-vertical-addon",
+      "type": "kit",
+      "name": "Vertical Addon for Skizo",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Vertical Addon for Skizo catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "skizo",
+        "vertical-spinner",
+        "weapon-addon"
+      ],
+      "price_usd": 129.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-skizo-lifter-addon",
+      "type": "kit",
+      "name": "Lifter Addon for Skizo",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Lifter Addon for Skizo catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "skizo",
+        "lifter",
+        "weapon-addon"
+      ],
+      "price_usd": 91.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-snapshot-gen2",
+      "type": "kit",
+      "name": "Snapshot Gen2 Plastic Vertical Spinner Kit",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Snapshot Gen2 Plastic Vertical Spinner Kit catalog configuration.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kit",
+        "plastic-ant",
+        "vertical-spinner",
+        "gen2"
+      ],
+      "price_usd": 109.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-top-shelf-gen2",
+      "type": "kit",
+      "name": "Top Shelf Gen2 Plastic Lifter Kit",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Top Shelf Gen2 Plastic Lifter Kit catalog configuration.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kit",
+        "plastic-ant",
+        "lifter",
+        "gen2"
+      ],
+      "price_usd": 98.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-turbulence-gen2",
+      "type": "kit",
+      "name": "Turbulence Gen2 Plastic Horizontal Spinner Kit",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Turbulence Gen2 Plastic Horizontal Spinner Kit catalog configuration.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kit",
+        "plastic-ant",
+        "horizontal-spinner",
+        "gen2"
+      ],
+      "price_usd": 108.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-horizontal-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Horizontal Spinner",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Horizontal Spinner catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "horizontal-spinner",
+        "ready-to-fight"
+      ],
+      "price_usd": 244.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-tailspinner-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Tailspinner",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Tailspinner catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "tail-spinner",
+        "ready-to-fight"
+      ],
+      "price_usd": 249.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-vertical-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Vertical Spinner",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Vertical Spinner catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "vertical-spinner",
+        "ready-to-fight"
+      ],
+      "price_usd": 231.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-wedge-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Wedge",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Wedge catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "wedge",
+        "ready-to-fight"
+      ],
+      "price_usd": 157.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-lifter-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Lifter",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Lifter catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "lifter",
+        "ready-to-fight"
+      ],
+      "price_usd": 207.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
     }
   ],
   "chunks": [
