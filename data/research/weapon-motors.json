@@ -691,7 +691,8 @@
       ],
       "summary": "Purpose-built antweight weapon outrunner offered in 1100, 1800, and 2300KV windings with a hardened 4 mm shaft and combat-oriented mechanical retention.",
       "weight_classes": [
-        "antweight"
+        "antweight",
+        "plastic-antweight"
       ],
       "vendor": "Repeat Robotics",
       "category": "weapon-motor",
@@ -715,14 +716,14 @@
       },
       "pros": [
         "Designed from the start for weapon shock loads, not adapted from a camera-drone motor",
-        "Low-ish KV (1100kv seen in the product line) suits direct drive at 4S without gearing down",
+        "Repeat explicitly recommends the 1100KV option for horizontal weapons; final battery voltage, weapon diameter and any ratio still determine actual weapon RPM/tip speed",
         "Screw-retained bell rather than relying only on a C-clip, addressing the classic bell-separation failure"
       ],
       "cons": [
         "Costs more than a generic same-size drone motor",
         "Weight/price not independently confirmed for every winding in this listing"
       ],
-      "notes": "46 g with full-length wires. The 1100KV winding is additionally rated by Repeat for 6S. Repeat recommends 1100KV for horizontals, 1800KV for verticals, and 2300KV for small drums; those are vendor recommendations, not universal rules.",
+      "notes": "46 g with full-length wires. Repeat rates the family 2-4S and additionally rates the 1100KV winding to 6S. Repeat recommends 1100KV for horizontals, 1800KV for verticals, and 2300KV for small drums; those are vendor recommendations for this product family, not universal rules. The product page does not publish a universal current figure, so do not invent an ESC amp requirement from KV or stator size alone.",
       "sources": [
         "https://repeat-robotics.com/products/repeat-2822-mk3"
       ],
@@ -1664,9 +1665,10 @@
         "bar"
       ],
       "sources": [
-        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://repeat-robotics.com/products/repeat-2822-mk3"
       ],
-      "body_md": "Horizontal bar spinners (a bar rotating about a roughly horizontal axis across the width of the robot) face a fundamentally different load than a thin vertical disc: much higher aerodynamic drag from the bar's flat faces pushing air, plus a bar shape that typically carries more of its mass further from the axis (higher MOI per unit weight) than a compact disc. Two practical consequences drive motor choice: continuous current tends to run higher for a given RPM than a disc of similar weight (because of drag), and torque demand during spin-up is higher (because of MOI), so builders deliberately favor **lower KV than a vertical-disc build of the same size class** to keep both current and spin-up time under control -- purpose-built horizontal-spinner motors like the JCR-4935 are specifically wound to a comparatively low 1000kv for exactly this reason, well below what a same-size vertical-disc motor would typically run.\n\nFor a direct-drive 1 lb horizontal bar, a 2206 or 2306 in a 1300-1700kv winding on 4S is a common, solid choice -- enough stator volume for real torque and thermal margin against sustained drag load, at a KV low enough to avoid overspeeding into a drag wall where added RPM stops translating into added tip speed efficiently. If the desired bar length/mass pushes tip speed targets down further (very common for full-width bars, which are usually heavier and slower-spinning by design than a compact disc), a belt-drive setup with something in the 2306-2504 range paired with a 1.5-2:1 reduction is a common step up, since it lets the motor run at a more efficient point on its torque-speed curve while still hitting a modest bar tip-speed target.\n\nBecause horizontal bars see sustained drag-driven current even at steady RPM (unlike a disc, which mostly only draws heavy current during spin-up and stalls), thermal margin matters more here than for a disc build of similar weapon mass -- favor the larger, cooler-running end of whatever KV/size bracket you land on, and budget real ESC current headroom (see `formula-power-draw`) rather than sizing the ESC to only the motor's brief peak."
+      "body_md": "Do not choose a 1 lb horizontal-spinner motor from a fixed KV range alone. The correct effective KV depends first on **weapon swept diameter, target tip speed, battery voltage, and any belt ratio**. Just 'Cuz Robotics shows this explicitly: for the same 250 mph target on 3S, a 4-inch weapon needs roughly twice the effective KV of an 8-inch weapon. A blanket statement such as \"1300-1700KV on 4S is a common solid choice\" therefore cannot be applied safely without the weapon geometry.\n\nUse this sequence instead:\n1. Pick a target weapon tip speed appropriate to the design and rules.\n2. Convert tip speed + weapon radius into target weapon RPM.\n3. Choose direct drive only if the motor/hub is designed to take weapon shock; otherwise choose a belt drive.\n4. Compute required motor no-load RPM from weapon RPM × reduction ratio, then estimate required KV from motor RPM / battery voltage.\n5. Check motor size/power against the weapon's mass and preferably CAD MOI plus desired spin-up time.\n6. Check the exact motor's verified voltage/current limits and use a validated ESC pairing or an ESC with defensible electrical/thermal headroom.\n\nHorizontal bars can create substantial aerodynamic drag and usually have significant MOI, so spin-up and steady-state current both matter. Belt drive is useful because it separates the motor's efficient RPM from the weapon's desired RPM and can isolate some impact shock; it is not automatically required, nor is direct drive automatically viable.\n\nVendor-specific examples may be useful evidence but must stay vendor-specific. Repeat Robotics recommends the 1100KV option of its 2822 Mk3 for horizontal weapons, while Just 'Cuz Robotics demonstrates direct-drive and belt-drive examples across very different weapon diameters. Do not convert those examples into a universal KV rule."
     },
     {
       "id": "chunk-recommend-drum",
@@ -1782,9 +1784,12 @@
         "weapon-esc"
       ],
       "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=F2822-1100KV-4mm",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-h-spinner-addon",
+        "https://repeat-robotics.com/products/open-plant-bundle",
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
       ],
-      "body_md": "A weapon ESC needs to be sized around the motor's realistic stall/spin-up current, not its steady-state cruise current, since spin-up and post-impact recovery are when current peaks hardest. The commonly cited rule of thumb is to choose an ESC rated for at least 20% more continuous current than the motor's expected max current draw at your chosen voltage, to leave margin for the FET/driver stage's own heating and for brief current spikes during hard stalls that exceed the motor's steady rating.\n\nWeapon ESCs differ from drive ESCs in one important way: many stock FPV racing/freestyle ESCs run soft-start firmware logic intended to protect propellers and smooth throttle response, which can actively fight a weapon's need to slam to full throttle and recover instantly from a dead stop after a stall. Purpose-built or reconfigured weapon ESCs (commonly running AM32 or BLHeli-family firmware with weapon-specific settings, or dedicated combat ESCs sold by hobby vendors) disable or minimize this soft-start behavior and raise or disable low-RPM current limiting so the weapon can recover from a stall as fast as the motor and battery physically allow.\n\nIt's also worth understanding what an ESC's amp rating actually means: a \"35A ESC\" is a rating for how much current the ESC's FETs and firmware can reliably pass without overheating or failing, not a hard current limit the ESC actively enforces on the motor. Actual current draw is set by the motor's load (locked-rotor/stall current is set by applied voltage and winding resistance, `I = V/R`, clamped by whatever the battery and wiring can deliver) -- if a motor's real stall current under your battery and voltage exceeds the ESC's rating, the ESC is what fails, typically by cooking its FETs, not the motor throttling itself back automatically. This is why builders pairing a low-resistance, high-stall-current motor (common in the bigger 25xx-28xx sizes) with a small-antweight-class ESC need to actually calculate or measure real stall current rather than assuming the ESC's rating alone protects the system."
+      "body_md": "Weapon ESC sizing should be based on the **exact motor, voltage and load**, not a generic motor-size rule and not the ESC's printed amp number alone.\n\nBest evidence, in order:\n1. A vendor-tested pairing for the exact motor/application.\n2. The exact motor's verified current/power data at the intended voltage plus a defensible ESC thermal/current margin.\n3. Measured current from the actual weapon system.\n\nDo not invent a universal \"+20%\" rule when the underlying motor current is itself unknown, and never recommend an ESC whose rating is below a motor's published maximum-current figure. Also remember that ESC amp ratings are not active current limits: the motor/load/battery can demand more current than the ESC survives, especially during initial spin-up, a jam, or post-impact recovery.\n\nConcrete antweight examples show why generic ~6A advice is unsafe. FingerTech publishes 9.9A max current for its F2822-1100KV 4mm motor and pairs it with a 20A BLHeli controller in its Viper weapon systems. Repeat's current Open PLANT bundle pairs its 2822 weapon motor with a 35A BLHeli_S spinner ESC. Just 'Cuz Robotics recommends a 35A ESC for its antweight 5022 hubmotor. These examples do not mean \"20A or 35A is always correct\"; they show that real weapon systems commonly use substantially more ESC capacity than a tiny 6A reference board.\n\nIf an exact motor record does not publish current/resistance and there is no validated pairing, the correct database answer is **current requirement unknown**. Do not fill the gap by borrowing a number from a similar-looking motor."
     },
     {
       "id": "chunk-copper-and-thermal-duty-cycle",
