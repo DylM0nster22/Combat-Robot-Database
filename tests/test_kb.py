@@ -475,6 +475,32 @@ class TestBuiltDatabase(unittest.TestCase):
             "SELECT COUNT(*) FROM entities_fts WHERE entities_fts MATCH 'charger'").fetchone()[0]
         self.assertGreater(count, 0)
 
+    def test_low_confidence_components_are_reference_only(self):
+        rows = self.db.conn.execute(
+            "SELECT id, confidence, extra FROM entities WHERE type='component' AND confidence='low'"
+        ).fetchall()
+        for row in rows:
+            extra = json.loads(row["extra"])
+            self.assertTrue(
+                extra.get("reference_only"),
+                f"{row['id']} is low-confidence but can still appear as a recommendation candidate"
+            )
+
+    def test_catalog_only_rows_are_exact_not_reference_classes(self):
+        rows = self.db.conn.execute(
+            "SELECT id, extra FROM entities WHERE type='component'"
+        ).fetchall()
+        catalog_rows = []
+        for row in rows:
+            extra = json.loads(row["extra"])
+            if extra.get("catalog_entry_only"):
+                catalog_rows.append(row["id"])
+                self.assertFalse(
+                    extra.get("reference_only"),
+                    f"{row['id']} cannot be both catalog-only and reference-only"
+                )
+        self.assertTrue(catalog_rows)
+
     def test_reference_only_records_are_marked_and_hidden_from_normal_lists(self):
         generic = self.db.get_entity("motor-2207")
         self.assertIsNotNone(generic)
