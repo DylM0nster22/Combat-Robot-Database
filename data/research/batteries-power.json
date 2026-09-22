@@ -286,11 +286,11 @@
     {
       "id": "battery-palm-power-2s-300mah-65c",
       "type": "component",
-      "name": "Palm Power 2S 300mAh 65C (Gen2)",
+      "name": "Palm Power Gen2 2S 300mAh 65C LiPo",
       "aliases": [
         "Palm Beach Bots Palm Power 2S 300mAh"
       ],
-      "summary": "House-brand antweight LiPo sold directly by Palm Beach Bots, a US combat robotics vendor, with a JST connector and a separate balance lead — a pack designed and sold specifically for the antweight community rather than repurposed from FPV.",
+      "summary": "Current Gen2 2S 300mAh Palm Power pack sized specifically for antweight and plastic-antweight combat robots.",
       "weight_classes": [
         "antweight",
         "plastic-antweight"
@@ -302,24 +302,28 @@
         "combat-specific"
       ],
       "specs": {
-        "category": "battery",
         "capacity_mah": 300,
-        "c_rating": 65,
         "cells_s": 2,
         "voltage_nominal_v": 7.4,
-        "connector": "JST"
+        "c_rating": 65,
+        "weight_g": 20.2,
+        "length_mm": 46.25,
+        "width_mm": 16.25,
+        "height_mm": 13.2,
+        "price_usd": 9.99
       },
-      "vendor": "Palm Power Batteries",
+      "vendor": "Palm Power Batteries / Palm Beach Bots",
       "pros": [
         "Sold explicitly for combat robots, so sizing/leads already match common antweight ESCs",
         "65C is a middle-of-the-road, reasonably credible discharge rating for this size"
       ],
       "sources": [
-        "https://palmbeachbots.com/products/palm-power-2s-300mah-65c-lipo-battery",
-        "https://keycityhobby.com/products/palm-beach-bots-palm-power-2s-300mah-65c-lipo-battery"
+        "https://palmbeachbots.com/products/palm-power-2s-300mah-65c-lipo-battery"
       ],
-      "confidence": "medium",
-      "category": "battery"
+      "confidence": "high",
+      "category": "battery",
+      "product_url": "https://palmbeachbots.com/products/palm-power-2s-300mah-65c-lipo-battery",
+      "notes": "Product page price checked September 2026. Collection pages can briefly show a different sale/list price, so the exact product page is authoritative."
     },
     {
       "id": "battery-palm-power-3s-450mah-45c",
