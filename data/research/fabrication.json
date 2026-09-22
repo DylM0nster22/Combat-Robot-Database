@@ -1,1112 +1,1129 @@
 {
- "topic_id": "fabrication",
- "title": "Fabrication, Printing and Assembly",
- "scope_note": "How antweight and plastic antweight robots actually get made: 3D printing for combat loads, metal fabrication options, fasteners, bearings, shafts, balancing, and designing for pit repairs.",
- "entities": [
-  {
-   "id": "bearing-623",
-   "type": "component",
-   "name": "623 bearing",
-   "aliases": [],
-   "summary": "Deep-groove ball bearing, 3 mm bore x 10 mm OD x 4 mm wide.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "bearing",
-   "specs": {
-    "bore_mm": 3,
-    "od_mm": 10,
-    "width_mm": 4
-   },
-   "pros": [
-    "Cheap and available everywhere",
-    "Standard metric size, easy to design around"
-   ],
-   "cons": [
-    "Shielded versions trap debris; open versions let it in",
-    "Will not survive an unbalanced weapon for long"
-   ],
-   "notes": "3 mm bore. The default for small antweight weapon shafts and idler pulleys. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "bearing-624",
-   "type": "component",
-   "name": "624 bearing",
-   "aliases": [],
-   "summary": "Deep-groove ball bearing, 4 mm bore x 13 mm OD x 5 mm wide.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "bearing",
-   "specs": {
-    "bore_mm": 4,
-    "od_mm": 13,
-    "width_mm": 5
-   },
-   "pros": [
-    "Cheap and available everywhere",
-    "Standard metric size, easy to design around"
-   ],
-   "cons": [
-    "Shielded versions trap debris; open versions let it in",
-    "Will not survive an unbalanced weapon for long"
-   ],
-   "notes": "4 mm bore. A good step up when a 3 mm shaft is bending. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "bearing-625",
-   "type": "component",
-   "name": "625 bearing",
-   "aliases": [],
-   "summary": "Deep-groove ball bearing, 5 mm bore x 16 mm OD x 5 mm wide.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "bearing",
-   "specs": {
-    "bore_mm": 5,
-    "od_mm": 16,
-    "width_mm": 5
-   },
-   "pros": [
-    "Cheap and available everywhere",
-    "Standard metric size, easy to design around"
-   ],
-   "cons": [
-    "Shielded versions trap debris; open versions let it in",
-    "Will not survive an unbalanced weapon for long"
-   ],
-   "notes": "5 mm bore. Common in antweight weapon hubs where the shaft is doing real work. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "bearing-626",
-   "type": "component",
-   "name": "626 bearing",
-   "aliases": [],
-   "summary": "Deep-groove ball bearing, 6 mm bore x 19 mm OD x 6 mm wide.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "bearing",
-   "specs": {
-    "bore_mm": 6,
-    "od_mm": 19,
-    "width_mm": 6
-   },
-   "pros": [
-    "Cheap and available everywhere",
-    "Standard metric size, easy to design around"
-   ],
-   "cons": [
-    "Shielded versions trap debris; open versions let it in",
-    "Will not survive an unbalanced weapon for long"
-   ],
-   "notes": "6 mm bore. Heavy for 1 lb but used where a drum shaft must not flex. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "bearing-688",
-   "type": "component",
-   "name": "688 bearing",
-   "aliases": [],
-   "summary": "Deep-groove ball bearing, 8 mm bore x 16 mm OD x 5 mm wide.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "bearing",
-   "specs": {
-    "bore_mm": 8,
-    "od_mm": 16,
-    "width_mm": 5
-   },
-   "pros": [
-    "Cheap and available everywhere",
-    "Standard metric size, easy to design around"
-   ],
-   "cons": [
-    "Shielded versions trap debris; open versions let it in",
-    "Will not survive an unbalanced weapon for long"
-   ],
-   "notes": "8 mm bore, thin section. Popular for dead-shaft drums because the large bore lets the shaft be stiff while the bearing stays small in diameter. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "bearing-6700",
-   "type": "component",
-   "name": "6700 bearing",
-   "aliases": [],
-   "summary": "Deep-groove ball bearing, 10 mm bore x 15 mm OD x 4 mm wide.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "bearing",
-   "specs": {
-    "bore_mm": 10,
-    "od_mm": 15,
-    "width_mm": 4
-   },
-   "pros": [
-    "Cheap and available everywhere",
-    "Standard metric size, easy to design around"
-   ],
-   "cons": [
-    "Shielded versions trap debris; open versions let it in",
-    "Will not survive an unbalanced weapon for long"
-   ],
-   "notes": "10 mm bore, very thin section. Used in ring and shell weapon supports where the bearing must be large-bore but light. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "bushing-bronze",
-   "type": "component",
-   "name": "Bronze bushing",
-   "aliases": [],
-   "summary": "A plain sleeve bearing, usually oil-impregnated sintered bronze.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "bearing",
-   "specs": {
-    "typical_bore_mm": 3
-   },
-   "pros": [
-    "Far more impact-tolerant than a ball bearing — nothing to brinell",
-    "Cheap, thin-walled and light",
-    "Tolerates misalignment"
-   ],
-   "cons": [
-    "Much higher friction than a ball bearing",
-    "Wears rather than failing suddenly, so play creeps in"
-   ],
-   "notes": "Bushings are underrated for antweight weapons. A ball bearing subjected to a hard impact gets brinelled — the balls dent the races — and then runs rough forever. A bronze bushing just takes the hit. The cost is drag, which matters more on a low-torque weapon than a high-torque one.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "fastener-m2-shcs",
-   "type": "component",
-   "name": "M2 socket head cap screw",
-   "aliases": [],
-   "summary": "M2 machine screw used throughout antweight construction.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "fastener",
-   "specs": {
-    "thread": "M2"
-   },
-   "pros": [
-    "Standard and cheap",
-    "Available in grade 12.9 alloy steel"
-   ],
-   "cons": [
-    "Backs out under vibration without threadlocker",
-    "Stainless versions are noticeably weaker in shear"
-   ],
-   "notes": "The smallest fastener worth using in a 1 lb robot. Below M2 the head strips before the thread does. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "fastener-m2-5-shcs",
-   "type": "component",
-   "name": "M2.5 socket head cap screw",
-   "aliases": [],
-   "summary": "M2.5 machine screw used throughout antweight construction.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "fastener",
-   "specs": {
-    "thread": "M2.5"
-   },
-   "pros": [
-    "Standard and cheap",
-    "Available in grade 12.9 alloy steel"
-   ],
-   "cons": [
-    "Backs out under vibration without threadlocker",
-    "Stainless versions are noticeably weaker in shear"
-   ],
-   "notes": "A useful middle size, though less commonly stocked than M2 and M3. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "fastener-m3-shcs",
-   "type": "component",
-   "name": "M3 socket head cap screw",
-   "aliases": [],
-   "summary": "M3 machine screw used throughout antweight construction.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "fastener",
-   "specs": {
-    "thread": "M3"
-   },
-   "pros": [
-    "Standard and cheap",
-    "Available in grade 12.9 alloy steel"
-   ],
-   "cons": [
-    "Backs out under vibration without threadlocker",
-    "Stainless versions are noticeably weaker in shear"
-   ],
-   "notes": "The workhorse antweight fastener. Strong enough for weapon hubs and armour mounts. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "fastener-m3-bhcs",
-   "type": "component",
-   "name": "M3 button head cap screw",
-   "aliases": [],
-   "summary": "M3 machine screw used throughout antweight construction.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "fastener",
-   "specs": {
-    "thread": "M3"
-   },
-   "pros": [
-    "Standard and cheap",
-    "Available in grade 12.9 alloy steel"
-   ],
-   "cons": [
-    "Backs out under vibration without threadlocker",
-    "Stainless versions are noticeably weaker in shear"
-   ],
-   "notes": "Lower profile than a cap screw, so it snags less on an opponent's wedge. Weaker head — easier to strip. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "fastener-m3-fhcs",
-   "type": "component",
-   "name": "M3 flat head cap screw",
-   "aliases": [],
-   "summary": "M3 machine screw used throughout antweight construction.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "fastener",
-   "specs": {
-    "thread": "M3"
-   },
-   "pros": [
-    "Standard and cheap",
-    "Available in grade 12.9 alloy steel"
-   ],
-   "cons": [
-    "Backs out under vibration without threadlocker",
-    "Stainless versions are noticeably weaker in shear"
-   ],
-   "notes": "Sits flush, which matters on a wedge face or any surface an opponent slides across. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "fastener-heatset-insert",
-   "type": "component",
-   "name": "Heat-set threaded insert",
-   "aliases": [],
-   "summary": "A knurled brass insert melted into a printed part to give it a real metal thread.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "fastener",
-   "specs": {
-    "common_sizes": "M2, M2.5, M3",
-    "install_temp_c": 220
-   },
-   "pros": [
-    "Turns a printed hole into a reusable metal thread",
-    "Far stronger than threading directly into plastic",
-    "Lets you disassemble repeatedly without wearing the hole out"
-   ],
-   "cons": [
-    "Needs a soldering iron and a matching tip to install straight",
-    "Pulls out if the surrounding wall is too thin",
-    "Adds a little weight"
-   ],
-   "notes": "Heat-set inserts are close to mandatory in plastic antweight. Design the boss around the insert: the hole should be slightly smaller than the insert's knurl, with at least 1.5-2 mm of wall around it, and enough depth that the insert sits flush. Install at around 220 C for PLA, going in slowly and square — a crooked insert is worse than none.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "fastener-nyloc",
-   "type": "component",
-   "name": "Nyloc nut",
-   "aliases": [],
-   "summary": "A nut with a nylon insert that grips the thread and resists vibration loosening.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "fastener",
-   "specs": {
-    "common_sizes": "M2, M3"
-   },
-   "pros": [
-    "Genuinely resists backing out",
-    "Reusable a few times"
-   ],
-   "cons": [
-    "Taller than a plain nut",
-    "Loses grip after repeated use",
-    "Nylon softens if it gets hot"
-   ],
-   "notes": "Nylocs are the standard antweight answer to vibration. They are not a substitute for threadlocker on a screw going into a tapped hole — they only work where you have a through-bolt and room for the nut.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "fastener-threadlocker",
-   "type": "component",
-   "name": "Threadlocker (blue)",
-   "aliases": [],
-   "summary": "Medium-strength anaerobic adhesive that stops fasteners vibrating loose but still allows disassembly.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "misc",
-   "specs": {
-    "strength": "medium",
-    "removable": "yes, by hand tools"
-   },
-   "pros": [
-    "The single highest-value thing you can add to an antweight",
-    "Cheap and lasts years"
-   ],
-   "cons": [
-    "Needs time to cure — apply before the event, not during",
-    "Attacks some plastics"
-   ],
-   "notes": "Blue (medium strength) is what you want. Red is effectively permanent without heat, and heat is not something you want near a printed chassis. Apply to the male thread, not the hole. Note that many threadlockers craze polycarbonate and some other plastics — keep it to metal-into-metal joints.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "shaft-3mm",
-   "type": "component",
-   "name": "3 mm weapon shaft",
-   "aliases": [],
-   "summary": "The smallest practical weapon shaft for a 1 lb robot, usually hardened steel.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "misc",
-   "specs": {
-    "dia_mm": 3,
-    "typical_material": "hardened steel or drill rod"
-   },
-   "pros": [
-    "Light",
-    "Fits 623 bearings, which are tiny and cheap"
-   ],
-   "cons": [
-    "Bends under real impact loads",
-    "Very little material to cut a flat or a keyway into"
-   ],
-   "notes": "A 3 mm shaft is fine for a small, low-energy weapon and marginal for anything else. Bending is the failure mode, and a bent shaft immediately becomes an unbalanced weapon that destroys its own bearings. If your weapon is over about 100 J, go to 4 or 5 mm.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "shaft-5mm",
-   "type": "component",
-   "name": "5 mm weapon shaft",
-   "aliases": [],
-   "summary": "A stiff weapon shaft for higher-energy antweight weapons, usually hardened steel or drill rod.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [],
-   "category": "misc",
-   "specs": {
-    "dia_mm": 5,
-    "typical_material": "hardened steel, drill rod, or Ti"
-   },
-   "pros": [
-    "Stiffness scales with the fourth power of diameter, so 5 mm is dramatically stiffer than 3 mm",
-    "Room to machine a proper flat or broach a hex"
-   ],
-   "cons": [
-    "Heavier",
-    "Needs larger bearings, which means a bigger hub"
-   ],
-   "notes": "Bending stiffness goes as d^4, so going from 3 mm to 5 mm is roughly a 7.7x increase in stiffness for about 2.8x the mass. On any weapon doing real damage this is one of the best weight-for-reliability trades available.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-layer-adhesion",
-   "type": "term",
-   "name": "Layer Adhesion",
-   "aliases": [],
-   "summary": "How strongly consecutive printed layers bond — the dominant weakness of any FDM part.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "printing",
-    "materials"
-   ],
-   "category": "printing",
-   "specs": {
-    "cross_layer_strength_pct": 50
-   },
-   "notes": "An FDM part is anisotropic. Along the layers it approaches the bulk strength of the plastic; across the layers it is typically around half that, because each layer bonds only by partial remelting of the one below. Every design decision in a printed combat part follows from this: orient so impacts load the layers in shear or compression rather than pulling them apart, print hotter and slower to improve the bond, and never place a layer boundary across the path of a known load.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-print-orientation",
-   "type": "term",
-   "name": "Print Orientation",
-   "aliases": [],
-   "summary": "Which way up a part is printed, which sets where its weak axis lies.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "Choose orientation by asking where the load goes. A wedge should be printed so impacts push layers together, not peel them apart. A bracket carrying a bolt should have the layers running across the bolt axis so the bolt does not split the part along a layer line. When a part has two conflicting load paths, either split it into two parts printed differently and bolt them together, or accept the weaker axis and add material there.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-perimeters-vs-infill",
-   "type": "term",
-   "name": "Perimeters vs Infill",
-   "aliases": [],
-   "summary": "For combat parts, wall count matters far more than infill percentage.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "printing"
-   ],
-   "category": "printing",
-   "specs": {
-    "recommended_perimeters": 5,
-    "recommended_infill_pct": 25
-   },
-   "notes": "A printed part's stiffness and impact resistance come mostly from its outer shell. Going from 2 to 5 perimeters does more for a combat part than going from 20% to 60% infill, and costs less weight and far less print time. A practical antweight recipe: 4-6 perimeters, 4-6 top and bottom layers, and 20-30% infill. Past that you are adding weight where it does the least good.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-infill-pattern",
-   "type": "term",
-   "name": "Infill Pattern",
-   "aliases": [],
-   "summary": "The internal lattice geometry, which changes how a part fails under impact.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "Gyroid and cubic infill distribute load in all directions and deform progressively, which suits impact parts. Grid and rectilinear are stiffer in-plane but create planes of weakness. For combat parts prefer gyroid or cubic at a moderate density; the goal is a part that absorbs and survives rather than one that is maximally rigid.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-nozzle-size",
-   "type": "term",
-   "name": "Nozzle Size",
-   "aliases": [],
-   "summary": "The extruder orifice diameter, which sets how thick each extruded line is.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "printing"
-   ],
-   "category": "printing",
-   "specs": {
-    "recommended_nozzle_mm": 0.6
-   },
-   "notes": "A 0.6 mm or 0.8 mm nozzle is better than 0.4 mm for combat parts. Thicker extrusions mean fewer, fatter layers with more contact area between them, which improves layer adhesion directly, and they print far faster. The cost is resolution you do not need on a chassis. Keep a 0.4 mm nozzle for anything with fine detail.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-tapping-plastic",
-   "type": "term",
-   "name": "Tapping Threads in Plastic",
-   "aliases": [],
-   "summary": "Cutting a thread directly into a printed or machined plastic part.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "Avoid it for anything structural. A thread in plastic strips after a few assemblies and fails immediately under shock. Use a heat-set insert, a captive nut trapped in a printed pocket, or a through-bolt with a nyloc instead. Direct-tapped plastic is acceptable only for non-structural covers you rarely remove.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-captive-nut",
-   "type": "term",
-   "name": "Captive Nut",
-   "aliases": [],
-   "summary": "A nut trapped in a printed pocket so a bolt can be tightened into it without access to the back.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "Cheaper than a heat-set insert and stronger than a tapped plastic thread. Design the pocket a few tenths oversize on the flats, add a small lead-in chamfer, and put a ceiling over it so the nut cannot fall out. The weakness is that the pocket walls can split under repeated tightening, so keep at least 2 mm of material around it.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-stress-riser",
-   "type": "term",
-   "name": "Stress Riser",
-   "aliases": [],
-   "summary": "A sharp internal corner or abrupt section change where stress concentrates and cracks start.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "Nearly every printed combat part that cracks does so at a sharp internal corner. Fillet every internal corner you can — even a 1-2 mm radius dramatically reduces peak stress. Chamfer external edges so they do not chip. Avoid sudden wall-thickness changes; taper between them instead.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-sacrificial-armor",
-   "type": "term",
-   "name": "Sacrificial Armour",
-   "aliases": [],
-   "summary": "Bolt-on panels designed to be destroyed and replaced rather than to survive.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "The right approach for plastic antweight and a good one for metal ants. Armour that absorbs a hit by breaking has done its job if the chassis underneath survives. Design panels to mount with two or three fasteners from the outside so they can be swapped in a pit break, and carry several printed spares.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-modular-construction",
-   "type": "term",
-   "name": "Modular Construction",
-   "aliases": [],
-   "summary": "Building the robot as separable subassemblies so damage is repaired by swapping a module.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "The design target is a ten-minute pit repair. That means: armour panels that unbolt from outside, a weapon assembly that comes off as a unit, drive pods that can be replaced without dismantling the chassis, and a wiring harness with connectors rather than solder joints at every module boundary. Robots built as one welded-together whole lose events to damage that a modular robot fixes between matches.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-print-settings-combat",
-   "type": "term",
-   "name": "Combat Print Settings",
-   "aliases": [],
-   "summary": "The print profile changes that make a printed part survive combat.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "printing"
-   ],
-   "category": "printing",
-   "specs": {
-    "perimeters": 5,
-    "infill_pct": 25,
-    "nozzle_mm": 0.6
-   },
-   "notes": "Relative to a normal profile: raise nozzle temperature toward the top of the filament's range (better layer bonding), reduce part cooling for PLA+ and PETG (cooling fast makes weak layer bonds, though too little causes drooping), slow the print down (more time at temperature at the layer interface), increase perimeters to 4-6, use a 0.6 mm nozzle, and raise extrusion width slightly. Expect a worse surface finish and a much stronger part.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-waterjet",
-   "type": "term",
-   "name": "Waterjet Cutting",
-   "aliases": [],
-   "summary": "Abrasive waterjet cutting of metal plate, the standard way antweight builders get titanium parts.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "Waterjet cuts any metal without a heat-affected zone, which matters for hardened weapon steel and for titanium. Accuracy is around a tenth of a millimetre with a slight taper on thick material. For 1 lb parts the taper is irrelevant. Most builders use an online service rather than owning a machine.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-laser-cutting",
-   "type": "term",
-   "name": "Laser Cutting",
-   "aliases": [],
-   "summary": "Laser cutting of sheet metal and some plastics.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "Fibre lasers cut steel and (with care) titanium well. CO2 lasers cut acrylic and wood cleanly. Neither cuts polycarbonate or UHMW acceptably — PC yellows and chars at the edge, and UHMW melts and re-welds. If your design depends on PC or UHMW, plan on routing, milling or sawing instead.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-send-out-machining",
-   "type": "term",
-   "name": "Send-Out Machining",
-   "aliases": [],
-   "summary": "Using an online service to cut parts you cannot make yourself.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "The usual workflow for antweight builders without a shop: draw the part, export a DXF or STEP, upload, and receive parts in a week or two. Services differ in what metals and thicknesses they handle — titanium in particular is not offered everywhere — and in minimum feature sizes, which matter at 1 lb scale. Check the service's minimum hole size and minimum web width against your design before ordering.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-heat-treat",
-   "type": "term",
-   "name": "Heat Treating",
-   "aliases": [],
-   "summary": "Hardening a steel weapon part by heating and quenching, then tempering it back to toughness.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "A weapon that is fully hard is also brittle and will chip rather than deform. The usual target for combat weapon steel is a compromise hardness — hard enough to keep an edge, tough enough to survive impact. Home heat-treating small parts is possible with a torch and quench oil but temperature control is poor; for anything important, buying pre-hardened stock or sending the part out gives far more consistent results.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-balancing-weapon",
-   "type": "term",
-   "name": "Weapon Balancing",
-   "aliases": [],
-   "summary": "Removing or adding mass so a spinning weapon's centre of mass sits on its axis.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "An unbalanced antweight weapon at 20,000 rpm generates enough vibration to back fasteners out across the whole robot, destroy bearings within a match, and make the robot undriveable. Static-balance a weapon by resting its shaft on two level parallel edges and letting it settle — the heavy side rolls down. Remove material from the heavy side with a drill rather than adding it to the light side. Re-balance after every significant impact; a bent weapon is an unbalanced weapon.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "term-press-fit",
-   "type": "term",
-   "name": "Press Fit",
-   "aliases": [],
-   "summary": "Holding a bearing or bushing by interference rather than adhesive or fasteners.",
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "category": "fabrication",
-   "specs": {},
-   "notes": "A bearing seat should be a light interference fit — the bearing goes in with hand pressure or a light tap, not hammered. In a printed part, design the hole a few hundredths undersize and expect to tune it for your printer, because elephant's foot and shrinkage vary. A bearing that spins in its seat destroys the seat; a bearing pressed too hard binds and runs hot.",
-   "confidence": "high",
-   "sources": [
-    "domain knowledge"
-   ]
-  }
- ],
- "chunks": [
-  {
-   "id": "chunk-printing-for-combat",
-   "title": "Printing parts that survive combat",
-   "section": "3D printing",
-   "body_md": "A printed part in a combat robot fails differently from a printed part in any other application, and the profile you use for ordinary printing is close to the worst one for combat.\n\n**The core problem is anisotropy.** An FDM part bonds each layer to the one below by partial remelting. Along the layers the material approaches its bulk strength; across the layers it is typically around half that. Every other recommendation follows from this.\n\n**Orientation first.** Decide where the load goes before you decide anything else. A wedge wants impacts pressing layers together. A motor mount wants the bolt axis running across the layers, not along them, so the bolt cannot split the part like a log. If a part has two conflicting load paths, split it in two, print each optimally, and bolt them together.\n\n**Perimeters over infill.** Stiffness and impact resistance live in the shell. Going from 2 to 5 perimeters helps a combat part far more than going from 20% to 60% infill, and costs less weight and much less time. Start at 4-6 perimeters, 4-6 solid top and bottom layers, 20-30% gyroid or cubic infill.\n\n**Print hot and slow.** Nozzle temperature toward the top of the filament's range, part cooling reduced, speed reduced. All three increase the time the layer interface spends hot enough to bond. You will get a worse surface finish and a significantly stronger part. For PLA+ this trade is heavily worth it; for PETG, reduce cooling cautiously as it already bonds well and droops easily.\n\n**Bigger nozzle.** 0.6 mm or 0.8 mm. Fatter extrusions mean more interface area between layers and fewer of them. Combat parts have no need of 0.4 mm detail.\n\n**Design out the crack starters.** Fillet every internal corner — 1-2 mm is enough to change where a part fails. Chamfer external edges. Taper between thick and thin sections rather than stepping.\n\n**Never thread into plastic.** Heat-set inserts, captive nuts, or through-bolts with nylocs. A thread cut directly in plastic survives a few assemblies and no impacts.",
-   "entity_refs": [
-    "term-layer-adhesion",
-    "term-print-orientation",
-    "term-perimeters-vs-infill",
-    "term-nozzle-size"
-   ],
-   "weight_classes": [
-    "plastic-antweight",
-    "antweight"
-   ],
-   "tags": [
-    "printing",
-    "plastic-ant"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "chunk-tpu-armor",
-   "title": "Using TPU: the plastic ant's best armour",
-   "section": "3D printing",
-   "body_md": "In metal antweight you armour with titanium or UHMW and rely on strength. In plastic antweight the strongest available approach is usually the opposite: armour that deliberately deforms.\n\n**Why compliance wins.** Impact force depends on how quickly momentum changes. A rigid PLA panel stops the incoming tooth almost instantly, so the peak force is enormous and the panel cracks. A flexible TPU panel deflects over several milliseconds, spreading the same momentum change over more time, so peak force drops sharply — and TPU returns most of that energy elastically instead of fracturing.\n\n**Which TPU.** Shore hardness is the main variable:\n\n- **95A** — the general-purpose choice. Stiff enough to hold a shape, soft enough to absorb. Prints reasonably on most printers.\n- **85A** — much softer and more absorbent, better for pure impact panels, harder to print (needs a direct drive extruder and slow speeds).\n- **60D and harder** — nearly rigid, useful for structural parts that need some give, such as motor mounts or wheel hubs.\n\n**Where to use it.** Front and side armour panels, wheels and tyres, motor mount bushings, and any bracket that keeps shearing off. A common plastic ant construction is a PLA+ structural frame carrying TPU armour panels bolted on from outside — stiff where stiffness is needed, compliant where impacts land.\n\n**Printing it.** Slow (20-30 mm/s), direct drive if you have it, minimal retraction, and no cooling to speak of. TPU is forgiving about layer adhesion — it bonds to itself well — which is another reason it survives hits that crack PLA.\n\n**Watch the rules.** At least one organisation's plastic-class rules name TPU and nylon as disallowed, even as wheel hubs, while others permit them freely. This is one of the specific areas where plastic ant rulesets disagree, so confirm against your event's published list before you commit a design to TPU armour.",
-   "entity_refs": [
-    "term-sacrificial-armor"
-   ],
-   "weight_classes": [
-    "plastic-antweight"
-   ],
-   "tags": [
-    "printing",
-    "materials",
-    "plastic-ant"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "chunk-no-shop-build",
-   "title": "Building an antweight with no machine shop",
-   "section": "Fabrication",
-   "body_md": "You do not need a mill or a lathe to build a competitive antweight. Here is the realistic path.\n\n**What you actually need to own:**\n\n- A cordless drill or a small drill press\n- A set of drill bits in metric sizes up to about 5 mm\n- A hacksaw or a small bandsaw\n- Files — a flat and a round, at minimum\n- Metric hex drivers (1.5, 2, 2.5 mm covers M2 through M3)\n- A soldering iron, solder and heat-shrink\n- Digital calipers\n- A small scale accurate to 0.1 g\n\nThat is roughly a couple of hundred dollars and it is enough.\n\n**What you send out.** Anything that needs to be cut accurately from metal: wedge plates, weapon discs, armour panels. Draw it, export a DXF, and upload to an online laser or waterjet service. For 1 lb parts the cost is usually modest because you are buying almost no material — the setup dominates. Send several spares in the same order; the marginal cost is small.\n\n**What you print.** Chassis, mounts, spacers, wheels, non-structural covers, and in plastic ant, everything. A printer changes the economics of the hobby more than any other tool.\n\n**What you buy finished.** Motors, gearboxes, wheels, ESCs, receivers, batteries, bearings, fasteners. There is no reason to make any of these.\n\n**The practical assembly approach.** Design so the robot bolts together from flat plates and printed parts. Avoid anything needing a tapped hole in metal if you can — use through-bolts with nylocs. Where you must tap, an M3 tap and a tapping drill are cheap and hand-tapping aluminium is easy.\n\n**The order things usually go wrong.** Holes drilled slightly off position, which a round file fixes. Parts that do not fit because you forgot fastener head clearance. And a robot that comes in 20 g overweight because printed parts weigh more than the CAD says. Weigh as you go.",
-   "entity_refs": [
-    "term-send-out-machining",
-    "fastener-m3-shcs"
-   ],
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication",
-    "getting-started"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "chunk-printer-only-build",
-   "title": "Building a plastic ant with only a 3D printer",
-   "section": "Fabrication",
-   "body_md": "Plastic antweight exists partly so that a printer plus a box of bought parts is a complete manufacturing capability. A realistic build:\n\n**What you print:** chassis, wedge or weapon, armour panels, wheels (or wheel hubs with TPU tyres), motor mounts, battery cradle, electronics tray.\n\n**What you buy:** two drive gearmotors, a weapon motor if you are building one, an integrated receiver/ESC board, a LiPo pack, bearings, M2 and M3 fasteners, heat-set inserts, threadlocker, wire and connectors.\n\n**Materials by part:**\n\n- **Chassis** — PLA+ at 5 perimeters. Stiff, cheap, prints easily, and fails predictably.\n- **Armour** — TPU 95A, bolted on from outside so it can be swapped in the pits (check your event allows TPU — some plastic-class rules exclude it).\n- **Weapon** — PETG or PLA+ depending on whether you want it to deform or shatter. Print several.\n- **Wheels** — TPU tyre on a PLA+ hub, or printed TPU throughout at higher infill.\n- **Anywhere a bolt goes** — heat-set inserts, never a tapped plastic thread.\n\n**Design rules that matter most here:**\n\n1. Orient every part so impacts load layers in compression or shear.\n2. Fillet all internal corners; that is where printed parts crack.\n3. Make armour sacrificial and quick to replace — two bolts, accessible from outside.\n4. Print a complete spare set of every part before the event. This is the class's superpower: your pit repair is a bag of spares, not a machine shop.\n\n**The weight reality.** A printed chassis is heavier than you expect. Budget it early, weigh printed parts as they come off, and be prepared to reduce infill or perimeters in non-critical areas rather than redesigning at the last minute.\n\n**One rules caution.** Organisations disagree about post-processing. SPARC's plastic class explicitly bans annealing, acetone smoothing and boiling as durability-enhancing treatments; some other events allow them. Confirm before you rely on any of it.",
-   "entity_refs": [
-    "term-print-settings-combat",
-    "term-sacrificial-armor",
-    "fastener-heatset-insert"
-   ],
-   "weight_classes": [
-    "plastic-antweight"
-   ],
-   "tags": [
-    "printing",
-    "plastic-ant",
-    "getting-started"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "chunk-fasteners-that-hold",
-   "title": "Fasteners that actually hold",
-   "section": "Assembly",
-   "body_md": "Losing a fastener is the single most common way an antweight stops working, and it is almost entirely preventable.\n\n**Use alloy steel, not stainless.** Grade 12.9 alloy steel is roughly twice the tensile strength of common A2 stainless. In a 1 lb robot the fasteners are small enough that this difference decides whether a bolt shears. Stainless is for things that need to not rust; nothing on a combat robot needs that more than it needs strength.\n\n**Threadlocker on everything.** Blue, medium strength, applied to the male thread. Red is effectively permanent without heat you should not apply near printed parts. This is the cheapest reliability improvement available and it takes minutes.\n\n**Nylocs where you have through-holes.** A nylon-insert nut genuinely resists vibration. It is not a substitute for threadlocker in a tapped hole — different situation, different solution.\n\n**Never thread into plastic.** Heat-set inserts where you need a reusable thread in a printed part, captive nuts where you have room, through-bolts where you can. A thread cut into plastic survives a handful of assemblies and no real impacts.\n\n**Match the driver properly.** Most stripped fasteners are stripped by a slightly worn or slightly wrong-size hex key. Buy a decent set, replace them when they round off, and carry spares of the sizes your robot uses.\n\n**Size sensibly.** M3 for anything carrying load — weapon hubs, armour mounts, motor mounts. M2 for electronics trays and light covers. Below M2 the head strips before the thread yields, so there is no point.\n\n**The maintenance habit.** Between every match, go around every accessible fastener with the driver and check it is tight. It takes two minutes and it prevents the failure that most often ends an event. Vibration from any spinning weapon works on every joint continuously; assume things are loosening unless you have checked.",
-   "entity_refs": [
-    "fastener-m3-shcs",
-    "fastener-threadlocker",
-    "fastener-nyloc",
-    "fastener-heatset-insert"
-   ],
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication",
-    "reliability",
-    "maintenance"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "chunk-bearings-and-shafts",
-   "title": "Bearings, shafts and why weapons come apart",
-   "section": "Assembly",
-   "body_md": "The weapon mounting is where most antweight mechanical failures happen. Getting it right is mostly about stiffness and retention.\n\n**Shaft diameter dominates.** Bending stiffness scales with the fourth power of diameter. Going from a 3 mm shaft to 5 mm is roughly 7.7 times stiffer for about 2.8 times the mass. On any weapon storing real energy that is among the best weight-for-reliability trades available. A bent shaft is not just a bent shaft — it is an unbalanced weapon, which then destroys its own bearings within a match.\n\n**Support both ends where you can.** A cantilevered weapon on a single bearing puts a huge bending moment into that one point. A dead-shaft arrangement — fixed shaft, weapon spinning on bearings around it, supported on both sides — is far stronger and is the standard approach for drums.\n\n**Bearing choice.** Shielded (ZZ) deep-groove ball bearings in standard metric sizes: 623 for 3 mm shafts, 625 for 5 mm, 688 for 8 mm dead shafts. Buy them as consumables. A bearing that takes a hard impact gets brinelled — the balls dent the races — and runs rough from then on.\n\n**Consider bronze bushings.** They have more friction than ball bearings but nothing inside to dent, so they tolerate impact far better. On a weapon with torque to spare, a bushing can outlast several bearings.\n\n**Retention is the failure everyone hits.** The classic antweight failure is the weapon coming off the motor. Stock drone motors retain the bell with a C-clip never intended for combat shock loads. Hubs held by a single grub screw on a round shaft will slip and then spin freely. The fixes, in order of effectiveness: a machined flat on the shaft for the grub screw to bear against; two grub screws at 90 degrees; a broached hex or a keyway; threadlocker on the grub screws regardless.\n\n**Press fits.** A bearing seat wants a light interference — the bearing goes in with hand pressure or a light tap. In printed parts, expect to tune the hole diameter for your specific printer. A bearing that spins in its seat destroys the seat.",
-   "entity_refs": [
-    "bearing-623",
-    "bearing-625",
-    "bearing-688",
-    "bushing-bronze",
-    "shaft-5mm",
-    "term-press-fit"
-   ],
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication",
-    "weapon-design",
-    "reliability"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "chunk-modular-design",
-   "title": "Designing for the ten-minute pit repair",
-   "section": "Design",
-   "body_md": "Events run matches closer together than you expect. The design question is not \"will this break\" — it will — but \"can I fix it in the time available\".\n\n**The target.** Assume ten to twenty minutes between matches, on a crowded table, with a soldering iron and whatever you brought.\n\n**What that implies:**\n\n**Armour bolts on from outside.** If replacing a damaged panel means dismantling the robot to reach the nuts, you will not do it in time. Two or three fasteners, accessible without removing anything else.\n\n**The weapon comes off as a unit.** Motor, shaft, bearings and weapon as one assembly, so a damaged weapon is a swap rather than a rebuild. Carry a complete spare assembly if weight and budget allow, or at minimum a spare weapon already balanced.\n\n**Drive pods are replaceable.** A motor mount that has broken loose should be a module you swap, not a chassis you re-glue.\n\n**Connectors, not solder joints, at module boundaries.** Every place two subassemblies meet should have a connector. Soldering in the pits is possible but slow and error-prone when you are rushed.\n\n**Fasteners are consistent.** If the whole robot uses M3 cap screws and one size of hex key, repairs are fast. A robot using five fastener sizes wastes time on tool changes and needs five sizes of spare.\n\n**Spares that actually matter,** in order: battery, weapon, wheels, armour panels, fasteners, a drive motor, wiring. Print or buy multiples of anything that touches the opponent.\n\n**What you cannot fix in the pits:** a cracked main chassis, a bent shaft with no spare, a stripped gearbox with no replacement. Design so these are either unlikely or carried as spares — because if one happens without a spare, your event is over regardless of how well the rest of the robot works.",
-   "entity_refs": [
-    "term-modular-construction",
-    "term-sacrificial-armor"
-   ],
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "design",
-    "maintenance",
-    "reliability"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "chunk-tools-and-budget",
-   "title": "Tools and budget: what to buy first",
-   "section": "Getting started",
-   "body_md": "An honest ordering for someone starting from nothing. Prices are indicative and vary by region.\n\n**Tier 1 — you cannot build without these:**\n\n- Digital calipers\n- A scale accurate to 0.1 g (you will be fighting for single grams)\n- Metric hex drivers, 1.5 / 2 / 2.5 mm\n- Soldering iron, solder, heat-shrink\n- Side cutters and small pliers\n- A cordless drill and metric bits\n\n**Tier 2 — the first real capability upgrade:**\n\n- **A 3D printer.** This changes the hobby more than anything else on the list. It makes plastic antweight possible outright and makes metal-ant prototyping nearly free.\n- A LiPo charger with balance charging, and a LiPo-safe bag\n- A multimeter\n\n**Tier 3 — quality of life:**\n\n- A small drill press (accuracy of hole position improves enormously)\n- A bench vice\n- A Dremel or similar rotary tool\n- A heat-set insert tip for your soldering iron\n\n**Tier 4 — genuinely optional:**\n\n- A bandsaw, a small mill, a lathe. These are lovely and none of them are necessary. Send-out cutting services cover what you need for 1 lb parts.\n\n**Where the money actually goes.** For a first antweight, the robot itself is often cheaper than the tools: motors, an integrated ESC/receiver board, a battery and a transmitter come to a moderate sum, and the transmitter is reusable across every robot you ever build. Buy a decent transmitter once rather than a cheap one twice.\n\n**The one thing people under-buy.** Spare parts. A robot with no spares is a robot that fights until the first failure. Budget for multiples of the parts that touch the opponent from the start.",
-   "entity_refs": [
-    "term-send-out-machining"
-   ],
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "getting-started",
-    "fabrication"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "chunk-metal-fabrication-options",
-   "title": "Getting metal parts made",
-   "section": "Fabrication",
-   "body_md": "For a 1 lb robot you need very little metal, which changes what is economic.\n\n**Waterjet.** Cuts anything, with no heat-affected zone. This matters for hardened weapon steel — a laser's heat can alter the temper at the edge — and for titanium. Slight edge taper on thick material, irrelevant at antweight thicknesses. The usual choice for titanium armour and hardened weapon parts.\n\n**Fibre laser.** Excellent on steel and thin stainless, good on titanium with the right setup, fast and cheap. The heat-affected zone is small but real; for a hardened weapon, prefer waterjet.\n\n**CO2 laser.** Cuts acrylic and wood. Does not usefully cut metal at hobby power levels. Note that it does **not** cut polycarbonate or UHMW acceptably — PC chars and yellows at the edge, UHMW melts and re-welds behind the beam. If your design needs those materials, plan on sawing, routing or milling.\n\n**CNC milling.** Necessary for anything with 3D form — a hub, a pocketed chassis, a contoured wedge. More expensive per part than 2D cutting, so design in flat plates where you can.\n\n**Send-out services.** The standard workflow without a shop: draw it, export DXF or STEP, upload, wait one to two weeks. Two practical cautions at 1 lb scale: check the service's **minimum hole diameter** and **minimum web width**, because antweight parts routinely fall below what larger-format services will quote; and check which metals they actually stock — titanium in particular is not offered everywhere.\n\n**Practical advice.** Order spares in the same job. The setup cost dominates and the marginal cost of a second or third copy of a small part is small. Order a spare weapon and a spare wedge plate with every order; you will use them.",
-   "entity_refs": [
-    "term-waterjet",
-    "term-laser-cutting",
-    "term-send-out-machining"
-   ],
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "fabrication"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  },
-  {
-   "id": "chunk-balancing-a-weapon",
-   "title": "Balancing a weapon without a balancing machine",
-   "section": "Weapon build",
-   "body_md": "An unbalanced weapon at antweight speeds is destructive out of proportion to how small the imbalance looks. At 20,000 rpm a fraction of a gram off-centre generates enough vibration to back fasteners out across the whole robot, brinell the weapon bearings within a single match, and make the robot genuinely hard to drive.\n\n**Static balancing, which is what you can do at home:**\n\n1. Assemble the weapon on its shaft exactly as it will run, including the hub and any fasteners.\n2. Rest the shaft ends on two level, parallel hard edges — knife edges, two lengths of angle, or the parallel jaws of a vice set slightly apart.\n3. Let it settle. The heavy side rolls to the bottom.\n4. Rotate 90 degrees and release again. Repeat. If it consistently stops in the same orientation, it is out of balance.\n5. **Remove** material from the heavy side rather than adding it to the light side — adding mass increases inertia and makes any residual imbalance worse. Drill a shallow hole, or file, near the rim on the heavy side.\n6. Repeat until the weapon stops in a different position each time.\n\n**What this misses.** Static balancing cannot detect dynamic imbalance, where the weapon is balanced about its axis but its mass is distributed unevenly along the shaft, producing a wobble rather than a vibration. For the short, disc-like weapons typical at antweight this is usually a minor effect; for a long drum it can matter.\n\n**Design so it stays balanced.** Symmetric weapons balance naturally. A single-tooth disc needs a deliberate counterweight on the opposite side. Teeth that bolt on should be paired, and if you replace one you should replace or re-match its opposite.\n\n**Re-balance after every significant impact.** A bent weapon is an unbalanced weapon. This is one of the between-match checks that is genuinely worth the time — run the weapon up briefly and listen and feel for new vibration, and if anything changed, check it on the edges before the next match.",
-   "entity_refs": [
-    "term-balancing-weapon",
-    "bearing-625"
-   ],
-   "weight_classes": [
-    "antweight",
-    "plastic-antweight"
-   ],
-   "tags": [
-    "weapon-design",
-    "maintenance",
-    "fabrication"
-   ],
-   "sources": [
-    "domain knowledge"
-   ]
-  }
- ]
+  "topic_id": "fabrication",
+  "title": "Fabrication, Printing and Assembly",
+  "scope_note": "How antweight and plastic antweight robots actually get made: 3D printing for combat loads, metal fabrication options, fasteners, bearings, shafts, balancing, and designing for pit repairs.",
+  "entities": [
+    {
+      "id": "bearing-623",
+      "type": "component",
+      "name": "623 bearing",
+      "aliases": [],
+      "summary": "Deep-groove ball bearing, 3 mm bore x 10 mm OD x 4 mm wide.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "bearing",
+      "specs": {
+        "bore_mm": 3,
+        "od_mm": 10,
+        "width_mm": 4
+      },
+      "pros": [
+        "Cheap and available everywhere",
+        "Standard metric size, easy to design around"
+      ],
+      "cons": [
+        "Shielded versions trap debris; open versions let it in",
+        "Will not survive an unbalanced weapon for long"
+      ],
+      "notes": "3 mm bore. The default for small antweight weapon shafts and idler pulleys. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "bearing-624",
+      "type": "component",
+      "name": "624 bearing",
+      "aliases": [],
+      "summary": "Deep-groove ball bearing, 4 mm bore x 13 mm OD x 5 mm wide.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "bearing",
+      "specs": {
+        "bore_mm": 4,
+        "od_mm": 13,
+        "width_mm": 5
+      },
+      "pros": [
+        "Cheap and available everywhere",
+        "Standard metric size, easy to design around"
+      ],
+      "cons": [
+        "Shielded versions trap debris; open versions let it in",
+        "Will not survive an unbalanced weapon for long"
+      ],
+      "notes": "4 mm bore. A good step up when a 3 mm shaft is bending. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "bearing-625",
+      "type": "component",
+      "name": "625 bearing",
+      "aliases": [],
+      "summary": "Deep-groove ball bearing, 5 mm bore x 16 mm OD x 5 mm wide.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "bearing",
+      "specs": {
+        "bore_mm": 5,
+        "od_mm": 16,
+        "width_mm": 5
+      },
+      "pros": [
+        "Cheap and available everywhere",
+        "Standard metric size, easy to design around"
+      ],
+      "cons": [
+        "Shielded versions trap debris; open versions let it in",
+        "Will not survive an unbalanced weapon for long"
+      ],
+      "notes": "5 mm bore. Common in antweight weapon hubs where the shaft is doing real work. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "bearing-626",
+      "type": "component",
+      "name": "626 bearing",
+      "aliases": [],
+      "summary": "Deep-groove ball bearing, 6 mm bore x 19 mm OD x 6 mm wide.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "bearing",
+      "specs": {
+        "bore_mm": 6,
+        "od_mm": 19,
+        "width_mm": 6
+      },
+      "pros": [
+        "Cheap and available everywhere",
+        "Standard metric size, easy to design around"
+      ],
+      "cons": [
+        "Shielded versions trap debris; open versions let it in",
+        "Will not survive an unbalanced weapon for long"
+      ],
+      "notes": "6 mm bore. Heavy for 1 lb but used where a drum shaft must not flex. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "bearing-688",
+      "type": "component",
+      "name": "688 bearing",
+      "aliases": [],
+      "summary": "Deep-groove ball bearing, 8 mm bore x 16 mm OD x 5 mm wide.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "bearing",
+      "specs": {
+        "bore_mm": 8,
+        "od_mm": 16,
+        "width_mm": 5
+      },
+      "pros": [
+        "Cheap and available everywhere",
+        "Standard metric size, easy to design around"
+      ],
+      "cons": [
+        "Shielded versions trap debris; open versions let it in",
+        "Will not survive an unbalanced weapon for long"
+      ],
+      "notes": "8 mm bore, thin section. Popular for dead-shaft drums because the large bore lets the shaft be stiff while the bearing stays small in diameter. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "bearing-6700",
+      "type": "component",
+      "name": "6700 bearing",
+      "aliases": [],
+      "summary": "Deep-groove ball bearing, 10 mm bore x 15 mm OD x 4 mm wide.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "bearing",
+      "specs": {
+        "bore_mm": 10,
+        "od_mm": 15,
+        "width_mm": 4
+      },
+      "pros": [
+        "Cheap and available everywhere",
+        "Standard metric size, easy to design around"
+      ],
+      "cons": [
+        "Shielded versions trap debris; open versions let it in",
+        "Will not survive an unbalanced weapon for long"
+      ],
+      "notes": "10 mm bore, very thin section. Used in ring and shell weapon supports where the bearing must be large-bore but light. Buy shielded (ZZ) for combat: open bearings fill with debris and rubber-sealed ones add drag. Expect bearings to be consumables on any weapon that takes hits.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "bushing-bronze",
+      "type": "component",
+      "name": "Bronze bushing",
+      "aliases": [],
+      "summary": "A plain sleeve bearing, usually oil-impregnated sintered bronze.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "bearing",
+      "specs": {
+        "typical_bore_mm": 3
+      },
+      "pros": [
+        "Far more impact-tolerant than a ball bearing — nothing to brinell",
+        "Cheap, thin-walled and light",
+        "Tolerates misalignment"
+      ],
+      "cons": [
+        "Much higher friction than a ball bearing",
+        "Wears rather than failing suddenly, so play creeps in"
+      ],
+      "notes": "Bushings are underrated for antweight weapons. A ball bearing subjected to a hard impact gets brinelled — the balls dent the races — and then runs rough forever. A bronze bushing just takes the hit. The cost is drag, which matters more on a low-torque weapon than a high-torque one.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "fastener-m2-shcs",
+      "type": "component",
+      "name": "M2 socket head cap screw",
+      "aliases": [],
+      "summary": "M2 machine screw used throughout antweight construction.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "fastener",
+      "specs": {
+        "thread": "M2"
+      },
+      "pros": [
+        "Standard and cheap",
+        "Available in grade 12.9 alloy steel"
+      ],
+      "cons": [
+        "Backs out under vibration without threadlocker",
+        "Stainless versions are noticeably weaker in shear"
+      ],
+      "notes": "The smallest fastener worth using in a 1 lb robot. Below M2 the head strips before the thread does. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "fastener-m2-5-shcs",
+      "type": "component",
+      "name": "M2.5 socket head cap screw",
+      "aliases": [],
+      "summary": "M2.5 machine screw used throughout antweight construction.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "fastener",
+      "specs": {
+        "thread": "M2.5"
+      },
+      "pros": [
+        "Standard and cheap",
+        "Available in grade 12.9 alloy steel"
+      ],
+      "cons": [
+        "Backs out under vibration without threadlocker",
+        "Stainless versions are noticeably weaker in shear"
+      ],
+      "notes": "A useful middle size, though less commonly stocked than M2 and M3. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "fastener-m3-shcs",
+      "type": "component",
+      "name": "M3 socket head cap screw",
+      "aliases": [],
+      "summary": "M3 machine screw used throughout antweight construction.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "fastener",
+      "specs": {
+        "thread": "M3"
+      },
+      "pros": [
+        "Standard and cheap",
+        "Available in grade 12.9 alloy steel"
+      ],
+      "cons": [
+        "Backs out under vibration without threadlocker",
+        "Stainless versions are noticeably weaker in shear"
+      ],
+      "notes": "The workhorse antweight fastener. Strong enough for weapon hubs and armour mounts. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "fastener-m3-bhcs",
+      "type": "component",
+      "name": "M3 button head cap screw",
+      "aliases": [],
+      "summary": "M3 machine screw used throughout antweight construction.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "fastener",
+      "specs": {
+        "thread": "M3"
+      },
+      "pros": [
+        "Standard and cheap",
+        "Available in grade 12.9 alloy steel"
+      ],
+      "cons": [
+        "Backs out under vibration without threadlocker",
+        "Stainless versions are noticeably weaker in shear"
+      ],
+      "notes": "Lower profile than a cap screw, so it snags less on an opponent's wedge. Weaker head — easier to strip. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "fastener-m3-fhcs",
+      "type": "component",
+      "name": "M3 flat head cap screw",
+      "aliases": [],
+      "summary": "M3 machine screw used throughout antweight construction.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "fastener",
+      "specs": {
+        "thread": "M3"
+      },
+      "pros": [
+        "Standard and cheap",
+        "Available in grade 12.9 alloy steel"
+      ],
+      "cons": [
+        "Backs out under vibration without threadlocker",
+        "Stainless versions are noticeably weaker in shear"
+      ],
+      "notes": "Sits flush, which matters on a wedge face or any surface an opponent slides across. Use grade 12.9 alloy steel, not stainless, anywhere the fastener carries load. Stainless A2/A4 is roughly half the tensile strength and shears where 12.9 holds. Blue threadlocker on everything.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "fastener-heatset-insert",
+      "type": "component",
+      "name": "Heat-set threaded insert",
+      "aliases": [],
+      "summary": "A knurled brass insert melted into a printed part to give it a real metal thread.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "fastener",
+      "specs": {
+        "common_sizes": "M2, M2.5, M3",
+        "install_temp_c": 220
+      },
+      "pros": [
+        "Turns a printed hole into a reusable metal thread",
+        "Far stronger than threading directly into plastic",
+        "Lets you disassemble repeatedly without wearing the hole out"
+      ],
+      "cons": [
+        "Needs a soldering iron and a matching tip to install straight",
+        "Pulls out if the surrounding wall is too thin",
+        "Adds a little weight"
+      ],
+      "notes": "Heat-set inserts are close to mandatory in plastic antweight. Design the boss around the insert: the hole should be slightly smaller than the insert's knurl, with at least 1.5-2 mm of wall around it, and enough depth that the insert sits flush. Install at around 220 C for PLA, going in slowly and square — a crooked insert is worse than none.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "fastener-nyloc",
+      "type": "component",
+      "name": "Nyloc nut",
+      "aliases": [],
+      "summary": "A nut with a nylon insert that grips the thread and resists vibration loosening.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "fastener",
+      "specs": {
+        "common_sizes": "M2, M3"
+      },
+      "pros": [
+        "Genuinely resists backing out",
+        "Reusable a few times"
+      ],
+      "cons": [
+        "Taller than a plain nut",
+        "Loses grip after repeated use",
+        "Nylon softens if it gets hot"
+      ],
+      "notes": "Nylocs are the standard antweight answer to vibration. They are not a substitute for threadlocker on a screw going into a tapped hole — they only work where you have a through-bolt and room for the nut.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "fastener-threadlocker",
+      "type": "component",
+      "name": "Threadlocker (blue)",
+      "aliases": [],
+      "summary": "Medium-strength anaerobic adhesive that stops fasteners vibrating loose but still allows disassembly.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "misc",
+      "specs": {
+        "strength": "medium",
+        "removable": "yes, by hand tools"
+      },
+      "pros": [
+        "The single highest-value thing you can add to an antweight",
+        "Cheap and lasts years"
+      ],
+      "cons": [
+        "Needs time to cure — apply before the event, not during",
+        "Attacks some plastics"
+      ],
+      "notes": "Blue (medium strength) is what you want. Red is effectively permanent without heat, and heat is not something you want near a printed chassis. Apply to the male thread, not the hole. Note that many threadlockers craze polycarbonate and some other plastics — keep it to metal-into-metal joints.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "shaft-3mm",
+      "type": "component",
+      "name": "3 mm weapon shaft",
+      "aliases": [],
+      "summary": "The smallest practical weapon shaft for a 1 lb robot, usually hardened steel.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "misc",
+      "specs": {
+        "dia_mm": 3,
+        "typical_material": "hardened steel or drill rod"
+      },
+      "pros": [
+        "Light",
+        "Fits 623 bearings, which are tiny and cheap"
+      ],
+      "cons": [
+        "Bends under real impact loads",
+        "Very little material to cut a flat or a keyway into"
+      ],
+      "notes": "A 3 mm shaft is fine for a small, low-energy weapon and marginal for anything else. Bending is the failure mode, and a bent shaft immediately becomes an unbalanced weapon that destroys its own bearings. If your weapon is over about 100 J, go to 4 or 5 mm.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "shaft-5mm",
+      "type": "component",
+      "name": "5 mm weapon shaft",
+      "aliases": [],
+      "summary": "A stiff weapon shaft for higher-energy antweight weapons, usually hardened steel or drill rod.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [],
+      "category": "misc",
+      "specs": {
+        "dia_mm": 5,
+        "typical_material": "hardened steel, drill rod, or Ti"
+      },
+      "pros": [
+        "Stiffness scales with the fourth power of diameter, so 5 mm is dramatically stiffer than 3 mm",
+        "Room to machine a proper flat or broach a hex"
+      ],
+      "cons": [
+        "Heavier",
+        "Needs larger bearings, which means a bigger hub"
+      ],
+      "notes": "Bending stiffness goes as d^4, so going from 3 mm to 5 mm is roughly a 7.7x increase in stiffness for about 2.8x the mass. On any weapon doing real damage this is one of the best weight-for-reliability trades available.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ],
+      "reference_only": true
+    },
+    {
+      "id": "term-layer-adhesion",
+      "type": "term",
+      "name": "Layer Adhesion",
+      "aliases": [],
+      "summary": "How strongly consecutive printed layers bond — the dominant weakness of any FDM part.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "materials"
+      ],
+      "category": "printing",
+      "specs": {
+        "cross_layer_strength_pct": 50
+      },
+      "notes": "An FDM part is anisotropic. Along the layers it approaches the bulk strength of the plastic; across the layers it is typically around half that, because each layer bonds only by partial remelting of the one below. Every design decision in a printed combat part follows from this: orient so impacts load the layers in shear or compression rather than pulling them apart, print hotter and slower to improve the bond, and never place a layer boundary across the path of a known load.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-print-orientation",
+      "type": "term",
+      "name": "Print Orientation",
+      "aliases": [],
+      "summary": "Which way up a part is printed, which sets where its weak axis lies.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "Choose orientation by asking where the load goes. A wedge should be printed so impacts push layers together, not peel them apart. A bracket carrying a bolt should have the layers running across the bolt axis so the bolt does not split the part along a layer line. When a part has two conflicting load paths, either split it into two parts printed differently and bolt them together, or accept the weaker axis and add material there.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-perimeters-vs-infill",
+      "type": "term",
+      "name": "Perimeters vs Infill",
+      "aliases": [],
+      "summary": "For combat parts, wall count matters far more than infill percentage.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing"
+      ],
+      "category": "printing",
+      "specs": {
+        "recommended_perimeters": 5,
+        "recommended_infill_pct": 25
+      },
+      "notes": "A printed part's stiffness and impact resistance come mostly from its outer shell. Going from 2 to 5 perimeters does more for a combat part than going from 20% to 60% infill, and costs less weight and far less print time. A practical antweight recipe: 4-6 perimeters, 4-6 top and bottom layers, and 20-30% infill. Past that you are adding weight where it does the least good.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-infill-pattern",
+      "type": "term",
+      "name": "Infill Pattern",
+      "aliases": [],
+      "summary": "The internal lattice geometry, which changes how a part fails under impact.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "Gyroid and cubic infill distribute load in all directions and deform progressively, which suits impact parts. Grid and rectilinear are stiffer in-plane but create planes of weakness. For combat parts prefer gyroid or cubic at a moderate density; the goal is a part that absorbs and survives rather than one that is maximally rigid.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-nozzle-size",
+      "type": "term",
+      "name": "Nozzle Size",
+      "aliases": [],
+      "summary": "The extruder orifice diameter, which sets how thick each extruded line is.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing"
+      ],
+      "category": "printing",
+      "specs": {
+        "recommended_nozzle_mm": 0.6
+      },
+      "notes": "A 0.6 mm or 0.8 mm nozzle is better than 0.4 mm for combat parts. Thicker extrusions mean fewer, fatter layers with more contact area between them, which improves layer adhesion directly, and they print far faster. The cost is resolution you do not need on a chassis. Keep a 0.4 mm nozzle for anything with fine detail.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-tapping-plastic",
+      "type": "term",
+      "name": "Tapping Threads in Plastic",
+      "aliases": [],
+      "summary": "Cutting a thread directly into a printed or machined plastic part.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "Avoid it for anything structural. A thread in plastic strips after a few assemblies and fails immediately under shock. Use a heat-set insert, a captive nut trapped in a printed pocket, or a through-bolt with a nyloc instead. Direct-tapped plastic is acceptable only for non-structural covers you rarely remove.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-captive-nut",
+      "type": "term",
+      "name": "Captive Nut",
+      "aliases": [],
+      "summary": "A nut trapped in a printed pocket so a bolt can be tightened into it without access to the back.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "Cheaper than a heat-set insert and stronger than a tapped plastic thread. Design the pocket a few tenths oversize on the flats, add a small lead-in chamfer, and put a ceiling over it so the nut cannot fall out. The weakness is that the pocket walls can split under repeated tightening, so keep at least 2 mm of material around it.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-stress-riser",
+      "type": "term",
+      "name": "Stress Riser",
+      "aliases": [],
+      "summary": "A sharp internal corner or abrupt section change where stress concentrates and cracks start.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "Nearly every printed combat part that cracks does so at a sharp internal corner. Fillet every internal corner you can — even a 1-2 mm radius dramatically reduces peak stress. Chamfer external edges so they do not chip. Avoid sudden wall-thickness changes; taper between them instead.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-sacrificial-armor",
+      "type": "term",
+      "name": "Sacrificial Armour",
+      "aliases": [],
+      "summary": "Bolt-on panels designed to be destroyed and replaced rather than to survive.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "The right approach for plastic antweight and a good one for metal ants. Armour that absorbs a hit by breaking has done its job if the chassis underneath survives. Design panels to mount with two or three fasteners from the outside so they can be swapped in a pit break, and carry several printed spares.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-modular-construction",
+      "type": "term",
+      "name": "Modular Construction",
+      "aliases": [],
+      "summary": "Building the robot as separable subassemblies so damage is repaired by swapping a module.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "The design target is a ten-minute pit repair. That means: armour panels that unbolt from outside, a weapon assembly that comes off as a unit, drive pods that can be replaced without dismantling the chassis, and a wiring harness with connectors rather than solder joints at every module boundary. Robots built as one welded-together whole lose events to damage that a modular robot fixes between matches.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-print-settings-combat",
+      "type": "term",
+      "name": "Combat Print Settings",
+      "aliases": [],
+      "summary": "The print profile changes that make a printed part survive combat.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing"
+      ],
+      "category": "printing",
+      "specs": {
+        "perimeters": 5,
+        "infill_pct": 25,
+        "nozzle_mm": 0.6
+      },
+      "notes": "Relative to a normal profile: raise nozzle temperature toward the top of the filament's range (better layer bonding), reduce part cooling for PLA+ and PETG (cooling fast makes weak layer bonds, though too little causes drooping), slow the print down (more time at temperature at the layer interface), increase perimeters to 4-6, use a 0.6 mm nozzle, and raise extrusion width slightly. Expect a worse surface finish and a much stronger part.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-waterjet",
+      "type": "term",
+      "name": "Waterjet Cutting",
+      "aliases": [],
+      "summary": "Abrasive waterjet cutting of metal plate, the standard way antweight builders get titanium parts.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "Waterjet cuts any metal without a heat-affected zone, which matters for hardened weapon steel and for titanium. Accuracy is around a tenth of a millimetre with a slight taper on thick material. For 1 lb parts the taper is irrelevant. Most builders use an online service rather than owning a machine.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-laser-cutting",
+      "type": "term",
+      "name": "Laser Cutting",
+      "aliases": [],
+      "summary": "Laser cutting of sheet metal and some plastics.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "Fibre lasers cut steel and (with care) titanium well. CO2 lasers cut acrylic and wood cleanly. Neither cuts polycarbonate or UHMW acceptably — PC yellows and chars at the edge, and UHMW melts and re-welds. If your design depends on PC or UHMW, plan on routing, milling or sawing instead.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-send-out-machining",
+      "type": "term",
+      "name": "Send-Out Machining",
+      "aliases": [],
+      "summary": "Using an online service to cut parts you cannot make yourself.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "The usual workflow for antweight builders without a shop: draw the part, export a DXF or STEP, upload, and receive parts in a week or two. Services differ in what metals and thicknesses they handle — titanium in particular is not offered everywhere — and in minimum feature sizes, which matter at 1 lb scale. Check the service's minimum hole size and minimum web width against your design before ordering.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-heat-treat",
+      "type": "term",
+      "name": "Heat Treating",
+      "aliases": [],
+      "summary": "Hardening a steel weapon part by heating and quenching, then tempering it back to toughness.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "A weapon that is fully hard is also brittle and will chip rather than deform. The usual target for combat weapon steel is a compromise hardness — hard enough to keep an edge, tough enough to survive impact. Home heat-treating small parts is possible with a torch and quench oil but temperature control is poor; for anything important, buying pre-hardened stock or sending the part out gives far more consistent results.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-balancing-weapon",
+      "type": "term",
+      "name": "Weapon Balancing",
+      "aliases": [],
+      "summary": "Removing or adding mass so a spinning weapon's centre of mass sits on its axis.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "An unbalanced antweight weapon at 20,000 rpm generates enough vibration to back fasteners out across the whole robot, destroy bearings within a match, and make the robot undriveable. Static-balance a weapon by resting its shaft on two level parallel edges and letting it settle — the heavy side rolls down. Remove material from the heavy side with a drill rather than adding it to the light side. Re-balance after every significant impact; a bent weapon is an unbalanced weapon.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "term-press-fit",
+      "type": "term",
+      "name": "Press Fit",
+      "aliases": [],
+      "summary": "Holding a bearing or bushing by interference rather than adhesive or fasteners.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "category": "fabrication",
+      "specs": {},
+      "notes": "A bearing seat should be a light interference fit — the bearing goes in with hand pressure or a light tap, not hammered. In a printed part, design the hole a few hundredths undersize and expect to tune it for your printer, because elephant's foot and shrinkage vary. A bearing that spins in its seat destroys the seat; a bearing pressed too hard binds and runs hot.",
+      "confidence": "high",
+      "sources": [
+        "domain knowledge"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-printing-for-combat",
+      "title": "Printing parts that survive combat",
+      "section": "3D printing",
+      "body_md": "A printed part in a combat robot fails differently from a printed part in any other application, and the profile you use for ordinary printing is close to the worst one for combat.\n\n**The core problem is anisotropy.** An FDM part bonds each layer to the one below by partial remelting. Along the layers the material approaches its bulk strength; across the layers it is typically around half that. Every other recommendation follows from this.\n\n**Orientation first.** Decide where the load goes before you decide anything else. A wedge wants impacts pressing layers together. A motor mount wants the bolt axis running across the layers, not along them, so the bolt cannot split the part like a log. If a part has two conflicting load paths, split it in two, print each optimally, and bolt them together.\n\n**Perimeters over infill.** Stiffness and impact resistance live in the shell. Going from 2 to 5 perimeters helps a combat part far more than going from 20% to 60% infill, and costs less weight and much less time. Start at 4-6 perimeters, 4-6 solid top and bottom layers, 20-30% gyroid or cubic infill.\n\n**Print hot and slow.** Nozzle temperature toward the top of the filament's range, part cooling reduced, speed reduced. All three increase the time the layer interface spends hot enough to bond. You will get a worse surface finish and a significantly stronger part. For PLA+ this trade is heavily worth it; for PETG, reduce cooling cautiously as it already bonds well and droops easily.\n\n**Bigger nozzle.** 0.6 mm or 0.8 mm. Fatter extrusions mean more interface area between layers and fewer of them. Combat parts have no need of 0.4 mm detail.\n\n**Design out the crack starters.** Fillet every internal corner — 1-2 mm is enough to change where a part fails. Chamfer external edges. Taper between thick and thin sections rather than stepping.\n\n**Never thread into plastic.** Heat-set inserts, captive nuts, or through-bolts with nylocs. A thread cut directly in plastic survives a few assemblies and no impacts.",
+      "entity_refs": [
+        "term-layer-adhesion",
+        "term-print-orientation",
+        "term-perimeters-vs-infill",
+        "term-nozzle-size"
+      ],
+      "weight_classes": [
+        "plastic-antweight",
+        "antweight"
+      ],
+      "tags": [
+        "printing",
+        "plastic-ant"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-tpu-armor",
+      "title": "Using TPU: the plastic ant's best armour",
+      "section": "3D printing",
+      "body_md": "In metal antweight you armour with titanium or UHMW and rely on strength. In plastic antweight the strongest available approach is usually the opposite: armour that deliberately deforms.\n\n**Why compliance wins.** Impact force depends on how quickly momentum changes. A rigid PLA panel stops the incoming tooth almost instantly, so the peak force is enormous and the panel cracks. A flexible TPU panel deflects over several milliseconds, spreading the same momentum change over more time, so peak force drops sharply — and TPU returns most of that energy elastically instead of fracturing.\n\n**Which TPU.** Shore hardness is the main variable:\n\n- **95A** — the general-purpose choice. Stiff enough to hold a shape, soft enough to absorb. Prints reasonably on most printers.\n- **85A** — much softer and more absorbent, better for pure impact panels, harder to print (needs a direct drive extruder and slow speeds).\n- **60D and harder** — nearly rigid, useful for structural parts that need some give, such as motor mounts or wheel hubs.\n\n**Where to use it.** Front and side armour panels, wheels and tyres, motor mount bushings, and any bracket that keeps shearing off. A common plastic ant construction is a PLA+ structural frame carrying TPU armour panels bolted on from outside — stiff where stiffness is needed, compliant where impacts land.\n\n**Printing it.** Slow (20-30 mm/s), direct drive if you have it, minimal retraction, and no cooling to speak of. TPU is forgiving about layer adhesion — it bonds to itself well — which is another reason it survives hits that crack PLA.\n\n**Watch the rules.** At least one organisation's plastic-class rules name TPU and nylon as disallowed, even as wheel hubs, while others permit them freely. This is one of the specific areas where plastic ant rulesets disagree, so confirm against your event's published list before you commit a design to TPU armour.",
+      "entity_refs": [
+        "term-sacrificial-armor"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "materials",
+        "plastic-ant"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-no-shop-build",
+      "title": "Building an antweight with no machine shop",
+      "section": "Fabrication",
+      "body_md": "You do not need a mill or a lathe to build a competitive antweight. Here is the realistic path.\n\n**What you actually need to own:**\n\n- A cordless drill or a small drill press\n- A set of drill bits in metric sizes up to about 5 mm\n- A hacksaw or a small bandsaw\n- Files — a flat and a round, at minimum\n- Metric hex drivers (1.5, 2, 2.5 mm covers M2 through M3)\n- A soldering iron, solder and heat-shrink\n- Digital calipers\n- A small scale accurate to 0.1 g\n\nThat is roughly a couple of hundred dollars and it is enough.\n\n**What you send out.** Anything that needs to be cut accurately from metal: wedge plates, weapon discs, armour panels. Draw it, export a DXF, and upload to an online laser or waterjet service. For 1 lb parts the cost is usually modest because you are buying almost no material — the setup dominates. Send several spares in the same order; the marginal cost is small.\n\n**What you print.** Chassis, mounts, spacers, wheels, non-structural covers, and in plastic ant, everything. A printer changes the economics of the hobby more than any other tool.\n\n**What you buy finished.** Motors, gearboxes, wheels, ESCs, receivers, batteries, bearings, fasteners. There is no reason to make any of these.\n\n**The practical assembly approach.** Design so the robot bolts together from flat plates and printed parts. Avoid anything needing a tapped hole in metal if you can — use through-bolts with nylocs. Where you must tap, an M3 tap and a tapping drill are cheap and hand-tapping aluminium is easy.\n\n**The order things usually go wrong.** Holes drilled slightly off position, which a round file fixes. Parts that do not fit because you forgot fastener head clearance. And a robot that comes in 20 g overweight because printed parts weigh more than the CAD says. Weigh as you go.",
+      "entity_refs": [
+        "term-send-out-machining",
+        "fastener-m3-shcs"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication",
+        "getting-started"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-printer-only-build",
+      "title": "Building a plastic ant with only a 3D printer",
+      "section": "Fabrication",
+      "body_md": "Plastic antweight exists partly so that a printer plus a box of bought parts is a complete manufacturing capability. A realistic build:\n\n**What you print:** chassis, wedge or weapon, armour panels, wheels (or wheel hubs with TPU tyres), motor mounts, battery cradle, electronics tray.\n\n**What you buy:** two drive gearmotors, a weapon motor if you are building one, an integrated receiver/ESC board, a LiPo pack, bearings, M2 and M3 fasteners, heat-set inserts, threadlocker, wire and connectors.\n\n**Materials by part:**\n\n- **Chassis** — PLA+ at 5 perimeters. Stiff, cheap, prints easily, and fails predictably.\n- **Armour** — TPU 95A, bolted on from outside so it can be swapped in the pits (check your event allows TPU — some plastic-class rules exclude it).\n- **Weapon** — PETG or PLA+ depending on whether you want it to deform or shatter. Print several.\n- **Wheels** — TPU tyre on a PLA+ hub, or printed TPU throughout at higher infill.\n- **Anywhere a bolt goes** — heat-set inserts, never a tapped plastic thread.\n\n**Design rules that matter most here:**\n\n1. Orient every part so impacts load layers in compression or shear.\n2. Fillet all internal corners; that is where printed parts crack.\n3. Make armour sacrificial and quick to replace — two bolts, accessible from outside.\n4. Print a complete spare set of every part before the event. This is the class's superpower: your pit repair is a bag of spares, not a machine shop.\n\n**The weight reality.** A printed chassis is heavier than you expect. Budget it early, weigh printed parts as they come off, and be prepared to reduce infill or perimeters in non-critical areas rather than redesigning at the last minute.\n\n**One rules caution.** Organisations disagree about post-processing. SPARC's plastic class explicitly bans annealing, acetone smoothing and boiling as durability-enhancing treatments; some other events allow them. Confirm before you rely on any of it.",
+      "entity_refs": [
+        "term-print-settings-combat",
+        "term-sacrificial-armor",
+        "fastener-heatset-insert"
+      ],
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "printing",
+        "plastic-ant",
+        "getting-started"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-fasteners-that-hold",
+      "title": "Fasteners that actually hold",
+      "section": "Assembly",
+      "body_md": "Losing a fastener is the single most common way an antweight stops working, and it is almost entirely preventable.\n\n**Use alloy steel, not stainless.** Grade 12.9 alloy steel is roughly twice the tensile strength of common A2 stainless. In a 1 lb robot the fasteners are small enough that this difference decides whether a bolt shears. Stainless is for things that need to not rust; nothing on a combat robot needs that more than it needs strength.\n\n**Threadlocker on everything.** Blue, medium strength, applied to the male thread. Red is effectively permanent without heat you should not apply near printed parts. This is the cheapest reliability improvement available and it takes minutes.\n\n**Nylocs where you have through-holes.** A nylon-insert nut genuinely resists vibration. It is not a substitute for threadlocker in a tapped hole — different situation, different solution.\n\n**Never thread into plastic.** Heat-set inserts where you need a reusable thread in a printed part, captive nuts where you have room, through-bolts where you can. A thread cut into plastic survives a handful of assemblies and no real impacts.\n\n**Match the driver properly.** Most stripped fasteners are stripped by a slightly worn or slightly wrong-size hex key. Buy a decent set, replace them when they round off, and carry spares of the sizes your robot uses.\n\n**Size sensibly.** M3 for anything carrying load — weapon hubs, armour mounts, motor mounts. M2 for electronics trays and light covers. Below M2 the head strips before the thread yields, so there is no point.\n\n**The maintenance habit.** Between every match, go around every accessible fastener with the driver and check it is tight. It takes two minutes and it prevents the failure that most often ends an event. Vibration from any spinning weapon works on every joint continuously; assume things are loosening unless you have checked.",
+      "entity_refs": [
+        "fastener-m3-shcs",
+        "fastener-threadlocker",
+        "fastener-nyloc",
+        "fastener-heatset-insert"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication",
+        "reliability",
+        "maintenance"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-bearings-and-shafts",
+      "title": "Bearings, shafts and why weapons come apart",
+      "section": "Assembly",
+      "body_md": "The weapon mounting is where most antweight mechanical failures happen. Getting it right is mostly about stiffness and retention.\n\n**Shaft diameter dominates.** Bending stiffness scales with the fourth power of diameter. Going from a 3 mm shaft to 5 mm is roughly 7.7 times stiffer for about 2.8 times the mass. On any weapon storing real energy that is among the best weight-for-reliability trades available. A bent shaft is not just a bent shaft — it is an unbalanced weapon, which then destroys its own bearings within a match.\n\n**Support both ends where you can.** A cantilevered weapon on a single bearing puts a huge bending moment into that one point. A dead-shaft arrangement — fixed shaft, weapon spinning on bearings around it, supported on both sides — is far stronger and is the standard approach for drums.\n\n**Bearing choice.** Shielded (ZZ) deep-groove ball bearings in standard metric sizes: 623 for 3 mm shafts, 625 for 5 mm, 688 for 8 mm dead shafts. Buy them as consumables. A bearing that takes a hard impact gets brinelled — the balls dent the races — and runs rough from then on.\n\n**Consider bronze bushings.** They have more friction than ball bearings but nothing inside to dent, so they tolerate impact far better. On a weapon with torque to spare, a bushing can outlast several bearings.\n\n**Retention is the failure everyone hits.** The classic antweight failure is the weapon coming off the motor. Stock drone motors retain the bell with a C-clip never intended for combat shock loads. Hubs held by a single grub screw on a round shaft will slip and then spin freely. The fixes, in order of effectiveness: a machined flat on the shaft for the grub screw to bear against; two grub screws at 90 degrees; a broached hex or a keyway; threadlocker on the grub screws regardless.\n\n**Press fits.** A bearing seat wants a light interference — the bearing goes in with hand pressure or a light tap. In printed parts, expect to tune the hole diameter for your specific printer. A bearing that spins in its seat destroys the seat.",
+      "entity_refs": [
+        "bearing-623",
+        "bearing-625",
+        "bearing-688",
+        "bushing-bronze",
+        "shaft-5mm",
+        "term-press-fit"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication",
+        "weapon-design",
+        "reliability"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-modular-design",
+      "title": "Designing for the ten-minute pit repair",
+      "section": "Design",
+      "body_md": "Events run matches closer together than you expect. The design question is not \"will this break\" — it will — but \"can I fix it in the time available\".\n\n**The target.** Assume ten to twenty minutes between matches, on a crowded table, with a soldering iron and whatever you brought.\n\n**What that implies:**\n\n**Armour bolts on from outside.** If replacing a damaged panel means dismantling the robot to reach the nuts, you will not do it in time. Two or three fasteners, accessible without removing anything else.\n\n**The weapon comes off as a unit.** Motor, shaft, bearings and weapon as one assembly, so a damaged weapon is a swap rather than a rebuild. Carry a complete spare assembly if weight and budget allow, or at minimum a spare weapon already balanced.\n\n**Drive pods are replaceable.** A motor mount that has broken loose should be a module you swap, not a chassis you re-glue.\n\n**Connectors, not solder joints, at module boundaries.** Every place two subassemblies meet should have a connector. Soldering in the pits is possible but slow and error-prone when you are rushed.\n\n**Fasteners are consistent.** If the whole robot uses M3 cap screws and one size of hex key, repairs are fast. A robot using five fastener sizes wastes time on tool changes and needs five sizes of spare.\n\n**Spares that actually matter,** in order: battery, weapon, wheels, armour panels, fasteners, a drive motor, wiring. Print or buy multiples of anything that touches the opponent.\n\n**What you cannot fix in the pits:** a cracked main chassis, a bent shaft with no spare, a stripped gearbox with no replacement. Design so these are either unlikely or carried as spares — because if one happens without a spare, your event is over regardless of how well the rest of the robot works.",
+      "entity_refs": [
+        "term-modular-construction",
+        "term-sacrificial-armor"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "design",
+        "maintenance",
+        "reliability"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-tools-and-budget",
+      "title": "Tools and budget: what to buy first",
+      "section": "Getting started",
+      "body_md": "An honest ordering for someone starting from nothing. Prices are indicative and vary by region.\n\n**Tier 1 — you cannot build without these:**\n\n- Digital calipers\n- A scale accurate to 0.1 g (you will be fighting for single grams)\n- Metric hex drivers, 1.5 / 2 / 2.5 mm\n- Soldering iron, solder, heat-shrink\n- Side cutters and small pliers\n- A cordless drill and metric bits\n\n**Tier 2 — the first real capability upgrade:**\n\n- **A 3D printer.** This changes the hobby more than anything else on the list. It makes plastic antweight possible outright and makes metal-ant prototyping nearly free.\n- A LiPo charger with balance charging, and a LiPo-safe bag\n- A multimeter\n\n**Tier 3 — quality of life:**\n\n- A small drill press (accuracy of hole position improves enormously)\n- A bench vice\n- A Dremel or similar rotary tool\n- A heat-set insert tip for your soldering iron\n\n**Tier 4 — genuinely optional:**\n\n- A bandsaw, a small mill, a lathe. These are lovely and none of them are necessary. Send-out cutting services cover what you need for 1 lb parts.\n\n**Where the money actually goes.** For a first antweight, the robot itself is often cheaper than the tools: motors, an integrated ESC/receiver board, a battery and a transmitter come to a moderate sum, and the transmitter is reusable across every robot you ever build. Buy a decent transmitter once rather than a cheap one twice.\n\n**The one thing people under-buy.** Spare parts. A robot with no spares is a robot that fights until the first failure. Budget for multiples of the parts that touch the opponent from the start.",
+      "entity_refs": [
+        "term-send-out-machining"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "getting-started",
+        "fabrication"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-metal-fabrication-options",
+      "title": "Getting metal parts made",
+      "section": "Fabrication",
+      "body_md": "For a 1 lb robot you need very little metal, which changes what is economic.\n\n**Waterjet.** Cuts anything, with no heat-affected zone. This matters for hardened weapon steel — a laser's heat can alter the temper at the edge — and for titanium. Slight edge taper on thick material, irrelevant at antweight thicknesses. The usual choice for titanium armour and hardened weapon parts.\n\n**Fibre laser.** Excellent on steel and thin stainless, good on titanium with the right setup, fast and cheap. The heat-affected zone is small but real; for a hardened weapon, prefer waterjet.\n\n**CO2 laser.** Cuts acrylic and wood. Does not usefully cut metal at hobby power levels. Note that it does **not** cut polycarbonate or UHMW acceptably — PC chars and yellows at the edge, UHMW melts and re-welds behind the beam. If your design needs those materials, plan on sawing, routing or milling.\n\n**CNC milling.** Necessary for anything with 3D form — a hub, a pocketed chassis, a contoured wedge. More expensive per part than 2D cutting, so design in flat plates where you can.\n\n**Send-out services.** The standard workflow without a shop: draw it, export DXF or STEP, upload, wait one to two weeks. Two practical cautions at 1 lb scale: check the service's **minimum hole diameter** and **minimum web width**, because antweight parts routinely fall below what larger-format services will quote; and check which metals they actually stock — titanium in particular is not offered everywhere.\n\n**Practical advice.** Order spares in the same job. The setup cost dominates and the marginal cost of a second or third copy of a small part is small. Order a spare weapon and a spare wedge plate with every order; you will use them.",
+      "entity_refs": [
+        "term-waterjet",
+        "term-laser-cutting",
+        "term-send-out-machining"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fabrication"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    },
+    {
+      "id": "chunk-balancing-a-weapon",
+      "title": "Balancing a weapon without a balancing machine",
+      "section": "Weapon build",
+      "body_md": "An unbalanced weapon at antweight speeds is destructive out of proportion to how small the imbalance looks. At 20,000 rpm a fraction of a gram off-centre generates enough vibration to back fasteners out across the whole robot, brinell the weapon bearings within a single match, and make the robot genuinely hard to drive.\n\n**Static balancing, which is what you can do at home:**\n\n1. Assemble the weapon on its shaft exactly as it will run, including the hub and any fasteners.\n2. Rest the shaft ends on two level, parallel hard edges — knife edges, two lengths of angle, or the parallel jaws of a vice set slightly apart.\n3. Let it settle. The heavy side rolls to the bottom.\n4. Rotate 90 degrees and release again. Repeat. If it consistently stops in the same orientation, it is out of balance.\n5. **Remove** material from the heavy side rather than adding it to the light side — adding mass increases inertia and makes any residual imbalance worse. Drill a shallow hole, or file, near the rim on the heavy side.\n6. Repeat until the weapon stops in a different position each time.\n\n**What this misses.** Static balancing cannot detect dynamic imbalance, where the weapon is balanced about its axis but its mass is distributed unevenly along the shaft, producing a wobble rather than a vibration. For the short, disc-like weapons typical at antweight this is usually a minor effect; for a long drum it can matter.\n\n**Design so it stays balanced.** Symmetric weapons balance naturally. A single-tooth disc needs a deliberate counterweight on the opposite side. Teeth that bolt on should be paired, and if you replace one you should replace or re-match its opposite.\n\n**Re-balance after every significant impact.** A bent weapon is an unbalanced weapon. This is one of the between-match checks that is genuinely worth the time — run the weapon up briefly and listen and feel for new vibration, and if anything changed, check it on the edges before the next match.",
+      "entity_refs": [
+        "term-balancing-weapon",
+        "bearing-625"
+      ],
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-design",
+        "maintenance",
+        "fabrication"
+      ],
+      "sources": [
+        "domain knowledge"
+      ]
+    }
+  ]
 }
