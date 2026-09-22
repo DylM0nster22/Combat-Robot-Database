@@ -203,6 +203,19 @@ def specs_to_text(specs):
     return " | ".join(parts)
 
 
+def extra_to_text(extra):
+    """Index useful structured metadata without stuffing image URLs into FTS."""
+    parts = []
+    for key, value in extra.items():
+        if key.startswith("image_") or key == "also_from" or value in (None, "", [], {}):
+            continue
+        readable = key.replace("_", " ")
+        if isinstance(value, (list, dict)):
+            value = json.dumps(value, ensure_ascii=False)
+        parts.append(f"{readable} {value}")
+    return " | ".join(parts)
+
+
 def normalize_entity(raw, topic_id, report):
     if not isinstance(raw, dict):
         report.error(f"{topic_id}: entity was {type(raw).__name__}, not an object")
@@ -555,6 +568,7 @@ def create_schema(conn):
             tags,
             specs_text,
             pros_cons,
+            extra_text,
             tokenize = 'porter unicode61'
         );
 
@@ -602,12 +616,13 @@ def populate(conn, entities, chunks, topics):
             [(entity["id"], wc) for wc in entity["weight_classes"]],
         )
         cur.execute(
-            "INSERT INTO entities_fts VALUES (?,?,?,?,?,?,?,?)",
+            "INSERT INTO entities_fts VALUES (?,?,?,?,?,?,?,?,?)",
             (
                 entity["id"], entity["name"], " ".join(entity["aliases"]),
                 entity["summary"], entity["notes"], " ".join(entity["tags"]),
                 specs_to_text(entity["specs"]),
                 " ".join(entity["pros"] + entity["cons"]),
+                extra_to_text(entity["extra"]),
             ),
         )
 

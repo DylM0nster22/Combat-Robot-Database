@@ -228,27 +228,70 @@ def pills(entity, depth=0):
         out.append(f'<span class="pill accent">{esc(wc)}</span>')
     if entity.get("confidence") == "low":
         out.append('<span class="pill conf-low">unverified</span>')
+    if entity.get("reference_only"):
+        out.append('<span class="pill">reference</span>')
+    elif entity.get("catalog_entry_only"):
+        out.append('<span class="pill">catalog</span>')
     return "".join(out)
 
 
 def photo_html(entity, detail=False):
-    """Render a real-world example photo for explicitly mapped archetypes."""
-    photo = photos.photo_for(entity["id"])
-    if not photo:
-        return ""
+    """Render only explicitly sourced real photos.
+
+    Product/component photos can live directly on the research entity. Archetype
+    photos remain in photos.py's explicit real-robot allow-list.
+    """
+    if (entity.get("image_url") and entity.get("image_source_url")
+            and entity.get("image_provider")):
+        photo = {
+            "image": entity["image_url"],
+            "source": entity["image_source_url"],
+            "provider": entity["image_provider"],
+            "label": entity["name"],
+        }
+        alt = f'Verified product photo: {entity["name"]}'
+        credit_prefix = "Product photo"
+    else:
+        mapped = photos.photo_for(entity["id"])
+        if not mapped:
+            return ""
+        photo = {
+            "image": mapped["image"],
+            "source": mapped["source"],
+            "provider": mapped["provider"],
+            "label": mapped["robot"],
+        }
+        alt = f'Real combat robot example: {mapped["robot"]}'
+        credit_prefix = "Representative real robot"
+
     img = (
         f'<img class="robot-photo" src="{esc(photo["image"])}" '
-        f'alt="Real combat robot example: {esc(photo["robot"])}" '
-        f'loading="lazy" decoding="async" referrerpolicy="no-referrer">'
+        f'alt="{esc(alt)}" loading="lazy" decoding="async" '
+        f'referrerpolicy="no-referrer">'
     )
     if not detail:
         return f'<div class="card-art photo-art">{img}</div>'
     credit = (
-        '<div class="photo-credit">Representative real robot: '
+        f'<div class="photo-credit">{credit_prefix}: '
         f'<a href="{esc(photo["source"])}" target="_blank" rel="noopener noreferrer">'
-        f'{esc(photo["robot"])} — {esc(photo["provider"])}</a></div>'
+        f'{esc(photo["label"])} — {esc(photo["provider"])}</a></div>'
     )
     return f'<div class="card-art photo-art detail-photo">{img}</div>{credit}'
+
+
+def part_thumb_html(entity):
+    """Small verified product thumbnail for the parts catalogue."""
+    if not (entity.get("image_url") and entity.get("image_source_url")
+            and entity.get("image_provider")):
+        return ""
+    return (
+        f'<a href="{esc(entity["image_source_url"])}" target="_blank" '
+        f'rel="noopener noreferrer" title="Photo: {esc(entity["image_provider"])}">'
+        f'<img src="{esc(entity["image_url"])}" alt="{esc(entity["name"])}" '
+        f'loading="lazy" decoding="async" referrerpolicy="no-referrer" '
+        f'style="width:64px;height:52px;object-fit:contain;vertical-align:middle;'
+        f'margin-right:10px;border-radius:7px;background:var(--surface-2)"></a>'
+    )
 
 
 def entity_card(entity, depth=0, art=False):
@@ -370,20 +413,23 @@ def build_parts(database):
     by_category = defaultdict(list)
     for item in components:
         full = database.get_entity(item["id"]) or {}
+        if full.get("reference_only"):
+            continue
         by_category[(full.get("category") or "misc")].append((item, full))
 
     label = {
         "drive-motor": "Drive motors", "weapon-motor": "Weapon motors",
         "esc-drive": "Drive ESCs", "esc-weapon": "Weapon ESCs",
         "receiver": "Receivers", "transmitter": "Transmitters",
-        "battery": "Batteries", "wheel": "Wheels", "hub": "Hubs",
+        "battery": "Batteries", "charger": "Chargers", "wheel": "Wheels", "hub": "Hubs", "weapon": "Weapons",
         "gearbox": "Gearboxes", "bearing": "Bearings", "fastener": "Fasteners",
-        "switch": "Switches & links", "servo": "Servos",
+        "switch": "Switches & links", "servo": "Servos", "mixer": "Radio mixers",
+        "voltage-regulator": "BECs & voltage regulators", "motor-mount": "Motor mounts",
         "belt-pulley": "Belts & pulleys", "connector": "Connectors", "misc": "Other",
     }
-    priority = ["weapon-motor", "drive-motor", "esc-weapon", "esc-drive", "battery",
-                "receiver", "transmitter", "wheel", "gearbox", "hub", "belt-pulley",
-                "switch", "servo", "bearing", "fastener", "connector", "misc"]
+    priority = ["weapon-motor", "drive-motor", "esc-weapon", "esc-drive", "battery", "charger",
+                "receiver", "transmitter", "weapon", "wheel", "gearbox", "hub", "belt-pulley",
+                "switch", "servo", "mixer", "voltage-regulator", "motor-mount", "bearing", "fastener", "connector", "misc"]
 
     sections = []
     for category in sorted(by_category,
@@ -399,10 +445,12 @@ def build_parts(database):
         for item, full in by_category[category]:
             cells = "".join(
                 f'<td>{esc(full.get("specs", {}).get(k, "—"))}</td>' for k in top_specs)
+            thumb = part_thumb_html(full)
             rows.append(
-                f'<tr><td><a href="{entity_url(item["id"])}">{esc(item["name"])}</a><br>'
+                f'<tr><td>{thumb}<span style="display:inline-block;vertical-align:middle;max-width:calc(100% - 80px)">'
+                f'<a href="{entity_url(item["id"])}">{esc(item["name"])}</a><br>'
                 f'<span style="color:var(--text-faint);font-size:13px">'
-                f'{esc((item.get("summary") or "")[:90])}</span></td>{cells}</tr>')
+                f'{esc((item.get("summary") or "")[:90])}</span></span></td>{cells}</tr>')
         headers = "".join(f'<th>{esc(k.replace("_", " "))}</th>' for k in top_specs)
         sections.append(
             f'<section><h2>{esc(label.get(category, category.title()))}</h2>'
@@ -415,8 +463,9 @@ def build_parts(database):
 
     body = f"""<div class="wrap">
 <h1 class="page" style="margin-top:34px">Parts catalogue</h1>
-<p class="page-sub">Real parts people put in 1 lb robots, with the numbers that decide
-whether they fit your weight budget. Prices and availability drift — check the vendor.</p>
+<p class="page-sub">Specific real parts people put in 1 lb robots, with the numbers that decide
+whether they fit your weight budget. Generic size classes and design references remain searchable
+but are intentionally excluded from this catalogue. Prices and availability drift — check the vendor.</p>
 {''.join(sections)}
 </div>"""
     return page("Parts — Combat Robot Database", body, active="parts.html",

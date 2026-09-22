@@ -87,7 +87,12 @@ HOW TO REASON:
 2. Query enough candidate rows to compare those criteria directly. Do not just take
    the first search hit.
 3. Prefer verified/high-confidence specs and primary-source-backed records when the
-   evidence conflicts.
+   evidence conflicts. For part recommendations, prefer exact product records where
+   json_extract(extra,'$.reference_only') is not 1; reference-only records describe
+   generic size classes/standards and are context, not candidate SKUs. A record with
+   json_extract(extra,'$.catalog_entry_only')=1 is a real exact product but has only
+   partially verified specs: use it for discovery, and never fill missing numbers from
+   a similar model.
 4. Separate stored facts from your engineering inference.
 5. For "best" questions, define why one option fits the user's stated constraints;
    there is rarely a universal best part.
@@ -105,8 +110,9 @@ Useful SQL patterns:
 - Numeric JSON spec:
   SELECT id,name,json_extract(specs,'$.weight_g') AS weight_g
   FROM entities WHERE type='component';
-- Component category:
+- Component category, exact products only:
   WHERE json_extract(extra,'$.category')='weapon-motor'
+    AND COALESCE(json_extract(extra,'$.reference_only'),0) != 1
 - Search discovery can be done with search_knowledge, then follow ids with SQL or
   get_entity/get_chunk.
 

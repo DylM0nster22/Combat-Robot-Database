@@ -1,0 +1,851 @@
+{
+  "topic_id": "current-justcuz",
+  "title": "Current Just 'Cuz Robotics Small Combat Parts",
+  "scope_note": "Current Just 'Cuz Robotics motors, ESCs, batteries, servos and kits relevant to antweight/beetleweight builders, captured as exact product records with live vendor specs.",
+  "entities": [
+    {
+      "id": "motor-jcr-blitz-lite-1604-2850kv",
+      "type": "component",
+      "name": "Just 'Cuz Blitz Lite 1604 2850KV Gearmotor",
+      "category": "drive-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/blitz-lite-1604",
+      "summary": "Compact brushless planetary drive motor using a 1604 outrunner and 29:1 gearbox, designed for small combat robots.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "drive-motor",
+        "1604",
+        "planetary",
+        "jcr"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 2850,
+        "cells_s_min": 2,
+        "cells_s_max": 6,
+        "weight_g": 44.4,
+        "gear_ratio": 29,
+        "gearbox_dia_mm": 20,
+        "overall_length_mm": 29.3,
+        "shaft_dia_mm": 6,
+        "shaft_length_mm": 24,
+        "shaft_material": "4140 steel",
+        "mount_pattern_mm": 15,
+        "mount_screws": "3x M3",
+        "resistance_mohm": 314,
+        "rpm_output_3s": 1180,
+        "rpm_output_4s": 1570,
+        "rpm_output_5s": 1970,
+        "rpm_output_6s": 2360,
+        "price_usd": 55
+      },
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/blitz-lite-1604"
+      ]
+    },
+    {
+      "id": "motor-jcr-blitz-lite-1604-3800kv",
+      "type": "component",
+      "name": "Just 'Cuz Blitz Lite 1604 3800KV Gearmotor",
+      "category": "drive-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/blitz-lite-1604",
+      "summary": "Higher-KV Blitz Lite winding for compact high-speed brushless drive systems.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "drive-motor",
+        "1604",
+        "planetary",
+        "jcr"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 3800,
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "weight_g": 44.4,
+        "gear_ratio": 29,
+        "gearbox_dia_mm": 20,
+        "overall_length_mm": 29.3,
+        "shaft_dia_mm": 6,
+        "shaft_length_mm": 24,
+        "shaft_material": "4140 steel",
+        "mount_pattern_mm": 15,
+        "mount_screws": "3x M3",
+        "resistance_mohm": 216,
+        "rpm_output_2s": 1050,
+        "rpm_output_3s": 1570,
+        "rpm_output_4s": 2100,
+        "price_usd": 55
+      },
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/blitz-lite-1604"
+      ]
+    },
+    {
+      "id": "motor-jcr-2306-5-1000kv",
+      "type": "component",
+      "name": "Just 'Cuz 2306.5 1000KV JCR Edition",
+      "category": "drive-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/23065-1000kv-brushless-motor",
+      "summary": "Low-KV 2306.5 brushless motor with a long 5mm steel shaft, sold by JCR for combat drive applications.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "drive-motor",
+        "2306.5",
+        "1000kv",
+        "5mm-shaft"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1000,
+        "weight_g": 35.8,
+        "motor_dia_mm": 28.8,
+        "motor_length_mount_to_face_mm": 18.1,
+        "shaft_dia_mm": 5,
+        "shaft_length_mm": 14,
+        "shaft_thread": "M5",
+        "thread_length_mm": 9,
+        "cells_s_min": 3,
+        "cells_s_max": 8,
+        "mount_pattern_mm": 16,
+        "mount_screws": "4x M3",
+        "price_usd": 22.5
+      },
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/23065-1000kv-brushless-motor"
+      ]
+    },
+    {
+      "id": "esc-jcr-weka-dual-brushed-20a",
+      "type": "component",
+      "name": "Just 'Cuz WEKA Dual 20A Brushed Drive ESC",
+      "category": "esc-drive",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/weka-dual-20-esc-for-brushed-drive",
+      "summary": "Dual brushed combat drive ESC with current limiting, mixing, braking and reversible control.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushed",
+        "dual-esc",
+        "current-limit",
+        "mixing",
+        "jcr"
+      ],
+      "specs": {
+        "cells_s_min": 2,
+        "cells_s_max": 6,
+        "voltage_min_v": 7.5,
+        "voltage_max_v": 30,
+        "current_continuous_a_per_channel": 20,
+        "weight_bare_g": 3,
+        "weight_with_wires_connectors_g": 12,
+        "price_usd": 40
+      },
+      "notes": "20A is the vendor's maximum continuous figure per channel. Actual thermal capability still depends on wiring, airflow and motor stall duty.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/weka-dual-20-esc-for-brushed-drive"
+      ]
+    },
+    {
+      "id": "esc-jcr-vixen-nano-am32",
+      "type": "component",
+      "name": "Just 'Cuz Vixen Nano AM32 Brushless ESC",
+      "category": "esc-drive",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/vixen-nano-am32-brushless-esc-with-optional-bec",
+      "summary": "Very small AM32 brushless ESC sold with an optional high-current BEC for compact combat drive systems.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "am32",
+        "drive-esc",
+        "jcr",
+        "optional-bec"
+      ],
+      "specs": {
+        "cells_s_max": 6,
+        "vendor_current_label_a": 25,
+        "optional_bec_current_a": 3,
+        "optional_bec_voltage_options_v": "5, 7.4, 12",
+        "price_from_usd": 14.5
+      },
+      "notes": "JCR notes the power stage uses hardware comparable to many ESCs marketed as 35A. Treat 25A as the vendor product label unless a thermal test for your installation is available.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/vixen-nano-am32-brushless-esc-with-optional-bec"
+      ]
+    },
+    {
+      "id": "esc-jcr-mini-35a-am32",
+      "type": "component",
+      "name": "JCR-RC Mini 35A AM32 ESC",
+      "category": "esc-drive",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/jcr-rc-mini-35a-am32-esc-brushless",
+      "summary": "Small AM32 brushless drive ESC sold for JCR brushless gearmotors and similar combat drivetrains.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "am32",
+        "35a-label",
+        "jcr"
+      ],
+      "specs": {
+        "vendor_current_label_a": 35,
+        "price_usd": 18.5
+      },
+      "availability_note": "Out of stock when checked September 2026.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/jcr-rc-mini-35a-am32-esc-brushless"
+      ]
+    },
+    {
+      "id": "motor-jcr-rdy-mini-5022-v2-1100kv",
+      "type": "component",
+      "name": "JCR RDY-MINI-5022-V2 1100KV",
+      "category": "weapon-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/rdy-mini-5022",
+      "summary": "Large-diameter low-profile weapon motor using oversized bearings and direct weapon mounting for small combat spinners.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "direct-drive",
+        "5022",
+        "1100kv",
+        "jcr"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1100,
+        "motor_dia_mm": 50,
+        "motor_length_mm": 22,
+        "stator_dia_mm": 22,
+        "stator_height_mm": 6,
+        "weight_without_mount_screws_g": 70,
+        "weight_with_mount_screws_max_g": 72.5,
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "resistance_mohm": 250,
+        "mount_screws": "8x M4",
+        "max_screw_depth_mm": 5,
+        "wire_awg": 20,
+        "price_usd": 62
+      },
+      "notes": "Manufacturer says actual KV can vary about ±10%. Uses 6704-size main bearings and is designed for direct weapon attachment rather than ordinary propeller use.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/rdy-mini-5022"
+      ]
+    },
+    {
+      "id": "motor-jcr-rdy-mini-5022-v2-1700kv",
+      "type": "component",
+      "name": "JCR RDY-MINI-5022-V2 1700KV",
+      "category": "weapon-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/rdy-mini-5022",
+      "summary": "Higher-KV RDY-MINI-5022-V2 direct weapon motor.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "direct-drive",
+        "5022",
+        "1700kv",
+        "jcr"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1700,
+        "motor_dia_mm": 50,
+        "motor_length_mm": 22,
+        "stator_dia_mm": 22,
+        "stator_height_mm": 6,
+        "weight_without_mount_screws_g": 70,
+        "weight_with_mount_screws_max_g": 72.5,
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "resistance_mohm": 151,
+        "mount_screws": "8x M4",
+        "max_screw_depth_mm": 5,
+        "wire_awg": 20,
+        "price_usd": 62
+      },
+      "notes": "Manufacturer says actual KV can vary about ±10%. Uses 6704-size main bearings and is designed for direct weapon attachment.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/rdy-mini-5022"
+      ]
+    },
+    {
+      "id": "servo-jcr-beast-mode",
+      "type": "component",
+      "name": "Just 'Cuz Beast Mode Servo",
+      "category": "servo",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/beast-mode-servo",
+      "summary": "High-voltage high-torque standard-width servo for lifters and control mechanisms.",
+      "weight_classes": [
+        "beetleweight",
+        "antweight"
+      ],
+      "tags": [
+        "servo",
+        "lifter",
+        "high-voltage",
+        "jcr"
+      ],
+      "specs": {
+        "voltage_min_v": 7.4,
+        "voltage_max_v": 17.4,
+        "stall_torque_kgcm_16_8v": 62,
+        "speed_s_per_60deg_16_8v": 0.092,
+        "weight_g": 88,
+        "width_mm": 20,
+        "current_a_12v": 4.9,
+        "current_a_14_4v": 5.5,
+        "current_a_16v": 5.8,
+        "current_a_16_8v": 6,
+        "price_usd": 90
+      },
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/beast-mode-servo"
+      ]
+    },
+    {
+      "id": "battery-jcr-3s-550mah",
+      "type": "component",
+      "name": "Just 'Cuz 3S 550mAh LiPo",
+      "category": "battery",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/3s-550-lipo",
+      "summary": "Compact 3S combat battery with XT30U output and vendor load-test capacity/current notes.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "battery",
+        "lipo",
+        "3s",
+        "550mah",
+        "xt30u"
+      ],
+      "specs": {
+        "cells_s": 3,
+        "voltage_nominal_v": 11.1,
+        "capacity_mah": 550,
+        "energy_wh": 6.105,
+        "weight_g": 56,
+        "length_mm": 59,
+        "width_mm": 31,
+        "height_mm": 18.6,
+        "connector": "XT30U female",
+        "momentary_peak_current_tested_a": "38-58",
+        "price_usd": 15
+      },
+      "notes": "JCR reports measured capacities around 557-586mAh at 50W and 586-631mAh at 1.5C in its testing.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/3s-550-lipo"
+      ]
+    },
+    {
+      "id": "battery-jcr-4s-650mah",
+      "type": "component",
+      "name": "Just 'Cuz 4S 650mAh LiPo",
+      "category": "battery",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/4s-640mah",
+      "summary": "Compact 4S pack for higher-power small combat robots.",
+      "weight_classes": [
+        "beetleweight",
+        "antweight"
+      ],
+      "tags": [
+        "battery",
+        "lipo",
+        "4s",
+        "650mah",
+        "xt30u"
+      ],
+      "specs": {
+        "cells_s": 4,
+        "voltage_nominal_v": 14.8,
+        "capacity_mah": 650,
+        "capacity_min_mah": 640,
+        "energy_wh": 9.6,
+        "weight_g": 80,
+        "length_mm": 61,
+        "width_mm": 31,
+        "height_mm": 25.5,
+        "connector": "XT30U female",
+        "price_usd": 18
+      },
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/4s-640mah"
+      ]
+    },
+    {
+      "id": "esc-jcr-revvitrc-50a-am32",
+      "type": "component",
+      "name": "RevvitRC 50A AM32 ESC",
+      "category": "esc-weapon",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/revvitrc-50a-am32-esc",
+      "summary": "50A AM32 combat ESC with selectable 7.4V/8.4V onboard BEC, current/thermal protection features, and weapon-oriented default configuration.",
+      "weight_classes": [
+        "beetleweight",
+        "antweight"
+      ],
+      "tags": [
+        "am32",
+        "weapon-esc",
+        "50a",
+        "bec",
+        "jcr"
+      ],
+      "specs": {
+        "current_continuous_a": 50,
+        "cells_s_min": 3,
+        "cells_s_max": 6,
+        "voltage_min_v": 9,
+        "voltage_max_v": 26,
+        "length_mm": 44,
+        "width_mm": 18,
+        "height_mm": 14,
+        "weight_without_motor_wires_g": 23,
+        "bec_voltage_options_v": "7.4, 8.4",
+        "price_usd": 42
+      },
+      "notes": "Default firmware configuration is one-direction brushless weapon mode with braking disabled. Vendor warns not to connect more than one BEC source to a receiver.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/revvitrc-50a-am32-esc"
+      ]
+    },
+    {
+      "id": "esc-jcr-pariah-70a-am32",
+      "type": "component",
+      "name": "Just 'Cuz Pariah 70A AM32 ESC",
+      "category": "esc-weapon",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/pariah-70a-am32-weapon-esc",
+      "summary": "Discontinued high-current AM32 combat ESC retained as a legacy/reference record for robots already using it.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "am32",
+        "weapon-esc",
+        "70a",
+        "legacy",
+        "discontinued",
+        "jcr"
+      ],
+      "specs": {
+        "current_continuous_brushless_a": 70,
+        "current_continuous_brushed_a": 31,
+        "cells_s_min": 3,
+        "cells_s_max": 6,
+        "voltage_min_v": 9,
+        "voltage_max_v": 26,
+        "length_mm": 43,
+        "width_mm": 21,
+        "height_mm": 6,
+        "weight_without_wires_g": 9.5,
+        "legacy_price_usd": 38
+      },
+      "availability_note": "Discontinued and will not be restocked.",
+      "reference_only": true,
+      "notes": "No onboard BEC. Included a capacitor for 5S-6S operation. JCR now points buyers to newer ESCs instead.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/pariah-70a-am32-weapon-esc"
+      ]
+    },
+    {
+      "id": "motor-jcr-rdy-5735-750kv",
+      "type": "component",
+      "name": "Just 'Cuz RDY-5735 Hybrid Hubmotor 750KV",
+      "category": "weapon-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/hybrid-hubmotor-rdy-5735",
+      "summary": "Hybrid combat hubmotor designed for undercutters, midcutters and supported direct-drive weapons using a through-shaft/shoulder-bolt architecture.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "hubmotor",
+        "5735",
+        "750kv",
+        "through-shaft",
+        "jcr"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 750,
+        "cells_s_min": 4,
+        "cells_s_max": 8,
+        "motor_dia_mm": 57,
+        "motor_length_mm": 35,
+        "stator_dia_mm": 28,
+        "stator_height_mm": 12,
+        "weight_motor_washer_g": 153.7,
+        "weight_with_blade_screws_g": 163,
+        "weight_with_28mm_bolt_nut_g": 181,
+        "weight_with_45mm_bolt_nut_g": 188,
+        "resistance_mohm": 124,
+        "wire_awg": 18,
+        "wire_length_mm": 180,
+        "bearings": "6805 + 6900"
+      },
+      "notes": "JCR recommends supporting this first-generation design on both sides for undercutter/overhead applications; vendor feedback says one-sided support was less robust than intended.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/hybrid-hubmotor-rdy-5735"
+      ]
+    },
+    {
+      "id": "motor-jcr-rdy-5735-950kv",
+      "type": "component",
+      "name": "Just 'Cuz RDY-5735 Hybrid Hubmotor 950KV",
+      "category": "weapon-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/hybrid-hubmotor-rdy-5735",
+      "summary": "Higher-KV RDY-5735 hybrid combat hubmotor for 3S-6S supported direct-drive weapon layouts.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "hubmotor",
+        "5735",
+        "950kv",
+        "through-shaft",
+        "jcr"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 950,
+        "cells_s_min": 3,
+        "cells_s_max": 6,
+        "motor_dia_mm": 57,
+        "motor_length_mm": 35,
+        "stator_dia_mm": 28,
+        "stator_height_mm": 12,
+        "weight_motor_washer_g": 153.7,
+        "weight_with_blade_screws_g": 163,
+        "weight_with_28mm_bolt_nut_g": 181,
+        "weight_with_45mm_bolt_nut_g": 188,
+        "resistance_mohm": 144,
+        "wire_awg": 18,
+        "wire_length_mm": 180,
+        "bearings": "6805 + 6900"
+      },
+      "notes": "JCR recommends supporting this first-generation design on both sides for undercutter/overhead applications; vendor feedback says one-sided support was less robust than intended.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/hybrid-hubmotor-rdy-5735"
+      ]
+    },
+    {
+      "id": "motor-jcr-blitz-pro-2306-650kv-5-2-1",
+      "type": "component",
+      "name": "Just 'Cuz Blitz Pro 2306 650KV 5.2:1",
+      "category": "drive-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/blitz-pro-bulletproof-brushless-24mm-gearmotors",
+      "summary": "Heavy-duty 24mm brushless planetary drive gearmotor with a hardened 6mm D-shaft and low 650KV motor.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "drive-motor",
+        "brushless",
+        "planetary",
+        "2306",
+        "650kv",
+        "6mm-shaft",
+        "jcr"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 650,
+        "gear_ratio": 5.2,
+        "weight_g": 69.5,
+        "gearbox_dia_mm": 24,
+        "total_length_mm": 37,
+        "gearbox_length_mm": 22.9,
+        "shaft_dia_mm": 6,
+        "shaft_length_mm": 38,
+        "mount_pattern_mm": 19,
+        "mount_screws": "4x M3",
+        "rpm_output_3s": 1500,
+        "rpm_output_4s": 2000,
+        "rpm_output_5s": 2500,
+        "rpm_output_6s": 3000,
+        "listed_price_usd": 52.5,
+        "collection_price_from_usd": 40
+      },
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/blitz-pro-bulletproof-brushless-24mm-gearmotors"
+      ]
+    },
+    {
+      "id": "motor-jcr-blitz-pro-2306-1500kv-27-1",
+      "type": "component",
+      "name": "Just 'Cuz Blitz Pro 2306 1500KV 27:1 HR",
+      "category": "drive-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/blitz-pro-bulletproof-brushless-24mm-gearmotors",
+      "summary": "High-reduction Blitz Pro variant intended for hammersaw arms and other slow/high-torque mechanisms rather than normal wheel drive.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "drive-motor",
+        "brushless",
+        "planetary",
+        "2306",
+        "1500kv",
+        "high-reduction",
+        "jcr"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1500,
+        "gear_ratio": 27,
+        "weight_g": 76.8,
+        "gearbox_dia_mm": 24,
+        "gearbox_length_mm": 27.9,
+        "shaft_dia_mm": 6,
+        "shaft_length_mm": 38,
+        "mount_pattern_mm": 19,
+        "mount_screws": "4x M3",
+        "rpm_output_3s": 290,
+        "rpm_output_4s": 386,
+        "rpm_output_5s": 483,
+        "rpm_output_6s": 579,
+        "listed_price_usd": 52.5,
+        "collection_price_from_usd": 40
+      },
+      "notes": "Vendor explicitly says this ratio is not intended as normal wheel drive; it is a high-reduction mechanism motor.",
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/blitz-pro-bulletproof-brushless-24mm-gearmotors"
+      ]
+    },
+    {
+      "id": "motor-jcr-dartbox-v2-viper-22-5-1",
+      "type": "component",
+      "name": "Just 'Cuz DartBox V2 Viper 22.5:1",
+      "category": "drive-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/dartbox-squared-drive",
+      "summary": "All-metal 22mm brushed planetary gearmotor using the Viper motor option and a 4mm steel D-shaft.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "drive-motor",
+        "brushed",
+        "planetary",
+        "dartbox",
+        "viper",
+        "4mm-shaft",
+        "jcr"
+      ],
+      "specs": {
+        "gear_ratio": 22.5,
+        "weight_g": 54.5,
+        "gearbox_dia_mm": 22,
+        "total_length_mm": 46.5,
+        "gearbox_length_mm": 19.4,
+        "motor_length_mm": 27.1,
+        "shaft_dia_mm": 4,
+        "shaft_length_mm": 24,
+        "mount_pattern_mm": 18,
+        "mount_screws": "4x M2",
+        "rpm_output_3s": 1550,
+        "rpm_output_4s_approx": 2000,
+        "stall_torque_ozin_12v": 115,
+        "stall_current_a_12v": 12,
+        "price_from_usd": 35.5
+      },
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/dartbox-squared-drive"
+      ]
+    },
+    {
+      "id": "motor-jcr-dartbox-v2-dragon-22-5-1",
+      "type": "component",
+      "name": "Just 'Cuz DartBox V2 Dragon 22.5:1",
+      "category": "drive-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/dartbox-squared-drive",
+      "summary": "Higher-power Dragon-motor version of the 22mm DartBox V2 brushed planetary drive gearmotor.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "drive-motor",
+        "brushed",
+        "planetary",
+        "dartbox",
+        "dragon",
+        "4mm-shaft",
+        "jcr"
+      ],
+      "specs": {
+        "gear_ratio": 22.5,
+        "weight_g": 57,
+        "gearbox_dia_mm": 22,
+        "total_length_mm": 46.5,
+        "gearbox_length_mm": 19.4,
+        "motor_length_mm": 27.1,
+        "shaft_dia_mm": 4,
+        "shaft_length_mm": 24,
+        "mount_pattern_mm": 18,
+        "mount_screws": "4x M2",
+        "rpm_output_3s": 1550,
+        "rpm_output_4s_approx": 2000,
+        "stall_torque_ozin_12v": 167,
+        "stall_current_a_12v": 17.7,
+        "price_from_usd": 35.5
+      },
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/dartbox-squared-drive"
+      ]
+    },
+    {
+      "id": "motor-jcr-dartbox-v2-gecko",
+      "type": "component",
+      "name": "Just 'Cuz DartBox V2 Gecko Drive",
+      "category": "drive-motor",
+      "vendor": "Just 'Cuz Robotics",
+      "product_url": "https://justcuzrobotics.com/products/dartbox-gecko",
+      "summary": "Lower-current brushed DartBox V2 drive option using the same compact all-metal 22mm gearbox architecture.",
+      "weight_classes": [
+        "beetleweight"
+      ],
+      "tags": [
+        "drive-motor",
+        "brushed",
+        "planetary",
+        "dartbox",
+        "gecko",
+        "jcr"
+      ],
+      "specs": {
+        "rpm_output_3s": 1100,
+        "rpm_output_4s": 1520,
+        "rpm_output_5s": 1900,
+        "rpm_output_6s": 2350,
+        "stall_torque_kgcm_3s": 4.2,
+        "stall_torque_kgcm_4s": 4.6,
+        "stall_current_a_3s": 3.5,
+        "stall_current_a_4s": 4.5,
+        "stall_current_a_6s": 8,
+        "price_from_usd": 26
+      },
+      "confidence": "high",
+      "sources": [
+        "https://justcuzrobotics.com/products/dartbox-gecko"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-jcr-small-combat-ecosystem",
+      "title": "Just 'Cuz small-combat electronics and motors",
+      "section": "Sourcing",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "just-cuz",
+        "jcr",
+        "drive",
+        "esc",
+        "weapon-motor"
+      ],
+      "entity_refs": [
+        "motor-jcr-blitz-lite-1604-2850kv",
+        "motor-jcr-2306-5-1000kv",
+        "esc-jcr-weka-dual-brushed-20a",
+        "esc-jcr-vixen-nano-am32",
+        "motor-jcr-rdy-mini-5022-v2-1100kv",
+        "servo-jcr-beast-mode"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/products/blitz-lite-1604",
+        "https://justcuzrobotics.com/products/weka-dual-20-esc-for-brushed-drive",
+        "https://justcuzrobotics.com/products/rdy-mini-5022"
+      ],
+      "body_md": "Just 'Cuz spans both conventional gearmotor/ESC drive systems and purpose-built direct weapon hardware. The Blitz Lite is a relatively heavy but mechanically serious brushless planetary drive unit, while the 2306.5 JCR Edition is a low-KV motor with a long 5mm shaft for custom drive layouts. WEKA covers high-current brushed drive; Vixen Nano/JCR-RC cover AM32 brushless drive. RDY-MINI-5022 is not just another FPV outrunner: its large bearings and direct weapon interface are specifically aimed at combat shock and weapon mounting, so it belongs in a different mechanical category than cheap drone motors."
+    },
+    {
+      "id": "chunk-jcr-current-drive-and-weapon-controller-lineup",
+      "title": "JCR current drive and high-current weapon electronics",
+      "section": "Electronics",
+      "weight_classes": [
+        "beetleweight",
+        "antweight"
+      ],
+      "tags": [
+        "jcr",
+        "am32",
+        "drive",
+        "hubmotor",
+        "gearmotor"
+      ],
+      "entity_refs": [
+        "esc-jcr-revvitrc-50a-am32",
+        "motor-jcr-rdy-5735-750kv",
+        "motor-jcr-rdy-5735-950kv",
+        "motor-jcr-blitz-pro-2306-650kv-5-2-1",
+        "motor-jcr-dartbox-v2-viper-22-5-1"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/products/revvitrc-50a-am32-esc",
+        "https://justcuzrobotics.com/products/hybrid-hubmotor-rdy-5735",
+        "https://justcuzrobotics.com/products/blitz-pro-bulletproof-brushless-24mm-gearmotors",
+        "https://justcuzrobotics.com/products/dartbox-squared-drive"
+      ],
+      "body_md": "JCR's current small-combat catalog covers distinct mechanical tiers: lightweight Blitz Lite for smaller brushless drive, Blitz Pro for rugged 3lb wheel drive, DartBox V2 for brushed planetary drive, and RDY/JCR hubmotors for direct weapons. The RevvitRC 50A is the current high-current AM32 weapon/controller option with an onboard servo-capable BEC, while Pariah is retained only as discontinued legacy data. For direct weapons, RDY-5735 reduces mass compared with RDY-5536 but its first-generation mechanical notes matter: JCR specifically recommends two-sided support for undercutter/overhead use."
+    }
+  ]
+}

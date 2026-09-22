@@ -6,11 +6,11 @@
     {
       "id": "motor-1104",
       "type": "component",
-      "name": "1104 brushless motor (weapon)",
+      "name": "1104 brushless motor size class (weapon reference)",
       "aliases": [
         "1104"
       ],
-      "summary": "Tiny 11mm-diameter, 4mm-tall stator motor from the FPV whoop/toothpick world, used as an ultra-light vertical spinner or micro-drum motor on plastic antweights and fairyweights.",
+      "summary": "Size-class reference for 1104 outrunners: the code nominally describes a 11 mm stator diameter and 4 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "plastic-antweight",
         "fairyweight"
@@ -22,41 +22,35 @@
         "plastic-ant"
       ],
       "specs": {
-        "kv_rpm_per_v": 5000,
-        "weight_g": 9,
-        "dia_mm": 11,
-        "length_mm": 4,
-        "shaft_dia_mm": 1.5,
-        "max_current_a": 8,
-        "resistance_ohm": 0.35,
-        "price_usd": 10,
-        "cells_s": 2
+        "stator_dia_mm": 11,
+        "stator_height_mm": 4
       },
       "pros": [
-        "Extremely light (under 10 g), leaves more of a 1 lb budget for armor/drive",
-        "Cheap and disposable, easy to keep spares"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Very small stator volume caps torque and stall current headroom",
-        "Fragile bearings/shaft under weapon shock loading, not designed for impacts"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
-      "notes": "1104-size motors are pulled straight from tiny whoop drones. In combat use they almost always run a small direct-drive vertical disc or paddle weapon under ~40g on a plastic antweight, at 2S. Confidence on the exact KV/weight is medium since this is a generic size class rather than one branded part; values are representative of typical 1104 whoop motors (4500-6000kv range).",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
         "https://runamok.tech/AskAaron/motors.html",
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "reference_only": true
     },
     {
       "id": "motor-1106",
       "type": "component",
-      "name": "1106 brushless motor (weapon)",
+      "name": "1106 brushless motor size class (weapon reference)",
       "aliases": [
         "1106"
       ],
-      "summary": "11mm x 6mm stator motor, one step up from 1104 in stator height/torque, used for slightly heavier plastic-ant vertical spinners and paddle weapons.",
+      "summary": "Size-class reference for 1106 outrunners: the code nominally describes a 11 mm stator diameter and 6 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "plastic-antweight",
         "fairyweight"
@@ -68,41 +62,35 @@
         "plastic-ant"
       ],
       "specs": {
-        "kv_rpm_per_v": 4500,
-        "weight_g": 11,
-        "dia_mm": 11,
-        "length_mm": 6,
-        "shaft_dia_mm": 1.5,
-        "max_current_a": 10,
-        "resistance_ohm": 0.25,
-        "price_usd": 11,
-        "cells_s": 2
+        "stator_dia_mm": 11,
+        "stator_height_mm": 6
       },
       "pros": [
-        "Noticeably more torque than 1104 for only ~2g extra weight",
-        "Still cheap, widely available as whoop replacement motors"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Still a whoop-grade bearing/shaft; not shock-rated for weapon impacts",
-        "Small mounting screws (M2) strip easily"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
-      "notes": "Representative specs for the 1106 class; treat exact numbers as a typical range, not a single branded product.",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
         "https://runamok.tech/AskAaron/motors.html",
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "reference_only": true
     },
     {
       "id": "motor-1204",
       "type": "component",
-      "name": "1204 brushless motor (weapon)",
+      "name": "1204 brushless motor size class (weapon reference)",
       "aliases": [
         "1204"
       ],
-      "summary": "12mm-diameter, 4mm-tall stator motor, a common toothpick-drone motor repurposed as a plastic-ant or fairyweight vertical spinner/beater motor.",
+      "summary": "Size-class reference for 1204 outrunners: the code nominally describes a 12 mm stator diameter and 4 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "plastic-antweight",
         "fairyweight"
@@ -113,22 +101,15 @@
         "outrunner"
       ],
       "specs": {
-        "kv_rpm_per_v": 4000,
-        "weight_g": 14,
-        "dia_mm": 12,
-        "length_mm": 4,
-        "shaft_dia_mm": 1.5,
-        "max_current_a": 12,
-        "resistance_ohm": 0.2,
-        "price_usd": 10,
-        "cells_s": 2
+        "stator_dia_mm": 12,
+        "stator_height_mm": 4
       },
       "pros": [
-        "Good torque-to-weight step up from 11xx sizes",
-        "M2 mount, easy to print an adapter plate"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Still limited peak current before demagnetizing the small magnets"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -136,17 +117,20 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-1306",
       "type": "component",
-      "name": "1306 brushless motor (weapon)",
+      "name": "1306 brushless motor size class (weapon reference)",
       "aliases": [
         "1306",
         "1306 racing motor"
       ],
-      "summary": "13mm x 6mm stator motor originally built for FPV micro racing quads (2-3 inch props); a very common plastic-ant and light 1 lb weapon motor because of its wide KV range and cheap availability.",
+      "summary": "Size-class reference for 1306 outrunners: the code nominally describes a 13 mm stator diameter and 6 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "plastic-antweight",
         "fairyweight",
@@ -159,24 +143,15 @@
         "racing-motor"
       ],
       "specs": {
-        "kv_rpm_per_v": 3100,
-        "weight_g": 17,
-        "dia_mm": 13,
-        "length_mm": 6,
-        "shaft_dia_mm": 1.5,
-        "max_current_a": 15,
-        "resistance_ohm": 0.12,
-        "price_usd": 13,
-        "cells_s": 3
+        "stator_dia_mm": 13,
+        "stator_height_mm": 6
       },
       "pros": [
-        "Huge range of KV options on the market (2200-4000kv) from racing-drone suppliers",
-        "9x9mm M2 mount pattern is easy to adapt with a printed plate",
-        "Good torque for its 15-19g weight, popular for small vertical discs"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "3mm-class magnets can demagnetize if driven well past rated current during a hard stall",
-        "1.5mm shaft is thin for anything beyond a small disc or paddle"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -184,16 +159,19 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "medium"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-1404",
       "type": "component",
-      "name": "1404 brushless motor (weapon)",
+      "name": "1404 brushless motor size class (weapon reference)",
       "aliases": [
         "1404"
       ],
-      "summary": "14mm x 4mm stator motor, a step above 1306 in diameter (more torque, similar height); used on heavier plastic ants and light 1 lb spinners.",
+      "summary": "Size-class reference for 1404 outrunners: the code nominally describes a 14 mm stator diameter and 4 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "plastic-antweight",
         "antweight"
@@ -204,22 +182,15 @@
         "outrunner"
       ],
       "specs": {
-        "kv_rpm_per_v": 2600,
-        "weight_g": 22,
-        "dia_mm": 14,
-        "length_mm": 4,
-        "shaft_dia_mm": 1.5,
-        "max_current_a": 18,
-        "resistance_ohm": 0.1,
-        "price_usd": 14,
-        "cells_s": 3
+        "stator_dia_mm": 14,
+        "stator_height_mm": 4
       },
       "pros": [
-        "Wider stator than 1306 gives more low-end torque at similar KV",
-        "Still under 25 g"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Less common than 1306/1408 so fewer KV choices in stock"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -227,16 +198,19 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-1408",
       "type": "component",
-      "name": "1408 brushless motor (weapon)",
+      "name": "1408 brushless motor size class (weapon reference)",
       "aliases": [
         "1408"
       ],
-      "summary": "14mm x 8mm stator motor, one of the most popular 'toothpick' drone sizes; a very common choice for 1 lb antweight vertical spinners, small drums, and light bars where a 1806 is too heavy.",
+      "summary": "Size-class reference for 1408 outrunners: the code nominally describes a 14 mm stator diameter and 8 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "plastic-antweight",
         "antweight"
@@ -248,24 +222,15 @@
         "toothpick"
       ],
       "specs": {
-        "kv_rpm_per_v": 3000,
-        "weight_g": 30,
-        "dia_mm": 14,
-        "length_mm": 8,
-        "shaft_dia_mm": 1.5,
-        "max_current_a": 20,
-        "resistance_ohm": 0.09,
-        "price_usd": 15,
-        "cells_s": 4
+        "stator_dia_mm": 14,
+        "stator_height_mm": 8
       },
       "pros": [
-        "Tall stator (8mm) gives real torque for its size, good spin-up",
-        "12x12mm M2 mount pattern common and easy to adapt",
-        "Cheap, sold in bulk by every FPV motor vendor as 2.5in toothpick motors"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Bearings are still drone-spec, not shock-rated for hard weapon impacts",
-        "Bell can loosen/separate under repeated impact loading if not threadlocked"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -273,17 +238,20 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "medium"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-1806",
       "type": "component",
-      "name": "1806 brushless motor (weapon)",
+      "name": "1806 brushless motor size class (weapon reference)",
       "aliases": [
         "1806",
         "1806 mini quad motor"
       ],
-      "summary": "18mm x 6mm stator motor from the older 200-250 class mini-quad era; a long-running staple antweight weapon motor thanks to its 3mm shaft and 16x16mm M3 mount that make it easy to bolt straight to a hub or pulley.",
+      "summary": "Size-class reference for 1806 outrunners: the code nominally describes a 18 mm stator diameter and 6 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "antweight"
       ],
@@ -294,24 +262,15 @@
         "bread-and-butter"
       ],
       "specs": {
-        "kv_rpm_per_v": 2300,
-        "weight_g": 30,
-        "dia_mm": 18,
-        "length_mm": 6,
-        "shaft_dia_mm": 3,
-        "max_current_a": 22,
-        "resistance_ohm": 0.09,
-        "price_usd": 16,
-        "cells_s": 4
+        "stator_dia_mm": 18,
+        "stator_height_mm": 6
       },
       "pros": [
-        "3mm shaft is much stiffer than 1.5mm 13xx/14xx shafts, tolerates direct-drive hubs better",
-        "16x16mm M3 mount matches many printed and metal mount patterns",
-        "Wide KV selection (1400-2700kv) still sold new"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Heavier than 13xx/14xx for builders on a tight plastic-ant budget",
-        "Still uses drone-grade sleeve/ball bearings, not a combat-rated shaft"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -319,16 +278,19 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "medium"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2004",
       "type": "component",
-      "name": "2004 brushless motor (weapon)",
+      "name": "2004 brushless motor size class (weapon reference)",
       "aliases": [
         "2004"
       ],
-      "summary": "20mm x 4mm cinewhoop-derived stator, a lighter-weight alternative in the 20xx bracket for antweight builders who want a bit more diameter/torque than 1806 without the weight of a 2205+.",
+      "summary": "Size-class reference for 2004 outrunners: the code nominally describes a 20 mm stator diameter and 4 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "antweight"
       ],
@@ -338,22 +300,15 @@
         "outrunner"
       ],
       "specs": {
-        "kv_rpm_per_v": 2300,
-        "weight_g": 33,
-        "dia_mm": 20,
-        "length_mm": 4,
-        "shaft_dia_mm": 1.5,
-        "max_current_a": 20,
-        "resistance_ohm": 0.1,
-        "price_usd": 15,
-        "cells_s": 4
+        "stator_dia_mm": 20,
+        "stator_height_mm": 4
       },
       "pros": [
-        "Wide stator diameter gives good torque despite short 4mm height",
-        "Common and cheap (cinewhoop production run)"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Thin 1.5mm shaft is the weak point versus 1806/2205's 3-4mm shafts"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -361,17 +316,20 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2205",
       "type": "component",
-      "name": "2205 brushless motor (weapon)",
+      "name": "2205 brushless motor size class (weapon reference)",
       "aliases": [
         "2205",
         "2205 racing motor"
       ],
-      "summary": "22mm x 5mm stator, one of the definitive FPV racing-motor sizes and a very common 1 lb antweight vertical-disc/bar weapon motor because of its balance of torque, RPM range, and cheap availability.",
+      "summary": "Size-class reference for 2205 outrunners: the code nominally describes a 22 mm stator diameter and 5 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "antweight"
       ],
@@ -382,24 +340,15 @@
         "bread-and-butter"
       ],
       "specs": {
-        "kv_rpm_per_v": 2300,
-        "weight_g": 29,
-        "dia_mm": 22,
-        "length_mm": 5,
-        "shaft_dia_mm": 4,
-        "max_current_a": 30,
-        "resistance_ohm": 0.07,
-        "price_usd": 20,
-        "cells_s": 4
+        "stator_dia_mm": 22,
+        "stator_height_mm": 5
       },
       "pros": [
-        "4mm shaft is stiff enough for small direct-drive discs",
-        "16x16mm M3 bolt pattern is a de-facto antweight standard",
-        "Huge range of KV from 1300-2700 available from racing-drone brands"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "At the top of the antweight weight budget once you add a bell/prop-nut hub",
-        "Needs a good ESC with real current headroom (30A+ burst) for hard weapon stalls"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -408,16 +357,19 @@
         "https://bristolbotbuilders.com/tools/tipspeed/",
         "https://phaserfpv.com.au/blogs/fpv-news/what-is-the-difference-between-1804-vs-2204-vs-2205-vs-2006"
       ],
-      "confidence": "medium"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2206",
       "type": "component",
-      "name": "2206 brushless motor (weapon)",
+      "name": "2206 brushless motor size class (weapon reference)",
       "aliases": [
         "2206"
       ],
-      "summary": "22mm x 6mm stator, a taller/torquier sibling of the 2205, popular in freestyle-quad builds and equally popular as an antweight bar or disc spinner motor.",
+      "summary": "Size-class reference for 2206 outrunners: the code nominally describes a 22 mm stator diameter and 6 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "antweight"
       ],
@@ -428,22 +380,15 @@
         "bread-and-butter"
       ],
       "specs": {
-        "kv_rpm_per_v": 2100,
-        "weight_g": 32,
-        "dia_mm": 22,
-        "length_mm": 6,
-        "shaft_dia_mm": 4,
-        "max_current_a": 32,
-        "resistance_ohm": 0.065,
-        "price_usd": 22,
-        "cells_s": 4
+        "stator_dia_mm": 22,
+        "stator_height_mm": 6
       },
       "pros": [
-        "Taller stator than 2205 gives noticeably more torque at similar KV",
-        "Good tip-speed headroom at 4S for 3-4in discs and bars"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "A few extra grams versus 2205; matters on a tight 1 lb build"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -451,17 +396,20 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "medium"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2207",
       "type": "component",
-      "name": "2207 brushless motor (weapon)",
+      "name": "2207 brushless motor size class (weapon reference)",
       "aliases": [
         "2207",
         "2207 freestyle motor"
       ],
-      "summary": "22mm x 7mm stator, one of the most common freestyle/racing FPV motor sizes and a direct antweight favorite; Repeat Robotics' antweight hubmotor is built on this stator size for plug-and-play direct-drive weapons.",
+      "summary": "Size-class reference for 2207 outrunners: the code nominally describes a 22 mm stator diameter and 7 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "antweight"
       ],
@@ -472,23 +420,15 @@
         "bread-and-butter"
       ],
       "specs": {
-        "kv_rpm_per_v": 1950,
-        "weight_g": 35,
-        "dia_mm": 22,
-        "length_mm": 7,
-        "shaft_dia_mm": 5,
-        "max_current_a": 35,
-        "resistance_ohm": 0.06,
-        "price_usd": 25,
-        "cells_s": 4
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7
       },
       "pros": [
-        "Best stator-volume-to-weight ratio in the 22xx family, strong low-RPM torque",
-        "5mm shaft handles direct-drive hub loads well",
-        "Base stator size used by purpose-built combat hubmotors (e.g. Repeat 2207)"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Near the top of what a 1 lb build can spend on motor weight alone if also running a full-size hub"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://repeat-robotics.com/buy/2207-battle-ready-hubmotor/",
@@ -497,16 +437,19 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "medium"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2306",
       "type": "component",
-      "name": "2306 brushless motor (weapon)",
+      "name": "2306 brushless motor size class (weapon reference)",
       "aliases": [
         "2306"
       ],
-      "summary": "23mm x 6mm stator, the long-time standard 5-inch mini-quad motor size; used in antweights as a slightly larger-diameter alternative to the 22xx family for bar and drum spinners needing more torque.",
+      "summary": "Size-class reference for 2306 outrunners: the code nominally describes a 23 mm stator diameter and 6 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "antweight"
       ],
@@ -517,22 +460,15 @@
         "bread-and-butter"
       ],
       "specs": {
-        "kv_rpm_per_v": 1900,
-        "weight_g": 34,
-        "dia_mm": 23,
-        "length_mm": 6,
-        "shaft_dia_mm": 4,
-        "max_current_a": 33,
-        "resistance_ohm": 0.06,
-        "price_usd": 23,
-        "cells_s": 4
+        "stator_dia_mm": 23,
+        "stator_height_mm": 6
       },
       "pros": [
-        "Larger diameter than 22xx gives a bit more stall torque for the same weight class",
-        "19x19mm and 16x16mm mount options both exist on most 2306 shells"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Slightly heavier than a 2205/2207 for a similar power band"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -540,16 +476,19 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "medium"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2504",
       "type": "component",
-      "name": "2504 brushless motor (weapon)",
+      "name": "2504 brushless motor size class (weapon reference)",
       "aliases": [
         "2504"
       ],
-      "summary": "25mm x 4mm stator; a lighter member of the 25xx family used where extra diameter (torque) is wanted without jumping fully into 28xx weight, common on heavier 1 lb bar/drum builds pushing into light-beetle territory.",
+      "summary": "Size-class reference for 2504 outrunners: the code nominally describes a 25 mm stator diameter and 4 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "antweight",
         "beetleweight"
@@ -561,22 +500,15 @@
         "heavy-ant-crossover"
       ],
       "specs": {
-        "kv_rpm_per_v": 1700,
-        "weight_g": 52,
-        "dia_mm": 25,
-        "length_mm": 4,
-        "shaft_dia_mm": 5,
-        "max_current_a": 35,
-        "resistance_ohm": 0.055,
-        "price_usd": 28,
-        "cells_s": 6
+        "stator_dia_mm": 25,
+        "stator_height_mm": 4
       },
       "pros": [
-        "Wide stator gives strong low-speed torque, good for belt-reduced drums",
-        "5mm shaft suits belt pulleys well"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Heavy for a strict 1 lb budget; usually only fits builds that skimp elsewhere"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -584,16 +516,19 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2508",
       "type": "component",
-      "name": "2508 brushless motor (weapon)",
+      "name": "2508 brushless motor size class (weapon reference)",
       "aliases": [
         "2508"
       ],
-      "summary": "25mm x 8mm stator, a tall/high-torque long-range and heavy-lift drone motor; in combat it is a low-KV, high-torque option for belt-reduced 1 lb drums and bars that need bite more than raw tip speed.",
+      "summary": "Size-class reference for 2508 outrunners: the code nominally describes a 25 mm stator diameter and 8 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "antweight",
         "beetleweight"
@@ -606,22 +541,15 @@
         "high-torque"
       ],
       "specs": {
-        "kv_rpm_per_v": 1300,
-        "weight_g": 75,
-        "dia_mm": 25,
-        "length_mm": 8,
-        "shaft_dia_mm": 5,
-        "max_current_a": 40,
-        "resistance_ohm": 0.05,
-        "price_usd": 32,
-        "cells_s": 6
+        "stator_dia_mm": 25,
+        "stator_height_mm": 8
       },
       "pros": [
-        "Very strong stall torque for its class, low KV keeps bite high even geared 1:1",
-        "Popular, well-supported size from long-range FPV so parts are cheap"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "75g+ is a big bite out of a 454g total robot weight; almost always needs the rest of the bot built light"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -629,16 +557,19 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2806",
       "type": "component",
-      "name": "2806 brushless motor (weapon)",
+      "name": "2806 brushless motor size class (weapon reference)",
       "aliases": [
         "2806"
       ],
-      "summary": "28mm x 6mm stator, entry point of the 28xx family; used on heavy 1 lb builds and as a light-beetleweight crossover weapon motor, usually belt-driven to keep tip speed in range at low KV.",
+      "summary": "Size-class reference for 2806 outrunners: the code nominally describes a 28 mm stator diameter and 6 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "antweight",
         "beetleweight"
@@ -650,22 +581,15 @@
         "heavy-ant-crossover"
       ],
       "specs": {
-        "kv_rpm_per_v": 1300,
-        "weight_g": 68,
-        "dia_mm": 28,
-        "length_mm": 6,
-        "shaft_dia_mm": 5,
-        "max_current_a": 38,
-        "resistance_ohm": 0.05,
-        "price_usd": 30,
-        "cells_s": 6
+        "stator_dia_mm": 28,
+        "stator_height_mm": 6
       },
       "pros": [
-        "Big stator diameter gives strong torque even at moderate weight for a 28xx",
-        "Good belt-drive drum/bar motor"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "At 68g+ this is a beetleweight-style motor squeezed into a 1 lb build; leaves little weight for armor"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -673,16 +597,19 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2812",
       "type": "component",
-      "name": "2812 brushless motor (weapon)",
+      "name": "2812 brushless motor size class (weapon reference)",
       "aliases": [
         "2812"
       ],
-      "summary": "28mm x 12mm stator, a very tall/torquey size from the heavy-lift/cinelifter drone world; occasionally used on the heaviest 1 lb builds or light beetles as a high-torque belt-driven weapon motor.",
+      "summary": "Size-class reference for 2812 outrunners: the code nominally describes a 28 mm stator diameter and 12 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "beetleweight"
       ],
@@ -694,22 +621,15 @@
         "high-torque"
       ],
       "specs": {
-        "kv_rpm_per_v": 900,
-        "weight_g": 95,
-        "dia_mm": 28,
-        "length_mm": 12,
-        "shaft_dia_mm": 6,
-        "max_current_a": 45,
-        "resistance_ohm": 0.04,
-        "price_usd": 40,
-        "cells_s": 6
+        "stator_dia_mm": 28,
+        "stator_height_mm": 12
       },
       "pros": [
-        "Exceptional stall torque and thermal mass for sustained weapon use",
-        "Low KV keeps bite very high"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Too heavy for almost any legal 1 lb build; realistically a light-beetleweight part"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -717,17 +637,20 @@
         "https://runamok.tech/AskAaron/ants.html",
         "https://bristolbotbuilders.com/tools/tipspeed/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-2814",
       "type": "component",
-      "name": "2814 brushless motor (weapon)",
+      "name": "2814 brushless motor size class (weapon reference)",
       "aliases": [
         "2814",
         "Cobra 2814"
       ],
-      "summary": "28mm x 14mm stator, the classic heavy-lift/heavy-ant-beetle-crossover size; the Cobra 2814 in particular is a well-known belt-drive weapon motor used across heavy 1 lb and light beetleweight spinners.",
+      "summary": "Size-class reference for 2814 outrunners: the code nominally describes a 28 mm stator diameter and 14 mm stator height, not one standardized motor product.",
       "weight_classes": [
         "beetleweight"
       ],
@@ -739,44 +662,40 @@
         "belt-drive"
       ],
       "specs": {
-        "kv_rpm_per_v": 1850,
-        "weight_g": 112,
-        "dia_mm": 28,
-        "length_mm": 14,
-        "shaft_dia_mm": 6,
-        "max_current_a": 55,
-        "resistance_ohm": 0.035,
-        "price_usd": 45,
-        "cells_s": 6
+        "stator_dia_mm": 28,
+        "stator_height_mm": 14
       },
       "pros": [
-        "Huge stator volume gives serious torque and thermal headroom for belt-driven drums/discs",
-        "Cobra 2814 1850kv specifically documented as a belt-drive combat weapon motor choice"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Well over 1 lb (454g) motor-only weight budget on its own in some windings; realistically a beetleweight part used at the antweight/beetle crossover on the lightest windings"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
       ],
-      "confidence": "medium"
+      "confidence": "low",
+      "category": "weapon-motor",
+      "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
+      "reference_only": true
     },
     {
       "id": "motor-repeat-2822",
       "type": "component",
-      "name": "Repeat Robotics 2822 Weapon Motor",
+      "name": "Repeat Robotics 2822 Mk3 Weapon Motor",
       "aliases": [
         "Repeat 2822",
         "Repeat 2822 Mk3",
         "Repeat 2822 Direct Drive V2"
       ],
-      "summary": "Purpose-built antweight weapon outrunner on a 28mm-diameter, 22mm-length can, sold specifically for direct-drive antweight spinners rather than repurposed from a drone; widely regarded as one of the most durable off-the-shelf antweight weapon motors.",
+      "summary": "Purpose-built antweight weapon outrunner offered in 1100, 1800, and 2300KV windings with a hardened 4 mm shaft and combat-oriented mechanical retention.",
       "weight_classes": [
         "antweight"
       ],
       "vendor": "Repeat Robotics",
       "category": "weapon-motor",
-      "product_url": "https://repeat-robotics.com/buy/repeat-2822-antweight-motor/",
+      "product_url": "https://repeat-robotics.com/products/repeat-2822-mk3",
       "tags": [
         "weapon-motor",
         "purpose-built",
@@ -785,11 +704,14 @@
         "bread-and-butter"
       ],
       "specs": {
-        "kv_rpm_per_v": 1100,
-        "dia_mm": 28,
-        "length_mm": 22,
+        "weight_g": 46,
         "shaft_dia_mm": 4,
-        "cells_s": 4
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "kv_option_low": 1100,
+        "kv_option_mid": 1800,
+        "kv_option_high": 2300,
+        "price_usd": 20
       },
       "pros": [
         "Designed from the start for weapon shock loads, not adapted from a camera-drone motor",
@@ -800,28 +722,29 @@
         "Costs more than a generic same-size drone motor",
         "Weight/price not independently confirmed for every winding in this listing"
       ],
-      "notes": "Multiple KV windings are sold under the Repeat 2822 name (e.g. 1100kv variants seen in resale listings). Exact weight and price were not confirmed in this pass; do not treat the numbers above as complete -- only KV, can size, and general design intent are confirmed.",
+      "notes": "46 g with full-length wires. The 1100KV winding is additionally rated by Repeat for 6S. Repeat recommends 1100KV for horizontals, 1800KV for verticals, and 2300KV for small drums; those are vendor recommendations, not universal rules.",
       "sources": [
-        "https://repeat-robotics.com/products/repeat-2822-mk3",
-        "https://shop.robotsmashingleague.com/products/repeat-2822-1100-kv-1100",
-        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors"
+        "https://repeat-robotics.com/products/repeat-2822-mk3"
       ],
-      "confidence": "medium"
+      "confidence": "high",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/2822V3-1.jpg?v=1776123188&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/repeat-2822-mk3",
+      "image_provider": "Repeat Robotics"
     },
     {
       "id": "motor-repeat-2207-hubmotor",
       "type": "component",
-      "name": "Repeat Robotics 2207 Battle Ready Hubmotor",
+      "name": "Repeat Robotics 2207 Antweight Battle Ready Hubmotor",
       "aliases": [
         "Repeat 2207 Hubmotor"
       ],
-      "summary": "A 2207-stator combat hubmotor sold as a complete direct-drive weapon solution for antweights: the weapon hub/disc bolts straight to the motor bell, eliminating a separate shaft-and-bearing weapon assembly.",
+      "summary": "Purpose-built antweight weapon hubmotor based on a 2207.5 donor stator, with bearing-supported rotor hardware and direct blade mounting.",
       "weight_classes": [
         "antweight"
       ],
       "vendor": "Repeat Robotics",
       "category": "weapon-motor",
-      "product_url": "https://repeat-robotics.com/buy/2207-battle-ready-hubmotor/",
+      "product_url": "https://repeat-robotics.com/products/2207-antweight-battle-ready-hubmotor",
       "tags": [
         "weapon-motor",
         "hubmotor",
@@ -829,9 +752,16 @@
         "purpose-built"
       ],
       "specs": {
-        "dia_mm": 22,
-        "length_mm": 7,
-        "cells_s": 4
+        "weight_without_wires_g": 55,
+        "weight_with_wires_g": 59,
+        "weight_with_blade_hardware_g": 65,
+        "max_dia_mm": 43.94,
+        "length_mm": 25.4,
+        "kv_option_low": 1200,
+        "kv_option_mid": 1800,
+        "kv_option_high": 2400,
+        "recommended_cells_s_min": 3,
+        "recommended_cells_s_max": 4
       },
       "pros": [
         "Simplifies a vertical-disc weapon to 'bolt disc to bell' with no separate weapon shaft/bearings needed",
@@ -842,9 +772,13 @@
         "KV/weight/price not confirmed in this research pass"
       ],
       "sources": [
-        "https://repeat-robotics.com/buy/2207-battle-ready-hubmotor/"
+        "https://repeat-robotics.com/products/2207-antweight-battle-ready-hubmotor"
       ],
-      "confidence": "low"
+      "confidence": "high",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/f08d3b50-IMG_6968.png?v=1770827777&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/2207-antweight-battle-ready-hubmotor",
+      "image_provider": "Repeat Robotics",
+      "notes": "Requires a 1/4-inch through shaft or similar support; it is not included in the base motor. Repeat lists 1200/1800/2400KV options and recommends 3S/4S generally; the 1200KV winding may be used on 6S with a suitably small weapon. Weight depends strongly on wires, mounting hardware, and shaft choice."
     },
     {
       "id": "motor-repeat-scalar",
@@ -869,11 +803,13 @@
       "specs": {
         "dia_mm": 23
       },
-      "notes": "Outer bell diameter (~28.2mm) is larger than the 23mm stator class, i.e. the bell itself adds rotating mass/inertia beyond a standard drone-motor bell of that stator size -- useful context when estimating total weapon-side MOI, since the motor bell is part of the flywheel, not just the blade. KV/weight/price not confirmed in this pass.",
+      "notes": "Legacy/retailer naming retained for search compatibility. Use the current Repeat Ant Belt Drive 2305 2400KV exact product record for purchase/design decisions.",
       "sources": [
         "https://itgresa.com/product/repeat-robotics-scalar-weapon-motor/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "superseded_by": "motor-repeat-ant-belt-drive-2305-2400kv"
     },
     {
       "id": "motor-rdy-5022",
@@ -898,68 +834,102 @@
         "kv_rpm_per_v": 1700,
         "cells_s": 4
       },
-      "notes": "Also offered in a 1100kv winding for builders wanting more torque/less top speed at the same voltage. Weight, dimensions and price not confirmed in this pass.",
+      "notes": "Legacy RDY-5022 reference retained for old build/search compatibility. The current product is RDY-MINI-5022-V2, represented by separate exact 1100KV and 1700KV records.",
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "superseded_by": "motor-jcr-rdy-mini-5022-v2-1700kv"
     },
     {
       "id": "motor-rdy-5536",
       "type": "component",
-      "name": "RDY-5536 Beetleweight Hubmotor",
+      "name": "Just 'Cuz RDY-5536 V3 Hubmotor",
       "aliases": [
         "RDY-5536"
       ],
-      "summary": "Just 'Cuz Robotics beetleweight-class direct-drive hubmotor, offered in 900kv and 1200kv windings; relevant to antweights mainly as the upper end of the size ladder / heavy-ant crossover reference point.",
+      "summary": "Current battle-ready beetleweight hubmotor with massive 6805 bearings, hardened through-shaft construction and direct blade clamping.",
       "weight_classes": [
-        "beetleweight"
+        "beetleweight",
+        "antweight"
       ],
       "vendor": "Just 'Cuz Robotics",
       "category": "weapon-motor",
       "tags": [
         "weapon-motor",
         "hubmotor",
-        "direct-drive",
-        "purpose-built",
-        "heavy-ant-crossover"
+        "battle-ready",
+        "5536",
+        "jcr"
       ],
       "specs": {
-        "kv_rpm_per_v": 900,
-        "cells_s": 6
+        "kv_options": "1200 V3, 900 V2",
+        "cells_s_min": 3,
+        "cells_s_max": 6,
+        "motor_dia_mm": 55,
+        "motor_length_mm": 36,
+        "stator_dia_mm": 28,
+        "stator_height_mm": 12,
+        "weight_g": 212,
+        "shaft_dia_mm": 7.5,
+        "shaft_material": "4140 hardened steel",
+        "resistance_mohm_1200kv": 111,
+        "resistance_mohm_900kv": 177,
+        "wire_awg": 18,
+        "wire_length_mm": 180,
+        "max_weapon_thickness_mm": 12.7,
+        "price_usd": 95
       },
       "sources": [
-        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+        "https://justcuzrobotics.com/products/rdy-5536-1200kv-hubmotor-battle-ready-weapon-motor"
       ],
-      "confidence": "low"
+      "confidence": "high",
+      "product_url": "https://justcuzrobotics.com/products/rdy-5536-1200kv-hubmotor-battle-ready-weapon-motor",
+      "notes": "July 2026 vendor note: V3 is sold in 1200KV with revised magnet geometry/epoxy and a 2024-aluminum outer hub; remaining V2 stock is 900KV. JCR recommends 50A-or-greater ESCs and rigid mounting on both sides."
     },
     {
       "id": "motor-jcr-4935",
       "type": "component",
-      "name": "JCR-4935 Horizontal Spinner Motor",
+      "name": "Just 'Cuz Cherry Bomb JCR-4935 1000KV",
       "aliases": [
         "JCR-4935"
       ],
-      "summary": "Just 'Cuz Robotics 1000kv motor specifically marketed for horizontal spinners (bars/blades spun about a vertical-ish or horizontal axis with high aerodynamic drag), where a lower KV is used to keep current sane against drag.",
+      "summary": "Purpose-built 4935 combat weapon motor with a hardened 8mm tapered shaft, oversized bearings, epoxied magnets and direct weapon-interface features.",
       "weight_classes": [
-        "antweight",
         "beetleweight"
       ],
       "vendor": "Just 'Cuz Robotics",
       "category": "weapon-motor",
       "tags": [
         "weapon-motor",
-        "horizontal-spinner",
-        "purpose-built"
+        "battle-ready",
+        "4935",
+        "1000kv",
+        "jcr"
       ],
       "specs": {
-        "kv_rpm_per_v": 1000
+        "kv_rpm_per_v": 1000,
+        "cells_s_min": 3,
+        "cells_s_max": 6,
+        "motor_dia_mm": 49,
+        "motor_length_mm": 35.5,
+        "stator_dia_mm": 40,
+        "stator_height_mm": 12,
+        "weight_g": 216.5,
+        "shaft_dia_mm": 8,
+        "shaft_material": "4140 alloy steel",
+        "shaft_hardness_hrc": "46-48",
+        "resistance_mohm": 86.5,
+        "wire_awg": 14,
+        "price_usd": 85
       },
-      "notes": "1000kv is deliberately low for the size class because horizontal bars/blades have much higher aerodynamic drag than a thin vertical disc, so a lower target RPM keeps continuous current and heat manageable.",
+      "notes": "Current stronger-base revision available from February 18, 2026. Uses 698 and 688 bearings, 6x M5 frame bolts plus an alternate 4x M3/25mm compatibility pattern, and dowel/bolt weapon mounting.",
       "sources": [
-        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+        "https://justcuzrobotics.com/products/jcr-4935-1000kv"
       ],
-      "confidence": "low"
+      "confidence": "high",
+      "product_url": "https://justcuzrobotics.com/products/jcr-4935-1000kv"
     },
     {
       "id": "motor-badass-2315",
@@ -987,7 +957,9 @@
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "notes": "Legacy/example motor retained for historical design context. No current exact product listing was verified in the 2026 catalog pass."
     },
     {
       "id": "motor-turbo-2830",
@@ -1017,7 +989,9 @@
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "notes": "Legacy/example motor retained for historical design context. No current exact product listing was verified in the 2026 catalog pass."
     },
     {
       "id": "formula-tip-speed",

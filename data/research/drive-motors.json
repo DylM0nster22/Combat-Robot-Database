@@ -6,12 +6,12 @@
   {
    "id": "motor-fingertech-silver-spark",
    "type": "component",
-   "name": "FingerTech \"Silver Spark\" 16mm Gearmotor",
+   "name": "FingerTech \"Silver Spark\" 16mm Gearmotor, 33.3:1",
    "aliases": [
     "Silver Spark",
     "FT Silver Spark"
    ],
-   "summary": "The default drive gearmotor for 1 lb antweight robots: a Mabuchi FK-050 brushed motor mated to an all-metal 16mm spur gearhead, sold across a ladder of 9 gear ratios from 11.1:1 (fast) to 600:1 (slow/high-torque).",
+   "summary": "33.3:1 Silver Spark antweight gearmotor: a 16 mm all-metal spur gearbox mated to a Mabuchi FK-050 motor with a 3 mm D shaft.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -25,14 +25,16 @@
    ],
    "specs": {
     "weight_g": 29,
-    "voltage_nominal_v": 7.4,
-    "rpm_no_load": 11530,
     "gear_ratio": 33.3,
-    "stall_current_a": 1.3,
-    "torque_stall_kgcm": 1.14,
+    "gearbox_dia_mm": 16,
     "shaft_dia_mm": 3,
-    "length_mm": 38,
-    "price_usd": 19.29
+    "shaft_length_mm": 38,
+    "body_length_mm": 41.4,
+    "rpm_no_load_2s": 350,
+    "rpm_no_load_3s": 524,
+    "motor_nominal_voltage_v": 6,
+    "motor_stall_current_a_at_6v": 1.3,
+    "price_usd": 19.69
    },
    "pros": [
     "All-metal gearbox is far more durable than plastic-geared alternatives",
@@ -45,12 +47,15 @@
     "Bare motor (not brushless) has lower efficiency and shorter brush life than premium brushless drive pods",
     "600:1 and 300:1 ratios are fragile-ish under sustained stall loads"
    ],
-   "notes": "Base Mabuchi FK-050 motor spec (same for every ratio): 11,530 RPM no-load and 1.3A stall current, quoted for the 7.4V (2S LiPo) range typical of antweights; FingerTech states it runs 3V-18.5V. Bare-motor stall torque is ~0.0461 kg-cm; output stall torque at the wheel shaft is approximately bare_stall_torque x ratio x gearbox_efficiency, using ~0.75 efficiency for a 2-3 stage spur gearbox (medium confidence, not officially published). Full ratio ladder: 11.1, 22.2, 33.3, 50, 83.3 (discontinued/low stock), 100, 200, 300, 600:1. Weight by ratio: 11:1 = 28g, 22:1 through 100:1 = 29g, 200:1/300:1 = 31g, 600:1 = 32g. Shaft is 3mm with a flat, 38mm standard length, with a shorter 22mm version available on 22:1/33:1/50:1 for tighter builds. 11mm circular face-mount pattern for standard FingerTech motor mounts.",
+   "notes": "The old record incorrectly used the raw motor's 11,530 rpm as the geared output speed. FingerTech/Palm Beach Bots list about 350 rpm on 2S and 524 rpm on 3S for the 33.3:1 gearbox. 3S operation reduces motor life.",
    "sources": [
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
     "https://palmbeachbots.com/products/fingertech-silver-spark-16mm-gearmotor-33-1"
    ],
-   "confidence": "high"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
   },
   {
    "id": "motor-fingertech-silver-spark-11-1",
@@ -74,14 +79,15 @@
    ],
    "specs": {
     "weight_g": 28,
-    "voltage_nominal_v": 7.4,
-    "rpm_no_load": 1048,
     "gear_ratio": 11.1,
-    "stall_current_a": 1.3,
-    "torque_stall_kgcm": 0.38,
+    "gearbox_dia_mm": 16,
     "shaft_dia_mm": 3,
-    "length_mm": 38,
-    "price_usd": 19.29
+    "shaft_length_mm": 38,
+    "rpm_no_load_2s": 1058,
+    "rpm_no_load_3s": 1587,
+    "motor_nominal_voltage_v": 6,
+    "motor_stall_current_a_at_6v": 1.3,
+    "price_usd": 19.69
    },
    "pros": [
     "Highest stock top speed of the Silver Spark family",
@@ -90,11 +96,15 @@
    "cons": [
     "Lowest stock torque of the ladder — can be traction-limited or torque-limited depending on wheel size and weight distribution"
    ],
-   "notes": "rpm_no_load and torque_stall_kgcm here are computed from the shared base-motor spec (11,530 RPM / 0.0461 kg-cm) divided/multiplied by the 11.1:1 ratio with an assumed ~0.75 gearbox efficiency; treat as medium-confidence estimates, not a FingerTech-published per-ratio table (their site shows the ratio table as an image).",
+   "notes": "Output-speed figures are FingerTech/Palm Beach Bots values at 2S and 3S. The underlying FK-050 motor is nominally 6 V; running higher voltage increases speed and reduces motor life.",
    "sources": [
-    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+    "https://palmbeachbots.com/products/fingertech-silver-spark-16mm-gearmotor-33-1"
    ],
-   "confidence": "medium"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
   },
   {
    "id": "motor-fingertech-silver-spark-100-1",
@@ -117,14 +127,15 @@
    ],
    "specs": {
     "weight_g": 29,
-    "voltage_nominal_v": 7.4,
-    "rpm_no_load": 115,
     "gear_ratio": 100,
-    "stall_current_a": 1.3,
-    "torque_stall_kgcm": 3.46,
+    "gearbox_dia_mm": 16,
     "shaft_dia_mm": 3,
-    "length_mm": 38,
-    "price_usd": 19.29
+    "shaft_length_mm": 38,
+    "rpm_no_load_2s": 116,
+    "rpm_no_load_3s": 175,
+    "motor_nominal_voltage_v": 6,
+    "motor_stall_current_a_at_6v": 1.3,
+    "price_usd": 19.69
    },
    "pros": [
     "High torque headroom, good for pushing/wedge bots and small lifter actuation",
@@ -133,11 +144,15 @@
    "cons": [
     "Slow top speed, not ideal for a bot that needs to dodge quickly"
    ],
-   "notes": "Computed from base motor spec at ~0.75 gearbox efficiency; medium confidence.",
+   "notes": "Output-speed figures are FingerTech/Palm Beach Bots values at 2S and 3S. The underlying FK-050 motor is nominally 6 V; running higher voltage increases speed and reduces motor life.",
    "sources": [
-    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+    "https://palmbeachbots.com/products/fingertech-silver-spark-16mm-gearmotor-33-1"
    ],
-   "confidence": "medium"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
   },
   {
    "id": "motor-fingertech-silver-spark-200-1",
@@ -160,14 +175,15 @@
    ],
    "specs": {
     "weight_g": 31,
-    "voltage_nominal_v": 7.4,
-    "rpm_no_load": 58,
     "gear_ratio": 200,
-    "stall_current_a": 1.3,
-    "torque_stall_kgcm": 6.9,
+    "gearbox_dia_mm": 16,
     "shaft_dia_mm": 3,
-    "length_mm": 38,
-    "price_usd": 19.29
+    "shaft_length_mm": 38,
+    "rpm_no_load_2s": 58,
+    "rpm_no_load_3s": 87,
+    "motor_nominal_voltage_v": 6,
+    "motor_stall_current_a_at_6v": 1.3,
+    "price_usd": 19.69
    },
    "pros": [
     "Very high torque for its size/weight",
@@ -177,11 +193,15 @@
     "Far too slow for main drive on a competitive bot",
     "At this ratio the output gear stage becomes the limiting strength factor, not the motor"
    ],
-   "notes": "Computed estimate at ~0.75 efficiency; medium confidence. FingerTech's Gold Spark datasheet explicitly warns that torque above 6.84 kg-cm (95 oz-in) will damage the output gear stage on that line, and a similar mechanical ceiling likely applies to Silver Spark's higher ratios even though it uses an all-metal gearbox.",
+   "notes": "Output-speed figures are FingerTech/Palm Beach Bots values at 2S and 3S. The underlying FK-050 motor is nominally 6 V; running higher voltage increases speed and reduces motor life.",
    "sources": [
-    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+    "https://palmbeachbots.com/products/fingertech-silver-spark-16mm-gearmotor-33-1"
    ],
-   "confidence": "low"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
   },
   {
    "id": "motor-fingertech-gold-spark",
@@ -204,7 +224,7 @@
    ],
    "specs": {
     "weight_g": 28,
-    "voltage_nominal_v": 7.4,
+    "voltage_nominal_v": 6,
     "rpm_no_load": 231,
     "gear_ratio": 50,
     "stall_current_a": 1.3,
@@ -225,7 +245,10 @@
    "sources": [
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
   },
   {
    "id": "motor-fingertech-gold-spark-150-1",
@@ -234,7 +257,7 @@
    "aliases": [
     "Gold Spark 150:1"
    ],
-   "summary": "A higher-torque Gold Spark ratio near the top of its safe operating range before hitting the plastic output gear's 6.84 kg-cm damage threshold.",
+   "summary": "150:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -243,18 +266,26 @@
     "drive-motor",
     "brushed",
     "16mm",
-    "fingertech",
-    "budget"
+    "gold-spark",
+    "fingertech"
    ],
    "specs": {
     "weight_g": 28,
-    "voltage_nominal_v": 7.4,
-    "rpm_no_load": 77,
     "gear_ratio": 150,
-    "stall_current_a": 1.3,
-    "torque_stall_kgcm": 4.5,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
     "shaft_dia_mm": 3,
-    "price_usd": 14.79
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
    },
    "pros": [
     "Cheap way to get real torque for a plastic-ant lifter or pusher"
@@ -262,20 +293,23 @@
    "cons": [
     "Approaching the gearbox's rated damage threshold under stall; avoid pinning at full stall for long periods"
    ],
-   "notes": "Estimated output figures at ~0.65 efficiency; medium/low confidence on exact torque number.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits. Current page was out of stock when checked September 2026.",
    "sources": [
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
    ],
-   "confidence": "low"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
   },
   {
    "id": "motor-fingertech-megaspark-brushless",
    "type": "component",
-   "name": "FingerTech \"MegaSpark\" Brushless 24mm Planetary Gearmotor",
+   "name": "FingerTech Brushless Mega Spark 1500KV Planetary Gearmotor",
    "aliases": [
     "MegaSpark"
    ],
-   "summary": "A premium 24mm brushless planetary gearmotor sold through the FingerTech ecosystem (via resellers), sized more for beetleweight than antweight but relevant as the high-end brushless benchmark antweight brushless pods are compared against.",
+   "summary": "24mm brushless planetary drive gearmotor using FingerTech's FT1806 1500KV motor and a 27:1 all-metal planetary gearbox.",
    "weight_classes": [
     "beetleweight",
     "antweight"
@@ -284,10 +318,23 @@
     "drive-motor",
     "brushless",
     "planetary",
-    "premium"
+    "fingertech",
+    "1500kv"
    ],
    "specs": {
-    "dia_mm": 24
+    "weight_g": 71.5,
+    "kv_rpm_per_v": 1500,
+    "gear_ratio": 27,
+    "gearbox_dia_mm": 24,
+    "motor_dia_mm": 23.1,
+    "shaft_dia_mm": 6,
+    "shaft_length_mm": 38,
+    "length_mm": 46.5,
+    "rpm_no_load_3s": 616,
+    "rpm_no_load_4s": 822,
+    "resistance_ohm": 0.15,
+    "max_current_a_at_12v": 10,
+    "max_output_power_w_at_12v": 72
    },
    "pros": [
     "All-metal planetary gearbox is far more torque-dense and durable than a spur gearbox",
@@ -297,11 +344,14 @@
     "Oversized/heavy for a standard 1 lb antweight budget; more common on beetleweights",
     "Requires a reversing brushless ESC, adding cost/weight/complexity vs a plug-and-play brushed motor"
    ],
-   "notes": "Included as context for how the antweight brushless drive-pod trend (Repeat Robotics, etc.) scales up; full spec sheet (kv, ratio options, price) was not available in this research pass — treat weight/price as unknown rather than guessed.",
+   "notes": "Current post-Sept-2025 version uses M3 face-mount screws on a 19mm circle and is assembled with threadlocker. The long 6mm output shaft contributes materially to the listed 71.5g weight.",
    "sources": [
-    "https://itgresa.com/product/megaspark-brushless-drive-gearmotor/"
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-mega-spark-bl-1500KV"
    ],
-   "confidence": "low"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-mega-spark-bl-1500KV"
   },
   {
    "id": "motor-repeat-mini-brushed-mk2",
@@ -311,7 +361,7 @@
     "Repeat Mini Brushed Mk2",
     "Repeat Drive Brushed"
    ],
-   "summary": "Repeat Robotics' antweight brushed planetary gearmotor, positioned as a more durable alternative to spur-gear motors like Silver Spark, using a multi-stage all-metal planetary gearbox for higher torque density and durability.",
+   "summary": "Antweight brushed planetary gearmotor using a custom 030 motor and 16 mm, 22.6:1 all-metal gearbox, available with 3 or 4 mm D shafts.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -324,8 +374,19 @@
     "repeat-robotics"
    ],
    "specs": {
-    "price_usd": 25,
-    "shaft_dia_mm": 3
+    "weight_g": 26.5,
+    "weight_4mm_shaft_g": 27.5,
+    "gear_ratio": 22.6,
+    "shaft_dia_mm": 3,
+    "cells_s_min": 2,
+    "cells_s_max": 4,
+    "rpm_no_load_2s": 752,
+    "rpm_no_load_3s_12v": 1220,
+    "rpm_no_load_4s": 1504,
+    "stall_current_a_at_12v": 2,
+    "torque_stall_gcm_at_12v": 1187,
+    "max_output_power_w_at_12v": 3.72,
+    "price_usd": 20
    },
    "pros": [
     "Planetary gearbox is more durable under shock loading than a single-stage spur gearbox",
@@ -335,12 +396,14 @@
     "Costs more than a Silver Spark or generic N20",
     "Exact published RPM/torque/current spec table was not accessible in this research pass"
    ],
-   "notes": "Listed at $25 on the Repeat Robotics shop as \"Mini Pro Brushed.\" Detailed numeric specs (no-load RPM, stall current, torque per ratio) were not extractable from the shop listing page in this pass; treat weight/rpm/torque as domain-knowledge estimates only, not sourced numbers, until verified directly against the product page.",
+   "notes": "Manufacturer recommends 3S. The 3 mm shaft version is 26.5 g; the 4 mm shaft version is 27.5 g. Face-mount screw engagement is limited to about 2 mm.",
    "sources": [
-    "https://repeat-robotics.com/shop/?products-per-page=all",
-    "https://itgresa.com/product/repeat-robotics-brushed-drive-gearmotor/"
+    "https://repeat-robotics.com/products/repeat-mini-brushed-mk2-1pcs"
    ],
-   "confidence": "low"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "Repeat Robotics",
+   "product_url": "https://repeat-robotics.com/products/repeat-mini-brushed-mk2-1pcs"
   },
   {
    "id": "motor-repeat-mini-brushless-1106-mk4",
@@ -350,7 +413,7 @@
     "Repeat Mini Brushless Mk4.1",
     "Repeat 1106 drive pod"
    ],
-   "summary": "Repeat Robotics' flagship antweight brushless drive gearmotor: a custom-wound 1106 outrunner brushless motor built directly into a 2-stage, 28.5:1, all-metal 16mm planetary gearbox with a 4mm hardened output shaft, aimed at builders who want more speed and efficiency than brushed Silver Sparks at a similar weight.",
+   "summary": "1106 3500KV brushless antweight gearmotor with a 16 mm all-metal planetary gearbox in 28.5:1 drive or 107:1 high-reduction versions.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -364,10 +427,15 @@
     "outrunner"
    ],
    "specs": {
-    "weight_g": 24,
+    "kv_rpm_per_v": 3500,
+    "cells_s_min": 2,
+    "cells_s_max": 4,
     "gear_ratio": 28.5,
-    "shaft_dia_mm": 4,
-    "price_usd": 18
+    "shaft_dia_mm": 3,
+    "weight_g": 22.4,
+    "weight_4mm_shaft_g": 23.2,
+    "body_length_mm": 28,
+    "price_usd": 35
    },
    "pros": [
     "Brushless motor = no brush wear, higher efficiency, higher power density than a same-size brushed motor",
@@ -379,13 +447,17 @@
     "Sensorless brushless motors can cog/stutter at very low duty cycle / near-stall, an issue brushed motors don't have",
     "Historically has had periods of being sold out due to demand"
    ],
-   "notes": "The earlier Mk3/Mk4 generation used a 1104-size custom-wound motor (~3500kv); Mk4.1 moved to a 1106 stator (more stator volume/copper) for more torque and power in the same 16mm gearbox footprint. Using a 3500kv assumption and the 28.5:1 gearbox: at 2S (7.4V) no-load motor speed is ~25,900 rpm giving ~909 rpm at the output shaft; at 3S (11.1V) ~1,363 rpm output; at 4S (14.8V) ~1,818 rpm output (all idealized, no-load, medium/low confidence since kv was reported for the earlier 1104 version, not confirmed for 1106).",
+   "notes": "28.5:1 drive version: 22.4 g with 3 mm shaft or 23.2 g with 4 mm shaft. 107:1 high-reduction version: 27.3 g / 28.3 g and about 31 mm body length.",
    "sources": [
-    "https://palmbeachbots.com/products/repeat-robotics-mini-16mm-brushless-planetary-motor-mk4-4mm-shaft",
-    "https://repeat-robotics.com/products/repeat-mini-mk4",
-    "https://itgresa.com/product/repeat-robotics-mini-brushless-drive-gearmotor-mk4/"
+    "https://repeat-robotics.com/products/repeat-mini-mk4"
    ],
-   "confidence": "medium"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "Repeat Robotics",
+   "product_url": "https://repeat-robotics.com/products/repeat-mini-mk4",
+   "image_url": "https://repeat-robotics.com/cdn/shop/files/26724.jpg?v=1788293221&width=416",
+   "image_source_url": "https://repeat-robotics.com/products/repeat-mini-mk4",
+   "image_provider": "Repeat Robotics"
   },
   {
    "id": "motor-repeat-mini-pro-1106",
@@ -394,7 +466,7 @@
    "aliases": [
     "Repeat Mini Pro 1106"
    ],
-   "summary": "A higher-spec / higher-price variant of Repeat's 1106 brushless antweight drive gearmotor line, sold alongside the standard Mk4.1 for builders wanting extra performance or refinement (e.g. better bearings, tighter tolerances).",
+   "summary": "Current Repeat Mini Pro 1106 antweight brushless planetary gearmotor; retained as an exact catalog product even though this pass did not recover a full live specification table.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -418,28 +490,44 @@
    ],
    "notes": "Price ($42) confirmed from the Repeat Robotics shop listing; exact technical differentiation from the standard Mini Brushless 1106 was not available in the pages fetched.",
    "sources": [
-    "https://repeat-robotics.com/shop/?products-per-page=all"
+    "https://repeat-robotics.com/collections/drive-motors"
    ],
-   "confidence": "low"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "Repeat Robotics",
+   "catalog_entry_only": true,
+   "availability_note": "Sold out when checked September 2026."
   },
   {
    "id": "motor-repeat-compact-1806-brushless",
    "type": "component",
-   "name": "Repeat Robotics Compact Brushless 1806 Drive Gearmotor",
+   "name": "Repeat Robotics Compact Brushless 1806 Planetary Gearmotor",
    "aliases": [
     "Repeat Compact 1806"
    ],
-   "summary": "A lightweight brushless planetary gearmotor built around an 1806-size motor, marketed as the lightest brushless beetleweight drive motor on the market; included here as context for scaling brushless drive up from antweight, or for extra-light plastic-antweight-adjacent builds where a lower part count matters more than absolute minimum weight.",
+   "summary": "Integrated 1806-2300KV brushless motor and 22.6:1 planetary gearbox with a hardened 4mm output shaft.",
    "weight_classes": [
-    "beetleweight"
+    "beetleweight",
+    "antweight"
    ],
    "tags": [
     "drive-motor",
     "brushless",
     "planetary",
-    "repeat-robotics"
+    "1806",
+    "repeat"
    ],
-   "specs": {},
+   "specs": {
+    "weight_g": 44.5,
+    "kv_rpm_per_v": 2300,
+    "gear_ratio": 22.6,
+    "shaft_dia_mm": 4,
+    "shaft_length_mm": 25,
+    "rpm_no_load_3s": 1130,
+    "rpm_no_load_4s": 1500,
+    "cells_s_min": 2,
+    "cells_s_max": 4
+   },
    "pros": [
     "Very light for a brushless beetleweight motor",
     "Hardened steel 4mm shaft with dual bearings on the gearbox output"
@@ -447,12 +535,14 @@
    "cons": [
     "Sized and priced for 3 lb beetleweight, oversized/overpriced for a standard 1 lb antweight budget"
    ],
-   "notes": "Context only — not a direct fit for 1 lb antweight or plastic antweight, but shows the same drive-pod architecture (brushless motor cast directly into a planetary gearbox) scaled up one weight class.",
+   "notes": "Repeat lists a 20A-or-larger ESC recommendation. The replacement motor alone is listed at 22.4g. Product is currently shown as sold out, but the specifications remain useful for existing robots.",
    "sources": [
-    "https://itgresa.com/product/repeat-robotics-compact-brushless-1806-drive-gearmotor/",
-    "https://repeat-robotics.com/products/repeat-compact-1806"
+    "https://repeat-robotics.com/collections/antweight/products/repeat-compact-1806"
    ],
-   "confidence": "low"
+   "confidence": "high",
+   "category": "drive-motor",
+   "vendor": "Repeat Robotics",
+   "product_url": "https://repeat-robotics.com/collections/antweight/products/repeat-compact-1806"
   },
   {
    "id": "motor-n20-generic-100-1",
@@ -462,7 +552,7 @@
     "N20 100:1",
     "12mm N20 gearmotor"
    ],
-   "summary": "A widely sold 12mm-diameter micro DC gearmotor (compatible with Sanyo NA4S-style gearboxes) used by budget and plastic-antweight builders as a cheap alternative to FingerTech/Repeat/Pololu motors, at the cost of unit-to-unit quality consistency.",
+   "summary": "Reference entry for the Generic N20 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -475,13 +565,7 @@
     "quality-lottery"
    ],
    "specs": {
-    "weight_g": 10,
-    "voltage_nominal_v": 6,
-    "rpm_no_load": 150,
-    "gear_ratio": 100,
-    "shaft_dia_mm": 3,
-    "torque_stall_kgcm": 2,
-    "price_usd": 4
+    "gear_ratio": 100
    },
    "pros": [
     "Extremely cheap (a few dollars each), widely available from many sellers",
@@ -492,13 +576,13 @@
     "Many units mix plastic gears into otherwise \"metal gear\" listings",
     "No standardized spec sheet across sellers — published numbers are unreliable"
    ],
-   "notes": "Base N20 motor is commonly quoted at ~15,000 RPM no-load at 6V for the bare motor before gearing; a 100:1 gearbox gives ~150 RPM output, consistent with a 298:1 listing observed selling at 50 RPM (15,000/298 ~= 50). Gearbox torque ratings published by manufacturers cap around 20 kg*mm (2.0 kg-cm) of continuous output torque for most ratios below 380:1, meaning the motor's theoretical stall torque at high ratios exceeds what the gearbox can survive — a mechanical, not electrical, limit. Price and exact weight vary a lot by seller; treat as representative, low-confidence figures.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
-    "https://ineedmicromotors.com/what-is-n20-gear-motor/",
-    "https://ozrobotics.com/shop/premium-12mm-dc-n20-gear-motor-6v-2981-ratio-50-rpm/",
-    "https://www.kindmotor.com/sale-14047663-n10-n20-n30-mini-dc-3v-6v-12v-100-1-150-1-210-1-298-1-380-1-340-1-1000-1-gear-ratio-motor-reduction-.html"
+    "domain knowledge"
    ],
-   "confidence": "low"
+   "confidence": "low",
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-n20-generic-298-1",
@@ -507,7 +591,7 @@
    "aliases": [
     "N20 298:1"
    ],
-   "summary": "A slow, high-torque N20 variant near the top of the common ratio ladder, used for lifters, self-righters, or very traction-limited plastic-antweight drives rather than fast main drive.",
+   "summary": "Reference entry for the Generic N20 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -520,12 +604,7 @@
     "quality-lottery"
    ],
    "specs": {
-    "weight_g": 10,
-    "voltage_nominal_v": 6,
-    "rpm_no_load": 50,
-    "gear_ratio": 298,
-    "shaft_dia_mm": 3,
-    "price_usd": 4
+    "gear_ratio": 298
    },
    "pros": [
     "High torque per dollar",
@@ -535,11 +614,13 @@
     "Same quality-lottery risk as all generic N-series motors",
     "Too slow alone for a competitive main-drive ratio"
    ],
-   "notes": "The 50 RPM @ 298:1 @ 6V figure is directly from a specific commercial listing, which is good corroboration for the family's base-motor speed assumption.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
-    "https://ozrobotics.com/shop/premium-12mm-dc-n20-gear-motor-6v-2981-ratio-50-rpm/"
+    "domain knowledge"
    ],
-   "confidence": "medium"
+   "confidence": "low",
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-n20-generic-1000-1",
@@ -548,7 +629,7 @@
    "aliases": [
     "N20 1000:1"
    ],
-   "summary": "The slowest, highest-torque stock N20 ratio; the 1000:1 (and 380:1) versions get a slightly longer, reinforced gearbox and a higher torque rating than the rest of the line, making them the ones most likely to survive at this extreme reduction.",
+   "summary": "Reference entry for the Generic N20 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -561,12 +642,7 @@
     "high-torque"
    ],
    "specs": {
-    "weight_g": 11,
-    "voltage_nominal_v": 12,
-    "rpm_no_load": 15,
-    "gear_ratio": 1000,
-    "shaft_dia_mm": 3,
-    "torque_stall_kgcm": 2.5
+    "gear_ratio": 1000
    },
    "pros": [
     "Reinforced gearbox stage rated to ~25 kg*mm (2.5 kg-cm), higher than the ~20 kg*mm (2.0 kg-cm) rating of lower ratios",
@@ -576,11 +652,13 @@
     "Far too slow for drive; this ratio belongs on weapon-lift or self-righting mechanisms, not wheels",
     "Gearbox is 3.5mm longer than other ratios, a minor packaging difference"
    ],
-   "notes": "Torque rating sourced from a manufacturer listing noting 25 kg*mm for 1000:1 and 380:1 vs 20 kg*mm for other ratios; RPM computed from the ~15,000 RPM bare-motor assumption.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
-    "https://www.kindmotor.com/sale-14047663-n10-n20-n30-mini-dc-3v-6v-12v-100-1-150-1-210-1-298-1-380-1-340-1-1000-1-gear-ratio-motor-reduction-.html"
+    "domain knowledge"
    ],
-   "confidence": "medium"
+   "confidence": "low",
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-n30-generic-50-1",
@@ -590,7 +668,7 @@
     "N30 50:1",
     "30mm N-series gearmotor"
    ],
-   "summary": "The larger sibling of the N20, using a bigger-diameter motor can (~30mm class) for more torque and current handling at the cost of extra weight; used in antweights (not usually plastic antweights, where every gram counts more) when N20 torque isn't enough but a 16mm FingerTech-class motor is still preferred to save weight.",
+   "summary": "Reference entry for the Generic N30 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "antweight"
    ],
@@ -601,10 +679,7 @@
     "budget"
    ],
    "specs": {
-    "weight_g": 20,
-    "voltage_nominal_v": 6,
-    "gear_ratio": 50,
-    "shaft_dia_mm": 4
+    "gear_ratio": 50
    },
    "pros": [
     "More torque and current headroom than N20 for a modest weight increase",
@@ -614,11 +689,13 @@
     "Same quality-lottery sourcing risk as other generic N-series motors",
     "Larger diameter can be harder to package in a slim 1 lb chassis than a 16mm motor"
    ],
-   "notes": "N30 specs are far less standardized/published than N20; numbers here are rough, low-confidence estimates based on the general pattern that N30 motors run roughly 1.5-2x the torque of an equivalent-ratio N20 at somewhat higher current draw and weight.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
     "domain knowledge"
    ],
-   "confidence": "low"
+   "confidence": "low",
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-n10-generic-100-1",
@@ -628,7 +705,7 @@
     "N10 100:1",
     "10mm N-series gearmotor"
    ],
-   "summary": "The smallest of the common N-series (N10/N20/N30) gearmotor family, used in fairyweight robots and the very lightest plastic antweight builds where every gram matters more than raw torque.",
+   "summary": "Reference entry for the Generic N10 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "fairyweight",
     "antweight",
@@ -642,10 +719,7 @@
     "micro"
    ],
    "specs": {
-    "weight_g": 6,
-    "voltage_nominal_v": 6,
-    "gear_ratio": 100,
-    "shaft_dia_mm": 2
+    "gear_ratio": 100
    },
    "pros": [
     "Lightest option in the N-series family",
@@ -655,11 +729,13 @@
     "Least torque and current handling of the family",
     "Least standardized specs / hardest to verify quality before buying"
    ],
-   "notes": "Specs are rough low-confidence estimates; N10 is far less documented in English-language combat-robot sources than N20.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
     "domain knowledge"
    ],
-   "confidence": "low"
+   "confidence": "low",
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-pololu-micro-metal-hp-30-1",
@@ -700,7 +776,9 @@
     "https://www.pololu.com/product/1093",
     "https://www.pololu.com/category/60/micro-metal-gearmotors"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "drive-motor",
+   "vendor": "Pololu"
   },
   {
    "id": "motor-pololu-micro-metal-mp-30-1",
@@ -738,7 +816,9 @@
    "sources": [
     "https://www.pololu.com/category/60/micro-metal-gearmotors"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "drive-motor",
+   "vendor": "Pololu"
   },
   {
    "id": "motor-pololu-micro-metal-lp-50-1",
@@ -777,7 +857,9 @@
     "https://www.pololu.com/product/1098",
     "https://www.pololu.com/category/60/micro-metal-gearmotors"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "drive-motor",
+   "vendor": "Pololu"
   },
   {
    "id": "motor-pololu-micro-metal-hp-100-1",
@@ -818,7 +900,9 @@
     "https://www.pololu.com/product/1101",
     "https://www.pololu.com/category/60/micro-metal-gearmotors"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "drive-motor",
+   "vendor": "Pololu"
   },
   {
    "id": "motor-pololu-micro-metal-extended-shaft",
@@ -855,7 +939,9 @@
    "sources": [
     "https://www.pololu.com/category/60/micro-metal-gearmotors"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "drive-motor",
+   "vendor": "Pololu"
   },
   {
    "id": "motor-brushless-1104-fpv-drive",
@@ -864,7 +950,7 @@
    "aliases": [
     "1104 brushless motor"
    ],
-   "summary": "An 11mm-diameter, 4mm-tall outrunner brushless motor, originally developed for micro FPV drones, repurposed by combat robot builders into custom or off-the-shelf (e.g. Repeat Robotics) 16mm drive gearboxes for antweight main drive.",
+   "summary": "FPV-derived brushless motor size-class reference for custom drive-pod experimentation, not a standardized purchasable motor.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -876,9 +962,8 @@
     "outrunner"
    ],
    "specs": {
-    "dia_mm": 11,
-    "length_mm": 4,
-    "voltage_nominal_v": 7.4
+    "stator_dia_mm": 11,
+    "stator_height_mm": 4
    },
    "pros": [
     "Very high power-to-weight ratio compared to a brushed motor of similar size",
@@ -890,11 +975,13 @@
     "Requires a reversing brushless ESC rather than a simple brushed driver",
     "Needs to be built into or bought as part of a gearbox — not a drop-in drive-and-wheel solution by itself"
    ],
-   "notes": "kv commonly seen in this application is in the 3000-6000kv range depending on the specific winding chosen by the seller/builder; Repeat Robotics' early Mk3/Mk4 drive pod used a custom-wound ~3500kv 1104 motor.",
+   "notes": "The four-digit FPV size code describes stator geometry, not KV, voltage, shaft, bearings, weight, current rating, or overall can dimensions. Choose and record a specific motor model before drivetrain calculations.",
    "sources": [
     "https://palmbeachbots.com/products/repeat-robotics-mini-16mm-brushless-planetary-motor-mk4-4mm-shaft"
    ],
-   "confidence": "low"
+   "confidence": "low",
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-brushless-1404-fpv-drive",
@@ -903,7 +990,7 @@
    "aliases": [
     "1404 brushless motor"
    ],
-   "summary": "A 14mm-diameter, 4mm-tall outrunner brushless motor, larger-stator sibling of the 1104/1106 sizes, used in higher-power antweight or lighter beetleweight custom drive builds where more torque/current handling is wanted from a similarly slim motor.",
+   "summary": "FPV-derived brushless motor size-class reference for custom drive-pod experimentation, not a standardized purchasable motor.",
    "weight_classes": [
     "antweight",
     "beetleweight"
@@ -915,8 +1002,8 @@
     "outrunner"
    ],
    "specs": {
-    "dia_mm": 14,
-    "length_mm": 4
+    "stator_dia_mm": 14,
+    "stator_height_mm": 4
    },
    "pros": [
     "More stator volume than 1104/1106 for a given height, so more torque/current capability",
@@ -926,11 +1013,13 @@
     "Larger diameter can be harder to fit inside a slim antweight chassis",
     "Same brushless-drive complexity: reversing ESC required, sensorless cogging risk at low speed"
    ],
-   "notes": "Used mostly in custom-built drive pods (3D-printed or machined gearbox housing) rather than sold as a complete antweight-ready gearmotor product; treat as a component a builder pairs with their own gear reduction.",
+   "notes": "The four-digit FPV size code describes stator geometry, not KV, voltage, shaft, bearings, weight, current rating, or overall can dimensions. Choose and record a specific motor model before drivetrain calculations.",
    "sources": [
     "domain knowledge"
    ],
-   "confidence": "low"
+   "confidence": "low",
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-servo-continuous-rotation-modified",
@@ -970,7 +1059,9 @@
    "sources": [
     "https://www.youtube.com/watch?v=HixZdhcLSdM"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "motor-servo-continuous-rotation-fs90r",
@@ -1008,7 +1099,9 @@
    "sources": [
     "domain knowledge"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "drive-motor",
+   "reference_only": true
   },
   {
    "id": "gearbox-16mm-planetary-generic",
@@ -1045,7 +1138,9 @@
    "sources": [
     "domain knowledge"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "gearbox",
+   "reference_only": true
   },
   {
    "id": "gearbox-n-series-metal-vs-plastic",
@@ -1079,7 +1174,9 @@
    "sources": [
     "domain knowledge"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "gearbox",
+   "reference_only": true
   },
   {
    "id": "wheel-fingertech-lite-flite-foam",
@@ -1121,7 +1218,9 @@
     "https://palmbeachbots.com/products/fingertech-foam-wheels-pair-0-5-wide-x-1-75",
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "wheel",
+   "vendor": "FingerTech Robotics"
   },
   {
    "id": "wheel-silicone-coated-foam",
@@ -1160,7 +1259,9 @@
     "https://zbotic.in/robot-wheel-traction-surface-tire-type-selection-guide/",
     "https://www.gobilda.com/gripforce-mecanum-wheel-set-o104mm-40a-durometer-rollers/"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "wheel",
+   "reference_only": true
   },
   {
    "id": "wheel-printed-tpu",
@@ -1200,7 +1301,9 @@
    "sources": [
     "domain knowledge"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "wheel",
+   "reference_only": true
   },
   {
    "id": "wheel-o-ring-tire",
@@ -1236,7 +1339,9 @@
    "sources": [
     "domain knowledge"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "wheel",
+   "reference_only": true
   },
   {
    "id": "wheel-banebots-t61-compliant",
@@ -1272,16 +1377,17 @@
     "https://itgresa.com/product/banebots-t61-compliant-wheels/",
     "https://itgresa.com/product/banebots-t40-wheels/"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "wheel"
   },
   {
    "id": "hub-fingertech-lite-hub",
    "type": "component",
-   "name": "FingerTech Lite Hub",
+   "name": "FingerTech Lite Hubs (pair)",
    "aliases": [
     "FT Lite Hub"
    ],
-   "summary": "FingerTech's lightest wheel hub, designed to mount common foam wheels onto a 3mm motor shaft with minimal added weight.",
+   "summary": "Very light press-in hub pair for Lite Flite/Lectra Lite foam wheels on 3mm shafts.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -1293,7 +1399,7 @@
    ],
    "specs": {
     "shaft_dia_mm": 3,
-    "weight_g": 3
+    "price_pair_usd": 3.92
    },
    "pros": [
     "Lightest hub option in the FingerTech lineup",
@@ -1302,20 +1408,23 @@
    "cons": [
     "Less robust than Snap/Twist hubs under very high shock/torque loads"
    ],
-   "notes": "Approximate weight ~3g each based on general FingerTech plastic-hub weight figures cited for Lite Flite assemblies.",
+   "notes": "Can be drilled for 1/8in shafts. Secured to the motor shaft with a setscrew.",
    "sources": [
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-lite-hubs"
    ],
-   "confidence": "medium"
+   "confidence": "high",
+   "category": "hub",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-lite-hubs"
   },
   {
    "id": "hub-fingertech-snap-hub",
    "type": "component",
-   "name": "FingerTech Snap Hub",
+   "name": "FingerTech Snap Hubs (pair)",
    "aliases": [
     "FT Snap Hub"
    ],
-   "summary": "An anodized 6061 aluminum hub from FingerTech that holds a foam tire tightly via a custom washer with a recess to prevent the retaining snap ring from coming loose, offering more strength than the plastic Lite Hub at a modest weight cost.",
+   "summary": "Legacy anodized-aluminum foam-wheel hub retained for spares; FingerTech recommends Twist Hubs for new projects.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -1335,20 +1444,23 @@
    "cons": [
     "Heavier than the plastic Lite Hub"
    ],
-   "notes": "Exact per-unit weight not confirmed this pass.",
+   "notes": "FingerTech says Snap Hubs are being replaced by Twist Hubs and are not recommended for new projects. Uses a custom washer and 7/16in snap ring plus an 8-32 shaft setscrew.",
    "sources": [
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-snap-hubs"
    ],
-   "confidence": "medium"
+   "confidence": "high",
+   "category": "hub",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-snap-hubs"
   },
   {
    "id": "hub-fingertech-twist-hub",
    "type": "component",
-   "name": "FingerTech Twist Hub",
+   "name": "FingerTech Aluminum Twist Hubs (pair)",
    "aliases": [
     "FT Twist Hub"
    ],
-   "summary": "An anodized 6061 aluminum hub secured to the motor shaft with an 8-32 setscrew, holding the foam tire tightly via a locking washer; sold in Thin (0.50in) and Wide (0.75in) widths for both 3mm and 4mm shafts.",
+   "summary": "6061 aluminum Twist Hub pair for FingerTech foam wheels, offered in multiple bores and thin/wide widths.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -1359,8 +1471,13 @@
     "aluminum"
    ],
    "specs": {
-    "shaft_dia_mm": 3,
-    "weight_g": 5.5
+    "bore_options_mm": "3, 4, 6",
+    "thin_width_in": 0.5,
+    "wide_width_in": 0.75,
+    "weight_thin_each_g": 5.6,
+    "weight_wide_each_g": 7.1,
+    "setscrew": "8-32",
+    "price_pair_usd": 20.24
    },
    "pros": [
     "Setscrew retention onto the motor shaft is very secure against slipping under torque",
@@ -1371,12 +1488,14 @@
     "Heavier than the plastic Lite Hub",
     "Setscrew must be properly torqued/thread-locked or it can back out over repeated hits"
    ],
-   "notes": "Thin (0.50in wide) version confirmed at 5.5g each.",
+   "notes": "Current page was out of stock when checked September 2026. Can be drilled up to 6.35mm (1/4in).",
    "sources": [
-    "https://palmbeachbots.com/products/fingertech-twist-hubs-thin-pair-0-50-x-3mm",
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs"
    ],
-   "confidence": "medium"
+   "confidence": "high",
+   "category": "hub",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs"
   },
   {
    "id": "belt-pulley-gt2-antweight",
@@ -1412,7 +1531,9 @@
    "sources": [
     "domain knowledge"
    ],
-   "confidence": "medium"
+   "confidence": "medium",
+   "category": "belt-pulley",
+   "reference_only": true
   },
   {
    "id": "formula-robot-speed-rpm-wheel-diameter",
@@ -1603,6 +1724,573 @@
     "domain knowledge"
    ],
    "confidence": "high"
+  },
+  {
+   "id": "motor-repeat-mini-pro-brushed",
+   "type": "component",
+   "name": "Repeat Robotics Mini Pro Brushed Antweight Gearmotor",
+   "category": "drive-motor",
+   "vendor": "Repeat Robotics",
+   "product_url": "https://repeat-robotics.com/products/repeat-mini-pro-brushed",
+   "summary": "Upgraded 16 mm brushed planetary antweight gearmotor with dual output bearings, a 4 mm hardened shaft, and four final-stage planet gears.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "brushed",
+    "planetary",
+    "16mm",
+    "4mm-shaft"
+   ],
+   "specs": {
+    "weight_g": 29.7,
+    "gear_ratio": 22.6,
+    "shaft_dia_mm": 4,
+    "cells_s_min": 2,
+    "cells_s_max": 4,
+    "rpm_no_load_2s": 752,
+    "rpm_no_load_3s_12v": 1220,
+    "rpm_no_load_4s": 1504,
+    "stall_current_a_at_12v": 2,
+    "torque_stall_gcm_at_12v": 1187,
+    "max_output_power_w_at_12v": 3.72,
+    "price_usd": 25
+   },
+   "notes": "Dual ball bearings support the output shaft. Uses a custom-wound 030 brushed motor and 4x M2 face-mount holes on a 14 mm circle.",
+   "confidence": "high",
+   "sources": [
+    "https://repeat-robotics.com/products/repeat-mini-pro-brushed"
+   ]
+  },
+  {
+   "id": "motor-repeat-tangent-1406",
+   "type": "component",
+   "name": "Repeat Robotics Tangent Drive 1406",
+   "category": "drive-motor",
+   "vendor": "Repeat Robotics",
+   "product_url": "https://repeat-robotics.com/products/tangent-drive-1406",
+   "image_url": "https://repeat-robotics.com/cdn/shop/files/31954.jpg?v=1789673705&width=416",
+   "image_source_url": "https://repeat-robotics.com/products/tangent-drive-1406",
+   "image_provider": "Repeat Robotics",
+   "summary": "Direct/tangent-drive 1406 brushless motor with the output shaft on the mounting side for compact antweight wheel drive.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "brushless",
+    "tangent-drive",
+    "direct-drive",
+    "1406"
+   ],
+   "specs": {
+    "weight_g": 13,
+    "weight_no_wires_g": 12,
+    "kv_rpm_per_v": 1500,
+    "cells_s_min": 2,
+    "cells_s_max": 4,
+    "shaft_dia_mm": 5,
+    "price_usd": 20
+   },
+   "notes": "Uses a 5 mm knurled tangent-drive shaft. Repeat suggests roughly 0.3-0.8 mm wheel interference depending on wheel material/design.",
+   "confidence": "high",
+   "sources": [
+    "https://repeat-robotics.com/products/tangent-drive-1406"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-22-2-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 22.2:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "22.2:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 29,
+    "gear_ratio": 22.2,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 12.9,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "Silver Spark ratios share the same FK-050 motor and 14T pinion, allowing gearbox swaps between ratios.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-50-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 50:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "50:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 29,
+    "gear_ratio": 50,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 12.9,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "Silver Spark ratios share the same FK-050 motor and 14T pinion, allowing gearbox swaps between ratios.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-83-3-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 83.3:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "83.3:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 29,
+    "gear_ratio": 83.3,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 14.3,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "FingerTech marks the 83.3:1 ratio discontinued with dwindling stock.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-300-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 300:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "300:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 31,
+    "gear_ratio": 300,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 16.4,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "Silver Spark ratios share the same FK-050 motor and 14T pinion, allowing gearbox swaps between ratios.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-silver-spark-600-1",
+   "type": "component",
+   "name": "FingerTech Silver Spark 16mm Gearmotor, 600:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16",
+   "summary": "600:1 ratio version of FingerTech's all-metal 16mm Silver Spark antweight gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "silver-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 32,
+    "gear_ratio": 600,
+    "gearbox_dia_mm": 16,
+    "gearbox_length_mm": 17.9,
+    "motor_length_mm": 28.4,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "motor_nominal_voltage_v": 6,
+    "price_usd": 19.69
+   },
+   "notes": "Silver Spark ratios share the same FK-050 motor and 14T pinion, allowing gearbox swaps between ratios.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-20-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 20:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "20:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 20,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-35-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 35:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "35:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 35,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-50-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 50:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "50:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 50,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-86-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 86:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "86:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 86,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-115-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 115:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "115:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 115,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-250-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 250:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "250:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 250,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-360-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 360:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "360:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 360,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
   }
  ],
  "chunks": [

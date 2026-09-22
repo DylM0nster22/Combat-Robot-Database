@@ -13,12 +13,14 @@ import math
 import os
 import re
 import sqlite3
+import subprocess
+import sys
 from typing import Any, Dict, Iterable, List, Optional
 
-DEFAULT_DB = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "data", "combat_robots.db",
-)
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DEFAULT_DB = os.path.join(ROOT, "data", "combat_robots.db")
+RESEARCH_DIR = os.path.join(ROOT, "data", "research")
+BUILD_DB_SCRIPT = os.path.join(ROOT, "scripts", "build_db.py")
 
 # FTS5 treats these as operators; a user typing "2205 motor (best?)" would
 # otherwise produce a syntax error rather than results.
@@ -46,6 +48,41 @@ WEIGHT_CLASSES = [
 
 class KnowledgeBaseError(RuntimeError):
     pass
+
+
+def ensure_default_db_current() -> bool:
+    """Rebuild the repository's default DB when its source data is newer.
+
+    Returns True when a rebuild was performed. Custom database paths are never
+    touched by this helper.
+    """
+    try:
+        inputs = [BUILD_DB_SCRIPT]
+        if os.path.isdir(RESEARCH_DIR):
+            inputs.extend(
+                os.path.join(RESEARCH_DIR, name)
+                for name in os.listdir(RESEARCH_DIR)
+                if name.endswith(".json")
+            )
+        db_mtime = os.path.getmtime(DEFAULT_DB) if os.path.exists(DEFAULT_DB) else -1
+        stale = (not os.path.exists(DEFAULT_DB)
+                 or any(os.path.getmtime(path) > db_mtime for path in inputs if os.path.exists(path)))
+    except OSError as exc:
+        raise KnowledgeBaseError(f"Could not check knowledge-base freshness: {exc}") from exc
+
+    if not stale:
+        return False
+
+    proc = subprocess.run(
+        [sys.executable, BUILD_DB_SCRIPT],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if proc.returncode != 0 or not os.path.exists(DEFAULT_DB):
+        detail = (proc.stderr or proc.stdout or "build_db.py failed").strip()
+        raise KnowledgeBaseError(f"Could not rebuild stale knowledge base: {detail}")
+    return True
 
 
 def _query_tokens(text: str, drop_stopwords: bool = True) -> List[str]:
@@ -108,6 +145,15 @@ def _entity_row(row: sqlite3.Row, include_body: bool = True) -> Dict[str, Any]:
         "confidence": row["confidence"],
         "topic_id": row["topic_id"],
     }
+    # Type-specific fields (category, vendor, reference_only, builder, ...)
+    # live in `extra`. Flatten them even in lightweight list/search results so
+    # an agent can distinguish exact products from reference classes without a
+    # second lookup.
+    extra = _loads(row["extra"], {})
+    if isinstance(extra, dict):
+        for key, value in extra.items():
+            entity.setdefault(key, value)
+
     if include_body:
         entity.update({
             "pros": _loads(row["pros"], []),
@@ -115,12 +161,6 @@ def _entity_row(row: sqlite3.Row, include_body: bool = True) -> Dict[str, Any]:
             "notes": row["notes"],
             "sources": _loads(row["sources"], []),
         })
-        # Type-specific fields (builder, counters, expression, ...) live in
-        # `extra`; flatten them so callers don't need to know that.
-        extra = _loads(row["extra"], {})
-        if isinstance(extra, dict):
-            for key, value in extra.items():
-                entity.setdefault(key, value)
     return entity
 
 
@@ -148,6 +188,8 @@ class KnowledgeBase:
 
     def __init__(self, db_path: str = DEFAULT_DB):
         self.db_path = db_path
+        if os.path.abspath(db_path) == os.path.abspath(DEFAULT_DB):
+            ensure_default_db_current()
         if not os.path.exists(db_path):
             raise KnowledgeBaseError(
                 f"No knowledge base at {db_path}. Run: python3 scripts/build_db.py"
@@ -324,7 +366,7 @@ class KnowledgeBase:
 
         def _entity_rows(match):
             sql = """
-                SELECT e.*, bm25(entities_fts, 10.0, 6.0, 4.0, 2.0, 3.0, 2.0, 1.0) AS rank
+                SELECT e.*, bm25(entities_fts, 0.0, 10.0, 6.0, 4.0, 2.0, 3.0, 2.0, 1.0, 2.0) AS rank
                 FROM entities_fts
                 JOIN entities e ON e.id = entities_fts.id
                 WHERE entities_fts MATCH ?
@@ -431,6 +473,7 @@ class KnowledgeBase:
                       weight_class: Optional[str] = None,
                       tag: Optional[str] = None,
                       category: Optional[str] = None,
+                      include_reference: bool = False,
                       limit: int = 50, offset: int = 0) -> Dict[str, Any]:
         limit = max(1, min(int(limit or 50), 300))
         sql = "SELECT e.* FROM entities e WHERE 1=1"
@@ -450,6 +493,10 @@ class KnowledgeBase:
             # `category` lives in the extra blob for components and materials.
             sql += " AND e.extra LIKE ?"
             params.append(f'%"category": "{category}"%')
+        if not include_reference:
+            # Generic size classes/standards stay searchable and directly fetchable,
+            # but normal browse/build flows should prefer exact products.
+            sql += " AND COALESCE(json_extract(e.extra, '$.reference_only'), 0) != 1"
         sql += " ORDER BY e.name LIMIT ? OFFSET ?"
         params.extend([limit, max(0, int(offset or 0))])
         rows = self.conn.execute(sql, params).fetchall()

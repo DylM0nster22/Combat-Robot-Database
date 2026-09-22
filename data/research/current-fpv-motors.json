@@ -1,0 +1,1209 @@
+{
+  "topic_id": "current-fpv-motors",
+  "title": "Current Small FPV Motors for Combat Robot Use",
+  "scope_note": "Exact current MAD, T-Motor, iFlight, EMAX and BETAFPV outrunners that are light/cheap enough to interest fairyweight, antweight and plastic-antweight builders. These are drone motors, not purpose-built combat motors; manufacturer electrical figures are preserved while combat durability remains a separate engineering judgment.",
+  "entities": [
+    {
+      "id": "motor-mad-fs1303-5-mythic-5500kv",
+      "type": "component",
+      "name": "MAD FS 1303.5 MYTHIC 5500KV",
+      "category": "weapon-motor",
+      "vendor": "MAD Components",
+      "product_url": "https://store.mad-motor.com/products/mad-fs-1303-5-mythic-fpv-drone-motor",
+      "summary": "Very small low-cost 1303.5 FPV outrunner that can serve as a fairyweight weapon motor or experimental ultra-light antweight motor.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "1303.5",
+        "5500kv",
+        "mad",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 13,
+        "stator_height_mm": 3.5,
+        "kv_rpm_per_v": 5500,
+        "price_usd": 7.5
+      },
+      "notes": "Current MAD store listing checked September 2026. Drone motor: verify shaft, bearings, prop adapter/retention and real combat shock tolerance before using on a weapon.",
+      "confidence": "high",
+      "sources": [
+        "https://store.mad-motor.com/products/mad-fs-1303-5-mythic-fpv-drone-motor",
+        "https://store.mad-motor.com/collections/fpv-motor"
+      ]
+    },
+    {
+      "id": "motor-mad-fs1404-5-aceracer-4500kv",
+      "type": "component",
+      "name": "MAD FS 1404.5 AceRacer 4500KV",
+      "category": "weapon-motor",
+      "vendor": "MAD Components",
+      "product_url": "https://store.mad-motor.com/products/mad-fs-1404-5-aceracer-fpv-drone-motor",
+      "summary": "Low-cost 1404.5 FPV outrunner positioned between tiny fairyweight motors and larger 18xx/20xx antweight weapon motors.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "1404.5",
+        "4500kv",
+        "mad",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 14,
+        "stator_height_mm": 4.5,
+        "kv_rpm_per_v": 4500,
+        "price_usd": 7.5
+      },
+      "notes": "Current MAD store listing checked September 2026. Treat as a drone motor, not a combat-rated shaft/bearing system.",
+      "confidence": "high",
+      "sources": [
+        "https://store.mad-motor.com/products/mad-fs-1404-5-aceracer-fpv-drone-motor",
+        "https://store.mad-motor.com/collections/fpv-motor"
+      ]
+    },
+    {
+      "id": "motor-mad-bsc2207-5",
+      "type": "component",
+      "name": "MAD BSC 2207.5 FPV Motor",
+      "category": "weapon-motor",
+      "vendor": "MAD Components",
+      "product_url": "https://store.mad-motor.com/products/bsc-2207-5-fpv-drone-motor",
+      "summary": "Budget 2207.5 FPV outrunner with a 4mm shaft and standard 16mm M3 mounting pattern; attractive for low-cost antweight spinner experiments.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2207.5",
+        "mad",
+        "4mm-shaft",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7.5,
+        "kv_options": "1750, 1950",
+        "motor_dia_mm": 27,
+        "motor_length_mm": 32.3,
+        "shaft_dia_mm": 4,
+        "mount_pattern_mm": 16,
+        "mount_screws": "4x M3",
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 150,
+        "price_usd": 9.9
+      },
+      "notes": "Current product page lists 1750KV and 1950KV variants; MAD's broader catalogue has also referenced 2100KV. Use the exact selected winding when doing RPM/current calculations. Drone-use current ratings do not automatically equal safe combat weapon current.",
+      "confidence": "high",
+      "sources": [
+        "https://store.mad-motor.com/products/bsc-2207-5-fpv-drone-motor",
+        "https://demo.mad-motor.com/pages/product-catalogue"
+      ]
+    },
+    {
+      "id": "motor-mad-fs2004-dynamo",
+      "type": "component",
+      "name": "MAD DYNAMO FS2004",
+      "category": "weapon-motor",
+      "vendor": "MAD Components",
+      "product_url": "https://mad-motor.com/products/mad-dynamo-fs2004-brushless-drone-for-freefly-fpv-drone",
+      "summary": "Compact 2004 freestyle FPV outrunner offered in windings useful for 4S or 6S small-spinner experiments.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2004",
+        "mad",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 20,
+        "stator_height_mm": 4,
+        "kv_options": "2950, 3500",
+        "recommended_cells_2950kv_s": 6,
+        "recommended_cells_3500kv_s": 4,
+        "motor_dia_mm": 24.3,
+        "motor_length_mm": 17.25,
+        "internal_shaft_dia_mm": 1.5,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "price_usd": 14
+      },
+      "notes": "The manufacturer page associates 2950KV with 6S and 3500KV with 4S. Small internal shaft geometry makes weapon-side support/retention especially important in combat use.",
+      "confidence": "high",
+      "sources": [
+        "https://mad-motor.com/products/mad-dynamo-fs2004-brushless-drone-for-freefly-fpv-drone"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f1203-7000kv",
+      "type": "component",
+      "name": "T-Motor F1203 7000KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f1203-fpv-motor.html",
+      "summary": "Extremely light 1203 FPV motor for fairyweight or very small high-speed weapon experiments.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "1203",
+        "7000kv",
+        "t-motor",
+        "ultralight",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 12,
+        "stator_height_mm": 3,
+        "kv_rpm_per_v": 7000,
+        "weight_with_wire_g": 5.25,
+        "weight_without_wire_g": 4.45,
+        "motor_dia_mm": 15.5,
+        "motor_length_mm": 14.05,
+        "shaft_dia_mm": 2,
+        "cells_s_min": 2,
+        "cells_s_max": 3,
+        "resistance_mohm": 198,
+        "peak_current_a": 10.85,
+        "max_power_w": 192,
+        "stator_slots": 9,
+        "magnet_poles": 12,
+        "price_usd": 14.9
+      },
+      "notes": "Peak current/max power are manufacturer drone-test figures, not guaranteed continuous combat ratings.",
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f1203-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f1204-5000kv",
+      "type": "component",
+      "name": "T-Motor F1204 5000KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f1204-fpv-motor.html",
+      "summary": "Small 1204 FPV outrunner with modest current demand and very low mass.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "1204",
+        "5000kv",
+        "t-motor",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 12,
+        "stator_height_mm": 4,
+        "kv_rpm_per_v": 5000,
+        "weight_with_wire_g": 6.9,
+        "weight_without_wire_g": 6.1,
+        "motor_dia_mm": 15.5,
+        "motor_length_mm": 15.6,
+        "shaft_dia_mm": 1.5,
+        "cells_s_min": 2,
+        "cells_s_max": 3,
+        "resistance_mohm": 240,
+        "peak_current_a": 6,
+        "max_power_w": 72,
+        "price_usd": 15.9
+      },
+      "notes": "Manufacturer drone-test electrical values. Combat shock resistance and shaft retention are not specified.",
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f1204-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f1204-6500kv",
+      "type": "component",
+      "name": "T-Motor F1204 6500KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f1204-fpv-motor.html",
+      "summary": "Higher-KV F1204 winding for very small 2-3S weapon systems.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "1204",
+        "6500kv",
+        "t-motor",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 12,
+        "stator_height_mm": 4,
+        "kv_rpm_per_v": 6500,
+        "weight_with_wire_g": 6.9,
+        "weight_without_wire_g": 6.1,
+        "motor_dia_mm": 15.5,
+        "motor_length_mm": 15.6,
+        "shaft_dia_mm": 1.5,
+        "cells_s_min": 2,
+        "cells_s_max": 3,
+        "resistance_mohm": 140,
+        "peak_current_a": 7,
+        "max_power_w": 60,
+        "price_usd": 15.9
+      },
+      "notes": "Manufacturer drone-test electrical values. High KV plus a 1.5mm shaft makes gearing and mechanical support important for combat use.",
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f1204-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f1303-5000kv",
+      "type": "component",
+      "name": "T-Motor F1303 5000KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f1303-fpv-motor.html",
+      "summary": "6.1g 1303 motor with a 2mm shaft for fairyweight and very light antweight spinner concepts.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "1303",
+        "5000kv",
+        "t-motor",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 13,
+        "stator_height_mm": 3,
+        "kv_rpm_per_v": 5000,
+        "weight_g": 6.1,
+        "motor_dia_mm": 16.5,
+        "motor_length_mm": 14.55,
+        "shaft_dia_mm": 2,
+        "cells_s_min": 2,
+        "cells_s_max": 3,
+        "resistance_mohm": 280,
+        "peak_current_a": 7.45,
+        "max_power_w": 87,
+        "stator_slots": 9,
+        "magnet_poles": 12,
+        "price_usd": 15.9
+      },
+      "notes": "Electrical maxima come from propeller test data; weapon loads differ strongly from prop loads.",
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f1303-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f1404-2900kv",
+      "type": "component",
+      "name": "T-Motor F1404 2900KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f1404-fpv-motor.html",
+      "summary": "Low-KV F1404 winding usable on higher voltage while staying under 10g.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "1404",
+        "2900kv",
+        "t-motor",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 14,
+        "stator_height_mm": 4,
+        "kv_rpm_per_v": 2900,
+        "weight_g": 9.34,
+        "motor_dia_mm": 17.9,
+        "motor_length_mm": 16.6,
+        "shaft_dia_mm": 2,
+        "cells_s_min": 4,
+        "cells_s_max": 6,
+        "resistance_mohm": 310,
+        "peak_current_a": 10.45,
+        "max_power_w": 262,
+        "stator_slots": 9,
+        "magnet_poles": 12,
+        "price_usd": 16.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f1404-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f1404-3800kv",
+      "type": "component",
+      "name": "T-Motor F1404 3800KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f1404-fpv-motor.html",
+      "summary": "Middle F1404 winding for compact 3-4S high-RPM systems.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "1404",
+        "3800kv",
+        "t-motor",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 14,
+        "stator_height_mm": 4,
+        "kv_rpm_per_v": 3800,
+        "weight_g": 9.34,
+        "motor_dia_mm": 17.9,
+        "motor_length_mm": 16.6,
+        "shaft_dia_mm": 2,
+        "cells_s_min": 3,
+        "cells_s_max": 4,
+        "resistance_mohm": 195,
+        "peak_current_a": 19,
+        "max_power_w": 304,
+        "price_usd": 16.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f1404-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f1404-4600kv",
+      "type": "component",
+      "name": "T-Motor F1404 4600KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f1404-fpv-motor.html",
+      "summary": "High-KV F1404 winding for very compact 3-4S spinner systems.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "1404",
+        "4600kv",
+        "t-motor",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 14,
+        "stator_height_mm": 4,
+        "kv_rpm_per_v": 4600,
+        "weight_g": 9.34,
+        "motor_dia_mm": 17.9,
+        "motor_length_mm": 16.6,
+        "shaft_dia_mm": 2,
+        "cells_s_min": 3,
+        "cells_s_max": 4,
+        "resistance_mohm": 138,
+        "peak_current_a": 20,
+        "max_power_w": 316,
+        "price_usd": 16.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f1404-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f1507-2700kv",
+      "type": "component",
+      "name": "T-Motor F1507 2700KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f1507-kv2700-fpv-motor.html",
+      "summary": "15g-class 1507 motor with enough stator volume for more serious antweight belt-drive weapon use while remaining much lighter than a 22xx.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "1507",
+        "2700kv",
+        "t-motor",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 15,
+        "stator_height_mm": 7,
+        "kv_rpm_per_v": 2700,
+        "weight_g": 15.2,
+        "motor_dia_mm": 18.9,
+        "motor_length_mm": 29.7,
+        "shaft_dia_mm": 2,
+        "cells_s_min": 3,
+        "cells_s_max": 6,
+        "resistance_mohm": 131,
+        "peak_current_a": 22,
+        "max_power_w": 519,
+        "price_usd": 19.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f1507-kv2700-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f1507-3800kv",
+      "type": "component",
+      "name": "T-Motor F1507 3800KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f1507-kv3800-fpv-motor.html",
+      "summary": "Higher-KV 1507 winding aimed at 3-4S operation.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "1507",
+        "3800kv",
+        "t-motor",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 15,
+        "stator_height_mm": 7,
+        "kv_rpm_per_v": 3800,
+        "weight_g": 15,
+        "motor_dia_mm": 18.9,
+        "motor_length_mm": 29.7,
+        "shaft_dia_mm": 2,
+        "cells_s_min": 3,
+        "cells_s_max": 4,
+        "resistance_mohm": 81,
+        "peak_current_a": 23,
+        "max_power_w": 372,
+        "price_usd": 19.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f1507-kv3800-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f2004-1700kv",
+      "type": "component",
+      "name": "T-Motor F2004 1700KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f2004-fpv-motor.html",
+      "summary": "16.4g 2004 motor with a 3mm shaft and low-KV 6S winding.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "2004",
+        "1700kv",
+        "t-motor",
+        "3mm-shaft",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 20,
+        "stator_height_mm": 4,
+        "kv_rpm_per_v": 1700,
+        "weight_g": 16.4,
+        "motor_dia_mm": 24.3,
+        "motor_length_mm": 17.25,
+        "shaft_dia_mm": 3,
+        "cells_s": 6,
+        "resistance_mohm": 221,
+        "peak_current_a": 21.2,
+        "max_power_w": 503,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "price_usd": 20.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f2004-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f2004-3000kv",
+      "type": "component",
+      "name": "T-Motor F2004 3000KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f2004-fpv-motor.html",
+      "summary": "Higher-KV 2004 winding for 4-5S small spinner systems.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "2004",
+        "3000kv",
+        "t-motor",
+        "3mm-shaft",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 20,
+        "stator_height_mm": 4,
+        "kv_rpm_per_v": 3000,
+        "weight_g": 16.4,
+        "motor_dia_mm": 24.3,
+        "motor_length_mm": 17.25,
+        "shaft_dia_mm": 3,
+        "cells_s_min": 4,
+        "cells_s_max": 5,
+        "resistance_mohm": 90,
+        "peak_current_a": 30.1,
+        "max_power_w": 460,
+        "price_usd": 20.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f2004-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f2203-5-1500kv",
+      "type": "component",
+      "name": "T-Motor F2203.5 1500KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f2203-5-fpv-motor.html",
+      "summary": "Low-profile 2203.5 outrunner with a 3mm shaft and 6S winding.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "2203.5",
+        "1500kv",
+        "t-motor",
+        "3mm-shaft",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 3.5,
+        "kv_rpm_per_v": 1500,
+        "weight_with_wire_g": 19.7,
+        "weight_without_wire_g": 17.4,
+        "motor_dia_mm": 26.8,
+        "motor_length_mm": 26.45,
+        "shaft_dia_mm": 3,
+        "cells_s": 6,
+        "resistance_mohm": 235,
+        "peak_current_a": 19.5,
+        "max_power_w": 462,
+        "price_usd": 19.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f2203-5-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f2203-5-2850kv",
+      "type": "component",
+      "name": "T-Motor F2203.5 2850KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f2203-5-fpv-motor.html",
+      "summary": "High-power 2203.5 winding spanning 4-6S.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "2203.5",
+        "2850kv",
+        "t-motor",
+        "3mm-shaft",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 3.5,
+        "kv_rpm_per_v": 2850,
+        "weight_with_wire_g": 19.7,
+        "weight_without_wire_g": 17.4,
+        "motor_dia_mm": 26.8,
+        "motor_length_mm": 26.45,
+        "shaft_dia_mm": 3,
+        "cells_s_min": 4,
+        "cells_s_max": 6,
+        "resistance_mohm": 90,
+        "peak_current_a": 31.4,
+        "max_power_w": 734,
+        "price_usd": 19.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f2203-5-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-tmotor-f2203-5-3550kv",
+      "type": "component",
+      "name": "T-Motor F2203.5 3550KV",
+      "category": "weapon-motor",
+      "vendor": "T-Motor",
+      "product_url": "https://store.tmotor.com/product/f2203-5-fpv-motor.html",
+      "summary": "3-4S high-KV 2203.5 winding.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "2203.5",
+        "3550kv",
+        "t-motor",
+        "3mm-shaft",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 3.5,
+        "kv_rpm_per_v": 3550,
+        "weight_with_wire_g": 19.5,
+        "weight_without_wire_g": 17.2,
+        "motor_dia_mm": 26.8,
+        "motor_length_mm": 26.45,
+        "shaft_dia_mm": 3,
+        "cells_s_min": 3,
+        "cells_s_max": 4,
+        "resistance_mohm": 76,
+        "peak_current_a": 26.8,
+        "max_power_w": 412,
+        "price_usd": 19.9
+      },
+      "confidence": "high",
+      "sources": [
+        "https://store.tmotor.com/product/f2203-5-fpv-motor.html"
+      ]
+    },
+    {
+      "id": "motor-iflight-xing-e-pro-2207",
+      "type": "component",
+      "name": "iFlight XING-E Pro 2207",
+      "category": "weapon-motor",
+      "vendor": "iFlight",
+      "product_url": "https://shop.iflight.com/xing-e-pro-2207-2-6s-fpv-nextgen-motor-pro874",
+      "summary": "Low-cost 2207 FPV motor with a comparatively stout 5mm shaft and several KV options.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2207",
+        "5mm-shaft",
+        "iflight",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7,
+        "kv_options": "1800, 2450, 2750",
+        "weight_g": 33.8,
+        "motor_dia_mm": 28.5,
+        "motor_length_mm": 33.1,
+        "shaft_dia_mm": 5,
+        "shaft_protrusion_mm": 13.5,
+        "mount_pattern_mm": 16,
+        "mount_screws": "4x M3",
+        "resistance_mohm_by_kv": "1800:81.5, 2450:46.8, 2750:41",
+        "price_usd": 14.99
+      },
+      "notes": "5mm shaft is attractive mechanically, but the motor is still designed for propeller loads; bell/shaft retention and bearing shock should be evaluated for a combat weapon.",
+      "confidence": "high",
+      "sources": [
+        "https://shop.iflight.com/xing-e-pro-2207-2-6s-fpv-nextgen-motor-pro874"
+      ]
+    },
+    {
+      "id": "motor-emax-eco-ii-2207",
+      "type": "component",
+      "name": "EMAX ECO II 2207",
+      "category": "weapon-motor",
+      "vendor": "EMAX",
+      "product_url": "https://shop.emax-usa.com/collections/diy/products/eco-ii-2207-brushless-motor-1700kv-1900kv-2400kv",
+      "summary": "Widely available budget 2207 FPV motor with 1700, 1900 and 2400KV options.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2207",
+        "emax",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7,
+        "kv_options": "1700, 1900, 2400",
+        "mount_pattern_mm": 16,
+        "price_usd": 12.99
+      },
+      "notes": "Exact weight/shaft/current should be checked against the selected current variant before using in tight combat calculations; this record intentionally stores only verified current-page fields.",
+      "confidence": "high",
+      "sources": [
+        "https://shop.emax-usa.com/collections/diy/products/eco-ii-2207-brushless-motor-1700kv-1900kv-2400kv",
+        "https://www.emax-usa.com/motor-detail-dark.html?motor=eco-ii-2207"
+      ]
+    },
+    {
+      "id": "motor-emax-eco-ii-2004",
+      "type": "component",
+      "name": "EMAX ECO II 2004",
+      "category": "weapon-motor",
+      "vendor": "EMAX",
+      "product_url": "https://shop.emaxmodel.com/collections/eco-series/products/emax-eco-ii-series-2004-1600kv-2000kv-2400kv-3000kv-brushless-motor-for-rc-drone-fpv-racing",
+      "summary": "Budget 2004 motor family with four KV choices spanning high-voltage to high-speed setups.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2004",
+        "emax",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 20,
+        "stator_height_mm": 4,
+        "kv_options": "1600, 2000, 2400, 3000",
+        "price_usd": 20.64
+      },
+      "confidence": "high",
+      "sources": [
+        "https://shop.emaxmodel.com/collections/eco-series/products/emax-eco-ii-series-2004-1600kv-2000kv-2400kv-3000kv-brushless-motor-for-rc-drone-fpv-racing"
+      ]
+    },
+    {
+      "id": "motor-betafpv-1805",
+      "type": "component",
+      "name": "BETAFPV 1805 Brushless Motor",
+      "category": "weapon-motor",
+      "vendor": "BETAFPV",
+      "product_url": "https://betafpv.com/products/1805-brushless-motors",
+      "summary": "Light 16.1g 1805 motor available in 1550KV and 2550KV versions; useful as a cheap/light antweight candidate when available.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "1805",
+        "betafpv",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 18,
+        "stator_height_mm": 5,
+        "kv_options": "1550, 2550",
+        "weight_g": 16.1,
+        "shaft_dia_mm": 1.5,
+        "shaft_length_mm": 3.8,
+        "motor_width_mm": 23.2,
+        "motor_length_mm": 19.7,
+        "mount_hole_spacing_mm": 12,
+        "mount_screws": "M2",
+        "recommended_cells_1550kv_s": 6,
+        "recommended_cells_2550kv_s": 4
+      },
+      "availability_note": "Sold out on the manufacturer page when checked September 2026.",
+      "notes": "Historically very inexpensive, but the manufacturer page was sold out when checked; price is omitted rather than preserving an uncertain stale price.",
+      "confidence": "high",
+      "sources": [
+        "https://betafpv.com/products/1805-brushless-motors"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2207-1750kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2207 1750KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2207 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2207",
+        "1750kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7,
+        "kv_rpm_per_v": 1750,
+        "weight_with_wire_g": 35.1,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 32.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 80.3,
+        "max_current_a": 36,
+        "max_power_w": 854,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2207-1950kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2207 1950KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2207 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2207",
+        "1950kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7,
+        "kv_rpm_per_v": 1950,
+        "weight_with_wire_g": 35.3,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 32.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 70.1,
+        "max_current_a": 43.8,
+        "max_power_w": 1402,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2207-2450kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2207 2450KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2207 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2207",
+        "2450kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7,
+        "kv_rpm_per_v": 2450,
+        "weight_with_wire_g": 34,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 32.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 53.5,
+        "max_current_a": 47,
+        "max_power_w": 777,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2208-1750kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2208 1750KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2208 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2208",
+        "1750kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 8,
+        "kv_rpm_per_v": 1750,
+        "weight_with_wire_g": 28,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 33.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 73.8,
+        "max_current_a": 40.1,
+        "max_power_w": 1003,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2208-1950kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2208 1950KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2208 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2208",
+        "1950kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 8,
+        "kv_rpm_per_v": 1950,
+        "weight_with_wire_g": 37.3,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 33.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 66.2,
+        "max_current_a": 48.8,
+        "max_power_w": 1218,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2208-2450kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2208 2450KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2208 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2208",
+        "2450kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 8,
+        "kv_rpm_per_v": 2450,
+        "weight_with_wire_g": 36.1,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 33.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 53.3,
+        "max_current_a": 44.3,
+        "max_power_w": 737,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-hskrc-2306-5-1800kv",
+      "type": "component",
+      "name": "HSKRC 2306.5 1800KV",
+      "category": "weapon-motor",
+      "vendor": "HSKRC",
+      "product_url": "https://usa.banggood.com/HSKRC-2306_5-1800KV-High-Performance-Brushless-Motor-5mm-Shaft-for-5-Inch-RC-FPV-Racing-Drone-p-2036819.html",
+      "summary": "Low-cost 2306.5 FPV outrunner with a 5mm shaft and 6S winding.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2306.5",
+        "1800kv",
+        "5mm-shaft",
+        "hskrc",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 23,
+        "stator_height_mm": 6.5,
+        "kv_rpm_per_v": 1800,
+        "shaft_dia_mm": 5,
+        "weight_with_wire_g": 32.23,
+        "resistance_mohm": 77.55,
+        "cells_s": 6,
+        "no_load_current_a_at_10v": 0.71,
+        "max_power_w": 721.97,
+        "max_current_a": 30.76,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 150
+      },
+      "notes": "Retailer showed no stable current US price/stock when checked, so price is omitted. Electrical maximums are FPV test figures, not continuous combat ratings.",
+      "confidence": "high",
+      "sources": [
+        "https://usa.banggood.com/HSKRC-2306_5-1800KV-High-Performance-Brushless-Motor-5mm-Shaft-for-5-Inch-RC-FPV-Racing-Drone-p-2036819.html"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-cheap-fpv-motors-for-antweight-weapons",
+      "title": "Cheap FPV motors as antweight weapon motors: what the database should compare",
+      "section": "Weapons",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "fpv",
+        "budget",
+        "mad",
+        "t-motor",
+        "emax",
+        "iflight"
+      ],
+      "entity_refs": [
+        "motor-mad-bsc2207-5",
+        "motor-mad-fs2004-dynamo",
+        "motor-tmotor-f1507-2700kv",
+        "motor-tmotor-f2004-1700kv",
+        "motor-iflight-xing-e-pro-2207",
+        "motor-emax-eco-ii-2207",
+        "motor-betafpv-1805"
+      ],
+      "sources": [
+        "https://store.mad-motor.com/collections/fpv-motor",
+        "https://store.tmotor.com/categorys/f-series-racing-motor",
+        "https://shop.iflight.com/xing-e-pro-2207-2-6s-fpv-nextgen-motor-pro874",
+        "https://shop.emax-usa.com/collections/diy/products/eco-ii-2207-brushless-motor-1700kv-1900kv-2400kv",
+        "https://betafpv.com/products/1805-brushless-motors"
+      ],
+      "body_md": "Cheap FPV motors can be excellent antweight value, but the database should not compare them only by KV. **Mass and stator size** tell you roughly how much motor you are buying; **shaft diameter and bell retention** matter directly to impact survival; **winding resistance and manufacturer peak current** help compare electrical stress; and **cell rating/KV** determine how much reduction is needed to reach a sane weapon RPM. Drone peak-current and power figures come from propeller tests and should not be treated as continuous combat ratings. Purpose-built combat motors usually spend extra mass/cost on shafts, bearings, retention, mounting, or mechanical support rather than magically having better KV. For budget builds, a $10 MAD BSC 2207.5 or $13 EMAX ECO II can be compelling if the weapon is belt-driven and the motor is physically protected; for very light builds, 12xx-15xx T-Motors save substantial mass. A larger 5mm-shaft iFlight 2207 may be mechanically attractive even when it is heavier."
+    }
+  ]
+}

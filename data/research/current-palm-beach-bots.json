@@ -1,0 +1,1014 @@
+{
+  "topic_id": "current-palm-beach-bots",
+  "title": "Current Palm Beach Bots / Palm Power Antweight Catalog",
+  "scope_note": "Current Palm Beach Bots branded motors, batteries, chargers, electronics, plastic-ant kits and antweight upgrade systems. Resold Repeat/FingerTech/JCR items are represented by their manufacturer records elsewhere; this file focuses on PBB/Palm Power products and PBB-designed kits.",
+  "entities": [
+    {
+      "id": "motor-pbb-d2822-1100kv-4mm",
+      "type": "component",
+      "name": "PBB D2822 1100KV 4mm Upgraded",
+      "category": "weapon-motor",
+      "vendor": "Palm Beach Bots",
+      "product_url": "https://palmbeachbots.com/products/d2822-brushless-outrunner-1100kv-4mm-shaft-viper-compatible",
+      "summary": "Battle-hardened stock-form-factor 2822 with upgraded magnets/bearings, screw-retained shaft hardware and a 4mm shaft for Viper and custom antweight weapons.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "2822",
+        "1100kv",
+        "4mm-shaft",
+        "battle-hardened",
+        "pbb"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1100,
+        "shaft_dia_mm": 4,
+        "cells_s_min": 2,
+        "cells_s_max": 3,
+        "weight_g": 44,
+        "motor_dia_mm": 28,
+        "motor_length_mm": 21.35,
+        "length_to_hub_extension_mm": 25.66,
+        "wire_length_mm": 85.33,
+        "connector": "3.5mm male bullet",
+        "shaft_length_mm": 10,
+        "mount_patterns_mm": "16 and 19",
+        "price_usd": 15.99
+      },
+      "notes": "PBB states that since July 7, 2025 the can is battle hardened and the original shaft circlip was replaced by a screw. Rotating face has three M2 holes on a 12mm circle.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/d2822-brushless-outrunner-1100kv-4mm-shaft-viper-compatible"
+      ]
+    },
+    {
+      "id": "motor-pbb-d2822-1800kv-4mm",
+      "type": "component",
+      "name": "PBB D2822 1800KV 4mm Upgraded",
+      "category": "weapon-motor",
+      "vendor": "Palm Beach Bots",
+      "summary": "1800KV 4mm-shaft upgraded PBB 2822, used in current vertical-spinner modules and compatible with Viper weapon hardware.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "2822",
+        "1800kv",
+        "4mm-shaft",
+        "pbb"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1800,
+        "shaft_dia_mm": 4,
+        "price_usd": 15.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors"
+      ]
+    },
+    {
+      "id": "motor-pbb-d2822-2600kv-4mm",
+      "type": "component",
+      "name": "PBB D2822 2600KV 4mm Upgraded",
+      "category": "weapon-motor",
+      "vendor": "Palm Beach Bots",
+      "summary": "High-KV 4mm-shaft PBB 2822 for compact high-speed antweight weapon systems.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "2822",
+        "2600kv",
+        "4mm-shaft",
+        "pbb"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 2600,
+        "shaft_dia_mm": 4,
+        "price_usd": 15.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors"
+      ]
+    },
+    {
+      "id": "motor-pbb-d2822-1450kv-4mm",
+      "type": "component",
+      "name": "PBB D2822 1450KV 4mm Upgraded",
+      "category": "weapon-motor",
+      "vendor": "Palm Beach Bots",
+      "summary": "Mid-low-KV 4mm-shaft PBB 2822 variant.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "2822",
+        "1450kv",
+        "4mm-shaft",
+        "pbb"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1450,
+        "shaft_dia_mm": 4,
+        "price_usd": 15.99
+      },
+      "availability_note": "Sold out when checked September 2026.",
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors"
+      ]
+    },
+    {
+      "id": "motor-pbb-d2822-1100kv-1-8in",
+      "type": "component",
+      "name": "PBB D2822 1100KV 0.125in Shaft",
+      "category": "weapon-motor",
+      "vendor": "Palm Beach Bots",
+      "summary": "Upgraded PBB 2822 retaining the common 1/8-inch shaft size.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "2822",
+        "1100kv",
+        "1/8-shaft",
+        "pbb"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1100,
+        "shaft_dia_in": 0.125,
+        "price_usd": 14.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors"
+      ]
+    },
+    {
+      "id": "motor-pbb-d2822-1800kv-1-8in",
+      "type": "component",
+      "name": "PBB D2822 1800KV 0.125in Shaft",
+      "category": "weapon-motor",
+      "vendor": "Palm Beach Bots",
+      "summary": "1800KV upgraded PBB 2822 with a 1/8-inch shaft.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "2822",
+        "1800kv",
+        "1/8-shaft",
+        "pbb"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1800,
+        "shaft_dia_in": 0.125,
+        "price_usd": 14.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors"
+      ]
+    },
+    {
+      "id": "motor-pbb-d2822-2600kv-1-8in",
+      "type": "component",
+      "name": "PBB D2822 2600KV 0.125in Shaft",
+      "category": "weapon-motor",
+      "vendor": "Palm Beach Bots",
+      "summary": "2600KV upgraded PBB 2822 with a 1/8-inch shaft.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "2822",
+        "2600kv",
+        "1/8-shaft",
+        "pbb"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 2600,
+        "shaft_dia_in": 0.125,
+        "price_usd": 14.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors"
+      ]
+    },
+    {
+      "id": "motor-pbb-d2822-1450kv-1-8in",
+      "type": "component",
+      "name": "PBB D2822 1450KV 0.125in Shaft",
+      "category": "weapon-motor",
+      "vendor": "Palm Beach Bots",
+      "summary": "1450KV upgraded PBB 2822 with a 1/8-inch shaft.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "2822",
+        "1450kv",
+        "1/8-shaft",
+        "pbb"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1450,
+        "shaft_dia_in": 0.125,
+        "price_usd": 12.99
+      },
+      "availability_note": "Sold out when checked September 2026.",
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors"
+      ]
+    },
+    {
+      "id": "esc-pbb-blheli-s-20a",
+      "type": "component",
+      "name": "PBB 20A BLHeli_S Brushless ESC",
+      "category": "esc-weapon",
+      "vendor": "Palm Beach Bots",
+      "summary": "Compact PBB brushless ESC for antweight spinner systems and current plastic-ant kits.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-esc",
+        "blheli-s",
+        "20a",
+        "pbb"
+      ],
+      "specs": {
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "vendor_current_label_a": 20,
+        "price_usd": 12.99
+      },
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/weapon-systems"
+      ]
+    },
+    {
+      "id": "battery-palm-power-3s-300mah-gen2-65c",
+      "type": "component",
+      "name": "Palm Power Gen2 3S 300mAh 65C LiPo",
+      "category": "battery",
+      "vendor": "Palm Power / Palm Beach Bots",
+      "product_url": "https://palmbeachbots.com/products/palm-power-3s-300mah-65c-lipo-battery",
+      "summary": "Current Gen2 3S 300mAh Palm Power antweight battery with JST discharge connector.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "battery",
+        "lipo",
+        "3s",
+        "300mah",
+        "65c",
+        "palm-power"
+      ],
+      "specs": {
+        "capacity_mah": 300,
+        "cells_s": 3,
+        "voltage_nominal_v": 11.1,
+        "c_rating": 65,
+        "weight_g": 29.1,
+        "length_mm": 46.25,
+        "width_mm": 16.25,
+        "height_mm": 19.5,
+        "connector": "JST",
+        "price_usd": 12.99
+      },
+      "notes": "PBB warns that lifter servos may need a regulator when running the robot on 3S.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/palm-power-3s-300mah-65c-lipo-battery"
+      ]
+    },
+    {
+      "id": "charger-pbb-b6-neo",
+      "type": "component",
+      "name": "B6 Neo Compact Smart Charger",
+      "category": "charger",
+      "vendor": "Palm Beach Bots / SkyRC",
+      "product_url": "https://palmbeachbots.com/products/b6-neo-compact-smart-charger-for-1-6s-lipo-b6neo",
+      "summary": "Compact high-power 1-6S smart balance charger sold by PBB for antweight through larger combat packs.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "charger",
+        "balance-charger",
+        "b6-neo",
+        "usb-pd"
+      ],
+      "specs": {
+        "length_mm": 70,
+        "width_mm": 50,
+        "height_mm": 32,
+        "weight_g": 82,
+        "dc_input_min_v": 10,
+        "dc_input_max_v": 28,
+        "pd_input_min_v": 12,
+        "pd_input_max_v": 20,
+        "charge_power_dc_w": 200,
+        "charge_power_pd_w": 80,
+        "discharge_power_w": 24,
+        "lithium_cells_s_min": 1,
+        "lithium_cells_s_max": 6,
+        "charge_current_min_a": 0.1,
+        "charge_current_max_a": 20,
+        "discharge_current_max_a": 2,
+        "balance_current_ma": 500,
+        "price_usd": 39.99
+      },
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/b6-neo-compact-smart-charger-for-1-6s-lipo-b6neo"
+      ]
+    },
+    {
+      "id": "kit-pbb-dead-shaft-delight",
+      "type": "kit",
+      "name": "PBB Plastic Ant Vertical Drum — Dead Shaft Delight",
+      "vendor": "Palm Beach Bots",
+      "product_url": "https://palmbeachbots.com/products/plastic-ant-vertical-drum-kit-dead-shaft-delight",
+      "summary": "Full plastic-ant vertical drum kit built around a dead-shaft weapon architecture and PBB/Repeat/FingerTech electronics.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kit",
+        "plastic-ant",
+        "vertical-drum",
+        "dead-shaft"
+      ],
+      "price_usd": 159.99,
+      "skill_level": "beginner-intermediate",
+      "includes": [
+        "PBB 2822 1800KV weapon motor",
+        "BL20A brushless weapon ESC",
+        "weapon belt, pulley and dead shaft",
+        "Repeat dual brushed drive ESC",
+        "2 Repeat 16mm brushed drive motors",
+        "FingerTech lightweight Twist hubs",
+        "2.5x0.75in foam wheels",
+        "charge jack",
+        "Palm Power 2S 300mAh battery",
+        "hardware",
+        "STEP/STL access"
+      ],
+      "notes": "Collection price was from $159.99 when checked September 2026. Configuration options can change total price.",
+      "sources": [
+        "https://palmbeachbots.com/products/plastic-ant-vertical-drum-kit-dead-shaft-delight"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "kit-pbb-plastic-poison",
+      "type": "kit",
+      "name": "PBB Plastic Ant Horizontal Undercutter — Plastic Poison",
+      "vendor": "Palm Beach Bots",
+      "product_url": "https://palmbeachbots.com/products/plastic-ant-horizontal-undercutter-kit-plastic-poison",
+      "summary": "Plastic-ant undercutter kit using a PBB 2822 1100KV motor, BL20A weapon ESC and FingerTech blade mount.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kit",
+        "plastic-ant",
+        "undercutter",
+        "horizontal-spinner"
+      ],
+      "skill_level": "beginner-intermediate",
+      "includes": [
+        "PBB 2822 1100KV weapon motor",
+        "BL20A brushless weapon ESC",
+        "FingerTech blade mount",
+        "Repeat dual brushed drive ESC",
+        "2 Repeat 16mm brushed drive motors",
+        "FingerTech lightweight Twist hubs",
+        "2.5x0.75in foam wheels",
+        "charge jack",
+        "Palm Power 2S 300mAh battery",
+        "hardware",
+        "STEP/STL access"
+      ],
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/plastic-ant-horizontal-undercutter-kit-plastic-poison"
+      ]
+    },
+    {
+      "id": "kit-pbb-super-scooper",
+      "type": "kit",
+      "name": "PBB Plastic Ant Lifter — Super Scooper",
+      "vendor": "Palm Beach Bots",
+      "product_url": "https://palmbeachbots.com/products/plastic-ant-lifter-kit-super-scooper",
+      "summary": "Plastic-ant lifter kit sharing the PBB plastic-ant drive architecture but replacing the spinner system with a high-torque servo lifter.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kit",
+        "plastic-ant",
+        "lifter",
+        "servo"
+      ],
+      "price_usd": 134.99,
+      "skill_level": "beginner",
+      "includes": [
+        "PBB 25kg lifter servo",
+        "lifter linkage and hardware",
+        "Repeat dual brushed drive ESC",
+        "2 Repeat 16mm brushed drive motors",
+        "FingerTech hubs/wheels",
+        "Palm Power 2S 300mAh battery"
+      ],
+      "notes": "Collection price was from $134.99 when checked September 2026.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/ant-kits-upgrades"
+      ]
+    },
+    {
+      "id": "kit-pbb-palm-beach-beater",
+      "type": "kit",
+      "name": "Palm Beach Beater 1lb Beater Bar Kit",
+      "vendor": "Palm Beach Bots",
+      "summary": "Antweight beater-bar weapon kit offered as a modular upgrade/build path.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "beater-bar",
+        "weapon-system",
+        "pbb"
+      ],
+      "price_usd": 79.99,
+      "skill_level": "intermediate",
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "servo-pbb-25kg",
+      "type": "component",
+      "name": "PBB 25KG Digital Metal Gear Servo",
+      "category": "servo",
+      "vendor": "Palm Beach Bots",
+      "product_url": "https://palmbeachbots.com/products/pbb-25kg-metal-gear-servo-ccw-rotation-viper-lifter-upgrade",
+      "summary": "Current standard lifter servo for PBB Super Scooper and a drop-in Viper Lifter replacement with extended travel.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "servo",
+        "lifter",
+        "25t-spline",
+        "metal-gears",
+        "pbb"
+      ],
+      "specs": {
+        "voltage_min_v": 4.8,
+        "voltage_max_v": 10,
+        "rotation_standard_pwm_deg": 120,
+        "rotation_extended_deg": 270,
+        "pwm_extended_min_us": 500,
+        "pwm_extended_max_us": 2500,
+        "length_mm": 40,
+        "height_mm": 40.5,
+        "width_mm": 20,
+        "weight_g": 69.8,
+        "spline": "25T Futaba",
+        "speed_s_per_60deg_9v": 0.11,
+        "stall_torque_kgcm_9v": 30,
+        "speed_s_per_60deg_8_4v": 0.125,
+        "stall_torque_kgcm_8_4v": 28.7,
+        "speed_s_per_60deg_7_2v": 0.14,
+        "stall_torque_kgcm_7_2v": 26.8,
+        "price_usd": 14.99
+      },
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/pbb-25kg-metal-gear-servo-ccw-rotation-viper-lifter-upgrade"
+      ]
+    },
+    {
+      "id": "servo-pbb-45kg-coreless",
+      "type": "component",
+      "name": "PBB 45KG Coreless Metal Gear Servo",
+      "category": "servo",
+      "vendor": "Palm Beach Bots",
+      "product_url": "https://palmbeachbots.com/products/45kg-coreless-metal-gear-servo-ccw-rotation-viper-lifter-upgrade",
+      "summary": "High-power Viper Lifter upgrade with coreless motor, metal gears and aluminum case.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "servo",
+        "lifter",
+        "flipper",
+        "coreless",
+        "45kg",
+        "pbb"
+      ],
+      "specs": {
+        "voltage_min_v": 4.8,
+        "voltage_max_v": 10,
+        "rotation_standard_pwm_deg": 120,
+        "rotation_extended_deg": 270,
+        "pwm_extended_min_us": 500,
+        "pwm_extended_max_us": 2500,
+        "length_mm": 40,
+        "height_mm": 40.5,
+        "width_mm": 20,
+        "weight_g": 81,
+        "spline": "25T Futaba",
+        "speed_s_per_60deg_9v": 0.1,
+        "stall_torque_kgcm_9v": 50,
+        "speed_s_per_60deg_8_4v": 0.11,
+        "stall_torque_kgcm_8_4v": 45,
+        "speed_s_per_60deg_6v": 0.12,
+        "stall_torque_kgcm_6v": 35,
+        "price_usd": 39.99
+      },
+      "availability_note": "Sold out when checked September 2026.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/products/45kg-coreless-metal-gear-servo-ccw-rotation-viper-lifter-upgrade"
+      ]
+    },
+    {
+      "id": "switch-pbb-3-5mm-charge-jack",
+      "type": "component",
+      "name": "PBB 3.5mm Switch / Charge Jack",
+      "category": "switch",
+      "vendor": "Palm Beach Bots",
+      "summary": "Compact 3.5mm jack used as a removable power/charge interface in PBB plastic-ant kits.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "switch",
+        "charge-jack",
+        "3.5mm",
+        "pbb"
+      ],
+      "specs": {
+        "price_usd": 6.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/plastic-ant-spare-parts"
+      ]
+    },
+    {
+      "id": "mount-pbb-ant-drive-carbon",
+      "type": "component",
+      "name": "PBB Ant Drive Motor Mount Pair - Carbon Fiber",
+      "category": "motor-mount",
+      "vendor": "Palm Beach Bots",
+      "summary": "Carbon-fiber antweight drive motor mount pair compatible with Repeat 16mm motors and Silver Sparks.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "motor-mount",
+        "carbon-fiber",
+        "16mm",
+        "silver-spark",
+        "repeat"
+      ],
+      "specs": {
+        "quantity": 2,
+        "price_usd": 3.49
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/plastic-ant-spare-parts"
+      ]
+    },
+    {
+      "id": "belt-pbb-s3m-177-59t-4mm",
+      "type": "component",
+      "name": "PBB S3M Timing Belt 177mm 59T 4mm",
+      "category": "belt-pulley",
+      "vendor": "Palm Beach Bots",
+      "summary": "4mm-wide S3M timing belt stocked for one-pound beater/plastic-ant weapon systems.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "belt",
+        "s3m",
+        "177mm",
+        "59t",
+        "weapon-drive"
+      ],
+      "specs": {
+        "belt_pitch_mm": 3,
+        "length_mm": 177,
+        "teeth": 59,
+        "width_mm": 4,
+        "price_usd": 1.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/plastic-ant-spare-parts"
+      ]
+    },
+    {
+      "id": "pulley-pbb-fingertech-s3m-15t-1-8",
+      "type": "component",
+      "name": "FingerTech S3M Timing Pulley 15T 1/8in Bore - PBB Beater",
+      "category": "belt-pulley",
+      "vendor": "FingerTech / Palm Beach Bots",
+      "summary": "15-tooth S3M weapon pulley stocked by PBB for its one-pound beater bar system.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "pulley",
+        "15t",
+        "s3m",
+        "1/8-bore",
+        "beater"
+      ],
+      "specs": {
+        "teeth": 15,
+        "bore_in": 0.125,
+        "price_usd": 4.79
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/plastic-ant-spare-parts"
+      ]
+    },
+    {
+      "id": "weapon-safety-pbb-clamp",
+      "type": "component",
+      "name": "Palm Beach Bots Safety Clamp",
+      "category": "misc",
+      "vendor": "Palm Beach Bots",
+      "summary": "Purpose-sold weapon safety clamp for immobilizing combat weapon systems during transport/pit work.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-safety",
+        "clamp",
+        "pit-safety"
+      ],
+      "specs": {
+        "price_usd": 4.99
+      },
+      "catalog_entry_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/weapon-systems"
+      ]
+    },
+    {
+      "id": "kit-pbb-skizo-horizontal-addon",
+      "type": "kit",
+      "name": "Horizontal Addon for Skizo",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Horizontal Addon for Skizo catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "skizo",
+        "horizontal-spinner",
+        "weapon-addon"
+      ],
+      "price_usd": 129.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-skizo-vertical-addon",
+      "type": "kit",
+      "name": "Vertical Addon for Skizo",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Vertical Addon for Skizo catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "skizo",
+        "vertical-spinner",
+        "weapon-addon"
+      ],
+      "price_usd": 129.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-skizo-lifter-addon",
+      "type": "kit",
+      "name": "Lifter Addon for Skizo",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Lifter Addon for Skizo catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "skizo",
+        "lifter",
+        "weapon-addon"
+      ],
+      "price_usd": 91.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-snapshot-gen2",
+      "type": "kit",
+      "name": "Snapshot Gen2 Plastic Vertical Spinner Kit",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Snapshot Gen2 Plastic Vertical Spinner Kit catalog configuration.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kit",
+        "plastic-ant",
+        "vertical-spinner",
+        "gen2"
+      ],
+      "price_usd": 109.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-top-shelf-gen2",
+      "type": "kit",
+      "name": "Top Shelf Gen2 Plastic Lifter Kit",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Top Shelf Gen2 Plastic Lifter Kit catalog configuration.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kit",
+        "plastic-ant",
+        "lifter",
+        "gen2"
+      ],
+      "price_usd": 98.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-turbulence-gen2",
+      "type": "kit",
+      "name": "Turbulence Gen2 Plastic Horizontal Spinner Kit",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots Turbulence Gen2 Plastic Horizontal Spinner Kit catalog configuration.",
+      "weight_classes": [
+        "plastic-antweight"
+      ],
+      "tags": [
+        "kit",
+        "plastic-ant",
+        "horizontal-spinner",
+        "gen2"
+      ],
+      "price_usd": 108.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound?page=2"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-horizontal-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Horizontal Spinner",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Horizontal Spinner catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "horizontal-spinner",
+        "ready-to-fight"
+      ],
+      "price_usd": 244.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-tailspinner-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Tailspinner",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Tailspinner catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "tail-spinner",
+        "ready-to-fight"
+      ],
+      "price_usd": 249.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-vertical-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Vertical Spinner",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Vertical Spinner catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "vertical-spinner",
+        "ready-to-fight"
+      ],
+      "price_usd": 231.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-wedge-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Wedge",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Wedge catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "wedge",
+        "ready-to-fight"
+      ],
+      "price_usd": 157.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    },
+    {
+      "id": "kit-pbb-viper-lifter-rtf",
+      "type": "kit",
+      "name": "PBB Configurable Viper Lifter",
+      "vendor": "Palm Beach Bots",
+      "summary": "Current Palm Beach Bots PBB Configurable Viper Lifter catalog configuration.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "viper",
+        "lifter",
+        "ready-to-fight"
+      ],
+      "price_usd": 207.99,
+      "skill_level": "beginner-intermediate",
+      "catalog_entry_only": true,
+      "notes": "Price is a live collection snapshot from September 2026; selectable radio/battery/module options may change final price.",
+      "confidence": "high",
+      "sources": [
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-pbb-current-antweight-ecosystem",
+      "title": "Palm Beach Bots current antweight ecosystem",
+      "section": "Sourcing",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "palm-beach-bots",
+        "palm-power",
+        "kits",
+        "2822"
+      ],
+      "entity_refs": [
+        "motor-pbb-d2822-1100kv-4mm",
+        "motor-pbb-d2822-1800kv-4mm",
+        "battery-palm-power-3s-300mah-gen2-65c",
+        "charger-pbb-b6-neo",
+        "kit-pbb-dead-shaft-delight",
+        "kit-pbb-plastic-poison",
+        "kit-pbb-super-scooper"
+      ],
+      "sources": [
+        "https://palmbeachbots.com/collections/high-performance-2822-brushless-motors",
+        "https://palmbeachbots.com/collections/antweight-kits-1-pound",
+        "https://palmbeachbots.com/collections/plastic-ant-spare-parts"
+      ],
+      "body_md": "Palm Beach Bots is both a retailer and a product designer, so its database records need to distinguish PBB/Palm Power products from resold Repeat, FingerTech and Just 'Cuz parts. The PBB 2822 family is a useful example: the catalog carries several KV/shaft combinations as upgraded stock-form-factor weapon motors, while kits such as Plastic Poison and Dead Shaft Delight integrate those motors with BLHeli_S ESCs and Repeat/FingerTech drive hardware. Palm Power batteries are purpose-sized for ants, and the B6 Neo is the higher-feature charger option. Resold manufacturer products should normally resolve to their manufacturer record rather than being duplicated as a new PBB component."
+    }
+  ]
+}

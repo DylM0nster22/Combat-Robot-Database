@@ -32,7 +32,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "bearing-624",
@@ -63,7 +64,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "bearing-625",
@@ -94,7 +96,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "bearing-626",
@@ -125,7 +128,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "bearing-688",
@@ -156,7 +160,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "bearing-6700",
@@ -187,7 +192,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "bushing-bronze",
@@ -217,7 +223,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "fastener-m2-shcs",
@@ -246,7 +253,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "fastener-m2-5-shcs",
@@ -275,7 +283,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "fastener-m3-shcs",
@@ -304,7 +313,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "fastener-m3-bhcs",
@@ -333,7 +343,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "fastener-m3-fhcs",
@@ -362,7 +373,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "fastener-heatset-insert",
@@ -394,7 +406,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "fastener-nyloc",
@@ -424,7 +437,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "fastener-threadlocker",
@@ -454,7 +468,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "shaft-3mm",
@@ -484,7 +499,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "shaft-5mm",
@@ -514,7 +530,8 @@
    "confidence": "high",
    "sources": [
     "domain knowledge"
-   ]
+   ],
+   "reference_only": true
   },
   {
    "id": "term-layer-adhesion",

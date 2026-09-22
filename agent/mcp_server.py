@@ -129,6 +129,8 @@ TOOLS = [
         "name": "list_entities",
         "description": (
             "Browse stored entities by type, weight class, tag or component category. "
+            "Generic reference-only size classes are excluded by default so part lists "
+            "prefer exact products; set include_reference=true to include them. "
             "This returns database records/previews, not a recommendation."
         ),
         "inputSchema": {
@@ -139,6 +141,8 @@ TOOLS = [
                 "tag": {"type": "string"},
                 "category": {"type": "string",
                              "description": "Component/material category, e.g. 'weapon-motor'."},
+                "include_reference": {"type": "boolean", "default": False,
+                                      "description": "Include generic size-class/reference records."},
                 "limit": {"type": "integer", "default": 50, "maximum": 300},
                 "offset": {"type": "integer", "default": 0},
             },
@@ -224,6 +228,7 @@ def call_tool(name, args):
         return database.list_entities(
             entity_type=args.get("entity_type"), weight_class=args.get("weight_class"),
             tag=args.get("tag"), category=args.get("category"),
+            include_reference=bool(args.get("include_reference", False)),
             limit=args.get("limit", 50), offset=args.get("offset", 0),
         )
     if name == "compare_entities":

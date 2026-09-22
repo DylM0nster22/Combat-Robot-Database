@@ -719,7 +719,7 @@
         "bore_mm": 3,
         "od_mm": 10,
         "width_mm": 4,
-        "weight_g": 1.0
+        "weight_g": 1
       },
       "pros": [
         "extremely light and compact",
@@ -740,7 +740,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true
     },
     {
       "id": "component-bearing-626",
@@ -752,7 +753,7 @@
         "bore_mm": 6,
         "od_mm": 19,
         "width_mm": 6,
-        "weight_g": 5.0
+        "weight_g": 5
       },
       "pros": [
         "good balance of shaft diameter (bending strength) vs bearing size/weight",
@@ -772,7 +773,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true
     },
     {
       "id": "component-bearing-688",
@@ -804,7 +806,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true
     },
     {
       "id": "component-bearing-flanged",
@@ -838,7 +841,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true
     },
     {
       "id": "component-bronze-bushing",
@@ -871,7 +875,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true
     },
     {
       "id": "component-hub-set-screw",
@@ -902,7 +907,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true
     },
     {
       "id": "component-hub-clamping",
@@ -935,7 +941,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "reference_only": true
     },
     {
       "id": "material-s7-tool-steel",

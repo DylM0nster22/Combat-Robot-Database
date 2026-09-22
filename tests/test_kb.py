@@ -211,6 +211,18 @@ class TestNormalisation(unittest.TestCase):
         self.assertIsNone(build_db.normalize_entity({"summary": "s"}, "topic", report))
         self.assertTrue(report.errors)
 
+    def test_extra_metadata_becomes_searchable_text(self):
+        text = build_db.extra_to_text({
+            "category": "esc-drive",
+            "vendor": "Example Robotics",
+            "image_url": "https://example.invalid/image.jpg",
+            "also_from": ["topic-a"],
+        })
+        self.assertIn("category esc-drive", text)
+        self.assertIn("vendor Example Robotics", text)
+        self.assertNotIn("image", text)
+        self.assertNotIn("also_from", text)
+
     def test_merge_prefers_longer_prose_and_keeps_first_specs(self):
         report = build_db.Report()
         a = build_db.normalize_entity(
@@ -287,6 +299,23 @@ class TestPhotos(unittest.TestCase):
                 self.assertTrue(photo.get(key), f"{entity_id} missing {key}")
             self.assertTrue(photo["image"].startswith("https://"))
             self.assertTrue(photo["source"].startswith("https://"))
+
+
+    def test_entity_product_photo_requires_source_credit(self):
+        good = {
+            "id": "component-test", "name": "Test Part",
+            "image_url": "https://example.invalid/part.jpg",
+            "image_source_url": "https://example.invalid/product",
+            "image_provider": "Example Vendor",
+        }
+        rendered = build_site.photo_html(good, detail=True)
+        self.assertIn("Verified product photo", rendered)
+        self.assertIn("Product photo", rendered)
+        self.assertIn("Example Vendor", rendered)
+
+        incomplete = dict(good)
+        incomplete.pop("image_provider")
+        self.assertEqual(build_site.photo_html(incomplete, detail=True), "")
 
 
 class TestMCPServer(unittest.TestCase):
@@ -403,6 +432,149 @@ class TestBuiltDatabase(unittest.TestCase):
         rows = self.db.conn.execute("SELECT id, type, name FROM entities").fetchall()
         for row in rows:
             self.assertTrue(row["id"] and row["type"] and row["name"])
+
+    def test_every_component_has_a_known_category(self):
+        valid = {
+            "drive-motor", "weapon-motor", "esc-drive", "esc-weapon",
+            "receiver", "transmitter", "battery", "charger", "wheel", "hub",
+            "weapon", "bearing", "fastener", "switch", "servo", "mixer",
+            "voltage-regulator", "motor-mount", "gearbox", "belt-pulley",
+            "connector", "misc",
+        }
+        rows = self.db.conn.execute(
+            "SELECT id, extra FROM entities WHERE type='component'").fetchall()
+        self.assertTrue(rows)
+        for row in rows:
+            extra = json.loads(row["extra"])
+            category = extra.get("category")
+            self.assertIn(category, valid, f"{row['id']} has invalid/missing category {category!r}")
+
+    def test_entity_images_are_complete_and_credited(self):
+        rows = self.db.conn.execute("SELECT id, extra FROM entities").fetchall()
+        for row in rows:
+            extra = json.loads(row["extra"])
+            fields = [extra.get("image_url"), extra.get("image_source_url"),
+                      extra.get("image_provider")]
+            if any(fields):
+                self.assertTrue(all(fields), f"{row['id']} has incomplete image metadata")
+                self.assertTrue(extra["image_url"].startswith("https://"), row["id"])
+                self.assertTrue(extra["image_source_url"].startswith("https://"), row["id"])
+
+    def test_generic_weapon_motor_sizes_do_not_fake_product_specs(self):
+        rows = self.db.conn.execute(
+            "SELECT id, specs, notes FROM entities "
+            "WHERE id GLOB 'motor-[0-9][0-9][0-9][0-9]'").fetchall()
+        self.assertGreater(len(rows), 10)
+        for row in rows:
+            specs = json.loads(row["specs"])
+            self.assertEqual(set(specs), {"stator_dia_mm", "stator_height_mm"}, row["id"])
+            self.assertIn("not a purchasable product", row["notes"].lower(), row["id"])
+
+    def test_component_category_metadata_is_full_text_searchable(self):
+        count = self.db.conn.execute(
+            "SELECT COUNT(*) FROM entities_fts WHERE entities_fts MATCH 'charger'").fetchone()[0]
+        self.assertGreater(count, 0)
+
+    def test_low_confidence_components_are_reference_only(self):
+        rows = self.db.conn.execute(
+            "SELECT id, confidence, extra FROM entities WHERE type='component' AND confidence='low'"
+        ).fetchall()
+        for row in rows:
+            extra = json.loads(row["extra"])
+            self.assertTrue(
+                extra.get("reference_only"),
+                f"{row['id']} is low-confidence but can still appear as a recommendation candidate"
+            )
+
+    def test_catalog_only_rows_are_exact_not_reference_classes(self):
+        rows = self.db.conn.execute(
+            "SELECT id, extra FROM entities WHERE type='component'"
+        ).fetchall()
+        catalog_rows = []
+        for row in rows:
+            extra = json.loads(row["extra"])
+            if extra.get("catalog_entry_only"):
+                catalog_rows.append(row["id"])
+                self.assertFalse(
+                    extra.get("reference_only"),
+                    f"{row['id']} cannot be both catalog-only and reference-only"
+                )
+        self.assertTrue(catalog_rows)
+
+    def test_major_small_combat_vendor_coverage_does_not_regress(self):
+        expected_minimums = {
+            "Repeat Robotics": 40,
+            "FingerTech Robotics": 30,
+            "Just 'Cuz Robotics": 20,
+            "Palm Beach Bots": 10,
+            "T-Motor": 12,
+            "MAD Components": 4,
+        }
+        for vendor, minimum in expected_minimums.items():
+            count = self.db.conn.execute(
+                "SELECT COUNT(*) FROM entities "
+                "WHERE type='component' AND json_extract(extra,'$.vendor')=?",
+                (vendor,),
+            ).fetchone()[0]
+            self.assertGreaterEqual(
+                count, minimum,
+                f"{vendor} coverage fell below the curated catalog floor"
+            )
+
+    def test_budget_fpv_motor_tranche_stays_available(self):
+        required = {
+            "motor-mad-fs1303-5-mythic-5500kv",
+            "motor-mad-fs1404-5-aceracer-4500kv",
+            "motor-mad-bsc2207-5",
+            "motor-mad-fs2004-dynamo",
+            "motor-tmotor-f1203-7000kv",
+            "motor-tmotor-f1404-3800kv",
+            "motor-tmotor-f1507-2700kv",
+            "motor-tmotor-f2004-1700kv",
+            "motor-tmotor-f2203-5-2850kv",
+            "motor-iflight-xing-e-pro-2207",
+            "motor-emax-eco-ii-2207",
+            "motor-betafpv-1805",
+            "motor-surpass-s2207-1950kv",
+            "motor-hskrc-2306-5-1800kv",
+        }
+        rows = self.db.conn.execute(
+            "SELECT id, extra FROM entities WHERE type='component'"
+        ).fetchall()
+        present = {row["id"]: json.loads(row["extra"]) for row in rows}
+        missing = required - present.keys()
+        self.assertFalse(missing, f"missing curated budget motors: {sorted(missing)}")
+        for motor_id in required:
+            self.assertFalse(
+                present[motor_id].get("reference_only"),
+                f"{motor_id} should remain an exact product candidate"
+            )
+
+    def test_reference_only_records_are_marked_and_hidden_from_normal_lists(self):
+        generic = self.db.get_entity("motor-2207")
+        self.assertIsNotNone(generic)
+        self.assertTrue(generic.get("reference_only"))
+
+        normal = self.db.list_entities(
+            entity_type="component", category="weapon-motor", limit=300)
+        normal_ids = {e["id"] for e in normal["entities"]}
+        self.assertNotIn("motor-2207", normal_ids)
+
+        with_refs = self.db.list_entities(
+            entity_type="component", category="weapon-motor",
+            include_reference=True, limit=300)
+        ref_rows = {e["id"]: e for e in with_refs["entities"]}
+        self.assertIn("motor-2207", ref_rows)
+        self.assertTrue(ref_rows["motor-2207"].get("reference_only"))
+
+    def test_build_guide_prefers_exact_products(self):
+        guide = self.db.build_guide("antweight")
+        for key in ("drive_motors", "weapon_motors", "batteries", "escs", "wheels"):
+            for entity in guide[key]:
+                self.assertFalse(
+                    entity.get("reference_only"),
+                    f"{key} unexpectedly returned reference-only {entity['id']}"
+                )
 
     def test_entity_ids_are_unique_and_slug_shaped(self):
         rows = self.db.conn.execute("SELECT id FROM entities").fetchall()

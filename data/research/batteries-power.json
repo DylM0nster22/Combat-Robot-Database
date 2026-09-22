@@ -48,7 +48,9 @@
         "https://www.racedayquads.com/products/tattu-300mah-7-6v-75c-2s1p-lipo-jst",
         "https://risingsunfpv.com/products/tattu-300mah-2s-45c-lipo-battery-pack-with-jst-syp-plug"
       ],
-      "confidence": "high"
+      "confidence": "high",
+      "category": "battery",
+      "vendor": "Tattu"
     },
     {
       "id": "battery-tattu-300mah-2s-75c-hv",
@@ -90,7 +92,9 @@
       "sources": [
         "https://risingsunfpv.com/products/tattu-300mah-2s-75c-hv-lipo-battery"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery",
+      "vendor": "Tattu"
     },
     {
       "id": "battery-gnb-lihv-2s-300mah-60c",
@@ -118,7 +122,7 @@
         "voltage_nominal_v": 7.6,
         "connector": "JST"
       },
-      "vendor": "Gaoneng (GNB)",
+      "vendor": "GNB",
       "pros": [
         "Marketed directly to the combat robotics niche, not just FPV",
         "LiHV chemistry gives more usable capacity per gram than standard LiPo"
@@ -126,11 +130,12 @@
       "cons": [
         "Weight not published by the retailer; must be weighed on arrival for tight builds"
       ],
-      "notes": "Sold by Robot Smashing League specifically as an antweight part, which is unusual \u2014 most LiHV packs this size are marketed to micro FPV pilots and only cross over into combat use informally.",
+      "notes": "Sold by Robot Smashing League specifically as an antweight part, which is unusual — most LiHV packs this size are marketed to micro FPV pilots and only cross over into combat use informally.",
       "sources": [
         "https://shop.robotsmashingleague.com/products/gnb-lihv-2s-7-6v-300mah-60c-jst-lipo-battery"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery"
     },
     {
       "id": "battery-gnb-lihv-4s-350mah-70c",
@@ -157,7 +162,7 @@
         "voltage_nominal_v": 15.2,
         "connector": "XT30"
       },
-      "vendor": "Gaoneng (GNB)",
+      "vendor": "GNB",
       "pros": [
         "4S voltage in a small, light package thanks to LiHV energy density",
         "XT30 connector handles the higher current of a 4S weapon setup better than JST"
@@ -168,7 +173,8 @@
       "sources": [
         "https://www.gaoneng.shop/products/gaoneng-gnb-lihv-4s-15.2v-350mah-70c-xt30-lipo-battery"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery"
     },
     {
       "id": "battery-gnb-1s-450mah-hv",
@@ -196,12 +202,13 @@
         "voltage_nominal_v": 3.8,
         "connector": "GNB27"
       },
-      "vendor": "Gaoneng (GNB)",
+      "vendor": "GNB",
       "notes": "1S packs are not used as the main pack in antweights (too low voltage for typical brushed/brushless drive), but the same category of small 1S/2S HV or LiFe cell is what builders reach for when isolating receiver power from a sagging main weapon battery.",
       "sources": [
         "https://shop.makerfire.com/products/gaoneng-gnb-450mah-1s-battery-3-8v-4-35v-80c-fpv-hv-lipo-battery"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery"
     },
     {
       "id": "battery-cnhl-ministar-3s-450mah-70c",
@@ -210,7 +217,7 @@
       "aliases": [
         "China Hobby Line MiniStar 11.1V 450mAh"
       ],
-      "summary": "A compact 3S 450mAh pack from CNHL (China Hobby Line) with an XT30 connector \u2014 a very typical capacity/voltage combination for an antweight or light plastic-antweight running a mid-KV brushless spinner plus two brushed drive motors.",
+      "summary": "A compact 3S 450mAh pack from CNHL (China Hobby Line) with an XT30 connector — a very typical capacity/voltage combination for an antweight or light plastic-antweight running a mid-KV brushless spinner plus two brushed drive motors.",
       "weight_classes": [
         "antweight",
         "plastic-antweight"
@@ -228,7 +235,7 @@
         "voltage_nominal_v": 11.1,
         "connector": "XT30"
       },
-      "vendor": "CNHL (China Hobby Line)",
+      "vendor": "CNHL",
       "pros": [
         "450mAh/3S is a sweet-spot size for antweight spinners",
         "XT30 rated comfortably above realistic antweight draw"
@@ -240,7 +247,8 @@
         "https://www.racedayquads.com/products/cnhl-450mah-3s-70c-11-1v-li-po-fpv-battery-for-2-and-3-quads-xt30",
         "https://chinahobbyline.com/products/cnhl-ministar-series-450mah-11-1v-3s-70c-lipo-battery-with-xt30-plug"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery"
     },
     {
       "id": "battery-cnhl-lihv-ministar-3s-450mah-70c",
@@ -249,7 +257,7 @@
       "aliases": [
         "CNHL LiHV 11.4V 450mAh 3S"
       ],
-      "summary": "LiHV sibling of the CNHL MiniStar 3S 450mAh pack, charged to 4.35V/cell (11.4V nominal vs 11.1V standard) for extra energy in the same physical package \u2014 a direct example of the real-world capacity gain LiHV offers antweight builders.",
+      "summary": "LiHV sibling of the CNHL MiniStar 3S 450mAh pack, charged to 4.35V/cell (11.4V nominal vs 11.1V standard) for extra energy in the same physical package — a direct example of the real-world capacity gain LiHV offers antweight builders.",
       "weight_classes": [
         "antweight",
         "plastic-antweight"
@@ -267,21 +275,22 @@
         "voltage_nominal_v": 11.4,
         "connector": "XT30"
       },
-      "vendor": "CNHL (China Hobby Line)",
-      "notes": "Same 450mAh capacity rating as the standard-LiPo MiniStar, but because it runs a higher voltage curve throughout the discharge, it delivers more actual watt-hours \u2014 direct evidence for the LiHV energy-density claim rather than a marketing rating.",
+      "vendor": "CNHL",
+      "notes": "Same 450mAh capacity rating as the standard-LiPo MiniStar, but because it runs a higher voltage curve throughout the discharge, it delivers more actual watt-hours — direct evidence for the LiHV energy-density claim rather than a marketing rating.",
       "sources": [
         "https://chinahobbyline.com/products/3-packs-cnhl-lihv-ministar-450mah-11-1v-3s-70c-lipo-battery-with-xt30u"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery"
     },
     {
       "id": "battery-palm-power-2s-300mah-65c",
       "type": "component",
-      "name": "Palm Power 2S 300mAh 65C (Gen2)",
+      "name": "Palm Power Gen2 2S 300mAh 65C LiPo",
       "aliases": [
         "Palm Beach Bots Palm Power 2S 300mAh"
       ],
-      "summary": "House-brand antweight LiPo sold directly by Palm Beach Bots, a US combat robotics vendor, with a JST connector and a separate balance lead \u2014 a pack designed and sold specifically for the antweight community rather than repurposed from FPV.",
+      "summary": "Current Gen2 2S 300mAh Palm Power pack sized specifically for antweight and plastic-antweight combat robots.",
       "weight_classes": [
         "antweight",
         "plastic-antweight"
@@ -293,23 +302,28 @@
         "combat-specific"
       ],
       "specs": {
-        "category": "battery",
         "capacity_mah": 300,
-        "c_rating": 65,
         "cells_s": 2,
         "voltage_nominal_v": 7.4,
-        "connector": "JST"
+        "c_rating": 65,
+        "weight_g": 20.2,
+        "length_mm": 46.25,
+        "width_mm": 16.25,
+        "height_mm": 13.2,
+        "price_usd": 9.99
       },
-      "vendor": "Palm Beach Bots",
+      "vendor": "Palm Power Batteries / Palm Beach Bots",
       "pros": [
         "Sold explicitly for combat robots, so sizing/leads already match common antweight ESCs",
         "65C is a middle-of-the-road, reasonably credible discharge rating for this size"
       ],
       "sources": [
-        "https://palmbeachbots.com/products/palm-power-2s-300mah-65c-lipo-battery",
-        "https://keycityhobby.com/products/palm-beach-bots-palm-power-2s-300mah-65c-lipo-battery"
+        "https://palmbeachbots.com/products/palm-power-2s-300mah-65c-lipo-battery"
       ],
-      "confidence": "medium"
+      "confidence": "high",
+      "category": "battery",
+      "product_url": "https://palmbeachbots.com/products/palm-power-2s-300mah-65c-lipo-battery",
+      "notes": "Product page price checked September 2026. Collection pages can briefly show a different sale/list price, so the exact product page is authoritative."
     },
     {
       "id": "battery-palm-power-3s-450mah-45c",
@@ -337,7 +351,7 @@
         "connector": "XT30",
         "price_usd": 14.99
       },
-      "vendor": "Palm Beach Bots",
+      "vendor": "Palm Power Batteries",
       "pros": [
         "Priced and packaged for the antweight market specifically",
         "XT30 suits the higher current of a 3S weapon setup"
@@ -345,16 +359,18 @@
       "sources": [
         "https://palmbeachbots.com/collections/palm-power-batteries-1"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery"
     },
     {
       "id": "battery-fingertech-galaxy-2s",
       "type": "component",
-      "name": "FingerTech Galaxy 2S LiPoly Pack",
+      "name": "FingerTech Galaxy 2S 300mAh LiPo",
       "aliases": [
-        "FingerTech Galaxy 7.4V Pack"
+        "FingerTech Galaxy 7.4V 300mAh",
+        "Galaxy 2S 300"
       ],
-      "summary": "FingerTech Robotics' house line of small LiPo packs sold in multiple capacities for antweight and beetleweight kits such as the Viper V3; a long-running, combat-specific option predating the recent wave of Chinese FPV-brand crossover packs.",
+      "summary": "300mAh variant of FingerTech's Galaxy 2S combat-robot LiPo family.",
       "weight_classes": [
         "antweight",
         "plastic-antweight"
@@ -366,17 +382,28 @@
         "kit-battery"
       ],
       "specs": {
-        "category": "battery",
+        "capacity_mah": 300,
         "cells_s": 2,
-        "voltage_nominal_v": 7.4
+        "voltage_nominal_v": 7.4,
+        "c_rating_continuous": 45,
+        "c_rating_burst": 90,
+        "current_continuous_a": 13.5,
+        "current_burst_15s_a": 27,
+        "width_mm": 19,
+        "length_mm": 45,
+        "height_mm": 14,
+        "weight_g": 19,
+        "max_charge_c": 2,
+        "connector": "JST-RCY"
       },
       "vendor": "FingerTech Robotics",
-      "notes": "FingerTech sells the Galaxy line in a range of mAh sizes rather than one fixed SKU; exact capacity/weight/price depend on which size is ordered, so specific numeric specs are intentionally left out here rather than guessed. Commonly bundled with FingerTech's own kits (e.g. Viper V3).",
+      "notes": "This entry is specifically the 300mAh variant. FingerTech also sells 120/180/250/450mAh 2S Galaxy variants with different weights and dimensions.",
       "sources": [
-        "https://www.fingertechrobotics.com/proddetail.php?prod=G-2S-mAh",
-        "https://itgresa.com/product/viper-combat-robot-kit-radio/"
+        "https://www.fingertechrobotics.com/proddetail.php?prod=G-2S-mAh"
       ],
-      "confidence": "low"
+      "confidence": "high",
+      "category": "battery",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=G-2S-mAh"
     },
     {
       "id": "battery-gens-ace-2s-300mah-45c",
@@ -404,11 +431,13 @@
         "weight_g": 23
       },
       "vendor": "Gens Ace",
-      "notes": "Gens Ace and Tattu packs of the same capacity/C-rating/cell-count are frequently near-identical in weight and dimensions since both brands are produced by the same manufacturer; the weight given here is carried over from the equivalent Tattu SKU and should be treated as an estimate, not a confirmed Gens Ace datasheet figure.",
+      "notes": "Gens Ace and Tattu packs of the same capacity/C-rating/cell-count are frequently near-identical in weight and dimensions since both brands are produced by the same manufacturer; the weight given here is carried over from the equivalent Tattu SKU and should be treated as an estimate, not a confirmed Gens Ace datasheet figure.\n\nLegacy/crossover reference retained for historical search context. Current exact product availability/specs were not verified in the 2026 catalog pass, so this record is excluded from normal part recommendations.",
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "battery",
+      "reference_only": true
     },
     {
       "id": "battery-lumenier-2s-300mah",
@@ -417,7 +446,7 @@
       "aliases": [
         "Lumenier N2O 2S 300mAh"
       ],
-      "summary": "Lumenier is primarily an FPV racing-drone battery brand; its micro 1S-2S packs are occasionally repurposed by antweight builders for the same reason Tattu/CNHL micro packs are \u2014 the size class overlaps almost exactly with what a 1 lb combat robot needs.",
+      "summary": "Lumenier is primarily an FPV racing-drone battery brand; its micro 1S-2S packs are occasionally repurposed by antweight builders for the same reason Tattu/CNHL micro packs are — the size class overlaps almost exactly with what a 1 lb combat robot needs.",
       "weight_classes": [
         "antweight",
         "plastic-antweight"
@@ -434,11 +463,13 @@
         "voltage_nominal_v": 7.4
       },
       "vendor": "Lumenier",
-      "notes": "Not a combat-specific product line; included here because it is a real, commonly cross-shopped brand in this size class. Exact weight, price, and C-rating for a current Lumenier 300mAh 2S SKU were not independently verified, so no numeric C-rating or weight is claimed.",
+      "notes": "Not a combat-specific product line; included here because it is a real, commonly cross-shopped brand in this size class. Exact weight, price, and C-rating for a current Lumenier 300mAh 2S SKU were not independently verified, so no numeric C-rating or weight is claimed.\n\nLegacy/crossover reference retained for historical search context. Current exact product availability/specs were not verified in the 2026 catalog pass, so this record is excluded from normal part recommendations.",
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "battery",
+      "reference_only": true
     },
     {
       "id": "battery-rdq-series-3s-450mah",
@@ -463,12 +494,14 @@
         "cells_s": 3,
         "voltage_nominal_v": 11.1
       },
-      "vendor": "RaceDayQuads (RDQ)",
-      "notes": "RDQ Series is confirmed to sell small-format packs (e.g. 2200mAh 3S for whoop-class FPV), but a verified 450mAh SKU with published weight/price/C-rating was not located; treat capacity/voltage as representative rather than confirmed catalog numbers.",
+      "vendor": "RaceDayQuads",
+      "notes": "RDQ Series is confirmed to sell small-format packs (e.g. 2200mAh 3S for whoop-class FPV), but a verified 450mAh SKU with published weight/price/C-rating was not located; treat capacity/voltage as representative rather than confirmed catalog numbers.\n\nLegacy/crossover reference retained for historical search context. Current exact product availability/specs were not verified in the 2026 catalog pass, so this record is excluded from normal part recommendations.",
       "sources": [
         "https://www.racedayquads.com/products/rdq-series-2200mah-3s-75c-fpv-drone-battery-xt60"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "battery",
+      "reference_only": true
     },
     {
       "id": "battery-turnigy-nanotech-2s-300mah",
@@ -494,11 +527,13 @@
         "voltage_nominal_v": 7.4
       },
       "vendor": "Turnigy",
-      "notes": "Included as a well-known budget-brand reference point. Current-generation weight/price/C-rating for this exact SKU were not independently verified in this pass.",
+      "notes": "Included as a well-known budget-brand reference point. Current-generation weight/price/C-rating for this exact SKU were not independently verified in this pass.\n\nLegacy/crossover reference retained for historical search context. Current exact product availability/specs were not verified in the 2026 catalog pass, so this record is excluded from normal part recommendations.",
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "category": "battery",
+      "reference_only": true
     },
     {
       "id": "battery-molicel-p28a-18650",
@@ -532,7 +567,7 @@
         "Popular and well-proven in flashlights, vapes, and e-bikes so cells are cheap and easy to source"
       ],
       "cons": [
-        "A single 18650 weighs ~48g for 2800mAh \u2014 far too heavy per Wh for a 1 lb robot once you need series cells for voltage",
+        "A single 18650 weighs ~48g for 2800mAh — far too heavy per Wh for a 1 lb robot once you need series cells for voltage",
         "35A max discharge on one cell is high in absolute terms but low relative to the weight, and nowhere near what a spinner needs at 3S-4S-equivalent voltage from series 18650s",
         "Round cells are hard to package efficiently in a flat antweight chassis"
       ],
@@ -540,7 +575,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery"
     },
     {
       "id": "battery-lifepo4-2s-receiver-pack",
@@ -572,7 +608,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery"
     },
     {
       "id": "battery-nimh-legacy-antweight",
@@ -612,7 +649,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "battery"
     },
     {
       "id": "charger-isdt-608ac",
@@ -621,7 +659,7 @@
       "aliases": [
         "ISDT 608AC"
       ],
-      "summary": "Compact 8A/200W AC/DC balance charger for 1-6S LiPo, LiHV, Li-ion, LiFe, NiMH and Pb packs with a detachable power supply and an XT60 charge port \u2014 a common choice among antweight builders for its small size and multi-chemistry support.",
+      "summary": "Compact 8A/200W AC/DC balance charger for 1-6S LiPo, LiHV, Li-ion, LiFe, NiMH and Pb packs with a detachable power supply and an XT60 charge port — a common choice among antweight builders for its small size and multi-chemistry support.",
       "weight_classes": [
         "antweight",
         "plastic-antweight"
@@ -644,7 +682,8 @@
       "sources": [
         "https://www.amazon.com/ISDT-Battery-Balance-Charger-608AC/dp/B0B4DBZ9DK"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "charger"
     },
     {
       "id": "charger-hota-d6-pro",
@@ -675,7 +714,8 @@
       "sources": [
         "https://zbotic.in/best-lipo-battery-chargers-isdt-skyrc-budget-options/"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "charger"
     },
     {
       "id": "charger-skyrc-t1000",
@@ -705,7 +745,8 @@
       "sources": [
         "https://www.ebay.de/itm/404442601821"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "charger"
     },
     {
       "id": "connector-jst-ph-2.0",
@@ -732,7 +773,8 @@
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "connector"
     },
     {
       "id": "connector-xt30",
@@ -754,11 +796,12 @@
         "category": "connector",
         "max_current_a": 30
       },
-      "notes": "XT30 is used on most of the CNHL and GNB antweight-size packs referenced in this file; it is a reasonable middle ground for antweight current levels \u2014 small enough to fit the chassis, rated well above realistic sustained antweight draw (see the power-budget chunk), while leaving XT60/XT90 for larger weight classes.",
+      "notes": "XT30 is used on most of the CNHL and GNB antweight-size packs referenced in this file; it is a reasonable middle ground for antweight current levels — small enough to fit the chassis, rated well above realistic sustained antweight draw (see the power-budget chunk), while leaving XT60/XT90 for larger weight classes.",
       "sources": [
         "domain knowledge"
       ],
-      "confidence": "medium"
+      "confidence": "medium",
+      "category": "connector"
     },
     {
       "id": "term-c-rating",
@@ -940,7 +983,7 @@
         "Capacity_mAh": "rated capacity in milliamp-hours",
         "Voltage_nominal_V": "nominal pack voltage (3.7V/cell LiPo, 3.8V/cell LiHV, times cell count)"
       },
-      "worked_example": "A Tattu 300mAh 2S pack: 7.4V nominal. Energy = (300/1000) * 7.4 = 2.22 Wh. A CNHL LiHV MiniStar 450mAh 3S pack at 11.4V nominal: (450/1000) * 11.4 = 5.13 Wh, versus the standard-LiPo 450mAh 3S sibling at 11.1V nominal: (450/1000) * 11.1 = 5.0 Wh \u2014 about 2.7% more usable energy from LiHV at the same mAh rating, and more once you account for LiHV's higher voltage across the whole discharge curve, not just at nominal.",
+      "worked_example": "A Tattu 300mAh 2S pack: 7.4V nominal. Energy = (300/1000) * 7.4 = 2.22 Wh. A CNHL LiHV MiniStar 450mAh 3S pack at 11.4V nominal: (450/1000) * 11.4 = 5.13 Wh, versus the standard-LiPo 450mAh 3S sibling at 11.1V nominal: (450/1000) * 11.1 = 5.0 Wh — about 2.7% more usable energy from LiHV at the same mAh rating, and more once you account for LiHV's higher voltage across the whole discharge curve, not just at nominal.",
       "applies_to": [
         "antweight",
         "plastic-antweight"
@@ -959,7 +1002,7 @@
       "id": "formula-continuous-current-c-rating",
       "type": "formula",
       "name": "Continuous / Burst Current from Capacity and C Rating",
-      "summary": "The standard way manufacturers express a pack's maximum discharge current, and the calculation an antweight builder should run backward \u2014 from an estimated real current draw \u2014 to check whether a candidate pack's C rating is remotely credible.",
+      "summary": "The standard way manufacturers express a pack's maximum discharge current, and the calculation an antweight builder should run backward — from an estimated real current draw — to check whether a candidate pack's C rating is remotely credible.",
       "expression": "Max_Current_A = (Capacity_mAh / 1000) * C_rating",
       "variables": {
         "Max_Current_A": "maximum current the pack is rated to supply, amps",
@@ -994,7 +1037,7 @@
         "V_under_load": "actual voltage seen by the ESC/receiver while the load is applied",
         "V_nominal": "pack's resting/nominal voltage before the load hit"
       },
-      "worked_example": "A used 3S pack with internal resistance of 0.03 ohm/cell (0.09 ohm total for the 3S series stack) hit with a combined weapon-spinup-plus-drive spike of 25A: V_sag = 25 * 0.09 = 2.25V. Starting from 11.1V nominal, the pack momentarily sags to about 8.85V \u2014 potentially below the brownout threshold of a receiver or BEC that expects a stable 3S-range input, which is exactly the mechanism behind an RX reset at the moment the weapon motor spins up while the drive motors are also under load.",
+      "worked_example": "A used 3S pack with internal resistance of 0.03 ohm/cell (0.09 ohm total for the 3S series stack) hit with a combined weapon-spinup-plus-drive spike of 25A: V_sag = 25 * 0.09 = 2.25V. Starting from 11.1V nominal, the pack momentarily sags to about 8.85V — potentially below the brownout threshold of a receiver or BEC that expects a stable 3S-range input, which is exactly the mechanism behind an RX reset at the moment the weapon motor spins up while the drive motors are also under load.",
       "applies_to": [
         "antweight",
         "plastic-antweight"
@@ -1020,7 +1063,7 @@
         "Capacity_mAh": "usable pack capacity in mAh (using rated capacity is optimistic; treat only ~80% of rated capacity as safely usable before voltage drops too far)",
         "Average_Current_mA": "average combined drive+weapon current draw over the match, milliamps"
       },
-      "worked_example": "A 3S 450mAh pack (using 80% = 360mAh usable) against an estimated average combined draw of 6A (6000mA) for a moderately aggressive antweight spinner+drive combo: Runtime = (360/6000) * 60 = 3.6 minutes \u2014 enough margin over a standard 3-minute match, but not by much, which is why builders round capacity up 25-50% over the bare computed minimum (see chunk-power-budget-current-draw-estimate).",
+      "worked_example": "A 3S 450mAh pack (using 80% = 360mAh usable) against an estimated average combined draw of 6A (6000mA) for a moderately aggressive antweight spinner+drive combo: Runtime = (360/6000) * 60 = 3.6 minutes — enough margin over a standard 3-minute match, but not by much, which is why builders round capacity up 25-50% over the bare computed minimum (see chunk-power-budget-current-draw-estimate).",
       "applies_to": [
         "antweight",
         "plastic-antweight"
@@ -1046,7 +1089,7 @@
         "I_drive_per_motor": "current draw of one drive motor under typical pushing load (small antweight brushed gearmotors: roughly 1-3A typical, up to 5-8A stalled)",
         "I_weapon_running": "brushless weapon motor current once at speed under normal cutting/spinning load (highly variable: roughly 3-10A typical for antweight-class brushless outrunners, spiking much higher at spin-up or when the weapon bites something)"
       },
-      "worked_example": "Two small brushed drive motors at ~2A each typical running current, plus a brushless weapon motor drawing ~8A running: I_total = (2*2) + 8 = 12A typical combined draw, with momentary spikes during weapon spin-up and simultaneous hard driving easily reaching 20-25A+ for a second or two \u2014 which is the spike the pack's burst rating (not its continuous rating) needs to absorb without collapsing.",
+      "worked_example": "Two small brushed drive motors at ~2A each typical running current, plus a brushless weapon motor drawing ~8A running: I_total = (2*2) + 8 = 12A typical combined draw, with momentary spikes during weapon spin-up and simultaneous hard driving easily reaching 20-25A+ for a second or two — which is the spike the pack's burst rating (not its continuous rating) needs to absorb without collapsing.",
       "applies_to": [
         "antweight",
         "plastic-antweight"
@@ -1060,6 +1103,89 @@
         "domain knowledge"
       ],
       "confidence": "medium"
+    },
+    {
+      "id": "battery-fingertech-galaxy-3s-300mah",
+      "type": "component",
+      "name": "FingerTech Galaxy 3S 300mAh LiPo",
+      "aliases": [
+        "Galaxy 3S 300",
+        "FingerTech 11.1V 300mAh"
+      ],
+      "category": "battery",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=G-3S-mAh",
+      "summary": "300mAh 3S Galaxy pack sized for small combat robots and FingerTech antweight weapon systems.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "lipo",
+        "3s",
+        "300mah",
+        "combat-specific"
+      ],
+      "specs": {
+        "capacity_mah": 300,
+        "cells_s": 3,
+        "voltage_nominal_v": 11.1,
+        "c_rating_continuous": 45,
+        "c_rating_burst": 90,
+        "current_continuous_a": 13.5,
+        "current_burst_15s_a": 27,
+        "width_mm": 18,
+        "length_mm": 45,
+        "height_mm": 20,
+        "weight_g": 26,
+        "max_charge_c": 2,
+        "connector": "JST-RCY or XT30 option"
+      },
+      "notes": "FingerTech currently lists both JST and XT30 connector options for the 300mAh 3S size. This record uses the published maximum physical dimensions.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=G-3S-mAh"
+      ]
+    },
+    {
+      "id": "charger-fingertech-c6d-mini",
+      "type": "component",
+      "name": "C6D Mini 60W 6A AC Balance Charger",
+      "category": "charger",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=C6D-mini-ac-charger",
+      "summary": "Compact AC balance charger supporting common lithium chemistries, NiCd/NiMH, and lead-acid packs without an external DC power supply.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "charger",
+        "balance-charger",
+        "lipo",
+        "lihv"
+      ],
+      "specs": {
+        "charge_power_w": 60,
+        "discharge_power_w": 10,
+        "charge_current_min_a": 0.1,
+        "charge_current_max_a": 6,
+        "discharge_current_max_a": 2,
+        "lithium_cells_s_min": 2,
+        "lithium_cells_s_max": 4,
+        "balancing_current_ma_per_cell": 300,
+        "length_mm": 115,
+        "width_mm": 112,
+        "height_mm": 55,
+        "weight_g": 302
+      },
+      "notes": "Supports LiPo, LiHV, LiFe, Li-ion, NiCd, NiMH, and Pb chemistries. Includes AC input and a multi-charge harness.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=C6D-mini-ac-charger"
+      ]
     }
   ],
   "chunks": [
@@ -1067,7 +1193,7 @@
       "id": "chunk-battery-chemistry-overview",
       "title": "Battery Chemistry Choices for Antweights: LiPo, LiHV, Li-ion, LiFePO4, NiMH",
       "section": "Chemistry",
-      "body_md": "LiPo (lithium polymer) is the default power source for essentially every competitive 1 lb antweight built since the mid-2000s, and for good reason: it offers the best combination of energy density (roughly 150-200+ Wh/kg), discharge rate, and pouch-format packaging flexibility of any chemistry available in small sizes. A standard LiPo cell is charged to 4.20V and discharged to about 3.0-3.3V under load, giving a 3.7V nominal per cell used for all voltage-tier math (2S = 7.4V, 3S = 11.1V, 4S = 14.8V).\n\n**LiHV (high-voltage LiPo)** is a chemistry variant, not just a different label \u2014 the cell construction is tuned to tolerate a higher full-charge voltage, typically 4.35V/cell (some cells go to 4.40V) instead of 4.20V. Nominal voltage for LiHV is usually quoted as 3.8V/cell rather than 3.7V. The real gain is modest but real: at the same physical cell, LiHV stores roughly 5-10% more energy than standard LiPo, and since it runs at a higher voltage across the whole discharge curve, motors and ESCs see more usable voltage right up until the pack is nearly empty \u2014 a genuine antweight advantage for spinner tip speed and drive punch late in a match. The tradeoffs: an LiHV pack must be charged on a charger or profile that explicitly supports the 4.35V/cell ceiling (charging it on a standard LiPo profile just leaves capacity on the table; overcharging a standard cell to LiHV voltages is dangerous), and LiHV cells generally show somewhat shorter cycle life at aggressive charge/discharge rates than standard LiPo.\n\n**Li-ion (18650/21700 cylindrical, e.g. Molicel)** offers even higher energy density and much better cycle life than LiPo pouch cells, and is the backbone of e-bikes, power tools, and larger combat weight classes' main packs. It is essentially absent from competitive 1 lb antweight main-battery use, though, because a single round cell is too heavy relative to its usable current for the weight budget, and the rigid cylindrical format doesn't pack efficiently into a flat antweight chassis. It shows up in antweight discussions mostly as context or in bench/test setups, not in the ring.\n\n**LiFePO4 (LiFe)** cells run a lower nominal voltage (3.3V/cell) and lower energy density than LiPo, but have a much flatter discharge curve, far higher abuse tolerance, and a dramatically lower fire risk. Antweight builders occasionally use a small 2S LiFe pack (6.6V nominal) as an *isolated receiver/electronics* power source specifically because it won't sag or brown out the way the shared main LiPo can under weapon load \u2014 not as a main weapon/drive battery.\n\n**NiMH** was the default antweight chemistry before affordable LiPo took over, typically a 6-cell 7.2V stick pack. It is essentially obsolete today: roughly 1/3 the energy density of LiPo by weight and unable to sustain modern brushless weapon current without severe sag. It survives only in legacy kit documentation and exhibition/vintage classes.",
+      "body_md": "LiPo (lithium polymer) is the default power source for essentially every competitive 1 lb antweight built since the mid-2000s, and for good reason: it offers the best combination of energy density (roughly 150-200+ Wh/kg), discharge rate, and pouch-format packaging flexibility of any chemistry available in small sizes. A standard LiPo cell is charged to 4.20V and discharged to about 3.0-3.3V under load, giving a 3.7V nominal per cell used for all voltage-tier math (2S = 7.4V, 3S = 11.1V, 4S = 14.8V).\n\n**LiHV (high-voltage LiPo)** is a chemistry variant, not just a different label — the cell construction is tuned to tolerate a higher full-charge voltage, typically 4.35V/cell (some cells go to 4.40V) instead of 4.20V. Nominal voltage for LiHV is usually quoted as 3.8V/cell rather than 3.7V. The real gain is modest but real: at the same physical cell, LiHV stores roughly 5-10% more energy than standard LiPo, and since it runs at a higher voltage across the whole discharge curve, motors and ESCs see more usable voltage right up until the pack is nearly empty — a genuine antweight advantage for spinner tip speed and drive punch late in a match. The tradeoffs: an LiHV pack must be charged on a charger or profile that explicitly supports the 4.35V/cell ceiling (charging it on a standard LiPo profile just leaves capacity on the table; overcharging a standard cell to LiHV voltages is dangerous), and LiHV cells generally show somewhat shorter cycle life at aggressive charge/discharge rates than standard LiPo.\n\n**Li-ion (18650/21700 cylindrical, e.g. Molicel)** offers even higher energy density and much better cycle life than LiPo pouch cells, and is the backbone of e-bikes, power tools, and larger combat weight classes' main packs. It is essentially absent from competitive 1 lb antweight main-battery use, though, because a single round cell is too heavy relative to its usable current for the weight budget, and the rigid cylindrical format doesn't pack efficiently into a flat antweight chassis. It shows up in antweight discussions mostly as context or in bench/test setups, not in the ring.\n\n**LiFePO4 (LiFe)** cells run a lower nominal voltage (3.3V/cell) and lower energy density than LiPo, but have a much flatter discharge curve, far higher abuse tolerance, and a dramatically lower fire risk. Antweight builders occasionally use a small 2S LiFe pack (6.6V nominal) as an *isolated receiver/electronics* power source specifically because it won't sag or brown out the way the shared main LiPo can under weapon load — not as a main weapon/drive battery.\n\n**NiMH** was the default antweight chemistry before affordable LiPo took over, typically a 6-cell 7.2V stick pack. It is essentially obsolete today: roughly 1/3 the energy density of LiPo by weight and unable to sustain modern brushless weapon current without severe sag. It survives only in legacy kit documentation and exhibition/vintage classes.",
       "entity_refs": [
         "term-lihv-chemistry",
         "battery-tattu-300mah-2s-75c-hv",
@@ -1097,7 +1223,7 @@
       "id": "chunk-cell-count-voltage-weapon-pairing",
       "title": "Choosing 2S vs 3S vs 4S for an Antweight",
       "section": "Cell Count",
-      "body_md": "Cell count sets the pack's nominal voltage: 2S = 7.4V, 3S = 11.1V, 4S = 14.8V (add roughly 0.1V/cell for LiHV packs at the same series count). For a fixed weapon motor, more cells means proportionally more no-load RPM (RPM ~= KV * Voltage), so builders pick cell count and motor KV together, not independently.\n\n**2S (7.4V)** is the traditional antweight baseline, especially for control bots, wedges, and lower-KV weapon setups. It asks the least of the pack (lowest voltage means lower current for a given power level is *not* automatically true \u2014 power = V*I, so a 2S system needs *more* current than a 3S system for the same weapon power) and is the lightest option cell-for-cell, but a 2S pack has to work harder (more amps) to deliver the same wattage as a higher cell count, which increases both voltage sag and wiring/connector demands.\n\n**3S (11.1V)** is the most common sweet spot for antweight spinners today. Popular weapon motors in the 2000-2600KV range paired with 3S land in a practical tip-speed/torque range for a 1 lb disc or drum, and 3S packs in the 300-550mAh range keep total weight reasonable. As one antweight motor example puts it, a 2400KV motor on 3S yields roughly 25,000+ RPM no-load \u2014 already fast enough that most builders don't need to go to 4S with that motor.\n\n**4S (14.8V)** shows up on plastic antweights and metal antweights chasing higher tip speed with lower-KV motors (roughly 1000-1800KV) to avoid overspeeding a given weapon geometry, or on drivetrains wanting more headroom before voltage sag becomes limiting. The tradeoff is weight and risk: a 4S pack of a given capacity weighs more than an equivalent-Wh 3S or 2S pack (an extra series cell is roughly a flat 20-30% weight adder over 3S for the same mAh rating), and pairing a high-KV motor with 4S without checking the math is a documented way to overspeed and burn out a weapon motor \u2014 one antweight builder specifically warned that a 2600KV motor on 4S would not survive, while the 1250KV version of the same motor was fine.\n\n**Rule of thumb weight penalty per cell:** going from 2S to 3S at the same mAh rating typically adds 30-50% pack weight; 3S to 4S adds a further 20-30%. Because weight is the antweight's tightest constraint, most builders choose the *lowest* cell count that lets their chosen weapon motor reach the RPM/tip-speed they want, rather than defaulting to 4S for headroom.",
+      "body_md": "Cell count sets the pack's nominal voltage: 2S = 7.4V, 3S = 11.1V, 4S = 14.8V (add roughly 0.1V/cell for LiHV packs at the same series count). For a fixed weapon motor, more cells means proportionally more no-load RPM (RPM ~= KV * Voltage), so builders pick cell count and motor KV together, not independently.\n\n**2S (7.4V)** is the traditional antweight baseline, especially for control bots, wedges, and lower-KV weapon setups. It asks the least of the pack (lowest voltage means lower current for a given power level is *not* automatically true — power = V*I, so a 2S system needs *more* current than a 3S system for the same weapon power) and is the lightest option cell-for-cell, but a 2S pack has to work harder (more amps) to deliver the same wattage as a higher cell count, which increases both voltage sag and wiring/connector demands.\n\n**3S (11.1V)** is the most common sweet spot for antweight spinners today. Popular weapon motors in the 2000-2600KV range paired with 3S land in a practical tip-speed/torque range for a 1 lb disc or drum, and 3S packs in the 300-550mAh range keep total weight reasonable. As one antweight motor example puts it, a 2400KV motor on 3S yields roughly 25,000+ RPM no-load — already fast enough that most builders don't need to go to 4S with that motor.\n\n**4S (14.8V)** shows up on plastic antweights and metal antweights chasing higher tip speed with lower-KV motors (roughly 1000-1800KV) to avoid overspeeding a given weapon geometry, or on drivetrains wanting more headroom before voltage sag becomes limiting. The tradeoff is weight and risk: a 4S pack of a given capacity weighs more than an equivalent-Wh 3S or 2S pack (an extra series cell is roughly a flat 20-30% weight adder over 3S for the same mAh rating), and pairing a high-KV motor with 4S without checking the math is a documented way to overspeed and burn out a weapon motor — one antweight builder specifically warned that a 2600KV motor on 4S would not survive, while the 1250KV version of the same motor was fine.\n\n**Rule of thumb weight penalty per cell:** going from 2S to 3S at the same mAh rating typically adds 30-50% pack weight; 3S to 4S adds a further 20-30%. Because weight is the antweight's tightest constraint, most builders choose the *lowest* cell count that lets their chosen weapon motor reach the RPM/tip-speed they want, rather than defaulting to 4S for headroom.",
       "entity_refs": [
         "battery-cnhl-ministar-3s-450mah-70c",
         "battery-gnb-lihv-4s-350mah-70c",
@@ -1123,7 +1249,7 @@
       "id": "chunk-real-antweight-pack-sizes-brands",
       "title": "Real Antweight Pack Sizes and Brands: What Builders Actually Buy",
       "section": "Product Landscape",
-      "body_md": "Antweight LiPo/LiHV packs cluster tightly around a handful of capacity/cell-count combinations because they have to fit inside a 1 lb chassis alongside a receiver, ESCs, and a weapon system, while still delivering multi-minute runtime.\n\n**180-300mAh 2S** is the smallest practical antweight size, common on the lightest control bots and early builds. Example: the Tattu 300mAh 2S 45C (7.4V nominal, ~23g, 48.6x18.8x13.9mm, JST-SYP) \u2014 a widely stocked pack that crosses over directly from micro FPV. The Palm Beach Bots Palm Power 2S 300mAh 65C is a combat-market-specific equivalent with a JST connector and separate balance lead.\n\n**300-450mAh 3S** is the most common antweight spinner size. The CNHL MiniStar 3S 450mAh 70C (11.1V, XT30) and its LiHV sibling, the CNHL LiHV MiniStar 3S 450mAh 70C (11.4V nominal, same 70C/XT30), are directly comparable real products that illustrate the LiHV capacity gain in the same physical pack. Palm Beach Bots' Palm Power 3S 450mAh 45C (XT30) sells for $14.99 as of recent listings \u2014 a useful real price anchor for this size class.\n\n**350-550mAh 4S** is used for higher-voltage plastic antweight and metal antweight builds; the GNB LiHV 4S 350mAh 70C (15.2V nominal, XT30) is a real example sized for this niche.\n\n**Brand landscape:** Tattu and Gens Ace are sister brands from the same manufacturer (Grepow group) and their packs of matching spec are usually near-identical. CNHL (China Hobby Line) is a major supplier of small-format packs, including combat-labeled MiniStar and LiHV MiniStar lines. GNB (Gaoneng) is notable for actively marketing LiHV packs directly to the antweight community, not just FPV. Lumenier and RDQ Series (RaceDayQuads' house brand) are FPV-first lines that get cross-shopped into antweight builds because their micro-pack sizes overlap almost exactly with antweight needs, though specific SKU weights/prices for combat use are less consistently documented than the combat-market-specific brands. FingerTech Robotics' Galaxy line and Palm Beach Bots' Palm Power line are combat-market-specific options sold directly by long-standing antweight vendors, bundled with kits like the Viper V3.\n\nAcross all of these, weight for a given capacity/cell-count/C-rating combination is fairly consistent regardless of brand \u2014 a 3S 450mAh pack lands in the 30-40g range whichever manufacturer makes it \u2014 so the deciding factors in practice are connector type (JST for the smallest/oldest builds, XT30 once current climbs), C-rating credibility, and price/availability rather than dramatic weight differences between brands.",
+      "body_md": "Antweight LiPo/LiHV packs cluster tightly around a handful of capacity/cell-count combinations because they have to fit inside a 1 lb chassis alongside a receiver, ESCs, and a weapon system, while still delivering multi-minute runtime.\n\n**180-300mAh 2S** is the smallest practical antweight size, common on the lightest control bots and early builds. Example: the Tattu 300mAh 2S 45C (7.4V nominal, ~23g, 48.6x18.8x13.9mm, JST-SYP) — a widely stocked pack that crosses over directly from micro FPV. The Palm Beach Bots Palm Power 2S 300mAh 65C is a combat-market-specific equivalent with a JST connector and separate balance lead.\n\n**300-450mAh 3S** is the most common antweight spinner size. The CNHL MiniStar 3S 450mAh 70C (11.1V, XT30) and its LiHV sibling, the CNHL LiHV MiniStar 3S 450mAh 70C (11.4V nominal, same 70C/XT30), are directly comparable real products that illustrate the LiHV capacity gain in the same physical pack. Palm Beach Bots' Palm Power 3S 450mAh 45C (XT30) sells for $14.99 as of recent listings — a useful real price anchor for this size class.\n\n**350-550mAh 4S** is used for higher-voltage plastic antweight and metal antweight builds; the GNB LiHV 4S 350mAh 70C (15.2V nominal, XT30) is a real example sized for this niche.\n\n**Brand landscape:** Tattu and Gens Ace are sister brands from the same manufacturer (Grepow group) and their packs of matching spec are usually near-identical. CNHL (China Hobby Line) is a major supplier of small-format packs, including combat-labeled MiniStar and LiHV MiniStar lines. GNB (Gaoneng) is notable for actively marketing LiHV packs directly to the antweight community, not just FPV. Lumenier and RDQ Series (RaceDayQuads' house brand) are FPV-first lines that get cross-shopped into antweight builds because their micro-pack sizes overlap almost exactly with antweight needs, though specific SKU weights/prices for combat use are less consistently documented than the combat-market-specific brands. FingerTech Robotics' Galaxy line and Palm Beach Bots' Palm Power line are combat-market-specific options sold directly by long-standing antweight vendors, bundled with kits like the Viper V3.\n\nAcross all of these, weight for a given capacity/cell-count/C-rating combination is fairly consistent regardless of brand — a 3S 450mAh pack lands in the 30-40g range whichever manufacturer makes it — so the deciding factors in practice are connector type (JST for the smallest/oldest builds, XT30 once current climbs), C-rating credibility, and price/availability rather than dramatic weight differences between brands.",
       "entity_refs": [
         "battery-tattu-300mah-2s-45c",
         "battery-palm-power-2s-300mah-65c",
@@ -1157,7 +1283,7 @@
       "id": "chunk-c-rating-marketing-vs-reality",
       "title": "C Rating: What the Number Means and Why It Lies",
       "section": "C Rating",
-      "body_md": "A pack's C rating is a multiplier on its capacity: **Max current (A) = Capacity (Ah) x C rating.** A 450mAh (0.45Ah) pack rated 70C is claiming 0.45 x 70 = 31.5A continuous, and many packs also print a separate, higher \"burst\" C rating (often 1.5-2x the continuous number) for short spikes.\n\nThe uncomfortable truth is that printed C ratings on budget and mid-tier packs are marketing numbers, not lab-tested guarantees, and they have been for as long as small LiPo packs have existed. Manufacturers competing on a spec sheet have every incentive to print an impressive number, and there is no independent, universally enforced test standard behind most of them. Reputable brands (name-brand Tattu, CNHL's better lines, GNB) are generally closer to honest than unbranded eBay packs, but even they should be treated with a healthy discount, especially for continuous (not burst) draw.\n\n**A realistic antweight rule of thumb:** for planning purposes, trust roughly 40-60% of a pack's printed continuous C rating from a mainstream combat/FPV brand, and treat the printed burst rating as, at best, a one-to-two-second spike capability rather than something the pack can repeat every few seconds for a full match. So a \"70C continuous\" 450mAh pack should be planned around as if it were really good for something like 13-19A of sustained current, not 31.5A.\n\n**How to compute what you actually need:** estimate combined continuous drive+weapon current (see formula-power-budget-drive-weapon) and multiply by a comfortable safety margin (1.5-2x) to get your target *continuous* current requirement; separately estimate your worst-case simultaneous spike (weapon spin-up plus a hard driving input) for your target *burst* requirement. Pick a pack whose *discounted* continuous rating clears the continuous target and whose burst rating clears the spike target \u2014 not a pack whose printed continuous number merely looks bigger than your estimated draw.\n\nIn practice, for a typical antweight combined draw in the 10-20A continuous / 25-35A brief-spike range, almost any name-brand 3S pack rated 45C or higher in the 300-550mAh range clears this bar even after the realistic discount \u2014 which is why C-rating shopping matters less in antweight than pack *capacity*, weight, and voltage sag behavior (internal resistance) do. Chasing an ever-higher printed C rating on an already-adequate pack mostly buys marketing, not match performance.",
+      "body_md": "A pack's C rating is a multiplier on its capacity: **Max current (A) = Capacity (Ah) x C rating.** A 450mAh (0.45Ah) pack rated 70C is claiming 0.45 x 70 = 31.5A continuous, and many packs also print a separate, higher \"burst\" C rating (often 1.5-2x the continuous number) for short spikes.\n\nThe uncomfortable truth is that printed C ratings on budget and mid-tier packs are marketing numbers, not lab-tested guarantees, and they have been for as long as small LiPo packs have existed. Manufacturers competing on a spec sheet have every incentive to print an impressive number, and there is no independent, universally enforced test standard behind most of them. Reputable brands (name-brand Tattu, CNHL's better lines, GNB) are generally closer to honest than unbranded eBay packs, but even they should be treated with a healthy discount, especially for continuous (not burst) draw.\n\n**A realistic antweight rule of thumb:** for planning purposes, trust roughly 40-60% of a pack's printed continuous C rating from a mainstream combat/FPV brand, and treat the printed burst rating as, at best, a one-to-two-second spike capability rather than something the pack can repeat every few seconds for a full match. So a \"70C continuous\" 450mAh pack should be planned around as if it were really good for something like 13-19A of sustained current, not 31.5A.\n\n**How to compute what you actually need:** estimate combined continuous drive+weapon current (see formula-power-budget-drive-weapon) and multiply by a comfortable safety margin (1.5-2x) to get your target *continuous* current requirement; separately estimate your worst-case simultaneous spike (weapon spin-up plus a hard driving input) for your target *burst* requirement. Pick a pack whose *discounted* continuous rating clears the continuous target and whose burst rating clears the spike target — not a pack whose printed continuous number merely looks bigger than your estimated draw.\n\nIn practice, for a typical antweight combined draw in the 10-20A continuous / 25-35A brief-spike range, almost any name-brand 3S pack rated 45C or higher in the 300-550mAh range clears this bar even after the realistic discount — which is why C-rating shopping matters less in antweight than pack *capacity*, weight, and voltage sag behavior (internal resistance) do. Chasing an ever-higher printed C rating on an already-adequate pack mostly buys marketing, not match performance.",
       "entity_refs": [
         "term-c-rating",
         "formula-continuous-current-c-rating",
@@ -1182,7 +1308,7 @@
       "id": "chunk-voltage-sag-deep-dive",
       "title": "Voltage Sag: The Real Limiter in a 1 lb Bot",
       "section": "Voltage Sag",
-      "body_md": "More antweight matches are lost to voltage sag than to an outright battery failure. Sag is the momentary drop in a pack's output voltage that happens the instant current draw spikes, caused by the pack's internal resistance (R_internal): **V_sag = I_draw x R_internal**. Every real battery has some internal resistance; it is never zero. A brand-new small antweight LiPo cell might have on the order of 0.015-0.04 ohm per cell, but that number climbs steadily as the pack ages, as it takes repeated hard cycles, as it gets cold, and especially after any physical damage (even damage too small to see) from a hit in a previous match.\n\nWhy does this matter more in a 1 lb bot than in bigger classes? Because antweight packs are necessarily tiny \u2014 a 300-550mAh pack simply has less parallel cell area than a beetleweight or featherweight pack, so its *internal resistance per amp of current requested* is proportionally higher. At the same time, a 1 lb bot's weapon motor spin-up and its drive motors under a hard push both draw current from the *same small pack simultaneously*, so the current spike a tiny antweight pack has to absorb is large relative to its own capacity.\n\nThe consequence is a **brownout**: system voltage sags below the minimum operating voltage of the receiver, ESC, or weapon controller for a fraction of a second, which is enough to reset the receiver, cause the ESC to cut out, or make the weapon controller glitch \u2014 exactly the moment a bot appears to \"die\" mid-match even though the battery still reads a healthy voltage once the load is removed. This is why some builders isolate receiver power onto its own small, low-sag pack (a dedicated 2S LiPo or LiFe RX pack) rather than sharing the main weapon/drive battery's rail for the receiver.\n\n**Sizing to avoid sag** comes down to three levers: (1) choose a pack with genuinely low internal resistance for its size \u2014 larger mAh at the same physical footprint tends to help since more parallel cell material shares the current; (2) retire packs once they show age (a pack that sagged fine as new but now visibly dips further under the same load has risen internal resistance and should be rotated out of weapon-heavy duty); (3) don't run a pack right at the edge of its *discounted* C rating (see the c-rating chunk) \u2014 headroom above your estimated draw directly buys headroom against sag. A pack that is \"big enough\" on paper capacity but chosen at the rock-bottom of its usable C rating will still sag hard, because sag is driven by resistance and instantaneous current, not by whether the pack has enough total energy left for the match.",
+      "body_md": "More antweight matches are lost to voltage sag than to an outright battery failure. Sag is the momentary drop in a pack's output voltage that happens the instant current draw spikes, caused by the pack's internal resistance (R_internal): **V_sag = I_draw x R_internal**. Every real battery has some internal resistance; it is never zero. A brand-new small antweight LiPo cell might have on the order of 0.015-0.04 ohm per cell, but that number climbs steadily as the pack ages, as it takes repeated hard cycles, as it gets cold, and especially after any physical damage (even damage too small to see) from a hit in a previous match.\n\nWhy does this matter more in a 1 lb bot than in bigger classes? Because antweight packs are necessarily tiny — a 300-550mAh pack simply has less parallel cell area than a beetleweight or featherweight pack, so its *internal resistance per amp of current requested* is proportionally higher. At the same time, a 1 lb bot's weapon motor spin-up and its drive motors under a hard push both draw current from the *same small pack simultaneously*, so the current spike a tiny antweight pack has to absorb is large relative to its own capacity.\n\nThe consequence is a **brownout**: system voltage sags below the minimum operating voltage of the receiver, ESC, or weapon controller for a fraction of a second, which is enough to reset the receiver, cause the ESC to cut out, or make the weapon controller glitch — exactly the moment a bot appears to \"die\" mid-match even though the battery still reads a healthy voltage once the load is removed. This is why some builders isolate receiver power onto its own small, low-sag pack (a dedicated 2S LiPo or LiFe RX pack) rather than sharing the main weapon/drive battery's rail for the receiver.\n\n**Sizing to avoid sag** comes down to three levers: (1) choose a pack with genuinely low internal resistance for its size — larger mAh at the same physical footprint tends to help since more parallel cell material shares the current; (2) retire packs once they show age (a pack that sagged fine as new but now visibly dips further under the same load has risen internal resistance and should be rotated out of weapon-heavy duty); (3) don't run a pack right at the edge of its *discounted* C rating (see the c-rating chunk) — headroom above your estimated draw directly buys headroom against sag. A pack that is \"big enough\" on paper capacity but chosen at the rock-bottom of its usable C rating will still sag hard, because sag is driven by resistance and instantaneous current, not by whether the pack has enough total energy left for the match.",
       "entity_refs": [
         "term-voltage-sag",
         "term-internal-resistance",
@@ -1210,7 +1336,7 @@
       "id": "chunk-power-budget-current-draw-estimate",
       "title": "Building a Power Budget: Current Draw, Match Drain, and Target Capacity",
       "section": "Power Budget",
-      "body_md": "A useful power budget for an antweight starts by estimating current draw separately for drive and weapon, then combining them.\n\n**Drive current:** a typical small antweight brushed gearmotor pulls roughly 1-3A under normal driving load, spiking to 5-8A when stalled against a wall or an opponent's push. With two drive motors, typical combined drive draw is therefore about 2-6A, with brief stall spikes to 10-16A if both motors stall at once (rare, but worth padding for).\n\n**Weapon current:** highly dependent on motor and weapon geometry, but a common antweight brushless outrunner running a disc or drum draws roughly 3-10A once spun up and cutting normally, with sharp, brief spikes well above that at initial spin-up or when the weapon bites into an opponent and briefly bogs down.\n\n**Combined typical draw:** for a moderately aggressive antweight spinner+drive combo, a combined *typical* draw around 8-15A is a reasonable planning number, with instantaneous spikes into the 20-30A range during simultaneous weapon spin-up and hard driving.\n\n**What a 3-minute match actually drains:** using the match-runtime formula in reverse, a combined average draw of ~10A over a 3-minute (180 second = 3 minute) match works out to 10A x (3/60) hours = 0.5Ah = 500mAh consumed \u2014 notably more than the *nominal* capacity of a 300-450mAh pack. This is not a contradiction: real matches are not fought at full weapon+drive draw for the entire 3 minutes (there are pauses, positioning, and lulls), so actual average draw over the whole match is usually well under the peak combined figure. But it does explain why builders don't simply match pack mAh to \"current draw x 3 minutes\" using worst-case numbers \u2014 that would demand an unrealistically large, heavy pack.\n\n**Target capacity in practice:** the widely repeated antweight rule of thumb is to estimate your realistic average-draw energy need for the match (using nominal, not worst-case, average current) and then round the *capacity* up 25-50% over that bare-minimum number for margin \u2014 covering pack aging, an extra practice run before a battery swap, and the fact that voltage (not just remaining mAh) needs to stay high enough to avoid sag late in the pack's discharge curve. In concrete terms, this is exactly why 300-550mAh packs (rather than the bare ~200mAh a pure energy calculation might suggest for a single 3-minute match) dominate the antweight market: the extra capacity is buying sag margin and multi-run flexibility, not just runtime.",
+      "body_md": "A useful power budget for an antweight starts by estimating current draw separately for drive and weapon, then combining them.\n\n**Drive current:** a typical small antweight brushed gearmotor pulls roughly 1-3A under normal driving load, spiking to 5-8A when stalled against a wall or an opponent's push. With two drive motors, typical combined drive draw is therefore about 2-6A, with brief stall spikes to 10-16A if both motors stall at once (rare, but worth padding for).\n\n**Weapon current:** highly dependent on motor and weapon geometry, but a common antweight brushless outrunner running a disc or drum draws roughly 3-10A once spun up and cutting normally, with sharp, brief spikes well above that at initial spin-up or when the weapon bites into an opponent and briefly bogs down.\n\n**Combined typical draw:** for a moderately aggressive antweight spinner+drive combo, a combined *typical* draw around 8-15A is a reasonable planning number, with instantaneous spikes into the 20-30A range during simultaneous weapon spin-up and hard driving.\n\n**What a 3-minute match actually drains:** using the match-runtime formula in reverse, a combined average draw of ~10A over a 3-minute (180 second = 3 minute) match works out to 10A x (3/60) hours = 0.5Ah = 500mAh consumed — notably more than the *nominal* capacity of a 300-450mAh pack. This is not a contradiction: real matches are not fought at full weapon+drive draw for the entire 3 minutes (there are pauses, positioning, and lulls), so actual average draw over the whole match is usually well under the peak combined figure. But it does explain why builders don't simply match pack mAh to \"current draw x 3 minutes\" using worst-case numbers — that would demand an unrealistically large, heavy pack.\n\n**Target capacity in practice:** the widely repeated antweight rule of thumb is to estimate your realistic average-draw energy need for the match (using nominal, not worst-case, average current) and then round the *capacity* up 25-50% over that bare-minimum number for margin — covering pack aging, an extra practice run before a battery swap, and the fact that voltage (not just remaining mAh) needs to stay high enough to avoid sag late in the pack's discharge curve. In concrete terms, this is exactly why 300-550mAh packs (rather than the bare ~200mAh a pure energy calculation might suggest for a single 3-minute match) dominate the antweight market: the extra capacity is buying sag margin and multi-run flexibility, not just runtime.",
       "entity_refs": [
         "formula-power-budget-drive-weapon",
         "formula-match-runtime-average-draw",
@@ -1235,7 +1361,7 @@
       "id": "chunk-charging-practices-and-chargers",
       "title": "Charging Practice: Balance Charging, Rates, Storage Voltage, and Chargers",
       "section": "Charging",
-      "body_md": "**Balance charging is mandatory, not optional**, for any multi-cell LiPo/LiHV pack. A balance charger monitors each cell individually through the balance lead and tops each one off in step, preventing any single cell from being overcharged while others lag behind \u2014 the single biggest safeguard against the cell-imbalance failures that lead to puffing, capacity loss, or fire. Never charge a multi-cell pack through the main leads only.\n\n**Charge rate:** the safe default is 1C (a 450mAh pack charges at 0.45A) for best pack longevity, though most modern packs and chargers support faster charging (2-5C on some packs) when time is tight, at some cost to long-term cycle life. Always charge to the chemistry-correct cutoff: 4.20V/cell for standard LiPo, 4.35V/cell for LiHV \u2014 charging an LiHV pack on a standard LiPo setting leaves capacity unused, while charging a standard LiPo pack to LiHV voltage is a real overcharge/fire risk.\n\n**Storage voltage:** for any pack that won't be used within the next few days, discharge or charge it to roughly 3.8V/cell (an acceptable range is about 3.7-3.85V/cell). This keeps the cell chemistry in its most stable state for long-term storage, unlike leaving a pack fully charged (accelerates degradation) or fully depleted (risk of over-discharge damage) between events.\n\n**Chargers combat builders commonly use:** ISDT's compact chargers (e.g. the ISDT 608AC, an 8A/200W AC/DC unit supporting LiPo/LiHV/Li-ion/LiFe/NiMH from 1-6S with an XT60 port) are popular for their small size and multi-chemistry support \u2014 useful given how many different chemistries show up across an antweight builder's battery drawer. HOTA's D6 Pro is well regarded for balance accuracy and a high 1.6A/cell balance current, which matters on the very small capacities antweight packs use (a weak balance current struggles to actually balance a 300mAh pack in reasonable time). SkyRC's T1000 and similar units combine charge and discharge functions in one box, letting a builder both charge match packs and discharge them to storage voltage after an event without a separate tool.\n\n**Parallel charging safety:** charging multiple packs simultaneously through a parallel charging board is common for efficiency, but every pack in the parallel group must be the same cell count, a very similar state of charge, and in good health \u2014 a damaged or significantly more depleted pack in the group can pull a dangerous surge of current from its healthier neighbors the moment the group is connected, before the charger even starts. Never parallel-charge a pack you have not individually voltage-checked, and never mix cell counts or chemistries in one parallel group.",
+      "body_md": "**Balance charging is mandatory, not optional**, for any multi-cell LiPo/LiHV pack. A balance charger monitors each cell individually through the balance lead and tops each one off in step, preventing any single cell from being overcharged while others lag behind — the single biggest safeguard against the cell-imbalance failures that lead to puffing, capacity loss, or fire. Never charge a multi-cell pack through the main leads only.\n\n**Charge rate:** the safe default is 1C (a 450mAh pack charges at 0.45A) for best pack longevity, though most modern packs and chargers support faster charging (2-5C on some packs) when time is tight, at some cost to long-term cycle life. Always charge to the chemistry-correct cutoff: 4.20V/cell for standard LiPo, 4.35V/cell for LiHV — charging an LiHV pack on a standard LiPo setting leaves capacity unused, while charging a standard LiPo pack to LiHV voltage is a real overcharge/fire risk.\n\n**Storage voltage:** for any pack that won't be used within the next few days, discharge or charge it to roughly 3.8V/cell (an acceptable range is about 3.7-3.85V/cell). This keeps the cell chemistry in its most stable state for long-term storage, unlike leaving a pack fully charged (accelerates degradation) or fully depleted (risk of over-discharge damage) between events.\n\n**Chargers combat builders commonly use:** ISDT's compact chargers (e.g. the ISDT 608AC, an 8A/200W AC/DC unit supporting LiPo/LiHV/Li-ion/LiFe/NiMH from 1-6S with an XT60 port) are popular for their small size and multi-chemistry support — useful given how many different chemistries show up across an antweight builder's battery drawer. HOTA's D6 Pro is well regarded for balance accuracy and a high 1.6A/cell balance current, which matters on the very small capacities antweight packs use (a weak balance current struggles to actually balance a 300mAh pack in reasonable time). SkyRC's T1000 and similar units combine charge and discharge functions in one box, letting a builder both charge match packs and discharge them to storage voltage after an event without a separate tool.\n\n**Parallel charging safety:** charging multiple packs simultaneously through a parallel charging board is common for efficiency, but every pack in the parallel group must be the same cell count, a very similar state of charge, and in good health — a damaged or significantly more depleted pack in the group can pull a dangerous surge of current from its healthier neighbors the moment the group is connected, before the charger even starts. Never parallel-charge a pack you have not individually voltage-checked, and never mix cell counts or chemistries in one parallel group.",
       "entity_refs": [
         "term-balance-charging",
         "term-storage-voltage",
@@ -1264,7 +1390,7 @@
       "id": "chunk-parallel-charging-safety",
       "title": "Parallel Charging: Why It's Convenient and How It Goes Wrong",
       "section": "Charging",
-      "body_md": "Antweight builders frequently own many small packs \u2014 several 300-550mAh cells for the main bot plus spares \u2014 and charging them one at a time on a single-channel charger is slow, so parallel charging boards (a small PCB with multiple balance/main connectors wired in parallel, feeding one charger channel) are a common convenience. Used correctly, parallel charging is safe and is exactly how many combat pit areas charge banks of small packs quickly between rounds.\n\nThe failure mode is specific and avoidable: when packs at meaningfully different voltages are connected together in parallel, current flows *between the packs themselves* the instant they're connected \u2014 before the charger has done anything \u2014 as the higher-voltage pack tries to equalize with the lower-voltage one. If one pack in the group is significantly more depleted, damaged, or has higher internal resistance than the others, this equalization current can be large and, in a worst case, generate enough localized heat to damage or ignite the weaker pack. This is why every credible parallel-charging guide insists on three checks before connecting packs together: (1) all packs must be the same cell count and chemistry, (2) all packs should be within about 0.1-0.2V of each other per cell before connecting, and (3) every pack must be visually and electrically healthy (no puffing, no damaged leads, no cells reading suspiciously low).\n\nFor antweight builders specifically, this matters because match-day packs often come back from a bout at very different states of charge \u2014 one pack might have fought a short match and returned at 70% capacity, another might have gone the full 3 minutes and returned near-empty. Tossing both into the same parallel board without checking voltage first is a common and preventable mistake. The safe habit is to check each pack's resting voltage individually (a simple LiPo checker or the balance port on a multimeter) before adding it to a parallel group, and to keep visibly damaged or hard-hit packs (see the mounting/impact-damage chunk) out of any parallel group entirely, charging them alone and watching them the whole time, or retiring them outright.",
+      "body_md": "Antweight builders frequently own many small packs — several 300-550mAh cells for the main bot plus spares — and charging them one at a time on a single-channel charger is slow, so parallel charging boards (a small PCB with multiple balance/main connectors wired in parallel, feeding one charger channel) are a common convenience. Used correctly, parallel charging is safe and is exactly how many combat pit areas charge banks of small packs quickly between rounds.\n\nThe failure mode is specific and avoidable: when packs at meaningfully different voltages are connected together in parallel, current flows *between the packs themselves* the instant they're connected — before the charger has done anything — as the higher-voltage pack tries to equalize with the lower-voltage one. If one pack in the group is significantly more depleted, damaged, or has higher internal resistance than the others, this equalization current can be large and, in a worst case, generate enough localized heat to damage or ignite the weaker pack. This is why every credible parallel-charging guide insists on three checks before connecting packs together: (1) all packs must be the same cell count and chemistry, (2) all packs should be within about 0.1-0.2V of each other per cell before connecting, and (3) every pack must be visually and electrically healthy (no puffing, no damaged leads, no cells reading suspiciously low).\n\nFor antweight builders specifically, this matters because match-day packs often come back from a bout at very different states of charge — one pack might have fought a short match and returned at 70% capacity, another might have gone the full 3 minutes and returned near-empty. Tossing both into the same parallel board without checking voltage first is a common and preventable mistake. The safe habit is to check each pack's resting voltage individually (a simple LiPo checker or the balance port on a multimeter) before adding it to a parallel group, and to keep visibly damaged or hard-hit packs (see the mounting/impact-damage chunk) out of any parallel group entirely, charging them alone and watching them the whole time, or retiring them outright.",
       "entity_refs": [
         "term-balance-charging",
         "term-puffed-pack"
@@ -1287,7 +1413,7 @@
       "id": "chunk-lipo-fire-risk-puffed-damaged-packs",
       "title": "LiPo Fire Risk, Puffed Packs, and Packs Damaged by a Hit",
       "section": "Safety",
-      "body_md": "LiPo and LiHV cells store a lot of chemical energy in a very thin, mechanically fragile pouch, and that combination is the source of essentially all LiPo fire incidents: puncture, crush damage, severe overcharge, or an internal short from age/manufacturing defect can trigger thermal runaway, a self-sustaining exothermic reaction that releases the cell's stored energy rapidly as heat and, often, fire. One widely repeated comparison in RC and combat robotics safety writeups is that the energy density of a LiPo pack is in the same rough order of magnitude as TNT per unit mass \u2014 not because LiPo burns like an explosive, but because the amount of stored energy per gram is genuinely large and should be respected. Most LiPo fires happen during charging (which is why an unattended charging pack is the single most common cause) or immediately after physical damage.\n\n**Puffed packs** \u2014 visibly swollen pouches \u2014 are the most common warning sign a builder will see directly. Swelling means gas has built up inside the pouch from internal chemical breakdown, which happens from overcharging, over-discharging, age, or damage. A puffed pack should never be charged, discharged normally, or \"one more match\" risked on it: treat it as compromised and retire it immediately. Do not attempt a charger's \"recovery\" or \"trickle\" mode on a puffed pack.\n\n**A hit that damages the battery bay is one of the most serious failure modes in antweight combat specifically**, because the whole point of the class is deliberately smashing small, densely packed robots into each other. A hard hit that crushes, dents, or punctures the battery \u2014 even if the pack still reads a normal voltage afterward and the robot still drives \u2014 can have compromised the internal cell structure invisibly, creating a short that may not manifest as heat or smoke until minutes later, often while the bot is sitting in a pit box or a carry case. **The standard safe practice is: after any hit that reaches the battery compartment, physically remove and inspect the pack before doing anything else with the robot** \u2014 do not just check that it still powers on. If the pack shows any deformation, a punctured pouch, an exposed foil layer, unusual heat, or a chemical smell, isolate it immediately in a fireproof/LiPo-safe bag or a metal container away from other batteries, vehicles, and flammable material, and let it fully off-gas or cool in a safe outdoor location before disposal. Never put a suspect pack back in your pit box, bag, or car.\n\n**Event and venue rules** at most organized combat events require charging to happen only in a designated charging area, often with a LiPo-safe bag or ammo-can-style container required under each charger, and require damaged packs to be reported and isolated rather than quietly discarded \u2014 check the specific event's rules packet, since requirements vary by organization and venue (some venues require this due to fire-marshal/insurance rules, not just robotics-club preference).",
+      "body_md": "LiPo and LiHV cells store a lot of chemical energy in a very thin, mechanically fragile pouch, and that combination is the source of essentially all LiPo fire incidents: puncture, crush damage, severe overcharge, or an internal short from age/manufacturing defect can trigger thermal runaway, a self-sustaining exothermic reaction that releases the cell's stored energy rapidly as heat and, often, fire. One widely repeated comparison in RC and combat robotics safety writeups is that the energy density of a LiPo pack is in the same rough order of magnitude as TNT per unit mass — not because LiPo burns like an explosive, but because the amount of stored energy per gram is genuinely large and should be respected. Most LiPo fires happen during charging (which is why an unattended charging pack is the single most common cause) or immediately after physical damage.\n\n**Puffed packs** — visibly swollen pouches — are the most common warning sign a builder will see directly. Swelling means gas has built up inside the pouch from internal chemical breakdown, which happens from overcharging, over-discharging, age, or damage. A puffed pack should never be charged, discharged normally, or \"one more match\" risked on it: treat it as compromised and retire it immediately. Do not attempt a charger's \"recovery\" or \"trickle\" mode on a puffed pack.\n\n**A hit that damages the battery bay is one of the most serious failure modes in antweight combat specifically**, because the whole point of the class is deliberately smashing small, densely packed robots into each other. A hard hit that crushes, dents, or punctures the battery — even if the pack still reads a normal voltage afterward and the robot still drives — can have compromised the internal cell structure invisibly, creating a short that may not manifest as heat or smoke until minutes later, often while the bot is sitting in a pit box or a carry case. **The standard safe practice is: after any hit that reaches the battery compartment, physically remove and inspect the pack before doing anything else with the robot** — do not just check that it still powers on. If the pack shows any deformation, a punctured pouch, an exposed foil layer, unusual heat, or a chemical smell, isolate it immediately in a fireproof/LiPo-safe bag or a metal container away from other batteries, vehicles, and flammable material, and let it fully off-gas or cool in a safe outdoor location before disposal. Never put a suspect pack back in your pit box, bag, or car.\n\n**Event and venue rules** at most organized combat events require charging to happen only in a designated charging area, often with a LiPo-safe bag or ammo-can-style container required under each charger, and require damaged packs to be reported and isolated rather than quietly discarded — check the specific event's rules packet, since requirements vary by organization and venue (some venues require this due to fire-marshal/insurance rules, not just robotics-club preference).",
       "entity_refs": [
         "term-puffed-pack",
         "term-internal-resistance"
@@ -1312,7 +1438,7 @@
       "id": "chunk-storage-transport-event-rules",
       "title": "Storage, Disposal, and Shipping/Flying with LiPos",
       "section": "Safety",
-      "body_md": "**Long-term storage:** any pack not going to be used within the next few days should be brought to storage voltage, roughly 3.8V/cell (acceptable range about 3.7-3.85V/cell). This is the voltage at which the cell's internal chemistry sits in its most stable, lowest-stress state. Store packs in a LiPo-safe bag or a fireproof container, away from direct sunlight, extreme heat, or anything flammable, and check on packs stored for a long time periodically (over months, voltage will slowly drift and should be topped back up if it falls too low).\n\n**Disposal:** a pack at true end of life (persistently puffed, damaged, or no longer holding a usable charge) should be fully discharged before disposal \u2014 many hobby shops and some municipal hazardous-waste programs accept LiPo packs for proper recycling/disposal; check local rules rather than simply throwing a pack in household trash, since a damaged cell can still short and ignite in a garbage truck or landfill. A genuinely swollen or physically damaged pack should not be \"one more cycle\"-tested to use up its capacity before disposal \u2014 isolate and dispose of it as-is rather than experimenting with a compromised cell.\n\n**Shipping LiPos** by mail or courier is regulated (LiPo/lithium batteries are classified as hazardous material for transport in most jurisdictions) \u2014 small antweight-size packs are usually well under the watt-hour thresholds that trigger the strictest hazmat shipping rules, but sellers and shippers still generally require packs to be shipped at a partial state of charge (often at or near storage voltage) and properly packaged (terminals covered/isolated, cushioned, sometimes in a dedicated LiPo-safe shipping bag) to limit short-circuit and fire risk in transit.\n\n**Flying with LiPos (air travel to an event):** airlines and aviation regulators (in the US, TSA/FAA rules) generally require spare lithium batteries \u2014 which most competitors' antweight packs are, since they travel disconnected from the robot \u2014 to go in **carry-on baggage only, never checked luggage**, specifically because a battery fire in the cargo hold is far harder to detect and fight than one in the cabin. Batteries typically must have terminals protected from short-circuiting (tape over exposed connector pins, or individual plastic bags/battery cases) and are usually subject to a per-battery watt-hour limit for carry-on without special airline approval (commonly cited around 100 Wh per battery for unrestricted carry-on, with a smaller number of higher-capacity batteries allowed with airline permission above that) \u2014 small antweight packs are so far under this threshold (a few Wh each, see formula-pack-energy-wh) that the practical requirement for most antweight travelers is simply: pack them in carry-on, in a LiPo-safe bag, with terminals covered, and be ready to show them if asked at security.",
+      "body_md": "**Long-term storage:** any pack not going to be used within the next few days should be brought to storage voltage, roughly 3.8V/cell (acceptable range about 3.7-3.85V/cell). This is the voltage at which the cell's internal chemistry sits in its most stable, lowest-stress state. Store packs in a LiPo-safe bag or a fireproof container, away from direct sunlight, extreme heat, or anything flammable, and check on packs stored for a long time periodically (over months, voltage will slowly drift and should be topped back up if it falls too low).\n\n**Disposal:** a pack at true end of life (persistently puffed, damaged, or no longer holding a usable charge) should be fully discharged before disposal — many hobby shops and some municipal hazardous-waste programs accept LiPo packs for proper recycling/disposal; check local rules rather than simply throwing a pack in household trash, since a damaged cell can still short and ignite in a garbage truck or landfill. A genuinely swollen or physically damaged pack should not be \"one more cycle\"-tested to use up its capacity before disposal — isolate and dispose of it as-is rather than experimenting with a compromised cell.\n\n**Shipping LiPos** by mail or courier is regulated (LiPo/lithium batteries are classified as hazardous material for transport in most jurisdictions) — small antweight-size packs are usually well under the watt-hour thresholds that trigger the strictest hazmat shipping rules, but sellers and shippers still generally require packs to be shipped at a partial state of charge (often at or near storage voltage) and properly packaged (terminals covered/isolated, cushioned, sometimes in a dedicated LiPo-safe shipping bag) to limit short-circuit and fire risk in transit.\n\n**Flying with LiPos (air travel to an event):** airlines and aviation regulators (in the US, TSA/FAA rules) generally require spare lithium batteries — which most competitors' antweight packs are, since they travel disconnected from the robot — to go in **carry-on baggage only, never checked luggage**, specifically because a battery fire in the cargo hold is far harder to detect and fight than one in the cabin. Batteries typically must have terminals protected from short-circuiting (tape over exposed connector pins, or individual plastic bags/battery cases) and are usually subject to a per-battery watt-hour limit for carry-on without special airline approval (commonly cited around 100 Wh per battery for unrestricted carry-on, with a smaller number of higher-capacity batteries allowed with airline permission above that) — small antweight packs are so far under this threshold (a few Wh each, see formula-pack-energy-wh) that the practical requirement for most antweight travelers is simply: pack them in carry-on, in a LiPo-safe bag, with terminals covered, and be ready to show them if asked at security.",
       "entity_refs": [
         "term-storage-voltage",
         "formula-pack-energy-wh"
@@ -1338,7 +1464,7 @@
       "id": "chunk-mounting-battery-in-1lb-bot",
       "title": "Mounting the Battery in a 1 lb Bot: CG, Protection, and Why a Puncture Ends Your Day",
       "section": "Mounting",
-      "body_md": "Battery placement in an antweight is a compromise between three goals that often pull in different directions: keeping the pack near the robot's center of gravity (CG) for predictable handling, keeping it away from the weapon and likely impact zones, and keeping it accessible enough to swap or inspect between matches.\n\n**CG placement:** because the battery is one of the densest single components in a 1 lb robot, its position has an outsized effect on the bot's balance and how it drives, especially for wedge and lifter-style bots where weight distribution affects how well the wedge gets under an opponent. Most builders place the pack as close to the geometric/horizontal center of the chassis as the internal layout allows, and centered left-right, so it doesn't bias the bot's handling to one side or make it tip more easily toward one end.\n\n**Protecting the pack from the weapon and impacts** is arguably more important than CG optimization, because a punctured or crushed pack is not a performance problem, it is a fire and match-ending safety problem (see the fire-risk chunk). The battery should be positioned as far as practically possible from the weapon's own moving parts and from the sides/faces of the robot most likely to take a direct hit (typically the front, where wedges and weapon strikes concentrate). Many antweight designs route the battery low and central, shielded on the vulnerable sides by the drivetrain, gearboxes, or a AR500/polycarbonate structural wall, effectively using the robot's own structure as an armor layer between the outside world and the pack.\n\n**Mounting method \u2014 velcro vs. foam vs. a printed cradle:** hook-and-loop (velcro) strap or dual-lock tape is the simplest and most common method, letting a builder pull the pack for charging/inspection between matches without tools, but it provides essentially no cushioning against shock, so it's often paired with a thin foam pad underneath and around the pack to absorb vibration and blunt impact energy. A closed-cell foam wrap (sometimes called a \"battery sock\" in FPV/drone contexts, adapted for combat use) adds crush protection on top of vibration damping. A 3D-printed cradle sized precisely to the pack gives the most positive, repeatable location and the best resistance to the pack shifting under impact, at the cost of being sized for one specific pack footprint \u2014 swap to a different-size battery later and the cradle needs to be reprinted. Many competitive antweights combine methods: a printed or machined pocket that constrains the pack's position, with a layer of foam between the pack and the pocket walls, and a velcro or dual-lock strap holding it down against the pocket floor so it can't launch out under a hard hit.\n\n**Why a punctured pack ends your day:** a pouch cell has no rigid outer casing, so a puncture directly exposes the layered foil/electrolyte structure to a short circuit and to air, either of which can trigger thermal runaway rapidly, sometimes within seconds. Unlike a mechanical failure elsewhere on the robot, there is no safe way to \"finish the match\" or even calmly walk the robot back to the pit once the battery bay has been breached \u2014 the correct response is to stop, isolate power, and get the pack to a safe, monitored, fireproof location immediately, which is why battery protection is treated as a safety requirement, not just a performance nice-to-have, in antweight design.",
+      "body_md": "Battery placement in an antweight is a compromise between three goals that often pull in different directions: keeping the pack near the robot's center of gravity (CG) for predictable handling, keeping it away from the weapon and likely impact zones, and keeping it accessible enough to swap or inspect between matches.\n\n**CG placement:** because the battery is one of the densest single components in a 1 lb robot, its position has an outsized effect on the bot's balance and how it drives, especially for wedge and lifter-style bots where weight distribution affects how well the wedge gets under an opponent. Most builders place the pack as close to the geometric/horizontal center of the chassis as the internal layout allows, and centered left-right, so it doesn't bias the bot's handling to one side or make it tip more easily toward one end.\n\n**Protecting the pack from the weapon and impacts** is arguably more important than CG optimization, because a punctured or crushed pack is not a performance problem, it is a fire and match-ending safety problem (see the fire-risk chunk). The battery should be positioned as far as practically possible from the weapon's own moving parts and from the sides/faces of the robot most likely to take a direct hit (typically the front, where wedges and weapon strikes concentrate). Many antweight designs route the battery low and central, shielded on the vulnerable sides by the drivetrain, gearboxes, or a AR500/polycarbonate structural wall, effectively using the robot's own structure as an armor layer between the outside world and the pack.\n\n**Mounting method — velcro vs. foam vs. a printed cradle:** hook-and-loop (velcro) strap or dual-lock tape is the simplest and most common method, letting a builder pull the pack for charging/inspection between matches without tools, but it provides essentially no cushioning against shock, so it's often paired with a thin foam pad underneath and around the pack to absorb vibration and blunt impact energy. A closed-cell foam wrap (sometimes called a \"battery sock\" in FPV/drone contexts, adapted for combat use) adds crush protection on top of vibration damping. A 3D-printed cradle sized precisely to the pack gives the most positive, repeatable location and the best resistance to the pack shifting under impact, at the cost of being sized for one specific pack footprint — swap to a different-size battery later and the cradle needs to be reprinted. Many competitive antweights combine methods: a printed or machined pocket that constrains the pack's position, with a layer of foam between the pack and the pocket walls, and a velcro or dual-lock strap holding it down against the pocket floor so it can't launch out under a hard hit.\n\n**Why a punctured pack ends your day:** a pouch cell has no rigid outer casing, so a puncture directly exposes the layered foil/electrolyte structure to a short circuit and to air, either of which can trigger thermal runaway rapidly, sometimes within seconds. Unlike a mechanical failure elsewhere on the robot, there is no safe way to \"finish the match\" or even calmly walk the robot back to the pit once the battery bay has been breached — the correct response is to stop, isolate power, and get the pack to a safe, monitored, fireproof location immediately, which is why battery protection is treated as a safety requirement, not just a performance nice-to-have, in antweight design.",
       "entity_refs": [
         "term-puffed-pack",
         "connector-xt30"
@@ -1362,7 +1488,7 @@
       "id": "chunk-lihv-real-gain-tradeoffs",
       "title": "LiHV in Practice: Real Gain vs. Standard LiPo",
       "section": "Chemistry",
-      "body_md": "LiHV's pitch to antweight builders is straightforward: the same physical pack, the same weight, but charged to a higher per-cell ceiling (4.35V vs 4.20V) for more stored energy. Because energy scales with voltage, and LiHV runs at a higher voltage across essentially its entire discharge curve (not just at the very top), the real-world gain shows up both as slightly more total watt-hours and as *more usable voltage later in the discharge*, which is the part antweight builders actually feel: a weapon or drivetrain running on a partly-depleted LiHV pack sees a meaningfully higher voltage than the same drivetrain on an equally-depleted standard LiPo pack, translating to less RPM droop and less sag-driven brownout risk as the match goes on.\n\nUsing the two CNHL MiniStar 3S 450mAh packs as a direct real-world comparison: the standard-LiPo version is rated 11.1V nominal (3.7V/cell) while the LiHV version of the same 450mAh/70C/XT30 spec is rated 11.4V nominal (3.8V/cell). Computed with the pack-energy formula, that is roughly 5.0 Wh for the standard pack versus roughly 5.13 Wh for the LiHV pack at the same nominal-voltage basis \u2014 about a 2.7% nominal-energy gain \u2014 and the gap widens further when comparing full-charge voltage (12.6V standard vs 13.05V LiHV) and the practical \"still has real voltage on the clock at match end\" behavior LiHV is prized for, since 4.35V/cell packs simply start and stay higher throughout discharge than 4.20V/cell packs of otherwise identical construction.\n\n**The tradeoffs are real but manageable:** an LiHV pack absolutely requires a charger or charge profile that supports the 4.35V/cell ceiling \u2014 charging it on a plain \"LiPo\" setting on an older or budget charger will stop at 4.20V/cell and simply waste the extra capacity the pack was built for, while attempting to push a *standard* LiPo cell to 4.35V/cell on an LiHV setting is a genuine overcharge and fire risk, so builders need to know which chemistry each of their packs actually is and label packs clearly if they run a mixed drawer of both. LiHV cells also generally show somewhat reduced cycle life compared to standard LiPo when both are cycled hard at similar C-rates, meaning an LiHV pack used aggressively across many matches may need replacing somewhat sooner \u2014 an acceptable trade for most antweight builders given how cheap small packs are and how much competitive value the extra voltage-under-load provides during a match.\n\nFor antweight builders deciding between an otherwise-identical standard and LiHV pack at similar price, the LiHV version is almost always the better choice given the modest but real gain and the low cost of chemistry-appropriate charging (most current chargers from ISDT, HOTA, and SkyRC already support LiHV profiles natively) \u2014 the main caveat is simply confirming the charger and charge profile match the chemistry before the first charge.",
+      "body_md": "LiHV's pitch to antweight builders is straightforward: the same physical pack, the same weight, but charged to a higher per-cell ceiling (4.35V vs 4.20V) for more stored energy. Because energy scales with voltage, and LiHV runs at a higher voltage across essentially its entire discharge curve (not just at the very top), the real-world gain shows up both as slightly more total watt-hours and as *more usable voltage later in the discharge*, which is the part antweight builders actually feel: a weapon or drivetrain running on a partly-depleted LiHV pack sees a meaningfully higher voltage than the same drivetrain on an equally-depleted standard LiPo pack, translating to less RPM droop and less sag-driven brownout risk as the match goes on.\n\nUsing the two CNHL MiniStar 3S 450mAh packs as a direct real-world comparison: the standard-LiPo version is rated 11.1V nominal (3.7V/cell) while the LiHV version of the same 450mAh/70C/XT30 spec is rated 11.4V nominal (3.8V/cell). Computed with the pack-energy formula, that is roughly 5.0 Wh for the standard pack versus roughly 5.13 Wh for the LiHV pack at the same nominal-voltage basis — about a 2.7% nominal-energy gain — and the gap widens further when comparing full-charge voltage (12.6V standard vs 13.05V LiHV) and the practical \"still has real voltage on the clock at match end\" behavior LiHV is prized for, since 4.35V/cell packs simply start and stay higher throughout discharge than 4.20V/cell packs of otherwise identical construction.\n\n**The tradeoffs are real but manageable:** an LiHV pack absolutely requires a charger or charge profile that supports the 4.35V/cell ceiling — charging it on a plain \"LiPo\" setting on an older or budget charger will stop at 4.20V/cell and simply waste the extra capacity the pack was built for, while attempting to push a *standard* LiPo cell to 4.35V/cell on an LiHV setting is a genuine overcharge and fire risk, so builders need to know which chemistry each of their packs actually is and label packs clearly if they run a mixed drawer of both. LiHV cells also generally show somewhat reduced cycle life compared to standard LiPo when both are cycled hard at similar C-rates, meaning an LiHV pack used aggressively across many matches may need replacing somewhat sooner — an acceptable trade for most antweight builders given how cheap small packs are and how much competitive value the extra voltage-under-load provides during a match.\n\nFor antweight builders deciding between an otherwise-identical standard and LiHV pack at similar price, the LiHV version is almost always the better choice given the modest but real gain and the low cost of chemistry-appropriate charging (most current chargers from ISDT, HOTA, and SkyRC already support LiHV profiles natively) — the main caveat is simply confirming the charger and charge profile match the chemistry before the first charge.",
       "entity_refs": [
         "term-lihv-chemistry",
         "battery-cnhl-ministar-3s-450mah-70c",
@@ -1387,7 +1513,7 @@
       "id": "chunk-connectors-wiring-gauge-antweight",
       "title": "Connectors and Wiring for Antweight Battery Systems",
       "section": "Wiring",
-      "body_md": "Connector choice on an antweight battery system is a direct current-handling decision, not just a matter of what the pack ships with. **JST-PH (2.0mm pitch)** connectors are standard on the smallest 1S-2S micro packs and are used essentially everywhere as the balance-lead connector regardless of pack size, but they are only rated for a few amps continuous \u2014 fine as a main-power connector on the very smallest, lowest-draw antweight builds, but a real bottleneck (and a source of resistive heating that worsens voltage sag) once combined drive+weapon draw climbs into double-digit amps. **XT30** is the common step-up connector, rated for roughly 15-30A depending on source and wire gauge, and is what most of the combat-market-specific and combat-crossover packs in the 300-550mAh antweight range (CNHL MiniStar, GNB LiHV 4S) ship with as standard. Larger XT60/XT90 connectors exist but are oversized and unnecessarily heavy for realistic antweight current levels; they belong in beetleweight and up.\n\nWire gauge matters as much as the connector: a pack's connector rating is only as good as the wire feeding it, and the thin factory leads on some micro packs (commonly 20-26AWG on the smallest packs) can become the actual current bottleneck and heat source even when the connector itself is rated higher. Builders running a demanding weapon setup sometimes re-terminate a pack's factory JST lead to XT30 and upgrade to a slightly heavier gauge wire in the same operation, both to raise the safe current ceiling and to reduce the resistive voltage drop (and associated heat) in the wiring itself \u2014 effectively reducing the system's total internal-resistance-like losses on top of whatever the cells themselves contribute, which directly helps with voltage sag under weapon spin-up.\n\nA secondary but important wiring practice is keeping the battery's main power leads short and direct to the ESCs/power distribution point; every extra centimeter of thin wire between pack and load adds resistance and therefore adds to voltage drop under load, compounding the sag problem discussed elsewhere in this file. In a chassis as small as an antweight's, this is rarely a big factor in absolute terms, but it costs nothing to route the main power leads as short and direct as the layout allows rather than coiling excess length inside the electronics bay.",
+      "body_md": "Connector choice on an antweight battery system is a direct current-handling decision, not just a matter of what the pack ships with. **JST-PH (2.0mm pitch)** connectors are standard on the smallest 1S-2S micro packs and are used essentially everywhere as the balance-lead connector regardless of pack size, but they are only rated for a few amps continuous — fine as a main-power connector on the very smallest, lowest-draw antweight builds, but a real bottleneck (and a source of resistive heating that worsens voltage sag) once combined drive+weapon draw climbs into double-digit amps. **XT30** is the common step-up connector, rated for roughly 15-30A depending on source and wire gauge, and is what most of the combat-market-specific and combat-crossover packs in the 300-550mAh antweight range (CNHL MiniStar, GNB LiHV 4S) ship with as standard. Larger XT60/XT90 connectors exist but are oversized and unnecessarily heavy for realistic antweight current levels; they belong in beetleweight and up.\n\nWire gauge matters as much as the connector: a pack's connector rating is only as good as the wire feeding it, and the thin factory leads on some micro packs (commonly 20-26AWG on the smallest packs) can become the actual current bottleneck and heat source even when the connector itself is rated higher. Builders running a demanding weapon setup sometimes re-terminate a pack's factory JST lead to XT30 and upgrade to a slightly heavier gauge wire in the same operation, both to raise the safe current ceiling and to reduce the resistive voltage drop (and associated heat) in the wiring itself — effectively reducing the system's total internal-resistance-like losses on top of whatever the cells themselves contribute, which directly helps with voltage sag under weapon spin-up.\n\nA secondary but important wiring practice is keeping the battery's main power leads short and direct to the ESCs/power distribution point; every extra centimeter of thin wire between pack and load adds resistance and therefore adds to voltage drop under load, compounding the sag problem discussed elsewhere in this file. In a chassis as small as an antweight's, this is rarely a big factor in absolute terms, but it costs nothing to route the main power leads as short and direct as the layout allows rather than coiling excess length inside the electronics bay.",
       "entity_refs": [
         "connector-jst-ph-2.0",
         "connector-xt30",
@@ -1411,7 +1537,7 @@
       "id": "chunk-worked-example-antweight-power-budget",
       "title": "Worked Example: Sizing a Battery for a New Antweight Spinner",
       "section": "Worked Example",
-      "body_md": "Putting the formulas in this file together for a concrete antweight build: a 1 lb horizontal spinner with two small brushed drive motors and a 3S-rated brushless weapon motor around 2200KV.\n\n**Step 1 \u2014 estimate current draw.** Drive: two brushed motors at roughly 2A typical each under normal driving = 4A combined, with stall spikes to perhaps 12-16A if both jam simultaneously (formula-power-budget-drive-weapon). Weapon: the 2200KV motor on 3S (11.1V nominal) draws roughly 6-9A once spun up and cutting normally, with brief spikes above 15A at spin-up or on a hard hit to an opponent. Combined typical draw: roughly 10-13A; combined worst-case brief spike: roughly 25-30A.\n\n**Step 2 \u2014 set continuous and burst current targets.** Applying a 1.5-2x safety margin to the 10-13A typical figure gives a target continuous rating of roughly 20-25A; the worst-case spike figure of ~30A sets the burst target.\n\n**Step 3 \u2014 pick a candidate pack and discount its C rating.** A CNHL MiniStar 3S 450mAh 70C pack claims (0.45Ah x 70) = 31.5A continuous on paper (formula-continuous-current-c-rating). Applying the realistic 40-60% discount for planning gives roughly 13-19A of *trustworthy* continuous capability \u2014 this falls a bit short of the 20-25A target computed in Step 2, suggesting either stepping up to a higher-rated pack (a genuine 100C-class pack from a reputable brand) or a larger-capacity pack at the same C rating (a 550mAh pack at 70C nominally claims 38.5A, discounting to roughly 15-23A) to close the gap with more margin.\n\n**Step 4 \u2014 check runtime.** Using the 450mAh pack at 80% usable capacity (360mAh) against the ~10-13A typical combined draw: Runtime = (360/11500) x 60 \u2248 1.9 minutes at continuous full-typical-load \u2014 noticeably short of a 3-minute match if the bot ran flat-out the whole time, but real matches include lulls, positioning, and pauses that bring *average* draw well below the \"flat-out typical\" figure used here, which is exactly why this worked example, like the real product landscape, points toward sizing up: a 550mAh (or a pair of 450mAh packs to swap between preliminary rounds) gives meaningfully more margin on both the current-rating shortfall from Step 3 and the runtime tightness from Step 4, for a a few extra grams of pack weight \u2014 a trade almost every antweight builder makes deliberately rather than by accident.\n\n**Step 5 \u2014 sanity-check voltage sag.** Even a healthy 3S pack with 0.03 ohm/cell (0.09 ohm total) hit with a 25A worst-case spike sags roughly 2.25V (formula-voltage-sag-estimate), from 11.1V down to about 8.85V for that instant \u2014 comfortably above most 3S-rated ESC/receiver brownout thresholds when the pack is fresh, but a real warning that an aged or previously-hit pack with double that internal resistance would sag to a genuinely risky ~6.6V under the same spike, reinforcing why pack age and impact history matter as much as the printed spec sheet.",
+      "body_md": "Putting the formulas in this file together for a concrete antweight build: a 1 lb horizontal spinner with two small brushed drive motors and a 3S-rated brushless weapon motor around 2200KV.\n\n**Step 1 — estimate current draw.** Drive: two brushed motors at roughly 2A typical each under normal driving = 4A combined, with stall spikes to perhaps 12-16A if both jam simultaneously (formula-power-budget-drive-weapon). Weapon: the 2200KV motor on 3S (11.1V nominal) draws roughly 6-9A once spun up and cutting normally, with brief spikes above 15A at spin-up or on a hard hit to an opponent. Combined typical draw: roughly 10-13A; combined worst-case brief spike: roughly 25-30A.\n\n**Step 2 — set continuous and burst current targets.** Applying a 1.5-2x safety margin to the 10-13A typical figure gives a target continuous rating of roughly 20-25A; the worst-case spike figure of ~30A sets the burst target.\n\n**Step 3 — pick a candidate pack and discount its C rating.** A CNHL MiniStar 3S 450mAh 70C pack claims (0.45Ah x 70) = 31.5A continuous on paper (formula-continuous-current-c-rating). Applying the realistic 40-60% discount for planning gives roughly 13-19A of *trustworthy* continuous capability — this falls a bit short of the 20-25A target computed in Step 2, suggesting either stepping up to a higher-rated pack (a genuine 100C-class pack from a reputable brand) or a larger-capacity pack at the same C rating (a 550mAh pack at 70C nominally claims 38.5A, discounting to roughly 15-23A) to close the gap with more margin.\n\n**Step 4 — check runtime.** Using the 450mAh pack at 80% usable capacity (360mAh) against the ~10-13A typical combined draw: Runtime = (360/11500) x 60 ≈ 1.9 minutes at continuous full-typical-load — noticeably short of a 3-minute match if the bot ran flat-out the whole time, but real matches include lulls, positioning, and pauses that bring *average* draw well below the \"flat-out typical\" figure used here, which is exactly why this worked example, like the real product landscape, points toward sizing up: a 550mAh (or a pair of 450mAh packs to swap between preliminary rounds) gives meaningfully more margin on both the current-rating shortfall from Step 3 and the runtime tightness from Step 4, for a a few extra grams of pack weight — a trade almost every antweight builder makes deliberately rather than by accident.\n\n**Step 5 — sanity-check voltage sag.** Even a healthy 3S pack with 0.03 ohm/cell (0.09 ohm total) hit with a 25A worst-case spike sags roughly 2.25V (formula-voltage-sag-estimate), from 11.1V down to about 8.85V for that instant — comfortably above most 3S-rated ESC/receiver brownout thresholds when the pack is fresh, but a real warning that an aged or previously-hit pack with double that internal resistance would sag to a genuinely risky ~6.6V under the same spike, reinforcing why pack age and impact history matter as much as the printed spec sheet.",
       "entity_refs": [
         "formula-power-budget-drive-weapon",
         "formula-continuous-current-c-rating",

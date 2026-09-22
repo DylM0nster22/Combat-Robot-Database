@@ -1,0 +1,845 @@
+{
+  "topic_id": "current-fingertech",
+  "title": "Current FingerTech Antweight Parts",
+  "scope_note": "Current, manufacturer-sourced FingerTech electronics, radio gear, drive motors, weapon motors, and support hardware relevant to small combat robots. Specs are tied to exact product pages and variants rather than generic size classes.",
+  "entities": [
+    {
+      "id": "esc-fingertech-tinyesc-v3",
+      "type": "component",
+      "name": "FingerTech tinyESC v3",
+      "aliases": [
+        "tinyESC v3",
+        "FingerTech tinyESC"
+      ],
+      "category": "esc-drive",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-tinyESCv3",
+      "summary": "Single-channel bidirectional brushed drive ESC with braking, combat failsafe, protection features, and a 5V/600mA switch-mode BEC.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushed",
+        "drive-esc",
+        "bec",
+        "failsafe",
+        "fingertech"
+      ],
+      "specs": {
+        "weight_with_wires_g": 4,
+        "weight_without_wires_g": 0.8,
+        "voltage_min_v": 6.5,
+        "voltage_max_v": 36,
+        "current_continuous_a": 1.5,
+        "current_robot_use_a": 2,
+        "current_max_a": 3,
+        "bec_voltage_v": 5,
+        "bec_current_a": 0.6,
+        "pwm_frequency_hz": 15600,
+        "board_length_mm": 12.7,
+        "board_width_mm": 15,
+        "board_height_mm": 4.1
+      },
+      "notes": "FingerTech states that, for short robot duty cycles, motors up to roughly 5A stall are commonly used even though the published continuous/max figures are lower. Design around the published ratings and protection behavior, not the marketing example.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-tinyESCv3"
+      ]
+    },
+    {
+      "id": "esc-fingertech-bl20a-weapon",
+      "type": "component",
+      "name": "FingerTech 20A BLHeli Brushless ESC",
+      "aliases": [
+        "BL20A"
+      ],
+      "category": "esc-weapon",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=BL20A",
+      "summary": "Compact 20A BLHeli brushless ESC sold as the weapon controller for FingerTech Viper spinner add-ons.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "weapon-esc",
+        "blheli"
+      ],
+      "specs": {
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "current_continuous_a": 20,
+        "length_mm": 31,
+        "width_mm": 15,
+        "height_mm": 5.3,
+        "weight_without_bullets_g": 5.6,
+        "weight_with_bullets_g": 9
+      },
+      "notes": "No onboard BEC. FingerTech lists 7.4-14.8V operation and 20A continuous current.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=BL20A"
+      ]
+    },
+    {
+      "id": "esc-fingertech-bl20a-r",
+      "type": "component",
+      "name": "FingerTech 20A BLHeli Reversing Brushless ESC",
+      "aliases": [
+        "BL20A-R"
+      ],
+      "category": "esc-drive",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=BL20A-R",
+      "summary": "20A BLHeli_S brushless ESC pre-programmed for forward/reverse drive operation.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "drive-esc",
+        "blheli-s",
+        "reversing"
+      ],
+      "specs": {
+        "cells_s_min": 2,
+        "cells_s_max": 4,
+        "current_continuous_a": 20,
+        "length_mm": 31,
+        "width_mm": 15,
+        "height_mm": 5.3,
+        "weight_without_bullets_g": 5.6,
+        "weight_with_bullets_g": 9,
+        "weight_with_case_g": 10.8
+      },
+      "notes": "No onboard BEC. FingerTech pairs it with its Brushless Mega Spark gearmotor, though the newer AM32 option is recommended where low-speed control matters.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=BL20A-R"
+      ]
+    },
+    {
+      "id": "switch-fingertech-mini",
+      "type": "component",
+      "name": "FingerTech Mini Power Switch",
+      "category": "switch",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-mini-switch",
+      "summary": "Compact screw-actuated combat-robot power switch using a nylon body, copper terminals, and aluminum power screw.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "power-switch",
+        "screw-switch",
+        "fingertech"
+      ],
+      "specs": {
+        "weight_g": 2.15,
+        "length_mm": 12.7,
+        "width_mm": 12.7,
+        "height_mm": 6.35,
+        "rated_current_a": 40,
+        "burst_current_a": 100,
+        "burst_seconds": 10,
+        "mount_hole_spacing_mm": 7.62
+      },
+      "notes": "FingerTech's current figure assumes 16-gauge wire and notes wiring/connection heating can become the practical limit before the switch itself.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-mini-switch"
+      ]
+    },
+    {
+      "id": "regulator-fingertech-5v-4a",
+      "type": "component",
+      "name": "FingerTech 5V 4A Switching UBEC",
+      "category": "voltage-regulator",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=UBEC5V",
+      "summary": "Switching regulator for powering receivers, servos, and other electronics when the drive ESCs do not provide a suitable BEC.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight",
+        "hobbyweight"
+      ],
+      "tags": [
+        "bec",
+        "voltage-regulator",
+        "receiver-power"
+      ],
+      "specs": {
+        "input_voltage_min_v": 6,
+        "input_voltage_max_v": 23,
+        "output_voltage_v": 5,
+        "output_current_max_a": 4,
+        "weight_g": 6.3,
+        "length_mm": 38,
+        "width_mm": 11.4,
+        "height_mm": 10.2
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=UBEC5V"
+      ]
+    },
+    {
+      "id": "mixer-fingertech-tinymixer",
+      "type": "component",
+      "name": "FingerTech tinyMixer",
+      "category": "mixer",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-tinyMixer",
+      "summary": "External RC channel mixer with invert mode and radio-loss failsafe for single-stick or tank-style robot drive.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "mixer",
+        "invert",
+        "failsafe",
+        "radio"
+      ],
+      "specs": {
+        "voltage_min_v": 5,
+        "voltage_max_v": 12,
+        "weight_with_wires_g": 3,
+        "length_mm": 25,
+        "width_mm": 9,
+        "height_mm": 6
+      },
+      "notes": "Supports Mixed or No-Mix mode. FingerTech states current firmware includes compatibility fixes for BLHeli ESCs and FS-iA6-family receivers.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-tinyMixer"
+      ]
+    },
+    {
+      "id": "transmitter-flysky-fsi4x",
+      "type": "component",
+      "name": "FlySky FS-i4X 4-Channel Transmitter",
+      "category": "transmitter",
+      "vendor": "FlySky / FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=FS-i4X-transmitter",
+      "summary": "Four-channel stick transmitter sold by FingerTech with selectable AFHDS and AFHDS2 protocol modes and front-panel mixing/reversing controls.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "radio",
+        "afhds",
+        "afhds2",
+        "flysky"
+      ],
+      "specs": {
+        "channels": 4
+      },
+      "notes": "FingerTech states it can switch between AFHDS and AFHDS2. Receiver compatibility depends on the selected protocol; verify failsafe behavior for the exact receiver/controller chain.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=FS-i4X-transmitter"
+      ]
+    },
+    {
+      "id": "receiver-flysky-tr6a-v2",
+      "type": "component",
+      "name": "FlySky TR6A V2 6-Channel Receiver",
+      "aliases": [
+        "T6RA V2",
+        "TR6A V2"
+      ],
+      "category": "receiver",
+      "vendor": "FlySky / FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=tr6a-v2",
+      "summary": "Six-channel AFHDS receiver commonly paired with the FlySky T6A/FS-i4X family in small robot applications.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "receiver",
+        "afhds",
+        "flysky",
+        "6-channel"
+      ],
+      "specs": {
+        "channels": 6,
+        "weight_g": 8,
+        "voltage_min_v": 5,
+        "voltage_max_v": 7.4,
+        "length_mm": 45,
+        "width_mm": 23,
+        "height_mm": 14
+      },
+      "notes": "This is AFHDS V2, not AFHDS2A. Do not assume compatibility with FS2A/Malenki/Catalyst just because all are FlySky-family products.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=tr6a-v2"
+      ]
+    },
+    {
+      "id": "motor-fingertech-n20-mini-spark-20-1",
+      "type": "component",
+      "name": "FingerTech N20 Mini Spark 20:1",
+      "category": "drive-motor",
+      "vendor": "FingerTech Robotics / CASFAB",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=N20-Mini-Spark",
+      "summary": "20:1 Mini Spark N20 combat gearmotor with a custom steel faceplate and 3mm D shaft.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "n20",
+        "gearmotor",
+        "casfab"
+      ],
+      "specs": {
+        "weight_g": 9.7,
+        "gear_ratio": 20,
+        "rpm_no_load_7_4v": 1819,
+        "torque_stall_kgcm_7_4v": 0.74,
+        "stall_current_a_6v": 2,
+        "stall_current_a_7_4v": 2.47,
+        "voltage_min_v": 3,
+        "voltage_max_v": 9,
+        "shaft_dia_mm": 3,
+        "shaft_length_mm": 10
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=N20-Mini-Spark"
+      ]
+    },
+    {
+      "id": "motor-fingertech-n20-mini-spark-30-1",
+      "type": "component",
+      "name": "FingerTech N20 Mini Spark 30:1",
+      "category": "drive-motor",
+      "vendor": "FingerTech Robotics / CASFAB",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=N20-Mini-Spark",
+      "summary": "30:1 Mini Spark N20 combat gearmotor with a custom steel faceplate and 3mm D shaft.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "n20",
+        "gearmotor",
+        "casfab"
+      ],
+      "specs": {
+        "weight_g": 9.7,
+        "gear_ratio": 30,
+        "rpm_no_load_7_4v": 1215,
+        "torque_stall_kgcm_7_4v": 1.09,
+        "stall_current_a_6v": 2,
+        "stall_current_a_7_4v": 2.47,
+        "voltage_min_v": 3,
+        "voltage_max_v": 9,
+        "shaft_dia_mm": 3,
+        "shaft_length_mm": 10
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=N20-Mini-Spark"
+      ]
+    },
+    {
+      "id": "motor-fingertech-n20-mini-spark-50-1",
+      "type": "component",
+      "name": "FingerTech N20 Mini Spark 50:1",
+      "category": "drive-motor",
+      "vendor": "FingerTech Robotics / CASFAB",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=N20-Mini-Spark",
+      "summary": "50:1 Mini Spark N20 combat gearmotor with a custom steel faceplate and 3mm D shaft.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "n20",
+        "gearmotor",
+        "casfab"
+      ],
+      "specs": {
+        "weight_g": 9.7,
+        "gear_ratio": 50,
+        "rpm_no_load_7_4v": 728,
+        "torque_stall_kgcm_7_4v": 1.68,
+        "stall_current_a_6v": 2,
+        "stall_current_a_7_4v": 2.47,
+        "voltage_min_v": 3,
+        "voltage_max_v": 9,
+        "shaft_dia_mm": 3,
+        "shaft_length_mm": 10
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=N20-Mini-Spark"
+      ]
+    },
+    {
+      "id": "motor-fingertech-n10-micro-spark-20-1",
+      "type": "component",
+      "name": "FingerTech N10 Micro Spark 20:1",
+      "category": "drive-motor",
+      "vendor": "FingerTech Robotics / CASFAB",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=N10-Micro-Spark",
+      "summary": "20:1 Micro Spark N10 gearmotor sharing the GM12 gearbox footprint with a shorter N10 motor.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "n10",
+        "gearmotor",
+        "casfab"
+      ],
+      "specs": {
+        "weight_g": 8.1,
+        "gear_ratio": 20,
+        "rpm_no_load_7_4v": 1850,
+        "torque_stall_kgcm_7_4v": 0.46,
+        "stall_current_a_6v": 0.85,
+        "stall_current_a_7_4v": 1.05,
+        "voltage_min_v": 3,
+        "voltage_max_v": 9,
+        "shaft_dia_mm": 3,
+        "shaft_length_mm": 10
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=N10-Micro-Spark"
+      ]
+    },
+    {
+      "id": "motor-fingertech-n10-micro-spark-30-1",
+      "type": "component",
+      "name": "FingerTech N10 Micro Spark 30:1",
+      "category": "drive-motor",
+      "vendor": "FingerTech Robotics / CASFAB",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=N10-Micro-Spark",
+      "summary": "30:1 Micro Spark N10 gearmotor sharing the GM12 gearbox footprint with a shorter N10 motor.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "n10",
+        "gearmotor",
+        "casfab"
+      ],
+      "specs": {
+        "weight_g": 8.1,
+        "gear_ratio": 30,
+        "rpm_no_load_7_4v": 1233,
+        "torque_stall_kgcm_7_4v": 0.64,
+        "stall_current_a_6v": 0.85,
+        "stall_current_a_7_4v": 1.05,
+        "voltage_min_v": 3,
+        "voltage_max_v": 9,
+        "shaft_dia_mm": 3,
+        "shaft_length_mm": 10
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=N10-Micro-Spark"
+      ]
+    },
+    {
+      "id": "motor-fingertech-n10-micro-spark-50-1",
+      "type": "component",
+      "name": "FingerTech N10 Micro Spark 50:1",
+      "category": "drive-motor",
+      "vendor": "FingerTech Robotics / CASFAB",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=N10-Micro-Spark",
+      "summary": "50:1 Micro Spark N10 gearmotor sharing the GM12 gearbox footprint with a shorter N10 motor.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushed",
+        "n10",
+        "gearmotor",
+        "casfab"
+      ],
+      "specs": {
+        "weight_g": 8.1,
+        "gear_ratio": 50,
+        "rpm_no_load_7_4v": 740,
+        "torque_stall_kgcm_7_4v": 1.02,
+        "stall_current_a_6v": 0.85,
+        "stall_current_a_7_4v": 1.05,
+        "voltage_min_v": 3,
+        "voltage_max_v": 9,
+        "shaft_dia_mm": 3,
+        "shaft_length_mm": 10
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=N10-Micro-Spark"
+      ]
+    },
+    {
+      "id": "motor-fingertech-ft1806-1500kv",
+      "type": "component",
+      "name": "FingerTech FT1806 1500KV Brushless Motor",
+      "category": "weapon-motor",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=FT1806-1500KV-motor",
+      "summary": "Custom 1500KV outrunner used in FingerTech's Brushless Mega Spark, also sold as a standalone motor for drive or small weapon applications.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "brushless",
+        "1500kv",
+        "1806",
+        "weapon-motor"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1500,
+        "rated_voltage_v": 24,
+        "rated_current_a": 10,
+        "resistance_ohm": 0.15,
+        "weight_g": 25.3,
+        "diameter_mm": 23.1,
+        "length_mm": 18.5,
+        "internal_shaft_dia_mm": 3,
+        "output_shaft_dia_mm": 2,
+        "shaft_length_mm": 9.6
+      },
+      "notes": "FingerTech's post-Sept-2025 version uses a 3mm internal shaft stepped down to 2mm at the pinion output and lists 2-6S operation.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=FT1806-1500KV-motor"
+      ]
+    },
+    {
+      "id": "motor-fingertech-f2822-1100kv-4mm",
+      "type": "component",
+      "name": "FingerTech F2822 1100KV Brushless Outrunner, 4mm Shaft",
+      "category": "weapon-motor",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=F2822-1100KV-4mm",
+      "summary": "1100KV F2822 antweight weapon outrunner upgraded by FingerTech with a hardened 4mm shaft.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushless",
+        "1100kv",
+        "2822",
+        "weapon-motor",
+        "4mm-shaft"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 1100,
+        "cells_s_min": 2,
+        "cells_s_max": 3,
+        "max_power_w": 102,
+        "max_current_a": 9.9,
+        "resistance_ohm": 0.192,
+        "weight_g": 43,
+        "diameter_mm": 27.8,
+        "length_mm": 21.35,
+        "shaft_dia_mm": 4,
+        "shaft_length_mm": 10,
+        "shaft_hardness_hrc": 50
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=F2822-1100KV-4mm"
+      ]
+    },
+    {
+      "id": "mount-fingertech-flat-bearing-spark",
+      "type": "component",
+      "name": "FingerTech Flat Bearing Motor Mount",
+      "category": "motor-mount",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-flat-bearing-motor-mount",
+      "summary": "Flat wall-mount bracket for 16mm Spark motors that also supports the output shaft with an optional 3mm flanged ball bearing.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "motor-mount",
+        "bearing-support",
+        "silver-spark"
+      ],
+      "specs": {
+        "weight_each_g": 1.5,
+        "height_mm": 22.23,
+        "width_mm": 22.23,
+        "thickness_mm": 1.63,
+        "bearing_weight_each_g": 0.33,
+        "mount_hole_spacing_mm": 15.88
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-flat-bearing-motor-mount"
+      ]
+    },
+    {
+      "id": "hub-fingertech-lightweight-twist-3mm",
+      "type": "component",
+      "name": "FingerTech Lightweight Twist Hub, 3mm",
+      "category": "hub",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs-LW",
+      "summary": "Glass-filled nylon Twist Hub for 3mm shafts, designed for FingerTech foam wheels with a metal threaded insert for the setscrew.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "hub",
+        "glass-filled-nylon",
+        "3mm",
+        "foam-wheel"
+      ],
+      "specs": {
+        "weight_each_g": 3.7,
+        "shaft_dia_mm": 3
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs-LW"
+      ]
+    },
+    {
+      "id": "wheel-fingertech-foam-family",
+      "type": "component",
+      "name": "FingerTech Foam Wheels",
+      "category": "wheel",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels",
+      "summary": "Neoprene foam wheel family for FingerTech Twist/Snap hubs, sold in multiple diameters and 0.5in/0.75in widths.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "wheel",
+        "foam",
+        "neoprene",
+        "fingertech"
+      ],
+      "specs": {
+        "diameter_min_mm": 25.4,
+        "diameter_max_mm": 76.2,
+        "width_option_thin_mm": 12.7,
+        "width_option_wide_mm": 19.1
+      },
+      "notes": "Weight depends on diameter and width. Use the product's size table or a specific measured wheel entry rather than one generic mass.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels"
+      ]
+    },
+    {
+      "id": "hub-fingertech-blade-mount",
+      "type": "component",
+      "name": "FingerTech Blade Mount",
+      "category": "hub",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-blade-mount",
+      "summary": "Compact weapon blade mount that bolts to compatible brushless motor faces and accepts FingerTech or custom spinner blades.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-hub",
+        "blade-mount",
+        "fingertech",
+        "4mm-shaft"
+      ],
+      "specs": {
+        "outside_dia_mm": 29,
+        "hub_height_mm": 12,
+        "blade_bore_mm": 10,
+        "blade_screw_thread": "6-32",
+        "blade_screw_spacing_mm": 20,
+        "motor_shaft_dia_mm": 4,
+        "motor_mount_circle_mm": 10.4,
+        "weight_g": 6.2
+      },
+      "notes": "Can fit smaller-shaft motors and can be drilled up to 10mm. Blade retention uses interlocking slots plus screws; FingerTech recommends threadlocker rather than over-tightening the screws.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-blade-mount"
+      ]
+    },
+    {
+      "id": "hub-fingertech-lightweight-twist-wide-3mm",
+      "type": "component",
+      "name": "FingerTech Lightweight Twist Hub 3mm Wide",
+      "category": "hub",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs-LW",
+      "summary": "Glass-filled nylon 3mm-bore wide Twist Hub used in the Viper and lightweight ant/fairyweight drive systems.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "hub",
+        "glass-filled-nylon",
+        "3mm",
+        "foam-wheel",
+        "fingertech"
+      ],
+      "specs": {
+        "shaft_dia_mm": 3,
+        "width_in": 0.75,
+        "weight_each_g": 3.7,
+        "weight_pair_g": 7.4,
+        "setscrew": "8-32 with aluminum threaded insert",
+        "price_pair_usd": 12.29
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-twist-hubs-LW"
+      ]
+    },
+    {
+      "id": "wheel-fingertech-foam-pair",
+      "type": "component",
+      "name": "FingerTech Foam Wheels (pair)",
+      "category": "wheel",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels",
+      "summary": "FingerTech's current neoprene foam-wheel family for Twist Hubs, offered in many diameters and two widths.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "wheel",
+        "foam",
+        "neoprene",
+        "fingertech"
+      ],
+      "specs": {
+        "diameter_min_mm": 25.4,
+        "diameter_max_mm": 76.2,
+        "diameter_increment_mm": 6.35,
+        "width_options_mm": "12.7, 19.1",
+        "hub_bore_mm": 10
+      },
+      "notes": "Wheel mass depends on diameter/width. The DB intentionally does not assign one generic mass to the entire family.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-fingertech-small-robot-electronics-2026",
+      "title": "FingerTech small-robot electronics: current verified options",
+      "section": "Electronics",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "fingertech",
+        "esc",
+        "receiver",
+        "mixer",
+        "bec"
+      ],
+      "entity_refs": [
+        "esc-fingertech-tinyesc-v3",
+        "esc-fingertech-bl20a-weapon",
+        "esc-fingertech-bl20a-r",
+        "regulator-fingertech-5v-4a",
+        "mixer-fingertech-tinymixer",
+        "transmitter-flysky-fsi4x",
+        "receiver-flysky-tr6a-v2"
+      ],
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-tinyESCv3",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=BL20A",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=BL20A-R",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=UBEC5V",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-tinyMixer"
+      ],
+      "body_md": "FingerTech's current small-robot electronics span several distinct jobs that should not be collapsed into one generic 'ESC' bucket. The tinyESC v3 is a single-channel brushed drive controller with braking and a 5V/600mA BEC. The BL20A is a one-way weapon-oriented brushless controller, while BL20A-R is configured for forward/reverse brushless drive. The tinyMixer is a signal-processing accessory, not a motor controller, and the 5V UBEC is a standalone regulator for receiver/servo power.\n\nRadio protocol also matters. The TR6A V2 is an AFHDS receiver, while FS2A/Malenki/Catalyst products elsewhere in this database use AFHDS2A-family links. The FS-i4X transmitter can switch protocol modes, but that does not make the receiver protocols interchangeable."
+    },
+    {
+      "id": "chunk-fingertech-n10-n20-spark-gear-ratios",
+      "title": "FingerTech N10/N20 Spark ratio choices",
+      "section": "Drive",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fingertech",
+        "n10",
+        "n20",
+        "drive-motor",
+        "gearing"
+      ],
+      "entity_refs": [
+        "motor-fingertech-n20-mini-spark-20-1",
+        "motor-fingertech-n20-mini-spark-30-1",
+        "motor-fingertech-n20-mini-spark-50-1",
+        "motor-fingertech-n10-micro-spark-20-1",
+        "motor-fingertech-n10-micro-spark-30-1",
+        "motor-fingertech-n10-micro-spark-50-1"
+      ],
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=N20-Mini-Spark",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=N10-Micro-Spark"
+      ],
+      "body_md": "The N10 Micro Spark and N20 Mini Spark use the same GM12-style gearbox footprint and 3mm D shaft, but the N20 has the larger motor and higher stall torque/current. FingerTech publishes separate output-speed and torque values for 20:1, 30:1, and 50:1 ratios at 7.4V, so these are stored as separate component records instead of a single generic N20 number. That distinction matters when sizing a drivetrain: changing only the gear ratio changes output speed and torque while the motor-side stall current remains tied to the motor winding and voltage."
+    }
+  ]
+}
