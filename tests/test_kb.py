@@ -437,8 +437,9 @@ class TestBuiltDatabase(unittest.TestCase):
         valid = {
             "drive-motor", "weapon-motor", "esc-drive", "esc-weapon",
             "receiver", "transmitter", "battery", "charger", "wheel", "hub",
-            "weapon", "bearing", "fastener", "switch", "servo", "gearbox",
-            "belt-pulley", "connector", "misc",
+            "weapon", "bearing", "fastener", "switch", "servo", "mixer",
+            "voltage-regulator", "motor-mount", "gearbox", "belt-pulley",
+            "connector", "misc",
         }
         rows = self.db.conn.execute(
             "SELECT id, extra FROM entities WHERE type='component'").fetchall()
