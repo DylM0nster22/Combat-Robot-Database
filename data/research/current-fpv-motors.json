@@ -865,6 +865,307 @@
       "sources": [
         "https://betafpv.com/products/1805-brushless-motors"
       ]
+    },
+    {
+      "id": "motor-surpass-s2207-1750kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2207 1750KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2207 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2207",
+        "1750kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7,
+        "kv_rpm_per_v": 1750,
+        "weight_with_wire_g": 35.1,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 32.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 80.3,
+        "max_current_a": 36,
+        "max_power_w": 854,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2207-1950kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2207 1950KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2207 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2207",
+        "1950kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7,
+        "kv_rpm_per_v": 1950,
+        "weight_with_wire_g": 35.3,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 32.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 70.1,
+        "max_current_a": 43.8,
+        "max_power_w": 1402,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2207-2450kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2207 2450KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2207 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2207",
+        "2450kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 7,
+        "kv_rpm_per_v": 2450,
+        "weight_with_wire_g": 34,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 32.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 53.5,
+        "max_current_a": 47,
+        "max_power_w": 777,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2208-1750kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2208 1750KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2208 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2208",
+        "1750kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 8,
+        "kv_rpm_per_v": 1750,
+        "weight_with_wire_g": 28,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 33.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 73.8,
+        "max_current_a": 40.1,
+        "max_power_w": 1003,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2208-1950kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2208 1950KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2208 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2208",
+        "1950kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 8,
+        "kv_rpm_per_v": 1950,
+        "weight_with_wire_g": 37.3,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 33.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 66.2,
+        "max_current_a": 48.8,
+        "max_power_w": 1218,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-surpass-s2208-2450kv",
+      "type": "component",
+      "name": "SURPASS HOBBY S2208 2450KV",
+      "category": "weapon-motor",
+      "vendor": "SURPASS HOBBY",
+      "summary": "Budget 2208 FPV outrunner with a 5mm/M5 steel shaft and published electrical test data.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2208",
+        "2450kv",
+        "5mm-shaft",
+        "surpass",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 22,
+        "stator_height_mm": 8,
+        "kv_rpm_per_v": 2450,
+        "weight_with_wire_g": 36.1,
+        "motor_dia_mm": 27.6,
+        "motor_length_mm": 33.1,
+        "shaft_dia_mm": 5,
+        "shaft_thread": "M5",
+        "resistance_mohm": 53.3,
+        "max_current_a": 44.3,
+        "max_power_w": 737,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 130
+      },
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
+      "confidence": "high",
+      "sources": [
+        "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
+      ]
+    },
+    {
+      "id": "motor-hskrc-2306-5-1800kv",
+      "type": "component",
+      "name": "HSKRC 2306.5 1800KV",
+      "category": "weapon-motor",
+      "vendor": "HSKRC",
+      "product_url": "https://usa.banggood.com/HSKRC-2306_5-1800KV-High-Performance-Brushless-Motor-5mm-Shaft-for-5-Inch-RC-FPV-Racing-Drone-p-2036819.html",
+      "summary": "Low-cost 2306.5 FPV outrunner with a 5mm shaft and 6S winding.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "fpv-derived",
+        "budget",
+        "2306.5",
+        "1800kv",
+        "5mm-shaft",
+        "hskrc",
+        "not-combat-hardened"
+      ],
+      "specs": {
+        "stator_dia_mm": 23,
+        "stator_height_mm": 6.5,
+        "kv_rpm_per_v": 1800,
+        "shaft_dia_mm": 5,
+        "weight_with_wire_g": 32.23,
+        "resistance_mohm": 77.55,
+        "cells_s": 6,
+        "no_load_current_a_at_10v": 0.71,
+        "max_power_w": 721.97,
+        "max_current_a": 30.76,
+        "stator_slots": 12,
+        "magnet_poles": 14,
+        "wire_awg": 20,
+        "wire_length_mm": 150
+      },
+      "notes": "Retailer showed no stable current US price/stock when checked, so price is omitted. Electrical maximums are FPV test figures, not continuous combat ratings.",
+      "confidence": "high",
+      "sources": [
+        "https://usa.banggood.com/HSKRC-2306_5-1800KV-High-Performance-Brushless-Motor-5mm-Shaft-for-5-Inch-RC-FPV-Racing-Drone-p-2036819.html"
+      ]
     }
   ],
   "chunks": [
