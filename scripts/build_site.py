@@ -230,6 +230,8 @@ def pills(entity, depth=0):
         out.append('<span class="pill conf-low">unverified</span>')
     if entity.get("reference_only"):
         out.append('<span class="pill">reference</span>')
+    elif entity.get("catalog_entry_only"):
+        out.append('<span class="pill">catalog</span>')
     return "".join(out)
 
 
