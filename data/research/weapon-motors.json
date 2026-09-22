@@ -26,12 +26,11 @@
         "stator_height_mm": 4
       },
       "pros": [
-        "Extremely light (under 10 g), leaves more of a 1 lb budget for armor/drive",
-        "Cheap and disposable, easy to keep spares"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Very small stator volume caps torque and stall current headroom",
-        "Fragile bearings/shaft under weapon shock loading, not designed for impacts"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
       "sources": [
@@ -66,12 +65,11 @@
         "stator_height_mm": 6
       },
       "pros": [
-        "Noticeably more torque than 1104 for only ~2g extra weight",
-        "Still cheap, widely available as whoop replacement motors"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Still a whoop-grade bearing/shaft; not shock-rated for weapon impacts",
-        "Small mounting screws (M2) strip easily"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "notes": "Reference envelope only, not a purchasable product. KV, motor mass, outer-can dimensions, shaft diameter, current rating, winding resistance, cell rating, bolt pattern, and price vary significantly by manufacturer and winding. Use a specific motor record with a manufacturer source for electrical or purchasing decisions.",
       "sources": [
@@ -105,11 +103,11 @@
         "stator_height_mm": 4
       },
       "pros": [
-        "Good torque-to-weight step up from 11xx sizes",
-        "M2 mount, easy to print an adapter plate"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Still limited peak current before demagnetizing the small magnets"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -146,13 +144,11 @@
         "stator_height_mm": 6
       },
       "pros": [
-        "Huge range of KV options on the market (2200-4000kv) from racing-drone suppliers",
-        "9x9mm M2 mount pattern is easy to adapt with a printed plate",
-        "Good torque for its 15-19g weight, popular for small vertical discs"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "3mm-class magnets can demagnetize if driven well past rated current during a hard stall",
-        "1.5mm shaft is thin for anything beyond a small disc or paddle"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -186,11 +182,11 @@
         "stator_height_mm": 4
       },
       "pros": [
-        "Wider stator than 1306 gives more low-end torque at similar KV",
-        "Still under 25 g"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Less common than 1306/1408 so fewer KV choices in stock"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -225,13 +221,11 @@
         "stator_height_mm": 8
       },
       "pros": [
-        "Tall stator (8mm) gives real torque for its size, good spin-up",
-        "12x12mm M2 mount pattern common and easy to adapt",
-        "Cheap, sold in bulk by every FPV motor vendor as 2.5in toothpick motors"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Bearings are still drone-spec, not shock-rated for hard weapon impacts",
-        "Bell can loosen/separate under repeated impact loading if not threadlocked"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -266,13 +260,11 @@
         "stator_height_mm": 6
       },
       "pros": [
-        "3mm shaft is much stiffer than 1.5mm 13xx/14xx shafts, tolerates direct-drive hubs better",
-        "16x16mm M3 mount matches many printed and metal mount patterns",
-        "Wide KV selection (1400-2700kv) still sold new"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Heavier than 13xx/14xx for builders on a tight plastic-ant budget",
-        "Still uses drone-grade sleeve/ball bearings, not a combat-rated shaft"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -305,11 +297,11 @@
         "stator_height_mm": 4
       },
       "pros": [
-        "Wide stator diameter gives good torque despite short 4mm height",
-        "Common and cheap (cinewhoop production run)"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Thin 1.5mm shaft is the weak point versus 1806/2205's 3-4mm shafts"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -344,13 +336,11 @@
         "stator_height_mm": 5
       },
       "pros": [
-        "4mm shaft is stiff enough for small direct-drive discs",
-        "16x16mm M3 bolt pattern is a de-facto antweight standard",
-        "Huge range of KV from 1300-2700 available from racing-drone brands"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "At the top of the antweight weight budget once you add a bell/prop-nut hub",
-        "Needs a good ESC with real current headroom (30A+ burst) for hard weapon stalls"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -385,11 +375,11 @@
         "stator_height_mm": 6
       },
       "pros": [
-        "Taller stator than 2205 gives noticeably more torque at similar KV",
-        "Good tip-speed headroom at 4S for 3-4in discs and bars"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "A few extra grams versus 2205; matters on a tight 1 lb build"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -424,12 +414,11 @@
         "stator_height_mm": 7
       },
       "pros": [
-        "Best stator-volume-to-weight ratio in the 22xx family, strong low-RPM torque",
-        "5mm shaft handles direct-drive hub loads well",
-        "Base stator size used by purpose-built combat hubmotors (e.g. Repeat 2207)"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Near the top of what a 1 lb build can spend on motor weight alone if also running a full-size hub"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://repeat-robotics.com/buy/2207-battle-ready-hubmotor/",
@@ -464,11 +453,11 @@
         "stator_height_mm": 6
       },
       "pros": [
-        "Larger diameter than 22xx gives a bit more stall torque for the same weight class",
-        "19x19mm and 16x16mm mount options both exist on most 2306 shells"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Slightly heavier than a 2205/2207 for a similar power band"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -503,11 +492,11 @@
         "stator_height_mm": 4
       },
       "pros": [
-        "Wide stator gives strong low-speed torque, good for belt-reduced drums",
-        "5mm shaft suits belt pulleys well"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Heavy for a strict 1 lb budget; usually only fits builds that skimp elsewhere"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -543,11 +532,11 @@
         "stator_height_mm": 8
       },
       "pros": [
-        "Very strong stall torque for its class, low KV keeps bite high even geared 1:1",
-        "Popular, well-supported size from long-range FPV so parts are cheap"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "75g+ is a big bite out of a 454g total robot weight; almost always needs the rest of the bot built light"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -582,11 +571,11 @@
         "stator_height_mm": 6
       },
       "pros": [
-        "Big stator diameter gives strong torque even at moderate weight for a 28xx",
-        "Good belt-drive drum/bar motor"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "At 68g+ this is a beetleweight-style motor squeezed into a 1 lb build; leaves little weight for armor"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -621,11 +610,11 @@
         "stator_height_mm": 12
       },
       "pros": [
-        "Exceptional stall torque and thermal mass for sustained weapon use",
-        "Low KV keeps bite very high"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Too heavy for almost any legal 1 lb build; realistically a light-beetleweight part"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
@@ -661,11 +650,11 @@
         "stator_height_mm": 14
       },
       "pros": [
-        "Huge stator volume gives serious torque and thermal headroom for belt-driven drums/discs",
-        "Cobra 2814 1850kv specifically documented as a belt-drive combat weapon motor choice"
+        "Useful shorthand for comparing stator geometry and discovering candidate motors in this size family"
       ],
       "cons": [
-        "Well over 1 lb (454g) motor-only weight budget on its own in some windings; realistically a beetleweight part used at the antweight/beetle crossover on the lightest windings"
+        "The size code does not standardize KV, total motor weight, current rating, voltage range, shaft diameter, bearings, or mounting pattern",
+        "Electrical and mechanical design decisions require a specific manufacturer/model record"
       ],
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
