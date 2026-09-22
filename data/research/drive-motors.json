@@ -297,11 +297,11 @@
   {
    "id": "motor-fingertech-megaspark-brushless",
    "type": "component",
-   "name": "FingerTech \"MegaSpark\" Brushless 24mm Planetary Gearmotor",
+   "name": "FingerTech Brushless Mega Spark 1500KV Planetary Gearmotor",
    "aliases": [
     "MegaSpark"
    ],
-   "summary": "A premium 24mm brushless planetary gearmotor sold through the FingerTech ecosystem (via resellers), sized more for beetleweight than antweight but relevant as the high-end brushless benchmark antweight brushless pods are compared against.",
+   "summary": "24mm brushless planetary drive gearmotor using FingerTech's FT1806 1500KV motor and a 27:1 all-metal planetary gearbox.",
    "weight_classes": [
     "beetleweight",
     "antweight"
@@ -310,10 +310,23 @@
     "drive-motor",
     "brushless",
     "planetary",
-    "premium"
+    "fingertech",
+    "1500kv"
    ],
    "specs": {
-    "dia_mm": 24
+    "weight_g": 71.5,
+    "kv_rpm_per_v": 1500,
+    "gear_ratio": 27,
+    "gearbox_dia_mm": 24,
+    "motor_dia_mm": 23.1,
+    "shaft_dia_mm": 6,
+    "shaft_length_mm": 38,
+    "length_mm": 46.5,
+    "rpm_no_load_3s": 616,
+    "rpm_no_load_4s": 822,
+    "resistance_ohm": 0.15,
+    "max_current_a_at_12v": 10,
+    "max_output_power_w_at_12v": 72
    },
    "pros": [
     "All-metal planetary gearbox is far more torque-dense and durable than a spur gearbox",
@@ -323,13 +336,14 @@
     "Oversized/heavy for a standard 1 lb antweight budget; more common on beetleweights",
     "Requires a reversing brushless ESC, adding cost/weight/complexity vs a plug-and-play brushed motor"
    ],
-   "notes": "Included as context for how the antweight brushless drive-pod trend (Repeat Robotics, etc.) scales up; full spec sheet (kv, ratio options, price) was not available in this research pass — treat weight/price as unknown rather than guessed.",
+   "notes": "Current post-Sept-2025 version uses M3 face-mount screws on a 19mm circle and is assembled with threadlocker. The long 6mm output shaft contributes materially to the listed 71.5g weight.",
    "sources": [
-    "https://itgresa.com/product/megaspark-brushless-drive-gearmotor/"
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-mega-spark-bl-1500KV"
    ],
-   "confidence": "low",
+   "confidence": "high",
    "category": "drive-motor",
-   "vendor": "FingerTech Robotics"
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-mega-spark-bl-1500KV"
   },
   {
    "id": "motor-repeat-mini-brushed-mk2",
@@ -477,21 +491,33 @@
   {
    "id": "motor-repeat-compact-1806-brushless",
    "type": "component",
-   "name": "Repeat Robotics Compact Brushless 1806 Drive Gearmotor",
+   "name": "Repeat Robotics Compact Brushless 1806 Planetary Gearmotor",
    "aliases": [
     "Repeat Compact 1806"
    ],
-   "summary": "A lightweight brushless planetary gearmotor built around an 1806-size motor, marketed as the lightest brushless beetleweight drive motor on the market; included here as context for scaling brushless drive up from antweight, or for extra-light plastic-antweight-adjacent builds where a lower part count matters more than absolute minimum weight.",
+   "summary": "Integrated 1806-2300KV brushless motor and 22.6:1 planetary gearbox with a hardened 4mm output shaft.",
    "weight_classes": [
-    "beetleweight"
+    "beetleweight",
+    "antweight"
    ],
    "tags": [
     "drive-motor",
     "brushless",
     "planetary",
-    "repeat-robotics"
+    "1806",
+    "repeat"
    ],
-   "specs": {},
+   "specs": {
+    "weight_g": 44.5,
+    "kv_rpm_per_v": 2300,
+    "gear_ratio": 22.6,
+    "shaft_dia_mm": 4,
+    "shaft_length_mm": 25,
+    "rpm_no_load_3s": 1130,
+    "rpm_no_load_4s": 1500,
+    "cells_s_min": 2,
+    "cells_s_max": 4
+   },
    "pros": [
     "Very light for a brushless beetleweight motor",
     "Hardened steel 4mm shaft with dual bearings on the gearbox output"
@@ -499,14 +525,14 @@
    "cons": [
     "Sized and priced for 3 lb beetleweight, oversized/overpriced for a standard 1 lb antweight budget"
    ],
-   "notes": "Context only — not a direct fit for 1 lb antweight or plastic antweight, but shows the same drive-pod architecture (brushless motor cast directly into a planetary gearbox) scaled up one weight class.",
+   "notes": "Repeat lists a 20A-or-larger ESC recommendation. The replacement motor alone is listed at 22.4g. Product is currently shown as sold out, but the specifications remain useful for existing robots.",
    "sources": [
-    "https://itgresa.com/product/repeat-robotics-compact-brushless-1806-drive-gearmotor/",
-    "https://repeat-robotics.com/products/repeat-compact-1806"
+    "https://repeat-robotics.com/collections/antweight/products/repeat-compact-1806"
    ],
-   "confidence": "low",
+   "confidence": "high",
    "category": "drive-motor",
-   "vendor": "Repeat Robotics"
+   "vendor": "Repeat Robotics",
+   "product_url": "https://repeat-robotics.com/collections/antweight/products/repeat-compact-1806"
   },
   {
    "id": "motor-n20-generic-100-1",
@@ -516,7 +542,7 @@
     "N20 100:1",
     "12mm N20 gearmotor"
    ],
-   "summary": "A widely sold 12mm-diameter micro DC gearmotor (compatible with Sanyo NA4S-style gearboxes) used by budget and plastic-antweight builders as a cheap alternative to FingerTech/Repeat/Pololu motors, at the cost of unit-to-unit quality consistency.",
+   "summary": "Reference entry for the Generic N20 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -529,13 +555,7 @@
     "quality-lottery"
    ],
    "specs": {
-    "weight_g": 10,
-    "voltage_nominal_v": 6,
-    "rpm_no_load": 150,
-    "gear_ratio": 100,
-    "shaft_dia_mm": 3,
-    "torque_stall_kgcm": 2,
-    "price_usd": 4
+    "gear_ratio": 100
    },
    "pros": [
     "Extremely cheap (a few dollars each), widely available from many sellers",
@@ -546,11 +566,9 @@
     "Many units mix plastic gears into otherwise \"metal gear\" listings",
     "No standardized spec sheet across sellers — published numbers are unreliable"
    ],
-   "notes": "Base N20 motor is commonly quoted at ~15,000 RPM no-load at 6V for the bare motor before gearing; a 100:1 gearbox gives ~150 RPM output, consistent with a 298:1 listing observed selling at 50 RPM (15,000/298 ~= 50). Gearbox torque ratings published by manufacturers cap around 20 kg*mm (2.0 kg-cm) of continuous output torque for most ratios below 380:1, meaning the motor's theoretical stall torque at high ratios exceeds what the gearbox can survive — a mechanical, not electrical, limit. Price and exact weight vary a lot by seller; treat as representative, low-confidence figures.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
-    "https://ineedmicromotors.com/what-is-n20-gear-motor/",
-    "https://ozrobotics.com/shop/premium-12mm-dc-n20-gear-motor-6v-2981-ratio-50-rpm/",
-    "https://www.kindmotor.com/sale-14047663-n10-n20-n30-mini-dc-3v-6v-12v-100-1-150-1-210-1-298-1-380-1-340-1-1000-1-gear-ratio-motor-reduction-.html"
+    "domain knowledge"
    ],
    "confidence": "low",
    "category": "drive-motor"
@@ -562,7 +580,7 @@
    "aliases": [
     "N20 298:1"
    ],
-   "summary": "A slow, high-torque N20 variant near the top of the common ratio ladder, used for lifters, self-righters, or very traction-limited plastic-antweight drives rather than fast main drive.",
+   "summary": "Reference entry for the Generic N20 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -575,12 +593,7 @@
     "quality-lottery"
    ],
    "specs": {
-    "weight_g": 10,
-    "voltage_nominal_v": 6,
-    "rpm_no_load": 50,
-    "gear_ratio": 298,
-    "shaft_dia_mm": 3,
-    "price_usd": 4
+    "gear_ratio": 298
    },
    "pros": [
     "High torque per dollar",
@@ -590,11 +603,11 @@
     "Same quality-lottery risk as all generic N-series motors",
     "Too slow alone for a competitive main-drive ratio"
    ],
-   "notes": "The 50 RPM @ 298:1 @ 6V figure is directly from a specific commercial listing, which is good corroboration for the family's base-motor speed assumption.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
-    "https://ozrobotics.com/shop/premium-12mm-dc-n20-gear-motor-6v-2981-ratio-50-rpm/"
+    "domain knowledge"
    ],
-   "confidence": "medium",
+   "confidence": "low",
    "category": "drive-motor"
   },
   {
@@ -604,7 +617,7 @@
    "aliases": [
     "N20 1000:1"
    ],
-   "summary": "The slowest, highest-torque stock N20 ratio; the 1000:1 (and 380:1) versions get a slightly longer, reinforced gearbox and a higher torque rating than the rest of the line, making them the ones most likely to survive at this extreme reduction.",
+   "summary": "Reference entry for the Generic N20 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -617,12 +630,7 @@
     "high-torque"
    ],
    "specs": {
-    "weight_g": 11,
-    "voltage_nominal_v": 12,
-    "rpm_no_load": 15,
-    "gear_ratio": 1000,
-    "shaft_dia_mm": 3,
-    "torque_stall_kgcm": 2.5
+    "gear_ratio": 1000
    },
    "pros": [
     "Reinforced gearbox stage rated to ~25 kg*mm (2.5 kg-cm), higher than the ~20 kg*mm (2.0 kg-cm) rating of lower ratios",
@@ -632,11 +640,11 @@
     "Far too slow for drive; this ratio belongs on weapon-lift or self-righting mechanisms, not wheels",
     "Gearbox is 3.5mm longer than other ratios, a minor packaging difference"
    ],
-   "notes": "Torque rating sourced from a manufacturer listing noting 25 kg*mm for 1000:1 and 380:1 vs 20 kg*mm for other ratios; RPM computed from the ~15,000 RPM bare-motor assumption.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
-    "https://www.kindmotor.com/sale-14047663-n10-n20-n30-mini-dc-3v-6v-12v-100-1-150-1-210-1-298-1-380-1-340-1-1000-1-gear-ratio-motor-reduction-.html"
+    "domain knowledge"
    ],
-   "confidence": "medium",
+   "confidence": "low",
    "category": "drive-motor"
   },
   {
@@ -647,7 +655,7 @@
     "N30 50:1",
     "30mm N-series gearmotor"
    ],
-   "summary": "The larger sibling of the N20, using a bigger-diameter motor can (~30mm class) for more torque and current handling at the cost of extra weight; used in antweights (not usually plastic antweights, where every gram counts more) when N20 torque isn't enough but a 16mm FingerTech-class motor is still preferred to save weight.",
+   "summary": "Reference entry for the Generic N30 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "antweight"
    ],
@@ -658,10 +666,7 @@
     "budget"
    ],
    "specs": {
-    "weight_g": 20,
-    "voltage_nominal_v": 6,
-    "gear_ratio": 50,
-    "shaft_dia_mm": 4
+    "gear_ratio": 50
    },
    "pros": [
     "More torque and current headroom than N20 for a modest weight increase",
@@ -671,7 +676,7 @@
     "Same quality-lottery sourcing risk as other generic N-series motors",
     "Larger diameter can be harder to package in a slim 1 lb chassis than a 16mm motor"
    ],
-   "notes": "N30 specs are far less standardized/published than N20; numbers here are rough, low-confidence estimates based on the general pattern that N30 motors run roughly 1.5-2x the torque of an equivalent-ratio N20 at somewhat higher current draw and weight.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
     "domain knowledge"
    ],
@@ -686,7 +691,7 @@
     "N10 100:1",
     "10mm N-series gearmotor"
    ],
-   "summary": "The smallest of the common N-series (N10/N20/N30) gearmotor family, used in fairyweight robots and the very lightest plastic antweight builds where every gram matters more than raw torque.",
+   "summary": "Reference entry for the Generic N10 Gearmotor form factor/gear-ratio class. Generic marketplace N-series gearmotors are not standardized enough for one exact electrical or torque specification.",
    "weight_classes": [
     "fairyweight",
     "antweight",
@@ -700,10 +705,7 @@
     "micro"
    ],
    "specs": {
-    "weight_g": 6,
-    "voltage_nominal_v": 6,
-    "gear_ratio": 100,
-    "shaft_dia_mm": 2
+    "gear_ratio": 100
    },
    "pros": [
     "Lightest option in the N-series family",
@@ -713,7 +715,7 @@
     "Least torque and current handling of the family",
     "Least standardized specs / hardest to verify quality before buying"
    ],
-   "notes": "Specs are rough low-confidence estimates; N10 is far less documented in English-language combat-robot sources than N20.",
+   "notes": "Marketplace N-series gearmotors that share the same outside dimensions and advertised ratio can use different windings, gear materials, shaft lengths, no-load speeds, stall currents, and torque. Use a specific manufacturer/model record for calculations; current FingerTech N10/N20 Spark entries are included elsewhere in the database as verified examples.",
    "sources": [
     "domain knowledge"
    ],
@@ -933,7 +935,7 @@
    "aliases": [
     "1104 brushless motor"
    ],
-   "summary": "An 11mm-diameter, 4mm-tall outrunner brushless motor, originally developed for micro FPV drones, repurposed by combat robot builders into custom or off-the-shelf (e.g. Repeat Robotics) 16mm drive gearboxes for antweight main drive.",
+   "summary": "FPV-derived brushless motor size-class reference for custom drive-pod experimentation, not a standardized purchasable motor.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -945,9 +947,8 @@
     "outrunner"
    ],
    "specs": {
-    "dia_mm": 11,
-    "length_mm": 4,
-    "voltage_nominal_v": 7.4
+    "stator_dia_mm": 11,
+    "stator_height_mm": 4
    },
    "pros": [
     "Very high power-to-weight ratio compared to a brushed motor of similar size",
@@ -959,7 +960,7 @@
     "Requires a reversing brushless ESC rather than a simple brushed driver",
     "Needs to be built into or bought as part of a gearbox — not a drop-in drive-and-wheel solution by itself"
    ],
-   "notes": "kv commonly seen in this application is in the 3000-6000kv range depending on the specific winding chosen by the seller/builder; Repeat Robotics' early Mk3/Mk4 drive pod used a custom-wound ~3500kv 1104 motor.",
+   "notes": "The four-digit FPV size code describes stator geometry, not KV, voltage, shaft, bearings, weight, current rating, or overall can dimensions. Choose and record a specific motor model before drivetrain calculations.",
    "sources": [
     "https://palmbeachbots.com/products/repeat-robotics-mini-16mm-brushless-planetary-motor-mk4-4mm-shaft"
    ],
@@ -973,7 +974,7 @@
    "aliases": [
     "1404 brushless motor"
    ],
-   "summary": "A 14mm-diameter, 4mm-tall outrunner brushless motor, larger-stator sibling of the 1104/1106 sizes, used in higher-power antweight or lighter beetleweight custom drive builds where more torque/current handling is wanted from a similarly slim motor.",
+   "summary": "FPV-derived brushless motor size-class reference for custom drive-pod experimentation, not a standardized purchasable motor.",
    "weight_classes": [
     "antweight",
     "beetleweight"
@@ -985,8 +986,8 @@
     "outrunner"
    ],
    "specs": {
-    "dia_mm": 14,
-    "length_mm": 4
+    "stator_dia_mm": 14,
+    "stator_height_mm": 4
    },
    "pros": [
     "More stator volume than 1104/1106 for a given height, so more torque/current capability",
@@ -996,7 +997,7 @@
     "Larger diameter can be harder to fit inside a slim antweight chassis",
     "Same brushless-drive complexity: reversing ESC required, sensorless cogging risk at low speed"
    ],
-   "notes": "Used mostly in custom-built drive pods (3D-printed or machined gearbox housing) rather than sold as a complete antweight-ready gearmotor product; treat as a component a builder pairs with their own gear reduction.",
+   "notes": "The four-digit FPV size code describes stator geometry, not KV, voltage, shaft, bearings, weight, current rating, or overall can dimensions. Choose and record a specific motor model before drivetrain calculations.",
    "sources": [
     "domain knowledge"
    ],
