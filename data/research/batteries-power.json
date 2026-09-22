@@ -431,12 +431,13 @@
         "weight_g": 23
       },
       "vendor": "Gens Ace",
-      "notes": "Gens Ace and Tattu packs of the same capacity/C-rating/cell-count are frequently near-identical in weight and dimensions since both brands are produced by the same manufacturer; the weight given here is carried over from the equivalent Tattu SKU and should be treated as an estimate, not a confirmed Gens Ace datasheet figure.",
+      "notes": "Gens Ace and Tattu packs of the same capacity/C-rating/cell-count are frequently near-identical in weight and dimensions since both brands are produced by the same manufacturer; the weight given here is carried over from the equivalent Tattu SKU and should be treated as an estimate, not a confirmed Gens Ace datasheet figure.\n\nLegacy/crossover reference retained for historical search context. Current exact product availability/specs were not verified in the 2026 catalog pass, so this record is excluded from normal part recommendations.",
       "sources": [
         "domain knowledge"
       ],
       "confidence": "low",
-      "category": "battery"
+      "category": "battery",
+      "reference_only": true
     },
     {
       "id": "battery-lumenier-2s-300mah",
@@ -462,12 +463,13 @@
         "voltage_nominal_v": 7.4
       },
       "vendor": "Lumenier",
-      "notes": "Not a combat-specific product line; included here because it is a real, commonly cross-shopped brand in this size class. Exact weight, price, and C-rating for a current Lumenier 300mAh 2S SKU were not independently verified, so no numeric C-rating or weight is claimed.",
+      "notes": "Not a combat-specific product line; included here because it is a real, commonly cross-shopped brand in this size class. Exact weight, price, and C-rating for a current Lumenier 300mAh 2S SKU were not independently verified, so no numeric C-rating or weight is claimed.\n\nLegacy/crossover reference retained for historical search context. Current exact product availability/specs were not verified in the 2026 catalog pass, so this record is excluded from normal part recommendations.",
       "sources": [
         "domain knowledge"
       ],
       "confidence": "low",
-      "category": "battery"
+      "category": "battery",
+      "reference_only": true
     },
     {
       "id": "battery-rdq-series-3s-450mah",
@@ -493,12 +495,13 @@
         "voltage_nominal_v": 11.1
       },
       "vendor": "RaceDayQuads",
-      "notes": "RDQ Series is confirmed to sell small-format packs (e.g. 2200mAh 3S for whoop-class FPV), but a verified 450mAh SKU with published weight/price/C-rating was not located; treat capacity/voltage as representative rather than confirmed catalog numbers.",
+      "notes": "RDQ Series is confirmed to sell small-format packs (e.g. 2200mAh 3S for whoop-class FPV), but a verified 450mAh SKU with published weight/price/C-rating was not located; treat capacity/voltage as representative rather than confirmed catalog numbers.\n\nLegacy/crossover reference retained for historical search context. Current exact product availability/specs were not verified in the 2026 catalog pass, so this record is excluded from normal part recommendations.",
       "sources": [
         "https://www.racedayquads.com/products/rdq-series-2200mah-3s-75c-fpv-drone-battery-xt60"
       ],
       "confidence": "low",
-      "category": "battery"
+      "category": "battery",
+      "reference_only": true
     },
     {
       "id": "battery-turnigy-nanotech-2s-300mah",
@@ -524,12 +527,13 @@
         "voltage_nominal_v": 7.4
       },
       "vendor": "Turnigy",
-      "notes": "Included as a well-known budget-brand reference point. Current-generation weight/price/C-rating for this exact SKU were not independently verified in this pass.",
+      "notes": "Included as a well-known budget-brand reference point. Current-generation weight/price/C-rating for this exact SKU were not independently verified in this pass.\n\nLegacy/crossover reference retained for historical search context. Current exact product availability/specs were not verified in the 2026 catalog pass, so this record is excluded from normal part recommendations.",
       "sources": [
         "domain knowledge"
       ],
       "confidence": "low",
-      "category": "battery"
+      "category": "battery",
+      "reference_only": true
     },
     {
       "id": "battery-molicel-p28a-18650",
