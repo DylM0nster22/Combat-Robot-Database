@@ -475,6 +475,32 @@ class TestBuiltDatabase(unittest.TestCase):
             "SELECT COUNT(*) FROM entities_fts WHERE entities_fts MATCH 'charger'").fetchone()[0]
         self.assertGreater(count, 0)
 
+    def test_reference_only_records_are_marked_and_hidden_from_normal_lists(self):
+        generic = self.db.get_entity("motor-2207")
+        self.assertIsNotNone(generic)
+        self.assertTrue(generic.get("reference_only"))
+
+        normal = self.db.list_entities(
+            entity_type="component", category="weapon-motor", limit=300)
+        normal_ids = {e["id"] for e in normal["entities"]}
+        self.assertNotIn("motor-2207", normal_ids)
+
+        with_refs = self.db.list_entities(
+            entity_type="component", category="weapon-motor",
+            include_reference=True, limit=300)
+        ref_rows = {e["id"]: e for e in with_refs["entities"]}
+        self.assertIn("motor-2207", ref_rows)
+        self.assertTrue(ref_rows["motor-2207"].get("reference_only"))
+
+    def test_build_guide_prefers_exact_products(self):
+        guide = self.db.build_guide("antweight")
+        for key in ("drive_motors", "weapon_motors", "batteries", "escs", "wheels"):
+            for entity in guide[key]:
+                self.assertFalse(
+                    entity.get("reference_only"),
+                    f"{key} unexpectedly returned reference-only {entity['id']}"
+                )
+
     def test_entity_ids_are_unique_and_slug_shaped(self):
         rows = self.db.conn.execute("SELECT id FROM entities").fetchall()
         ids = [r["id"] for r in rows]
