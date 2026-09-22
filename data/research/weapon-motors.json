@@ -803,11 +803,13 @@
       "specs": {
         "dia_mm": 23
       },
-      "notes": "Outer bell diameter (~28.2mm) is larger than the 23mm stator class, i.e. the bell itself adds rotating mass/inertia beyond a standard drone-motor bell of that stator size -- useful context when estimating total weapon-side MOI, since the motor bell is part of the flywheel, not just the blade. KV/weight/price not confirmed in this pass.",
+      "notes": "Legacy/retailer naming retained for search compatibility. Use the current Repeat Ant Belt Drive 2305 2400KV exact product record for purchase/design decisions.",
       "sources": [
         "https://itgresa.com/product/repeat-robotics-scalar-weapon-motor/"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "superseded_by": "motor-repeat-ant-belt-drive-2305-2400kv"
     },
     {
       "id": "motor-rdy-5022",
@@ -832,68 +834,102 @@
         "kv_rpm_per_v": 1700,
         "cells_s": 4
       },
-      "notes": "Also offered in a 1100kv winding for builders wanting more torque/less top speed at the same voltage. Weight, dimensions and price not confirmed in this pass.",
+      "notes": "Legacy RDY-5022 reference retained for old build/search compatibility. The current product is RDY-MINI-5022-V2, represented by separate exact 1100KV and 1700KV records.",
       "sources": [
         "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
       ],
-      "confidence": "low"
+      "confidence": "low",
+      "reference_only": true,
+      "superseded_by": "motor-jcr-rdy-mini-5022-v2-1700kv"
     },
     {
       "id": "motor-rdy-5536",
       "type": "component",
-      "name": "RDY-5536 Beetleweight Hubmotor",
+      "name": "Just 'Cuz RDY-5536 V3 Hubmotor",
       "aliases": [
         "RDY-5536"
       ],
-      "summary": "Just 'Cuz Robotics beetleweight-class direct-drive hubmotor, offered in 900kv and 1200kv windings; relevant to antweights mainly as the upper end of the size ladder / heavy-ant crossover reference point.",
+      "summary": "Current battle-ready beetleweight hubmotor with massive 6805 bearings, hardened through-shaft construction and direct blade clamping.",
       "weight_classes": [
-        "beetleweight"
+        "beetleweight",
+        "antweight"
       ],
       "vendor": "Just 'Cuz Robotics",
       "category": "weapon-motor",
       "tags": [
         "weapon-motor",
         "hubmotor",
-        "direct-drive",
-        "purpose-built",
-        "heavy-ant-crossover"
+        "battle-ready",
+        "5536",
+        "jcr"
       ],
       "specs": {
-        "kv_rpm_per_v": 900,
-        "cells_s": 6
+        "kv_options": "1200 V3, 900 V2",
+        "cells_s_min": 3,
+        "cells_s_max": 6,
+        "motor_dia_mm": 55,
+        "motor_length_mm": 36,
+        "stator_dia_mm": 28,
+        "stator_height_mm": 12,
+        "weight_g": 212,
+        "shaft_dia_mm": 7.5,
+        "shaft_material": "4140 hardened steel",
+        "resistance_mohm_1200kv": 111,
+        "resistance_mohm_900kv": 177,
+        "wire_awg": 18,
+        "wire_length_mm": 180,
+        "max_weapon_thickness_mm": 12.7,
+        "price_usd": 95
       },
       "sources": [
-        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+        "https://justcuzrobotics.com/products/rdy-5536-1200kv-hubmotor-battle-ready-weapon-motor"
       ],
-      "confidence": "low"
+      "confidence": "high",
+      "product_url": "https://justcuzrobotics.com/products/rdy-5536-1200kv-hubmotor-battle-ready-weapon-motor",
+      "notes": "July 2026 vendor note: V3 is sold in 1200KV with revised magnet geometry/epoxy and a 2024-aluminum outer hub; remaining V2 stock is 900KV. JCR recommends 50A-or-greater ESCs and rigid mounting on both sides."
     },
     {
       "id": "motor-jcr-4935",
       "type": "component",
-      "name": "JCR-4935 Horizontal Spinner Motor",
+      "name": "Just 'Cuz Cherry Bomb JCR-4935 1000KV",
       "aliases": [
         "JCR-4935"
       ],
-      "summary": "Just 'Cuz Robotics 1000kv motor specifically marketed for horizontal spinners (bars/blades spun about a vertical-ish or horizontal axis with high aerodynamic drag), where a lower KV is used to keep current sane against drag.",
+      "summary": "Purpose-built 4935 combat weapon motor with a hardened 8mm tapered shaft, oversized bearings, epoxied magnets and direct weapon-interface features.",
       "weight_classes": [
-        "antweight",
         "beetleweight"
       ],
       "vendor": "Just 'Cuz Robotics",
       "category": "weapon-motor",
       "tags": [
         "weapon-motor",
-        "horizontal-spinner",
-        "purpose-built"
+        "battle-ready",
+        "4935",
+        "1000kv",
+        "jcr"
       ],
       "specs": {
-        "kv_rpm_per_v": 1000
+        "kv_rpm_per_v": 1000,
+        "cells_s_min": 3,
+        "cells_s_max": 6,
+        "motor_dia_mm": 49,
+        "motor_length_mm": 35.5,
+        "stator_dia_mm": 40,
+        "stator_height_mm": 12,
+        "weight_g": 216.5,
+        "shaft_dia_mm": 8,
+        "shaft_material": "4140 alloy steel",
+        "shaft_hardness_hrc": "46-48",
+        "resistance_mohm": 86.5,
+        "wire_awg": 14,
+        "price_usd": 85
       },
-      "notes": "1000kv is deliberately low for the size class because horizontal bars/blades have much higher aerodynamic drag than a thin vertical disc, so a lower target RPM keeps continuous current and heat manageable.",
+      "notes": "Current stronger-base revision available from February 18, 2026. Uses 698 and 688 bearings, 6x M5 frame bolts plus an alternate 4x M3/25mm compatibility pattern, and dowel/bolt weapon mounting.",
       "sources": [
-        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
+        "https://justcuzrobotics.com/products/jcr-4935-1000kv"
       ],
-      "confidence": "low"
+      "confidence": "high",
+      "product_url": "https://justcuzrobotics.com/products/jcr-4935-1000kv"
     },
     {
       "id": "motor-badass-2315",
