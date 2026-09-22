@@ -501,6 +501,55 @@ class TestBuiltDatabase(unittest.TestCase):
                 )
         self.assertTrue(catalog_rows)
 
+    def test_major_small_combat_vendor_coverage_does_not_regress(self):
+        expected_minimums = {
+            "Repeat Robotics": 40,
+            "FingerTech Robotics": 30,
+            "Just 'Cuz Robotics": 20,
+            "Palm Beach Bots": 10,
+            "T-Motor": 12,
+            "MAD Components": 4,
+        }
+        for vendor, minimum in expected_minimums.items():
+            count = self.db.conn.execute(
+                "SELECT COUNT(*) FROM entities "
+                "WHERE type='component' AND json_extract(extra,'$.vendor')=?",
+                (vendor,),
+            ).fetchone()[0]
+            self.assertGreaterEqual(
+                count, minimum,
+                f"{vendor} coverage fell below the curated catalog floor"
+            )
+
+    def test_budget_fpv_motor_tranche_stays_available(self):
+        required = {
+            "motor-mad-fs1303-5-mythic-5500kv",
+            "motor-mad-fs1404-5-aceracer-4500kv",
+            "motor-mad-bsc2207-5",
+            "motor-mad-fs2004-dynamo",
+            "motor-tmotor-f1203-7000kv",
+            "motor-tmotor-f1404-3800kv",
+            "motor-tmotor-f1507-2700kv",
+            "motor-tmotor-f2004-1700kv",
+            "motor-tmotor-f2203-5-2850kv",
+            "motor-iflight-xing-e-pro-2207",
+            "motor-emax-eco-ii-2207",
+            "motor-betafpv-1805",
+            "motor-surpass-s2207-1950kv",
+            "motor-hskrc-2306-5-1800kv",
+        }
+        rows = self.db.conn.execute(
+            "SELECT id, extra FROM entities WHERE type='component'"
+        ).fetchall()
+        present = {row["id"]: json.loads(row["extra"]) for row in rows}
+        missing = required - present.keys()
+        self.assertFalse(missing, f"missing curated budget motors: {sorted(missing)}")
+        for motor_id in required:
+            self.assertFalse(
+                present[motor_id].get("reference_only"),
+                f"{motor_id} should remain an exact product candidate"
+            )
+
     def test_reference_only_records_are_marked_and_hidden_from_normal_lists(self):
         generic = self.db.get_entity("motor-2207")
         self.assertIsNotNone(generic)
