@@ -228,6 +228,8 @@ def pills(entity, depth=0):
         out.append(f'<span class="pill accent">{esc(wc)}</span>')
     if entity.get("confidence") == "low":
         out.append('<span class="pill conf-low">unverified</span>')
+    if entity.get("reference_only"):
+        out.append('<span class="pill">reference</span>')
     return "".join(out)
 
 
@@ -409,6 +411,8 @@ def build_parts(database):
     by_category = defaultdict(list)
     for item in components:
         full = database.get_entity(item["id"]) or {}
+        if full.get("reference_only"):
+            continue
         by_category[(full.get("category") or "misc")].append((item, full))
 
     label = {
@@ -457,8 +461,9 @@ def build_parts(database):
 
     body = f"""<div class="wrap">
 <h1 class="page" style="margin-top:34px">Parts catalogue</h1>
-<p class="page-sub">Real parts people put in 1 lb robots, with the numbers that decide
-whether they fit your weight budget. Prices and availability drift — check the vendor.</p>
+<p class="page-sub">Specific real parts people put in 1 lb robots, with the numbers that decide
+whether they fit your weight budget. Generic size classes and design references remain searchable
+but are intentionally excluded from this catalogue. Prices and availability drift — check the vendor.</p>
 {''.join(sections)}
 </div>"""
     return page("Parts — Combat Robot Database", body, active="parts.html",
