@@ -142,7 +142,7 @@
     {
       "id": "kit-fingertech-viper-v3",
       "type": "kit",
-      "name": "FingerTech Viper Combat Robot Kit",
+      "name": "FingerTech Viper Combat Robot Kit v3",
       "aliases": [
         "Viper Kit",
         "Viper V3"
@@ -163,17 +163,24 @@
         "base_weight_g": 313,
         "body_width_mm": 165,
         "body_length_mm": 140,
-        "body_height_mm": 30
+        "body_height_mm": 30,
+        "price_cad": 229.73,
+        "price_usd_display_2026_09": 166.28,
+        "antweight_remaining_g": 141,
+        "front_uhmw_thickness_mm": 3,
+        "top_petg_thickness_mm": 1.5
       },
       "vendor": "FingerTech Robotics",
       "skill_level": "beginner",
       "includes": [
         "formed 6061-T6 aluminum chassis",
-        "2 Silver Spark gearmotors",
-        "2 tinyESC drive controllers",
-        "2 foam wheels and hubs",
-        "front/top combat armor",
-        "hardware"
+        "2 Silver Spark 33.3:1 gearmotors",
+        "2 tinyESC v3 brushed drive controllers",
+        "2.25in foam wheels and hubs",
+        "3mm UHMW front wedge",
+        "1.5mm PETG top armor",
+        "motor-shaft support bearings",
+        "hardware and instructions"
       ],
       "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-robot",
       "pros": [
@@ -185,11 +192,12 @@
         "Base configuration is a drivetrain/control platform rather than a high-energy spinner",
         "Radio and battery options vary by configuration; verify exactly what the current listing includes"
       ],
-      "notes": "FingerTech lists the Viper as sized for the 1 lb Antweight class and encourages builders to drill, cut, modify and upgrade it. The official page listed a 313 g base weight, leaving roughly 141 g under a 454 g class limit before optional additions.",
+      "notes": "FingerTech's live V3 page was checked in September 2026. It lists 229.73 CAD (about 166.28 USD on the page), a 313 g base weight, and 141 g remaining under the 454 g antweight limit. Radio and battery/charger are optional selections, so do not assume they are in the base kit.",
       "sources": [
         "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-robot"
       ],
-      "confidence": "high"
+      "confidence": "high",
+      "price_usd": 166.28
     },
     {
       "id": "kit-palm-beach-skizo",
@@ -215,10 +223,12 @@
       "vendor": "Palm Beach Bots",
       "skill_level": "beginner-intermediate",
       "includes": [
-        "modular antweight chassis",
-        "selected weapon module",
+        "shared modular antweight base chassis and drive system",
+        "selected horizontal, vertical, or lifter weapon module",
         "build instructions",
-        "lifetime STEP/STL file access"
+        "lifetime STEP/STL file access",
+        "optional FS-i4 transmitter/receiver",
+        "optional 2S or 3S 300mAh battery and charger"
       ],
       "product_url": "https://palmbeachbots.com/products/skizo-modular-full-combat-antweight-kit",
       "pros": [
@@ -230,11 +240,17 @@
         "Configuration changes what is included and the total price",
         "Some soldering is required; the product page specifically notes soldering drive-motor leads"
       ],
-      "notes": "Palm Beach Bots lists 2S 300 mAh as the standard battery option and offers a 3S upgrade for more drive/weapon speed, with a caution about lifter-servo voltage regulation. Verify the current selected configuration before ordering.",
+      "notes": "Palm Beach Bots' collection listed Skizo from $204.99 in September 2026. The product page view with Horizontal + FS-I4 radio + 2S 300mAh/B6 Neo charger showed $334.99. Horizontal, vertical, and lifter modules share the same base/drive system. The horizontal build guide specifies a PBB 2822 1100KV motor + BL20A; the vertical guide specifies a PBB 2822 1800KV 4mm motor + BL20A and a 3mm AR600 disc. Configuration materially changes price and BOM.",
       "sources": [
         "https://palmbeachbots.com/products/skizo-modular-full-combat-antweight-kit"
       ],
-      "confidence": "high"
+      "confidence": "high",
+      "specs": {
+        "price_from_usd_2026_09": 204.99,
+        "configured_example_price_usd_2026_09": 334.99,
+        "standard_battery_cells_s": 2,
+        "standard_battery_capacity_mah": 300
+      }
     },
     {
       "id": "kit-repeat-plastic-ant-hardware",
@@ -282,6 +298,89 @@
       "notes": "The official product page listed the hardware pack at $15 and in stock when checked in September 2026. Treat that as a dated price anchor, not a permanent price.",
       "sources": [
         "https://repeat-robotics.com/products/plastic-antweight-hardware-kit"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "kit-fingertech-viper-vertical-addon",
+      "type": "kit",
+      "name": "FingerTech Viper Vertical Spinner Add-On",
+      "aliases": [
+        "Viper Vertical Spinner Add-On"
+      ],
+      "summary": "Bolt-on vertical-spinner weapon system for the FingerTech Viper, using a clamping drum with AR400 teeth, an F2822 1100KV motor, BL20A ESC, and double-supported motor mounting.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "weapon-addon",
+        "vertical-spinner",
+        "fingertech",
+        "viper"
+      ],
+      "vendor": "FingerTech Robotics",
+      "price_usd": 65.21,
+      "skill_level": "beginner-intermediate",
+      "includes": [
+        "28mm clamping drum with AR400 steel teeth",
+        "F2822 1100KV 4mm-shaft brushless motor",
+        "20A brushless ESC",
+        "pair of F28xx weapon uprights",
+        "4mm far-side roller bearing",
+        "mounting screws"
+      ],
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-v-spinner-addon",
+      "specs": {
+        "price_cad": 90.09,
+        "price_usd_display_2026_09": 65.21,
+        "weapon_motor_kv": 1100,
+        "weapon_motor_shaft_mm": 4
+      },
+      "notes": "FingerTech's live page was checked in September 2026. It states that the add-on mounts to the Viper with no soldering but requires modifying the original plastic armor or using the purpose-cut armor set.",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-v-spinner-addon"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "kit-fingertech-viper-lifter-addon",
+      "type": "kit",
+      "name": "FingerTech Viper Lifter Add-On",
+      "aliases": [
+        "Viper Lifter Add-On"
+      ],
+      "summary": "Servo-actuated lifter conversion for the FingerTech Viper using a full-voltage 25kg-class servo, steel scoop, G10 linkage, and UHMW lifter arms.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kit",
+        "weapon-addon",
+        "lifter",
+        "fingertech",
+        "viper"
+      ],
+      "vendor": "FingerTech Robotics",
+      "price_usd": 47.28,
+      "skill_level": "beginner",
+      "includes": [
+        "FT-25KG-9V servo",
+        "lightweight servo mounts",
+        "full-voltage servo power wire",
+        "24ga steel lifter scoop",
+        "G10 lifter linkage",
+        "UHMW lifter arms",
+        "threaded crossbar and hardware"
+      ],
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-lifter-addon",
+      "specs": {
+        "price_cad": 65.32,
+        "price_usd_display_2026_09": 47.28
+      },
+      "notes": "FingerTech's live page was checked in September 2026 and states no soldering is required. The setup guidance calls for sufficient transmitter endpoint travel so the arm can self-right the robot.",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-lifter-addon"
       ],
       "confidence": "high"
     }
@@ -349,6 +448,36 @@
         "https://palmbeachbots.com/products/skizo-modular-full-combat-antweight-kit",
         "https://repeat-robotics.com/products/plastic-antweight-hardware-kit"
       ]
+    },
+    {
+      "id": "chunk-current-viper-skizo-modules-2026",
+      "title": "Current modular antweight kit ecosystems: Viper and Skizo",
+      "section": "Sourcing",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "kits",
+        "viper",
+        "skizo",
+        "weapon-modules",
+        "sourcing"
+      ],
+      "entity_refs": [
+        "kit-fingertech-viper-v3",
+        "kit-fingertech-viper-vertical-addon",
+        "kit-fingertech-viper-lifter-addon",
+        "kit-palm-beach-skizo"
+      ],
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-robot",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-v-spinner-addon",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-lifter-addon",
+        "https://palmbeachbots.com/products/skizo-modular-full-combat-antweight-kit",
+        "https://palmbeachbots.com/pages/skizo-horizontal-module-full-combat-ant-build-along",
+        "https://palmbeachbots.com/pages/skizo-vertical-module-full-combat-ant-build-along"
+      ],
+      "body_md": "The current Viper and Skizo ecosystems solve modularity differently. **Viper V3** starts as a proven aluminum brushed-drive base at 313 g, leaving about 141 g of the 454 g antweight budget for radio, battery and upgrades. FingerTech sells bolt-on weapon conversions such as the vertical-spinner system (F2822 1100KV motor, BL20A ESC, clamping drum with AR400 teeth) and servo lifter. **Skizo** is designed from the start around a shared modular base with interchangeable horizontal, vertical and lifter weapon modules. Palm Beach Bots' published build guides expose the module BOMs: for example, the horizontal uses a PBB 2822 1100KV motor and BL20A, while the vertical uses a PBB 2822 1800KV 4mm motor, BL20A and 3mm AR600 disc. Prices are configuration-dependent and should be treated as dated snapshots, not engineering constants."
     }
   ]
 }
