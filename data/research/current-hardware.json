@@ -1,0 +1,246 @@
+{
+  "topic": "Current antweight hardware and running gear",
+  "entities": [
+    {
+      "id": "wheel-repeat-rubber-flex-1-75",
+      "type": "component",
+      "name": "Repeat Rubber Flex Wheel 1.75in (2 pack)",
+      "category": "wheel",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/rubber-wheel-1-75",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/9801.jpg?v=1778620545&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/rubber-wheel-1-75",
+      "image_provider": "Repeat Robotics",
+      "summary": "Combat-robot wheel with an injection-molded ABS core and TPE tread, sold in 30A and 45A durometers.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "wheel",
+        "tpe",
+        "abs",
+        "combat-specific"
+      ],
+      "specs": {
+        "diameter_mm": 44.45,
+        "width_mm": 10.16,
+        "weight_pair_30a_g": 21,
+        "weight_pair_45a_g": 18.5,
+        "durometer_30a_shore_a": 30,
+        "durometer_45a_shore_a": 45,
+        "price_pair_usd": 6.5
+      },
+      "notes": "Designed to mate with Repeat Gold Screw or Gold Clamp hubs. Weight is for a pair, not per wheel.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/rubber-wheel-1-75"
+      ]
+    },
+    {
+      "id": "hub-repeat-gold-clamp",
+      "type": "component",
+      "name": "Repeat Gold Clamp Hub",
+      "category": "hub",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/repeat-gold-clamp-hub-2pcs",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/e577dd8c-Screwhub4.jpg?v=1770827324&width=150",
+      "image_source_url": "https://repeat-robotics.com/products/repeat-gold-clamp-hub-2pcs",
+      "image_provider": "Repeat Robotics",
+      "summary": "7075-T6 aluminum wheel hub that clamps around the shaft instead of relying on radial set screws.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "hub",
+        "7075-t6",
+        "clamp",
+        "wheel"
+      ],
+      "specs": {
+        "weight_each_g": 3.25,
+        "bore_options_mm": "3, 4, 5, 6",
+        "wheel_mount_hole_circle_mm": 12.7,
+        "wheel_mount_screws": 2,
+        "price_pair_usd": 10
+      },
+      "notes": "The current product page lists two M3 wheel-mount holes on a 1/2-inch (12.7 mm) circle and a clamp-screw/slot shaft retention design.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/repeat-gold-clamp-hub-2pcs"
+      ]
+    },
+    {
+      "id": "hub-repeat-gold-screw",
+      "type": "component",
+      "name": "Repeat Gold Screw Hub",
+      "category": "hub",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/repeat-gold-screw-hub-2pcs",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/da4ba723-ScrewHub_3mm-Zoom.png?v=1770829063&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/repeat-gold-screw-hub-2pcs",
+      "image_provider": "Repeat Robotics",
+      "summary": "7075-T6 aluminum wheel hub retained by two oversized M4 set screws and carrying a four-hole M3 wheel pattern.",
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "hub",
+        "7075-t6",
+        "set-screw",
+        "wheel"
+      ],
+      "specs": {
+        "weight_each_g": 3.5,
+        "bore_options_mm": "3, 4, 6",
+        "wheel_mount_hole_circle_mm": 12.7,
+        "wheel_mount_screws": 4,
+        "set_screws_m4": 2,
+        "price_pair_usd": 7.5
+      },
+      "notes": "Two M4 x 4 mm set screws are arranged 90 degrees apart. Four M3 tapped holes sit on a 12.7 mm hole circle.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/repeat-gold-screw-hub-2pcs"
+      ]
+    },
+    {
+      "id": "weapon-repeat-ar600-hub-blade-2-75",
+      "type": "component",
+      "name": "Repeat AR600 2.75in Blade for 2207 Hubmotor",
+      "category": "weapon",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/hubmotor-weapon-blades",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/2026-02-11_11_16_01-Greenshot_fa6b3b12-1d0a-4a54-8afb-d25b173839db.png?crop=center&height=84&v=1770830708&width=84",
+      "image_source_url": "https://repeat-robotics.com/products/hubmotor-weapon-blades",
+      "image_provider": "Repeat Robotics",
+      "summary": "Pre-cut AR600 weapon blade sized for Repeat's 2207 antweight hubmotor.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "weapon",
+        "blade",
+        "ar600",
+        "hubmotor",
+        "horizontal",
+        "vertical"
+      ],
+      "specs": {
+        "diameter_mm": 69.85,
+        "thickness_mm": 6,
+        "weight_g_approx": 58,
+        "material": "AR600",
+        "price_usd": 10
+      },
+      "notes": "This record is specifically the 2.75-inch / 6 mm / approximately 58 g 2207-hubmotor option. The same product page also lists larger antweight and beetleweight blade variants with different thicknesses and masses.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/hubmotor-weapon-blades"
+      ]
+    },
+    {
+      "id": "belt-repeat-scalar-267-3m-05",
+      "type": "component",
+      "name": "Repeat 267-3M-05 Scalar Spinner Belt",
+      "category": "belt-pulley",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/267-3m-05-scalar-weapon-belt",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/rn-image_picker_lib_temp_3e761c18-9a59-449c-b5c5-a67dcecbaf39.png?v=1781544818&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/267-3m-05-scalar-weapon-belt",
+      "image_provider": "Repeat Robotics",
+      "summary": "Thicker-than-standard 267-3M-05 timing belt used by Repeat's 1 lb Scalar horizontal-spinner kit.",
+      "weight_classes": [
+        "antweight"
+      ],
+      "tags": [
+        "belt",
+        "weapon-drive",
+        "scalar",
+        "timing-belt"
+      ],
+      "specs": {
+        "belt_size": "267-3M-05",
+        "quantity_per_pack": 2,
+        "price_pack_usd": 7.5
+      },
+      "notes": "Repeat states that this belt works with its 18T ant weapon pulley and is thicker than standard FingerTech belts for improved durability.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/267-3m-05-scalar-weapon-belt"
+      ]
+    },
+    {
+      "id": "hardware-repeat-plastic-ant-kit",
+      "type": "component",
+      "name": "Repeat Plastic Antweight Hardware Kit",
+      "category": "fastener",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/products/plastic-antweight-hardware-kit",
+      "image_url": "https://repeat-robotics.com/cdn/shop/files/802169CA-804A-4850-B1D9-17C863962949.jpg?v=1778886818&width=416",
+      "image_source_url": "https://repeat-robotics.com/products/plastic-antweight-hardware-kit",
+      "image_provider": "Repeat Robotics",
+      "summary": "Plastic-antweight hardware assortment with motor screws, armor hardware, shaft/standoff parts, two weapon bearings, O-rings, and tools.",
+      "weight_classes": [
+        "plastic-antweight",
+        "antweight"
+      ],
+      "tags": [
+        "hardware",
+        "fasteners",
+        "bearings",
+        "plastic-antweight",
+        "kit"
+      ],
+      "specs": {
+        "m3x8_thread_cutting_qty": 30,
+        "m2x5_motor_screws_qty": 10,
+        "m3x8_weapon_screws_qty": 15,
+        "steel_standoff_5x20_qty": 4,
+        "bearing_605zz_qty": 1,
+        "bearing_hk0408_qty": 1,
+        "oring_54x1_5_qty": 3,
+        "price_usd": 15
+      },
+      "notes": "Vendor contents also list M3 nuts, armor-mounting screws, two M5x25 drum-support screws, two M5 locknuts, and three assorted Allen keys. Verify the current contents before treating the assortment as a complete BOM.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/products/plastic-antweight-hardware-kit"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-current-antweight-running-gear",
+      "title": "Current antweight wheels, hubs, and weapon-drive hardware",
+      "section": "Hardware",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "wheels",
+        "hubs",
+        "belts",
+        "weapon-hardware"
+      ],
+      "entity_refs": [
+        "wheel-repeat-rubber-flex-1-75",
+        "hub-repeat-gold-clamp",
+        "hub-repeat-gold-screw",
+        "weapon-repeat-ar600-hub-blade-2-75",
+        "belt-repeat-scalar-267-3m-05"
+      ],
+      "sources": [
+        "https://repeat-robotics.com/products/rubber-wheel-1-75",
+        "https://repeat-robotics.com/products/repeat-gold-clamp-hub-2pcs",
+        "https://repeat-robotics.com/products/repeat-gold-screw-hub-2pcs",
+        "https://repeat-robotics.com/products/hubmotor-weapon-blades",
+        "https://repeat-robotics.com/products/267-3m-05-scalar-weapon-belt"
+      ],
+      "body_md": "Running gear is easy to under-spec because wheel diameter alone does not tell you how the wheel attaches or how much rotating/unsprung mass it adds. For current Repeat hardware, the 1.75-inch Flex wheel is a separate molded wheel that expects a compatible hub; the Gold Clamp and Gold Screw hubs use different shaft-retention strategies but share a 12.7 mm wheel-mount circle. Store wheel and hub weights separately when building a weight budget.\n\nWeapon transmission parts need the same specificity. A belt code or blade diameter is not enough by itself: record the exact product or profile, width/thickness, compatible hub/pulley interface, and mass when the vendor publishes it. The AR600 2.75-inch blade record here is specifically the 6 mm, approximately 58 g variant for the 2207 antweight hubmotor; it should not be treated as representative of every blade on the product page."
+    }
+  ]
+}
