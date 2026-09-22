@@ -141,7 +141,7 @@ TOOLS = [
                 "tag": {"type": "string"},
                 "category": {"type": "string",
                              "description": "Component/material category, e.g. 'weapon-motor'."},
-                "include_reference": {"type": "boolean", "default": false,
+                "include_reference": {"type": "boolean", "default": False,
                                       "description": "Include generic size-class/reference records."},
                 "limit": {"type": "integer", "default": 50, "maximum": 300},
                 "offset": {"type": "integer", "default": 0},
