@@ -35,7 +35,7 @@ Common fields on EVERY entity:
 | `confidence` | string | no | `high` \| `medium` \| `low` — use `low` for numbers you could not verify |
 | `image_url` | string | no | Direct URL to a **verified real photo** of this exact entity. Prefer manufacturer/vendor/official archive media; never generated art. |
 | `image_source_url` | string | no | Page proving the image identity/source. Required when `image_url` is present. |
-| `image_provider` | string | no | Human-readable photo/source provider, e.g. `Repeat Robotics`, `NHRL Wiki`. |
+| `image_provider` | string | no | Human-readable photo/source provider, e.g. `Repeat Robotics`, `NHRL Wiki`. |\n| `reference_only` | boolean | no | For generic size classes, standards, or design-reference components that are **not one purchasable product**. The parts catalogue hides these by default, but search/get tools retain them for engineering context. |
 
 ### Entity `type` values and their extra fields
 
@@ -75,4 +75,4 @@ Each chunk is a self-contained explainer an LLM can quote from. Aim for 200-600 
 3. **Never invent image URLs, product URLs, or prices you did not see.** Omit the field instead. Any `image_url` must show the exact entity (not a lookalike, generated illustration, or generic placeholder), and must include `image_source_url` plus `image_provider`.
 4. **Do not duplicate ids.** Prefix everything with your `topic_id` domain when in doubt.
 5. Write the file with `Write`. Validate it parses: `python3 -c "import json;json.load(open('data/research/<topic_id>.json'))"`.
-6. Cite sources as URLs wherever you used the web.
+6. Cite sources as URLs wherever you used the web.\n7. **Do not disguise a class/reference as a product.** If an entity describes a generic motor size, bearing standard, fastener type, generic battery class, or representative BOM item rather than one exact SKU/model, set `reference_only: true`. Do not give it vendor-specific electrical/weight/price specs unless those numbers are inherent to the standard itself.
