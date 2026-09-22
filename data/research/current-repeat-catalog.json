@@ -860,6 +860,153 @@
       "sources": [
         "https://repeat-robotics.com/collections/antweight?page=3"
       ]
+    },
+    {
+      "id": "motor-repeat-2822-direct-drive-v2",
+      "type": "component",
+      "name": "Repeat 2822 Direct Drive Motor V2",
+      "category": "weapon-motor",
+      "vendor": "Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/collections/antweight/products/2822-direct-drive-motor-v2",
+      "summary": "Discontinued predecessor to the current Repeat 2822 Mk3 weapon motor, retained for existing robots and historical compatibility.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "2822",
+        "direct-drive",
+        "legacy",
+        "repeat"
+      ],
+      "specs": {
+        "kv_options": "1100, 1800, 2300",
+        "shaft_dia_mm": 4,
+        "shaft_stickout_mm": 20,
+        "weight_g": 43,
+        "rotor_mount_holes": "4x #6-32",
+        "rotor_mount_circle_mm": 20,
+        "frame_mount_pattern_mm": "16x19 M3",
+        "legacy_price_usd": 20
+      },
+      "availability_note": "Discontinued/out of stock; vendor directs builders to 2822 V3.",
+      "reference_only": true,
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/collections/antweight/products/2822-direct-drive-motor-v2"
+      ]
+    },
+    {
+      "id": "tool-toolkitrc-wm150-power-meter",
+      "type": "component",
+      "name": "ToolkitRC WM150 Power Meter",
+      "category": "misc",
+      "vendor": "ToolkitRC / Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/collections/antweight/products/toolkitrc-wm150-power-meter",
+      "summary": "Inline power meter and PWM signal generator useful for measuring weapon spin-up current and bench-testing motors/ESCs without a radio.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "tool",
+        "power-meter",
+        "current-meter",
+        "pwm-generator",
+        "pit-tool"
+      ],
+      "specs": {
+        "input_voltage_min_v": 1,
+        "input_voltage_max_v": 50,
+        "input_current_max_a": 150,
+        "usb_input": "5V @ 1A",
+        "signal_us_min": 1000,
+        "signal_us_max": 2000,
+        "signal_hz": 50,
+        "lcd_in": 2.4,
+        "lcd_resolution": "320x240",
+        "length_mm": 80,
+        "width_mm": 54,
+        "height_mm": 23,
+        "weight_g": 82,
+        "price_usd": 40
+      },
+      "notes": "Cables terminate in bare wire; the builder must add connectors. Repeat specifically recommends it for graphing weapon spin-up current.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/collections/antweight/products/toolkitrc-wm150-power-meter"
+      ]
+    },
+    {
+      "id": "tool-vifly-shortsaver-v2",
+      "type": "component",
+      "name": "VIFLY ShortSaver V2 Smoke Stopper",
+      "category": "misc",
+      "vendor": "VIFLY / Repeat Robotics",
+      "product_url": "https://repeat-robotics.com/collections/antweight/products/vifly-shortsaver-v2-smart-smoke-stopper",
+      "summary": "Electronic smoke stopper with selectable 1A/2A protection threshold for first-power-up wiring checks.",
+      "weight_classes": [
+        "fairyweight",
+        "antweight",
+        "plastic-antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "tool",
+        "smoke-stopper",
+        "short-protection",
+        "pit-tool",
+        "xt30",
+        "xt60"
+      ],
+      "specs": {
+        "input_voltage_min_v": 7,
+        "input_voltage_max_v": 25,
+        "cells_s_min": 2,
+        "cells_s_max": 6,
+        "current_threshold_options_a": "1, 2",
+        "short_trip_ms": 3,
+        "overcurrent_trip_ms": 10,
+        "length_mm": 42,
+        "width_mm": 30,
+        "height_mm": 10,
+        "connectors": "XT30 + XT60",
+        "price_usd": 13
+      },
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/collections/antweight/products/vifly-shortsaver-v2-smart-smoke-stopper"
+      ]
+    },
+    {
+      "id": "motor-repeat-compact-brushed",
+      "type": "component",
+      "name": "Repeat Compact Brushed Beetleweight Planetary Gearmotor",
+      "category": "drive-motor",
+      "vendor": "Repeat Robotics",
+      "summary": "Current Compact Brushed planetary gearmotor listed in Repeat's small-combat catalog.",
+      "weight_classes": [
+        "beetleweight",
+        "antweight"
+      ],
+      "tags": [
+        "drive-motor",
+        "brushed",
+        "planetary",
+        "repeat"
+      ],
+      "specs": {
+        "price_usd": 26
+      },
+      "catalog_entry_only": true,
+      "notes": "Exact current product is confirmed from Repeat's live antweight/drive catalog, but detailed specs were not re-verified in this pass.",
+      "confidence": "high",
+      "sources": [
+        "https://repeat-robotics.com/collections/antweight?page=2"
+      ]
     }
   ],
   "chunks": [
