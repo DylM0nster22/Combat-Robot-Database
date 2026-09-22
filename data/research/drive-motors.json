@@ -257,7 +257,7 @@
    "aliases": [
     "Gold Spark 150:1"
    ],
-   "summary": "A higher-torque Gold Spark ratio near the top of its safe operating range before hitting the plastic output gear's 6.84 kg-cm damage threshold.",
+   "summary": "150:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -266,18 +266,26 @@
     "drive-motor",
     "brushed",
     "16mm",
-    "fingertech",
-    "budget"
+    "gold-spark",
+    "fingertech"
    ],
    "specs": {
     "weight_g": 28,
-    "voltage_nominal_v": 6,
-    "rpm_no_load": 77,
     "gear_ratio": 150,
-    "stall_current_a": 1.3,
-    "torque_stall_kgcm": 4.5,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
     "shaft_dia_mm": 3,
-    "price_usd": 14.79
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
    },
    "pros": [
     "Cheap way to get real torque for a plastic-ant lifter or pusher"
@@ -285,11 +293,11 @@
    "cons": [
     "Approaching the gearbox's rated damage threshold under stall; avoid pinning at full stall for long periods"
    ],
-   "notes": "Estimated output figures at ~0.65 efficiency; medium/low confidence on exact torque number.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits. Current page was out of stock when checked September 2026.",
    "sources": [
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
    ],
-   "confidence": "low",
+   "confidence": "high",
    "category": "drive-motor",
    "vendor": "FingerTech Robotics",
    "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
@@ -458,7 +466,7 @@
    "aliases": [
     "Repeat Mini Pro 1106"
    ],
-   "summary": "A higher-spec / higher-price variant of Repeat's 1106 brushless antweight drive gearmotor line, sold alongside the standard Mk4.1 for builders wanting extra performance or refinement (e.g. better bearings, tighter tolerances).",
+   "summary": "Current Repeat Mini Pro 1106 antweight brushless planetary gearmotor; retained as an exact catalog product even though this pass did not recover a full live specification table.",
    "weight_classes": [
     "antweight",
     "plastic-antweight"
@@ -482,11 +490,13 @@
    ],
    "notes": "Price ($42) confirmed from the Repeat Robotics shop listing; exact technical differentiation from the standard Mini Brushless 1106 was not available in the pages fetched.",
    "sources": [
-    "https://repeat-robotics.com/shop/?products-per-page=all"
+    "https://repeat-robotics.com/collections/drive-motors"
    ],
-   "confidence": "low",
+   "confidence": "high",
    "category": "drive-motor",
-   "vendor": "Repeat Robotics"
+   "vendor": "Repeat Robotics",
+   "catalog_entry_only": true,
+   "availability_note": "Sold out when checked September 2026."
   },
   {
    "id": "motor-repeat-compact-1806-brushless",
@@ -1972,6 +1982,314 @@
    "confidence": "high",
    "sources": [
     "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Sspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-20-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 20:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "20:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 20,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-35-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 35:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "35:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 35,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-50-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 50:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "50:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 50,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-86-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 86:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "86:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 86,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-115-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 115:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "115:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 115,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-250-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 250:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "250:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 250,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
+   ]
+  },
+  {
+   "id": "motor-fingertech-gold-spark-360-1",
+   "type": "component",
+   "name": "FingerTech Gold Spark 16mm Gearmotor, 360:1",
+   "category": "drive-motor",
+   "vendor": "FingerTech Robotics",
+   "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16",
+   "summary": "360:1 version of FingerTech's 28g all-metal 16mm Gold Spark brushed gearmotor.",
+   "weight_classes": [
+    "antweight",
+    "plastic-antweight"
+   ],
+   "tags": [
+    "drive-motor",
+    "brushed",
+    "16mm",
+    "gold-spark",
+    "fingertech"
+   ],
+   "specs": {
+    "weight_g": 28,
+    "gear_ratio": 360,
+    "motor_nominal_voltage_v": 6,
+    "motor_operating_voltage_min_v": 3,
+    "motor_operating_voltage_max_v": 18.5,
+    "motor_no_load_rpm": 11530,
+    "motor_stall_current_a": 1.3,
+    "motor_stall_torque_kgcm": 0.0461,
+    "gearbox_dia_mm": 15.5,
+    "gearbox_length_mm": 11.6,
+    "motor_length_mm": 28.7,
+    "total_length_mm": 40.3,
+    "shaft_dia_mm": 3,
+    "shaft_length_mm": 38,
+    "mount_hole_spacing_mm": 11,
+    "price_usd": 14.81
+   },
+   "availability_note": "Out of stock when checked September 2026.",
+   "notes": "FingerTech recommends Silver Sparks instead when a combat application will operate close to/exceed the Gold Spark torque limits.",
+   "confidence": "high",
+   "sources": [
+    "https://www.fingertechrobotics.com/proddetail.php?prod=ft-Gspark16"
    ]
   }
  ],
