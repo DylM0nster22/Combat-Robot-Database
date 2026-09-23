@@ -280,7 +280,7 @@
         "archetype-plastic-ant-wedge-control"
       ],
       "difficulty": "intermediate",
-      "typical_weapon_motor": "Small brushless outrunner, roughly 1811-2205 size, 1900-2800kv, run on 2S",
+      "typical_weapon_motor": "No universal KV/size. Select the exact brushless motor from battery voltage, target weapon RPM/tip speed, weapon mass/CAD MOI, drive ratio, and verified motor/ESC electrical limits.",
       "typical_drive": "Two micro brushed gearmotors (N20 or 130-size) direct-driving small printed/TPU-tired wheels",
       "weight_budget_pct": {
         "weapon": 23,
@@ -332,7 +332,7 @@
         "archetype-plastic-ant-wedge-control"
       ],
       "difficulty": "intermediate",
-      "typical_weapon_motor": "Brushless outrunner 1811-2204 size, 2600-3000kv on 2S, occasionally geared down slightly for torque",
+      "typical_weapon_motor": "No universal KV/size. Select the exact brushless motor from battery voltage, target weapon RPM/tip speed, weapon mass/CAD MOI, drive ratio, and verified motor/ESC electrical limits.",
       "typical_drive": "Two micro gearmotors, often mounted to keep the drum as low to the ground as possible",
       "weight_budget_pct": {
         "weapon": 28,
@@ -384,7 +384,7 @@
         "archetype-plastic-ant-drum-spinner"
       ],
       "difficulty": "advanced",
-      "typical_weapon_motor": "Brushless outrunner 1400-2000kv on 2S-3S (lower kv than vertical spinners to keep tip speed in a survivable range for the printed blade)",
+      "typical_weapon_motor": "No universal KV/size. Size the exact brushless motor and any belt reduction from battery voltage, weapon swept diameter, weapon mass/CAD MOI, target tip speed, and desired spin-up time; use a direct-drive motor only when the motor/mount is designed for weapon shock.",
       "typical_drive": "Two micro gearmotors",
       "weight_budget_pct": {
         "weapon": 25,
@@ -433,7 +433,7 @@
         "archetype-plastic-ant-drum-spinner"
       ],
       "difficulty": "intermediate",
-      "typical_weapon_motor": "Brushless outrunner 2200-2700kv on 2S",
+      "typical_weapon_motor": "No universal KV/size. Select the exact brushless motor and reduction from target beater RPM, battery voltage, weapon mass/CAD MOI, and spin-up requirement; verify the motor's current data and ESC pairing.",
       "typical_drive": "Two micro gearmotors, low ground clearance chassis",
       "weight_budget_pct": {
         "weapon": 24,
@@ -678,7 +678,7 @@
       "aliases": [
         "1400kv outrunner"
       ],
-      "summary": "A lower-kv small outrunner used for horizontal/bar spinners and drums where more torque and a lower tip speed (kinder to a printed weapon) is preferred over raw RPM.",
+      "summary": "Nominal 1400KV brushless-outrunner reference class. KV describes unloaded RPM per volt; by itself it does not establish torque, power, current draw, safe weapon size, or whether a motor is appropriate for a horizontal/drum weapon.",
       "weight_classes": [
         "plastic-antweight"
       ],
@@ -696,28 +696,28 @@
         "kv_rpm_per_v_nominal": 1400
       },
       "pros": [
-        "Lower RPM is easier on a printed weapon's burst strength",
-        "More torque for heavier drums"
+        "Useful as a search/reference point when a design calculation lands near 1400KV"
       ],
       "cons": [
-        "Lower tip speed means less kinetic energy transfer per hit"
+        "Not a specific motor SKU",
+        "KV alone is insufficient to size a weapon motor or ESC"
       ],
       "sources": [
         "domain knowledge"
       ],
       "confidence": "low",
       "reference_only": true,
-      "notes": "This is a nominal-KV reference class, not a specific SKU; mass, current, voltage rating, shaft and mounting vary by motor."
+      "notes": "Reference-only nominal-KV class. Do not recommend it as a part or infer torque/current/voltage capability from KV. Select an exact motor from target weapon RPM, battery voltage, ratio, weapon MOI/spin-up requirement, and verified electrical limits."
     },
     {
       "id": "component-esc-brushless-weapon-6a",
       "type": "component",
-      "name": "Micro Brushless Weapon ESC (~6A)",
+      "name": "Micro Brushless ESC, ~6A reference class (not a default weapon ESC)",
       "aliases": [
         "brushless weapon ESC",
         "micro BLHeli/AM32 ESC"
       ],
-      "summary": "A tiny brushless ESC (often an AM32 or BLHeli-based FPV-drone-derived board) used to run the weapon motor in a plastic ant, valued for its very low weight relative to the alternative of a brushed weapon motor and controller.",
+      "summary": "Reference-only example of a very small brushless ESC. A ~6A rating is NOT generally sufficient for plastic-ant weapon motors; suitability must be checked against the exact motor, voltage, spin-up/stall load, cooling, and vendor data.",
       "weight_classes": [
         "plastic-antweight"
       ],
@@ -731,19 +731,20 @@
         "current_class_a_approx": 6
       },
       "pros": [
-        "Extremely light",
-        "Programmable spin-up behavior (some support instant full throttle at arm for combat)"
+        "Very low mass when the exact motor/load is genuinely within its verified limits"
       ],
       "cons": [
-        "Small package can be sensitive to heat if run continuously at max current",
-        "Needs correct motor-timing configuration for reliable spin-up under weapon load"
+        "Dangerously easy to undersize for weapon spin-up current",
+        "Do not use as a generic recommendation for 18xx/22xx/28xx weapon motors"
       ],
       "sources": [
-        "domain knowledge"
+        "https://www.fingertechrobotics.com/proddetail.php?prod=F2822-1100KV-4mm",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-h-spinner-addon",
+        "https://repeat-robotics.com/products/open-plant-bundle"
       ],
-      "confidence": "medium",
+      "confidence": "low",
       "reference_only": true,
-      "notes": "Representative micro-ESC class only; firmware, voltage range, real thermal current capability and mass depend on the exact board."
+      "notes": "Do not surface this record as a default weapon ESC. Exact current capability depends on the specific board. Current commercial examples use much larger ESCs: FingerTech pairs its F2822-1100KV (9.9A published max current) with a 20A BLHeli controller in Viper weapon kits, and Repeat's Open PLANT bundle pairs its 2822 weapon motor with a 35A BLHeli_S spinner ESC."
     },
     {
       "id": "component-combo-rx-esc-board",
@@ -2208,7 +2209,7 @@
       "id": "chunk-plastic-antweight-rpm-tip-speed",
       "title": "Typical Weapon RPM and Tip Speeds Achievable in Plastic",
       "section": "Weapon Design",
-      "body_md": "Tip speed — the linear speed of a spinning weapon's outermost point — is the standard way combat robotics talks about weapon power, and it's calculated with the formula SPARC itself uses for its speed-limited classes: **Tip Speed (ft/s) = RPM x diameter (inches) x 0.00436.**\n\n**Typical plastic ant weapon motor/RPM combinations**: small brushless outrunners in the 1811-2205 size class are the norm, run on 2S (7.4V) LiPo. A common vertical-spinner setup pairs a roughly 2600-2800kv outrunner direct-driving (no gearing) a 2-2.5-inch printed disc, giving a free-spin RPM in the 15,000-20,000 RPM range before load, settling lower under real combat load and with the added rotational inertia of the printed disc. Plugging a conservative 12,000 RPM combat-load estimate and a 2.5-inch diameter into the tip-speed formula gives roughly 12,000 x 2.5 x 0.00436 ≈ **131 ft/s** — a meaningful but not extreme tip speed compared to what a similarly-sized metal antweight spinner could sustain.\n\n**Why plastic ants tend to run lower kv/tip speed than metal ants of the same size**: the practical ceiling is set by the printed disc/drum's burst strength, not the motor's capability. Community guidance repeatedly notes that 1400kv motors suit slower horizontal/drum weapons (prioritizing torque and lower stress on the weapon body) while around 2800kv suits lighter vertical spinner discs — both meaningfully lower than the highest-kv motors used in metal-ant record-chasing builds, because a printed weapon spun to the RPM a metal disc could survive would simply fly apart.\n\n**SPARC's formal tip-speed limits** only bind in specific contexts: the 'Sportsman' class caps ordinary spinning weapons at 20 ft/s (with a higher allowance for saw-like weapons meeting a tooth-pitch test), and open-air combat classes cap slow spinners at the same 20 ft/s. Standard enclosed-arena plastic ant classes are not usually tip-speed-limited by the ruleset itself — the practical limit instead comes from the printed material's own failure point, which for a well-designed thick PETG disc or drum tends to land somewhere in the 80-150 ft/s range in community experience, well below what a hardened steel antweight weapon could achieve (some metal antweight spinners exceed 300-400 ft/s), and this gap is treated as a low-confidence estimate based on community reporting rather than a single authoritative source.\n\n*Note: RPM/tip-speed figures are community-sourced estimates, not from a single authoritative measurement; treat as approximate.*",
+      "body_md": "Tip speed is a useful design target, but it must be calculated from the actual weapon geometry rather than inferred from weight class. A common conversion is **tip speed (ft/s) = RPM × diameter (in) × 0.00436**; equivalently in SI, **v = 2πr × RPM / 60**.\n\nStart from the weapon's swept radius/diameter and a target tip speed, then solve for the weapon RPM. From there, choose motor KV, battery voltage and belt ratio that put the theoretical no-load RPM in the right neighborhood. Treat `KV × voltage` only as a no-load ceiling; do **not** automatically multiply by a fixed \"70% loaded\" factor. Loaded RPM depends on the exact motor, winding resistance, ESC, battery sag, weapon MOI, bearings and aerodynamic drag.\n\nThere is no universal \"plastic-safe\" RPM or tip-speed band. Printed weapon burst strength changes dramatically with material, print orientation, wall/perimeter layout, infill, layer adhesion, temperature, weapon geometry, hub design, stress concentrations and prior impacts. A number taken from another bot is not a structural rating for yours.\n\nUse exact vendor examples only as examples. Just 'Cuz Robotics demonstrates that the required KV changes directly with weapon diameter, battery voltage and ratio (for example, a 4-inch versus 8-inch weapon at the same target tip speed needs roughly a 2:1 difference in effective KV). Repeat's Open PLANT platform currently offers multiple 2822 KV options rather than one universal plastic-ant value, reinforcing that the correct choice depends on the weapon geometry.\n\nFor a real build recommendation, calculate: (1) target weapon RPM from diameter/tip speed, (2) motor no-load RPM from exact KV and voltage, (3) required reduction ratio, and (4) spin-up/current feasibility from the exact motor and weapon MOI. If MOI/current data are missing, state that limitation instead of converting an arbitrary loaded-RPM assumption into a precise-looking answer.",
       "entity_refs": [
         "term-tip-speed",
         "component-brushless-outrunner-2600kv",
@@ -2225,8 +2226,8 @@
         "physics"
       ],
       "sources": [
-        "https://sparc.tools/SPARC_Robot_Construction_Specifications_v1.4.pdf",
-        "domain knowledge"
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design",
+        "https://repeat-robotics.com/products/open-plant-bundle"
       ]
     },
     {
@@ -2442,7 +2443,7 @@
       "id": "chunk-plastic-antweight-weapon-motor-selection",
       "title": "Weapon and Drive Motor Selection for Plastic Ants",
       "section": "Build Specs",
-      "body_md": "Motor selection in plastic ant follows the same electronics landscape as standard antweight (motors are exempt from the plastic-only rule), but the *sizing philosophy* differs because the weapon it drives has a lower burst strength ceiling.\n\n**Drive motors**: small brushed gearmotors dominate, most commonly the N20-size micro metal gearmotor family (roughly 10g each, available in gear ratios from crawler-slow to sprint-fast) or a 130-size can motor paired with a small gearbox. A control/wedge bot generally wants a lower, torquier gear ratio to maximize pushing power; a spinner-focused build can run a faster ratio since it relies on its weapon rather than raw ramming force to win exchanges.\n\n**Weapon motors**: small brushless outrunners in the 1811-2205 size class, run on 2S, are the standard choice. Kv selection is the key design lever: roughly **2600-2800kv suits light vertical spinner discs**, prioritizing RPM within the printed disc's survivable range, while **1400kv suits heavier drums/horizontal weapons**, prioritizing torque to spin up a heavier printed weapon body without stalling, at a lower top RPM that's kinder to the weapon's burst strength.\n\n**ESC pairing**: drive motors typically run off a combo RX+dual-brushed-ESC board (saving weight over separate receiver and ESC units), while the weapon motor needs its own small brushless ESC (roughly 4-6g, 6A-class is usually sufficient for these small outrunners) since a brushed combo board can't drive a brushless motor.\n\n**Why plastic ants don't chase the highest-kv motors available**: unlike metal antweight, where a builder can push a hardened steel disc to very high RPM because the disc can survive it, a plastic ant's practical RPM ceiling is set by the printed weapon's burst strength, not the motor or ESC's capability. Overdriving a light printed disc past its survivable RPM is a common beginner mistake that results in the weapon flying apart (sometimes literally, as shrapnel) on its very first spin-up test, well before the robot ever reaches a match. Community practice is to start conservative on kv/voltage and incrementally test spin-up rather than assuming the motor's rated RPM is a safe operating target for the printed weapon attached to it.",
+      "body_md": "Plastic-ant weapon motor selection must be calculation-driven; there is no safe rule such as \"horizontal = 1400KV\" or \"small outrunner = 6A ESC.\" The motor, weapon, battery, gearing and ESC form one system.\n\n**Inputs that materially change the answer:** battery cell count/voltage; weapon swept diameter or radius; weapon mass and preferably CAD moment of inertia (MOI); direct-drive versus belt drive; pulley ratio; target weapon RPM/tip speed; and desired spin-up time. KV is only the motor velocity constant: theoretical no-load motor RPM is approximately `KV × voltage`. With a reduction ratio `R = motor RPM / weapon RPM`, theoretical weapon RPM is `KV × voltage / R`. KV by itself does not tell you motor power, current draw, thermal margin, or whether a motor can accelerate a heavy weapon.\n\n**Do not invent a fixed \"loaded RPM\" percentage.** Real loaded speed depends on the motor's torque-speed curve, winding resistance, battery sag, ESC behavior, bearing losses, aerodynamic drag, weapon MOI, and ratio. A statement such as \"assume 70% of no-load RPM\" is only an arbitrary estimate unless it is backed by a measurement for that exact system.\n\n**Use exact products and validated pairings when available.** FingerTech publishes its F2822-1100KV 4mm motor as 2S-3S, 43g, 102W max and 9.9A max current; its Viper Horizontal Spinner uses that motor with a 20A brushless controller. FingerTech's 1lb beater-bar electronics use the same 1100KV motor with a 1.73:1 pulley reduction and the 20A controller. Repeat Robotics' current Open PLANT bundle offers 1100/1800/2300KV 2822 options and pairs the weapon motor with a 35A BLHeli_S spinner ESC, with a 3S 380mAh battery offered as an option. These are vendor-specific examples, not universal KV rules.\n\n**ESC sizing:** never declare a small ESC \"sufficient\" from motor size alone. Prefer an exact vendor-tested motor/ESC pairing. Otherwise compare the exact motor's verified current data at the intended voltage against the ESC's real rating and thermal conditions, leaving sensible margin for spin-up, impact recovery and stalls. If the motor's current data are unknown, say so rather than inventing an amp requirement. A generic ~6A ESC record is not a safe default for an antweight weapon.\n\n**Direct drive versus belt drive:** direct drive reduces parts count but sends weapon shock into the motor and locks weapon RPM closely to motor KV and battery voltage. Use it when the motor/hub/mount is specifically intended for weapon shock and the resulting weapon RPM is appropriate. Belt drive adds packaging but lets you select the ratio independently and provides some shock isolation/slip depending on belt type.\n\nFor printed weapons, survivable RPM is also geometry- and print-dependent. Material name alone does not define a safe speed; use conservative testing inside proper containment and do not treat a database \"typical RPM\" as a structural limit.",
       "entity_refs": [
         "component-brushless-outrunner-2600kv",
         "component-brushless-outrunner-1400kv",
@@ -2460,7 +2461,11 @@
         "weapon-design"
       ],
       "sources": [
-        "domain knowledge"
+        "https://www.fingertechrobotics.com/proddetail.php?prod=F2822-1100KV-4mm",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-viper-h-spinner-addon",
+        "https://www.fingertechrobotics.com/proddetail.php?prod=ft-1lb-beater-bar-elec",
+        "https://repeat-robotics.com/products/open-plant-bundle",
+        "https://justcuzrobotics.com/blogs/jcr/combat-robot-spinner-design"
       ]
     }
   ]

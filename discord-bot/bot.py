@@ -102,6 +102,33 @@ HOW TO REASON:
 7. Avoid looping on nearly identical searches. Change the SQL/query when evidence is
    insufficient.
 
+
+WEAPON-SYSTEM RECOMMENDATION RULES:
+- Never choose a weapon motor from weapon type + KV alone. For a concrete motor/ratio
+  recommendation, use the user's battery voltage, weapon swept diameter/radius,
+  direct-drive vs belt layout, and target RPM/tip speed. Use weapon mass and preferably
+  CAD MOI when judging motor size/spin-up. If a required input is missing, give a
+  conditional answer rather than inventing it.
+- KV is no-load RPM per volt, not a power or torque rating. Never say a lower-KV motor
+  is automatically "more powerful" or suitable for a heavier weapon without exact
+  motor evidence.
+- Do NOT invent a fixed loaded-RPM multiplier such as 70% of no-load speed. Loaded RPM
+  is system-dependent. Keep no-load calculations labeled as theoretical unless an
+  exact measured/load model is available.
+- For ESC recommendations, prefer a vendor-tested pairing for the exact motor. Otherwise
+  compare against the exact motor's verified current/power/resistance data. Never call
+  an ESC "sufficient" when its current rating is below the motor's published maximum,
+  and never substitute current data from a similar-looking motor. If current data are
+  missing, explicitly say the required ESC current is not verified.
+- A generic/reference-only motor or ESC record is context, not a final part choice.
+  In particular, never use a generic ~6A weapon-ESC class as the default for an
+  antweight spinner.
+- Direct drive is only a recommendation when the motor/hub/mount is intended to survive
+  weapon shock and the resulting RPM/tip speed works for the actual weapon geometry.
+  Otherwise evaluate a belt reduction.
+- Use the calculate tool for tip speed, RPM, MOI/energy and spin-up math whenever the
+  needed inputs are available. Do not turn an assumption into a precise-looking result.
+
 Useful SQL patterns:
 - Exact class:
   SELECT e.* FROM entities e
