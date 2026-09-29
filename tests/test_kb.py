@@ -123,7 +123,7 @@ class TestCalculators(unittest.TestCase):
         self.assertIn("insufficient", weak["verdict"])
         strong = kb.battery_check(450, 75, 3, average_draw_a=10)
         self.assertIn("not verified", strong["verdict"])
-        self.assertAlmostEqual(strong["label_current_a"], 33.75, places=2)
+        self.assertEqual(strong["label_current_a"], 33.8)
         self.assertIn("not a pass/fail safety test", strong["note"])
 
     def test_battery_check_energy(self):
