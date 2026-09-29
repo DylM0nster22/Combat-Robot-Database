@@ -773,6 +773,46 @@
       "sources": [
         "https://www.fingertechrobotics.com/proddetail.php?prod=ft-foam-wheels"
       ]
+    },
+    {
+      "id": "motor-fingertech-f2822-2600kv-4mm",
+      "type": "component",
+      "name": "FingerTech F2822 2600KV Brushless Outrunner, 4mm Shaft",
+      "category": "weapon-motor",
+      "vendor": "FingerTech Robotics",
+      "product_url": "https://www.fingertechrobotics.com/proddetail.php?prod=F2822-2600KV-4mm",
+      "summary": "Higher-KV F2822 antweight weapon outrunner with FingerTech's hardened 4mm shaft, upgraded high-RPM bearings and 48H magnets.",
+      "weight_classes": [
+        "antweight",
+        "plastic-antweight"
+      ],
+      "tags": [
+        "brushless",
+        "2600kv",
+        "2822",
+        "weapon-motor",
+        "4mm-shaft",
+        "high-rpm"
+      ],
+      "specs": {
+        "kv_rpm_per_v": 2600,
+        "cells_s_min": 2,
+        "cells_s_max": 3,
+        "max_power_w": 260,
+        "max_current_a": 24,
+        "weight_g": 43,
+        "diameter_mm": 27.8,
+        "length_mm": 21.35,
+        "shaft_dia_mm": 4,
+        "shaft_length_mm": 10,
+        "shaft_hardness_hrc": 50,
+        "magnet_grade": "48H"
+      },
+      "notes": "FingerTech lists an Arthur 40A ESC as the recommended controller. The published 24A value is the motor listing's maximum-current figure, not a prediction of current in every weapon; actual weapon current depends on voltage, inertia, aerodynamic drag, ratio and spin-up behavior.",
+      "confidence": "high",
+      "sources": [
+        "https://www.fingertechrobotics.com/proddetail.php?prod=F2822-2600KV-4mm"
+      ]
     }
   ],
   "chunks": [
