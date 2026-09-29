@@ -14,6 +14,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Audit raw research quality
+        run: python3 scripts/audit_research.py
+
       - name: Rebuild database from research files
         run: python3 scripts/build_db.py
 
