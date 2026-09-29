@@ -891,24 +891,39 @@ def gyro_torque(moi_kg_m2: float, weapon_rpm: float,
 
 def battery_check(capacity_mah: float, c_rating: float, cells_s: int,
                   average_draw_a: float = 10.0) -> Dict[str, Any]:
-    """Does this pack actually deliver what the bot asks of it?"""
+    """Screen a pack from its label without pretending the C-rating is a test.
+
+    Capacity * printed C is useful as a label-derived upper claim, but it does
+    not establish real current capability or voltage sag. For a real design
+    decision, prefer a vendor discharge curve, measured loaded voltage/internal
+    resistance, or testing of the exact pack.
+    """
     capacity_ah = float(capacity_mah) / 1000.0
-    continuous_a = capacity_ah * float(c_rating)
+    label_current_a = capacity_ah * float(c_rating)
     nominal_v = int(cells_s) * 3.7
     energy_wh = capacity_ah * nominal_v
     draw = float(average_draw_a)
     runtime_min = (capacity_ah / draw * 60.0) if draw > 0 else float("inf")
+    ratio = (label_current_a / draw) if draw > 0 else None
+    if draw > 0 and label_current_a < draw:
+        verdict = "insufficient even by printed C-rating"
+    else:
+        verdict = "label suggests capacity; real current capability not verified"
     return _ok(capacity_mah=capacity_mah, c_rating=c_rating, cells_s=cells_s,
                nominal_voltage_v=round(nominal_v, 1),
                energy_wh=round(energy_wh, 2),
-               rated_continuous_a=round(continuous_a, 1),
+               label_current_a=round(label_current_a, 1),
+               # Backward-compatible alias; the field is label-derived, not a
+               # measured continuous-current guarantee.
+               rated_continuous_a=round(label_current_a, 1),
                average_draw_a=draw,
-               headroom_ratio=round(continuous_a / draw, 2) if draw > 0 else None,
+               headroom_ratio=round(ratio, 2) if ratio is not None else None,
                estimated_runtime_min=round(runtime_min, 1),
-               verdict=("adequate" if continuous_a >= draw * 1.5 else
-                        "marginal — expect voltage sag"),
-               note=("Marketing C ratings are optimistic; treat anything under "
-                     "a 1.5x headroom ratio as sag-prone in a 1 lb bot."))
+               verdict=verdict,
+               note=("Printed C-rating math is not a pass/fail safety test. "
+                     "Voltage sag depends strongly on pack internal resistance, "
+                     "temperature, age, state of charge and wiring. Verify the "
+                     "exact pack under load when current margin matters."))
 
 
 def weight_budget(total_g: float = 454.0,
