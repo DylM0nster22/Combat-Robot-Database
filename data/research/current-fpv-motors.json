@@ -903,8 +903,8 @@
         "wire_awg": 20,
         "wire_length_mm": 130
       },
-      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
-      "confidence": "high",
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted. Exact variant/specs were verified against a live retailer listing in this pass, but no manufacturer datasheet or official product page was verified; treat the electrical limits as retailer-sourced rather than manufacturer-certified.",
+      "confidence": "medium",
       "sources": [
         "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
       ]
@@ -946,8 +946,8 @@
         "wire_awg": 20,
         "wire_length_mm": 130
       },
-      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
-      "confidence": "high",
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted. Exact variant/specs were verified against a live retailer listing in this pass, but no manufacturer datasheet or official product page was verified; treat the electrical limits as retailer-sourced rather than manufacturer-certified.",
+      "confidence": "medium",
       "sources": [
         "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
       ]
@@ -989,8 +989,8 @@
         "wire_awg": 20,
         "wire_length_mm": 130
       },
-      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
-      "confidence": "high",
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted. Exact variant/specs were verified against a live retailer listing in this pass, but no manufacturer datasheet or official product page was verified; treat the electrical limits as retailer-sourced rather than manufacturer-certified.",
+      "confidence": "medium",
       "sources": [
         "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
       ]
@@ -1032,8 +1032,8 @@
         "wire_awg": 20,
         "wire_length_mm": 130
       },
-      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
-      "confidence": "high",
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted. Exact variant/specs were verified against a live retailer listing in this pass, but no manufacturer datasheet or official product page was verified; treat the electrical limits as retailer-sourced rather than manufacturer-certified.",
+      "confidence": "medium",
       "sources": [
         "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
       ]
@@ -1075,8 +1075,8 @@
         "wire_awg": 20,
         "wire_length_mm": 130
       },
-      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
-      "confidence": "high",
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted. Exact variant/specs were verified against a live retailer listing in this pass, but no manufacturer datasheet or official product page was verified; treat the electrical limits as retailer-sourced rather than manufacturer-certified.",
+      "confidence": "medium",
       "sources": [
         "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
       ]
@@ -1118,8 +1118,8 @@
         "wire_awg": 20,
         "wire_length_mm": 130
       },
-      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted.",
-      "confidence": "high",
+      "notes": "Electrical figures are vendor/retailer FPV test data, not guaranteed continuous combat ratings. Marketplace price/stock varies heavily, so a stable price is intentionally omitted. Exact variant/specs were verified against a live retailer listing in this pass, but no manufacturer datasheet or official product page was verified; treat the electrical limits as retailer-sourced rather than manufacturer-certified.",
+      "confidence": "medium",
       "sources": [
         "https://www.banggood.com/SURPASSHOBBY-S2207-S2208-1750KV-or-1950KV-or-2450KV-Brushless-Motor-for-5-Inch-RC-FPV-Racing-Drone-p-2030789.html"
       ]
@@ -1161,8 +1161,8 @@
         "wire_awg": 20,
         "wire_length_mm": 150
       },
-      "notes": "Retailer showed no stable current US price/stock when checked, so price is omitted. Electrical maximums are FPV test figures, not continuous combat ratings.",
-      "confidence": "high",
+      "notes": "Retailer showed no stable current US price/stock when checked, so price is omitted. Electrical maximums are FPV test figures, not continuous combat ratings. Exact variant/specs were verified against a live retailer listing in this pass, but no manufacturer datasheet or official product page was verified; treat the electrical limits as retailer-sourced rather than manufacturer-certified.",
+      "confidence": "medium",
       "sources": [
         "https://usa.banggood.com/HSKRC-2306_5-1800KV-High-Performance-Brushless-Motor-5mm-Shaft-for-5-Inch-RC-FPV-Racing-Drone-p-2036819.html"
       ]

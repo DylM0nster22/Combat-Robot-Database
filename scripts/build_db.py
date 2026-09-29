@@ -319,28 +319,64 @@ def merge_entities(existing, incoming, report, filename):
         f"{existing['topic_id']} — merged"
     )
 
-    # Prefer the longer prose, which is almost always the more complete one.
-    if len(incoming["summary"]) > len(existing["summary"]):
-        existing["summary"] = incoming["summary"]
-    if len(incoming["notes"]) > len(existing["notes"]):
-        existing["notes"] = incoming["notes"]
+    rank = {"low": 0, "medium": 1, "high": 2}
+    existing_rank = rank.get(existing["confidence"], 1)
+    incoming_rank = rank.get(incoming["confidence"], 1)
+    incoming_stronger = incoming_rank > existing_rank
 
-    for field in ("aliases", "weight_classes", "tags", "pros", "cons", "sources"):
+    # Evidence quality beats file ordering. A shorter primary-source record must
+    # be allowed to replace longer low-confidence prose; equally strong records
+    # still use the more complete prose.
+    if incoming_stronger:
+        if incoming["summary"]:
+            existing["summary"] = incoming["summary"]
+        if incoming["notes"]:
+            existing["notes"] = incoming["notes"]
+    elif incoming_rank == existing_rank:
+        if len(incoming["summary"]) > len(existing["summary"]):
+            existing["summary"] = incoming["summary"]
+        if len(incoming["notes"]) > len(existing["notes"]):
+            existing["notes"] = incoming["notes"]
+
+    # Identity/search metadata and provenance can be safely unioned. Pros/cons
+    # are judgments, so do not let a weaker record add them to a stronger one.
+    for field in ("aliases", "weight_classes", "tags", "sources"):
         seen = {v.lower(): v for v in existing[field]}
         for value in incoming[field]:
             if value.lower() not in seen:
                 seen[value.lower()] = value
                 existing[field].append(value)
+    if incoming_rank >= existing_rank:
+        for field in ("pros", "cons"):
+            seen = {v.lower(): v for v in existing[field]}
+            for value in incoming[field]:
+                if value.lower() not in seen:
+                    seen[value.lower()] = value
+                    existing[field].append(value)
 
-    # Existing specs win: the first file to claim a key keeps it, so a merge
-    # never silently overwrites a verified number with an unverified one.
+    # Conflicting facts follow the stronger evidence. Equal/weaker records may
+    # fill missing keys but cannot silently replace already stored values.
     for key, value in incoming["specs"].items():
-        existing["specs"].setdefault(key, value)
-    for key, value in incoming["extra"].items():
-        existing["extra"].setdefault(key, value)
+        if key not in existing["specs"]:
+            existing["specs"][key] = value
+        elif incoming_stronger and existing["specs"][key] != value:
+            report.warn(
+                f"{filename}: {existing['id']} spec {key!r} replaced by "
+                f"higher-confidence {incoming['topic_id']} evidence"
+            )
+            existing["specs"][key] = value
 
-    rank = {"low": 0, "medium": 1, "high": 2}
-    if rank.get(incoming["confidence"], 1) > rank.get(existing["confidence"], 1):
+    for key, value in incoming["extra"].items():
+        if key not in existing["extra"]:
+            existing["extra"][key] = value
+        elif incoming_stronger and existing["extra"][key] != value:
+            report.warn(
+                f"{filename}: {existing['id']} metadata {key!r} replaced by "
+                f"higher-confidence {incoming['topic_id']} evidence"
+            )
+            existing["extra"][key] = value
+
+    if incoming_stronger:
         existing["confidence"] = incoming["confidence"]
 
     # Record provenance in `extra`, which is the part of the record that

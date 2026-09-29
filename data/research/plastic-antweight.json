@@ -863,7 +863,7 @@
         "TPU tire wheel",
         "printed drive wheel"
       ],
-      "summary": "A 3D-printed rigid hub (PLA+/PETG) with a separately printed TPU tire pressed or glued on, the standard plastic-ant wheel: fully print-and-replace, and legal everywhere since both hub and tire are on the approved plastic list (subject to local TPU rulings).",
+      "summary": "A rigid printed hub with a separately printed TPU tire. It can be a useful low-cost wheel at events whose modified Plastic Ant rules explicitly permit printed TPU, but it is not legal under baseline SPARC v1.6 because printed traction elements must use the baseline allowed printed materials.",
       "weight_classes": [
         "plastic-antweight"
       ],
@@ -879,21 +879,24 @@
       ],
       "specs": {},
       "pros": [
-        "Essentially free once you own a printer and TPU spool",
-        "Easy to redesign tread pattern for grip",
-        "Print-and-replace after wear or damage"
+        "Cheap and easy to replace where the event explicitly allows printed TPU",
+        "Tread geometry and tire thickness are easy to iterate",
+        "Can provide a compliant tire without molds or casting equipment"
       ],
       "cons": [
-        "TPU is explicitly banned by some events (e.g. SCAR); always check local rules before relying on it",
-        "Lower grip than purpose-made silicone/foam tires unless tread is well designed"
+        "Not legal under baseline SPARC v1.6 Plastic Class rules as a printed TPU traction element",
+        "Event rules vary: some organizers explicitly allow TPU and others explicitly ban it",
+        "Grip depends strongly on the exact TPU formulation, hardness, surface, tread and arena floor; 'TPU' alone does not imply high traction"
       ],
       "sources": [
-        "domain knowledge",
+        "https://www.sparc.tools/SPARC_Robot_Construction_Specifications_v1.6.pdf",
+        "https://www.robotcombatevents.com/events/4986",
+        "https://www.robotcombatevents.com/events/7519",
         "https://www.socalattackrobots.com/plastic-ant-faq.html"
       ],
       "confidence": "medium",
       "reference_only": true,
-      "notes": "Representative component class; use an exact part/drawing before relying on dimensions, weight, rating or price."
+      "notes": "Reference concept only. Before printing the wheel, verify the event-specific material rule. Baseline SPARC v1.6 allows certain non-printed rubber/cast-rubber/coating/foam traction exceptions, but printed traction elements still must use the baseline allowed printed materials."
     },
     {
       "id": "component-cots-foam-wheel",

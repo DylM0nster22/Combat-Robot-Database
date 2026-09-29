@@ -68,6 +68,26 @@ Each chunk is a self-contained explainer an LLM can quote from. Aim for 200-600 
 }
 ```
 
+## Confidence means evidence quality, not product quality
+
+Use the strongest level actually supported by the cited evidence:
+
+- **high** — exact variant backed by a manufacturer/official datasheet, official product
+  page, official rulebook, or another primary authoritative source. Multiple strong,
+  independent sources can also justify high confidence when no primary source exists.
+- **medium** — exact product/claim is supported by a live reputable retailer,
+  distributor, event listing, or good technical secondary source, but a primary
+  datasheet/rulebook was not verified. Marketplace/reseller-only electrical specs
+  belong here unless independently corroborated.
+- **low** — community recollection, domain knowledge, stale/ambiguous listings,
+  inferred values, or claims that could not be verified closely enough. Low-confidence
+  components must be reference-only and must never be normal recommendation candidates.
+
+Confidence applies to the **record as stored**. Never promote a record to high merely
+because a second source exists if the numeric fields being retained came from weaker
+evidence. When two records conflict, the stronger evidence must win the conflicting
+field or the field should be omitted and the conflict explained.
+
 ## Hard rules
 
 1. **Bias every judgement toward 1 lb antweight and plastic antweight.** Other classes are context only.

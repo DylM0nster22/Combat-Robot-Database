@@ -259,7 +259,7 @@
         "wire_awg": 20,
         "price_usd": 62
       },
-      "notes": "Manufacturer says actual KV can vary about ±10%. Uses 6704-size main bearings and is designed for direct weapon attachment rather than ordinary propeller use.",
+      "notes": "Manufacturer says actual KV can vary about ±10%. Uses 6704-size main bearings and is designed for direct weapon attachment rather than ordinary propeller use. JCR recommends a 30A-or-greater rated ESC and publishes configuration-specific spin-up tests for this motor family; use the dedicated test-data chunk rather than treating those measurements as universal current ratings.",
       "confidence": "high",
       "sources": [
         "https://justcuzrobotics.com/products/rdy-mini-5022"
@@ -300,7 +300,7 @@
         "wire_awg": 20,
         "price_usd": 62
       },
-      "notes": "Manufacturer says actual KV can vary about ±10%. Uses 6704-size main bearings and is designed for direct weapon attachment.",
+      "notes": "Manufacturer says actual KV can vary about ±10%. Uses 6704-size main bearings and is designed for direct weapon attachment. JCR recommends a 30A-or-greater rated ESC and publishes configuration-specific spin-up tests for this motor family; use the dedicated test-data chunk rather than treating those measurements as universal current ratings.",
       "confidence": "high",
       "sources": [
         "https://justcuzrobotics.com/products/rdy-mini-5022"
@@ -846,6 +846,31 @@
         "https://justcuzrobotics.com/products/dartbox-squared-drive"
       ],
       "body_md": "JCR's current small-combat catalog covers distinct mechanical tiers: lightweight Blitz Lite for smaller brushless drive, Blitz Pro for rugged 3lb wheel drive, DartBox V2 for brushed planetary drive, and RDY/JCR hubmotors for direct weapons. The RevvitRC 50A is the current high-current AM32 weapon/controller option with an onboard servo-capable BEC, while Pariah is retained only as discontinued legacy data. For direct weapons, RDY-5735 reduces mass compared with RDY-5536 but its first-generation mechanical notes matter: JCR specifically recommends two-sided support for undercutter/overhead use."
+    },
+    {
+      "id": "chunk-jcr-5022-v2-published-load-tests",
+      "title": "JCR RDY-MINI-5022 V2: Published Weapon Load Tests",
+      "section": "Weapon motor test data",
+      "body_md": "Just 'Cuz Robotics publishes actual weapon-system measurements for the RDY-MINI-5022 V2 using a stated test setup: a 3-inch-diameter, 0.207-inch-thick SledgeHog blade and a 70A Pariah AM32 ESC chosen to avoid making the ESC the bottleneck. These numbers are valuable because they show how different the two windings behave under the **same weapon configuration**, but they must not be copied into the motor record as universal current ratings.\n\nFor the **1100KV** winding, JCR reports about **20.4A peak / 222W during 3S (12V) spin-up**, then about **7A / 80W continuous**, with roughly **12,650 RPM** in that setup. At **4S (16V)** the same setup reached about **25A peak / 331W**, about **7A / 111W continuous**, and roughly **17,160 RPM**.\n\nFor the **1700KV** winding, JCR reports a much harder transient load with that same blade: about **46.6A peak / 450W at 3S (12V)** and roughly **19,550 RPM**. At **4S (16V)** it reports about **50.7A peak / 590W** and roughly **26,500 RPM**. The page reports continuous power of roughly 140W at 3S and 190W at 4S for this test but does not state a clean continuous-current number for those two cases, so the database does not invent one by dividing watts by nominal voltage.\n\nJCR recommends an ESC rated **30A or greater** for the 5022 family and notes that real current depends on the exact ESC/configuration, battery, voltage, loading, air resistance and tip speed. That is the correct way to use this data: as a validated reference configuration and a warning that spin-up peaks can be far above steady current—not as proof that every 1100KV build draws 20.4A or every 1700KV build draws 50.7A.",
+      "entity_refs": [
+        "motor-jcr-rdy-mini-5022-v2-1100kv",
+        "motor-jcr-rdy-mini-5022-v2-1700kv"
+      ],
+      "weight_classes": [
+        "antweight",
+        "beetleweight"
+      ],
+      "tags": [
+        "weapon-motor",
+        "5022",
+        "measured-current",
+        "spin-up",
+        "esc-sizing",
+        "jcr"
+      ],
+      "sources": [
+        "https://justcuzrobotics.com/products/rdy-mini-5022"
+      ]
     }
   ]
 }

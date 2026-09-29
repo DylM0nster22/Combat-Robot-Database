@@ -118,11 +118,13 @@ class TestCalculators(unittest.TestCase):
         result = kb.gyro_torque(1.215e-4, 20000, 180)
         self.assertAlmostEqual(result["precession_torque_nm"], 0.799, places=2)
 
-    def test_battery_check_flags_marginal_pack(self):
+    def test_battery_check_treats_c_rating_as_label_not_certification(self):
         weak = kb.battery_check(180, 25, 2, average_draw_a=20)
-        self.assertIn("marginal", weak["verdict"])
+        self.assertIn("insufficient", weak["verdict"])
         strong = kb.battery_check(450, 75, 3, average_draw_a=10)
-        self.assertEqual(strong["verdict"], "adequate")
+        self.assertIn("not verified", strong["verdict"])
+        self.assertEqual(strong["label_current_a"], 33.8)
+        self.assertIn("not a pass/fail safety test", strong["note"])
 
     def test_battery_check_energy(self):
         # 0.45 Ah * 11.1 V = 5.0 Wh
@@ -223,20 +225,57 @@ class TestNormalisation(unittest.TestCase):
         self.assertNotIn("image", text)
         self.assertNotIn("also_from", text)
 
-    def test_merge_prefers_longer_prose_and_keeps_first_specs(self):
+    def test_merge_equal_confidence_keeps_first_specs_and_longer_prose(self):
         report = build_db.Report()
         a = build_db.normalize_entity(
             {"id": "m", "type": "component", "name": "M", "summary": "short",
-             "specs": {"weight_g": 10}, "tags": ["x"]}, "t1", report)
+             "confidence": "medium", "specs": {"weight_g": 10}, "tags": ["x"]},
+            "t1", report)
         b = build_db.normalize_entity(
             {"id": "m", "type": "component", "name": "M",
              "summary": "a considerably longer and more complete summary",
-             "specs": {"weight_g": 99, "kv": 2000}, "tags": ["y"]}, "t2", report)
+             "confidence": "medium", "specs": {"weight_g": 99, "kv": 2000},
+             "tags": ["y"]}, "t2", report)
         build_db.merge_entities(a, b, report, "f.json")
         self.assertIn("longer", a["summary"])
-        self.assertEqual(a["specs"]["weight_g"], 10)   # first file wins
-        self.assertEqual(a["specs"]["kv"], 2000)       # new key adopted
+        self.assertEqual(a["specs"]["weight_g"], 10)
+        self.assertEqual(a["specs"]["kv"], 2000)
         self.assertEqual(sorted(a["tags"]), ["x", "y"])
+
+    def test_merge_higher_confidence_replaces_conflicting_facts(self):
+        report = build_db.Report()
+        a = build_db.normalize_entity(
+            {"id": "m", "type": "component", "name": "M",
+             "summary": "old low confidence claim", "confidence": "low",
+             "specs": {"weight_g": 10, "kv_rpm_per_v": 9999},
+             "vendor": "Old guess"}, "t1", report)
+        b = build_db.normalize_entity(
+            {"id": "m", "type": "component", "name": "M",
+             "summary": "manufacturer-verified record", "confidence": "high",
+             "specs": {"weight_g": 20, "kv_rpm_per_v": 1800},
+             "vendor": "Verified Vendor"}, "t2", report)
+        build_db.merge_entities(a, b, report, "verified.json")
+        self.assertEqual(a["confidence"], "high")
+        self.assertEqual(a["summary"], "manufacturer-verified record")
+        self.assertEqual(a["specs"]["weight_g"], 20)
+        self.assertEqual(a["specs"]["kv_rpm_per_v"], 1800)
+        self.assertEqual(a["extra"]["vendor"], "Verified Vendor")
+        self.assertTrue(any("higher-confidence" in w for w in report.warnings))
+
+    def test_merge_lower_confidence_cannot_replace_stronger_facts(self):
+        report = build_db.Report()
+        a = build_db.normalize_entity(
+            {"id": "m", "type": "component", "name": "M",
+             "summary": "verified", "confidence": "high",
+             "specs": {"weight_g": 20}}, "t1", report)
+        b = build_db.normalize_entity(
+            {"id": "m", "type": "component", "name": "M",
+             "summary": "a much longer but weak unverified description",
+             "confidence": "low", "specs": {"weight_g": 99}}, "t2", report)
+        build_db.merge_entities(a, b, report, "weak.json")
+        self.assertEqual(a["confidence"], "high")
+        self.assertEqual(a["summary"], "verified")
+        self.assertEqual(a["specs"]["weight_g"], 20)
 
 
 class TestMarkdown(unittest.TestCase):

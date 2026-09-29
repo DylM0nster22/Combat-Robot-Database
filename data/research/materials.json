@@ -724,7 +724,7 @@
         "hardware"
       ],
       "specs": {
-        "density_g_cm3": 8.0,
+        "density_g_cm3": 8,
         "yield_strength_mpa": 215,
         "tensile_strength_mpa": 550,
         "hardness_hrb": 80,
@@ -832,7 +832,7 @@
         "yield_strength_mpa": 26,
         "tensile_strength_mpa": 30,
         "hardness_shore_d": 65,
-        "elastic_modulus_gpa": 1.0,
+        "elastic_modulus_gpa": 1,
         "cost_per_kg_usd": 3,
         "max_service_temp_c": 90,
         "elongation_pct": 400
@@ -991,7 +991,7 @@
         "yield_strength_mpa": 65,
         "tensile_strength_mpa": 80,
         "hardness_rockwell_r": 118,
-        "elastic_modulus_gpa": 3.0,
+        "elastic_modulus_gpa": 3,
         "cost_per_kg_usd": 6,
         "max_service_temp_c": 100,
         "elongation_pct": 60
@@ -1454,7 +1454,7 @@
         "density_g_cm3": 1.05,
         "tensile_strength_mpa": 40,
         "yield_strength_mpa": 40,
-        "elastic_modulus_gpa": 2.0,
+        "elastic_modulus_gpa": 2,
         "hardness_shore_d": 80,
         "cost_per_kg_usd": 22,
         "max_service_temp_c": 98,
@@ -1509,7 +1509,7 @@
       "specs": {
         "density_g_cm3": 1.1,
         "tensile_strength_mpa": 65,
-        "elastic_modulus_gpa": 2.0,
+        "elastic_modulus_gpa": 2,
         "hardness_shore_d": 75,
         "cost_per_kg_usd": 45,
         "max_service_temp_c": 110,
@@ -1643,7 +1643,7 @@
       "id": "material-tpu-95a",
       "type": "material",
       "name": "TPU 95A (Rigid-Flex Thermoplastic Polyurethane)",
-      "summary": "The stiffest common Shore-A TPU grade, and arguably the single most important material development for plastic-antweight armor: a flexible, elastic skin that deforms under a spinner hit and springs back rather than transmitting or absorbing the blow as fracture damage.",
+      "summary": "A common flexible FDM filament hardness used for compliant bumpers, guards, mounts and some tires in open-material combat robots. Mechanical properties vary substantially by formulation; Shore 95A describes hardness, not a universal tensile strength, modulus, grip level, or impact performance.",
       "aliases": [
         "TPU95",
         "95A TPU"
@@ -1655,45 +1655,38 @@
       "tags": [
         "3d-printed",
         "tpu",
-        "flexible-armor",
-        "plastic-antweight-critical",
-        "energy-absorption"
+        "flexible",
+        "compliance",
+        "event-rule-dependent"
       ],
       "specs": {
-        "density_g_cm3": 1.21,
-        "tensile_strength_mpa": 40,
-        "elongation_pct": 500,
-        "hardness_shore_a": 95,
-        "elastic_modulus_gpa": 0.05,
-        "cost_per_kg_usd": 28,
-        "max_service_temp_c": 90
+        "hardness_shore_a": 95
       },
       "category": "plastic-printed",
       "use_cases": [
-        "outer flexible armor shell",
-        "wedge skirts",
-        "wheel guards",
-        "bumper skins over a rigid frame"
+        "compliant guards or bumpers in open-material classes",
+        "flexible cable/electronics protection",
+        "tires only where the exact event rules permit the implementation",
+        "vibration/compliance features where low stiffness is intentional"
       ],
       "machinability": "N/A (printed) — needs slower print speeds than rigid filaments and benefits from direct-drive extruders (Bowden setups can under-extrude/skip on soft filament), but is otherwise one of the more forgiving flexible filaments to print at 95A.",
       "printable": true,
       "pros": [
-        "Absorbs and dissipates spinner/impact energy through large elastic deformation instead of transmitting shock into the rigid chassis or cracking",
-        "Extremely high elongation-to-break (400-500%+) — essentially un-crackable in normal combat impacts",
-        "Springs back to shape after a hit, so a single fight rarely destroys it the way a cracked rigid shell would",
-        "Stiffer/more print-friendly than softer 85A TPU while still very compliant compared to any rigid plastic"
+        "Large elastic deformation can be useful for compliant guards and energy management",
+        "Resists brittle cracking better than rigid filaments in applications that benefit from flex",
+        "95A grades are generally easier to print than very soft flexible filaments"
       ],
       "cons": [
-        "Low absolute strength/stiffness — cannot be the sole structural member, needs a rigid frame underneath",
-        "Prints slower than rigid filaments and needs tuned retraction/speed settings",
-        "More expensive per kg than PLA/PETG"
+        "Low stiffness makes it a poor substitute for a rigid structural frame",
+        "Mechanical properties and traction vary heavily between brands/formulations even at the same Shore hardness",
+        "Printed TPU is not a baseline-SPARC-v1.6 legal custom structural or printed traction material for Plastic Class; event modifications may differ",
+        "Flexible parts can deflect far enough for an opponent weapon to reach protected components if geometry is not designed for the travel"
       ],
-      "notes": "TPU95 armor works on a completely different principle than rigid armor: rather than resisting deformation (titanium, PLA) or absorbing energy through toughness before failing (UHMW, nylon), a TPU shell simply gets out of the way — a spinner tooth or hammer face compresses/stretches the rubber-like material, spreading the impact over a larger area and longer time, and the material relaxes back to shape afterward. This means a TPU-armored plastic antweight can often take many hits to the same panel without cumulative damage, unlike a rigid shell that accumulates cracks. The tradeoff is that TPU alone provides essentially no structural rigidity or drivetrain-mount strength, so practical builds use it as an outer skin (a \"suit\" wrapped around or over-molded/printed onto) a rigid PLA/PETG/nylon or metal frame that does the structural work while the TPU layer does the impact-absorbing work. This flexible-armor-over-rigid-frame approach is widely considered the state of the art for plastic-antweight armor as of the mid-2020s.",
+      "notes": "Do not treat generic 'TPU 95A' as one engineering material with one density, tensile strength, elongation, modulus, service temperature or friction coefficient; use the exact filament datasheet and, for traction, test it on the actual arena surface. For Plastic Antweight legality, baseline SPARC v1.6 allows only PLA/PLA+/PET/PETG/ABS/ASA for custom FDM/FFF parts and printed traction elements, while some individual events publish modified rules that allow TPU and others explicitly ban it.",
       "sources": [
-        "https://polymaker.com/tpu95-elastic-outwear-leading-a-new-trend-in-robot-combat/",
-        "https://www.fabbaloo.com/news/tpu-filament-hardness-explained-what-shore-a-and-shore-d-measurements-mean",
-        "https://siraya.tech/blogs/news/tpu-shore-hardness",
-        "https://spoolhound.com/tpu-hardness-guide"
+        "https://www.sparc.tools/SPARC_Robot_Construction_Specifications_v1.6.pdf",
+        "https://www.robotcombatevents.com/events/4986",
+        "https://www.robotcombatevents.com/events/7519"
       ],
       "confidence": "high"
     },
@@ -1827,7 +1820,7 @@
       "specs": {
         "density_g_cm3": 1.2,
         "tensile_strength_mpa": 60,
-        "elastic_modulus_gpa": 6.0,
+        "elastic_modulus_gpa": 6,
         "hardness_shore_d": 82,
         "cost_per_kg_usd": 42,
         "max_service_temp_c": 90,
